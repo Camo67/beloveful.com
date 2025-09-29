@@ -6,7 +6,12 @@ workers_dev = true
 # Serve static assets from Vite's build output
 assets = { directory = "dist" }
 
-# Optional: custom routes (uncomment when ready to bind to your zone)
-# routes = [
-#   { pattern = "example.com/*", zone_name = "example.com" }
-# ]
+# wrangler.toml (wrangler v3.88.0^)
+[observability.logs]
+enabled = true
+
+# Custom routes: map Worker to beloveful.com
+routes = [
+  { pattern = "beloveful.com/*", zone_name = "beloveful.com" },
+  { pattern = "www.beloveful.com/*", zone_name = "beloveful.com" }
+]
