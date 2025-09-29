@@ -1,16 +1,9 @@
 name = "beloveful-visions"
 main = "src/worker.ts"
 compatibility_date = "2025-09-01"
-workers_dev = true
-
-# Serve static assets from Vite's build output
+workers_dev = false  # optional, since you’re using custom domains
 assets = { directory = "dist" }
 
-# wrangler.toml (wrangler v3.88.0^)
-[observability.logs]
-enabled = true
-
-# Custom routes: map Worker to beloveful.com
 routes = [
   { pattern = "beloveful.com/*", zone_name = "beloveful.com" },
   { pattern = "www.beloveful.com/*", zone_name = "beloveful.com" }
