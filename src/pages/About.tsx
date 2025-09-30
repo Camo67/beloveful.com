@@ -29,18 +29,13 @@ export default function About() {
           <div className="lg:col-span-2">
             <div className="prose prose-lg max-w-none">
               <p className="text-lg leading-relaxed mb-6">
-              Motivated by curiosity and forever fascinated by what this world has to offer, Tony’s love of capturing life around him started the day his father handed him his first camera at age seven. From medical school, to missions all across the globe for the impoverished, his photography was always a guiding light in finding love and beauty in the simplest things. Witnessing the purity of the souls he treated, those who could laugh and fearlessly move forward even in awful conditions, motivated a life-change where Tony left medicine to pursue his craft. Within his first year as a full-time photographer, Tony was recognized by National Geographic, held multiple exhibitions, and won an Award for Excellence from the Conception Global Art Collective. From then on, it became clear: photography wasn’t just a hobby, it was a true calling.
-
-              </p>
+              Motivated by curiosity and forever fascinated by what this world has to offer, Tony’s love of capturing life around him started the day his father handed him his first camera at age seven. From medical school, to missions all across the globe for the impoverished, his photography was always a guiding light in finding love and beauty in the simplest things. Witnessing the purity of the souls he treated, those who could laugh and fearlessly move forward even in awful conditions, motivated a life-change where Tony left medicine to pursue his craft. Within his first year as a full-time photographer, Tony was recognized by National Geographic, held multiple exhibitions, and won an Award for Excellence from the Conception Global Art Collective. From then on, it became clear: photography wasn’t just a hobby, it was a true calling.</p>
               
               <p className="text-lg leading-relaxed mb-6">
-               Tony's passion for capturing the raw and unfiltered aspects of life led him on a profound journey of self-discovery. With a keen eye for detail and an unwavering commitment to authenticity, he sought to portray the beauty and chaos of life in equal measure. Whether it be the bustling energy of a crowded market, the serene beauty of a remote landscape, or the intimate moments of daily life; He strives to convey a sense of connection and commonality among people, highlighting the rhythm that binds us together. The rhythm of life. Tony believes that photography is a powerful tool in promoting empathy and understanding between people. He hopes to inspire others to explore the world and embrace different cultures; which can help foster greater empathy and understanding between people.
-
-              </p>
+               Tony's passion for capturing the raw and unfiltered aspects of life led him on a profound journey of self-discovery. With a keen eye for detail and an unwavering commitment to authenticity, he sought to portray the beauty and chaos of life in equal measure. Whether it be the bustling energy of a crowded market, the serene beauty of a remote landscape, or the intimate moments of daily life; He strives to convey a sense of connection and commonality among people, highlighting the rhythm that binds us together. The rhythm of life. Tony believes that photography is a powerful tool in promoting empathy and understanding between people. He hopes to inspire others to explore the world and embrace different cultures; which can help foster greater empathy and understanding between people.</p>
               
               <p className="text-lg leading-relaxed mb-6">
-               He sees his photography as a powerful tool for building bridges and breaking down barriers, and he remains dedicated to using his art to promote unity and compassion in the world.
-
+               He sees his photography as a powerful tool for building bridges and breaking down barriers, and he remains dedicated to using his art to promote unity and compassion in the world.</p>  
               
               <p className="text-lg leading-relaxed">
                 There’s an unseen connection between everything on this earth and the Divine. His aim is to bring this connection into focus.
