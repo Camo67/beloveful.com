@@ -29,19 +29,21 @@ export default function About() {
           <div className="lg:col-span-2">
             <div className="prose prose-lg max-w-none">
               <p className="text-lg leading-relaxed mb-6">
-                Tony Menias is a street photographer whose work captures the raw humanity found in everyday moments across the globe. Born with an innate curiosity about human connection, Tony has dedicated his career to documenting life as it unfolds naturally on the streets of diverse cultures and communities.
+              Motivated by curiosity and forever fascinated by what this world has to offer, Tony’s love of capturing life around him started the day his father handed him his first camera at age seven. From medical school, to missions all across the globe for the impoverished, his photography was always a guiding light in finding love and beauty in the simplest things. Witnessing the purity of the souls he treated, those who could laugh and fearlessly move forward even in awful conditions, motivated a life-change where Tony left medicine to pursue his craft. Within his first year as a full-time photographer, Tony was recognized by National Geographic, held multiple exhibitions, and won an Award for Excellence from the Conception Global Art Collective. From then on, it became clear: photography wasn’t just a hobby, it was a true calling.
+
               </p>
               
               <p className="text-lg leading-relaxed mb-6">
-                His photography philosophy centers on the concept of "BELOVEFUL" – finding beauty, love, and meaning in the unguarded moments that define our shared human experience. Through his lens, ordinary interactions become extraordinary stories, revealing the universal threads that connect us all regardless of geography, culture, or circumstance.
+               Tony's passion for capturing the raw and unfiltered aspects of life led him on a profound journey of self-discovery. With a keen eye for detail and an unwavering commitment to authenticity, he sought to portray the beauty and chaos of life in equal measure. Whether it be the bustling energy of a crowded market, the serene beauty of a remote landscape, or the intimate moments of daily life; He strives to convey a sense of connection and commonality among people, highlighting the rhythm that binds us together. The rhythm of life. Tony believes that photography is a powerful tool in promoting empathy and understanding between people. He hopes to inspire others to explore the world and embrace different cultures; which can help foster greater empathy and understanding between people.
+
               </p>
               
               <p className="text-lg leading-relaxed mb-6">
-                Over the past decade, Tony has traveled extensively across Africa, Asia, the Middle East, and South America, creating an extensive body of work that serves as a visual anthology of contemporary global street life. His approach is characterized by patience, respect, and an ability to become nearly invisible while documenting authentic moments of joy, struggle, contemplation, and connection.
-              </p>
+               He sees his photography as a powerful tool for building bridges and breaking down barriers, and he remains dedicated to using his art to promote unity and compassion in the world.
+
               
               <p className="text-lg leading-relaxed">
-                Tony's work has been featured in numerous exhibitions and publications, and he regularly conducts street photography workshops to share his techniques and philosophy with emerging photographers. He believes that street photography has the power to foster empathy and understanding across cultural divides, making the world feel both infinitely diverse and intimately connected.
+                There’s an unseen connection between everything on this earth and the Divine. His aim is to bring this connection into focus.
               </p>
             </div>
           </div>
