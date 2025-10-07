@@ -1,0 +1,72 @@
+import { useState } from "react";
+import ThemeToggle from "./ThemeToggle";
+
+const NEWSLETTER_URL =
+  "https://lb.benchmarkemail.com//listbuilder/signupnew?IkfHTmyPVq92wBnn4lX%252FTf5pwVnAjsSIeL8KRSOgMpXtO5iNRn8gS049TyW7spdJ";
+
+export default function FooterStrip() {
+  const [email, setEmail] = useState("");
+
+  return (
+    <footer className="w-full border-t border-neutral-200 dark:border-neutral-800 bg-white/70 dark:bg-neutral-950/70 backdrop-blur supports-[backdrop-filter]:backdrop-blur">
+      <div className="mx-auto flex flex-wrap items-center gap-3 px-3 py-3 md:px-6">
+        {/* newsletter */}
+        <form 
+          action={NEWSLETTER_URL} 
+          method="GET" 
+          target="_blank"
+          className="flex items-center gap-2"
+        >
+          <input
+            type="email"
+            name="email"
+            required
+            placeholder="Join newsletter"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className="h-8 w-48 md:w-64 rounded-md border border-neutral-300 dark:border-neutral-700 bg-transparent px-3 text-sm"
+          />
+          <button 
+            type="submit"
+            className="h-8 rounded-md border border-neutral-900 dark:border-neutral-200 px-3 text-sm hover:bg-neutral-900 hover:text-white dark:hover:bg-white dark:hover:text-black transition"
+          >
+            Join
+          </button>
+        </form>
+
+        <div className="ml-auto flex items-center gap-3">
+          {/* socials in exact order */}
+          <a 
+            href="https://www.instagram.com/beloveful/#" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-sm hover:opacity-75 transition-opacity" 
+            aria-label="Instagram"
+          >
+            IG
+          </a>
+          <a 
+            href="https://www.facebook.com/tony.menias#" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-sm hover:opacity-75 transition-opacity" 
+            aria-label="Facebook"
+          >
+            FB
+          </a>
+          <a 
+            href="https://linktr.ee/beloveful?lt_utm_source=lt_share_link#74152480" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-sm hover:opacity-75 transition-opacity" 
+            aria-label="Linktree"
+          >
+            LT
+          </a>
+
+          <ThemeToggle />
+        </div>
+      </div>
+    </footer>
+  );
+}

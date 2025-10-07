@@ -1,0 +1,143 @@
+import { Header } from "@/components/Header";
+import FooterStrip from "@/components/FooterStrip";
+import { useSearchParams } from "react-router-dom";
+import { useState } from "react";
+
+export default function Contact() {
+  const [searchParams] = useSearchParams();
+  const [submitted, setSubmitted] = useState(false);
+  
+  const image = searchParams.get("image");
+  const source = searchParams.get("source");
+  const region = searchParams.get("region");
+  const country = searchParams.get("country");
+  const variant = searchParams.get("variant");
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    
+    // Honeypot check
+    if ((formData.get("website") as string)?.length) {
+      return;
+    }
+
+    // TODO: Implement actual contact form submission
+    // For now, just show success message
+    console.log("Form submitted:", Object.fromEntries(formData.entries()));
+    setSubmitted(true);
+  };
+
+  return (
+    <div className="min-h-screen bg-white dark:bg-neutral-950">
+      <Header variant="default" />
+      
+      <main className="min-h-[70vh] px-4 py-24 md:px-8 lg:px-12 max-w-screen-xl mx-auto">
+        <h1 className="text-3xl md:text-4xl font-light mb-8">Contact</h1>
+
+        {submitted && (
+          <div className="mb-6 rounded-md border border-emerald-300/40 bg-emerald-50 dark:bg-emerald-950/30 px-4 py-3 text-sm">
+            Thanks! We've received your message and will follow up shortly.
+          </div>
+        )}
+
+        <div className="grid gap-8 md:grid-cols-5">
+          {/* Contextual preview */}
+          {image && (
+            <div
+              className="relative md:col-span-2 h-64 md:h-96 rounded-xl border border-neutral-200 dark:border-neutral-800 overflow-hidden select-none"
+              onContextMenu={(e) => e.preventDefault()}
+              draggable={false}
+            >
+              <div
+                className="absolute inset-0 bg-center bg-cover"
+                style={{ backgroundImage: `url("${decodeURIComponent(image)}")` }}
+                aria-label="Requested print preview"
+                role="img"
+              />
+              <div className="pointer-events-none absolute inset-0" />
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-4 text-xs text-white">
+                You're requesting a print of this image
+                {region && country && (
+                  <span className="block mt-1 opacity-80">
+                    {region} • {country}
+                  </span>
+                )}
+              </div>
+            </div>
+          )}
+
+          {/* Form */}
+          <form
+            className="md:col-span-3 space-y-5"
+            onSubmit={handleSubmit}
+          >
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <label className="flex flex-col gap-2">
+                <span className="text-sm font-medium">Name</span>
+                <input
+                  name="name"
+                  required
+                  className="border border-neutral-300 dark:border-neutral-700 rounded-md px-3 py-2 bg-transparent focus:outline-none focus:ring-2 focus:ring-neutral-400"
+                />
+              </label>
+              <label className="flex flex-col gap-2">
+                <span className="text-sm font-medium">Email</span>
+                <input
+                  type="email"
+                  name="email"
+                  required
+                  className="border border-neutral-300 dark:border-neutral-700 rounded-md px-3 py-2 bg-transparent focus:outline-none focus:ring-2 focus:ring-neutral-400"
+                />
+              </label>
+            </div>
+
+            <label className="flex flex-col gap-2">
+              <span className="text-sm font-medium">Message</span>
+              <textarea
+                name="message"
+                rows={6}
+                placeholder={
+                  image
+                    ? "Tell us preferred size, paper, framing, shipping city, etc."
+                    : "How can we help?"
+                }
+                className="border border-neutral-300 dark:border-neutral-700 rounded-md px-3 py-2 bg-transparent focus:outline-none focus:ring-2 focus:ring-neutral-400 resize-none"
+              />
+            </label>
+
+            {/* Honeypot (spam) */}
+            <input
+              type="text"
+              name="website"
+              className="hidden"
+              tabIndex={-1}
+              autoComplete="off"
+            />
+
+            {/* Hidden context */}
+            <input type="hidden" name="image" value={image ?? ""} />
+            <input type="hidden" name="source" value={source ?? ""} />
+            <input type="hidden" name="region" value={region ?? ""} />
+            <input type="hidden" name="country" value={country ?? ""} />
+            <input type="hidden" name="variant" value={variant ?? ""} />
+
+            <div className="flex items-center gap-3">
+              <button
+                type="submit"
+                className="px-6 py-2 rounded-md border border-neutral-900 dark:border-neutral-200 hover:bg-neutral-900 hover:text-white dark:hover:bg-white dark:hover:text-black transition"
+              >
+                Send Message
+              </button>
+              <p className="text-xs text-gray-600 dark:text-gray-400">
+                We reply within 1–2 business days.
+              </p>
+            </div>
+          </form>
+        </div>
+      </main>
+
+      <FooterStrip />
+    </div>
+  );
+}

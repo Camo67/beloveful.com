@@ -4,6 +4,7 @@ import { Menu, X } from "lucide-react";
 import { Logo } from "./Logo";
 import { SocialIcons } from "./SocialIcons";
 import { MobileDrawer } from "./MobileDrawer";
+import ShopDropdown from "./ShopDropdown";
 
 interface HeaderProps {
   variant: "home" | "default";
@@ -16,7 +17,6 @@ export function Header({ variant }: HeaderProps) {
   const navigationLinks = [
     { name: "Home", path: "/" },
     { name: "Portfolio", path: "/portfolio" },
-    { name: "Print Shop", path: "/print-shop" },
     { name: "Workshops", path: "/workshops" },
     { name: "About", path: "/about" }
   ];
@@ -43,15 +43,16 @@ export function Header({ variant }: HeaderProps) {
               {navigationLinks.map((link) => (
                 <li key={link.name}>
                   <Link
-                    to={link.name === "Print Shop" ? "https://www.printinnovationlab.com/collections/beloveful" : link.path}
-                    target={link.name === "Print Shop" ? "_blank" : undefined}
-                    rel={link.name === "Print Shop" ? "noopener noreferrer" : undefined}
+                    to={link.path}
                     className={`nav-link text-white ${isActive(link.path) ? "active" : ""}`}
                   >
                     {link.name}
                   </Link>
                 </li>
               ))}
+              <li className="text-white">
+                <ShopDropdown />
+              </li>
             </ul>
           </nav>
           
@@ -95,15 +96,16 @@ export function Header({ variant }: HeaderProps) {
               {navigationLinks.map((link) => (
                 <li key={link.name}>
                   <Link
-                    to={link.name === "Print Shop" ? "https://www.printinnovationlab.com/collections/beloveful" : link.path}
-                    target={link.name === "Print Shop" ? "_blank" : undefined}
-                    rel={link.name === "Print Shop" ? "noopener noreferrer" : undefined}
+                    to={link.path}
                     className={`nav-link ${isActive(link.path) ? "active" : ""}`}
                   >
                     {link.name}
                   </Link>
                 </li>
               ))}
+              <li>
+                <ShopDropdown />
+              </li>
             </ul>
           </nav>
           
