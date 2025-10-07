@@ -1,6 +1,7 @@
-import { X } from "lucide-react";
+import { X, ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
 import { SocialIcons } from "./SocialIcons";
+import { useState } from "react";
 
 interface MobileDrawerProps {
   isOpen: boolean;
@@ -8,10 +9,11 @@ interface MobileDrawerProps {
 }
 
 export function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
+  const [shopOpen, setShopOpen] = useState(false);
+  
   const navigationLinks = [
     { name: "Home", path: "/" },
     { name: "Portfolio", path: "/portfolio" },
-    { name: "Print Shop", path: "/print-shop" },
     { name: "Workshops", path: "/workshops" },
     { name: "About", path: "/about" }
   ];
@@ -47,9 +49,7 @@ export function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
               {navigationLinks.map((link) => (
                 <li key={link.name}>
                   <Link
-                    to={link.name === "Print Shop" ? "https://www.printinnovationlab.com/collections/beloveful" : link.path}
-                    target={link.name === "Print Shop" ? "_blank" : undefined}
-                    rel={link.name === "Print Shop" ? "noopener noreferrer" : undefined}
+                    to={link.path}
                     className="text-xl text-black transition-opacity duration-300 hover:opacity-60"
                     onClick={onClose}
                   >
@@ -57,6 +57,44 @@ export function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
                   </Link>
                 </li>
               ))}
+              
+              {/* Shop Dropdown */}
+              <li>
+                <button
+                  onClick={() => setShopOpen(!shopOpen)}
+                  className="flex items-center gap-2 text-xl text-black transition-opacity duration-300 hover:opacity-60"
+                >
+                  Shop
+                  <ChevronDown
+                    size={20}
+                    className={`transition-transform ${shopOpen ? "rotate-180" : ""}`}
+                  />
+                </button>
+                {shopOpen && (
+                  <ul className="mt-3 ml-4 space-y-3">
+                    <li>
+                      <a
+                        href="https://www.printinnovationlab.com/collections/beloveful"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-lg text-gray-600 hover:opacity-60 transition-opacity"
+                        onClick={onClose}
+                      >
+                        Limited Edition (External)
+                      </a>
+                    </li>
+                    <li>
+                      <Link
+                        to="/shop/special"
+                        className="text-lg text-gray-600 hover:opacity-60 transition-opacity"
+                        onClick={onClose}
+                      >
+                        Special Edition (On-Site)
+                      </Link>
+                    </li>
+                  </ul>
+                )}
+              </li>
             </ul>
           </nav>
           
