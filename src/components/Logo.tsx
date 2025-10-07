@@ -15,7 +15,7 @@ export function Logo({ variant = "black", className = "" }: LogoProps) {
       <img 
         src={logoSrc} 
         alt="BELOVEFUL Photography" 
-        className="h-8 w-auto"
+        className="h-12 w-auto"
         draggable={false}
       />
     </Link>

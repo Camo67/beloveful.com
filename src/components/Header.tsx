@@ -18,7 +18,8 @@ export function Header({ variant }: HeaderProps) {
     { name: "Home", path: "/" },
     { name: "Portfolio", path: "/portfolio" },
     { name: "Workshops", path: "/workshops" },
-    { name: "About", path: "/about" }
+    { name: "About", path: "/about" },
+    { name: "Contact", path: "/contact" }
   ];
 
   const isActive = (path: string) => {

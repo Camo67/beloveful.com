@@ -15,7 +15,8 @@ export function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
     { name: "Home", path: "/" },
     { name: "Portfolio", path: "/portfolio" },
     { name: "Workshops", path: "/workshops" },
-    { name: "About", path: "/about" }
+    { name: "About", path: "/about" },
+    { name: "Contact", path: "/contact" }
   ];
 
   return (
