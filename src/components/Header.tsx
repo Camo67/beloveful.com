@@ -45,7 +45,7 @@ export function Header({ variant }: HeaderProps) {
                 <li key={link.name}>
                   <Link
                     to={link.path}
-                    className={`nav-link text-white ${isActive(link.path) ? "active" : ""}`}
+                    className="nav-link text-white hover:underline hover:underline-offset-4 hover:decoration-white"
                   >
                     {link.name}
                   </Link>
@@ -66,14 +66,14 @@ export function Header({ variant }: HeaderProps) {
         {/* Mobile Header */}
         <header className="md:hidden fixed inset-x-0 top-0 z-50 bg-black bg-opacity-50 p-4">
           <div className="flex items-center justify-between">
+            <Logo variant="white" />
             <button
               onClick={() => setMobileMenuOpen(true)}
-              className="text-white p-2"
+              className="text-black dark:text-white p-2"
               aria-label="Open menu"
             >
               <Menu size={24} />
             </button>
-            <Logo variant="white" />
           </div>
         </header>
 
@@ -86,7 +86,7 @@ export function Header({ variant }: HeaderProps) {
   return (
     <>
       {/* Desktop Default Header */}
-      <header className="hidden md:block sticky top-0 z-40 bg-white border-b border-gray-100 px-8 py-4">
+      <header className="hidden md:block sticky top-0 z-40 bg-white dark:bg-neutral-950 border-b border-gray-100 dark:border-neutral-800 px-8 py-4">
         <div className="max-w-screen-xl mx-auto flex items-center justify-between">
           {/* Logo top-left */}
           <Logo variant="black" />
@@ -98,7 +98,7 @@ export function Header({ variant }: HeaderProps) {
                 <li key={link.name}>
                   <Link
                     to={link.path}
-                    className={`nav-link ${isActive(link.path) ? "active" : ""}`}
+                    className="nav-link hover:opacity-70 transition-opacity"
                   >
                     {link.name}
                   </Link>
@@ -116,16 +116,16 @@ export function Header({ variant }: HeaderProps) {
       </header>
 
       {/* Mobile Header */}
-      <header className="md:hidden sticky top-0 z-50 bg-white border-b border-gray-100 p-4">
+      <header className="md:hidden sticky top-0 z-50 bg-white dark:bg-neutral-950 border-b border-gray-100 dark:border-neutral-800 p-4">
         <div className="flex items-center justify-between">
+          <Logo variant="black" />
           <button
             onClick={() => setMobileMenuOpen(true)}
-            className="text-black p-2"
+            className="text-black dark:text-white p-2"
             aria-label="Open menu"
           >
             <Menu size={24} />
           </button>
-          <Logo variant="black" />
         </div>
       </header>
 

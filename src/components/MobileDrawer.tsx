@@ -51,7 +51,7 @@ export function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
                 <li key={link.name}>
                   <Link
                     to={link.path}
-                    className="text-xl text-black transition-opacity duration-300 hover:opacity-60"
+                    className="text-xl text-black dark:text-white hover:underline hover:underline-offset-4 hover:decoration-white focus-visible:underline focus-visible:decoration-white transition-opacity duration-300"
                     onClick={onClose}
                   >
                     {link.name}
@@ -63,7 +63,7 @@ export function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
               <li>
                 <button
                   onClick={() => setShopOpen(!shopOpen)}
-                  className="flex items-center gap-2 text-xl text-black transition-opacity duration-300 hover:opacity-60"
+                  className="flex items-center gap-2 text-xl text-black dark:text-white hover:underline hover:underline-offset-4 hover:decoration-white transition-opacity duration-300"
                 >
                   Shop
                   <ChevronDown
@@ -78,7 +78,7 @@ export function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
                         href="https://www.printinnovationlab.com/collections/beloveful"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-lg text-gray-600 hover:opacity-60 transition-opacity"
+                        className="text-lg text-gray-600 dark:text-gray-400 hover:underline hover:underline-offset-4 hover:decoration-white transition-opacity"
                         onClick={onClose}
                       >
                         Limited Edition (External)
@@ -87,7 +87,7 @@ export function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
                     <li>
                       <Link
                         to="/shop/special"
-                        className="text-lg text-gray-600 hover:opacity-60 transition-opacity"
+                        className="text-lg text-gray-600 dark:text-gray-400 hover:underline hover:underline-offset-4 hover:decoration-white transition-opacity"
                         onClick={onClose}
                       >
                         Special Edition (On-Site)
