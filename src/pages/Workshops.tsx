@@ -1,5 +1,5 @@
 import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
+import FooterStrip from "@/components/FooterStrip";
 
 export default function Workshops() {
   return (
@@ -126,7 +126,7 @@ export default function Workshops() {
         </section>
       </main>
 
-      <Footer />
+      <FooterStrip />
     </div>
   );
 }

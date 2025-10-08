@@ -1,7 +1,7 @@
 import { useParams, Link, Navigate } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
+import FooterStrip from "@/components/FooterStrip";
 import { Gallery } from "@/components/Gallery";
 import { getAlbumBySlug } from "@/lib/data";
 
@@ -46,7 +46,7 @@ export default function CountryGallery() {
         <Gallery images={album.images} country={album.country} />
       </main>
 
-      <Footer />
+      <FooterStrip />
     </div>
   );
 }

@@ -1,5 +1,5 @@
 import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
+import FooterStrip from "@/components/FooterStrip";
 
 export default function PrintShop() {
   return (
@@ -51,7 +51,7 @@ export default function PrintShop() {
         </div>
       </main>
 
-      <Footer />
+      <FooterStrip />
     </div>
   );
 }

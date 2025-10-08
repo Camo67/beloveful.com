@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
+import FooterStrip from "@/components/FooterStrip";
 import { REGIONS, getAlbumsByRegion } from "@/lib/data";
 
 export default function Portfolio() {
@@ -65,7 +65,7 @@ export default function Portfolio() {
         </div>
       </main>
 
-      <Footer />
+      <FooterStrip />
     </div>
   );
 }
