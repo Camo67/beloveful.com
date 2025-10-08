@@ -1,5 +1,5 @@
 import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
+import FooterStrip from "@/components/FooterStrip";
 
 export default function About() {
   return (
@@ -129,7 +129,7 @@ export default function About() {
         </div>
       </main>
 
-      <Footer />
+      <FooterStrip />
     </div>
   );
 }
