@@ -791,15 +791,17 @@ export const ALBUMS: CountryAlbum[] = [
 
  
 // Merge generated albums (from public/) with static ones (Cloudinary),
-// preferring generated entries when slugs collide.
+// preferring static entries when slugs collide (since they have working URLs).
 function mergeAlbums(staticAlbums: CountryAlbum[], generatedAlbums: CountryAlbum[]): CountryAlbum[] {
   const bySlug = new Map<string, CountryAlbum>();
-  for (const a of staticAlbums) bySlug.set(a.slug, a);
+  // Add generated albums first
   for (const g of generatedAlbums) bySlug.set(g.slug, g);
+  // Then add static albums, which will override generated ones with same slug
+  for (const a of staticAlbums) bySlug.set(a.slug, a);
   return Array.from(bySlug.values());
 }
 
-const MERGED_ALBUMS: CountryAlbum[] = mergeAlbums(ALBUMS, GENERATED_ALBUMS ?? []);
+const MERGED_ALBUMS: CountryAlbum[] = mergeAlbums(ALBUMS, []);
 
 export const getAlbumsByRegion = (region: Region): CountryAlbum[] => {
   return MERGED_ALBUMS
@@ -810,9 +812,7 @@ export const getAlbumBySlug = (slug: string): CountryAlbum | undefined => {
   return MERGED_ALBUMS.find(album => album.slug === slug);
 }
 
-// Prefer generated homepage slideshow if available; otherwise fallback to static
-export const HOME_SLIDESHOW_SOURCE: SlideshowImage[] = (GENERATED_HOME_SLIDESHOW && GENERATED_HOME_SLIDESHOW.length > 0)
-  ? GENERATED_HOME_SLIDESHOW
-  : HOME_SLIDESHOW;
+// Use static homepage slideshow (with working Cloudinary URLs)
+export const HOME_SLIDESHOW_SOURCE: SlideshowImage[] = HOME_SLIDESHOW;
 
 export const REGIONS: Region[] = ["Africa", "Asia", "Middle East", "South America", "North America", "Europe", "Oceania", "Erasing Borders"];
