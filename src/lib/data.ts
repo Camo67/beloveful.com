@@ -801,7 +801,7 @@ function mergeAlbums(staticAlbums: CountryAlbum[], generatedAlbums: CountryAlbum
   return Array.from(bySlug.values());
 }
 
-const MERGED_ALBUMS: CountryAlbum[] = mergeAlbums(ALBUMS, []);
+const MERGED_ALBUMS: CountryAlbum[] = mergeAlbums(ALBUMS, GENERATED_ALBUMS ?? []);
 
 export const getAlbumsByRegion = (region: Region): CountryAlbum[] => {
   return MERGED_ALBUMS
