@@ -1,7 +1,7 @@
 name = "beloveful-visions"
-main = "src/worker.ts"
+main = "src/worker.js"
 compatibility_date = "2025-09-01"
-workers_dev = false  # optional, since you’re using custom domains
+workers_dev = false  # optional, since you're using custom domains
 assets = { directory = "dist" }
 
 routes = [

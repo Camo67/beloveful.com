@@ -15,4 +15,22 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          // React and related libraries
+          'react-vendor': ['react', 'react-dom', 'react-router-dom'],
+          // UI library chunks
+          'ui-vendor': ['@radix-ui/react-dialog', '@radix-ui/react-dropdown-menu', '@radix-ui/react-slot', '@radix-ui/react-toast', '@radix-ui/react-tooltip'],
+          // Query and state management
+          'query-vendor': ['@tanstack/react-query'],
+          // Theme and styling
+          'theme-vendor': ['next-themes', 'class-variance-authority', 'clsx', 'tailwind-merge'],
+          // Form handling
+          'form-vendor': ['react-hook-form', '@hookform/resolvers', 'zod'],
+        },
+      },
+    },
+  },
 }));

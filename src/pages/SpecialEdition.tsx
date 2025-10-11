@@ -1,14 +1,19 @@
 import { Header } from "@/components/Header";
 import FooterStrip from "@/components/FooterStrip";
-import { ALBUMS } from "@/lib/data";
+import PageContainer from "@/components/PageContainer";
+import { REGIONS, getAlbumsByRegion } from "@/lib/data";
 import { createProxiedImageUrl } from "@/lib/images";
 import { Link } from "react-router-dom";
 
 function selectCards(limit = 36) {
   const cards: { src: string; region: string; country: string }[] = [];
-  for (const album of ALBUMS) {
-    for (const img of album.images) {
-      cards.push({ src: img.desktop, region: album.region, country: album.country });
+  for (const region of REGIONS) {
+    const albums = getAlbumsByRegion(region as any);
+    for (const album of albums) {
+      for (const img of album.images) {
+        cards.push({ src: img.desktop, region: album.region, country: album.country });
+        if (cards.length >= limit) break;
+      }
       if (cards.length >= limit) break;
     }
     if (cards.length >= limit) break;
@@ -20,15 +25,32 @@ export default function SpecialEdition() {
   const cards = selectCards(36);
 
   return (
-    <div className="min-h-screen bg-white dark:bg-neutral-950">
+    <div className="min-h-screen">
       <Header variant="default" />
       
-      <main className="px-4 py-24 md:px-8 lg:px-12">
+      <PageContainer>
         <header className="mb-12 max-w-screen-xl mx-auto">
-          <h1 className="text-3xl md:text-4xl font-light mb-4">Special Edition</h1>
-          <p className="text-sm text-gray-600 dark:text-gray-400">
-            Curated prints available on request. Each piece can be custom printed and framed to your specifications.
+          <h1 className="text-3xl md:text-4xl font-light mb-4">Open Edition</h1>
+          <p className="text-lg text-gray-800 dark:text-gray-200 mb-6">
+            5×7 Prints Available On-Site
           </p>
+          <div className="bg-gray-50 dark:bg-neutral-900 p-6 rounded-lg">
+            <h2 className="text-xl font-medium mb-4 text-black dark:text-white">Pricing</h2>
+            <div className="space-y-2 text-black dark:text-white">
+              <div className="flex justify-between items-center">
+                <span>1 Print (5×7)</span>
+                <span className="font-medium">$10</span>
+              </div>
+              <div className="flex justify-between items-center">
+                <span>4 Prints (5×7)</span>
+                <span className="font-medium">$35</span>
+              </div>
+              <div className="flex justify-between items-center">
+                <span>8 Prints (5×7)</span>
+                <span className="font-medium">$70</span>
+              </div>
+            </div>
+          </div>
         </header>
 
         <section
@@ -38,7 +60,7 @@ export default function SpecialEdition() {
           {cards.map((c, i) => {
             const proxied = createProxiedImageUrl(c.src);
             const toContact =
-              `/contact?source=special&variant=special-edition` +
+              `/contact?source=shop&variant=open-edition` +
               `&region=${encodeURIComponent(c.region)}` +
               `&country=${encodeURIComponent(c.country)}` +
               `&image=${encodeURIComponent(proxied)}`;
@@ -52,26 +74,26 @@ export default function SpecialEdition() {
                 <div
                   className="aspect-square bg-center bg-cover select-none"
                   style={{ backgroundImage: `url("${proxied}")` }}
-                  aria-label="Special edition print"
+                  aria-label="5x7 Open edition print"
                   role="img"
                   onContextMenu={(e) => e.preventDefault()}
                 />
                 <div className="p-4 flex items-center justify-between">
                   <span className="text-xs text-gray-600 dark:text-gray-400">
-                    Special Edition Print
+                    5×7 Open Edition Print
                   </span>
                   <Link
                     to={toContact}
                     className="text-xs underline underline-offset-4 hover:opacity-75 transition-opacity"
                   >
-                    Request this print →
+                    Order this print →
                   </Link>
                 </div>
               </article>
             );
           })}
         </section>
-      </main>
+      </PageContainer>
 
       <FooterStrip />
     </div>

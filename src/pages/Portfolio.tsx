@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Header } from "@/components/Header";
 import FooterStrip from "@/components/FooterStrip";
+import PageContainer from "@/components/PageContainer";
 import { REGIONS, getAlbumsByRegion } from "@/lib/data";
 
 export default function Portfolio() {
@@ -10,13 +11,13 @@ export default function Portfolio() {
   const albums = getAlbumsByRegion(activeRegion as any);
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen">
       <Header variant="default" />
       
-      <main className="max-w-screen-xl mx-auto px-4 py-12">
+      <PageContainer>
         <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-light mb-4">Portfolio</h1>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <h1 className="text-4xl md:text-5xl font-light mb-4 text-black dark:text-white">Portfolio</h1>
+          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
             Documenting humanity across continents through street photography
           </p>
         </div>
@@ -29,8 +30,8 @@ export default function Portfolio() {
               onClick={() => setActiveRegion(region)}
               className={`px-6 py-3 text-sm font-medium transition-colors duration-300 ${
                 activeRegion === region
-                  ? "text-black border-b-2 border-black"
-                  : "text-gray-600 hover:text-black"
+                  ? "text-black dark:text-white border-b-2 border-black dark:border-white"
+                  : "text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white"
               }`}
             >
               {region}
@@ -46,7 +47,7 @@ export default function Portfolio() {
               to={`/portfolio/${album.region.toLowerCase().replace(' ', '-')}/${album.slug}`}
               className="group"
             >
-              <div className="relative overflow-hidden bg-gray-100 aspect-[4/3]">
+              <div className="relative overflow-hidden bg-gray-100 dark:bg-gray-800 aspect-[4/3]">
                 <img
                   src={album.images[0]?.desktop}
                   alt={album.country}
@@ -57,13 +58,13 @@ export default function Portfolio() {
                 <div className="absolute inset-0 bg-black bg-opacity-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
               <div className="mt-4">
-                <h3 className="text-xl font-medium">{album.country}</h3>
-                <p className="text-sm text-gray-600">{album.images.length} photographs</p>
+                <h3 className="text-xl font-medium text-black dark:text-white">{album.country}</h3>
+                <p className="text-sm text-gray-600 dark:text-gray-400">{album.images.length} photographs</p>
               </div>
             </Link>
           ))}
         </div>
-      </main>
+      </PageContainer>
 
       <FooterStrip />
     </div>

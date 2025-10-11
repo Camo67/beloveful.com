@@ -1,7 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 
-export default function ShopDropdown() {
+interface ShopDropdownProps {
+  variant?: "auto" | "white";
+}
+
+export default function ShopDropdown({ variant = "auto" }: ShopDropdownProps) {
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
@@ -17,7 +21,7 @@ export default function ShopDropdown() {
     <div className="relative" ref={ref}>
       <button
         onClick={() => setOpen((v) => !v)}
-        className="hover:opacity-70 transition-opacity"
+        className={`hover:opacity-70 transition-opacity ${variant === "white" ? "text-white" : ""}`}
         aria-haspopup="menu"
         aria-expanded={open}
       >
@@ -36,7 +40,7 @@ export default function ShopDropdown() {
             rel="noopener noreferrer"
             className="block px-4 py-3 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors"
           >
-            Limited Edition (External)
+            Limited Edition
           </a>
           <Link
             role="menuitem"
@@ -44,7 +48,7 @@ export default function ShopDropdown() {
             className="block px-4 py-3 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors"
             onClick={() => setOpen(false)}
           >
-            Special Edition (On-Site)
+            Special Edition
           </Link>
         </div>
       )}

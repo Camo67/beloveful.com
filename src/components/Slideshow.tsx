@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import { HOME_SLIDESHOW } from "@/lib/data";
+import { HOME_SLIDESHOW_SOURCE as HOME_SLIDESHOW } from "@/lib/data";
+import { createProxiedImageUrl } from "@/lib/images";
 
 export function Slideshow() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -20,9 +21,9 @@ export function Slideshow() {
           className={`slideshow-slide ${index === currentSlide ? "active" : ""}`}
         >
           <picture>
-            <source media="(max-width: 768px)" srcSet={slide.mobile} />
+            <source media="(max-width: 768px)" srcSet={createProxiedImageUrl(slide.mobile)} />
             <img
-              src={slide.desktop}
+              src={createProxiedImageUrl(slide.desktop)}
               alt={`BELOVEFUL Photography Slide ${index + 1}`}
               className="slideshow-image image-protected"
               draggable={false}

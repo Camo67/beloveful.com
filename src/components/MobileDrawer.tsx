@@ -33,11 +33,11 @@ export function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
       <div className={`mobile-drawer ${isOpen ? "open" : "closed"}`}>
         <div className="flex flex-col h-full">
           {/* Header */}
-          <div className="flex items-center justify-between p-4 border-b border-gray-100">
-            <span className="text-lg font-medium">Menu</span>
+          <div className="flex items-center justify-between p-4 border-b border-gray-100 dark:border-neutral-800">
+            <span className="text-lg font-medium text-black dark:text-white">Menu</span>
             <button
               onClick={onClose}
-              className="p-2 text-black"
+              className="p-2 text-black dark:text-white"
               aria-label="Close menu"
             >
               <X size={24} />
@@ -81,7 +81,7 @@ export function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
                         className="text-lg text-gray-600 dark:text-gray-400 hover:underline hover:underline-offset-4 hover:decoration-white transition-opacity"
                         onClick={onClose}
                       >
-                        Limited Edition (External)
+                        Limited Edition
                       </a>
                     </li>
                     <li>
@@ -90,7 +90,7 @@ export function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
                         className="text-lg text-gray-600 dark:text-gray-400 hover:underline hover:underline-offset-4 hover:decoration-white transition-opacity"
                         onClick={onClose}
                       >
-                        Special Edition (On-Site)
+                        Open Edition
                       </Link>
                     </li>
                   </ul>
@@ -100,7 +100,7 @@ export function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
           </nav>
           
           {/* Footer */}
-          <div className="p-4 border-t border-gray-100">
+          <div className="p-4 border-t border-gray-100 dark:border-neutral-800">
             <div className="flex items-center justify-between">
               <SocialIcons />
               <a

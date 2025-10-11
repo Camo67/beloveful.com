@@ -1,25 +1,26 @@
 import { Header } from "@/components/Header";
 import FooterStrip from "@/components/FooterStrip";
+import PageContainer from "@/components/PageContainer";
 
 export default function PrintShop() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen">
       <Header variant="default" />
       
-      <main className="max-w-4xl mx-auto px-4 py-24">
+      <PageContainer className="max-w-4xl">
         <div className="text-center">
-          <h1 className="text-4xl md:text-5xl font-light mb-8">Print Shop</h1>
+          <h1 className="text-4xl md:text-5xl font-light mb-8 text-black dark:text-white">Print Shop</h1>
           
           <div className="max-w-2xl mx-auto">
-            <p className="text-lg text-gray-600 mb-12">
+            <p className="text-lg text-gray-600 dark:text-gray-300 mb-12">
               Bring BELOVEFUL photography into your space with high-quality prints. 
               Each piece is carefully curated and professionally printed to showcase 
               the authentic moments captured across the globe.
             </p>
             
-            <div className="bg-gray-50 p-12 mb-8">
-              <h2 className="text-2xl font-medium mb-6">Available Now</h2>
-              <p className="text-gray-600 mb-8">
+            <div className="bg-gray-50 dark:bg-gray-800 p-12 mb-8">
+              <h2 className="text-2xl font-medium mb-6 text-black dark:text-white">Available Now</h2>
+              <p className="text-gray-600 dark:text-gray-300 mb-8">
                 Explore our collection of limited edition prints, featuring iconic 
                 street photography moments from Egypt, India, Japan, Myanmar, and more.
               </p>
@@ -35,7 +36,7 @@ export default function PrintShop() {
             </div>
             
             <div className="text-center">
-              <p className="text-sm text-gray-600 mb-4">
+              <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
                 Stay updated on new print releases and exclusive collections
               </p>
               <a
@@ -49,7 +50,7 @@ export default function PrintShop() {
             </div>
           </div>
         </div>
-      </main>
+      </PageContainer>
 
       <FooterStrip />
     </div>

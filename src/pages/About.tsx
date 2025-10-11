@@ -1,14 +1,16 @@
 import { Header } from "@/components/Header";
 import FooterStrip from "@/components/FooterStrip";
+import PageContainer from "@/components/PageContainer";
+import { CLIENT_LOGOS_SOURCE, CLIENT_NAMES } from "@/lib/clients";
 
 export default function About() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen">
       <Header variant="default" />
       
-      <main className="max-w-4xl mx-auto px-4 py-12">
+      <PageContainer className="max-w-4xl">
         <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-light mb-8">About</h1>
+          <h1 className="text-4xl md:text-5xl font-light mb-8 text-black dark:text-white">About</h1>
         </div>
 
         {/* YouTube Video */}
@@ -28,19 +30,19 @@ export default function About() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
           <div className="lg:col-span-2">
             <div className="prose prose-lg max-w-none">
-              <p className="text-lg leading-relaxed mb-6">
+              <p className="text-lg leading-relaxed mb-6 text-gray-800 dark:text-gray-200">
               Motivated by curiosity and forever fascinated by what this world has to offer, Tony’s love of capturing life around him started the day his father handed him his first camera at age seven. From medical school, to missions all across the globe for the impoverished, his photography was always a guiding light in finding love and beauty in the simplest things. Witnessing the purity of the souls he treated, those who could laugh and fearlessly move forward even in awful conditions, motivated a life-change where Tony left medicine to pursue his craft. Within his first year as a full-time photographer, Tony was recognized by National Geographic, held multiple exhibitions, and won an Award for Excellence from the Conception Global Art Collective. From then on, it became clear: photography wasn’t just a hobby, it was a true calling.
               </p>
               
-              <p className="text-lg leading-relaxed mb-6">
+              <p className="text-lg leading-relaxed mb-6 text-gray-800 dark:text-gray-200">
                Tony's passion for capturing the raw and unfiltered aspects of life led him on a profound journey of self-discovery. With a keen eye for detail and an unwavering commitment to authenticity, he sought to portray the beauty and chaos of life in equal measure. Whether it be the bustling energy of a crowded market, the serene beauty of a remote landscape, or the intimate moments of daily life; He strives to convey a sense of connection and commonality among people, highlighting the rhythm that binds us together. The rhythm of life. Tony believes that photography is a powerful tool in promoting empathy and understanding between people. He hopes to inspire others to explore the world and embrace different cultures; which can help foster greater empathy and understanding between people.
               </p>
               
-              <p className="text-lg leading-relaxed mb-6">
+              <p className="text-lg leading-relaxed mb-6 text-gray-800 dark:text-gray-200">
                He sees his photography as a powerful tool for building bridges and breaking down barriers, and he remains dedicated to using his art to promote unity and compassion in the world.
               </p>  
               
-              <p className="text-lg leading-relaxed">
+              <p className="text-lg leading-relaxed text-gray-800 dark:text-gray-200">
                 There’s an unseen connection between everything on this earth and the Divine. His aim is to bring this connection into focus.
               </p>
             </div>
@@ -62,74 +64,221 @@ export default function About() {
         {/* Publications, Exhibitions, Awards */}
         <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-12">
           <div>
-            <h3 className="text-xl font-medium mb-6">Publications</h3>
-            <ul className="space-y-3 text-gray-700">
+            <h3 className="text-xl font-medium mb-6 text-black dark:text-white">Publications</h3>
+            <ul className="space-y-3 text-gray-700 dark:text-gray-300">
               <li className="flex justify-between">
-                <span>Street Photography Annual</span>
+                <span>'Burning Man Tunes' Magnetic Magazine</span>
                 <span className="text-sm">2023</span>
               </li>
               <li className="flex justify-between">
-                <span>Global Lens Magazine</span>
+                <span>'Chicago' Bump Books</span>
+                <span className="text-sm">2023</span>
+              </li>
+              <li className="flex justify-between">
+                <span>'Story Behind the Still' Digital Photographers Magazine</span>
                 <span className="text-sm">2022</span>
               </li>
               <li className="flex justify-between">
-                <span>Humanity in Focus</span>
+                <span>'Sunset Sails' Editors Showcase National Geographic</span>
                 <span className="text-sm">2021</span>
               </li>
               <li className="flex justify-between">
-                <span>Cultural Crossroads</span>
-                <span className="text-sm">2020</span>
+                <span>'Into The Rabbit Hole' Editors Showcase National Geographic</span>
+                <span className="text-sm">2018</span>
+              </li>
+              <li className="flex justify-between">
+                <span>'Capturing Japan' ANNE Magazine</span>
+                <span className="text-sm">2018</span>
               </li>
             </ul>
           </div>
           
           <div>
-            <h3 className="text-xl font-medium mb-6">Exhibitions</h3>
-            <ul className="space-y-3 text-gray-700">
+            <h3 className="text-xl font-medium mb-6 text-black dark:text-white">Exhibitions</h3>
+            <ul className="space-y-2 text-gray-700 dark:text-gray-300 text-sm">
               <li className="flex justify-between">
-                <span>Chicago Gallery Walk</span>
+                <span>'Invitational' Wilmette Art Fair Wilmette IL</span>
+                <span className="text-xs">2025</span>
+              </li>
+              <li className="flex justify-between">
+                <span>'Invitational' Old Town Art Fair Chicago IL</span>
+                <span className="text-xs">2025</span>
+              </li>
+              <li className="flex justify-between">
+                <span>'Invitational' Old Town Art Fair Chicago IL</span>
+                <span className="text-xs">2024</span>
+              </li>
+              <li className="flex justify-between">
+                <span>'Invitational' Saatchi The Other Art Fair Brooklyn, NY</span>
+                <span className="text-xs">2024</span>
+              </li>
+              <li className="flex justify-between">
+                <span>'Group' Titan Walls Chicago IL</span>
+                <span className="text-xs">2023</span>
+              </li>
+              <li className="flex justify-between">
+                <span>'Invitational' Moments that we Missed Compstomp Studios</span>
+                <span className="text-xs">2023</span>
+              </li>
+              <li className="flex justify-between">
+                <span>'Invitational' Saatchi The Other Art Fair Chicago, IL</span>
+                <span className="text-xs">2023</span>
+              </li>
+              <li className="flex justify-between">
+                <span>'Invitational' TIME Magazine pieces Gallery, Black Dove Gallery Miami, FL</span>
+                <span className="text-xs">2022</span>
+              </li>
+              <li className="flex justify-between">
+                <span>The Photography Show, Fujifilm Printlife Exhibition, Birmingham, UK</span>
+                <span className="text-xs">2022</span>
+              </li>
+              <li className="flex justify-between">
+                <span>'Group' SuperChief Gallery, Los Angeles, CA</span>
+                <span className="text-xs">2022</span>
+              </li>
+              <li className="flex justify-between">
+                <span>'Invitational' Coinbase NFT Gallery</span>
+                <span className="text-xs">2022</span>
+              </li>
+              <li className="flex justify-between">
+                <span>'Invitational' Saatchi The Other Art Fair Chicago, IL</span>
+                <span className="text-xs">2022</span>
+              </li>
+              <li className="flex justify-between">
+                <span>'Invitational' Superchief Gallery Art Basel Miami, FL</span>
+                <span className="text-xs">2021</span>
+              </li>
+              <li className="flex justify-between">
+                <span>'Invitational' Saatchi The Other Art Fair Brooklyn, NY</span>
+                <span className="text-xs">2021</span>
+              </li>
+              <li className="flex justify-between">
+                <span>'Invitational' Saatchi The Other Art Fair Chicago, IL</span>
+                <span className="text-xs">2021</span>
+              </li>
+              <li className="flex justify-between">
+                <span>'Invitational' HUMANITY J07 Gallery Metaverse</span>
+                <span className="text-xs">2021</span>
+              </li>
+              <li className="flex justify-between">
+                <span>'Solo' In the Shadows ImnotArt Gallery, Chicago, IL</span>
+                <span className="text-xs">2021</span>
+              </li>
+              <li className="flex justify-between">
+                <span>'Solo' Erasing Borders, Gallery Cafe. Chicago, IL</span>
+                <span className="text-xs">2019</span>
+              </li>
+              <li className="flex justify-between">
+                <span>'Group' Conception Global Art Collective Chicago, IL</span>
+                <span className="text-xs">2018</span>
+              </li>
+              <li className="flex justify-between">
+                <span>'Group' P&B Art Show Chicago, IL</span>
+                <span className="text-xs">2018</span>
+              </li>
+              <li className="flex justify-between">
+                <span>'Group' RAW Artists Chicago, IL</span>
+                <span className="text-xs">2018</span>
+              </li>
+            </ul>
+          </div>
+          
+          <div>
+            <h3 className="text-xl font-medium mb-6 text-black dark:text-white">Honors & Awards</h3>
+            <ul className="space-y-3 text-gray-700 dark:text-gray-300">
+              <li className="flex justify-between">
+                <span>Photographer of the Year University Club, Chicago</span>
                 <span className="text-sm">2024</span>
               </li>
               <li className="flex justify-between">
-                <span>International Street Photo Festival</span>
-                <span className="text-sm">2023</span>
-              </li>
-              <li className="flex justify-between">
-                <span>Midwest Photography Collective</span>
+                <span>Adobe Artist in Residence</span>
                 <span className="text-sm">2022</span>
               </li>
               <li className="flex justify-between">
-                <span>Urban Stories Exhibition</span>
-                <span className="text-sm">2021</span>
-              </li>
-            </ul>
-          </div>
-          
-          <div>
-            <h3 className="text-xl font-medium mb-6">Honors & Awards</h3>
-            <ul className="space-y-3 text-gray-700">
-              <li className="flex justify-between">
-                <span>Street Photography Excellence Award</span>
-                <span className="text-sm">2023</span>
-              </li>
-              <li className="flex justify-between">
-                <span>Documentary Photography Honor</span>
+                <span>Best in Show Fujifilm Printlife Exhibition</span>
                 <span className="text-sm">2022</span>
               </li>
               <li className="flex justify-between">
-                <span>Cultural Documentation Prize</span>
+                <span>Winner Editor's Showcase National Geographic</span>
                 <span className="text-sm">2021</span>
               </li>
               <li className="flex justify-between">
-                <span>Emerging Artist Recognition</span>
+                <span>Featured Pick Lensculture</span>
                 <span className="text-sm">2020</span>
+              </li>
+              <li className="flex justify-between">
+                <span>Winner Editor's Showcase National Geographic</span>
+                <span className="text-sm">2018</span>
+              </li>
+              <li className="flex justify-between">
+                <span>Award Of Excellence Conception Global Art Collective</span>
+                <span className="text-sm">2018</span>
               </li>
             </ul>
           </div>
         </div>
-      </main>
+        {/* Clients & Partners */}
+        <section className="mt-20">
+          <h2 className="text-2xl md:text-3xl font-light mb-6 text-center text-black dark:text-white">Clients & Partners</h2>
+          <p className="text-center text-gray-600 dark:text-gray-400 mb-8">
+            A selection of organizations and collaborators that have supported and showcased the work.
+          </p>
+          <ClientsPartnersGrid />
+        </section>
+      </PageContainer>
 
       <FooterStrip />
+    </div>
+  );
+}
+
+function ClientsPartnersGrid() {
+  // Use the client logos from the imported data
+  const clientLogos = CLIENT_LOGOS_SOURCE;
+  
+  // Don't render if no logos are available
+  if (!clientLogos || clientLogos.length === 0) {
+    return (
+      <div className="text-center text-gray-500 dark:text-gray-400">
+        Client logos will be displayed here.
+      </div>
+    );
+  }
+
+  return (
+    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 items-center">
+      {clientLogos.map((src: string, i: number) => {
+        // Use the cleaned client name from CLIENT_NAMES array
+        const clientName = CLIENT_NAMES[i] || `Partner ${i + 1}`;
+        
+        return (
+          <div 
+            key={i} 
+            className="flex items-center justify-center p-4 bg-gray-50 dark:bg-gray-800 rounded-lg group hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300"
+            title={clientName}
+          >
+            <img
+              src={src}
+              alt={`${clientName} logo`}
+              className="max-h-12 max-w-full w-auto object-contain image-protected filter grayscale hover:grayscale-0 transition-all duration-300"
+              loading="lazy"
+              draggable={false}
+              onContextMenu={(e) => e.preventDefault()}
+              onError={(e) => {
+                console.warn(`Failed to load ${clientName} logo:`, src);
+                // Hide the failed image gracefully
+                const target = e.currentTarget as HTMLImageElement;
+                target.style.display = 'none';
+                // Also hide the parent container if the image fails
+                const parent = target.parentElement;
+                if (parent) {
+                  parent.style.display = 'none';
+                }
+              }}
+            />
+          </div>
+        );
+      })}
     </div>
   );
 }

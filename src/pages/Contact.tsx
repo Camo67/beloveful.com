@@ -1,5 +1,6 @@
 import { Header } from "@/components/Header";
 import FooterStrip from "@/components/FooterStrip";
+import PageContainer from "@/components/PageContainer";
 import { useSearchParams } from "react-router-dom";
 import { useState } from "react";
 
@@ -29,10 +30,10 @@ export default function Contact() {
   };
 
   return (
-    <div className="min-h-screen bg-white dark:bg-neutral-950">
+    <div className="min-h-screen">
       <Header variant="default" />
       
-      <main className="min-h-[70vh] px-4 py-24 md:px-8 lg:px-12 max-w-screen-xl mx-auto">
+      <PageContainer className="min-h-[70vh]">
         <h1 className="text-3xl md:text-4xl font-light mb-8">Contact</h1>
 
         {submitted && (
@@ -135,7 +136,7 @@ export default function Contact() {
             </div>
           </form>
         </div>
-      </main>
+      </PageContainer>
 
       <FooterStrip />
     </div>

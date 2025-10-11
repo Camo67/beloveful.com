@@ -1,0 +1,42 @@
+name = "beloveful-r2-cdn"
+main = "r2-cdn-worker.js"
+compatibility_date = "2025-09-01"
+workers_dev = false
+
+# Custom domain routing for CDN
+routes = [
+  { pattern = "cdn.beloveful.com/*", zone_name = "beloveful.com" }
+]
+
+# R2 bucket binding
+[[r2_buckets]]
+binding = "BELOVEFUL_BUCKET"
+bucket_name = "beloveful"
+preview_bucket_name = "beloveful"
+
+# Environment variables
+[vars]
+CF_IMAGE_RESIZING = "false"  # Set to "true" when you enable Cloudflare Image Resizing
+CORS_ORIGINS = "https://beloveful.com,https://www.beloveful.com,http://localhost:8080"
+
+# Production environment
+[env.production]
+name = "beloveful-r2-cdn"
+routes = [
+  { pattern = "cdn.beloveful.com/*", zone_name = "beloveful.com" }
+]
+
+[env.production.vars]
+CF_IMAGE_RESIZING = "true"  # Enable in production if you have the service
+CORS_ORIGINS = "https://beloveful.com,https://www.beloveful.com"
+
+# Development environment  
+[env.development]
+name = "beloveful-r2-cdn-dev"
+routes = [
+  { pattern = "cdn-dev.beloveful.com/*", zone_name = "beloveful.com" }
+]
+
+[env.development.vars]
+CF_IMAGE_RESIZING = "false"
+CORS_ORIGINS = "https://beloveful.com,https://www.beloveful.com,http://localhost:8080"

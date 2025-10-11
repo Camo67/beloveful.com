@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Icon Debug</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class'
+        }
+    </script>
+</head>
+<body class="bg-white dark:bg-neutral-950 text-black dark:text-white p-8">
+    <h1 class="text-2xl mb-4">Icon Color Test</h1>
+    
+    <!-- Toggle to switch dark/light mode -->
+    <button onclick="toggleDark()" class="mb-4 px-4 py-2 bg-gray-200 dark:bg-gray-800 rounded">
+        Toggle Dark Mode
+    </button>
+    
+    <!-- Test with SVG -->
+    <div class="space-y-4">
+        <div class="text-black dark:text-white">
+            <p>Mail icon (should be black in light mode, white in dark mode):</p>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect width="20" height="16" x="2" y="4" rx="2"/>
+                <path d="m22 7-10 5L2 7"/>
+            </svg>
+        </div>
+        
+        <div class="text-red-500">
+            <p>Red mail icon (should always be red):</p>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect width="20" height="16" x="2" y="4" rx="2"/>
+                <path d="m22 7-10 5L2 7"/>
+            </svg>
+        </div>
+    </div>
+    
+    <script>
+        function toggleDark() {
+            document.documentElement.classList.toggle('dark');
+        }
+    </script>
+</body>
+</html>

@@ -1,6 +1,10 @@
+const BASE_ASSET_URL = (import.meta as any)?.env?.VITE_ASSET_BASE_URL?.replace(/\/$/, "") || "";
+
 export function createProxiedImageUrl(originalUrl: string): string {
-  // For development/demo, return original URL
-  // In production, this would go through an image proxy
+  // If it's an absolute URL, leave it as-is
+  if (/^https?:\/\//i.test(originalUrl)) return originalUrl;
+  // If it's a root-relative path and BASE_ASSET_URL is configured, prefix it
+  if (originalUrl.startsWith("/") && BASE_ASSET_URL) return `${BASE_ASSET_URL}${originalUrl}`;
   return originalUrl;
 }
 

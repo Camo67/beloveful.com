@@ -52,28 +52,30 @@ export function Header({ variant }: HeaderProps) {
                 </li>
               ))}
               <li className="text-white">
-                <ShopDropdown />
+                <ShopDropdown variant="white" />
               </li>
             </ul>
           </nav>
           
           {/* Top-right social icons */}
           <div className="fixed right-8 top-8 z-40">
-            <SocialIcons iconSize={18} />
+            <SocialIcons iconSize={18} variant="white" />
           </div>
         </header>
 
         {/* Mobile Header */}
         <header className="md:hidden fixed inset-x-0 top-0 z-50 bg-black bg-opacity-50 p-4">
-          <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between">
+          <div className="flex-1 flex justify-center">
             <Logo variant="white" />
-            <button
-              onClick={() => setMobileMenuOpen(true)}
-              className="text-black dark:text-white p-2"
-              aria-label="Open menu"
-            >
-              <Menu size={24} />
-            </button>
+          </div>
+          <button
+            onClick={() => setMobileMenuOpen(true)}
+            className="text-white p-2 absolute right-4"
+            aria-label="Open menu"
+          >
+            <Menu size={24} />
+          </button>
           </div>
         </header>
 
@@ -89,7 +91,7 @@ export function Header({ variant }: HeaderProps) {
       <header className="hidden md:block sticky top-0 z-40 bg-white dark:bg-neutral-950 border-b border-gray-100 dark:border-neutral-800 px-8 py-4">
         <div className="max-w-screen-xl mx-auto flex items-center justify-between">
           {/* Logo top-left */}
-          <Logo variant="black" />
+          <Logo variant="auto" />
           
           {/* Centered navigation */}
           <nav className="flex-1 flex justify-center">
@@ -118,10 +120,12 @@ export function Header({ variant }: HeaderProps) {
       {/* Mobile Header */}
       <header className="md:hidden sticky top-0 z-50 bg-white dark:bg-neutral-950 border-b border-gray-100 dark:border-neutral-800 p-4">
         <div className="flex items-center justify-between">
-          <Logo variant="black" />
+          <div className="flex-1 flex justify-center">
+            <Logo variant="auto" />
+          </div>
           <button
             onClick={() => setMobileMenuOpen(true)}
-            className="text-black dark:text-white p-2"
+            className="text-black dark:text-white p-2 absolute right-4"
             aria-label="Open menu"
           >
             <Menu size={24} />

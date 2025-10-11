@@ -8,7 +8,9 @@
     "build": "vite build",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "r2:sync": "bash scripts/r2-sync.sh",
+    "data:generate": "node scripts/generate-albums.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

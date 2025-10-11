@@ -3,9 +3,10 @@ import { Instagram, Facebook, ExternalLink, Mail } from "lucide-react";
 interface SocialIconsProps {
   className?: string;
   iconSize?: number;
+  variant?: "auto" | "white";
 }
 
-export function SocialIcons({ className = "", iconSize = 20 }: SocialIconsProps) {
+export function SocialIcons({ className = "", iconSize = 20, variant = "auto" }: SocialIconsProps) {
   const socialLinks = [
     {
       name: "Newsletter",
@@ -43,7 +44,7 @@ export function SocialIcons({ className = "", iconSize = 20 }: SocialIconsProps)
             href={social.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-black transition-opacity duration-300 hover:opacity-60"
+            className={variant === "white" ? "text-white transition-opacity duration-300 hover:opacity-60" : "text-black dark:text-white transition-opacity duration-300 hover:opacity-60"}
             aria-label={social.label}
             title={social.label}
           >
