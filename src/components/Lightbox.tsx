@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import { SlideshowImage } from "@/lib/data";
 import { createProxiedImageUrl, getImageAltText } from "@/lib/images";
+import { useImageProtection } from "@/hooks/use-image-protection";
 
 interface LightboxProps {
   images: SlideshowImage[];
@@ -13,6 +14,9 @@ interface LightboxProps {
 
 export function Lightbox({ images, currentIndex, onClose, onNavigate, country }: LightboxProps) {
   const currentImage = images[currentIndex];
+  
+  // Enable comprehensive image protection
+  const { protectElement } = useImageProtection();
 
   useEffect(() => {
     const handleKeyPress = (e: KeyboardEvent) => {
@@ -49,8 +53,27 @@ export function Lightbox({ images, currentIndex, onClose, onNavigate, country }:
   };
 
   return (
-    <div className="lightbox-overlay" onClick={onClose}>
-      <div className="lightbox-content" onClick={(e) => e.stopPropagation()}>
+    <div 
+      className="lightbox-overlay no-screenshot" 
+      onClick={onClose}
+      onContextMenu={(e) => {
+        e.preventDefault();
+        return false;
+      }}
+    >
+      <div 
+        className="lightbox-content protected-container" 
+        onClick={(e) => e.stopPropagation()}
+        onContextMenu={(e) => {
+          e.preventDefault();
+          return false;
+        }}
+        ref={(el) => {
+          if (el) {
+            protectElement(el);
+          }
+        }}
+      >
         {/* Close button */}
         <button
           onClick={onClose}
@@ -88,17 +111,64 @@ export function Lightbox({ images, currentIndex, onClose, onNavigate, country }:
         )}
 
         {/* Image */}
-        <div className="relative max-w-full max-h-full">
+        <div className="relative max-w-full max-h-full protected-container">
           <img
             src={createProxiedImageUrl(currentImage.desktop)}
             alt={getImageAltText(currentImage.desktop, country)}
             className="max-w-full max-h-screen object-contain image-protected"
             draggable={false}
-            onContextMenu={(e) => e.preventDefault()}
+            onContextMenu={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              return false;
+            }}
+            onDragStart={(e) => {
+              e.preventDefault();
+              return false;
+            }}
+            onSelectStart={(e) => {
+              e.preventDefault();
+              return false;
+            }}
+            onMouseDown={(e) => {
+              e.preventDefault();
+            }}
+            onTouchStart={(e) => {
+              if (e.touches.length > 1) {
+                e.preventDefault();
+              }
+            }}
+            onTouchEnd={(e) => {
+              e.preventDefault();
+            }}
+            style={{
+              WebkitUserSelect: 'none',
+              WebkitTouchCallout: 'none',
+              WebkitUserDrag: 'none',
+              userSelect: 'none',
+              touchAction: 'none',
+              pointerEvents: 'none'
+            }}
+            ref={(el) => {
+              if (el) {
+                protectElement(el);
+              }
+            }}
+          />
+          
+          {/* Invisible overlay to catch any interaction attempts */}
+          <div 
+            className="absolute inset-0 z-10"
+            style={{
+              background: 'transparent',
+              pointerEvents: 'none',
+              WebkitUserSelect: 'none',
+              userSelect: 'none'
+            }}
           />
           
           {/* Caption */}
-          <div className="absolute bottom-0 left-0 right-0 p-4 bg-black bg-opacity-70 text-white">
+          <div className="absolute bottom-0 left-0 right-0 p-4 bg-black bg-opacity-70 text-white z-20">
             <p className="text-sm text-center">
               {country} – {extractFilename(currentImage.desktop)}
             </p>
