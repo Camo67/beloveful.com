@@ -16,6 +16,7 @@ const PrintShop = lazy(() => import("./pages/PrintShop"));
 const SpecialEdition = lazy(() => import("./pages/SpecialEdition"));
 const OpenEdition = lazy(() => import("./pages/OpenEdition"));
 const Contact = lazy(() => import("./pages/Contact"));
+const Admin = lazy(() => import("./pages/Admin"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
@@ -45,6 +46,8 @@ const App = () => (
               <Route path="/shop/special" element={<SpecialEdition />} />
               <Route path="/open-edition" element={<OpenEdition />} />
               <Route path="/contact" element={<Contact />} />
+              <Route path="/adminlogin" element={<Admin />} />
+              <Route path="/admin/*" element={<Admin />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>

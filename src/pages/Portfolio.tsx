@@ -3,12 +3,14 @@ import { Link } from "react-router-dom";
 import { Header } from "@/components/Header";
 import FooterStrip from "@/components/FooterStrip";
 import PageContainer from "@/components/PageContainer";
-import { REGIONS, getAlbumsByRegion } from "@/lib/data";
+import { REGIONS } from "@/lib/data";
+import { useAlbums } from "@/hooks/use-albums";
 
 export default function Portfolio() {
   const [activeRegion, setActiveRegion] = useState<string>("Africa");
+  const { data: allAlbums, isLoading } = useAlbums();
 
-  const albums = getAlbumsByRegion(activeRegion as any);
+  const albums = allAlbums?.filter(album => album.region === activeRegion) || [];
 
   return (
     <div className="min-h-screen">
@@ -40,6 +42,17 @@ export default function Portfolio() {
         </div>
 
         {/* Country Grid */}
+        {isLoading ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[1, 2, 3, 4, 5, 6].map((i) => (
+              <div key={i} className="animate-pulse">
+                <div className="bg-gray-200 dark:bg-gray-700 aspect-[4/3] mb-4 rounded"></div>
+                <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded w-3/4 mb-2"></div>
+                <div className="h-3 bg-gray-200 dark:bg-gray-700 rounded w-1/2"></div>
+              </div>
+            ))}
+          </div>
+        ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {albums.map((album) => (
             <Link
@@ -64,6 +77,7 @@ export default function Portfolio() {
             </Link>
           ))}
         </div>
+        )}
       </PageContainer>
 
       <FooterStrip />

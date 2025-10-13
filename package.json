@@ -10,7 +10,12 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "r2:sync": "bash scripts/r2-sync.sh",
-    "data:generate": "node scripts/generate-albums.mjs"
+    "data:generate": "node scripts/generate-albums.mjs",
+    "db:create": "wrangler d1 create beloveful-cms",
+    "db:migrate": "wrangler d1 execute beloveful-cms --file=server/schema.sql",
+    "db:migrate:local": "wrangler d1 execute beloveful-cms --local --file=server/schema.sql",
+    "deploy": "npm run build && wrangler deploy",
+    "dev:worker": "wrangler dev --local"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
@@ -42,11 +47,14 @@
     "@radix-ui/react-toggle-group": "^1.1.10",
     "@radix-ui/react-tooltip": "^1.2.7",
     "@tanstack/react-query": "^5.83.0",
+    "axios": "^1.12.2",
+    "bcryptjs": "^2.4.3",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "cmdk": "^1.1.1",
     "date-fns": "^3.6.0",
     "embla-carousel-react": "^8.6.0",
+    "hono": "^4.6.11",
     "input-otp": "^1.4.2",
     "lucide-react": "^0.462.0",
     "next-themes": "^0.3.0",
@@ -66,7 +74,8 @@
   "devDependencies": {
     "@eslint/js": "^9.32.0",
     "@tailwindcss/typography": "^0.5.16",
-    "@types/node": "^22.16.5",
+    "@types/bcryptjs": "^2.4.6",
+    "@types/node": "^22.18.10",
     "@types/react": "^18.3.23",
     "@types/react-dom": "^18.3.7",
     "@vitejs/plugin-react-swc": "^3.11.0",
@@ -80,6 +89,7 @@
     "tailwindcss": "^3.4.17",
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.38.0",
-    "vite": "^6.3.6"
+    "vite": "^6.3.6",
+    "wrangler": "^3.87.0"
   }
 }

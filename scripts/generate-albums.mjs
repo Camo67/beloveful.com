@@ -48,14 +48,20 @@ async function listDir(p) {
 
 async function pickWebsiteFolder() {
   const entries = await listDir(PUBLIC_DIR);
-  // Prefer the most recent matching folder name
+  // Look for exact match first, then prefixed versions
+  const exactMatch = entries.find(e => e.isDir && e.name === 'Website beloveful.com');
+  if (exactMatch) {
+    return exactMatch.name;
+  }
+  
+  // Prefer the most recent matching folder name with suffix
   const candidates = entries
     .filter(e => e.isDir && e.name.startsWith('Website beloveful.com-'))
     .map(e => e.name)
     .sort() // lexicographic; timestamp in name keeps order
     .reverse();
   if (candidates.length === 0) {
-    throw new Error('No folder like "Website beloveful.com-*" found under public/.');
+    throw new Error('No folder like "Website beloveful.com" or "Website beloveful.com-*" found under public/.');
   }
   return candidates[0];
 }
@@ -69,8 +75,8 @@ async function collectImages(dir) {
 
 async function main() {
   const websiteFolder = await pickWebsiteFolder();
-  const baseFsDir = path.join(PUBLIC_DIR, websiteFolder, 'Website beloveful.com');
-  const baseUrl = `/${encodeURIComponent(websiteFolder)}/Website%20beloveful.com`;
+  const baseFsDir = path.join(PUBLIC_DIR, websiteFolder);
+  const baseUrl = `/${encodeURIComponent(websiteFolder)}`;
 
   const top = await listDir(baseFsDir);
 

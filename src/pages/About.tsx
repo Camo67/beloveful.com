@@ -254,13 +254,38 @@ function ClientsPartnersGrid() {
         return (
           <div 
             key={i} 
-            className="flex items-center justify-center p-4 bg-gray-50 dark:bg-gray-800 rounded-lg group hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300"
+            className="relative flex items-center justify-center p-4 bg-gray-50 dark:bg-gray-800 rounded-lg group transition-colors duration-300 hover:bg-gray-100 dark:hover:bg-gray-700"
             title={clientName}
           >
+            {/* Desktop-only arrow indicator */}
+            <div className="absolute inset-0 hidden md:flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+              <div className="absolute top-2 right-2">
+                <svg 
+                  width="16" 
+                  height="16" 
+                  viewBox="0 0 24 24" 
+                  fill="none" 
+                  className="text-gray-600 dark:text-gray-300"
+                >
+                  <path 
+                    d="M7 17L17 7M17 7H7M17 7V17" 
+                    stroke="currentColor" 
+                    strokeWidth="2" 
+                    strokeLinecap="round" 
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </div>
+            </div>
+            
             <img
               src={src}
               alt={`${clientName} logo`}
-              className="max-h-12 max-w-full w-auto object-contain image-protected filter grayscale hover:grayscale-0 transition-all duration-300"
+              className={`
+                max-h-12 max-w-full w-auto object-contain image-protected 
+                filter grayscale transition-all duration-300
+                md:group-hover:grayscale-0
+              `}
               loading="lazy"
               draggable={false}
               onContextMenu={(e) => e.preventDefault()}

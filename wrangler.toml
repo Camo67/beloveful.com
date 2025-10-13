@@ -1,8 +1,14 @@
 name = "beloveful-visions"
-main = "src/worker.js"
+main = "server/index.js"
 compatibility_date = "2025-09-01"
 workers_dev = false  # optional, since you're using custom domains
 assets = { directory = "dist" }
+
+# Database configuration
+[[d1_databases]]
+binding = "DB"
+database_name = "beloveful-cms"
+database_id = "5974f712-89ce-491f-baf7-37b7dcfa91cb"
 
 routes = [
   { pattern = "beloveful.com/*", zone_name = "beloveful.com" },

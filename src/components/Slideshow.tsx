@@ -1,25 +1,38 @@
 import { useState, useEffect } from "react";
-import { HOME_SLIDESHOW_SOURCE as HOME_SLIDESHOW } from "@/lib/data";
 import { createProxiedImageUrl } from "@/lib/images";
 import { useImageProtection } from "@/hooks/use-image-protection";
+import { useSlideshow } from "@/hooks/use-slideshow";
 
 export function Slideshow() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const { data: slideshowImages, isLoading } = useSlideshow();
   
   // Enable comprehensive image protection
   const { protectElement } = useImageProtection();
 
   useEffect(() => {
+    if (!slideshowImages || slideshowImages.length === 0) return;
+    
     const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % HOME_SLIDESHOW.length);
+      setCurrentSlide((prev) => (prev + 1) % slideshowImages.length);
     }, 8000); // 8 seconds per slide
 
     return () => clearInterval(interval);
-  }, []);
+  }, [slideshowImages]);
+
+  if (isLoading || !slideshowImages) {
+    return (
+      <div className="slideshow-container no-screenshot">
+        <div className="slideshow-slide active">
+          <div className="w-full h-screen bg-gray-200 dark:bg-gray-800 animate-pulse" />
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="slideshow-container no-screenshot">
-      {HOME_SLIDESHOW.map((slide, index) => (
+      {slideshowImages.map((slide, index) => (
         <div
           key={index}
           className={`slideshow-slide protected-container ${index === currentSlide ? "active" : ""}`}
