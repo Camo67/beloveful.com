@@ -18,6 +18,7 @@ preview_bucket_name = "beloveful"
 [vars]
 CF_IMAGE_RESIZING = "false"  # Set to "true" when you enable Cloudflare Image Resizing
 CORS_ORIGINS = "https://beloveful.com,https://www.beloveful.com,http://localhost:8080"
+CACHE_FALLBACK = "true"  # Enable read-through caching from Cloudinary to R2
 
 # Production environment
 [env.production]
@@ -29,6 +30,7 @@ routes = [
 [env.production.vars]
 CF_IMAGE_RESIZING = "true"  # Enable in production if you have the service
 CORS_ORIGINS = "https://beloveful.com,https://www.beloveful.com"
+CACHE_FALLBACK = "true"
 
 # Development environment  
 [env.development]
@@ -40,3 +42,4 @@ routes = [
 [env.development.vars]
 CF_IMAGE_RESIZING = "false"
 CORS_ORIGINS = "https://beloveful.com,https://www.beloveful.com,http://localhost:8080"
+CACHE_FALLBACK = "true"

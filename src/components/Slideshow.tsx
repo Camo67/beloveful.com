@@ -85,19 +85,19 @@ export function Slideshow() {
                 e.preventDefault();
               }}
               onTouchStart={(e) => {
+                // allow normal single-finger taps; only block multi-touch
                 if (e.touches.length > 1) {
                   e.preventDefault();
                 }
               }}
               onTouchEnd={(e) => {
-                e.preventDefault();
+                // don't prevent default here — letting the browser handle tap/click
               }}
               style={{
                 WebkitUserSelect: 'none',
                 WebkitTouchCallout: 'none',
                 WebkitUserDrag: 'none',
-                userSelect: 'none',
-                touchAction: 'none'
+                userSelect: 'none'
               }}
               ref={(el) => {
                 if (el) {

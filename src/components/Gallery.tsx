@@ -18,6 +18,11 @@ export function Gallery({ images, country }: GalleryProps) {
   const { protectElement } = useImageProtection();
 
   useEffect(() => {
+    // Use regex to check if the country indicates 'other' countries (e.g., 'Other', 'Others', 'Other Countries')
+    if (/\bother(s)?\b/i.test(country)) {
+      setVisibleImages(new Set(images.map((_, index) => index)));
+      return;
+    }
     observerRef.current = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -33,7 +38,7 @@ export function Gallery({ images, country }: GalleryProps) {
     return () => {
       observerRef.current?.disconnect();
     };
-  }, []);
+  }, [country, images]);
 
   const handleImageLoad = (index: number, element: HTMLDivElement) => {
     if (observerRef.current) {
@@ -76,10 +81,6 @@ export function Gallery({ images, country }: GalleryProps) {
             onTouchEnd={(e) => {
               e.preventDefault();
             }}
-            onSelectStart={(e) => {
-              e.preventDefault();
-              return false;
-            }}
           >
             {visibleImages.has(index) && (
               <>
@@ -98,19 +99,8 @@ export function Gallery({ images, country }: GalleryProps) {
                     e.preventDefault();
                     return false;
                   }}
-                  onSelectStart={(e) => {
-                    e.preventDefault();
-                    return false;
-                  }}
                   onMouseDown={(e) => {
-                    e.preventDefault();
-                  }}
-                  style={{
-                    WebkitUserSelect: 'none',
-                    WebkitTouchCallout: 'none',
-                    WebkitUserDrag: 'none',
-                    userSelect: 'none',
-                    touchAction: 'none'
+                    // avoid interfering with click/tap behavior
                   }}
                 />
                 <div 

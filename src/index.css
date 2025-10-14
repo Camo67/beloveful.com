@@ -104,7 +104,8 @@
     -moz-user-drag: none;
     -o-user-drag: none;
     user-drag: none;
-    pointer-events: none;
+  /* allow pointer events so taps/clicks can be handled by parent controls */
+  pointer-events: auto;
     
     /* Prevent text selection */
     -webkit-user-select: none;
@@ -130,15 +131,13 @@
     -moz-user-select: none;
     -ms-user-select: none;
     
-    /* Additional mobile protection */
-    touch-action: none;
-    -ms-touch-action: none;
+    /* Avoid disabling native touch behavior which can block clicks on mobile */
   }
   
   .image-overlay {
     @apply absolute inset-0 z-10 cursor-pointer;
-    /* Block all interactions with the underlying image */
-    pointer-events: auto;
+    /* Do NOT intercept clicks/taps — allow header/nav to remain interactive */
+    pointer-events: none;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -203,9 +202,9 @@
     .protected-container {
       -webkit-tap-highlight-color: transparent;
       -webkit-touch-callout: none;
-      touch-action: none;
+      /* keep default touch-action to allow taps and gestures */
     }
-    
+
     .image-protected {
       -webkit-touch-callout: none;
       -webkit-user-select: none;
@@ -213,8 +212,7 @@
       -moz-user-select: none;
       -ms-user-select: none;
       user-select: none;
-      touch-action: none;
-      -ms-touch-action: none;
+      /* do not set touch-action here (leave it to browser) */
     }
   }
   

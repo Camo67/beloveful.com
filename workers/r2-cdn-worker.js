@@ -32,10 +32,20 @@ export default {
       if (pathname.startsWith('/api/signed-url') && request.method === 'POST') {
         return await handleSignedUrl(request, env, corsHeaders);
       }
+
+      // Unified image endpoint with fallback support
+      if (pathname === '/images' && searchParams.has('src')) {
+        return await handleCloudinaryFallback(request, env, corsHeaders);
+      }
       
-      // Serve files from R2
+      // Serve files from R2 first
       if (pathname.startsWith('/images/') || pathname.startsWith('/assets/')) {
-        return await handleFileServing(request, env, pathname, searchParams, corsHeaders);
+        const served = await handleFileServing(request, env, pathname, searchParams, corsHeaders);
+        // If not found and we have a src fallback, try to fetch and cache
+        if (served.status === 404 && searchParams.has('src')) {
+          return await handleCloudinaryFallback(request, env, corsHeaders, pathname);
+        }
+        return served;
       }
 
       return new Response('Not Found', { 
@@ -212,5 +222,124 @@ async function handleFileServing(request, env, pathname, searchParams, corsHeade
       status: 500,
       headers: corsHeaders 
     });
+  }
+}
+
+/**
+ * Read-through cache: fetch from Cloudinary and optionally store to R2
+ */
+async function handleCloudinaryFallback(request, env, corsHeaders, pathname) {
+  try {
+    const url = new URL(request.url);
+    const src = url.searchParams.get('src');
+    if (!src) {
+      return new Response('Missing src parameter', { status: 400, headers: corsHeaders });
+    }
+
+    // Only allow Cloudinary sources
+    const srcUrl = new URL(src);
+    if (srcUrl.hostname !== 'res.cloudinary.com') {
+      return new Response('Forbidden domain', { status: 403, headers: corsHeaders });
+    }
+
+    // Fetch the image from Cloudinary
+    const upstream = await fetch(src, {
+      headers: { 'User-Agent': 'BELOVEFUL-Photography-Site/1.0' },
+    });
+    if (!upstream.ok) {
+      return new Response('Upstream not found', { status: 404, headers: corsHeaders });
+    }
+
+    // Prefer a deterministic key derived from Cloudinary public_id
+    function publicKeyFromCloudinary(urlObj) {
+      try {
+        const segments = urlObj.pathname.split('/').filter(Boolean);
+        // Expect: /<cloud_name>/image/upload/(transformations?)/v<digits>?/<path/to/public_id>.<ext>
+        const cloudName = segments[0] || 'cloudinary';
+        const uploadIdx = segments.findIndex((s) => s === 'upload');
+        if (uploadIdx === -1) throw new Error('no upload segment');
+        // Slice after 'upload'
+        let tail = segments.slice(uploadIdx + 1);
+        // Drop transformation segments until we hit either a version (v123...) or a filename with dot
+        while (tail.length && !/^v\d+$/i.test(tail[0]) && !/\./.test(tail[0])) {
+          tail.shift();
+        }
+        // Drop version segment if present
+        if (tail.length && /^v\d+$/i.test(tail[0])) {
+          tail.shift();
+        }
+        // Remaining tail is the public path (may include folders) and should contain a filename with ext
+        if (!tail.length) throw new Error('no public id tail');
+        const publicPath = tail.join('/');
+        // Ensure we have an extension; if not, try to infer from original path regex
+        if (!/\.[a-z0-9]+$/i.test(publicPath)) {
+          const m = urlObj.pathname.match(/\.(avif|webp|jpe?g|png|gif|tiff|heic)$/i);
+          const ext = m ? m[0].toLowerCase() : '.jpg';
+          return `images/cloudinary/${cloudName}/${publicPath}${ext}`;
+        }
+        return `images/cloudinary/${cloudName}/${publicPath}`;
+      } catch {
+        return null;
+      }
+    }
+
+    let key = publicKeyFromCloudinary(srcUrl);
+
+    // Fallback to hash key if parsing fails
+    if (!key) {
+      const m = srcUrl.pathname.match(/\.(avif|webp|jpe?g|png|gif|tiff|heic)$/i);
+      const ext = m ? m[0].toLowerCase() : '';
+      const encoder = new TextEncoder();
+      const digest = await crypto.subtle.digest('SHA-256', encoder.encode(src));
+      const hash = Array.from(new Uint8Array(digest)).map(b => b.toString(16).padStart(2, '0')).join('');
+      key = `images/cloudinary/${hash}${ext}`;
+    }
+
+    // If caller requested a specific pathname like /images/..., prefer storing under that key as well
+    let storeKey = key;
+    if (pathname && pathname.startsWith('/images/')) {
+      const candidate = pathname.slice(1); // drop leading /
+      if (!candidate.endsWith('/')) {
+        storeKey = candidate;
+      }
+    }
+
+    // Optionally store into R2
+    const contentType = upstream.headers.get('Content-Type') || 'image/jpeg';
+    const cacheControl = 'public, max-age=31536000, immutable';
+
+    if (env.CACHE_FALLBACK === 'true') {
+      // Clone the response body for storage and streaming
+      const body1 = upstream.body ? upstream.body.tee() : null;
+      if (body1) {
+        const [forStore, forClient] = body1;
+        await env.BELOVEFUL_BUCKET.put(storeKey, forStore, {
+          httpMetadata: { contentType, cacheControl },
+        });
+        return new Response(forClient, {
+          status: 200,
+          headers: {
+            ...corsHeaders,
+            'Content-Type': contentType,
+            'Cache-Control': cacheControl,
+            'X-Source': 'cloudinary-cached',
+          },
+        });
+      }
+    }
+
+    // If not caching, just stream
+    return new Response(upstream.body, {
+      status: 200,
+      headers: {
+        ...corsHeaders,
+        'Content-Type': contentType,
+        'Cache-Control': cacheControl,
+        'X-Source': 'cloudinary',
+      },
+    });
+  } catch (err) {
+    console.error('Fallback error:', err);
+    return new Response('Internal Server Error', { status: 500, headers: corsHeaders });
   }
 }

@@ -145,9 +145,7 @@ export function Lightbox({ images, currentIndex, onClose, onNavigate, country }:
               WebkitUserSelect: 'none',
               WebkitTouchCallout: 'none',
               WebkitUserDrag: 'none',
-              userSelect: 'none',
-              touchAction: 'none',
-              pointerEvents: 'none'
+              userSelect: 'none'
             }}
             ref={(el) => {
               if (el) {

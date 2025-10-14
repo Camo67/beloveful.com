@@ -10,6 +10,8 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "r2:sync": "bash scripts/r2-sync.sh",
+    "r2:prefetch": "node scripts/prefetch-r2.mjs",
+    "r2:mirror": "node scripts/mirror-r2-direct.mjs"
     "data:generate": "node scripts/generate-albums.mjs",
     "db:create": "wrangler d1 create beloveful-cms",
     "db:migrate": "wrangler d1 execute beloveful-cms --file=server/schema.sql",
