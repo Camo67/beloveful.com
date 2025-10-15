@@ -11,8 +11,9 @@
     "preview": "vite preview",
     "r2:sync": "bash scripts/r2-sync.sh",
     "r2:prefetch": "node scripts/prefetch-r2.mjs",
-    "r2:mirror": "node scripts/mirror-r2-direct.mjs"
+    "r2:mirror": "node scripts/mirror-r2-direct.mjs",
     "data:generate": "node scripts/generate-albums.mjs",
+    "shop:sync": "node scripts/sync-printlab.mjs",
     "db:create": "wrangler d1 create beloveful-cms",
     "db:migrate": "wrangler d1 execute beloveful-cms --file=server/schema.sql",
     "db:migrate:local": "wrangler d1 execute beloveful-cms --local --file=server/schema.sql",
@@ -82,6 +83,8 @@
     "@types/react-dom": "^18.3.7",
     "@vitejs/plugin-react-swc": "^3.11.0",
     "autoprefixer": "^10.4.21",
+    "cloudinary": "^2.7.0",
+    "dotenv": "^17.2.3",
     "eslint": "^9.32.0",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.20",
@@ -92,6 +95,6 @@
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.38.0",
     "vite": "^6.3.6",
-    "wrangler": "^3.87.0"
+    "wrangler": "^4.43.0"
   }
 }

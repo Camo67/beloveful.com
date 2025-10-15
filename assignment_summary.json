@@ -1,0 +1,74 @@
+{
+  "totalProcessed": 1952,
+  "assigned": 240,
+  "nonPhotography": 29,
+  "stillUnassigned": 1683,
+  "assignments": {
+    "Middle East|Jordan|jordan": {
+      "region": "Middle East",
+      "country": "Jordan",
+      "slug": "jordan",
+      "imageCount": 38
+    },
+    "Middle East|Israel_Palestine|israel-palestine": {
+      "region": "Middle East",
+      "country": "Israel_Palestine",
+      "slug": "israel-palestine",
+      "imageCount": 58
+    },
+    "Asia|Vietnam|vietnam": {
+      "region": "Asia",
+      "country": "Vietnam",
+      "slug": "vietnam",
+      "imageCount": 2
+    },
+    "North America|New York|new-york": {
+      "region": "North America",
+      "country": "New York",
+      "slug": "new-york",
+      "imageCount": 3
+    },
+    "Africa|Morocco|morocco": {
+      "region": "Africa",
+      "country": "Morocco",
+      "slug": "morocco",
+      "imageCount": 3
+    },
+    "Middle East|Saudi Arabia|saudi-arabia": {
+      "region": "Middle East",
+      "country": "Saudi Arabia",
+      "slug": "saudi-arabia",
+      "imageCount": 14
+    },
+    "Asia|Thailand|thailand": {
+      "region": "Asia",
+      "country": "Thailand",
+      "slug": "thailand",
+      "imageCount": 3
+    },
+    "North America|Puerto Rico|puerto-rico": {
+      "region": "North America",
+      "country": "Puerto Rico",
+      "slug": "puerto-rico",
+      "imageCount": 4
+    },
+    "North America|Mexico|mexico": {
+      "region": "North America",
+      "country": "Mexico",
+      "slug": "mexico",
+      "imageCount": 99
+    },
+    "North America|Caribbean|caribbean": {
+      "region": "North America",
+      "country": "Caribbean",
+      "slug": "caribbean",
+      "imageCount": 14
+    },
+    "North America|St. Martin|st-martin": {
+      "region": "North America",
+      "country": "St. Martin",
+      "slug": "st-martin",
+      "imageCount": 2
+    }
+  }
+}

@@ -17,15 +17,15 @@ export function Logo({ variant = "black", className = "" }: LogoProps) {
         {/* Black logo for light mode */}
         <img 
           src="https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620506/beloveful-logo-black_rwsx2j.png" 
-          alt="BELOVEFUL Photography" 
-          className="h-10 md:h-16 w-auto block dark:hidden"
+          alt="Beloveful Photography" 
+          className="h-16 md:h-40 w-auto block dark:hidden"
           draggable={false}
         />
         {/* White logo for dark mode */}
         <img 
           src="https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620507/beloveful-logo-white_q5prnb.png" 
-          alt="BELOVEFUL Photography" 
-          className="h-10 md:h-16 w-auto hidden dark:block"
+          alt="Beloveful Photography" 
+          className="h-16 md:h-40 w-auto hidden dark:block"
           draggable={false}
         />
       </Link>
@@ -36,8 +36,8 @@ export function Logo({ variant = "black", className = "" }: LogoProps) {
     <Link to="/" className={`logo ${className}`}>
       <img 
         src={logoSrc} 
-        alt="BELOVEFUL Photography" 
-        className="h-10 md:h-16 w-auto"
+        alt="Beloveful Photography" 
+        className="h-16 md:h-40 w-auto"
         draggable={false}
       />
     </Link>

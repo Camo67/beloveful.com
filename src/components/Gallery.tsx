@@ -7,9 +7,12 @@ import { Lightbox } from "./Lightbox";
 interface GalleryProps {
   images: SlideshowImage[];
   country: string;
+  region?: string;
+  enablePrintCta?: boolean;
+  ctaLabel?: string;
 }
 
-export function Gallery({ images, country }: GalleryProps) {
+export function Gallery({ images, country, region, enablePrintCta = false, ctaLabel = "Would you like this as a print?" }: GalleryProps) {
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const [visibleImages, setVisibleImages] = useState<Set<number>>(new Set());
   const observerRef = useRef<IntersectionObserver | null>(null);
@@ -18,11 +21,10 @@ export function Gallery({ images, country }: GalleryProps) {
   const { protectElement } = useImageProtection();
 
   useEffect(() => {
-    // Use regex to check if the country indicates 'other' countries (e.g., 'Other', 'Others', 'Other Countries')
-    if (/\bother(s)?\b/i.test(country)) {
-      setVisibleImages(new Set(images.map((_, index) => index)));
-      return;
-    }
+    // Auto-load images immediately for better UX, with lazy loading for performance
+    setVisibleImages(new Set(images.map((_, index) => index)));
+    
+    // Still set up intersection observer for future enhancements
     observerRef.current = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -32,7 +34,7 @@ export function Gallery({ images, country }: GalleryProps) {
           }
         });
       },
-      { threshold: 0.1, rootMargin: '50px' }
+      { threshold: 0.1, rootMargin: '100px' } // Increased root margin for earlier loading
     );
 
     return () => {
@@ -52,10 +54,9 @@ export function Gallery({ images, country }: GalleryProps) {
         {images.map((image, index) => (
           <div
             key={index}
-            className="relative group cursor-pointer bg-gray-100 protected-container"
+            className="relative group clickable-area bg-muted rounded-lg overflow-hidden shadow-sm hover:shadow-md"
             style={{ aspectRatio: '4/3' }}
             data-index={index}
-            data-protection-hint="🔒"
             ref={(el) => {
               if (el) {
                 handleImageLoad(index, el);
@@ -63,6 +64,15 @@ export function Gallery({ images, country }: GalleryProps) {
               }
             }}
             onClick={() => setLightboxIndex(index)}
+            role="button"
+            tabIndex={0}
+            aria-label={`View ${getImageAltText(image.desktop, country)} in lightbox`}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                setLightboxIndex(index);
+              }
+            }}
             onContextMenu={(e) => {
               e.preventDefault();
               e.stopPropagation();
@@ -72,47 +82,31 @@ export function Gallery({ images, country }: GalleryProps) {
               e.preventDefault();
               return false;
             }}
-            onTouchStart={(e) => {
-              // Prevent long press context menu on mobile
-              if (e.touches.length > 1) {
-                e.preventDefault();
-              }
-            }}
-            onTouchEnd={(e) => {
-              e.preventDefault();
-            }}
           >
-            {visibleImages.has(index) && (
-              <>
-                <img
-                  src={createProxiedImageUrl(image.desktop)}
-                  alt={getImageAltText(image.desktop, country)}
-                  className="w-full h-full object-cover image-protected transition-transform duration-500 group-hover:scale-105"
-                  draggable={false}
-                  loading="lazy"
-                  onContextMenu={(e) => {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    return false;
-                  }}
-                  onDragStart={(e) => {
-                    e.preventDefault();
-                    return false;
-                  }}
-                  onMouseDown={(e) => {
-                    // avoid interfering with click/tap behavior
-                  }}
-                />
-                <div 
-                  className="image-overlay" 
-                  onContextMenu={(e) => {
-                    e.preventDefault();
-                    return false;
-                  }}
-                />
-                <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-20 transition-opacity duration-300 pointer-events-none" />
-              </>
-            )}
+            <img
+              src={createProxiedImageUrl(image.desktop)}
+              alt={getImageAltText(image.desktop, country)}
+              className="img-responsive transition-all duration-300 group-hover:scale-105"
+              draggable={false}
+              loading={index < 6 ? "eager" : "lazy"}
+              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              onContextMenu={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                return false;
+              }}
+              onDragStart={(e) => {
+                e.preventDefault();
+                return false;
+              }}
+              style={{
+                maxWidth: '100%',
+                height: 'auto',
+                objectFit: 'cover',
+                aspectRatio: '4/3'
+              }}
+            />
+            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300 pointer-events-none" />
           </div>
         ))}
       </div>
@@ -124,6 +118,21 @@ export function Gallery({ images, country }: GalleryProps) {
           onClose={() => setLightboxIndex(null)}
           onNavigate={setLightboxIndex}
           country={country}
+          {...(enablePrintCta
+            ? {
+                getCtaHref: (image: SlideshowImage) => {
+                  const params = new URLSearchParams({
+                    image: image.desktop,
+                    source: "portfolio",
+                    region: region ?? "",
+                    country,
+                    variant: "print",
+                  });
+                  return `/contact?${params.toString()}`;
+                },
+                ctaLabel,
+              }
+            : {})}
         />
       )}
     </>

@@ -6,36 +6,54 @@
 
 @layer base {
   :root {
-    /* Core Colors - Light, modern, minimal */
+    /* Core Colors - Enhanced contrast and accessibility */
     --background: 0 0% 100%;
-    --foreground: 0 0% 0%;
+    --foreground: 0 0% 5%;        /* Slightly softer than pure black for reading comfort */
     
-    /* Neutral tones for subtle elements */
-    --muted: 0 0% 95%;
-    --muted-foreground: 0 0% 45%;
+    /* Neutral tones - Improved contrast ratios */
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 35%; /* Darker for better readability (was 45%) */
+    --text-secondary: 0 0% 25%;   /* For secondary text that needs good contrast */
+    --text-tertiary: 0 0% 40%;    /* For captions and less important text */
     
-    /* Overlay and borders */
-    --border: 0 0% 90%;
+    /* Overlay and borders - Enhanced visibility */
+    --border: 0 0% 88%;           /* Slightly more visible borders */
+    --border-strong: 0 0% 75%;    /* For separators that need more definition */
     --overlay: 0 0% 0%;
     --overlay-light: 0 0% 100%;
     
-    /* Focus and interaction states */
-    --ring: 0 0% 0%;
-    --hover: 0 0% 5%;
+    /* Focus and interaction states - More pronounced */
+    --ring: 0 0% 15%;             /* Slightly softer focus ring */
+    --hover: 0 0% 8%;             /* More noticeable hover state */
+    --accent-neutral: 222 13% 25%; /* Professional dark blue-gray for accents */
+    --accent-warm: 25 15% 25%;     /* Warm dark brown for variety */
     
     /* Radius */
     --radius: 0rem;
     
-    /* Typography scale */
-    --font-size-xs: 0.75rem;
-    --font-size-sm: 0.875rem;
-    --font-size-base: 1rem;
-    --font-size-lg: 1.125rem;
-    --font-size-xl: 1.25rem;
-    --font-size-2xl: 1.5rem;
-    --font-size-3xl: 1.875rem;
-    --font-size-4xl: 2.25rem;
-    --font-size-5xl: 3rem;
+    /* Typography scale - Enhanced for readability */
+    --font-size-xs: 0.875rem;    /* 14px - increased from 12px */
+    --font-size-sm: 1rem;        /* 16px - increased from 14px */
+    --font-size-base: 1.125rem;  /* 18px - increased from 16px */
+    --font-size-lg: 1.25rem;     /* 20px - increased from 18px */
+    --font-size-xl: 1.375rem;    /* 22px - increased from 20px */
+    --font-size-2xl: 1.625rem;   /* 26px - increased from 24px */
+    --font-size-3xl: 2rem;       /* 32px - increased from 30px */
+    --font-size-4xl: 2.5rem;     /* 40px - increased from 36px */
+    --font-size-5xl: 3.25rem;    /* 52px - increased from 48px */
+    
+    /* Semantic typography tokens - Enhanced readability */
+    --fs-title: clamp(2.5rem, 4vw, 3.5rem);        /* 40–56px enhanced range */
+    --fs-body-reading: 1.125rem;                    /* 18px minimum for body text */
+    --fs-body-interactive: 1rem;                    /* 16px minimum for UI elements */
+    --fs-caption: 0.9375rem;                       /* 15px for captions */
+    --fs-faq: 1.1875rem;                          /* 19px for FAQ content */
+    
+    /* Line-height tokens - Enhanced for readability */
+    --lh-title: 1.2;                              /* Tighter for headings */
+    --lh-body: 1.7;                               /* More generous for reading */
+    --lh-caption: 1.5;                            /* Improved caption spacing */
+    --lh-faq: 1.75;                               /* Extra generous for FAQ */
     
     /* Animations */
     --transition-fast: 0.15s ease-out;
@@ -45,6 +63,29 @@
     /* Ken Burns animation duration */
     --slideshow-duration: 8s;
     --slideshow-transition: 1.5s;
+  }
+  
+  /* Mobile typography overrides - Enhanced for small screens */
+  @media (max-width: 768px) {
+    :root {
+      --fs-title: clamp(2rem, 8vw, 2.5rem);        /* 32–40px for mobile */
+      --fs-body-reading: 1.0625rem;                 /* 17px for mobile reading */
+      --fs-body-interactive: 1rem;                  /* 16px for mobile UI */
+      --fs-caption: 0.9375rem;                      /* 15px for mobile captions */
+      --fs-faq: 1.125rem;                          /* 18px for mobile FAQ */
+      --lh-body: 1.65;                             /* Adjusted for mobile */
+      --lh-faq: 1.7;                               /* Adjusted for mobile FAQ */
+    }
+  }
+  
+  /* Extra small screens (4-inch phones) */
+  @media (max-width: 375px) {
+    :root {
+      --fs-title: clamp(1.75rem, 7vw, 2.25rem);    /* 28–36px for very small */
+      --fs-body-reading: 1rem;                      /* 16px minimum */
+      --fs-body-interactive: 0.9375rem;             /* 15px for very small UI */
+      --fs-faq: 1.0625rem;                         /* 17px for very small FAQ */
+    }
   }
 }
 
@@ -58,16 +99,39 @@
   }
 
   body {
-    @apply bg-white dark:bg-neutral-950 text-black dark:text-white;
+    @apply bg-white dark:bg-neutral-950 text-foreground;
     font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Inter, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji", sans-serif;
-    line-height: 1.6;
+    font-size: var(--fs-body-reading);
+    line-height: var(--lh-body);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    /* Prevent text from scaling on mobile orientation changes */
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    text-size-adjust: 100%;
   }
 
-  /* Focus styles for accessibility */
+  /* Enhanced focus styles for accessibility */
   *:focus-visible {
-    @apply outline-none ring-2 ring-black ring-offset-2;
+    @apply outline-none ring-2 ring-accent-neutral ring-offset-2 ring-offset-background;
+  }
+  
+  /* Skip to main content link for screen readers */
+  .skip-link {
+    @apply absolute -top-10 left-4 z-50 px-4 py-2 bg-accent-neutral text-white;
+    @apply focus:top-4 transition-all duration-200;
+    @apply text-ui font-semibold rounded focus-enhanced;
+  }
+  
+  /* High contrast mode support */
+  @media (prefers-contrast: high) {
+    :root {
+      --foreground: 0 0% 0%;
+      --background: 0 0% 100%;
+      --text-secondary: 0 0% 20%;
+      --border: 0 0% 70%;
+      --border-strong: 0 0% 50%;
+    }
   }
 
   /* Selection styles */
@@ -77,18 +141,42 @@
 }
 
 @layer components {
-  /* Navigation Links */
+  /* Navigation Links - Enhanced with better contrast and accessibility */
   .nav-link {
-    @apply relative text-black dark:text-white transition-opacity duration-300 hover:opacity-60;
+    @apply relative text-foreground transition-all duration-300 font-medium;
+    @apply hover:text-accent-neutral dark:hover:text-white;
+    @apply focus-visible:text-accent-neutral focus-visible:underline focus-visible:underline-offset-4;
   }
   
   .nav-link.active {
-    @apply opacity-100;
+    @apply text-foreground;
   }
   
   .nav-link.active::after {
     content: '';
-    @apply absolute bottom-0 left-0 h-px w-full bg-black dark:bg-white;
+    @apply absolute -bottom-1 left-0 h-0.5 w-full bg-accent-neutral dark:bg-white rounded-full;
+  }
+  
+  /* Navigation bar styling with subtle shadow */
+  .nav-bar {
+    @apply bg-white dark:bg-neutral-950 backdrop-blur-sm;
+    @apply shadow-sm border-b border-border;
+    background-color: rgba(255, 255, 255, 0.95);
+  }
+  
+  .dark .nav-bar {
+    background-color: rgba(9, 9, 11, 0.95);
+  }
+  
+  /* Enhanced dropdown styling */
+  .dropdown-content {
+    @apply bg-white dark:bg-neutral-900 backdrop-blur-sm;
+    @apply border border-border shadow-lg rounded-lg;
+    background-color: rgba(255, 255, 255, 0.98);
+  }
+  
+  .dark .dropdown-content {
+    background-color: rgba(23, 23, 23, 0.98);
   }
   
   /* Logo styles */
@@ -216,10 +304,26 @@
     }
   }
   
-  /* Gallery grid */
+  /* Enhanced Gallery grid with mobile optimization */
   .gallery-grid {
-    @apply grid gap-1 md:gap-2;
+    @apply grid gap-2 md:gap-4;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+  
+  /* Mobile-specific gallery adjustments */
+  @media (max-width: 768px) {
+    .gallery-grid {
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      @apply gap-3;
+    }
+  }
+  
+  /* Extra small mobile screens */
+  @media (max-width: 375px) {
+    .gallery-grid {
+      grid-template-columns: 1fr;
+      @apply gap-4;
+    }
   }
   
   /* Slideshow */
@@ -238,6 +342,12 @@
   .slideshow-image {
     @apply w-full h-full object-cover;
     animation: kenBurns var(--slideshow-duration) ease-in-out infinite alternate;
+    /* Ensure crisp image rendering */
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    will-change: transform;
   }
   
   /* Ken Burns effect */
@@ -272,18 +382,39 @@
     @apply relative max-w-full max-h-full;
   }
   
-  /* Button styles */
+  /* Enhanced Button styles with better accessibility */
   .btn-primary {
-    @apply inline-flex items-center justify-center px-6 py-3 text-sm font-medium text-white bg-black transition-colors duration-300 hover:bg-gray-800 focus:ring-2 focus:ring-black focus:ring-offset-2;
+    @apply inline-flex items-center justify-center px-6 py-3.5 font-semibold text-white;
+    @apply bg-accent-neutral transition-all duration-300 rounded-sm shadow-sm;
+    @apply hover:bg-accent-warm hover:shadow-md transform hover:scale-[1.02];
+    @apply focus:ring-2 focus:ring-accent-neutral/50 focus:ring-offset-2;
+    @apply active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed;
+    font-size: var(--fs-body-interactive);
+    line-height: var(--lh-body);
   }
   
   .btn-secondary {
-    @apply inline-flex items-center justify-center px-6 py-3 text-sm font-medium text-black bg-transparent border border-black transition-colors duration-300 hover:bg-black hover:text-white focus:ring-2 focus:ring-black focus:ring-offset-2;
+    @apply inline-flex items-center justify-center px-6 py-3.5 font-semibold;
+    @apply text-accent-neutral bg-transparent border-2 border-accent-neutral;
+    @apply transition-all duration-300 rounded-sm shadow-sm;
+    @apply hover:bg-accent-neutral hover:text-white hover:shadow-md transform hover:scale-[1.02];
+    @apply focus:ring-2 focus:ring-accent-neutral/50 focus:ring-offset-2;
+    @apply active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed;
+    font-size: var(--fs-body-interactive);
+    line-height: var(--lh-body);
   }
   
-  /* Mobile drawer */
+  /* Card and content styling */
+  .content-card {
+    @apply bg-white dark:bg-neutral-900 rounded-lg shadow-sm border border-border;
+    @apply p-6 transition-all duration-300 hover:shadow-md;
+  }
+  
+  /* Enhanced mobile drawer with better accessibility */
   .mobile-drawer {
-    @apply fixed inset-y-0 right-0 z-50 w-full max-w-sm bg-white dark:bg-neutral-950 shadow-xl transform transition-transform duration-300 ease-in-out;
+    @apply fixed inset-y-0 right-0 z-50 w-full max-w-sm bg-white dark:bg-neutral-950;
+    @apply shadow-2xl transform transition-transform duration-300 ease-in-out;
+    @apply border-l border-border;
   }
   
   .mobile-drawer.closed {
@@ -293,9 +424,111 @@
   .mobile-drawer.open {
     @apply translate-x-0;
   }
+  
+  /* Mobile-specific touch target sizes (minimum 44px) */
+  @media (max-width: 768px) {
+    .mobile-drawer button,
+    .mobile-drawer a {
+      @apply min-h-11 py-3;
+    }
+    
+    .clickable-area {
+      @apply min-h-11;
+    }
+    
+    .nav-link {
+      @apply min-h-11 flex items-center;
+    }
+    
+    /* Larger tap targets for small screens */
+    .btn-primary,
+    .btn-secondary {
+      @apply min-h-12 py-4;
+    }
+  }
 }
 
 @layer utilities {
+  /* Enhanced Typography Utilities */
+  .text-title {
+    font-size: var(--fs-title);
+    line-height: var(--lh-title);
+    @apply font-light text-foreground;
+  }
+  
+  .text-body {
+    font-size: var(--fs-body-reading);
+    line-height: var(--lh-body);
+    @apply text-foreground;
+  }
+  
+  .text-ui {
+    font-size: var(--fs-body-interactive);
+    line-height: var(--lh-body);
+    @apply text-foreground;
+  }
+  
+  .text-caption {
+    font-size: var(--fs-caption);
+    line-height: var(--lh-caption);
+    @apply text-text-tertiary;
+  }
+  
+  .text-faq {
+    font-size: var(--fs-faq);
+    line-height: var(--lh-faq);
+    @apply text-foreground;
+  }
+  
+  .text-secondary-content {
+    @apply text-text-secondary;
+  }
+  
+  .text-tertiary-content {
+    @apply text-text-tertiary;
+  }
+  
+  /* Enhanced heading utilities */
+  .heading-1 {
+    font-size: var(--fs-title);
+    line-height: var(--lh-title);
+    @apply font-light text-foreground;
+  }
+  
+  .heading-2 {
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    line-height: var(--lh-title);
+    @apply font-medium text-foreground;
+  }
+  
+  .heading-3 {
+    font-size: clamp(1.375rem, 2.5vw, 1.75rem);
+    line-height: var(--lh-title);
+    @apply font-semibold text-foreground;
+  }
+  
+  /* Image responsiveness */
+  .img-responsive {
+    @apply w-full h-auto object-cover max-w-full;
+  }
+  
+  .img-hero {
+    @apply w-full h-auto object-cover;
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Focus and accessibility improvements */
+  .focus-enhanced {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-neutral/50 focus-visible:ring-offset-2;
+  }
+  
+  .clickable-area {
+    @apply cursor-pointer transition-all duration-300;
+    @apply hover:scale-[1.02] active:scale-[0.98];
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-neutral/50;
+  }
+  
   /* Reduced motion support */
   @media (prefers-reduced-motion: reduce) {
     .slideshow-image,
@@ -307,6 +540,15 @@
       animation-duration: 0.01ms !important;
       animation-iteration-count: 1 !important;
       transition-duration: 0.01ms !important;
+    }
+    
+    .clickable-area {
+      @apply hover:scale-100 active:scale-100;
+    }
+    
+    .btn-primary,
+    .btn-secondary {
+      @apply hover:scale-100 active:scale-100;
     }
   }
 }

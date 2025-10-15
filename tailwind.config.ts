@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import tailwindcssAnimate from "tailwindcss-animate";
 
 export default {
   darkMode: ["class"],
@@ -20,11 +21,22 @@ export default {
           DEFAULT: "hsl(var(--muted))",
           foreground: "hsl(var(--muted-foreground))",
         },
-        border: "hsl(var(--border))",
+        text: {
+          secondary: "hsl(var(--text-secondary))",
+          tertiary: "hsl(var(--text-tertiary))",
+        },
+        border: {
+          DEFAULT: "hsl(var(--border))",
+          strong: "hsl(var(--border-strong))",
+        },
         overlay: "hsl(var(--overlay))",
         "overlay-light": "hsl(var(--overlay-light))",
         ring: "hsl(var(--ring))",
         hover: "hsl(var(--hover))",
+        accent: {
+          neutral: "hsl(var(--accent-neutral))",
+          warm: "hsl(var(--accent-warm))",
+        },
       },
       fontFamily: {
         sans: [
@@ -51,6 +63,12 @@ export default {
         '3xl': 'var(--font-size-3xl)',
         '4xl': 'var(--font-size-4xl)',
         '5xl': 'var(--font-size-5xl)',
+        
+        // Semantic typography utilities
+        'title': ['var(--fs-title)', { lineHeight: 'var(--lh-title)' }],
+        'body': ['var(--fs-body-reading)', { lineHeight: 'var(--lh-body)' }],
+        'ui': ['var(--fs-body-interactive)', { lineHeight: 'var(--lh-body)' }],
+        'caption': ['var(--fs-caption)', { lineHeight: 'var(--lh-caption)' }],
       },
       transitionDuration: {
         'fast': 'var(--transition-fast)',
@@ -86,5 +104,5 @@ export default {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [tailwindcssAnimate],
 } satisfies Config;

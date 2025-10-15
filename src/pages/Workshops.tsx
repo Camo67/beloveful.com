@@ -1,143 +1,279 @@
 import { Header } from "@/components/Header";
 import FooterStrip from "@/components/FooterStrip";
 import PageContainer from "@/components/PageContainer";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Switch } from "@/components/ui/switch";
+import { useState } from "react";
 
 export default function Workshops() {
+  const [includePrintInquiry, setIncludePrintInquiry] = useState(false);
+  const [includePortfolioAddon, setIncludePortfolioAddon] = useState(false);
+
+  const erasingBordersImages = [
+    {
+      src: "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218570/Website%20beloveful.com/Erasing%20Borders/Vietnam-DSCF8153_copy_vwsvcl.jpg",
+      alt: "Erasing Borders - Vietnam"
+    },
+    {
+      src: "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218565/Website%20beloveful.com/Erasing%20Borders/NyC-DSCF8922_copy_2_lswqmq.jpg",
+      alt: "Erasing Borders - New York City"
+    },
+    {
+      src: "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218570/Website%20beloveful.com/Erasing%20Borders/Tony_Menias_-_Two_Girls_in_Window_rgthwg.jpg",
+      alt: "Erasing Borders - Two Girls in Window"
+    }
+  ];
+
+  const youthTags = [
+    "mentorship",
+    "online workshop",
+    "street photography",
+    "creative agency",
+    "emotional honesty",
+    "youth onboarding",
+    "analog-digital hybrid",
+  ];
+
   return (
     <div className="min-h-screen">
       <Header variant="default" />
-      
+
       {/* Hero Section */}
-      <section className="relative h-96 md:h-[500px] overflow-hidden">
+      <section className="relative h-72 md:h-[420px] overflow-hidden">
         <img
-          src="https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620617/CHI-DSCF9471_vukjxy.jpg"
-          alt="Street Photography Workshop Chicago"
+          src={erasingBordersImages[0].src}
+          alt={erasingBordersImages[0].alt}
           className="w-full h-full object-cover"
           draggable={false}
           onContextMenu={(e) => e.preventDefault()}
         />
-        <div className="absolute inset-0 bg-black bg-opacity-40" />
+        <div className="absolute inset-0 bg-black/50" />
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="text-center text-white px-4">
-            <h1 className="text-4xl md:text-6xl font-light mb-4">
-              BELOVEFUL Photography
-            </h1>
-            <p className="text-xl md:text-2xl font-light">
-              Street Photography Workshop (Chicago)
-            </p>
-            <p className="text-lg mt-4 opacity-90">
-              "Walk the streets, see differently."
+            <h1 className="text-4xl md:text-6xl font-light mb-3">Mentorship & Workshops</h1>
+            <p className="text-base md:text-lg opacity-95">
+              Dignity-first. Youth-forward. Photography as agency and emotional honesty.
             </p>
           </div>
         </div>
       </section>
 
-      <PageContainer className="max-w-4xl">
-        {/* Introduction */}
-        <section className="mb-16 text-center">
-          <h2 className="text-3xl md:text-4xl font-light mb-6 text-black dark:text-white">
-            Photography Mentorship
-          </h2>
-          <div className="text-lg leading-relaxed max-w-4xl mx-auto space-y-6 text-left text-gray-800 dark:text-gray-200">
-            <p>
-              When I first picked up a camera, I had no idea what I was stepping into. Photography did not just challenge me; it transformed my life. As I grew into the craft and eventually built a business, I faced plenty of obstacles. Some lessons were spiritual, some were emotional, and others were financial and technical. Each one shaped me, and I want to share them with you.
-            </p>
-            <p>
-              When we spend time together, my goal is to give you confidence and to create a space where you can be open about what you are struggling with. If you find yourself comparing your work to others, avoiding the subjects that inspire you, or losing balance between work and life, I want this to be a place where you can talk about it honestly.
-            </p>
-            <p>
-              On the technical side, we can cover whatever you need: workflow, editing, portfolio reviews, understanding light, social media, building relationships, or simply pushing your creativity further.
-            </p>
-            <p>
-              Street photography, at its heart, is about being open to possibility. It is the arguments between strangers, the rhythm of people moving through the streets, or the strange alignments of subjects that do not seem to belong together. It is about spontaneity. It is about recognizing an emotional spark in the milliseconds it takes to press the shutter. That is the magic of it, and it is something you can learn to see.
-            </p>
-          </div>
-        </section>
-
-        {/* What You'll Learn */}
-        <section className="mb-16">
-          <h3 className="text-2xl font-medium mb-8 text-center text-black dark:text-white">The workshop will include:</h3>
-          <div className="max-w-4xl mx-auto">
-            <ul className="space-y-4">
-              <li className="flex items-start">
-                <span className="w-2 h-2 bg-black dark:bg-white rounded-full mt-3 mr-4 flex-shrink-0" />
-                <span className="text-gray-800 dark:text-gray-200">Learning techniques on taking the best street shot</span>
-              </li>
-              <li className="flex items-start">
-                <span className="w-2 h-2 bg-black dark:bg-white rounded-full mt-3 mr-4 flex-shrink-0" />
-                <span className="text-gray-800 dark:text-gray-200">Visualizing a scene before it happens</span>
-              </li>
-              <li className="flex items-start">
-                <span className="w-2 h-2 bg-black dark:bg-white rounded-full mt-3 mr-4 flex-shrink-0" />
-                <span className="text-gray-800 dark:text-gray-200">Lessons on composition, best use of light and capturing the moment with your camera (whatever camera you have)</span>
-              </li>
-              <li className="flex items-start">
-                <span className="w-2 h-2 bg-black dark:bg-white rounded-full mt-3 mr-4 flex-shrink-0" />
-                <span className="text-gray-800 dark:text-gray-200">Capturing compositions in the city</span>
-              </li>
-              <li className="flex items-start">
-                <span className="w-2 h-2 bg-black dark:bg-white rounded-full mt-3 mr-4 flex-shrink-0" />
-                <span className="text-gray-800 dark:text-gray-200">Guidance on using negative space, silhouettes, reflections, and leading lines</span>
-              </li>
-              <li className="flex items-start">
-                <span className="w-2 h-2 bg-black dark:bg-white rounded-full mt-3 mr-4 flex-shrink-0" />
-                <span className="text-gray-800 dark:text-gray-200">Advice on social media platforms and editing</span>
-              </li>
-              <li className="flex items-start">
-                <span className="w-2 h-2 bg-black dark:bg-white rounded-full mt-3 mr-4 flex-shrink-0" />
-                <span className="text-gray-800 dark:text-gray-200">Professional critique of photos after shooting</span>
-              </li>
-            </ul>
-          </div>
-        </section>
-
-        {/* Workshop Details */}
-        <section className="mb-16">
-          <h3 className="text-2xl font-medium mb-8 text-center text-black dark:text-white">Workshop Details</h3>
-          <div className="bg-gray-50 dark:bg-gray-800 p-8 rounded-none">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-gray-800 dark:text-gray-200">
-              <div className="space-y-4">
-                <div className="flex justify-between">
-                  <span className="font-medium">Duration:</span>
-                  <span>Full Day (8 hours)</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="font-medium">Location:</span>
-                  <span>Chicago, IL</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="font-medium">Group Size:</span>
-                  <span>Max 8 participants</span>
-                </div>
+      <PageContainer className="max-w-5xl">
+        {/* Erasing Borders Strip */}
+        <section className="-mt-10 md:-mt-16 relative z-10 mb-12">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 md:gap-3">
+            {erasingBordersImages.map((img, i) => (
+              <div key={i} className="aspect-[4/3] overflow-hidden bg-black/5 dark:bg-white/5">
+                <img
+                  src={img.src}
+                  alt={img.alt}
+                  className="w-full h-full object-cover"
+                  draggable={false}
+                  onContextMenu={(e) => e.preventDefault()}
+                />
               </div>
-              <div className="space-y-4">
-                <div className="flex justify-between">
-                  <span className="font-medium">Level:</span>
-                  <span>All skill levels welcome</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="font-medium">Equipment:</span>
-                  <span>Camera required (DSLR/Mirrorless preferred)</span>
-                </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Tabs: Mentorship / Workshop / Class */}
+        <section className="mb-16">
+          <Tabs defaultValue="mentorship" className="w-full">
+            <div className="flex items-center justify-between flex-wrap gap-3">
+              <TabsList>
+                <TabsTrigger value="mentorship">Mentorship</TabsTrigger>
+                <TabsTrigger value="workshop">Online Workshop (3.5h)</TabsTrigger>
+                <TabsTrigger value="class">Online Class (Self-Paced)</TabsTrigger>
+              </TabsList>
+
+              {/* Optional add-ons */}
+              <div className="flex items-center gap-6 text-sm">
+                <label className="flex items-center gap-2">
+                  <Switch
+                    checked={includePrintInquiry}
+                    onCheckedChange={(v) => setIncludePrintInquiry(Boolean(v))}
+                    aria-label="Toggle print inquiry add-on"
+                  />
+                  <span className="text-gray-700 dark:text-gray-300">Print inquiry add-on</span>
+                </label>
+                <label className="flex items-center gap-2">
+                  <Switch
+                    checked={includePortfolioAddon}
+                    onCheckedChange={(v) => setIncludePortfolioAddon(Boolean(v))}
+                    aria-label="Toggle portfolio add-on"
+                  />
+                  <span className="text-gray-700 dark:text-gray-300">Portfolio add-on</span>
+                </label>
               </div>
             </div>
-          </div>
+
+            {/* Mentorship Tab */}
+            <TabsContent value="mentorship" className="mt-6">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div className="md:col-span-2 space-y-6">
+                  <h2 className="text-3xl md:text-4xl font-light text-black dark:text-white">1-on-1 Mentorship</h2>
+                  <div className="text-gray-800 dark:text-gray-200 space-y-4 leading-relaxed">
+                    <p>
+                      Format: 1-on-1 (online or in-person)
+                    </p>
+                    <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm">
+                      <li><span className="font-medium">Duration:</span> 30 minutes</li>
+                      <li><span className="font-medium">Rate:</span> $300–$600</li>
+                      <li className="sm:col-span-2"><span className="font-medium">Focus:</span> Confidence, creative clarity, emotional honesty</li>
+                      <li className="sm:col-span-2">
+                        <span className="font-medium">Topics:</span> Portfolio review, workflow, light, relationships, social media, creative blocks
+                      </li>
+                    </ul>
+                    <blockquote className="border-l-2 pl-4 italic opacity-90">
+                      “If you’re comparing your work to others, avoiding the subjects that inspire you, or losing balance between life and creativity—this is a space to talk about it.”
+                    </blockquote>
+                  </div>
+
+                  <div className="flex flex-wrap gap-3 pt-2">
+                    <Button asChild>
+                      <a
+                        href="https://lb.benchmarkemail.com//listbuilder/signupnew?IkfHTmyPVq92wBnn4lX%252FTf5pwVnAjsSIeL8KRSOgMpXtO5iNRn8gS049TyW7spdJ"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Book mentorship"
+                      >
+                        Book Mentorship
+                      </a>
+                    </Button>
+                    <Button variant="outline" asChild>
+                      <a
+                        href="https://lb.benchmarkemail.com//listbuilder/signupnew?IkfHTmyPVq92wBnn4lX%252FTf5pwVnAjsSIeL8KRSOgMpXtO5iNRn8gS049TyW7spdJ"
+                        target="_blank" rel="noopener noreferrer" aria-label="Join newsletter for updates"
+                      >Notify Me</a>
+                    </Button>
+                  </div>
+                </div>
+
+                <div className="bg-gray-50 dark:bg-gray-900/40 p-5 space-y-4 rounded-md">
+                  <h3 className="text-lg font-medium">Booking</h3>
+                  <p className="text-sm text-gray-700 dark:text-gray-300">
+                    Mentorship sessions are tailored to where you are. Share a portfolio link or a question when you book.
+                  </p>
+                  {includePortfolioAddon && (
+                    <p className="text-xs text-gray-600 dark:text-gray-400">Portfolio add-on enabled: we’ll allocate extra time to review and annotate 10–15 images.</p>
+                  )}
+                  {includePrintInquiry && (
+                    <p className="text-xs text-gray-600 dark:text-gray-400">Print inquiry enabled: we’ll discuss paper, sizing, and editions.</p>
+                  )}
+                </div>
+              </div>
+            </TabsContent>
+
+            {/* Workshop Tab */}
+            <TabsContent value="workshop" className="mt-6">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div className="md:col-span-2 space-y-6">
+                  <h2 className="text-3xl md:text-4xl font-light text-black dark:text-white">Online Workshop (3.5 Hours)</h2>
+                  <div className="text-gray-800 dark:text-gray-200 space-y-4 leading-relaxed">
+                    <p>Format: Live, interactive</p>
+                    <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm">
+                      <li><span className="font-medium">Tools:</span> Phone or camera, notebook</li>
+                      <li><span className="font-medium">Focus:</span> Street photography, storytelling, technical flow</li>
+                      <li className="sm:col-span-2"><span className="font-medium">Includes:</span> Group critique, guided walk-throughs, Q&amp;A</li>
+                    </ul>
+                    <blockquote className="border-l-2 pl-4 italic opacity-90">
+                      “Street photography is about spontaneity—recognizing an emotional spark in the milliseconds it takes to press the shutter.”
+                    </blockquote>
+                  </div>
+
+                  <div className="flex flex-wrap gap-3 pt-2">
+                    <Button asChild>
+                      <a
+                        href="https://lb.benchmarkemail.com//listbuilder/signupnew?IkfHTmyPVq92wBnn4lX%252FTf5pwVnAjsSIeL8KRSOgMpXtO5iNRn8gS049TyW7spdJ"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Join the online workshop"
+                      >
+                        Join Online Workshop
+                      </a>
+                    </Button>
+                    <Button variant="outline" asChild>
+                      <a
+                        href="https://lb.benchmarkemail.com//listbuilder/signupnew?IkfHTmyPVq92wBnn4lX%252FTf5pwVnAjsSIeL8KRSOgMpXtO5iNRn8gS049TyW7spdJ"
+                        target="_blank" rel="noopener noreferrer" aria-label="Get notified of next workshop"
+                      >Notify Me</a>
+                    </Button>
+                  </div>
+                </div>
+
+                <div className="bg-gray-50 dark:bg-gray-900/40 p-5 space-y-4 rounded-md">
+                  <h3 className="text-lg font-medium">Flow</h3>
+                  <ul className="text-sm list-disc pl-5 space-y-2 text-gray-700 dark:text-gray-300">
+                    <li>Warm-up and intention setting</li>
+                    <li>Story-driven shooting approach</li>
+                    <li>Live critique and guided exercises</li>
+                    <li>Open Q&amp;A</li>
+                  </ul>
+                </div>
+              </div>
+            </TabsContent>
+
+            {/* Class Tab */}
+            <TabsContent value="class" className="mt-6">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div className="md:col-span-2 space-y-6">
+                  <h2 className="text-3xl md:text-4xl font-light text-black dark:text-white">Online Class (Self-Paced)</h2>
+                  <div className="text-gray-800 dark:text-gray-200 space-y-4 leading-relaxed">
+                    <p>Format: Pre-recorded modules</p>
+                    <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm">
+                      <li><span className="font-medium">Access:</span> Anytime, anywhere</li>
+                      <li><span className="font-medium">Focus:</span> Photography fundamentals, editing, creative agency</li>
+                      <li className="sm:col-span-2"><span className="font-medium">Extras:</span> Downloadable guides, reflection prompts, remix challenges</li>
+                    </ul>
+                    <blockquote className="border-l-2 pl-4 italic opacity-90">
+                      “Learn at your own rhythm. Remix what you learn. Make it yours.”
+                    </blockquote>
+                  </div>
+
+                  <div className="flex flex-wrap gap-3 pt-2">
+                    <Button asChild>
+                      <a
+                        href="https://lb.benchmarkemail.com//listbuilder/signupnew?IkfHTmyPVq92wBnn4lX%252FTf5pwVnAjsSIeL8KRSOgMpXtO5iNRn8gS049TyW7spdJ"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Get class access"
+                      >
+                        Get Class Access
+                      </a>
+                    </Button>
+                    <Button variant="outline" asChild>
+                      <a
+                        href="https://lb.benchmarkemail.com//listbuilder/signupnew?IkfHTmyPVq92wBnn4lX%252FTf5pwVnAjsSIeL8KRSOgMpXtO5iNRn8gS049TyW7spdJ"
+                        target="_blank" rel="noopener noreferrer" aria-label="Get notified for class access"
+                      >Notify Me</a>
+                    </Button>
+                  </div>
+                </div>
+
+                <div className="bg-gray-50 dark:bg-gray-900/40 p-5 space-y-4 rounded-md">
+                  <h3 className="text-lg font-medium">Modules</h3>
+                  <ul className="text-sm list-disc pl-5 space-y-2 text-gray-700 dark:text-gray-300">
+                    <li>Seeing light and timing</li>
+                    <li>Editing for feeling</li>
+                    <li>Ethics, consent, and dignity</li>
+                    <li>Finding your own rhythm</li>
+                  </ul>
+                </div>
+              </div>
+            </TabsContent>
+          </Tabs>
         </section>
 
-        {/* CTA */}
-        <section className="text-center">
-          <div className="max-w-md mx-auto space-y-4">
-            <a
-              href="https://lb.benchmarkemail.com//listbuilder/signupnew?IkfHTmyPVq92wBnn4lX%252FTf5pwVnAjsSIeL8KRSOgMpXtO5iNRn8gS049TyW7spdJ"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary w-full block py-4 text-center"
-            >
-              Book / Notify Me
-            </a>
-            <p className="text-sm text-gray-600 dark:text-gray-400">
-              Join our newsletter to be notified when new workshop dates are announced
-            </p>
+        {/* Youth Teaching Tags */}
+        <section className="mb-20">
+          <div className="flex flex-wrap gap-2">
+            {youthTags.map((t) => (
+              <Badge key={t} variant="secondary" className="px-3 py-1">
+                {t}
+              </Badge>
+            ))}
           </div>
         </section>
       </PageContainer>

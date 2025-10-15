@@ -58,7 +58,12 @@ export default function CountryGallery() {
         )}
 
         {/* Gallery */}
-        <Gallery images={album.images} country={album.country} />
+        <Gallery 
+          images={album.images} 
+          country={album.country} 
+          region={album.region}
+          enablePrintCta
+        />
       </PageContainer>
 
       <FooterStrip />

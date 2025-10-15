@@ -68,6 +68,8 @@ export function Slideshow() {
               alt={`BELOVEFUL Photography Slide ${index + 1}`}
               className="slideshow-image image-protected"
               draggable={false}
+              loading={index === 0 ? "eager" : "lazy"}
+              decoding="async"
               onContextMenu={(e) => {
                 e.preventDefault();
                 e.stopPropagation();

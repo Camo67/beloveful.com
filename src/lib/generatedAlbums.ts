@@ -1,4576 +1,1069 @@
-// AUTO-GENERATED FILE. Do not edit by hand.
-// Generated from public/Website beloveful.com/Website beloveful.com
-import type { CountryAlbum, SlideshowImage } from './data';
+// Auto-generated from Cloudinary API
+// Generated on: 2025-10-14T19:57:04.560Z
+
+import type { CountryAlbum } from './data';
 
 export const GENERATED_ALBUMS: CountryAlbum[] = [
   {
-    "region": "Africa",
-    "country": "Egypt",
-    "slug": "egypt",
-    "images": [
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/11-16-EGY-1107.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/11-16-EGY-1107.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/11-16-EGY-1128.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/11-16-EGY-1128.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/11-17-EGY-172.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/11-17-EGY-172.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/11-17-EGY-550.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/11-17-EGY-550.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/11-17-EGY-598.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/11-17-EGY-598.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/11-18-EGY-110.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/11-18-EGY-110.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/11-21-EGY-262%202.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/11-21-EGY-262%202.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/11-28-EGY-508.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/11-28-EGY-508.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/11-28-EGY-512.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/11-28-EGY-512.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/12-01-EGY-150.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/12-01-EGY-150.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/12-14-EGY-342.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/12-14-EGY-342.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-01-22-01-31-EGY-26-Enhanced-NR.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-01-22-01-31-EGY-26-Enhanced-NR.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-01-22-01-31-EGY-98-Enhanced-NR.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-01-22-01-31-EGY-98-Enhanced-NR.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-01-22-DSCF2904.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-01-22-DSCF2904.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-01-22-DSCF2977.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-01-22-DSCF2977.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-01-31-22.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-01-31-22.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-02-22-DSCF3226.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-02-22-DSCF3226.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-02-22-DSCF3236.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-02-22-DSCF3236.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-02-22-DSCF3370.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-02-22-DSCF3370.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-02-22-DSCF3373.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-02-22-DSCF3373.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-02-22-DSCF3390.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-02-22-DSCF3390.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-03-23-DSCF6538.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-03-23-DSCF6538.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-11-21-11-16-EGY-989-Enhanced-NR.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-11-21-11-16-EGY-989-Enhanced-NR.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-11-21-11-16-EGY-993-Enhanced-NR.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-11-21-11-16-EGY-993-Enhanced-NR.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-11-21-11-16-EGY-1135-Enhanced-NR.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-11-21-11-16-EGY-1135-Enhanced-NR.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-11-21-21.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-11-21-21.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-11-21-DSCF1297.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-11-21-DSCF1297.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-11-21-DSCF1322.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-11-21-DSCF1322.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-11-21-DSCF1337.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-11-21-DSCF1337.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-11-21-DSCF1720.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-11-21-DSCF1720.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-11-21-DSCF5175.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-11-21-DSCF5175.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-11-21-DSCF5200.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-11-21-DSCF5200.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-11-21-DSCF5281.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-11-21-DSCF5281.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-11-21-DSCF5812.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-11-21-DSCF5812.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-12-01-21.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-12-01-21.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-12-04-21.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-12-04-21.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-12-14-21-2.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-12-14-21-2.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-12-14-21.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-12-14-21.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-12-21-12-01-EGY-304-Enhanced-NR.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-12-21-12-01-EGY-304-Enhanced-NR.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-12-21-12-14-EGY-617-Enhanced-NR.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-12-21-12-14-EGY-617-Enhanced-NR.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-12-21-DSCF0169.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-12-21-DSCF0169.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-12-21-DSCF0508.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-12-21-DSCF0508.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-12-21-DSCF1013.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-12-21-DSCF1013.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-12-21-DSCF1039.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-12-21-DSCF1039.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-12-21-DSCF1321.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-12-21-DSCF1321.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-12-21-DSCF1468.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-12-21-DSCF1468.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-12-21-DSCF1811.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-12-21-DSCF1811.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-12-21-DSCF1870.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-12-21-DSCF1870.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-12-21-DSCF1938.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-12-21-DSCF1938.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-12-21-DSCF1974-2.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-12-21-DSCF1974-2.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-12-21-DSCF1974.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-12-21-DSCF1974.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-12-21-DSCF1991-2.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-12-21-DSCF1991-2.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-12-21-DSCF2010.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-12-21-DSCF2010.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-12-21-DSCF2037.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-12-21-DSCF2037.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-12-21-DSCF2038.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-12-21-DSCF2038.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-12-21-DSCF2361.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-12-21-DSCF2361.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-12-21-DSCF2562.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-12-21-DSCF2562.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-12-21-DSCF2697.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-12-21-DSCF2697.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-12-21-DSCF2734.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-12-21-DSCF2734.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-12-21-DSCF2743.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-12-21-DSCF2743.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-12-21-DSCF2747.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-12-21-DSCF2747.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-12-21-DSCF2753.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-12-21-DSCF2753.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-12-21-DSCF2826.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-12-21-DSCF2826.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-12-21-DSCF7137.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-12-21-DSCF7137.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-12-21-DSCF7339.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-12-21-DSCF7339.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-12-21-DSCF7928.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-12-21-DSCF7928.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-12-21-DSCF9132-2.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-12-21-DSCF9132-2.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-19.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-19.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-42.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-42.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-44.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-44.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-51.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-51.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-53%20copy.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-53%20copy.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-53.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-53.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-54.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-54.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-61%20copy.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-61%20copy.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-61-Website-2.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-61-Website-2.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-61.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-61.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-68.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-68.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-76.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-76.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-77-Website-2.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-77-Website-2.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-85.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-85.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-94.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-94.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-95.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-95.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-110.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-110.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-114.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-114.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-115.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-115.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-117.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-117.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-120.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-120.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-121.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-121.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-128.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-128.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-130.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-130.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-134.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-134.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-143.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-143.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-145.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-145.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-148%20copy.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-148%20copy.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-148.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-148.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-154.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-154.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-160.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-160.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-165.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-165.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-168.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-168.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-172-Website-2.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-172-Website-2.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-172.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-172.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-174.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-174.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-178.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-178.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-189.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-189.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-200.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-200.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-203.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-203.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-205.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-205.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-224.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-224.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-230.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-230.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-231.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-231.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-255.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-255.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-260.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-260.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-277.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-277.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-280.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-280.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-283.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-283.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-286.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-286.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-287.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-287.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-291.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-291.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-311.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-311.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-312.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-312.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-313.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-313.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-318.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-318.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-324.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-324.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-329.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-329.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-337.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-337.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-346.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-346.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-350.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-350.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-359.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-359.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-365.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-365.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-374.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-374.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-377.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-377.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-395.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-395.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-422.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-422.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-445.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-445.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-452.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-452.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-467.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-467.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-468.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-468.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-481.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-481.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-493.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-493.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-503.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-503.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-507.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-507.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-518.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-518.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-525.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-525.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-528.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-528.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-557.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-557.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-565%20copy.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-565%20copy.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-565-Website-2.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-565-Website-2.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-565-Website-3.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-565-Website-3.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-565.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-565.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-571.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-571.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-578.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-578.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-585.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-585.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-593.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-593.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-617.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-617.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-618.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-618.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-620.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-620.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-621.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-621.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-628.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-628.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-698.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-698.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-717.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-717.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-869.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-869.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-888.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-888.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-917.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-917.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-946.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-946.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-1030.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-1030.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-1064.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-1064.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-1079.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-1079.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-1135.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-1135.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-1142-Website-2.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-1142-Website-2.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-1143.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-1143.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-1178.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-1178.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-1573.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-1573.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-3046.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-3046.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-5846-Website-2.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-5846-Website-2.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-7139.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-7139.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-7181.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-7181.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-7196.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-7196.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-7569.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-7569.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-JOY-02-22-DSCF3163.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-JOY-02-22-DSCF3163.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-LUX-425.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-LUX-425.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY-LUX-531.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY-LUX-531.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY1-178.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY1-178.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY1-1465.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY1-1465.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/EGY45-.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/EGY45-.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/Sense%20of%20Scale.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/Sense%20of%20Scale.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/Toiny%20Mernias%20Buoyancy1.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/Toiny%20Mernias%20Buoyancy1.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/Tony%20Menias%20-%20Tuk%20Tuk%20Graveyard%20.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/Tony%20Menias%20-%20Tuk%20Tuk%20Graveyard%20.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Egypt/Tony%20Menias-Buoyancy.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Egypt/Tony%20Menias-Buoyancy.jpg"
-      }
-    ]
+    region: "Africa",
+    country: "Egypt",
+    slug: "egypt",
+    images: [
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621039/EGY-1030_tmdg4s.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621039/EGY-1030_tmdg4s.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621038/EGY-1064_zdf7hn.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621038/EGY-1064_zdf7hn.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621034/EGY-110_twsqs3.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621034/EGY-110_twsqs3.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620953/EGY-1135_jxlzwd.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620953/EGY-1135_jxlzwd.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620613/EGY-1135_lnxmeq.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620613/EGY-1135_lnxmeq.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620616/EGY-1135_tu9nbg.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620616/EGY-1135_tu9nbg.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620629/EGY-1135.jpg-nggid03320-ngg0dyn-120x90-00f0w010c011r110f110r010t010_zycdrs.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620629/EGY-1135.jpg-nggid03320-ngg0dyn-120x90-00f0w010c011r110f110r010t010_zycdrs.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620628/EGY-1135.jpg-nggid03320-ngg0dyn-180x0-00f0w010c010r110f110r010t010_i0dwh2.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620628/EGY-1135.jpg-nggid03320-ngg0dyn-180x0-00f0w010c010r110f110r010t010_i0dwh2.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621029/EGY-114_zm260d.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621029/EGY-114_zm260d.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620957/EGY-1142-Website-2_wfe5zt.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620957/EGY-1142-Website-2_wfe5zt.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621024/EGY-1143_kukepv.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621024/EGY-1143_kukepv.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620959/EGY-115_oy7jjc.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620959/EGY-115_oy7jjc.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621005/EGY-117_dw4guf.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621005/EGY-117_dw4guf.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621023/EGY-1178_fsr2zw.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621023/EGY-1178_fsr2zw.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621024/EGY-120_pqni5f.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621024/EGY-120_pqni5f.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621028/EGY-121_ktoy5f.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621028/EGY-121_ktoy5f.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621026/EGY-128_j02ulw.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621026/EGY-128_j02ulw.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621024/EGY-130_xfq1kr.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621024/EGY-130_xfq1kr.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621031/EGY-134_wnlkrz.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621031/EGY-134_wnlkrz.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621026/EGY-143_wcladi.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621026/EGY-143_wcladi.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620955/EGY-145_rmqjdj.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620955/EGY-145_rmqjdj.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621036/EGY-148_copy_ccgtjs.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621036/EGY-148_copy_ccgtjs.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620959/EGY-148_zqqz9l.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620959/EGY-148_zqqz9l.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621028/EGY-154_on2wxz.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621028/EGY-154_on2wxz.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621038/EGY-160_bjue1z.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621038/EGY-160_bjue1z.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621037/EGY-174_uziqy8.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621037/EGY-174_uziqy8.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621028/EGY-178_nhny7l.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621028/EGY-178_nhny7l.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620958/EGY-189_zufisw.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620958/EGY-189_zufisw.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621021/EGY-19_whrfkw.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621021/EGY-19_whrfkw.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620956/EGY-200_ggk5nl.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620956/EGY-200_ggk5nl.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621032/EGY-203_zmi8sn.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621032/EGY-203_zmi8sn.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621025/EGY-205_bsqnrg.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621025/EGY-205_bsqnrg.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620956/EGY-224_kcuctk.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620956/EGY-224_kcuctk.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620960/EGY-230_khm08r.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620960/EGY-230_khm08r.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620956/EGY-231_pzwyih.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620956/EGY-231_pzwyih.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621031/EGY-255_akvon6.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621031/EGY-255_akvon6.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621026/EGY-260_qjcdvv.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621026/EGY-260_qjcdvv.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621027/EGY-277_fpt90b.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621027/EGY-277_fpt90b.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621032/EGY-280_n1um5h.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621032/EGY-280_n1um5h.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620955/EGY-283_uqni09.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620955/EGY-283_uqni09.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621025/EGY-287_fgvcio.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621025/EGY-287_fgvcio.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620960/EGY-291_iwtsqd.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620960/EGY-291_iwtsqd.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620961/EGY-311_axwlrc.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620961/EGY-311_axwlrc.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621029/EGY-312_wzdwoi.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621029/EGY-312_wzdwoi.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621020/EGY-313_ssupl1.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621020/EGY-313_ssupl1.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620959/EGY-318_hi8umj.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620959/EGY-318_hi8umj.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620960/EGY-324_pvsoqz.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620960/EGY-324_pvsoqz.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621039/EGY-337_lg0guc.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621039/EGY-337_lg0guc.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621024/EGY-346_pieeu5.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621024/EGY-346_pieeu5.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621029/EGY-350_mzguxd.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621029/EGY-350_mzguxd.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621020/EGY-359_fdxeph.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621020/EGY-359_fdxeph.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621023/EGY-365_vha9pg.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621023/EGY-365_vha9pg.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621022/EGY-374_tzvz01.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621022/EGY-374_tzvz01.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620962/EGY-395_zqvfyu.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620962/EGY-395_zqvfyu.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621033/EGY-42_mdsysd.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621033/EGY-42_mdsysd.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621034/EGY-422_gyv52e.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621034/EGY-422_gyv52e.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620957/EGY-44_hrne6u.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620957/EGY-44_hrne6u.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621035/EGY-445_fx92a5.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621035/EGY-445_fx92a5.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620958/EGY-452_uktncb.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620958/EGY-452_uktncb.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621031/EGY-467_spxldi.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621031/EGY-467_spxldi.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620957/EGY-468_txovy4.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620957/EGY-468_txovy4.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620613/EGY-481_axgaj1.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620613/EGY-481_axgaj1.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620955/EGY-481_ku92ju.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620955/EGY-481_ku92ju.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620608/EGY-481_reqn0b.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620608/EGY-481_reqn0b.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620658/EGY-481.jpg-nggid03321-ngg0dyn-120x90-00f0w010c011r110f110r010t010_q4ljbo.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620658/EGY-481.jpg-nggid03321-ngg0dyn-120x90-00f0w010c011r110f110r010t010_q4ljbo.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620624/EGY-481.jpg-nggid03321-ngg0dyn-180x0-00f0w010c010r110f110r010t010_dz9hzo.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620624/EGY-481.jpg-nggid03321-ngg0dyn-180x0-00f0w010c010r110f110r010t010_dz9hzo.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621033/EGY-493_yytmit.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621033/EGY-493_yytmit.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621030/EGY-503_uxaswm.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621030/EGY-503_uxaswm.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621022/EGY-51_cdhacv.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621022/EGY-51_cdhacv.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620954/EGY-518_cutair.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620954/EGY-518_cutair.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621027/EGY-525_z2s5ep.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621027/EGY-525_z2s5ep.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620960/EGY-528_fozrqw.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620960/EGY-528_fozrqw.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621027/EGY-53_copy_nmrxma.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621027/EGY-53_copy_nmrxma.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620985/EGY-53_uk8d6n.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620985/EGY-53_uk8d6n.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620959/EGY-557_kcoc9x.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620959/EGY-557_kcoc9x.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621032/EGY-565_copy_lomsva.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621032/EGY-565_copy_lomsva.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621021/EGY-565_y3j3zs.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621021/EGY-565_y3j3zs.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621035/EGY-565-Website-2_dk5fxb.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621035/EGY-565-Website-2_dk5fxb.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621037/EGY-565-Website-3_ojuwmi.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621037/EGY-565-Website-3_ojuwmi.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621033/EGY-571_fjskmj.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621033/EGY-571_fjskmj.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621021/EGY-578_zh22hi.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621021/EGY-578_zh22hi.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621034/EGY-585_lshm5r.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621034/EGY-585_lshm5r.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621033/EGY-593_jzugfp.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621033/EGY-593_jzugfp.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620954/EGY-61_copy_svbwv7.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620954/EGY-61_copy_svbwv7.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620954/EGY-61_nxpg46.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620954/EGY-61_nxpg46.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620962/EGY-61-Website-2_e9fcvy.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620962/EGY-61-Website-2_e9fcvy.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621034/EGY-617_l347ue.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621034/EGY-617_l347ue.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621036/EGY-618_chevek.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621036/EGY-618_chevek.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620962/EGY-620_yjzobr.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620962/EGY-620_yjzobr.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621021/EGY-621_aeship.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621021/EGY-621_aeship.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621040/EGY-68_y6bkd2.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621040/EGY-68_y6bkd2.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621038/EGY-698_xpvwc0.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621038/EGY-698_xpvwc0.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621025/EGY-76_fwyikl.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621025/EGY-76_fwyikl.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620965/EGY-77-Website-2_ugelda.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620965/EGY-77-Website-2_ugelda.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621020/EGY-85_frzrs4.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621020/EGY-85_frzrs4.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621037/EGY-869_ujdg3k.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621037/EGY-869_ujdg3k.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621036/EGY-888_vhl0tl.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621036/EGY-888_vhl0tl.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621035/EGY-917_yi0yxv.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621035/EGY-917_yi0yxv.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621030/EGY-94_t416ie.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621030/EGY-94_t416ie.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621036/EGY-946_v5ldvm.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621036/EGY-946_v5ldvm.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621026/EGY-95_bo57j7.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621026/EGY-95_bo57j7.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621020/EGY-LUX-425_obwqb6.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621020/EGY-LUX-425_obwqb6.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620961/EGY-LUX-531_tqbxiq.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620961/EGY-LUX-531_tqbxiq.jpg' }
+    ],
   },
   {
-    "region": "Africa",
-    "country": "Ethiopia",
-    "slug": "ethiopia",
-    "images": [
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Ethiopia/ETH-03-14-IMG_1203.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Ethiopia/ETH-03-14-IMG_1203.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Ethiopia/ETH-03-14-IMG_1327.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Ethiopia/ETH-03-14-IMG_1327.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Ethiopia/ETH-03-14-IMG_1671.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Ethiopia/ETH-03-14-IMG_1671.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Ethiopia/ETH-03-14-IMG_1851.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Ethiopia/ETH-03-14-IMG_1851.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Ethiopia/ETH-03-14-IMG_2202.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Ethiopia/ETH-03-14-IMG_2202.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Ethiopia/ETH-1076.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Ethiopia/ETH-1076.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Ethiopia/ETH-2206.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Ethiopia/ETH-2206.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Ethiopia/IMG_1428.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Ethiopia/IMG_1428.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Ethiopia/IMG_1615.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Ethiopia/IMG_1615.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Ethiopia/IMG_1755.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Ethiopia/IMG_1755.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Ethiopia/IMG_1852.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Ethiopia/IMG_1852.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Ethiopia/IMG_1923.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Ethiopia/IMG_1923.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Ethiopia/IMG_1930.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Ethiopia/IMG_1930.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Ethiopia/IMG_2057.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Ethiopia/IMG_2057.jpg"
-      }
-    ]
+    region: "Africa",
+    country: "Ethiopia",
+    slug: "ethiopia",
+    images: [
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621051/ETH-03-14-IMG_1203_ocemca.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621051/ETH-03-14-IMG_1203_ocemca.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621053/ETH-03-14-IMG_1327_pltrne.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621053/ETH-03-14-IMG_1327_pltrne.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621052/ETH-03-14-IMG_1671_t6fjfc.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621052/ETH-03-14-IMG_1671_t6fjfc.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621051/ETH-03-14-IMG_1851_mxvvrr.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621051/ETH-03-14-IMG_1851_mxvvrr.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621053/ETH-03-14-IMG_2202_vn1mwt.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621053/ETH-03-14-IMG_2202_vn1mwt.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621051/ETH-1076_epz2yh.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621051/ETH-1076_epz2yh.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621052/ETH-2206_lundkq.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621052/ETH-2206_lundkq.jpg' }
+    ],
   },
   {
-    "region": "Africa",
-    "country": "Morocco",
-    "slug": "morocco",
-    "images": [
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Morocco/IMG_5169.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Morocco/IMG_5169.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Morocco/IMG_5172.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Morocco/IMG_5172.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Morocco/IMG_5206.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Morocco/IMG_5206.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Morocco/IMG_5215.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Morocco/IMG_5215.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Morocco/IMG_5249.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Morocco/IMG_5249.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Morocco/IMG_5263-Website-2.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Morocco/IMG_5263-Website-2.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Morocco/MOR-05-16-IMG_5205.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Morocco/MOR-05-16-IMG_5205.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Morocco/MOR-5380-05-07-16.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Morocco/MOR-5380-05-07-16.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Morocco/MOR-IMG_5277.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Morocco/MOR-IMG_5277.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Morocco/Morocco-AlmostHome.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Morocco/Morocco-AlmostHome.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Morocco/Morocco-Hide%20n%20Seek.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Morocco/Morocco-Hide%20n%20Seek.jpg"
-      }
-    ]
+    region: "Africa",
+    country: "Namibia",
+    slug: "namibia",
+    images: [
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621040/NAM-03-18-DSCF3946_hd7bdg.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621040/NAM-03-18-DSCF3946_hd7bdg.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621042/NAM-03-18-DSCF3974-2_wisjdt.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621042/NAM-03-18-DSCF3974-2_wisjdt.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621042/NAM-03-18-DSCF3994-2_j52uxi.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621042/NAM-03-18-DSCF3994-2_j52uxi.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621041/NAM-03-18-DSCF4108_egoca5.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621041/NAM-03-18-DSCF4108_egoca5.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621043/NAM-03-18-DSCF4225_rf0ocf.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621043/NAM-03-18-DSCF4225_rf0ocf.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621045/NAM-11-22-DSCF8007_igcf5l.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621045/NAM-11-22-DSCF8007_igcf5l.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621043/NAM-11-22-DSCF8027_ww0n6i.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621043/NAM-11-22-DSCF8027_ww0n6i.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621044/NAM-11-22-DSCF8053_zbbdiv.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621044/NAM-11-22-DSCF8053_zbbdiv.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621043/NAM-11-22-DSCF8058_jyfppl.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621043/NAM-11-22-DSCF8058_jyfppl.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621041/NAM-11-22-DSCF8065_csokqz.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621041/NAM-11-22-DSCF8065_csokqz.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621041/NAM-11-22-DSCF8069_s0sfqh.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621041/NAM-11-22-DSCF8069_s0sfqh.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621041/NAM-11-22-DSCF8077_tl3ovq.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621041/NAM-11-22-DSCF8077_tl3ovq.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621042/NAM-11-22-DSCF8086_hzb2al.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621042/NAM-11-22-DSCF8086_hzb2al.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621040/NAM-11-22-DSCF8088_pzgoe6.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621040/NAM-11-22-DSCF8088_pzgoe6.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621044/NAM-11-22-DSCF8100_c36s7p.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621044/NAM-11-22-DSCF8100_c36s7p.jpg' }
+    ],
   },
   {
-    "region": "Africa",
-    "country": "Namibia",
-    "slug": "namibia",
-    "images": [
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Namibia/NAM-03-18-DSCF3946.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Namibia/NAM-03-18-DSCF3946.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Namibia/NAM-03-18-DSCF3974-2.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Namibia/NAM-03-18-DSCF3974-2.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Namibia/NAM-03-18-DSCF3994-2.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Namibia/NAM-03-18-DSCF3994-2.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Namibia/NAM-03-18-DSCF4108.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Namibia/NAM-03-18-DSCF4108.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Namibia/NAM-03-18-DSCF4225.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Namibia/NAM-03-18-DSCF4225.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Namibia/NAM-11-22-DSCF8007.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Namibia/NAM-11-22-DSCF8007.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Namibia/NAM-11-22-DSCF8027.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Namibia/NAM-11-22-DSCF8027.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Namibia/NAM-11-22-DSCF8053.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Namibia/NAM-11-22-DSCF8053.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Namibia/NAM-11-22-DSCF8058.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Namibia/NAM-11-22-DSCF8058.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Namibia/NAM-11-22-DSCF8065.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Namibia/NAM-11-22-DSCF8065.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Namibia/NAM-11-22-DSCF8069.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Namibia/NAM-11-22-DSCF8069.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Namibia/NAM-11-22-DSCF8077.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Namibia/NAM-11-22-DSCF8077.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Namibia/NAM-11-22-DSCF8086.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Namibia/NAM-11-22-DSCF8086.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Namibia/NAM-11-22-DSCF8088.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Namibia/NAM-11-22-DSCF8088.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/Namibia/NAM-11-22-DSCF8100.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/Namibia/NAM-11-22-DSCF8100.jpg"
-      }
-    ]
+    region: "Asia",
+    country: "Hong Kong",
+    slug: "hong-kong",
+    images: [
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620679/HK-04-07-17_v9g09f.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620679/HK-04-07-17_v9g09f.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620679/HK-04-07-17-3_xwlpuy.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620679/HK-04-07-17-3_xwlpuy.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620680/HK-04-17-_DSF5703_i2sokz.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620680/HK-04-17-_DSF5703_i2sokz.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620677/HK-04-17-_DSF5965_thdllx.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620677/HK-04-17-_DSF5965_thdllx.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620681/HK-04-17-_DSF6504_sknmxo.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620681/HK-04-17-_DSF6504_sknmxo.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620676/HK-5841_copy_oftjsq.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620676/HK-5841_copy_oftjsq.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620677/HK-5933-04-05-17_iypper.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620677/HK-5933-04-05-17_iypper.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620679/HK-5958-04-05-17_fk4wuo.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620679/HK-5958-04-05-17_fk4wuo.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620677/HK-5960-04-05-17_rrc3ik.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620677/HK-5960-04-05-17_rrc3ik.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620674/HK-6578_smezhl.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620674/HK-6578_smezhl.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620615/HK-DSF5841-Website-2_m9rpbk.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620615/HK-DSF5841-Website-2_m9rpbk.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620611/HK-DSF5841-Website-2_mvb5ya.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620611/HK-DSF5841-Website-2_mvb5ya.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620623/HK-DSF5841-Website-2.jpg-nggid03324-ngg0dyn-180x0-00f0w010c010r110f110r010t010_xwatei.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620623/HK-DSF5841-Website-2.jpg-nggid03324-ngg0dyn-180x0-00f0w010c010r110f110r010t010_xwatei.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620677/HK-Pastel_Playground_2-6570_xzsixb.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620677/HK-Pastel_Playground_2-6570_xzsixb.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620678/HK-Pastel_Playground_3-6617_ayxssd.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620678/HK-Pastel_Playground_3-6617_ayxssd.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620675/HK-Pastel_Playground_4-6559_yeil6k.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620675/HK-Pastel_Playground_4-6559_yeil6k.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620680/HK-Unexpected_perspective-6919_zzi74r.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620680/HK-Unexpected_perspective-6919_zzi74r.jpg' }
+    ],
   },
   {
-    "region": "Africa",
-    "country": "South Africa",
-    "slug": "south-africa",
-    "images": [
-      {
-        "desktop": "/Website%20beloveful.com/Africa/South%20Africa/DSCF6215.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/South%20Africa/DSCF6215.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/South%20Africa/DSCF6243.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/South%20Africa/DSCF6243.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/South%20Africa/SA-11-22-DSCF5758.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/South%20Africa/SA-11-22-DSCF5758.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/South%20Africa/SA-11-22-DSCF5766.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/South%20Africa/SA-11-22-DSCF5766.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/South%20Africa/SA-11-22-DSCF5770.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/South%20Africa/SA-11-22-DSCF5770.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/South%20Africa/SA-11-22-DSCF5780.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/South%20Africa/SA-11-22-DSCF5780.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/South%20Africa/SA-11-22-DSCF5838.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/South%20Africa/SA-11-22-DSCF5838.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/South%20Africa/SA-11-22-DSCF5864.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/South%20Africa/SA-11-22-DSCF5864.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/South%20Africa/SA-11-22-DSCF5894.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/South%20Africa/SA-11-22-DSCF5894.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/South%20Africa/SA-11-22-DSCF5926.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/South%20Africa/SA-11-22-DSCF5926.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/South%20Africa/SA-11-22-DSCF5932.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/South%20Africa/SA-11-22-DSCF5932.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/South%20Africa/SA-11-22-DSCF6142.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/South%20Africa/SA-11-22-DSCF6142.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/South%20Africa/SA-11-22-DSCF6201.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/South%20Africa/SA-11-22-DSCF6201.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/South%20Africa/SA-11-22-DSCF6210.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/South%20Africa/SA-11-22-DSCF6210.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/South%20Africa/SA-11-22-DSCF6237.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/South%20Africa/SA-11-22-DSCF6237.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Africa/South%20Africa/SA-11-22-DSCF6247.jpg",
-        "mobile": "/Website%20beloveful.com/Africa/South%20Africa/SA-11-22-DSCF6247.jpg"
-      }
-    ]
+    region: "Asia",
+    country: "India",
+    slug: "india",
+    images: [
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620687/IND-0027_l6zus5.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620687/IND-0027_l6zus5.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620729/IND-0027.jpg-nggid03263-ngg0dyn-180x0-00f0w010c010r110f110r010t010_nqexkq.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620729/IND-0027.jpg-nggid03263-ngg0dyn-180x0-00f0w010c010r110f110r010t010_nqexkq.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620689/IND-0202_gj5d4a.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620689/IND-0202_gj5d4a.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620718/IND-0202.jpg-nggid03264-ngg0dyn-0x360-00f0w010c010r110f110r010t010_s8jmth.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620718/IND-0202.jpg-nggid03264-ngg0dyn-0x360-00f0w010c010r110f110r010t010_s8jmth.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620700/IND-3013_ifykat.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620700/IND-3013_ifykat.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620718/IND-3013.jpg-nggid03265-ngg0dyn-180x0-00f0w010c010r110f110r010t010_yogbgm.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620718/IND-3013.jpg-nggid03265-ngg0dyn-180x0-00f0w010c010r110f110r010t010_yogbgm.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620703/IND-4213_iirx43.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620703/IND-4213_iirx43.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620728/IND-4213.jpg-nggid03266-ngg0dyn-0x360-00f0w010c010r110f110r010t010_mt21zi.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620728/IND-4213.jpg-nggid03266-ngg0dyn-0x360-00f0w010c010r110f110r010t010_mt21zi.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620701/IND-4233_ffnxfc.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620701/IND-4233_ffnxfc.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620718/IND-4233.jpg-nggid03267-ngg0dyn-180x0-00f0w010c010r110f110r010t010_opadzm.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620718/IND-4233.jpg-nggid03267-ngg0dyn-180x0-00f0w010c010r110f110r010t010_opadzm.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620691/IND-4681_ff4s7x.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620691/IND-4681_ff4s7x.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620807/IND-4681_rh0wgo.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620807/IND-4681_rh0wgo.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620690/IND-4681_rugh2g.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620690/IND-4681_rugh2g.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620808/IND-4681_tvjvc1.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620808/IND-4681_tvjvc1.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620714/IND-4681.jpg-nggid03268-ngg0dyn-0x360-00f0w010c010r110f110r010t010_m8hyue.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620714/IND-4681.jpg-nggid03268-ngg0dyn-0x360-00f0w010c010r110f110r010t010_m8hyue.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620814/IND-4681.jpg-nggid03296-ngg0dyn-0x360-00f0w010c010r110f110r010t010_pnhgzy.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620814/IND-4681.jpg-nggid03296-ngg0dyn-0x360-00f0w010c010r110f110r010t010_pnhgzy.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620711/IND-4740_c5rfdh.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620711/IND-4740_c5rfdh.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620697/IND-4740_ygewwy.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620697/IND-4740_ygewwy.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620738/IND-4740.jpg-nggid03269-ngg0dyn-180x0-00f0w010c010r110f110r010t010_wqreuz.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620738/IND-4740.jpg-nggid03269-ngg0dyn-180x0-00f0w010c010r110f110r010t010_wqreuz.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620703/IND-5525_hd10xe.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620703/IND-5525_hd10xe.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620723/IND-5525.jpg-nggid03270-ngg0dyn-180x0-00f0w010c010r110f110r010t010_jl9s68.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620723/IND-5525.jpg-nggid03270-ngg0dyn-180x0-00f0w010c010r110f110r010t010_jl9s68.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620726/IND-5563.jpg-nggid03271-ngg0dyn-180x0-00f0w010c010r110f110r010t010_mrozny.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620726/IND-5563.jpg-nggid03271-ngg0dyn-180x0-00f0w010c010r110f110r010t010_mrozny.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620696/IND-6034_qjoykd.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620696/IND-6034_qjoykd.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620684/IND-6034_tzbe5g.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620684/IND-6034_tzbe5g.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620720/IND-6034.jpg-nggid03280-ngg0dyn-180x0-00f0w010c010r110f110r010t010_kilx9s.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620720/IND-6034.jpg-nggid03280-ngg0dyn-180x0-00f0w010c010r110f110r010t010_kilx9s.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620691/IND-6198_jogvpt.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620691/IND-6198_jogvpt.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620734/IND-6198.jpg-nggid03279-ngg0dyn-180x0-00f0w010c010r110f110r010t010_gopme1.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620734/IND-6198.jpg-nggid03279-ngg0dyn-180x0-00f0w010c010r110f110r010t010_gopme1.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620693/IND-6285_qvtsq6.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620693/IND-6285_qvtsq6.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620692/IND-6285_shwuxq.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620692/IND-6285_shwuxq.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620718/IND-6285.jpg-nggid03278-ngg0dyn-0x360-00f0w010c010r110f110r010t010_dyod0b.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620718/IND-6285.jpg-nggid03278-ngg0dyn-0x360-00f0w010c010r110f110r010t010_dyod0b.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620741/IND-6285.jpg-nggid03278-ngg0dyn-180x0-00f0w010c010r110f110r010t010_mp3zhl.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620741/IND-6285.jpg-nggid03278-ngg0dyn-180x0-00f0w010c010r110f110r010t010_mp3zhl.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620703/IND-6783_ptuqta.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620703/IND-6783_ptuqta.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620691/IND-6783_uou9za.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620691/IND-6783_uou9za.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620730/IND-6783.jpg-nggid03277-ngg0dyn-180x0-00f0w010c010r110f110r010t010_drbow4.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620730/IND-6783.jpg-nggid03277-ngg0dyn-180x0-00f0w010c010r110f110r010t010_drbow4.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620703/IND-7032-Website-2_w2frde.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620703/IND-7032-Website-2_w2frde.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620723/IND-7032-Website-2.jpg-nggid03276-ngg0dyn-0x360-00f0w010c010r110f110r010t010_uirb74.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620723/IND-7032-Website-2.jpg-nggid03276-ngg0dyn-0x360-00f0w010c010r110f110r010t010_uirb74.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620716/IND-7032-Website-2.jpg-nggid03276-ngg0dyn-180x0-00f0w010c010r110f110r010t010_wpbyvd.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620716/IND-7032-Website-2.jpg-nggid03276-ngg0dyn-180x0-00f0w010c010r110f110r010t010_wpbyvd.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620698/IND-7032-Website-3_ry3zq8.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620698/IND-7032-Website-3_ry3zq8.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620685/IND-7032-Website-3_ywt48u.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620685/IND-7032-Website-3_ywt48u.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620694/IND-7059_ouwbjp.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620694/IND-7059_ouwbjp.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620700/IND-7059_sexjw1.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620700/IND-7059_sexjw1.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620727/IND-7059.jpg-nggid03275-ngg0dyn-180x0-00f0w010c010r110f110r010t010_b7eobg.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620727/IND-7059.jpg-nggid03275-ngg0dyn-180x0-00f0w010c010r110f110r010t010_b7eobg.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620693/IND-7067_oge5zw.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620693/IND-7067_oge5zw.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620717/IND-7067.jpg-nggid03274-ngg0dyn-0x360-00f0w010c010r110f110r010t010_qs456f.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620717/IND-7067.jpg-nggid03274-ngg0dyn-0x360-00f0w010c010r110f110r010t010_qs456f.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620739/IND-7067.jpg-nggid03274-ngg0dyn-180x0-00f0w010c010r110f110r010t010_ixgzge.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620739/IND-7067.jpg-nggid03274-ngg0dyn-180x0-00f0w010c010r110f110r010t010_ixgzge.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620686/IND-7083_tzp0gh.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620686/IND-7083_tzp0gh.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620744/IND-7083.jpg-nggid03273-ngg0dyn-180x0-00f0w010c010r110f110r010t010_xhiogf.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620744/IND-7083.jpg-nggid03273-ngg0dyn-180x0-00f0w010c010r110f110r010t010_xhiogf.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620690/IND-7351_i9elxy.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620690/IND-7351_i9elxy.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620699/IND-7597_fzp92k.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620699/IND-7597_fzp92k.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620707/IND-7597_zxvqa5.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620707/IND-7597_zxvqa5.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620697/IND-9375_lzyvap.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620697/IND-9375_lzyvap.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620705/IND-9375_uesbjr.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620705/IND-9375_uesbjr.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620611/IND-MadameJodhpur-copy_bmaq15.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620611/IND-MadameJodhpur-copy_bmaq15.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620606/IND-MadameJodhpur-copy_drvdld.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620606/IND-MadameJodhpur-copy_drvdld.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620622/IND-MadameJodhpur-copy.jpg-nggid03313-ngg0dyn-120x90-00f0w010c011r110f110r010t010_qoo7rm.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620622/IND-MadameJodhpur-copy.jpg-nggid03313-ngg0dyn-120x90-00f0w010c011r110f110r010t010_qoo7rm.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620664/IND-MadameJodhpur-copy.jpg-nggid03313-ngg0dyn-180x0-00f0w010c010r110f110r010t010_qpwoc9.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620664/IND-MadameJodhpur-copy.jpg-nggid03313-ngg0dyn-180x0-00f0w010c010r110f110r010t010_qpwoc9.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620611/IND-MeniasTony_14_ti6mbj.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620611/IND-MeniasTony_14_ti6mbj.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759466072/IND-MeniasTony_14_uqvgsq.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759466072/IND-MeniasTony_14_uqvgsq.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620618/IND-MeniasTony_14_wpf8iz.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620618/IND-MeniasTony_14_wpf8iz.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620629/IND-MeniasTony_14.jpg-nggid03312-ngg0dyn-120x90-00f0w010c011r110f110r010t010_ce3tlo.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620629/IND-MeniasTony_14.jpg-nggid03312-ngg0dyn-120x90-00f0w010c011r110f110r010t010_ce3tlo.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620624/IND-MeniasTony_14.jpg-nggid03312-ngg0dyn-180x0-00f0w010c010r110f110r010t010_mtsm6f.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620624/IND-MeniasTony_14.jpg-nggid03312-ngg0dyn-180x0-00f0w010c010r110f110r010t010_mtsm6f.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620616/IND-MeniasTony_16_bggyhp.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620616/IND-MeniasTony_16_bggyhp.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759466086/IND-MeniasTony_16_lp3vsf.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759466086/IND-MeniasTony_16_lp3vsf.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620616/IND-MeniasTony_16_qgxdfw.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620616/IND-MeniasTony_16_qgxdfw.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620662/IND-MeniasTony_16.jpg-nggid03311-ngg0dyn-120x90-00f0w010c011r110f110r010t010_etqpnw.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620662/IND-MeniasTony_16.jpg-nggid03311-ngg0dyn-120x90-00f0w010c011r110f110r010t010_etqpnw.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620625/IND-MeniasTony_16.jpg-nggid03311-ngg0dyn-180x0-00f0w010c010r110f110r010t010_o0avxw.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620625/IND-MeniasTony_16.jpg-nggid03311-ngg0dyn-180x0-00f0w010c010r110f110r010t010_o0avxw.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759466089/IND-MeniasTony_8_kfjhfw.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759466089/IND-MeniasTony_8_kfjhfw.jpg' }
+    ],
   },
   {
-    "region": "Asia",
-    "country": "Hong Kong",
-    "slug": "hong-kong",
-    "images": [
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Hong%20Kong/_DSF5646-2.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Hong%20Kong/_DSF5646-2.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Hong%20Kong/_DSF6254.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Hong%20Kong/_DSF6254.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Hong%20Kong/_DSF6743-2.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Hong%20Kong/_DSF6743-2.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Hong%20Kong/_DSF6882.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Hong%20Kong/_DSF6882.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Hong%20Kong/_DSF6933.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Hong%20Kong/_DSF6933.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Hong%20Kong/HK-04-07-17-3.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Hong%20Kong/HK-04-07-17-3.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Hong%20Kong/HK-04-07-17.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Hong%20Kong/HK-04-07-17.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Hong%20Kong/HK-04-17-_DSF5703.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Hong%20Kong/HK-04-17-_DSF5703.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Hong%20Kong/HK-04-17-_DSF5965.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Hong%20Kong/HK-04-17-_DSF5965.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Hong%20Kong/HK-04-17-_DSF6504.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Hong%20Kong/HK-04-17-_DSF6504.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Hong%20Kong/HK-5841%20copy.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Hong%20Kong/HK-5841%20copy.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Hong%20Kong/HK-5933-04-05-17.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Hong%20Kong/HK-5933-04-05-17.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Hong%20Kong/HK-5958-04-05-17.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Hong%20Kong/HK-5958-04-05-17.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Hong%20Kong/HK-5960-04-05-17.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Hong%20Kong/HK-5960-04-05-17.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Hong%20Kong/HK-6578.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Hong%20Kong/HK-6578.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Hong%20Kong/HK-Pastel%20Playground%202-6570.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Hong%20Kong/HK-Pastel%20Playground%202-6570.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Hong%20Kong/HK-Pastel%20Playground%203-6617.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Hong%20Kong/HK-Pastel%20Playground%203-6617.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Hong%20Kong/HK-Pastel%20Playground%204-6559.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Hong%20Kong/HK-Pastel%20Playground%204-6559.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Hong%20Kong/HK-Unexpected%20perspective-6919.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Hong%20Kong/HK-Unexpected%20perspective-6919.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Hong%20Kong/Pastel%20Playground.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Hong%20Kong/Pastel%20Playground.jpg"
-      }
-    ]
+    region: "Asia",
+    country: "Japan",
+    slug: "japan",
+    images: [
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620804/JAP-03-17-_DSF2579_jgpine.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620804/JAP-03-17-_DSF2579_jgpine.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620801/JAP-03-17-_DSF2807_h7noxi.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620801/JAP-03-17-_DSF2807_h7noxi.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620805/JAP-03-17-_DSF2819_awss97.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620805/JAP-03-17-_DSF2819_awss97.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620803/JAP-03-17-_DSF2918_rkcvov.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620803/JAP-03-17-_DSF2918_rkcvov.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620804/JAP-03-17-_DSF3067-Enhanced-NR_lolbrt.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620804/JAP-03-17-_DSF3067-Enhanced-NR_lolbrt.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620805/JAP-03-17-_DSF3101_cyash8.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620805/JAP-03-17-_DSF3101_cyash8.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620805/JAP-03-17-_DSF3291_eqvftc.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620805/JAP-03-17-_DSF3291_eqvftc.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620802/JAP-2670_lcbqlv.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620802/JAP-2670_lcbqlv.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620801/JAP-3065_ej4dqf.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620801/JAP-3065_ej4dqf.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620800/JAP-3107_yluc7l.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620800/JAP-3107_yluc7l.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620619/JAP-3265_wlfvhp.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620619/JAP-3265_wlfvhp.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759466070/JAP-3265_zrv1pe.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759466070/JAP-3265_zrv1pe.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620604/JAP-3265_zy7d74.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620604/JAP-3265_zy7d74.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620658/JAP-3265.jpg-nggid03309-ngg0dyn-120x90-00f0w010c011r110f110r010t010_may0cv.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620658/JAP-3265.jpg-nggid03309-ngg0dyn-120x90-00f0w010c011r110f110r010t010_may0cv.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620631/JAP-3265.jpg-nggid03309-ngg0dyn-180x0-00f0w010c010r110f110r010t010_nf5oyz.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620631/JAP-3265.jpg-nggid03309-ngg0dyn-180x0-00f0w010c010r110f110r010t010_nf5oyz.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620800/JAP-3291_a2rdvn.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620800/JAP-3291_a2rdvn.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620804/JAP-3521-03-17-_DSF3520-Enhanced-NR_abrsod.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620804/JAP-3521-03-17-_DSF3520-Enhanced-NR_abrsod.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620802/JAP-3608_gnylxy.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620802/JAP-3608_gnylxy.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620804/JAP-3636-03-24-17_m2s1dz.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620804/JAP-3636-03-24-17_m2s1dz.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620801/JAP-4028_xdk6sm.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620801/JAP-4028_xdk6sm.jpg' }
+    ],
   },
   {
-    "region": "Asia",
-    "country": "Japan",
-    "slug": "japan",
-    "images": [
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Japan/_DSF2956.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Japan/_DSF2956.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Japan/_DSF3121.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Japan/_DSF3121.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Japan/_DSF3449%20copy.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Japan/_DSF3449%20copy.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Japan/JAP-03-17-_DSF2579.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Japan/JAP-03-17-_DSF2579.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Japan/JAP-03-17-_DSF2807.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Japan/JAP-03-17-_DSF2807.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Japan/JAP-03-17-_DSF2819.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Japan/JAP-03-17-_DSF2819.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Japan/JAP-03-17-_DSF2918.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Japan/JAP-03-17-_DSF2918.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Japan/JAP-03-17-_DSF3067-Enhanced-NR.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Japan/JAP-03-17-_DSF3067-Enhanced-NR.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Japan/JAP-03-17-_DSF3101.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Japan/JAP-03-17-_DSF3101.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Japan/JAP-03-17-_DSF3291.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Japan/JAP-03-17-_DSF3291.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Japan/JAP-2670.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Japan/JAP-2670.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Japan/JAP-3065.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Japan/JAP-3065.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Japan/JAP-3107.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Japan/JAP-3107.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Japan/JAP-3291.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Japan/JAP-3291.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Japan/JAP-3521-03-17-_DSF3520-Enhanced-NR.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Japan/JAP-3521-03-17-_DSF3520-Enhanced-NR.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Japan/JAP-3608.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Japan/JAP-3608.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Japan/JAP-3636-03-24-17.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Japan/JAP-3636-03-24-17.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Japan/JAP-4028.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Japan/JAP-4028.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Japan/Japan.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Japan/Japan.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Japan/WanderingPaths.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Japan/WanderingPaths.jpg"
-      }
-    ]
+    region: "Asia",
+    country: "Myanmar",
+    slug: "myanmar",
+    images: [
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620822/MYA-0098-04-26-17_cimava.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620822/MYA-0098-04-26-17_cimava.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620826/MYA-0287-04-28-17_ksekuq.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620826/MYA-0287-04-28-17_ksekuq.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620827/MYA-04-17-DSCF0068_svqwrr.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620827/MYA-04-17-DSCF0068_svqwrr.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620825/MYA-0829_asdd3w.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620825/MYA-0829_asdd3w.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620827/MYA-0839_gligvf.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620827/MYA-0839_gligvf.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620827/MYA-1292_dclmsa.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620827/MYA-1292_dclmsa.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620823/MYA-9588_wgu2bq.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620823/MYA-9588_wgu2bq.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620829/MYA-9925-04-25-17_edkog3.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620829/MYA-9925-04-25-17_edkog3.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620824/MYA-Breathe-0668_kimelh.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620824/MYA-Breathe-0668_kimelh.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620828/MYA-DSCF0329_lrdjuo.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620828/MYA-DSCF0329_lrdjuo.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759466083/MYA-DSCF0783_copy_poimdy.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759466083/MYA-DSCF0783_copy_poimdy.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620823/MYA-DSCF0783_svezte.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620823/MYA-DSCF0783_svezte.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620601/MYA-DSCF0783-copy_dpjrbi.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620601/MYA-DSCF0783-copy_dpjrbi.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620609/MYA-DSCF0783-copy_dxu51c.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620609/MYA-DSCF0783-copy_dxu51c.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620620/MYA-DSCF0783-copy.jpg-nggid03306-ngg0dyn-120x90-00f0w010c011r110f110r010t010_h0z5ko.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620620/MYA-DSCF0783-copy.jpg-nggid03306-ngg0dyn-120x90-00f0w010c011r110f110r010t010_h0z5ko.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620627/MYA-DSCF0783-copy.jpg-nggid03306-ngg0dyn-180x0-00f0w010c010r110f110r010t010_lsdgkt.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620627/MYA-DSCF0783-copy.jpg-nggid03306-ngg0dyn-180x0-00f0w010c010r110f110r010t010_lsdgkt.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759466079/MYA-DSCF9634_copy_ftq8wd.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759466079/MYA-DSCF9634_copy_ftq8wd.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620827/MYA-Morning_Catch_gddpsa.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620827/MYA-Morning_Catch_gddpsa.jpg' }
+    ],
   },
   {
-    "region": "Asia",
-    "country": "Myanmar",
-    "slug": "myanmar",
-    "images": [
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Myanmar/Bridge%20to%20Enlightenment.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Myanmar/Bridge%20to%20Enlightenment.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Myanmar/DSCF0086-2.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Myanmar/DSCF0086-2.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Myanmar/DSCF0098%20copy.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Myanmar/DSCF0098%20copy.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Myanmar/DSCF0214%20copy.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Myanmar/DSCF0214%20copy.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Myanmar/DSCF0467.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Myanmar/DSCF0467.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Myanmar/DSCF0474.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Myanmar/DSCF0474.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Myanmar/DSCF0506.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Myanmar/DSCF0506.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Myanmar/DSCF0743.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Myanmar/DSCF0743.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Myanmar/DSCF0817.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Myanmar/DSCF0817.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Myanmar/DSCF0839-Website-2.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Myanmar/DSCF0839-Website-2.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Myanmar/DSCF1006-2.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Myanmar/DSCF1006-2.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Myanmar/DSCF1056.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Myanmar/DSCF1056.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Myanmar/DSCF1206.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Myanmar/DSCF1206.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Myanmar/DSCF9240.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Myanmar/DSCF9240.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Myanmar/DSCF9634.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Myanmar/DSCF9634.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Myanmar/DSCF9828.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Myanmar/DSCF9828.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Myanmar/DSCF9886.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Myanmar/DSCF9886.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Myanmar/DSCF9932.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Myanmar/DSCF9932.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Myanmar/Enlightened.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Myanmar/Enlightened.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Myanmar/MYA-04-17-DSCF0068.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Myanmar/MYA-04-17-DSCF0068.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Myanmar/MYA-0098-04-26-17.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Myanmar/MYA-0098-04-26-17.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Myanmar/MYA-0287-04-28-17.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Myanmar/MYA-0287-04-28-17.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Myanmar/MYA-0829.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Myanmar/MYA-0829.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Myanmar/MYA-0839.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Myanmar/MYA-0839.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Myanmar/MYA-1292.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Myanmar/MYA-1292.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Myanmar/MYA-9588.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Myanmar/MYA-9588.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Myanmar/MYA-9925-04-25-17.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Myanmar/MYA-9925-04-25-17.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Myanmar/MYA-Breathe-0668.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Myanmar/MYA-Breathe-0668.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Myanmar/MYA-DSCF0329.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Myanmar/MYA-DSCF0329.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Myanmar/MYA-DSCF0783.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Myanmar/MYA-DSCF0783.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Myanmar/MYA-Morning%20Catch.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Myanmar/MYA-Morning%20Catch.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Myanmar/Serendipity.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Myanmar/Serendipity.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Myanmar/Tony%20Menias-Fly.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Myanmar/Tony%20Menias-Fly.jpg"
-      }
-    ]
+    region: "Asia",
+    country: "Nepal",
+    slug: "nepal",
+    images: [
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620831/NEP-8516_y3e2nt.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620831/NEP-8516_y3e2nt.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620832/NEP-8553_fxnxqo.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620832/NEP-8553_fxnxqo.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620831/NEP-8558_qza5ne.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620831/NEP-8558_qza5ne.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620830/NEP-8701_spc74d.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620830/NEP-8701_spc74d.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620832/NEP-8794_gv7u6z.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620832/NEP-8794_gv7u6z.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620829/NEP-DSCF8289_ztdqsq.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620829/NEP-DSCF8289_ztdqsq.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759466087/NEP-DSCF8737_copy_thwoaw.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759466087/NEP-DSCF8737_copy_thwoaw.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620829/NEP-DSCF8737_xpxqsv.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620829/NEP-DSCF8737_xpxqsv.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620614/NEP-DSCF8737-copy_j1hbcy.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620614/NEP-DSCF8737-copy_j1hbcy.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620609/NEP-DSCF8737-copy_xit7df.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620609/NEP-DSCF8737-copy_xit7df.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620628/NEP-DSCF8737-copy.jpg-nggid03303-ngg0dyn-120x90-00f0w010c011r110f110r010t010_rcxdv3.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620628/NEP-DSCF8737-copy.jpg-nggid03303-ngg0dyn-120x90-00f0w010c011r110f110r010t010_rcxdv3.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620663/NEP-DSCF8737-copy.jpg-nggid03303-ngg0dyn-180x0-00f0w010c010r110f110r010t010_ohtp7j.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620663/NEP-DSCF8737-copy.jpg-nggid03303-ngg0dyn-180x0-00f0w010c010r110f110r010t010_ohtp7j.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759466088/NEP-Silent_Stare_copy_a8leit.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759466088/NEP-Silent_Stare_copy_a8leit.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620828/NEP-Silent_Stare_zde6db.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620828/NEP-Silent_Stare_zde6db.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620617/NEP-Silent-Stare-copy_cybppv.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620617/NEP-Silent-Stare-copy_cybppv.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620601/NEP-Silent-Stare-copy_z7kkuy.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620601/NEP-Silent-Stare-copy_z7kkuy.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620619/NEP-Silent-Stare-copy.jpg-nggid03301-ngg0dyn-120x90-00f0w010c011r110f110r010t010_bhunfp.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620619/NEP-Silent-Stare-copy.jpg-nggid03301-ngg0dyn-120x90-00f0w010c011r110f110r010t010_bhunfp.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620663/NEP-Silent-Stare-copy.jpg-nggid03301-ngg0dyn-180x0-00f0w010c010r110f110r010t010_jof63m.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620663/NEP-Silent-Stare-copy.jpg-nggid03301-ngg0dyn-180x0-00f0w010c010r110f110r010t010_jof63m.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620831/NPL-8750_lspnpu.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620831/NPL-8750_lspnpu.jpg' }
+    ],
   },
   {
-    "region": "Asia",
-    "country": "Nepal",
-    "slug": "nepal",
-    "images": [
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Nepal/DSCF8230.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Nepal/DSCF8230.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Nepal/DSCF8466.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Nepal/DSCF8466.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Nepal/DSCF8726.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Nepal/DSCF8726.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Nepal/NEP-8516.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Nepal/NEP-8516.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Nepal/NEP-8553.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Nepal/NEP-8553.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Nepal/NEP-8558.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Nepal/NEP-8558.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Nepal/NEP-8701.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Nepal/NEP-8701.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Nepal/NEP-8794.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Nepal/NEP-8794.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Nepal/NEP-DSCF8289.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Nepal/NEP-DSCF8289.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Nepal/NEP-DSCF8737.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Nepal/NEP-DSCF8737.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Nepal/NEP-Silent%20Stare.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Nepal/NEP-Silent%20Stare.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Nepal/NPL-8750.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Nepal/NPL-8750.jpg"
-      }
-    ]
+    region: "Asia",
+    country: "Philippines",
+    slug: "philippines",
+    images: [
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620848/PHI-0660_ddvhjq.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620848/PHI-0660_ddvhjq.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620861/PHI-0660_vupz0p.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620861/PHI-0660_vupz0p.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620845/PHI-1052_kda8vf.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620845/PHI-1052_kda8vf.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620846/PHI-1052_ppou11.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620846/PHI-1052_ppou11.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620849/PHI-1157_hr7aoi.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620849/PHI-1157_hr7aoi.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620859/PHI-1157_ztn3ew.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620859/PHI-1157_ztn3ew.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620851/PHI-1179_evl7yj.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620851/PHI-1179_evl7yj.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620855/PHI-1179_oyh2ib.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620855/PHI-1179_oyh2ib.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620857/PHI-12-19-DSCF0399_fvtubt.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620857/PHI-12-19-DSCF0399_fvtubt.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620853/PHI-12-19-DSCF0399_omgyi8.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620853/PHI-12-19-DSCF0399_omgyi8.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620850/PHI-12-19-DSCF1239_k8avfm.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620850/PHI-12-19-DSCF1239_k8avfm.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620859/PHI-12-19-DSCF1239_l3qcjj.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620859/PHI-12-19-DSCF1239_l3qcjj.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620847/PHI-12-19-DSCF1329_lwv2fm.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620847/PHI-12-19-DSCF1329_lwv2fm.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620858/PHI-12-19-DSCF1329_lzhtok.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620858/PHI-12-19-DSCF1329_lzhtok.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620850/PHI-12-19-DSCF1453_bj40gb.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620850/PHI-12-19-DSCF1453_bj40gb.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620846/PHI-12-19-DSCF1453_zjahji.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620846/PHI-12-19-DSCF1453_zjahji.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620844/PHI-12-19-DSCF2268_gntd1y.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620844/PHI-12-19-DSCF2268_gntd1y.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620849/PHI-12-19-DSCF2268_zxctur.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620849/PHI-12-19-DSCF2268_zxctur.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620858/PHI-12-19-DSCF8950_uwz1oc.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620858/PHI-12-19-DSCF8950_uwz1oc.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620852/PHI-12-19-DSCF8950_zm4ybs.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620852/PHI-12-19-DSCF8950_zm4ybs.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759466074/PHI-1662_copy_tmaoz6.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759466074/PHI-1662_copy_tmaoz6.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620846/PHI-1662_odkrbz.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620846/PHI-1662_odkrbz.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620854/PHI-1662_xft2m7.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620854/PHI-1662_xft2m7.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620600/PHI-1662-copy_eojyfm.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620600/PHI-1662-copy_eojyfm.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620611/PHI-1662-copy_qlf90s.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620611/PHI-1662-copy_qlf90s.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620619/PHI-1662-copy.jpg-nggid03302-ngg0dyn-120x90-00f0w010c011r110f110r010t010_tptll6.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620619/PHI-1662-copy.jpg-nggid03302-ngg0dyn-120x90-00f0w010c011r110f110r010t010_tptll6.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620659/PHI-1662-copy.jpg-nggid03302-ngg0dyn-180x0-00f0w010c010r110f110r010t010_xadovi.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620659/PHI-1662-copy.jpg-nggid03302-ngg0dyn-180x0-00f0w010c010r110f110r010t010_xadovi.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620846/PHI-2070_gkusmu.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620846/PHI-2070_gkusmu.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620847/PHI-2070_n1xsch.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620847/PHI-2070_n1xsch.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620612/PHI-2331_aonz6h.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620612/PHI-2331_aonz6h.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620852/PHI-2331_cmrmat.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620852/PHI-2331_cmrmat.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620605/PHI-2331_lrp5pu.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620605/PHI-2331_lrp5pu.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620856/PHI-2331_no1pev.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620856/PHI-2331_no1pev.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620626/PHI-2331.jpg-nggid03323-ngg0dyn-180x0-00f0w010c010r110f110r010t010_tvkzgq.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620626/PHI-2331.jpg-nggid03323-ngg0dyn-180x0-00f0w010c010r110f110r010t010_tvkzgq.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620853/PHI-9214_hygrzm.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620853/PHI-9214_hygrzm.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620854/PHI-9214_mijyiq.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620854/PHI-9214_mijyiq.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620851/PHI-9525_brxlr2.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620851/PHI-9525_brxlr2.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620853/PHI-9525_defhnk.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620853/PHI-9525_defhnk.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620856/PHI-9879-copy_s0mex7.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620856/PHI-9879-copy_s0mex7.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620854/PHI-9879-copy_synnev.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620854/PHI-9879-copy_synnev.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620844/PHI-9895_lawc2h.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620844/PHI-9895_lawc2h.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620858/PHI-9895_wnvbet.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620858/PHI-9895_wnvbet.jpg' }
+    ],
   },
   {
-    "region": "Asia",
-    "country": "Thailand",
-    "slug": "thailand",
-    "images": [
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Thailand/_DSF4410.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Thailand/_DSF4410.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Thailand/_DSF4413%20(1).jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Thailand/_DSF4413%20(1).jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Thailand/_DSF4413.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Thailand/_DSF4413.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Thailand/_DSF4670.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Thailand/_DSF4670.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Thailand/_DSF4784.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Thailand/_DSF4784.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Thailand/_DSF4863.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Thailand/_DSF4863.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Thailand/_DSF4899.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Thailand/_DSF4899.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Thailand/_DSF5070.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Thailand/_DSF5070.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Thailand/DSCF2498-Website-2.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Thailand/DSCF2498-Website-2.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Thailand/DSCF2520.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Thailand/DSCF2520.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Thailand/DSCF3146.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Thailand/DSCF3146.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Thailand/DSCF3152.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Thailand/DSCF3152.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Thailand/DSCF3654.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Thailand/DSCF3654.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Thailand/DSCF3700.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Thailand/DSCF3700.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Thailand/DSCF3846.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Thailand/DSCF3846.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Thailand/DSCF3890.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Thailand/DSCF3890.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Thailand/DSCF4676.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Thailand/DSCF4676.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Thailand/Simpler%20Times.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Thailand/Simpler%20Times.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Thailand/THA-2687.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Thailand/THA-2687.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Thailand/THA-2780.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Thailand/THA-2780.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Thailand/THA-3538.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Thailand/THA-3538.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Thailand/THAI-01-20-DSCF4704.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Thailand/THAI-01-20-DSCF4704.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Thailand/THAI-2.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Thailand/THAI-2.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Thailand/THAI-03-17-_DSF4784.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Thailand/THAI-03-17-_DSF4784.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Thailand/THAI-04-17-_DSF5575.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Thailand/THAI-04-17-_DSF5575.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Thailand/THAI-12-19-DSCF2334.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Thailand/THAI-12-19-DSCF2334.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Thailand/THAI-12-19-DSCF2460.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Thailand/THAI-12-19-DSCF2460.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Thailand/THAI-12-19-DSCF2498.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Thailand/THAI-12-19-DSCF2498.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Thailand/THAI-12-19-DSCF2642.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Thailand/THAI-12-19-DSCF2642.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Thailand/THAI-12-19-DSCF3051.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Thailand/THAI-12-19-DSCF3051.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Thailand/THAI-12-19-DSCF3863.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Thailand/THAI-12-19-DSCF3863.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Thailand/THAI-3302.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Thailand/THAI-3302.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Thailand/THAI-3405.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Thailand/THAI-3405.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Thailand/THAI-3571.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Thailand/THAI-3571.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Thailand/THAI-4383.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Thailand/THAI-4383.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Thailand/THAII-12-19-DSCF3053.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Thailand/THAII-12-19-DSCF3053.jpg"
-      }
-    ]
+    region: "Asia",
+    country: "Thailand",
+    slug: "thailand",
+    images: [
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620838/THAI-01-20-DSCF4704_aq3qsy.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620838/THAI-01-20-DSCF4704_aq3qsy.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620843/THAI-03-17-_DSF4784_tgnnda.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620843/THAI-03-17-_DSF4784_tgnnda.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620839/THAI-04-17-_DSF5575_zh6ue5.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620839/THAI-04-17-_DSF5575_zh6ue5.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620843/THAI-12-19-DSCF2334_jk2cwl.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620843/THAI-12-19-DSCF2334_jk2cwl.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620837/THAI-12-19-DSCF2460_x1i9r7.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620837/THAI-12-19-DSCF2460_x1i9r7.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620838/THAI-12-19-DSCF2498_qins6j.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620838/THAI-12-19-DSCF2498_qins6j.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620838/THAI-12-19-DSCF2642_cvmqzq.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620838/THAI-12-19-DSCF2642_cvmqzq.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620839/THAI-12-19-DSCF3051_pctgo1.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620839/THAI-12-19-DSCF3051_pctgo1.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620843/THAI-12-19-DSCF3863_sc10lu.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620843/THAI-12-19-DSCF3863_sc10lu.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620840/THAI-2_u2k6p1.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620840/THAI-2_u2k6p1.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620840/THAI-3302_qgmz1j.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620840/THAI-3302_qgmz1j.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620841/THAI-3405_ue9gcu.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620841/THAI-3405_ue9gcu.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620612/THAI-3571_dhw0i0.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620612/THAI-3571_dhw0i0.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620603/THAI-3571_dodkdd.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620603/THAI-3571_dodkdd.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620839/THAI-3571_fpgzhq.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620839/THAI-3571_fpgzhq.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620627/THAI-3571.jpg-nggid03322-ngg0dyn-180x0-00f0w010c010r110f110r010t010_s7epyv.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620627/THAI-3571.jpg-nggid03322-ngg0dyn-180x0-00f0w010c010r110f110r010t010_s7epyv.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620841/THAI-4383_k7d6cl.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620841/THAI-4383_k7d6cl.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759466082/THAI-DSCF3890_copy_gkaz9v.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759466082/THAI-DSCF3890_copy_gkaz9v.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620603/THAI-DSCF3890-copy_iacbwr.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620603/THAI-DSCF3890-copy_iacbwr.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620615/THAI-DSCF3890-copy_qrq2m7.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620615/THAI-DSCF3890-copy_qrq2m7.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620662/THAI-DSCF3890-copy.jpg-nggid03298-ngg0dyn-120x90-00f0w010c011r110f110r010t010_nmheth.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620662/THAI-DSCF3890-copy.jpg-nggid03298-ngg0dyn-120x90-00f0w010c011r110f110r010t010_nmheth.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620625/THAI-DSCF3890-copy.jpg-nggid03298-ngg0dyn-180x0-00f0w010c010r110f110r010t010_cobw8g.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620625/THAI-DSCF3890-copy.jpg-nggid03298-ngg0dyn-180x0-00f0w010c010r110f110r010t010_cobw8g.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620841/THA-2687_nhldx0.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620841/THA-2687_nhldx0.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620841/THA-3538_bammx3.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620841/THA-3538_bammx3.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620837/THA-2780_najztt.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620837/THA-2780_najztt.jpg' }
+    ],
   },
   {
-    "region": "Asia",
-    "country": "Vietnam",
-    "slug": "vietnam",
-    "images": [
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Vietnam/DSCF8023.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Vietnam/DSCF8023.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Vietnam/DSCF8045.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Vietnam/DSCF8045.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Vietnam/DSCF8179.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Vietnam/DSCF8179.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Vietnam/DSCF8181-2.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Vietnam/DSCF8181-2.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Vietnam/DSCF8205.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Vietnam/DSCF8205.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Vietnam/DSCF8269.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Vietnam/DSCF8269.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Vietnam/DSCF8333.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Vietnam/DSCF8333.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Vietnam/DSCF8354.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Vietnam/DSCF8354.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Vietnam/DSCF8577.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Vietnam/DSCF8577.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Vietnam/DSCF8868.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Vietnam/DSCF8868.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Vietnam/DSCF9016.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Vietnam/DSCF9016.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Vietnam/DSCF9062.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Vietnam/DSCF9062.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Vietnam/DSCF9211.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Vietnam/DSCF9211.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Vietnam/FamilyMeal.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Vietnam/FamilyMeal.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Vietnam/Lazy%20Sunday.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Vietnam/Lazy%20Sunday.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Vietnam/TonyMenias-GirlsInWindow.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Vietnam/TonyMenias-GirlsInWindow.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Vietnam/untitled-8559.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Vietnam/untitled-8559.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Vietnam/Viet-04-14-17.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Vietnam/Viet-04-14-17.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Vietnam/VIET-04-17-DSCF8306.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Vietnam/VIET-04-17-DSCF8306.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Vietnam/VIET-04-17-DSCF8417.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Vietnam/VIET-04-17-DSCF8417.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Vietnam/VIET-04-17-DSCF8483.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Vietnam/VIET-04-17-DSCF8483.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Vietnam/VIET-04-17-DSCF8526.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Vietnam/VIET-04-17-DSCF8526.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Vietnam/VIET-04-17-DSCF8532.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Vietnam/VIET-04-17-DSCF8532.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Vietnam/VIET-04-17-DSCF9121.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Vietnam/VIET-04-17-DSCF9121.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Vietnam/VIET-04-17-DSCF9132.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Vietnam/VIET-04-17-DSCF9132.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Vietnam/VIET-7850.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Vietnam/VIET-7850.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Vietnam/Viet-8465.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Vietnam/Viet-8465.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Vietnam/Viet-8468.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Vietnam/Viet-8468.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Vietnam/VIET-8530-04-16-17.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Vietnam/VIET-8530-04-16-17.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Vietnam/VIET-9130-04-20-17.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Vietnam/VIET-9130-04-20-17.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Asia/Vietnam/Vietnam%20Valley.jpg",
-        "mobile": "/Website%20beloveful.com/Asia/Vietnam/Vietnam%20Valley.jpg"
-      }
-    ]
+    region: "Asia",
+    country: "Vietnam",
+    slug: "vietnam",
+    images: [
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620877/VIET-04-17-DSCF8306_zftwy2.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620877/VIET-04-17-DSCF8306_zftwy2.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620877/VIET-04-17-DSCF8417_x85azw.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620877/VIET-04-17-DSCF8417_x85azw.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620878/VIET-04-17-DSCF8483_kvdrx3.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620878/VIET-04-17-DSCF8483_kvdrx3.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620876/VIET-04-17-DSCF8526_klxs2p.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620876/VIET-04-17-DSCF8526_klxs2p.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620877/VIET-04-17-DSCF8532_kpmfkg.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620877/VIET-04-17-DSCF8532_kpmfkg.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620876/VIET-04-17-DSCF9121_uzfr4v.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620876/VIET-04-17-DSCF9121_uzfr4v.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620878/VIET-04-17-DSCF9132_xehdbe.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620878/VIET-04-17-DSCF9132_xehdbe.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620876/VIET-7850_misasv.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620876/VIET-7850_misasv.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620871/VIET-8530-04-16-17_fztkqd.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620871/VIET-8530-04-16-17_fztkqd.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620876/VIET-9130-04-20-17_jouth2.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620876/VIET-9130-04-20-17_jouth2.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218570/Website%20beloveful.com/Erasing%20Borders/Vietnam-DSCF8153_copy_vwsvcl.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218570/Website%20beloveful.com/Erasing%20Borders/Vietnam-DSCF8153_copy_vwsvcl.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759466093/Vietnam-DSCF8153_copy_afm450.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759466093/Vietnam-DSCF8153_copy_afm450.jpg' }
+    ],
   },
   {
-    "region": "North America",
-    "country": "Caribbean",
-    "slug": "caribbean",
-    "images": [
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Caribbean/_DSF8197.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Caribbean/_DSF8197.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Caribbean/CAR-12-24-DSCF8798.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Caribbean/CAR-12-24-DSCF8798.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Caribbean/CAR-12-24-DSCF9003.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Caribbean/CAR-12-24-DSCF9003.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Caribbean/CAR-12-24-DSCF9039.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Caribbean/CAR-12-24-DSCF9039.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Caribbean/CAR-12-24-DSCF9074.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Caribbean/CAR-12-24-DSCF9074.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Caribbean/CAR-12-24-DSCF9126.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Caribbean/CAR-12-24-DSCF9126.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Caribbean/CAR-12-24-DSCF9138.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Caribbean/CAR-12-24-DSCF9138.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Caribbean/CAR-12-24-DSCF9143.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Caribbean/CAR-12-24-DSCF9143.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Caribbean/CAR-12-24-DSCF9175.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Caribbean/CAR-12-24-DSCF9175.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Caribbean/CAR-12-24-DSCF9182.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Caribbean/CAR-12-24-DSCF9182.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Caribbean/CAR-12-24-DSCF9188.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Caribbean/CAR-12-24-DSCF9188.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Caribbean/CAR-12-24-DSCF9295.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Caribbean/CAR-12-24-DSCF9295.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Caribbean/CAR-12-24-DSCF9433.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Caribbean/CAR-12-24-DSCF9433.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Caribbean/CAR-12-24-DSCF9563.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Caribbean/CAR-12-24-DSCF9563.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Caribbean/CAR-7827.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Caribbean/CAR-7827.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Caribbean/STM-8082.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Caribbean/STM-8082.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Caribbean/STM-8234.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Caribbean/STM-8234.jpg"
-      }
-    ]
+    region: "Europe",
+    country: "France",
+    slug: "france",
+    images: [
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759396072/FRA-0103_g4s51r.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759396072/FRA-0103_g4s51r.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620889/FRA-0103_ofiooc.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620889/FRA-0103_ofiooc.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759396077/FRA-0366_tduyys.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759396077/FRA-0366_tduyys.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620889/FRA-0366_yr6tpl.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620889/FRA-0366_yr6tpl.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620890/FRA-05-18-18_otpd6f.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620890/FRA-05-18-18_otpd6f.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759396070/FRA-05-18-18_tctpdw.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759396070/FRA-05-18-18_tctpdw.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620890/FRA-05-18-DSCF9815_jti8jj.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620890/FRA-05-18-DSCF9815_jti8jj.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759396070/FRA-05-18-DSCF9815_omhj9m.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759396070/FRA-05-18-DSCF9815_omhj9m.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759396071/FRA-05-19-18_dsoxmh.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759396071/FRA-05-19-18_dsoxmh.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620889/FRA-05-19-18_e8h21o.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620889/FRA-05-19-18_e8h21o.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620888/FRA-9803_btrfp6.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620888/FRA-9803_btrfp6.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759396078/FRA-9803_rxwmpi.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759396078/FRA-9803_rxwmpi.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759466078/FRA-DSCF0103_copy_gkgga5.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759466078/FRA-DSCF0103_copy_gkgga5.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620599/FRA-DSCF0103-copy_gu4a5g.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620599/FRA-DSCF0103-copy_gu4a5g.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620609/FRA-DSCF0103-copy_piga2k.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620609/FRA-DSCF0103-copy_piga2k.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620626/FRA-DSCF0103-copy.jpg-nggid03314-ngg0dyn-120x90-00f0w010c011r110f110r010t010_bqniq6.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620626/FRA-DSCF0103-copy.jpg-nggid03314-ngg0dyn-120x90-00f0w010c011r110f110r010t010_bqniq6.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620660/FRA-DSCF0103-copy.jpg-nggid03314-ngg0dyn-180x0-00f0w010c010r110f110r010t010_d6frag.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620660/FRA-DSCF0103-copy.jpg-nggid03314-ngg0dyn-180x0-00f0w010c010r110f110r010t010_d6frag.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759396070/FRA-DSCF0125_a1or0b.png', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759396070/FRA-DSCF0125_a1or0b.png' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620879/FRA-DSCF0125_omylpt.png', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620879/FRA-DSCF0125_omylpt.png' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620885/FRA-DSCF9765_dkb7az.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620885/FRA-DSCF9765_dkb7az.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759396064/FRA-DSCF9765_pycgqe.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759396064/FRA-DSCF9765_pycgqe.jpg' }
+    ],
   },
   {
-    "region": "North America",
-    "country": "Cuba",
-    "slug": "cuba",
-    "images": [
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Cuba/CUB-01-23-DSCF1409-3.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Cuba/CUB-01-23-DSCF1409-3.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Cuba/CUB-01-23-DSCF1424.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Cuba/CUB-01-23-DSCF1424.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Cuba/CUB-01-23-DSCF3885.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Cuba/CUB-01-23-DSCF3885.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Cuba/CUB-5036-2.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Cuba/CUB-5036-2.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Cuba/CUBA-01-23-DSCF0374.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Cuba/CUBA-01-23-DSCF0374.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Cuba/CUBA-01-23-DSCF0588.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Cuba/CUBA-01-23-DSCF0588.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Cuba/CUBA-01-23-DSCF0592.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Cuba/CUBA-01-23-DSCF0592.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Cuba/CUBA-01-23-DSCF0648.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Cuba/CUBA-01-23-DSCF0648.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Cuba/CUBA-01-23-DSCF0797.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Cuba/CUBA-01-23-DSCF0797.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Cuba/CUBA-01-23-DSCF0918.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Cuba/CUBA-01-23-DSCF0918.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Cuba/CUBA-01-23-DSCF1033.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Cuba/CUBA-01-23-DSCF1033.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Cuba/CUBA-01-23-DSCF1420.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Cuba/CUBA-01-23-DSCF1420.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Cuba/CUBA-01-23-DSCF1449-2.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Cuba/CUBA-01-23-DSCF1449-2.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Cuba/CUBA-01-23-DSCF1578.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Cuba/CUBA-01-23-DSCF1578.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Cuba/CUBA-01-23-DSCF2218.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Cuba/CUBA-01-23-DSCF2218.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Cuba/CUBA-01-23-DSCF2224.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Cuba/CUBA-01-23-DSCF2224.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Cuba/CUBA-01-23-DSCF2336.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Cuba/CUBA-01-23-DSCF2336.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Cuba/CUBA-01-23-DSCF2385.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Cuba/CUBA-01-23-DSCF2385.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Cuba/CUBA-01-23-DSCF2873.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Cuba/CUBA-01-23-DSCF2873.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Cuba/CUBA-01-23-DSCF3045.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Cuba/CUBA-01-23-DSCF3045.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Cuba/CUBA-01-23-DSCF3065.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Cuba/CUBA-01-23-DSCF3065.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Cuba/CUBA-01-23-DSCF3144.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Cuba/CUBA-01-23-DSCF3144.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Cuba/CUBA-01-23-DSCF3188.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Cuba/CUBA-01-23-DSCF3188.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Cuba/CUBA-01-23-DSCF3590.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Cuba/CUBA-01-23-DSCF3590.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Cuba/CUBA-01-23-DSCF3732.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Cuba/CUBA-01-23-DSCF3732.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Cuba/CUBA-01-23-DSCF3783.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Cuba/CUBA-01-23-DSCF3783.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Cuba/CUBA-01-23-DSCF3788.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Cuba/CUBA-01-23-DSCF3788.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Cuba/CUBA-01-23-DSCF3797.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Cuba/CUBA-01-23-DSCF3797.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Cuba/CUBA-01-23-DSCF3844.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Cuba/CUBA-01-23-DSCF3844.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Cuba/CUBA-01-23-DSCF3868.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Cuba/CUBA-01-23-DSCF3868.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Cuba/CUBA-01-23-DSCF3903.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Cuba/CUBA-01-23-DSCF3903.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Cuba/CUBA-01-23-DSCF3992.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Cuba/CUBA-01-23-DSCF3992.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Cuba/CUBA-01-23-DSCF4006.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Cuba/CUBA-01-23-DSCF4006.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Cuba/CUBA-01-23-DSCF4033.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Cuba/CUBA-01-23-DSCF4033.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Cuba/CUBA-01-23-DSCF4049-2.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Cuba/CUBA-01-23-DSCF4049-2.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Cuba/CUBA-01-23-DSCF4061.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Cuba/CUBA-01-23-DSCF4061.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Cuba/CUBA-01-23-DSCF4105.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Cuba/CUBA-01-23-DSCF4105.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Cuba/CUBA-01-23-DSCF4125.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Cuba/CUBA-01-23-DSCF4125.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Cuba/CUBA-01-23-DSCF4218.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Cuba/CUBA-01-23-DSCF4218.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Cuba/CUBA-01-23-DSCF4422.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Cuba/CUBA-01-23-DSCF4422.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Cuba/CUBA-01-23-DSCF4459.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Cuba/CUBA-01-23-DSCF4459.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Cuba/CUBA-01-23-DSCF4472.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Cuba/CUBA-01-23-DSCF4472.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Cuba/CUBA-01-23-DSCF4533.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Cuba/CUBA-01-23-DSCF4533.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Cuba/CUBA-01-23-DSCF4669.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Cuba/CUBA-01-23-DSCF4669.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Cuba/CUBA-01-23-DSCF4739.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Cuba/CUBA-01-23-DSCF4739.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Cuba/CUBA-01-23-DSCF9986.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Cuba/CUBA-01-23-DSCF9986.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Cuba/CUBA-01-23-DSCF9999.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Cuba/CUBA-01-23-DSCF9999.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Cuba/CUBA-01-25-23.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Cuba/CUBA-01-25-23.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Cuba/CUBA1-01-23-DSCF3320.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Cuba/CUBA1-01-23-DSCF3320.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Cuba/DSCF1263.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Cuba/DSCF1263.jpg"
-      }
-    ]
+    region: "Europe",
+    country: "Italy",
+    slug: "italy",
+    images: [
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620914/ITA-06-15-19_jrg0hp.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620914/ITA-06-15-19_jrg0hp.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395833/ITA-06-15-19_ksnfuk.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395833/ITA-06-15-19_ksnfuk.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395833/ITA-06-15-19-2_cvrzgl.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395833/ITA-06-15-19-2_cvrzgl.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620918/ITA-06-15-19-2_mbsoyf.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620918/ITA-06-15-19-2_mbsoyf.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620918/ITA-06-19-19_b3tddf.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620918/ITA-06-19-19_b3tddf.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395834/ITA-06-19-19_njgcld.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395834/ITA-06-19-19_njgcld.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395835/ITA-06-19-DSCF4216_p5dzgo.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395835/ITA-06-19-DSCF4216_p5dzgo.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620914/ITA-06-19-DSCF4216_zppwxw.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620914/ITA-06-19-DSCF4216_zppwxw.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620912/ITA-06-19-DSCF4624_aym0mb.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620912/ITA-06-19-DSCF4624_aym0mb.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395837/ITA-06-19-DSCF4624_ivgb0m.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395837/ITA-06-19-DSCF4624_ivgb0m.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620919/ITA-06-19-DSCF4707_fzjblf.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620919/ITA-06-19-DSCF4707_fzjblf.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395873/ITA-06-19-DSCF4707_sryn8k.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395873/ITA-06-19-DSCF4707_sryn8k.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620921/ITA-06-19-DSCF5220_cligis.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620921/ITA-06-19-DSCF5220_cligis.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395874/ITA-06-19-DSCF5220_qknqxp.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395874/ITA-06-19-DSCF5220_qknqxp.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395876/ITA-06-19-DSCF5382_aoi8gm.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395876/ITA-06-19-DSCF5382_aoi8gm.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620914/ITA-06-19-DSCF5382_o5yipq.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620914/ITA-06-19-DSCF5382_o5yipq.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395838/ITA-06-19-DSCF5412_vnu5z6.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395838/ITA-06-19-DSCF5412_vnu5z6.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620920/ITA-06-19-DSCF5412_yvy3fr.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620920/ITA-06-19-DSCF5412_yvy3fr.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620917/ITA-06-19-DSCF5719_oszpp1.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620917/ITA-06-19-DSCF5719_oszpp1.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395840/ITA-06-19-DSCF5719_qsfcn9.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395840/ITA-06-19-DSCF5719_qsfcn9.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395877/ITA-06-19-DSCF5753_jtqvpi.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395877/ITA-06-19-DSCF5753_jtqvpi.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620920/ITA-06-19-DSCF5753_l5lrlz.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620920/ITA-06-19-DSCF5753_l5lrlz.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620912/ITA-06-19-DSCF5847_lobxeo.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620912/ITA-06-19-DSCF5847_lobxeo.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395842/ITA-06-19-DSCF5847_t3agru.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395842/ITA-06-19-DSCF5847_t3agru.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395843/ITA-06-19-DSCF5929_h7hohy.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395843/ITA-06-19-DSCF5929_h7hohy.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620921/ITA-06-19-DSCF5929_we3xot.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620921/ITA-06-19-DSCF5929_we3xot.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620916/ITA-06-19-DSCF6092_cetqiz.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620916/ITA-06-19-DSCF6092_cetqiz.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395845/ITA-06-19-DSCF6092_ttfodt.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395845/ITA-06-19-DSCF6092_ttfodt.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395880/ITA-06-19-DSCF6262_rfhqli.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395880/ITA-06-19-DSCF6262_rfhqli.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620918/ITA-06-19-DSCF6413_klepxc.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620918/ITA-06-19-DSCF6413_klepxc.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395846/ITA-06-19-DSCF6413_vnwhpr.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395846/ITA-06-19-DSCF6413_vnwhpr.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620915/ITA-06-19-DSCF6766_nuow1a.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620915/ITA-06-19-DSCF6766_nuow1a.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395849/ITA-06-19-DSCF6766_v055po.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395849/ITA-06-19-DSCF6766_v055po.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620913/ITA-06-19-DSCF6817_fr12vo.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620913/ITA-06-19-DSCF6817_fr12vo.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395851/ITA-06-19-DSCF6817_vz0u22.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395851/ITA-06-19-DSCF6817_vz0u22.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620916/ITA-06-19-DSCF6864_jv7bfz.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620916/ITA-06-19-DSCF6864_jv7bfz.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395852/ITA-06-19-DSCF6864_rcyu26.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395852/ITA-06-19-DSCF6864_rcyu26.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620919/ITA-06-19-DSCF6987_lvcsxs.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620919/ITA-06-19-DSCF6987_lvcsxs.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395765/ITA-06-19-DSCF6987_reyy29.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395765/ITA-06-19-DSCF6987_reyy29.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620918/ITA-06-19-DSCF6993_hmrany.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620918/ITA-06-19-DSCF6993_hmrany.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395880/ITA-06-19-DSCF6993_iebkie.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395880/ITA-06-19-DSCF6993_iebkie.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395883/ITA-06-19-DSCF7223-2_ntwqdp.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395883/ITA-06-19-DSCF7223-2_ntwqdp.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620919/ITA-06-19-DSCF7223-2_wkxy2m.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620919/ITA-06-19-DSCF7223-2_wkxy2m.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395853/ITA-06-19-DSCF7323_brute9.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395853/ITA-06-19-DSCF7323_brute9.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620913/ITA-06-19-DSCF7323_qndlbe.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620913/ITA-06-19-DSCF7323_qndlbe.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395883/ITA-06-19-DSCF7366_ctzmgg.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395883/ITA-06-19-DSCF7366_ctzmgg.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620922/ITA-06-19-DSCF7366_ogk0wz.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620922/ITA-06-19-DSCF7366_ogk0wz.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620920/ITA-06-19-DSCF7678_efilvw.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620920/ITA-06-19-DSCF7678_efilvw.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395887/ITA-06-19-DSCF7678_fx2ick.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395887/ITA-06-19-DSCF7678_fx2ick.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620902/ITA-3723_felkch.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620902/ITA-3723_felkch.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395742/ITA-3723_jit6dn.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395742/ITA-3723_jit6dn.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395766/ITA-3816_jskwty.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395766/ITA-3816_jskwty.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620906/ITA-3816_vwqkdf.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620906/ITA-3816_vwqkdf.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395745/ITA-4096_ribgno.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395745/ITA-4096_ribgno.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620898/ITA-4096_ytnyad.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620898/ITA-4096_ytnyad.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620906/ITA-4755_kzkaqb.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620906/ITA-4755_kzkaqb.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395771/ITA-4755_sda4tl.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395771/ITA-4755_sda4tl.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620906/ITA-4935_amg8bg.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620906/ITA-4935_amg8bg.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395775/ITA-4935_uhq82w.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395775/ITA-4935_uhq82w.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395713/ITA-4985_hyehjz.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395713/ITA-4985_hyehjz.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395205/ITA-4985_nvbbiq.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395205/ITA-4985_nvbbiq.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620898/ITA-4985_xxusox.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620898/ITA-4985_xxusox.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395776/ITA-4995_c2eqdu.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395776/ITA-4995_c2eqdu.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620910/ITA-4995_iz4t9v.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620910/ITA-4995_iz4t9v.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620903/ITA-5013_fzs3hi.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620903/ITA-5013_fzs3hi.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395777/ITA-5013_wgt5vh.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395777/ITA-5013_wgt5vh.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620909/ITA-5030_bw1y9h.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620909/ITA-5030_bw1y9h.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395790/ITA-5030_mztsis.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395790/ITA-5030_mztsis.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620910/ITA-5047_fy9mf9.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620910/ITA-5047_fy9mf9.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395793/ITA-5047_vwluei.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395793/ITA-5047_vwluei.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395797/ITA-5193_p7b8sp.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395797/ITA-5193_p7b8sp.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620902/ITA-5193_sqwohf.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620902/ITA-5193_sqwohf.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620900/ITA-5199_cg2ph0.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620900/ITA-5199_cg2ph0.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395747/ITA-5199_hruck4.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395747/ITA-5199_hruck4.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395751/ITA-5208_dez7bc.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395751/ITA-5208_dez7bc.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620901/ITA-5208_gy7npg.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620901/ITA-5208_gy7npg.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620904/ITA-5209_fnrzei.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620904/ITA-5209_fnrzei.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395802/ITA-5209_iyqwnk.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395802/ITA-5209_iyqwnk.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620903/ITA-5212_eqttus.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620903/ITA-5212_eqttus.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395802/ITA-5212_vsx5pv.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395802/ITA-5212_vsx5pv.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620907/ITA-5218_mw2xhx.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620907/ITA-5218_mw2xhx.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395751/ITA-5218_wgszth.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395751/ITA-5218_wgszth.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620905/ITA-5220_fu0jjm.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620905/ITA-5220_fu0jjm.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395801/ITA-5220_qo5fs6.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395801/ITA-5220_qo5fs6.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395805/ITA-5223_ensfzp.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395805/ITA-5223_ensfzp.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620907/ITA-5223_i6iofw.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620907/ITA-5223_i6iofw.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395806/ITA-5252_eftkeo.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395806/ITA-5252_eftkeo.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620903/ITA-5252_hquggq.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620903/ITA-5252_hquggq.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620909/ITA-5252-Website-2_jvdgol.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620909/ITA-5252-Website-2_jvdgol.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395810/ITA-5252-Website-2_mwb9eg.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395810/ITA-5252-Website-2_mwb9eg.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395766/ITA-5257_cwv3sg.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395766/ITA-5257_cwv3sg.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620905/ITA-5257_lilgvq.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620905/ITA-5257_lilgvq.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395755/ITA-5261_qghy13.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395755/ITA-5261_qghy13.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620902/ITA-5261_v9yfzh.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620902/ITA-5261_v9yfzh.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620905/ITA-5267_tpvgyt.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620905/ITA-5267_tpvgyt.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395813/ITA-5267_w1mddd.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395813/ITA-5267_w1mddd.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395815/ITA-5275_cgn76o.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395815/ITA-5275_cgn76o.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620901/ITA-5275_pvyhxm.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620901/ITA-5275_pvyhxm.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620912/ITA-5470_fkibpm.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620912/ITA-5470_fkibpm.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395816/ITA-5470_k7stuy.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395816/ITA-5470_k7stuy.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620912/ITA-5487_jwuinc.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620912/ITA-5487_jwuinc.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395827/ITA-5487_kzdmc0.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395827/ITA-5487_kzdmc0.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395856/ITA-5491_vxpeby.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395856/ITA-5491_vxpeby.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620915/ITA-5491_xn3vz5.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620915/ITA-5491_xn3vz5.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395763/ITA-5507_rp7lla.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395763/ITA-5507_rp7lla.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620898/ITA-5507_woxfqe.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620898/ITA-5507_woxfqe.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620900/ITA-5847_ksbceu.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620900/ITA-5847_ksbceu.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395762/ITA-5847_x9ra95.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395762/ITA-5847_x9ra95.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395763/ITA-6092_dtjk7w.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395763/ITA-6092_dtjk7w.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620902/ITA-6092_qkmz6w.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620902/ITA-6092_qkmz6w.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620910/ITA-6160_i6yw0b.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620910/ITA-6160_i6yw0b.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395823/ITA-6160_xh9pmt.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395823/ITA-6160_xh9pmt.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395859/ITA-6300_copy_ejyry8.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395859/ITA-6300_copy_ejyry8.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620917/ITA-6300_copy_goidlv.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620917/ITA-6300_copy_goidlv.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620907/ITA-6300_q1lma3.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620907/ITA-6300_q1lma3.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395821/ITA-6300_xw6sox.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395821/ITA-6300_xw6sox.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620899/ITA-6796_vfxim1.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620899/ITA-6796_vfxim1.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395770/ITA-6796_zh2cin.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395770/ITA-6796_zh2cin.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620908/ITA-6796-Website-2_jkenjw.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620908/ITA-6796-Website-2_jkenjw.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395858/ITA-6796-Website-2_uuwswh.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395858/ITA-6796-Website-2_uuwswh.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620908/ITA-6828_c5n81z.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620908/ITA-6828_c5n81z.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395859/ITA-6828_h63aiy.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395859/ITA-6828_h63aiy.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395861/ITA-6842_wkw2zb.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395861/ITA-6842_wkw2zb.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620912/ITA-6842_x4kkyn.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620912/ITA-6842_x4kkyn.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620909/ITA-6849_txqrtq.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620909/ITA-6849_txqrtq.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395862/ITA-6849_zprglp.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395862/ITA-6849_zprglp.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395865/ITA-6886_g0ntud.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395865/ITA-6886_g0ntud.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620917/ITA-6886_u9kgtn.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620917/ITA-6886_u9kgtn.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395824/ITA-6952_b1kfcq.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395824/ITA-6952_b1kfcq.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620908/ITA-6952_rrfmov.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620908/ITA-6952_rrfmov.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395823/ITA-7041_bbpuhk.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395823/ITA-7041_bbpuhk.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620913/ITA-7041_veqcoe.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620913/ITA-7041_veqcoe.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620916/ITA-7083_b8kkfh.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620916/ITA-7083_b8kkfh.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395866/ITA-7083_xeauja.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395866/ITA-7083_xeauja.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620913/ITA-7114_tzyqgy.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620913/ITA-7114_tzyqgy.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395868/ITA-7114_vksyaj.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395868/ITA-7114_vksyaj.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395826/ITA-7323_allcjx.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395826/ITA-7323_allcjx.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620904/ITA-7323_zhoddk.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620904/ITA-7323_zhoddk.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620915/ITA-7475_hkyaic.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620915/ITA-7475_hkyaic.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395869/ITA-7475_jl5xla.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395869/ITA-7475_jl5xla.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620911/ITA-7678_lgir2y.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620911/ITA-7678_lgir2y.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395872/ITA-7678_ubliex.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395872/ITA-7678_ubliex.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395829/ITA-7800_hrbeim.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395829/ITA-7800_hrbeim.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620905/ITA-7800_w1enov.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620905/ITA-7800_w1enov.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620891/ITA-DSCF6964_b5y2hz.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620891/ITA-DSCF6964_b5y2hz.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395209/ITA-DSCF6964_hni4vg.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395209/ITA-DSCF6964_hni4vg.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395715/ITA-DSCF6964_ymu4nb.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395715/ITA-DSCF6964_ymu4nb.jpg' }
+    ],
   },
   {
-    "region": "North America",
-    "country": "Mexico",
-    "slug": "mexico",
-    "images": [
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-1-3360.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-1-3360.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-1-3398.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-1-3398.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-1-3401.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-1-3401.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-1-3406.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-1-3406.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-1-3412.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-1-3412.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-08-26-20.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-08-26-20.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-08-28-20.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-08-28-20.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-09-04-20-2.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-09-04-20-2.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-09-04-20.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-09-04-20.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-09-09-20.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-09-09-20.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-09-20-DSCF5845.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-09-20-DSCF5845.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-10-20-DSCF1423.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-10-20-DSCF1423.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-10-20-DSCF2473.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-10-20-DSCF2473.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-10-20-DSCF2506.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-10-20-DSCF2506.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-10-20-DSCF2598.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-10-20-DSCF2598.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-10-20-DSCF2812.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-10-20-DSCF2812.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-10-27-20.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-10-27-20.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-10-28-20-2.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-10-28-20-2.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-10-28-20-3.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-10-28-20-3.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-10-28-20.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-10-28-20.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-10-29-20-2.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-10-29-20-2.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-10-29-20-3.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-10-29-20-3.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-10-29-20-4.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-10-29-20-4.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-10-29-20.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-10-29-20.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-10-31-20.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-10-31-20.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-11-03-20-2.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-11-03-20-2.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-11-03-20.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-11-03-20.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-11-07-20-3.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-11-07-20-3.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-11-07-20.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-11-07-20.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-11-20-DSCF3780.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-11-20-DSCF3780.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-11-20-DSCF4476.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-11-20-DSCF4476.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-11-20-DSCF4753.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-11-20-DSCF4753.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-11-20-DSCF5556.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-11-20-DSCF5556.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-11-20-DSCF5601.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-11-20-DSCF5601.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-11-20-DSCF5608.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-11-20-DSCF5608.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-11-20-DSCF5612.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-11-20-DSCF5612.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-11-20-DSCF5613.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-11-20-DSCF5613.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-11-20-DSCF5614.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-11-20-DSCF5614.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-11-20-DSCF5628.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-11-20-DSCF5628.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-11-20-DSCF5657.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-11-20-DSCF5657.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-11-20-DSCF5661.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-11-20-DSCF5661.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-11-20-DSCF5674.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-11-20-DSCF5674.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-11-20-DSCF6067.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-11-20-DSCF6067.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-11-20-DSCF6087.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-11-20-DSCF6087.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-11-20-DSCF6370.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-11-20-DSCF6370.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-11-20-DSCF6431.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-11-20-DSCF6431.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-11-20-DSCF7614.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-11-20-DSCF7614.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-18-Website-2.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-18-Website-2.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-18.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-18.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-23.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-23.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-28.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-28.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-30.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-30.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-37.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-37.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-47.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-47.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-54.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-54.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-56%20copy.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-56%20copy.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-56.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-56.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-61.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-61.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-64.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-64.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-65.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-65.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-66.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-66.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-73.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-73.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-74.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-74.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-79.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-79.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-84.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-84.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-92.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-92.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-93.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-93.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-105.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-105.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-109.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-109.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-112.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-112.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-117.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-117.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-118.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-118.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-0124-4178.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-0124-4178.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-0124-4200.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-0124-4200.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-0124-4232.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-0124-4232.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-0124-4309.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-0124-4309.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-0124-4326.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-0124-4326.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-129.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-129.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-159.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-159.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-164.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-164.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-166.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-166.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-178%20copy.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-178%20copy.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-178.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-178.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-179.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-179.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-180.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-180.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-181.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-181.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-191.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-191.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-197.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-197.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-203.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-203.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-206.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-206.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-294.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-294.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-299.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-299.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-311.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-311.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-326.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-326.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-328.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-328.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-345.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-345.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-374.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-374.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-395.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-395.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-406.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-406.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-424.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-424.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-4376.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-4376.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-4426.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-4426.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-4545.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-4545.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-4731.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-4731.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-5803.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-5803.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-5831.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-5831.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-6692.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-6692.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-7476-.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-7476-.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-7549.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-7549.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-Miss%20Technicolor-8.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/MEX-Miss%20Technicolor-8.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/untitled-8.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Mexico/untitled-8.jpg"
-      }
-    ]
+    region: "Middle East",
+    country: "Israel_Palestine",
+    slug: "israel-palestine",
+    images: [
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620563/PAL-10-19-DSCF3206_y8flpl.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620563/PAL-10-19-DSCF3206_y8flpl.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620563/PAL-10-19-DSCF3208_guxz4u.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620563/PAL-10-19-DSCF3208_guxz4u.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620562/PAL-10-19-DSCF3211_dua8kh.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620562/PAL-10-19-DSCF3211_dua8kh.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620562/PAL-10-19-DSCF3221_wl4g9u.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620562/PAL-10-19-DSCF3221_wl4g9u.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620563/PAL-10-19-DSCF3266_ah2gkw.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620563/PAL-10-19-DSCF3266_ah2gkw.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620557/PAL-10-19-DSCF3270_quhilr.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620557/PAL-10-19-DSCF3270_quhilr.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620567/PAL-10-19-DSCF3283_j0zztl.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620567/PAL-10-19-DSCF3283_j0zztl.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620558/PAL-10-19-DSCF3303_drz89o.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620558/PAL-10-19-DSCF3303_drz89o.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620559/PAL-10-19-DSCF3313_l2udkz.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620559/PAL-10-19-DSCF3313_l2udkz.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620561/PAL-10-19-DSCF3315_qk6lv4.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620561/PAL-10-19-DSCF3315_qk6lv4.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620555/PAL-10-19-DSCF3322_dpwvsz.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620555/PAL-10-19-DSCF3322_dpwvsz.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620555/PAL-10-19-DSCF3566_t1phqk.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620555/PAL-10-19-DSCF3566_t1phqk.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620556/PAL-10-19-DSCF3581_qmbazg.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620556/PAL-10-19-DSCF3581_qmbazg.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620559/PAL-10-19-DSCF3582_ywpr3k.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620559/PAL-10-19-DSCF3582_ywpr3k.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620557/PAL-10-19-DSCF3611_gy1dsr.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620557/PAL-10-19-DSCF3611_gy1dsr.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620560/PAL-10-19-DSCF3722_oxjjqt.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620560/PAL-10-19-DSCF3722_oxjjqt.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620559/PAL-10-19-DSCF3773_u4gtap.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620559/PAL-10-19-DSCF3773_u4gtap.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620567/PAL-10-22-DSCF4464_psyyxq.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620567/PAL-10-22-DSCF4464_psyyxq.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620561/PAL-10-22-DSCF4570_wfju5u.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620561/PAL-10-22-DSCF4570_wfju5u.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620564/PAL-10-22-DSCF4693_b0symj.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620564/PAL-10-22-DSCF4693_b0symj.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620566/PAL-10-22-DSCF4834_yikoh2.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620566/PAL-10-22-DSCF4834_yikoh2.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620559/PAL-10-22-DSCF4888_jr9sun.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620559/PAL-10-22-DSCF4888_jr9sun.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620561/PAL-10-22-DSCF4890_l9rgzt.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620561/PAL-10-22-DSCF4890_l9rgzt.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620560/PAL-10-22-DSCF4891_lob7tg.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620560/PAL-10-22-DSCF4891_lob7tg.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620560/PAL-10-22-DSCF4892_pc3pry.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620560/PAL-10-22-DSCF4892_pc3pry.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620562/PAL-10-22-DSCF4893_imgf4v.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620562/PAL-10-22-DSCF4893_imgf4v.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620553/PAL-3116_lli3bj.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620553/PAL-3116_lli3bj.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620559/PAL-3238_yswvxc.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620559/PAL-3238_yswvxc.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620556/PAL-3250_uzdzq5.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620556/PAL-3250_uzdzq5.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759466080/PAL-DSCF3675_copy_szirpb.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759466080/PAL-DSCF3675_copy_szirpb.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620610/PAL-DSCF3675-copy_atjrdo.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620610/PAL-DSCF3675-copy_atjrdo.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620606/PAL-DSCF3675-copy_wasrel.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620606/PAL-DSCF3675-copy_wasrel.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620626/PAL-DSCF3675-copy.jpg-nggid03297-ngg0dyn-120x90-00f0w010c011r110f110r010t010_zs6hlp.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620626/PAL-DSCF3675-copy.jpg-nggid03297-ngg0dyn-120x90-00f0w010c011r110f110r010t010_zs6hlp.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620630/PAL-DSCF3675-copy.jpg-nggid03297-ngg0dyn-180x0-00f0w010c010r110f110r010t010_f434aq.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620630/PAL-DSCF3675-copy.jpg-nggid03297-ngg0dyn-180x0-00f0w010c010r110f110r010t010_f434aq.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759466078/PAL-MeniasTony_13_ajtnqt.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759466078/PAL-MeniasTony_13_ajtnqt.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620615/PAL-MeniasTony_13_fk2wqx.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620615/PAL-MeniasTony_13_fk2wqx.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620606/PAL-MeniasTony_13_xehwap.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620606/PAL-MeniasTony_13_xehwap.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620620/PAL-MeniasTony_13.jpg-nggid03299-ngg0dyn-120x90-00f0w010c011r110f110r010t010_ez2ge3.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620620/PAL-MeniasTony_13.jpg-nggid03299-ngg0dyn-120x90-00f0w010c011r110f110r010t010_ez2ge3.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620620/PAL-MeniasTony_13.jpg-nggid03299-ngg0dyn-180x0-00f0w010c010r110f110r010t010_byatrv.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620620/PAL-MeniasTony_13.jpg-nggid03299-ngg0dyn-180x0-00f0w010c010r110f110r010t010_byatrv.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218619/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/DSCF3088_m0spty.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218619/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/DSCF3088_m0spty.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218618/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/DSCF2675_ar5plz.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218618/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/DSCF2675_ar5plz.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218617/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/DSCF3675_vznaue.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218617/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/DSCF3675_vznaue.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218617/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/DSCF2992_m5doqi.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218617/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/DSCF2992_m5doqi.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218616/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/TonyMenias-Hesalwayslistening_ukmuhb.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218616/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/TonyMenias-Hesalwayslistening_ukmuhb.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218616/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/DSCF3559_ei0iam.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218616/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/DSCF3559_ei0iam.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218615/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/DSCF2938_shuk1d.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218615/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/DSCF2938_shuk1d.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218614/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/DSCF2969_kjplq0.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218614/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/DSCF2969_kjplq0.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218614/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-3238_rzm8wg.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218614/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-3238_rzm8wg.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218614/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-3250_m4tccn.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218614/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-3250_m4tccn.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218613/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-3116_l6gm9c.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218613/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-3116_l6gm9c.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218612/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/untitled-4506-5_qelzzx.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218612/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/untitled-4506-5_qelzzx.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218612/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-10-19-DSCF3773_zk6xyh.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218612/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-10-19-DSCF3773_zk6xyh.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218611/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-10-19-DSCF3270_wwectj.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218611/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-10-19-DSCF3270_wwectj.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218611/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-10-19-DSCF3313_b9efng.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218611/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-10-19-DSCF3313_b9efng.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218610/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-10-19-DSCF3322_aihh2l.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218610/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-10-19-DSCF3322_aihh2l.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218610/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-10-19-DSCF3566_qeu5c7.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218610/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-10-19-DSCF3566_qeu5c7.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218610/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-10-19-DSCF3303_mei77g.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218610/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-10-19-DSCF3303_mei77g.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218608/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-10-19-DSCF3581_hjevfi.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218608/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-10-19-DSCF3581_hjevfi.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218608/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-10-19-DSCF3582_zdf66h.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218608/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-10-19-DSCF3582_zdf66h.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218607/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-10-19-DSCF3611_rt7e6b.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218607/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-10-19-DSCF3611_rt7e6b.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218607/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-10-19-DSCF3266_hvtpsw.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218607/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-10-19-DSCF3266_hvtpsw.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218606/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-10-19-DSCF3206_fyzwtk.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218606/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-10-19-DSCF3206_fyzwtk.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218606/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-10-19-DSCF3208_gptblh.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218606/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-10-19-DSCF3208_gptblh.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218605/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-10-19-DSCF3211_xgwzo9.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218605/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-10-19-DSCF3211_xgwzo9.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218604/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-10-19-DSCF3315_gxk85o.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218604/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-10-19-DSCF3315_gxk85o.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218604/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-10-19-DSCF3221_gecjfb.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218604/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-10-19-DSCF3221_gecjfb.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218604/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-10-22-DSCF4570_wjnxmq.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218604/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-10-22-DSCF4570_wjnxmq.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218603/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-10-22-DSCF4888_pbjkbp.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218603/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-10-22-DSCF4888_pbjkbp.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218602/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-10-22-DSCF4890_ksnaew.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218602/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-10-22-DSCF4890_ksnaew.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218602/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-10-22-DSCF4891_bjsjmb.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218602/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-10-22-DSCF4891_bjsjmb.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218601/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-10-22-DSCF4892_laocxx.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218601/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-10-22-DSCF4892_laocxx.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218601/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-10-22-DSCF4893_vh9hbo.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218601/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-10-22-DSCF4893_vh9hbo.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218600/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/ISR-10-19-DSCF2937_mfy45m.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218600/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/ISR-10-19-DSCF2937_mfy45m.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218600/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-10-19-DSCF3722_pq2gdp.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218600/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-10-19-DSCF3722_pq2gdp.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218599/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/ISR-10-19-DSCF4212_qm5kot.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218599/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/ISR-10-19-DSCF4212_qm5kot.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218598/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/ISR-10-19-DSCF4131_hozimu.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218598/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/ISR-10-19-DSCF4131_hozimu.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218598/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/ISR-10-19-DSCF4159_cucscs.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218598/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/ISR-10-19-DSCF4159_cucscs.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218598/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/ISR-10-19-DSCF2980-Enhanced-NR_dpixxa.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218598/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/ISR-10-19-DSCF2980-Enhanced-NR_dpixxa.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218597/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/ISR-10-19-DSCF3016_b0ss9k.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218597/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/ISR-10-19-DSCF3016_b0ss9k.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218597/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/ISR-10-19-DSCF3499_dg7o8o.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218597/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/ISR-10-19-DSCF3499_dg7o8o.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218595/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/ISR-10-19-DSCF3674_ffeyui.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218595/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/ISR-10-19-DSCF3674_ffeyui.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218595/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/ISR-10-19-DSCF3016-2_dpjkhg.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218595/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/ISR-10-19-DSCF3016-2_dpjkhg.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218594/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/ISR-10-19-DSCF2603_ape1d6.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218594/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/ISR-10-19-DSCF2603_ape1d6.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218594/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-10-19-DSCF3283_sxynzo.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218594/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-10-19-DSCF3283_sxynzo.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218593/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-10-22-DSCF4693_uih0vi.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218593/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-10-22-DSCF4693_uih0vi.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218593/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-10-22-DSCF4464_ceuybl.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218593/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-10-22-DSCF4464_ceuybl.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218593/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-10-22-DSCF4834_vdjlya.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218593/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-10-22-DSCF4834_vdjlya.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620566/ISR-10-19-DSCF2980-Enhanced-NR_rnrtrt.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620566/ISR-10-19-DSCF2980-Enhanced-NR_rnrtrt.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620566/ISR-10-19-DSCF3016-2_vivp7p.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620566/ISR-10-19-DSCF3016-2_vivp7p.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620565/ISR-10-19-DSCF2603_kfiszj.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620565/ISR-10-19-DSCF2603_kfiszj.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620565/ISR-10-19-DSCF4159_mxwq2p.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620565/ISR-10-19-DSCF4159_mxwq2p.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620565/ISR-10-19-DSCF3016_tnmnrq.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620565/ISR-10-19-DSCF3016_tnmnrq.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620565/ISR-10-19-DSCF3499_dwxasa.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620565/ISR-10-19-DSCF3499_dwxasa.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620564/ISR-10-19-DSCF4212_bnfwaw.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620564/ISR-10-19-DSCF4212_bnfwaw.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620564/ISR-10-19-DSCF3674_hwwcew.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620564/ISR-10-19-DSCF3674_hwwcew.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620563/ISR-10-19-DSCF4131_k2wo6p.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620563/ISR-10-19-DSCF4131_k2wo6p.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620558/ISR-10-19-DSCF2937_a1ummg.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620558/ISR-10-19-DSCF2937_a1ummg.jpg' }
+    ],
   },
   {
-    "region": "North America",
-    "country": "Puerto Rico",
-    "slug": "puerto-rico",
-    "images": [
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Puerto%20Rico/_DSF1141.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Puerto%20Rico/_DSF1141.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Puerto%20Rico/PR-1049.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Puerto%20Rico/PR-1049.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Puerto%20Rico/PR-DSF8343.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Puerto%20Rico/PR-DSF8343.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Puerto%20Rico/PR-DSF8358.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Puerto%20Rico/PR-DSF8358.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Puerto%20Rico/PR-DSF8368.jpg",
-        "mobile": "/Website%20beloveful.com/Central%20America%20%26%20Caribbean/Puerto%20Rico/PR-DSF8368.jpg"
-      }
-    ]
+    region: "Middle East",
+    country: "Jordan",
+    slug: "jordan",
+    images: [
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620597/JOR--10-30-22_mavyog.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620597/JOR--10-30-22_mavyog.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620598/JOR-10-19-DSCF4604_rv8ibh.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620598/JOR-10-19-DSCF4604_rv8ibh.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620598/JOR-10-22-DSCF4959_hljqss.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620598/JOR-10-22-DSCF4959_hljqss.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620573/JOR-10-22-DSCF4984_zkosfq.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620573/JOR-10-22-DSCF4984_zkosfq.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620597/JOR-10-22-DSCF5146_ppazgw.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620597/JOR-10-22-DSCF5146_ppazgw.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620575/JOR-10-22-DSCF5213_csluvt.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620575/JOR-10-22-DSCF5213_csluvt.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620575/JOR-10-22-DSCF5216_lvtv58.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620575/JOR-10-22-DSCF5216_lvtv58.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620576/JOR-10-22-DSCF5272_b8xfbx.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620576/JOR-10-22-DSCF5272_b8xfbx.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620574/JOR-10-22-DSCF5274_qynnqp.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620574/JOR-10-22-DSCF5274_qynnqp.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620597/JOR-11-22-DSCF5588_orujem.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620597/JOR-11-22-DSCF5588_orujem.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620598/JOR-11-22-DSCF5655_so0p5r.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620598/JOR-11-22-DSCF5655_so0p5r.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620607/JOR-4461_jqbzae.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620607/JOR-4461_jqbzae.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759466071/JOR-4461_kkru8x.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759466071/JOR-4461_kkru8x.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620603/JOR-4461_y7xfyc.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620603/JOR-4461_y7xfyc.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620662/JOR-4461.jpg-nggid03307-ngg0dyn-120x90-00f0w010c011r110f110r010t010_xsfpwk.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620662/JOR-4461.jpg-nggid03307-ngg0dyn-120x90-00f0w010c011r110f110r010t010_xsfpwk.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620664/JOR-4461.jpg-nggid03307-ngg0dyn-180x0-00f0w010c010r110f110r010t010_nvnoby.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620664/JOR-4461.jpg-nggid03307-ngg0dyn-180x0-00f0w010c010r110f110r010t010_nvnoby.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620575/JOR-4516_lt6tok.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620575/JOR-4516_lt6tok.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620572/JOR-4569_pcexyu.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620572/JOR-4569_pcexyu.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620574/JOR-4574_kdl0xq.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620574/JOR-4574_kdl0xq.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620574/JOR-4577_b7xk54.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620574/JOR-4577_b7xk54.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620572/JOR-4597_tkrvb7.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620572/JOR-4597_tkrvb7.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620570/JOR-4604_weouv8.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620570/JOR-4604_weouv8.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620573/JOR-4615_aldnty.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620573/JOR-4615_aldnty.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620574/JOR-4723_pblhsy.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620574/JOR-4723_pblhsy.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620597/JOR-4876_dgqtxb.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620597/JOR-4876_dgqtxb.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620572/JOR-4957_oxybq1.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620572/JOR-4957_oxybq1.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620576/JOR-5001-10-30-22_y0pdwm.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620576/JOR-5001-10-30-22_y0pdwm.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620574/JOR-5044-10-30-22_bdmvvk.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620574/JOR-5044-10-30-22_bdmvvk.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620571/JOR-5061_an9ah9.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620571/JOR-5061_an9ah9.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620586/JOR-5232103122_ehih9d.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620586/JOR-5232103122_ehih9d.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218639/Website%20beloveful.com/Middle%20East/Jordan/DSCF4610-4_uu35i7.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218639/Website%20beloveful.com/Middle%20East/Jordan/DSCF4610-4_uu35i7.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218639/Website%20beloveful.com/Middle%20East/Jordan/DSCF4694_huyfxr.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218639/Website%20beloveful.com/Middle%20East/Jordan/DSCF4694_huyfxr.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218638/Website%20beloveful.com/Middle%20East/Jordan/DSCF4640_h4akz1.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218638/Website%20beloveful.com/Middle%20East/Jordan/DSCF4640_h4akz1.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218637/Website%20beloveful.com/Middle%20East/Jordan/DSCF4385_j6s1g4.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218637/Website%20beloveful.com/Middle%20East/Jordan/DSCF4385_j6s1g4.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218637/Website%20beloveful.com/Middle%20East/Jordan/DSCF4619_etckse.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218637/Website%20beloveful.com/Middle%20East/Jordan/DSCF4619_etckse.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218637/Website%20beloveful.com/Middle%20East/Jordan/DSCF4488_vos7sk.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218637/Website%20beloveful.com/Middle%20East/Jordan/DSCF4488_vos7sk.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218636/Website%20beloveful.com/Middle%20East/Jordan/DSCF4561_qgxdpq.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218636/Website%20beloveful.com/Middle%20East/Jordan/DSCF4561_qgxdpq.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218635/Website%20beloveful.com/Middle%20East/Jordan/DSCF4430_l7ksx6.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218635/Website%20beloveful.com/Middle%20East/Jordan/DSCF4430_l7ksx6.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218635/Website%20beloveful.com/Middle%20East/Jordan/DSCF4537-Website-2_zwwsiy.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218635/Website%20beloveful.com/Middle%20East/Jordan/DSCF4537-Website-2_zwwsiy.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218634/Website%20beloveful.com/Middle%20East/Jordan/JDN-4461_mky4nj.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218634/Website%20beloveful.com/Middle%20East/Jordan/JDN-4461_mky4nj.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218633/Website%20beloveful.com/Middle%20East/Jordan/JDN-4455_dq0qfo.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218633/Website%20beloveful.com/Middle%20East/Jordan/JDN-4455_dq0qfo.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218633/Website%20beloveful.com/Middle%20East/Jordan/JOR-4604_wzuqox.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218633/Website%20beloveful.com/Middle%20East/Jordan/JOR-4604_wzuqox.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218632/Website%20beloveful.com/Middle%20East/Jordan/JOR-5061_kma1ff.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218632/Website%20beloveful.com/Middle%20East/Jordan/JOR-5061_kma1ff.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218632/Website%20beloveful.com/Middle%20East/Jordan/JOR-4569_xieper.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218632/Website%20beloveful.com/Middle%20East/Jordan/JOR-4569_xieper.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218631/Website%20beloveful.com/Middle%20East/Jordan/JOR-4723_e796m6.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218631/Website%20beloveful.com/Middle%20East/Jordan/JOR-4723_e796m6.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218631/Website%20beloveful.com/Middle%20East/Jordan/JOR-4597_wfaibp.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218631/Website%20beloveful.com/Middle%20East/Jordan/JOR-4597_wfaibp.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218630/Website%20beloveful.com/Middle%20East/Jordan/JOR-4876_iiiz94.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218630/Website%20beloveful.com/Middle%20East/Jordan/JOR-4876_iiiz94.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218630/Website%20beloveful.com/Middle%20East/Jordan/JOR-4957_uh7djm.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218630/Website%20beloveful.com/Middle%20East/Jordan/JOR-4957_uh7djm.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218629/Website%20beloveful.com/Middle%20East/Jordan/JOR-4516_jdtgwb.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218629/Website%20beloveful.com/Middle%20East/Jordan/JOR-4516_jdtgwb.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218628/Website%20beloveful.com/Middle%20East/Jordan/JOR-4574_wlc2xf.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218628/Website%20beloveful.com/Middle%20East/Jordan/JOR-4574_wlc2xf.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218627/Website%20beloveful.com/Middle%20East/Jordan/JOR-4615_thgegw.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218627/Website%20beloveful.com/Middle%20East/Jordan/JOR-4615_thgegw.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218628/Website%20beloveful.com/Middle%20East/Jordan/JOR-4577_dnakcs.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218628/Website%20beloveful.com/Middle%20East/Jordan/JOR-4577_dnakcs.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218626/Website%20beloveful.com/Middle%20East/Jordan/JOR-5232103122_sw3cix.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218626/Website%20beloveful.com/Middle%20East/Jordan/JOR-5232103122_sw3cix.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218626/Website%20beloveful.com/Middle%20East/Jordan/JOR--10-30-22_odgkni.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218626/Website%20beloveful.com/Middle%20East/Jordan/JOR--10-30-22_odgkni.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218625/Website%20beloveful.com/Middle%20East/Jordan/JOR-5044-10-30-22_vkrkjc.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218625/Website%20beloveful.com/Middle%20East/Jordan/JOR-5044-10-30-22_vkrkjc.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218625/Website%20beloveful.com/Middle%20East/Jordan/JOR-5001-10-30-22_xuhih3.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218625/Website%20beloveful.com/Middle%20East/Jordan/JOR-5001-10-30-22_xuhih3.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218624/Website%20beloveful.com/Middle%20East/Jordan/JOR-10-22-DSCF5274_jsjtia.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218624/Website%20beloveful.com/Middle%20East/Jordan/JOR-10-22-DSCF5274_jsjtia.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218624/Website%20beloveful.com/Middle%20East/Jordan/JOR-10-22-DSCF5272_b2mvnb.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218624/Website%20beloveful.com/Middle%20East/Jordan/JOR-10-22-DSCF5272_b2mvnb.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218623/Website%20beloveful.com/Middle%20East/Jordan/JOR-10-22-DSCF5216_r6nnbz.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218623/Website%20beloveful.com/Middle%20East/Jordan/JOR-10-22-DSCF5216_r6nnbz.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218623/Website%20beloveful.com/Middle%20East/Jordan/JOR-10-22-DSCF5213_cxeiwg.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218623/Website%20beloveful.com/Middle%20East/Jordan/JOR-10-22-DSCF5213_cxeiwg.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218622/Website%20beloveful.com/Middle%20East/Jordan/JOR-10-22-DSCF4984_txlbtf.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218622/Website%20beloveful.com/Middle%20East/Jordan/JOR-10-22-DSCF4984_txlbtf.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218621/Website%20beloveful.com/Middle%20East/Jordan/JOR-10-22-DSCF5146_dcqlnh.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218621/Website%20beloveful.com/Middle%20East/Jordan/JOR-10-22-DSCF5146_dcqlnh.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218621/Website%20beloveful.com/Middle%20East/Jordan/JOR-11-22-DSCF5588_dg5fld.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218621/Website%20beloveful.com/Middle%20East/Jordan/JOR-11-22-DSCF5588_dg5fld.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218621/Website%20beloveful.com/Middle%20East/Jordan/JOR-10-22-DSCF4959_c9wc7m.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218621/Website%20beloveful.com/Middle%20East/Jordan/JOR-10-22-DSCF4959_c9wc7m.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218620/Website%20beloveful.com/Middle%20East/Jordan/JOR-11-22-DSCF5655_cpfoam.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218620/Website%20beloveful.com/Middle%20East/Jordan/JOR-11-22-DSCF5655_cpfoam.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218619/Website%20beloveful.com/Middle%20East/Jordan/JOR-10-19-DSCF4604_poqdvg.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218619/Website%20beloveful.com/Middle%20East/Jordan/JOR-10-19-DSCF4604_poqdvg.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620572/JDN-4455_vyvg5h.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620572/JDN-4455_vyvg5h.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620569/JDN-4461_jwxate.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620569/JDN-4461_jwxate.jpg' }
+    ],
   },
   {
-    "region": "Erasing Borders",
-    "country": "Erasing Borders",
-    "slug": "erasing-borders",
-    "images": [
-      {
-        "desktop": "/Website%20beloveful.com/Erasing%20Borders/CHI-Beloveful6.jpg",
-        "mobile": "/Website%20beloveful.com/Erasing%20Borders/CHI-Beloveful6.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Erasing%20Borders/CHI-DSCF9471.jpg",
-        "mobile": "/Website%20beloveful.com/Erasing%20Borders/CHI-DSCF9471.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Erasing%20Borders/CHI-MeniasTony_12.jpg",
-        "mobile": "/Website%20beloveful.com/Erasing%20Borders/CHI-MeniasTony_12.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Erasing%20Borders/DSCF3088%20copy.jpg",
-        "mobile": "/Website%20beloveful.com/Erasing%20Borders/DSCF3088%20copy.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Erasing%20Borders/FRA-DSCF0103%20copy.jpg",
-        "mobile": "/Website%20beloveful.com/Erasing%20Borders/FRA-DSCF0103%20copy.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Erasing%20Borders/Greece-DSCF3935%20copy%203.jpg",
-        "mobile": "/Website%20beloveful.com/Erasing%20Borders/Greece-DSCF3935%20copy%203.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Erasing%20Borders/IND-MeniasTony_8.jpg",
-        "mobile": "/Website%20beloveful.com/Erasing%20Borders/IND-MeniasTony_8.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Erasing%20Borders/IND-MeniasTony_14.jpg",
-        "mobile": "/Website%20beloveful.com/Erasing%20Borders/IND-MeniasTony_14.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Erasing%20Borders/IND-MeniasTony_16.jpg",
-        "mobile": "/Website%20beloveful.com/Erasing%20Borders/IND-MeniasTony_16.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Erasing%20Borders/Israel-MeniasTony_20.jpg",
-        "mobile": "/Website%20beloveful.com/Erasing%20Borders/Israel-MeniasTony_20.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Erasing%20Borders/JAP-3265.jpg",
-        "mobile": "/Website%20beloveful.com/Erasing%20Borders/JAP-3265.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Erasing%20Borders/JOR-4461.jpg",
-        "mobile": "/Website%20beloveful.com/Erasing%20Borders/JOR-4461.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Erasing%20Borders/MOR-IMG_5248%20copy.jpg",
-        "mobile": "/Website%20beloveful.com/Erasing%20Borders/MOR-IMG_5248%20copy.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Erasing%20Borders/MOR-IMG_5277.jpg",
-        "mobile": "/Website%20beloveful.com/Erasing%20Borders/MOR-IMG_5277.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Erasing%20Borders/MYA-DSCF0783%20copy.jpg",
-        "mobile": "/Website%20beloveful.com/Erasing%20Borders/MYA-DSCF0783%20copy.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Erasing%20Borders/MYA-DSCF9634%20copy.jpg",
-        "mobile": "/Website%20beloveful.com/Erasing%20Borders/MYA-DSCF9634%20copy.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Erasing%20Borders/NatureVSNurture%20copy.jpg",
-        "mobile": "/Website%20beloveful.com/Erasing%20Borders/NatureVSNurture%20copy.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Erasing%20Borders/NEP-DSCF8737%20copy.jpg",
-        "mobile": "/Website%20beloveful.com/Erasing%20Borders/NEP-DSCF8737%20copy.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Erasing%20Borders/NEP-Silent%20Stare%20copy.jpg",
-        "mobile": "/Website%20beloveful.com/Erasing%20Borders/NEP-Silent%20Stare%20copy.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Erasing%20Borders/NyC-DSCF8922%20copy%202.jpg",
-        "mobile": "/Website%20beloveful.com/Erasing%20Borders/NyC-DSCF8922%20copy%202.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Erasing%20Borders/PAL-DSCF3675%20copy.jpg",
-        "mobile": "/Website%20beloveful.com/Erasing%20Borders/PAL-DSCF3675%20copy.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Erasing%20Borders/PAL-MeniasTony_13.jpg",
-        "mobile": "/Website%20beloveful.com/Erasing%20Borders/PAL-MeniasTony_13.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Erasing%20Borders/PHI-1662%20copy.jpg",
-        "mobile": "/Website%20beloveful.com/Erasing%20Borders/PHI-1662%20copy.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Erasing%20Borders/THAI-DSCF3890%20copy.jpg",
-        "mobile": "/Website%20beloveful.com/Erasing%20Borders/THAI-DSCF3890%20copy.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Erasing%20Borders/Tony%20Menias%20-%20Two%20Girls%20in%20Window.jpg",
-        "mobile": "/Website%20beloveful.com/Erasing%20Borders/Tony%20Menias%20-%20Two%20Girls%20in%20Window.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Erasing%20Borders/TonyMeniasAMansLegacy.jpg",
-        "mobile": "/Website%20beloveful.com/Erasing%20Borders/TonyMeniasAMansLegacy.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Erasing%20Borders/Vietnam-DSCF8153%20copy.jpg",
-        "mobile": "/Website%20beloveful.com/Erasing%20Borders/Vietnam-DSCF8153%20copy.jpg"
-      }
-    ]
+    region: "North America",
+    country: "Chicago",
+    slug: "chicago",
+    images: [
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400176/CHI-01-19-DSCF7976_joyqzs.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400176/CHI-01-19-DSCF7976_joyqzs.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400192/CHI-01-21-DSCF9381_ckmkzy.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400192/CHI-01-21-DSCF9381_ckmkzy.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400191/CHI-01-21-DSCF9440_zzoxm3.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400191/CHI-01-21-DSCF9440_zzoxm3.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400194/CHI-01-21-DSCF9573_mv56b0.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400194/CHI-01-21-DSCF9573_mv56b0.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400182/CHI-06-18-DSCF1342-Enhanced-NR_cfuwww.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400182/CHI-06-18-DSCF1342-Enhanced-NR_cfuwww.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400182/CHI-06-18-DSCF1870-Edit-2_ikpvhu.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400182/CHI-06-18-DSCF1870-Edit-2_ikpvhu.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400190/CHI-07-19-DSCF9956_ht1m89.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400190/CHI-07-19-DSCF9956_ht1m89.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400185/CHI-08-16-_DSF2471_thl7cz.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400185/CHI-08-16-_DSF2471_thl7cz.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400188/CHI-08-19-DSCF5471_nut7mw.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400188/CHI-08-19-DSCF5471_nut7mw.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400287/CHI-0871_irnemb.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400287/CHI-0871_irnemb.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400179/CHI-09-19-DSCF1288_vfju4l.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400179/CHI-09-19-DSCF1288_vfju4l.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400178/CHI-09-19-DSCF1295_bvowoq.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400178/CHI-09-19-DSCF1295_bvowoq.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400175/CHI-09-19-DSCF1377_zitot9.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400175/CHI-09-19-DSCF1377_zitot9.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400187/CHI-09-19-DSCF5133_vegfdb.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400187/CHI-09-19-DSCF5133_vegfdb.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400195/CHI-12-17-DSCF0612_cncmyo.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400195/CHI-12-17-DSCF0612_cncmyo.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400286/CHI-1262_nsnxzb.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400286/CHI-1262_nsnxzb.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400201/CHI-1342_lmjfl3.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400201/CHI-1342_lmjfl3.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400240/CHI-147_ilmaje.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400240/CHI-147_ilmaje.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400212/CHI-1931_rn6te7.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400212/CHI-1931_rn6te7.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400236/CHI-20_tknr7q.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400236/CHI-20_tknr7q.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400255/CHI-2081_jvescl.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400255/CHI-2081_jvescl.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400014/CHI-2084-Website-2_aa9b0b.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400014/CHI-2084-Website-2_aa9b0b.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400253/CHI-2084-Website-2_wr8h5y.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400253/CHI-2084-Website-2_wr8h5y.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400252/CHI-2111_lim7l4.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400252/CHI-2111_lim7l4.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400250/CHI-2145_yrvakj.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400250/CHI-2145_yrvakj.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400248/CHI-2167_yafprb.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400248/CHI-2167_yafprb.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400232/CHI-253_icy2sv.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400232/CHI-253_icy2sv.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400223/CHI-3_copy_iighyl.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400223/CHI-3_copy_iighyl.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400237/CHI-3_rfygr5.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400237/CHI-3_rfygr5.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400235/CHI-304_lntriz.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400235/CHI-304_lntriz.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400214/CHI-359_vzopw0.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400214/CHI-359_vzopw0.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400227/CHI-367_hdz3ti.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400227/CHI-367_hdz3ti.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400271/CHI-372_ecbzxy.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400271/CHI-372_ecbzxy.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400221/CHI-376_sdjrhp.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400221/CHI-376_sdjrhp.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400246/CHI-4_pdtha2.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400246/CHI-4_pdtha2.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400228/CHI-415_copy_yjolmp.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400228/CHI-415_copy_yjolmp.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400257/CHI-440-Website-2_yhjghz.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400257/CHI-440-Website-2_yhjghz.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400262/CHI-4780_r7bvbn.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400262/CHI-4780_r7bvbn.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400225/CHI-489_ttezok.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400225/CHI-489_ttezok.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400284/CHI-5041_gagtl2.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400284/CHI-5041_gagtl2.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400205/CHI-5652_gww0pl.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400205/CHI-5652_gww0pl.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400203/CHI-5927_sbp0gf.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400203/CHI-5927_sbp0gf.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400269/CHI-65_fgjwby.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400269/CHI-65_fgjwby.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400267/CHI-770_h8vtwg.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400267/CHI-770_h8vtwg.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400260/CHI-7709_k9welh.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400260/CHI-7709_k9welh.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400243/CHI-7876_copy_qkxrcq.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400243/CHI-7876_copy_qkxrcq.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400267/CHI-8032_fnivln.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400267/CHI-8032_fnivln.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400272/CHI-823-Website-2_dzecx9.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400272/CHI-823-Website-2_dzecx9.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400280/CHI-8292_vy56ok.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400280/CHI-8292_vy56ok.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400278/CHI-8382_xpvkzp.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400278/CHI-8382_xpvkzp.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400277/CHI-8413_pcmyd4.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400277/CHI-8413_pcmyd4.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400275/CHI-8649_ogte7q.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400275/CHI-8649_ogte7q.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400219/CHI-8789_lntzpl.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400219/CHI-8789_lntzpl.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400200/CHI-8849_ou9flh.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400200/CHI-8849_ou9flh.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400258/CHI-8884_ilxzgz.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400258/CHI-8884_ilxzgz.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400209/CHI-9127_iyk8v0.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400209/CHI-9127_iyk8v0.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400245/CHI-9371_dvpzg1.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400245/CHI-9371_dvpzg1.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400241/CHI-9381_rzvtgh.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400241/CHI-9381_rzvtgh.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400220/CHI-9540_xad0wj.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400220/CHI-9540_xad0wj.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400199/CHI-9692_hdr8cv.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400199/CHI-9692_hdr8cv.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400210/CHI-9867_vkoxgk.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400210/CHI-9867_vkoxgk.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400264/CHI-9872-Website-2_n0brdh.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400264/CHI-9872-Website-2_n0brdh.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620610/CHI-Beloveful6_fznavp.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620610/CHI-Beloveful6_fznavp.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759466071/CHI-Beloveful6_sxid0x.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759466071/CHI-Beloveful6_sxid0x.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620604/CHI-Beloveful6_wjllrg.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620604/CHI-Beloveful6_wjllrg.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620660/CHI-Beloveful6.jpg-nggid03317-ngg0dyn-120x90-00f0w010c011r110f110r010t010_a6z3yb.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620660/CHI-Beloveful6.jpg-nggid03317-ngg0dyn-120x90-00f0w010c011r110f110r010t010_a6z3yb.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620661/CHI-Beloveful6.jpg-nggid03317-ngg0dyn-180x0-00f0w010c010r110f110r010t010_bvetbt.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620661/CHI-Beloveful6.jpg-nggid03317-ngg0dyn-180x0-00f0w010c010r110f110r010t010_bvetbt.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400229/CHI-Cafe-_tyqd7y.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400229/CHI-Cafe-_tyqd7y.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620602/CHI-DSCF9471_fuc2pl.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620602/CHI-DSCF9471_fuc2pl.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759466090/CHI-DSCF9471_mrvrxd.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759466090/CHI-DSCF9471_mrvrxd.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620617/CHI-DSCF9471_vukjxy.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620617/CHI-DSCF9471_vukjxy.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620621/CHI-DSCF9471.jpg-nggid03315-ngg0dyn-120x90-00f0w010c011r110f110r010t010_gkt5na.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620621/CHI-DSCF9471.jpg-nggid03315-ngg0dyn-120x90-00f0w010c011r110f110r010t010_gkt5na.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620621/CHI-DSCF9471.jpg-nggid03315-ngg0dyn-180x0-00f0w010c010r110f110r010t010_seh9do.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620621/CHI-DSCF9471.jpg-nggid03315-ngg0dyn-180x0-00f0w010c010r110f110r010t010_seh9do.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400184/CHI-Eclipse-04-24-DSCF6525_sf4rsa.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400184/CHI-Eclipse-04-24-DSCF6525_sf4rsa.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400208/CHI-HotNCold-_icwrgo.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400208/CHI-HotNCold-_icwrgo.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759466082/CHI-MeniasTony_12_ywrfrc.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759466082/CHI-MeniasTony_12_ywrfrc.jpg' }
+    ],
   },
   {
-    "region": "Europe",
-    "country": "France",
-    "slug": "france",
-    "images": [
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/France/DSCF0063.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/France/DSCF0063.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/France/DSCF0103.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/France/DSCF0103.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/France/DSCF0106.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/France/DSCF0106.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/France/DSCF0133.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/France/DSCF0133.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/France/DSCF0271.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/France/DSCF0271.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/France/DSCF0459.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/France/DSCF0459.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/France/DSCF0509.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/France/DSCF0509.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/France/DSCF0545.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/France/DSCF0545.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/France/DSCF0654.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/France/DSCF0654.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/France/DSCF0703.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/France/DSCF0703.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/France/DSCF0739.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/France/DSCF0739.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/France/DSCF0856.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/France/DSCF0856.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/France/DSCF9603.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/France/DSCF9603.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/France/DSCF9616.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/France/DSCF9616.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/France/DSCF9661.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/France/DSCF9661.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/France/DSCF9772.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/France/DSCF9772.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/France/DSCF9790.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/France/DSCF9790.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/France/DSCF9877.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/France/DSCF9877.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/France/FRA-05-18-18.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/France/FRA-05-18-18.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/France/FRA-05-18-DSCF9815.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/France/FRA-05-18-DSCF9815.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/France/FRA-05-19-18.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/France/FRA-05-19-18.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/France/FRA-0103.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/France/FRA-0103.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/France/FRA-0366.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/France/FRA-0366.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/France/FRA-9803.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/France/FRA-9803.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/France/FRA-DSCF0125.png",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/France/FRA-DSCF0125.png"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/France/FRA-DSCF9765.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/France/FRA-DSCF9765.jpg"
-      }
-    ]
+    region: "South America",
+    country: "Argentina",
+    slug: "argentina",
+    images: [
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620951/ARG-8518_d1y1ut.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620951/ARG-8518_d1y1ut.jpg' }
+    ],
   },
   {
-    "region": "Europe",
-    "country": "Greece",
-    "slug": "greece",
-    "images": [
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Greece/DSCF3407%20copy.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Greece/DSCF3407%20copy.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Greece/DSCF3837.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Greece/DSCF3837.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Greece/DSCF3935.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Greece/DSCF3935.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Greece/DSCF3950.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Greece/DSCF3950.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Greece/DSCF4025.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Greece/DSCF4025.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Greece/DSCF4135.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Greece/DSCF4135.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Greece/DSCF4185.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Greece/DSCF4185.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Greece/DSCF4186.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Greece/DSCF4186.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Greece/DSCF4324.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Greece/DSCF4324.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Greece/DSCF4458.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Greece/DSCF4458.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Greece/DSCF4522.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Greece/DSCF4522.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Greece/DSCF4538.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Greece/DSCF4538.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Greece/GRC-4135.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Greece/GRC-4135.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Greece/GRE-06-17-DSCF3354.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Greece/GRE-06-17-DSCF3354.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Greece/GRE-06-17-DSCF3374.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Greece/GRE-06-17-DSCF3374.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Greece/GRE-06-17-DSCF3545.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Greece/GRE-06-17-DSCF3545.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Greece/GRE-06-17-DSCF3935.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Greece/GRE-06-17-DSCF3935.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Greece/GRE-06-17-DSCF3945.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Greece/GRE-06-17-DSCF3945.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Greece/GRE-06-17-DSCF4387.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Greece/GRE-06-17-DSCF4387.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Greece/Greece-DSCF4135.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Greece/Greece-DSCF4135.jpg"
-      }
-    ]
+    region: "North America",
+    country: "New York",
+    slug: "new-york",
+    images: [
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218565/Website%20beloveful.com/Erasing%20Borders/NyC-DSCF8922_copy_2_lswqmq.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218565/Website%20beloveful.com/Erasing%20Borders/NyC-DSCF8922_copy_2_lswqmq.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759466084/NyC-DSCF8922_copy_2_w7uu8e.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759466084/NyC-DSCF8922_copy_2_w7uu8e.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620665/thumbs_NyC-DSCF8922-copy-2_sixink.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620665/thumbs_NyC-DSCF8922-copy-2_sixink.jpg' }
+    ],
   },
   {
-    "region": "Europe",
-    "country": "Italy",
-    "slug": "italy",
-    "images": [
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/DSCF3805.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/DSCF3805.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/DSCF3847-Website-2.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/DSCF3847-Website-2.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/DSCF3861.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/DSCF3861.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/DSCF3885%20copy%202.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/DSCF3885%20copy%202.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/DSCF3885%20copy.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/DSCF3885%20copy.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/DSCF3885.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/DSCF3885.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/DSCF3900.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/DSCF3900.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/DSCF4018.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/DSCF4018.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/DSCF4039.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/DSCF4039.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/DSCF4511-Website-2.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/DSCF4511-Website-2.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/DSCF4511.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/DSCF4511.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/DSCF4707.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/DSCF4707.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/DSCF4927.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/DSCF4927.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/DSCF5067.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/DSCF5067.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/DSCF5156.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/DSCF5156.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/DSCF5218.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/DSCF5218.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/DSCF5223.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/DSCF5223.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/DSCF5259.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/DSCF5259.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/DSCF5985.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/DSCF5985.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/DSCF5990.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/DSCF5990.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/DSCF6139.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/DSCF6139.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/DSCF6643.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/DSCF6643.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/DSCF7366.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/DSCF7366.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/DSCF7381.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/DSCF7381.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/DSCF7678.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/DSCF7678.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/DSCF7701.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/DSCF7701.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/DSCF7793.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/DSCF7793.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-06-15-19-2.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-06-15-19-2.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-06-15-19.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-06-15-19.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-06-19-19.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-06-19-19.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-06-19-DSCF4216.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-06-19-DSCF4216.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-06-19-DSCF4624.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-06-19-DSCF4624.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-06-19-DSCF4707.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-06-19-DSCF4707.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-06-19-DSCF5220.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-06-19-DSCF5220.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-06-19-DSCF5382.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-06-19-DSCF5382.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-06-19-DSCF5412.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-06-19-DSCF5412.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-06-19-DSCF5719.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-06-19-DSCF5719.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-06-19-DSCF5753.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-06-19-DSCF5753.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-06-19-DSCF5847.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-06-19-DSCF5847.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-06-19-DSCF5929.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-06-19-DSCF5929.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-06-19-DSCF6092.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-06-19-DSCF6092.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-06-19-DSCF6262.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-06-19-DSCF6262.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-06-19-DSCF6413.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-06-19-DSCF6413.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-06-19-DSCF6766.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-06-19-DSCF6766.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-06-19-DSCF6817.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-06-19-DSCF6817.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-06-19-DSCF6864.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-06-19-DSCF6864.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-06-19-DSCF6987.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-06-19-DSCF6987.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-06-19-DSCF6993.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-06-19-DSCF6993.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-06-19-DSCF7223-2.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-06-19-DSCF7223-2.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-06-19-DSCF7323.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-06-19-DSCF7323.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-06-19-DSCF7366.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-06-19-DSCF7366.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-06-19-DSCF7678.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-06-19-DSCF7678.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-3723.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-3723.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-3816.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-3816.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-4096.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-4096.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-4755.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-4755.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-4935.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-4935.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-4985.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-4985.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-4995.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-4995.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-5013.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-5013.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-5030.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-5030.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-5047.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-5047.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-5193.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-5193.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-5199.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-5199.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-5208.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-5208.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-5209.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-5209.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-5212.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-5212.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-5218.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-5218.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-5220.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-5220.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-5223.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-5223.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-5252-Website-2.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-5252-Website-2.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-5252.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-5252.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-5257.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-5257.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-5261.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-5261.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-5267.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-5267.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-5275.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-5275.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-5470.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-5470.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-5487.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-5487.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-5491.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-5491.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-5507.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-5507.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-5847.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-5847.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-6092.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-6092.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-6160.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-6160.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-6300%20copy.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-6300%20copy.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-6300.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-6300.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-6796-Website-2.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-6796-Website-2.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-6796.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-6796.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-6828.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-6828.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-6842.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-6842.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-6849.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-6849.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-6886.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-6886.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-6952.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-6952.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-7041.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-7041.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-7083.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-7083.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-7114.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-7114.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-7323.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-7323.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-7475.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-7475.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-7678.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-7678.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-7800.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-7800.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-DSCF6964.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Italy/ITA-DSCF6964.jpg"
-      }
-    ]
+    region: "Africa",
+    country: "Morocco",
+    slug: "morocco",
+    images: [
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759466092/MOR-IMG_5248_copy_o6q3jf.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759466092/MOR-IMG_5248_copy_o6q3jf.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621056/MOR-5380-05-07-16_jqwcrp.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621056/MOR-5380-05-07-16_jqwcrp.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621055/MOR-05-16-IMG_5205_nscxid.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621055/MOR-05-16-IMG_5205_nscxid.jpg' }
+    ],
   },
   {
-    "region": "Europe",
-    "country": "Portugal",
-    "slug": "portugal",
-    "images": [
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Portugal/LIsbon-5078.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Portugal/LIsbon-5078.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Portugal/Lisbon-5415.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Portugal/Lisbon-5415.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Portugal/LIsbon-5511.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Portugal/LIsbon-5511.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Portugal/Lisbon-5890.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Portugal/Lisbon-5890.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Portugal/LIsbon-5987.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Portugal/LIsbon-5987.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Portugal/LIsbon-6127.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Portugal/LIsbon-6127.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Portugal/LIsbon-6784.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Portugal/LIsbon-6784.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Portugal/LIsbon-7142.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Portugal/LIsbon-7142.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Portugal/PORT-06-22-DSCF5792.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Portugal/PORT-06-22-DSCF5792.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Portugal/PORT-06-22-DSCF5934.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Portugal/PORT-06-22-DSCF5934.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Portugal/PORT-06-22-DSCF7572.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Portugal/PORT-06-22-DSCF7572.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Portugal/PORT-06-22-DSCF7819.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Portugal/PORT-06-22-DSCF7819.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Portugal/PORT-78.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Portugal/PORT-78.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Portugal/PORT-80.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Portugal/PORT-80.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Portugal/PORT-140-Website-2.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Portugal/PORT-140-Website-2.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Portugal/PORT-208.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Portugal/PORT-208.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Portugal/PORT-267.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Portugal/PORT-267.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Portugal/PORT-420.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Portugal/PORT-420.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Portugal/PORT-443.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Portugal/PORT-443.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Portugal/PORT-482.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Portugal/PORT-482.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Portugal/PORT-678.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Portugal/PORT-678.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Portugal/PORT-6458.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Portugal/PORT-6458.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Portugal/Porto-5193-3.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Portugal/Porto-5193-3.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Portugal/Porto-5222.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Portugal/Porto-5222.jpg"
-      }
-    ]
+    region: "Middle East",
+    country: "Saudi Arabia",
+    slug: "saudi-arabia",
+    images: [
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621049/SA-11-22-DSCF5780_ine99g.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621049/SA-11-22-DSCF5780_ine99g.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621049/SA-11-22-DSCF5766_gr3cyj.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621049/SA-11-22-DSCF5766_gr3cyj.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621049/SA-11-22-DSCF5864_zel0dj.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621049/SA-11-22-DSCF5864_zel0dj.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621048/SA-11-22-DSCF6247_azsmlt.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621048/SA-11-22-DSCF6247_azsmlt.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621048/SA-11-22-DSCF6142_tjeame.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621048/SA-11-22-DSCF6142_tjeame.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621047/SA-11-22-DSCF6210_we7i7s.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621047/SA-11-22-DSCF6210_we7i7s.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621047/SA-11-22-DSCF5894_pel3se.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621047/SA-11-22-DSCF5894_pel3se.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621047/SA-11-22-DSCF5926_qfnb8f.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621047/SA-11-22-DSCF5926_qfnb8f.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621046/SA-11-22-DSCF5758_k5j5pt.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621046/SA-11-22-DSCF5758_k5j5pt.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621046/SA-11-22-DSCF5932_y5c2pr.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621046/SA-11-22-DSCF5932_y5c2pr.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621045/SA-11-22-DSCF5838_pfjqju.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621045/SA-11-22-DSCF5838_pfjqju.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621045/SA-11-22-DSCF5770_jpw3x4.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621045/SA-11-22-DSCF5770_jpw3x4.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621045/SA-11-22-DSCF6237_ukd0oy.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621045/SA-11-22-DSCF6237_ukd0oy.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621044/SA-11-22-DSCF6201_lespup.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621044/SA-11-22-DSCF6201_lespup.jpg' }
+    ],
   },
   {
-    "region": "Europe",
-    "country": "Spain",
-    "slug": "spain",
-    "images": [
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Spain/DSCF4995.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Spain/DSCF4995.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Spain/ESP-4279.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Spain/ESP-4279.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Spain/ESP-4399.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Spain/ESP-4399.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Spain/ESP-4401.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Spain/ESP-4401.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Spain/SPA-06-23-DSCF8291.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Spain/SPA-06-23-DSCF8291.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Spain/SPA-06-23-DSCF8619.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Spain/SPA-06-23-DSCF8619.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Spain/Spain-DSCF4277.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/Spain/Spain-DSCF4277.jpg"
-      }
-    ]
+    region: "North America",
+    country: "Puerto Rico",
+    slug: "puerto-rico",
+    images: [
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620552/PR-DSF8368_rihtna.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620552/PR-DSF8368_rihtna.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620552/PR-1049_fol9kq.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620552/PR-1049_fol9kq.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620552/PR-DSF8358_irvw2j.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620552/PR-DSF8358_irvw2j.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620551/PR-DSF8343_wfmmui.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620551/PR-DSF8343_wfmmui.jpg' }
+    ],
   },
   {
-    "region": "Europe",
-    "country": "UK & Ireland",
-    "slug": "uk-and-ireland",
-    "images": [
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/UK%20%26%20Ireland/DSCF0708.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/UK%20%26%20Ireland/DSCF0708.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/UK%20%26%20Ireland/DSCF1055.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/UK%20%26%20Ireland/DSCF1055.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/UK%20%26%20Ireland/DSCF1591-Edit.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/UK%20%26%20Ireland/DSCF1591-Edit.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/UK%20%26%20Ireland/DSCF2087.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/UK%20%26%20Ireland/DSCF2087.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/UK%20%26%20Ireland/DSCF3031.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/UK%20%26%20Ireland/DSCF3031.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/UK%20%26%20Ireland/DSCF3123.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/UK%20%26%20Ireland/DSCF3123.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/UK%20%26%20Ireland/DSCF3198-Edit-Website-2.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/UK%20%26%20Ireland/DSCF3198-Edit-Website-2.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/UK%20%26%20Ireland/DSCF3251.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/UK%20%26%20Ireland/DSCF3251.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/UK%20%26%20Ireland/GoneGirl.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/UK%20%26%20Ireland/GoneGirl.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/UK%20%26%20Ireland/Ireland-DSCF2233.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/UK%20%26%20Ireland/Ireland-DSCF2233.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/UK%20%26%20Ireland/Ireland-HeAwaits.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/UK%20%26%20Ireland/Ireland-HeAwaits.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/UK%20%26%20Ireland/IRL-10-18-DSCF3233.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/UK%20%26%20Ireland/IRL-10-18-DSCF3233.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/UK%20%26%20Ireland/IRL-2324.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/UK%20%26%20Ireland/IRL-2324.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/UK%20%26%20Ireland/IRL-2348.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/UK%20%26%20Ireland/IRL-2348.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/UK%20%26%20Ireland/IRL-2491.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/UK%20%26%20Ireland/IRL-2491.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/UK%20%26%20Ireland/IRL-2676.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/UK%20%26%20Ireland/IRL-2676.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/UK%20%26%20Ireland/IRL-2832.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/UK%20%26%20Ireland/IRL-2832.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/UK%20%26%20Ireland/IRL-2855.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/UK%20%26%20Ireland/IRL-2855.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/UK%20%26%20Ireland/IRL-2972.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/UK%20%26%20Ireland/IRL-2972.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/UK%20%26%20Ireland/IRL-3046.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/UK%20%26%20Ireland/IRL-3046.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/UK%20%26%20Ireland/IRL-3258.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/UK%20%26%20Ireland/IRL-3258.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/UK%20%26%20Ireland/Outlined.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/UK%20%26%20Ireland/Outlined.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/UK%20%26%20Ireland/Ridethewave.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/UK%20%26%20Ireland/Ridethewave.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/UK%20%26%20Ireland/UK-01-19-DSCF1484.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/UK%20%26%20Ireland/UK-01-19-DSCF1484.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/UK%20%26%20Ireland/UK-01-19-DSCF1565.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/UK%20%26%20Ireland/UK-01-19-DSCF1565.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/UK%20%26%20Ireland/UK-01-19-DSCF1744.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/UK%20%26%20Ireland/UK-01-19-DSCF1744.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/UK%20%26%20Ireland/UK-0452.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/UK%20%26%20Ireland/UK-0452.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/UK%20%26%20Ireland/UK-0458.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/UK%20%26%20Ireland/UK-0458.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/UK%20%26%20Ireland/UK-1871.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/UK%20%26%20Ireland/UK-1871.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/UK%20%26%20Ireland/UK-1457012819.jpg",
-        "mobile": "/Website%20beloveful.com/Europe%20%26%20Scandinavia/UK%20%26%20Ireland/UK-1457012819.jpg"
-      }
-    ]
+    region: "North America",
+    country: "Mexico",
+    slug: "mexico",
+    images: [
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620551/MEX-11-20-DSCF5674_hv6yem.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620551/MEX-11-20-DSCF5674_hv6yem.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620551/MEX-10-20-DSCF2473_til94o.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620551/MEX-10-20-DSCF2473_til94o.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620550/MEX-11-20-DSCF6087_fjxxbz.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620550/MEX-11-20-DSCF6087_fjxxbz.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620550/MEX-11-20-DSCF5608_s3rmtp.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620550/MEX-11-20-DSCF5608_s3rmtp.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620550/MEX-11-20-DSCF6067_a6zoaw.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620550/MEX-11-20-DSCF6067_a6zoaw.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620549/MEX-10-20-DSCF2598_cixoo1.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620549/MEX-10-20-DSCF2598_cixoo1.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620549/MEX-11-20-DSCF3780_qakvwx.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620549/MEX-11-20-DSCF3780_qakvwx.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620549/MEX-10-20-DSCF2812_ys1hzq.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620549/MEX-10-20-DSCF2812_ys1hzq.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620548/MEX-11-20-DSCF5601_rgxl5r.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620548/MEX-11-20-DSCF5601_rgxl5r.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620548/MEX-11-20-DSCF4476_ay7pwm.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620548/MEX-11-20-DSCF4476_ay7pwm.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620548/MEX-11-20-DSCF5613_pp4uo2.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620548/MEX-11-20-DSCF5613_pp4uo2.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620548/MEX-11-20-DSCF5614_ztu45y.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620548/MEX-11-20-DSCF5614_ztu45y.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620547/MEX-11-20-DSCF5628_sk679j.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620547/MEX-11-20-DSCF5628_sk679j.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620547/MEX-11-20-DSCF5661_c85i0j.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620547/MEX-11-20-DSCF5661_c85i0j.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620547/MEX-11-20-DSCF6431_k5zu5k.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620547/MEX-11-20-DSCF6431_k5zu5k.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620546/MEX-11-07-20-3_ughmge.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620546/MEX-11-07-20-3_ughmge.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620546/MEX-11-20-DSCF7614_brutu2.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620546/MEX-11-20-DSCF7614_brutu2.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620546/MEX-10-20-DSCF1423_zcbnpm.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620546/MEX-10-20-DSCF1423_zcbnpm.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620545/MEX-11-20-DSCF6370_ddcbeo.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620545/MEX-11-20-DSCF6370_ddcbeo.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620545/MEX-11-07-20_oft3b4.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620545/MEX-11-07-20_oft3b4.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620545/MEX-11-03-20-2_sucidz.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620545/MEX-11-03-20-2_sucidz.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620544/MEX-11-20-DSCF5657_knajz6.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620544/MEX-11-20-DSCF5657_knajz6.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620544/MEX-10-29-20-2_a4auxb.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620544/MEX-10-29-20-2_a4auxb.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620543/MEX-10-29-20-4_juitn9.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620543/MEX-10-29-20-4_juitn9.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620543/MEX-11-03-20_uhvufh.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620543/MEX-11-03-20_uhvufh.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620543/MEX-10-31-20_efeo7n.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620543/MEX-10-31-20_efeo7n.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620543/MEX-08-26-20_enz4f4.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620543/MEX-08-26-20_enz4f4.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620543/MEX-10-20-DSCF2506_krnffa.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620543/MEX-10-20-DSCF2506_krnffa.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620542/MEX-11-20-DSCF5556_i0zs7u.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620542/MEX-11-20-DSCF5556_i0zs7u.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620542/MEX-10-28-20-3_rlc1mo.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620542/MEX-10-28-20-3_rlc1mo.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620541/MEX-10-29-20-3_cvzkyg.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620541/MEX-10-29-20-3_cvzkyg.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620541/MEX-11-20-DSCF4753_h1mgly.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620541/MEX-11-20-DSCF4753_h1mgly.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620540/MEX-08-28-20_aap6tv.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620540/MEX-08-28-20_aap6tv.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620540/MEX-09-20-DSCF5845_vqaa1u.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620540/MEX-09-20-DSCF5845_vqaa1u.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620540/MEX-09-04-20-2_ecdazw.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620540/MEX-09-04-20-2_ecdazw.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620540/MEX-10-29-20_okztv5.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620540/MEX-10-29-20_okztv5.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620539/MEX-166_yshj1w.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620539/MEX-166_yshj1w.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620539/MEX-92_qsfpzg.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620539/MEX-92_qsfpzg.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620539/MEX-7549_zd3edw.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620539/MEX-7549_zd3edw.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620538/MEX-203_z0lxbr.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620538/MEX-203_z0lxbr.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620538/MEX-84_kbpaxr.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620538/MEX-84_kbpaxr.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620538/MEX-30_tnymgq.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620538/MEX-30_tnymgq.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620537/MEX-118_ddykfm.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620537/MEX-118_ddykfm.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620537/MEX-56_copy_d0vdpk.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620537/MEX-56_copy_d0vdpk.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620537/MEX-18-Website-2_ulwxwm.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620537/MEX-18-Website-2_ulwxwm.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620537/MEX-79_v0fwxx.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620537/MEX-79_v0fwxx.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620536/MEX-424_xvhxmy.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620536/MEX-424_xvhxmy.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620536/MEX-311_iwlwja.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620536/MEX-311_iwlwja.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620535/MEX-09-04-20_bcxcjc.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620535/MEX-09-04-20_bcxcjc.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620535/MEX-206_osokrj.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620535/MEX-206_osokrj.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620535/MEX-10-28-20-2_misgct.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620535/MEX-10-28-20-2_misgct.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620534/MEX-10-28-20_zrgfd7.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620534/MEX-10-28-20_zrgfd7.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620534/MEX-5831_lqfktc.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620534/MEX-5831_lqfktc.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620534/MEX-7476-_cacovg.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620534/MEX-7476-_cacovg.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620534/MEX-5803_jcibny.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620534/MEX-5803_jcibny.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620533/MEX-10-27-20_dknvhm.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620533/MEX-10-27-20_dknvhm.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620533/MEX-09-09-20_fzdjzw.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620533/MEX-09-09-20_fzdjzw.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620533/MEX-6692_bqfngj.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620533/MEX-6692_bqfngj.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620532/MEX-178_copy_ivaziz.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620532/MEX-178_copy_ivaziz.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620532/MEX-18_dmjpjb.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620532/MEX-18_dmjpjb.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620531/MEX-74_u1183a.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620531/MEX-74_u1183a.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620531/MEX-112_ybuidd.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620531/MEX-112_ybuidd.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620531/MEX-179_e9sgx5.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620531/MEX-179_e9sgx5.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620531/MEX-129_gdtrn2.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620531/MEX-129_gdtrn2.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620530/MEX-345_poxvbm.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620530/MEX-345_poxvbm.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620530/MEX-328_dyl65f.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620530/MEX-328_dyl65f.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620530/MEX-93_ygttgw.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620530/MEX-93_ygttgw.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620529/MEX-181_ptmc8v.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620529/MEX-181_ptmc8v.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620529/MEX-109_a2elw7.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620529/MEX-109_a2elw7.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620529/MEX-374_mjeeid.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620529/MEX-374_mjeeid.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620529/MEX-326_qu0gtt.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620529/MEX-326_qu0gtt.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620528/MEX-164_cer0io.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620528/MEX-164_cer0io.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620528/MEX-61_u7izwt.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620528/MEX-61_u7izwt.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620527/MEX-406_w9xam6.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620527/MEX-406_w9xam6.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620527/MEX-299_raaa7a.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620527/MEX-299_raaa7a.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620527/MEX-159_bvnjbw.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620527/MEX-159_bvnjbw.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620526/MEX-64_mmg4x5.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620526/MEX-64_mmg4x5.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620526/MEX-178_sdv5k1.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620526/MEX-178_sdv5k1.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620525/MEX-105_khbotk.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620525/MEX-105_khbotk.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620526/MEX-23_x9r70a.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620526/MEX-23_x9r70a.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620525/MEX-37_vw1lav.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620525/MEX-37_vw1lav.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620525/MEX-4376_c2jagu.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620525/MEX-4376_c2jagu.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620524/MEX-4545_zawvu2.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620524/MEX-4545_zawvu2.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620524/MEX-47_gny7s0.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620524/MEX-47_gny7s0.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620524/MEX-73_hfxjvw.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620524/MEX-73_hfxjvw.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620523/MEX-4731_ptqtqh.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620523/MEX-4731_ptqtqh.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620523/MEX-4426_xilvc3.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620523/MEX-4426_xilvc3.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620522/MEX-54_iharhi.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620522/MEX-54_iharhi.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620522/MEX-191_uulgki.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620522/MEX-191_uulgki.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620522/MEX-66_k7ho8n.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620522/MEX-66_k7ho8n.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620522/MEX-294_dvsncu.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620522/MEX-294_dvsncu.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620521/MEX-117_dhrfxg.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620521/MEX-117_dhrfxg.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620521/MEX-56_ciyjeu.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620521/MEX-56_ciyjeu.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620521/MEX-180_rbi3jo.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620521/MEX-180_rbi3jo.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620520/MEX-197_ngbg2f.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620520/MEX-197_ngbg2f.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620520/MEX-28_zlhjxm.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620520/MEX-28_zlhjxm.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620520/MEX-395_ol8z8u.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620520/MEX-395_ol8z8u.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620519/MEX-Miss_Technicolor-8_xldvhz.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620519/MEX-Miss_Technicolor-8_xldvhz.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620519/MEX-65_jyrd0s.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620519/MEX-65_jyrd0s.jpg' }
+    ],
   },
   {
-    "region": "Middle East",
-    "country": "Israel _ Palestine",
-    "slug": "israel-palestine",
-    "images": [
-      {
-        "desktop": "/Website%20beloveful.com/Middle%20East/Israel%20_%20Palestine/DSCF2675.jpg",
-        "mobile": "/Website%20beloveful.com/Middle%20East/Israel%20_%20Palestine/DSCF2675.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Middle%20East/Israel%20_%20Palestine/DSCF2938.jpg",
-        "mobile": "/Website%20beloveful.com/Middle%20East/Israel%20_%20Palestine/DSCF2938.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Middle%20East/Israel%20_%20Palestine/DSCF2969.jpg",
-        "mobile": "/Website%20beloveful.com/Middle%20East/Israel%20_%20Palestine/DSCF2969.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Middle%20East/Israel%20_%20Palestine/DSCF2992.jpg",
-        "mobile": "/Website%20beloveful.com/Middle%20East/Israel%20_%20Palestine/DSCF2992.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Middle%20East/Israel%20_%20Palestine/DSCF3088.jpg",
-        "mobile": "/Website%20beloveful.com/Middle%20East/Israel%20_%20Palestine/DSCF3088.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Middle%20East/Israel%20_%20Palestine/DSCF3559.jpg",
-        "mobile": "/Website%20beloveful.com/Middle%20East/Israel%20_%20Palestine/DSCF3559.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Middle%20East/Israel%20_%20Palestine/DSCF3675.jpg",
-        "mobile": "/Website%20beloveful.com/Middle%20East/Israel%20_%20Palestine/DSCF3675.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Middle%20East/Israel%20_%20Palestine/ISR-10-19-DSCF2603.jpg",
-        "mobile": "/Website%20beloveful.com/Middle%20East/Israel%20_%20Palestine/ISR-10-19-DSCF2603.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Middle%20East/Israel%20_%20Palestine/ISR-10-19-DSCF2937.jpg",
-        "mobile": "/Website%20beloveful.com/Middle%20East/Israel%20_%20Palestine/ISR-10-19-DSCF2937.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Middle%20East/Israel%20_%20Palestine/ISR-10-19-DSCF2980-Enhanced-NR.jpg",
-        "mobile": "/Website%20beloveful.com/Middle%20East/Israel%20_%20Palestine/ISR-10-19-DSCF2980-Enhanced-NR.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Middle%20East/Israel%20_%20Palestine/ISR-10-19-DSCF3016-2.jpg",
-        "mobile": "/Website%20beloveful.com/Middle%20East/Israel%20_%20Palestine/ISR-10-19-DSCF3016-2.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Middle%20East/Israel%20_%20Palestine/ISR-10-19-DSCF3016.jpg",
-        "mobile": "/Website%20beloveful.com/Middle%20East/Israel%20_%20Palestine/ISR-10-19-DSCF3016.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Middle%20East/Israel%20_%20Palestine/ISR-10-19-DSCF3499.jpg",
-        "mobile": "/Website%20beloveful.com/Middle%20East/Israel%20_%20Palestine/ISR-10-19-DSCF3499.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Middle%20East/Israel%20_%20Palestine/ISR-10-19-DSCF3674.jpg",
-        "mobile": "/Website%20beloveful.com/Middle%20East/Israel%20_%20Palestine/ISR-10-19-DSCF3674.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Middle%20East/Israel%20_%20Palestine/ISR-10-19-DSCF4131.jpg",
-        "mobile": "/Website%20beloveful.com/Middle%20East/Israel%20_%20Palestine/ISR-10-19-DSCF4131.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Middle%20East/Israel%20_%20Palestine/ISR-10-19-DSCF4159.jpg",
-        "mobile": "/Website%20beloveful.com/Middle%20East/Israel%20_%20Palestine/ISR-10-19-DSCF4159.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Middle%20East/Israel%20_%20Palestine/ISR-10-19-DSCF4212.jpg",
-        "mobile": "/Website%20beloveful.com/Middle%20East/Israel%20_%20Palestine/ISR-10-19-DSCF4212.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Middle%20East/Israel%20_%20Palestine/PAL-10-19-DSCF3206.jpg",
-        "mobile": "/Website%20beloveful.com/Middle%20East/Israel%20_%20Palestine/PAL-10-19-DSCF3206.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Middle%20East/Israel%20_%20Palestine/PAL-10-19-DSCF3208.jpg",
-        "mobile": "/Website%20beloveful.com/Middle%20East/Israel%20_%20Palestine/PAL-10-19-DSCF3208.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Middle%20East/Israel%20_%20Palestine/PAL-10-19-DSCF3211.jpg",
-        "mobile": "/Website%20beloveful.com/Middle%20East/Israel%20_%20Palestine/PAL-10-19-DSCF3211.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Middle%20East/Israel%20_%20Palestine/PAL-10-19-DSCF3221.jpg",
-        "mobile": "/Website%20beloveful.com/Middle%20East/Israel%20_%20Palestine/PAL-10-19-DSCF3221.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Middle%20East/Israel%20_%20Palestine/PAL-10-19-DSCF3266.jpg",
-        "mobile": "/Website%20beloveful.com/Middle%20East/Israel%20_%20Palestine/PAL-10-19-DSCF3266.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Middle%20East/Israel%20_%20Palestine/PAL-10-19-DSCF3270.jpg",
-        "mobile": "/Website%20beloveful.com/Middle%20East/Israel%20_%20Palestine/PAL-10-19-DSCF3270.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Middle%20East/Israel%20_%20Palestine/PAL-10-19-DSCF3283.jpg",
-        "mobile": "/Website%20beloveful.com/Middle%20East/Israel%20_%20Palestine/PAL-10-19-DSCF3283.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Middle%20East/Israel%20_%20Palestine/PAL-10-19-DSCF3303.jpg",
-        "mobile": "/Website%20beloveful.com/Middle%20East/Israel%20_%20Palestine/PAL-10-19-DSCF3303.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Middle%20East/Israel%20_%20Palestine/PAL-10-19-DSCF3313.jpg",
-        "mobile": "/Website%20beloveful.com/Middle%20East/Israel%20_%20Palestine/PAL-10-19-DSCF3313.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Middle%20East/Israel%20_%20Palestine/PAL-10-19-DSCF3315.jpg",
-        "mobile": "/Website%20beloveful.com/Middle%20East/Israel%20_%20Palestine/PAL-10-19-DSCF3315.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Middle%20East/Israel%20_%20Palestine/PAL-10-19-DSCF3322.jpg",
-        "mobile": "/Website%20beloveful.com/Middle%20East/Israel%20_%20Palestine/PAL-10-19-DSCF3322.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Middle%20East/Israel%20_%20Palestine/PAL-10-19-DSCF3566.jpg",
-        "mobile": "/Website%20beloveful.com/Middle%20East/Israel%20_%20Palestine/PAL-10-19-DSCF3566.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Middle%20East/Israel%20_%20Palestine/PAL-10-19-DSCF3581.jpg",
-        "mobile": "/Website%20beloveful.com/Middle%20East/Israel%20_%20Palestine/PAL-10-19-DSCF3581.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Middle%20East/Israel%20_%20Palestine/PAL-10-19-DSCF3582.jpg",
-        "mobile": "/Website%20beloveful.com/Middle%20East/Israel%20_%20Palestine/PAL-10-19-DSCF3582.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Middle%20East/Israel%20_%20Palestine/PAL-10-19-DSCF3611.jpg",
-        "mobile": "/Website%20beloveful.com/Middle%20East/Israel%20_%20Palestine/PAL-10-19-DSCF3611.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Middle%20East/Israel%20_%20Palestine/PAL-10-19-DSCF3722.jpg",
-        "mobile": "/Website%20beloveful.com/Middle%20East/Israel%20_%20Palestine/PAL-10-19-DSCF3722.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Middle%20East/Israel%20_%20Palestine/PAL-10-19-DSCF3773.jpg",
-        "mobile": "/Website%20beloveful.com/Middle%20East/Israel%20_%20Palestine/PAL-10-19-DSCF3773.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Middle%20East/Israel%20_%20Palestine/PAL-10-22-DSCF4464.jpg",
-        "mobile": "/Website%20beloveful.com/Middle%20East/Israel%20_%20Palestine/PAL-10-22-DSCF4464.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Middle%20East/Israel%20_%20Palestine/PAL-10-22-DSCF4570.jpg",
-        "mobile": "/Website%20beloveful.com/Middle%20East/Israel%20_%20Palestine/PAL-10-22-DSCF4570.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Middle%20East/Israel%20_%20Palestine/PAL-10-22-DSCF4693.jpg",
-        "mobile": "/Website%20beloveful.com/Middle%20East/Israel%20_%20Palestine/PAL-10-22-DSCF4693.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Middle%20East/Israel%20_%20Palestine/PAL-10-22-DSCF4834.jpg",
-        "mobile": "/Website%20beloveful.com/Middle%20East/Israel%20_%20Palestine/PAL-10-22-DSCF4834.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Middle%20East/Israel%20_%20Palestine/PAL-10-22-DSCF4888.jpg",
-        "mobile": "/Website%20beloveful.com/Middle%20East/Israel%20_%20Palestine/PAL-10-22-DSCF4888.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Middle%20East/Israel%20_%20Palestine/PAL-10-22-DSCF4890.jpg",
-        "mobile": "/Website%20beloveful.com/Middle%20East/Israel%20_%20Palestine/PAL-10-22-DSCF4890.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Middle%20East/Israel%20_%20Palestine/PAL-10-22-DSCF4891.jpg",
-        "mobile": "/Website%20beloveful.com/Middle%20East/Israel%20_%20Palestine/PAL-10-22-DSCF4891.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Middle%20East/Israel%20_%20Palestine/PAL-10-22-DSCF4892.jpg",
-        "mobile": "/Website%20beloveful.com/Middle%20East/Israel%20_%20Palestine/PAL-10-22-DSCF4892.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Middle%20East/Israel%20_%20Palestine/PAL-10-22-DSCF4893.jpg",
-        "mobile": "/Website%20beloveful.com/Middle%20East/Israel%20_%20Palestine/PAL-10-22-DSCF4893.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Middle%20East/Israel%20_%20Palestine/PAL-3116.jpg",
-        "mobile": "/Website%20beloveful.com/Middle%20East/Israel%20_%20Palestine/PAL-3116.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Middle%20East/Israel%20_%20Palestine/PAL-3238.jpg",
-        "mobile": "/Website%20beloveful.com/Middle%20East/Israel%20_%20Palestine/PAL-3238.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Middle%20East/Israel%20_%20Palestine/PAL-3250.jpg",
-        "mobile": "/Website%20beloveful.com/Middle%20East/Israel%20_%20Palestine/PAL-3250.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Middle%20East/Israel%20_%20Palestine/TonyMenias-Hesalwayslistening.jpg",
-        "mobile": "/Website%20beloveful.com/Middle%20East/Israel%20_%20Palestine/TonyMenias-Hesalwayslistening.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Middle%20East/Israel%20_%20Palestine/untitled-4506-5.jpg",
-        "mobile": "/Website%20beloveful.com/Middle%20East/Israel%20_%20Palestine/untitled-4506-5.jpg"
-      }
-    ]
+    region: "North America",
+    country: "Caribbean",
+    slug: "caribbean",
+    images: [
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620518/CAR-12-24-DSCF9074_j1qznq.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620518/CAR-12-24-DSCF9074_j1qznq.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620518/CAR-12-24-DSCF9003_e33r6b.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620518/CAR-12-24-DSCF9003_e33r6b.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620519/CAR-12-24-DSCF9433_bzr6ps.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620519/CAR-12-24-DSCF9433_bzr6ps.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620518/CAR-12-24-DSCF9175_mbgpmz.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620518/CAR-12-24-DSCF9175_mbgpmz.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620518/CAR-12-24-DSCF9143_e6b9mi.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620518/CAR-12-24-DSCF9143_e6b9mi.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620516/CAR-12-24-DSCF9182_kanice.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620516/CAR-12-24-DSCF9182_kanice.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620516/CAR-12-24-DSCF9039_t2wkt7.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620516/CAR-12-24-DSCF9039_t2wkt7.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620516/CAR-12-24-DSCF9126_bnnmle.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620516/CAR-12-24-DSCF9126_bnnmle.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620515/CAR-12-24-DSCF9188_csfq9c.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620515/CAR-12-24-DSCF9188_csfq9c.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620515/CAR-12-24-DSCF8798_akarcf.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620515/CAR-12-24-DSCF8798_akarcf.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620510/CAR-12-24-DSCF9295_ywcx2h.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620510/CAR-12-24-DSCF9295_ywcx2h.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620508/CAR-7827_ma3agb.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620508/CAR-7827_ma3agb.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620508/CAR-12-24-DSCF9563_a0v6pj.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620508/CAR-12-24-DSCF9563_a0v6pj.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620508/CAR-12-24-DSCF9138_p1n3fe.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620508/CAR-12-24-DSCF9138_p1n3fe.jpg' }
+    ],
   },
   {
-    "region": "Middle East",
-    "country": "Jordan",
-    "slug": "jordan",
-    "images": [
-      {
-        "desktop": "/Website%20beloveful.com/Middle%20East/Jordan/DSCF4385.jpg",
-        "mobile": "/Website%20beloveful.com/Middle%20East/Jordan/DSCF4385.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Middle%20East/Jordan/DSCF4430.jpg",
-        "mobile": "/Website%20beloveful.com/Middle%20East/Jordan/DSCF4430.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Middle%20East/Jordan/DSCF4488.jpg",
-        "mobile": "/Website%20beloveful.com/Middle%20East/Jordan/DSCF4488.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Middle%20East/Jordan/DSCF4537-Website-2.jpg",
-        "mobile": "/Website%20beloveful.com/Middle%20East/Jordan/DSCF4537-Website-2.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Middle%20East/Jordan/DSCF4561.jpg",
-        "mobile": "/Website%20beloveful.com/Middle%20East/Jordan/DSCF4561.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Middle%20East/Jordan/DSCF4610-4.jpg",
-        "mobile": "/Website%20beloveful.com/Middle%20East/Jordan/DSCF4610-4.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Middle%20East/Jordan/DSCF4619.jpg",
-        "mobile": "/Website%20beloveful.com/Middle%20East/Jordan/DSCF4619.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Middle%20East/Jordan/DSCF4640.jpg",
-        "mobile": "/Website%20beloveful.com/Middle%20East/Jordan/DSCF4640.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Middle%20East/Jordan/DSCF4694.jpg",
-        "mobile": "/Website%20beloveful.com/Middle%20East/Jordan/DSCF4694.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Middle%20East/Jordan/JDN-4455.jpg",
-        "mobile": "/Website%20beloveful.com/Middle%20East/Jordan/JDN-4455.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Middle%20East/Jordan/JDN-4461.jpg",
-        "mobile": "/Website%20beloveful.com/Middle%20East/Jordan/JDN-4461.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Middle%20East/Jordan/JOR--10-30-22.jpg",
-        "mobile": "/Website%20beloveful.com/Middle%20East/Jordan/JOR--10-30-22.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Middle%20East/Jordan/JOR-10-19-DSCF4604.jpg",
-        "mobile": "/Website%20beloveful.com/Middle%20East/Jordan/JOR-10-19-DSCF4604.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Middle%20East/Jordan/JOR-10-22-DSCF4959.jpg",
-        "mobile": "/Website%20beloveful.com/Middle%20East/Jordan/JOR-10-22-DSCF4959.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Middle%20East/Jordan/JOR-10-22-DSCF4984.jpg",
-        "mobile": "/Website%20beloveful.com/Middle%20East/Jordan/JOR-10-22-DSCF4984.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Middle%20East/Jordan/JOR-10-22-DSCF5146.jpg",
-        "mobile": "/Website%20beloveful.com/Middle%20East/Jordan/JOR-10-22-DSCF5146.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Middle%20East/Jordan/JOR-10-22-DSCF5213.jpg",
-        "mobile": "/Website%20beloveful.com/Middle%20East/Jordan/JOR-10-22-DSCF5213.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Middle%20East/Jordan/JOR-10-22-DSCF5216.jpg",
-        "mobile": "/Website%20beloveful.com/Middle%20East/Jordan/JOR-10-22-DSCF5216.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Middle%20East/Jordan/JOR-10-22-DSCF5272.jpg",
-        "mobile": "/Website%20beloveful.com/Middle%20East/Jordan/JOR-10-22-DSCF5272.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Middle%20East/Jordan/JOR-10-22-DSCF5274.jpg",
-        "mobile": "/Website%20beloveful.com/Middle%20East/Jordan/JOR-10-22-DSCF5274.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Middle%20East/Jordan/JOR-11-22-DSCF5588.jpg",
-        "mobile": "/Website%20beloveful.com/Middle%20East/Jordan/JOR-11-22-DSCF5588.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Middle%20East/Jordan/JOR-11-22-DSCF5655.jpg",
-        "mobile": "/Website%20beloveful.com/Middle%20East/Jordan/JOR-11-22-DSCF5655.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Middle%20East/Jordan/JOR-4516.jpg",
-        "mobile": "/Website%20beloveful.com/Middle%20East/Jordan/JOR-4516.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Middle%20East/Jordan/JOR-4569.jpg",
-        "mobile": "/Website%20beloveful.com/Middle%20East/Jordan/JOR-4569.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Middle%20East/Jordan/JOR-4574.jpg",
-        "mobile": "/Website%20beloveful.com/Middle%20East/Jordan/JOR-4574.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Middle%20East/Jordan/JOR-4577.jpg",
-        "mobile": "/Website%20beloveful.com/Middle%20East/Jordan/JOR-4577.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Middle%20East/Jordan/JOR-4597.jpg",
-        "mobile": "/Website%20beloveful.com/Middle%20East/Jordan/JOR-4597.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Middle%20East/Jordan/JOR-4604.jpg",
-        "mobile": "/Website%20beloveful.com/Middle%20East/Jordan/JOR-4604.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Middle%20East/Jordan/JOR-4615.jpg",
-        "mobile": "/Website%20beloveful.com/Middle%20East/Jordan/JOR-4615.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Middle%20East/Jordan/JOR-4723.jpg",
-        "mobile": "/Website%20beloveful.com/Middle%20East/Jordan/JOR-4723.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Middle%20East/Jordan/JOR-4876.jpg",
-        "mobile": "/Website%20beloveful.com/Middle%20East/Jordan/JOR-4876.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Middle%20East/Jordan/JOR-4957.jpg",
-        "mobile": "/Website%20beloveful.com/Middle%20East/Jordan/JOR-4957.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Middle%20East/Jordan/JOR-5001-10-30-22.jpg",
-        "mobile": "/Website%20beloveful.com/Middle%20East/Jordan/JOR-5001-10-30-22.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Middle%20East/Jordan/JOR-5044-10-30-22.jpg",
-        "mobile": "/Website%20beloveful.com/Middle%20East/Jordan/JOR-5044-10-30-22.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Middle%20East/Jordan/JOR-5061.jpg",
-        "mobile": "/Website%20beloveful.com/Middle%20East/Jordan/JOR-5061.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/Middle%20East/Jordan/JOR-5232103122.jpg",
-        "mobile": "/Website%20beloveful.com/Middle%20East/Jordan/JOR-5232103122.jpg"
-      }
-    ]
-  },
-  {
-    "region": "North America",
-    "country": "Chicago",
-    "slug": "chicago",
-    "images": [
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/Chicago/_DSF9855.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/Chicago/_DSF9855.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/Chicago/CHI-01-19-DSCF7976.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/Chicago/CHI-01-19-DSCF7976.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/Chicago/CHI-01-21-DSCF9381.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/Chicago/CHI-01-21-DSCF9381.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/Chicago/CHI-01-21-DSCF9440.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/Chicago/CHI-01-21-DSCF9440.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/Chicago/CHI-01-21-DSCF9573.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/Chicago/CHI-01-21-DSCF9573.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/Chicago/CHI-3%20copy.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/Chicago/CHI-3%20copy.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/Chicago/CHI-3.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/Chicago/CHI-3.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/Chicago/CHI-4.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/Chicago/CHI-4.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/Chicago/CHI-06-18-DSCF1342-Enhanced-NR.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/Chicago/CHI-06-18-DSCF1342-Enhanced-NR.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/Chicago/CHI-06-18-DSCF1870-Edit-2.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/Chicago/CHI-06-18-DSCF1870-Edit-2.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/Chicago/CHI-07-19-DSCF9956.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/Chicago/CHI-07-19-DSCF9956.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/Chicago/CHI-08-16-_DSF2471.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/Chicago/CHI-08-16-_DSF2471.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/Chicago/CHI-08-19-DSCF5471.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/Chicago/CHI-08-19-DSCF5471.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/Chicago/CHI-09-19-DSCF1288.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/Chicago/CHI-09-19-DSCF1288.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/Chicago/CHI-09-19-DSCF1295.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/Chicago/CHI-09-19-DSCF1295.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/Chicago/CHI-09-19-DSCF1377.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/Chicago/CHI-09-19-DSCF1377.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/Chicago/CHI-09-19-DSCF5133.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/Chicago/CHI-09-19-DSCF5133.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/Chicago/CHI-12-17-DSCF0612.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/Chicago/CHI-12-17-DSCF0612.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/Chicago/CHI-20.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/Chicago/CHI-20.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/Chicago/CHI-65.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/Chicago/CHI-65.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/Chicago/CHI-147.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/Chicago/CHI-147.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/Chicago/CHI-253.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/Chicago/CHI-253.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/Chicago/CHI-304.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/Chicago/CHI-304.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/Chicago/CHI-359.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/Chicago/CHI-359.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/Chicago/CHI-367.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/Chicago/CHI-367.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/Chicago/CHI-372.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/Chicago/CHI-372.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/Chicago/CHI-376.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/Chicago/CHI-376.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/Chicago/CHI-415%20copy.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/Chicago/CHI-415%20copy.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/Chicago/CHI-440-Website-2.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/Chicago/CHI-440-Website-2.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/Chicago/CHI-489.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/Chicago/CHI-489.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/Chicago/CHI-770.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/Chicago/CHI-770.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/Chicago/CHI-823-Website-2.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/Chicago/CHI-823-Website-2.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/Chicago/CHI-0871.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/Chicago/CHI-0871.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/Chicago/CHI-1262.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/Chicago/CHI-1262.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/Chicago/CHI-1342.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/Chicago/CHI-1342.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/Chicago/CHI-1931.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/Chicago/CHI-1931.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/Chicago/CHI-2081.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/Chicago/CHI-2081.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/Chicago/CHI-2084-Website-2.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/Chicago/CHI-2084-Website-2.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/Chicago/CHI-2111.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/Chicago/CHI-2111.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/Chicago/CHI-2145.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/Chicago/CHI-2145.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/Chicago/CHI-2167.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/Chicago/CHI-2167.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/Chicago/CHI-4780.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/Chicago/CHI-4780.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/Chicago/CHI-5041.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/Chicago/CHI-5041.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/Chicago/CHI-5652.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/Chicago/CHI-5652.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/Chicago/CHI-5927.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/Chicago/CHI-5927.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/Chicago/CHI-7709.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/Chicago/CHI-7709.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/Chicago/CHI-7876%20copy.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/Chicago/CHI-7876%20copy.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/Chicago/CHI-8032.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/Chicago/CHI-8032.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/Chicago/CHI-8292.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/Chicago/CHI-8292.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/Chicago/CHI-8382.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/Chicago/CHI-8382.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/Chicago/CHI-8413.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/Chicago/CHI-8413.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/Chicago/CHI-8649.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/Chicago/CHI-8649.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/Chicago/CHI-8789.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/Chicago/CHI-8789.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/Chicago/CHI-8849.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/Chicago/CHI-8849.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/Chicago/CHI-8884.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/Chicago/CHI-8884.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/Chicago/CHI-9127.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/Chicago/CHI-9127.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/Chicago/CHI-9371.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/Chicago/CHI-9371.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/Chicago/CHI-9381.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/Chicago/CHI-9381.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/Chicago/CHI-9540.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/Chicago/CHI-9540.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/Chicago/CHI-9692.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/Chicago/CHI-9692.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/Chicago/CHI-9867.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/Chicago/CHI-9867.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/Chicago/CHI-9872-Website-2.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/Chicago/CHI-9872-Website-2.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/Chicago/CHI-Cafe-.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/Chicago/CHI-Cafe-.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/Chicago/CHI-Eclipse-04-24-DSCF6525.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/Chicago/CHI-Eclipse-04-24-DSCF6525.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/Chicago/CHI-HotNCold-.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/Chicago/CHI-HotNCold-.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/Chicago/DSCF0396.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/Chicago/DSCF0396.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/Chicago/DSCF0926.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/Chicago/DSCF0926.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/Chicago/DSCF0942.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/Chicago/DSCF0942.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/Chicago/DSCF1007.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/Chicago/DSCF1007.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/Chicago/DSCF1196.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/Chicago/DSCF1196.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/Chicago/DSCF1841.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/Chicago/DSCF1841.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/Chicago/DSCF1980.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/Chicago/DSCF1980.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/Chicago/DSCF2587.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/Chicago/DSCF2587.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/Chicago/DSCF5972.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/Chicago/DSCF5972.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/Chicago/DSCF7113.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/Chicago/DSCF7113.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/Chicago/DSCF8938.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/Chicago/DSCF8938.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/Chicago/DSCF9626.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/Chicago/DSCF9626.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/Chicago/DSCF9897-2.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/Chicago/DSCF9897-2.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/Chicago/Fountain%20Fairy.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/Chicago/Fountain%20Fairy.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/Chicago/Marina%20City-10-16-16.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/Chicago/Marina%20City-10-16-16.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/Chicago/Tony%20Menias-Marathoners.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/Chicago/Tony%20Menias-Marathoners.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/Chicago/Tony_Menias%201.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/Chicago/Tony_Menias%201.jpg"
-      }
-    ]
-  },
-  {
-    "region": "North America",
-    "country": "New York",
-    "slug": "new-york",
-    "images": [
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/New%20York/_DSF6412.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/New%20York/_DSF6412.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/New%20York/_DSF6532.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/New%20York/_DSF6532.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/New%20York/08-09-NYC.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/New%20York/08-09-NYC.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/New%20York/Btw%20the%20Lines.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/New%20York/Btw%20the%20Lines.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/New%20York/DSCF1459.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/New%20York/DSCF1459.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/New%20York/DSCF7931.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/New%20York/DSCF7931.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/New%20York/DSCF8189.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/New%20York/DSCF8189.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/New%20York/DSCF8922.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/New%20York/DSCF8922.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/New%20York/Into%20the%20Rabbit%20Hole.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/New%20York/Into%20the%20Rabbit%20Hole.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/New%20York/NYC-04-23-DSCF7671.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/New%20York/NYC-04-23-DSCF7671.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/New%20York/NYC-08-21-DSCF2265.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/New%20York/NYC-08-21-DSCF2265.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/New%20York/NYC-08-21-DSCF2362.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/New%20York/NYC-08-21-DSCF2362.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/New%20York/NYC-08-21-DSCF2780.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/New%20York/NYC-08-21-DSCF2780.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/New%20York/NYC-08-21-DSCF3421.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/New%20York/NYC-08-21-DSCF3421.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/New%20York/NYC-08-21-DSCF4201.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/New%20York/NYC-08-21-DSCF4201.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/New%20York/NYC-08-21-DSCF4547.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/New%20York/NYC-08-21-DSCF4547.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/New%20York/NYC-08-21-DSCF4698.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/New%20York/NYC-08-21-DSCF4698.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/New%20York/NYC-08-21-DSCF5342-2.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/New%20York/NYC-08-21-DSCF5342-2.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/New%20York/NYC-08-21-DSCF5435.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/New%20York/NYC-08-21-DSCF5435.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/New%20York/NYC-08-21-DSCF5611.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/New%20York/NYC-08-21-DSCF5611.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/New%20York/NYC-09-19-DSCF7899.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/New%20York/NYC-09-19-DSCF7899.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/New%20York/NYC-09-19-DSCF7910.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/New%20York/NYC-09-19-DSCF7910.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/New%20York/NYC-09-19-DSCF7975.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/New%20York/NYC-09-19-DSCF7975.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/New%20York/NYC-09-19-DSCF7984.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/New%20York/NYC-09-19-DSCF7984.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/New%20York/NYC-09-19-DSCF8181.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/New%20York/NYC-09-19-DSCF8181.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/New%20York/NYC-09-19-DSCF8236.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/New%20York/NYC-09-19-DSCF8236.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/New%20York/NYC-09-19-DSCF8237.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/New%20York/NYC-09-19-DSCF8237.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/New%20York/NYC-09-19-DSCF8242.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/New%20York/NYC-09-19-DSCF8242.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/New%20York/NYC-09-19-DSCF8257.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/New%20York/NYC-09-19-DSCF8257.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/New%20York/NYC-09-19-DSCF8370.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/New%20York/NYC-09-19-DSCF8370.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/New%20York/NYC-09-19-DSCF8480.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/New%20York/NYC-09-19-DSCF8480.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/New%20York/NYC-09-19-DSCF8491.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/New%20York/NYC-09-19-DSCF8491.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/New%20York/NYC-09-19-DSCF8652.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/New%20York/NYC-09-19-DSCF8652.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/New%20York/NYC-10-24-DSCF2554.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/New%20York/NYC-10-24-DSCF2554.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/New%20York/NYC-10-24-DSCF2578.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/New%20York/NYC-10-24-DSCF2578.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/New%20York/NYC-10-24-DSCF2915.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/New%20York/NYC-10-24-DSCF2915.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/New%20York/NYC-10-24-DSCF2928.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/New%20York/NYC-10-24-DSCF2928.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/New%20York/NYC-10-24-DSCF2940.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/New%20York/NYC-10-24-DSCF2940.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/New%20York/NYC-11-24-DSCF5191.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/New%20York/NYC-11-24-DSCF5191.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/New%20York/NYC-11-24-DSCF5205.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/New%20York/NYC-11-24-DSCF5205.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/New%20York/NYC-11-24-DSCF5209.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/New%20York/NYC-11-24-DSCF5209.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/New%20York/NYC-11-24-DSCF5278.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/New%20York/NYC-11-24-DSCF5278.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/New%20York/NYC-11-24-DSCF5284.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/New%20York/NYC-11-24-DSCF5284.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/New%20York/NYC-11-24-DSCF5366.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/New%20York/NYC-11-24-DSCF5366.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/New%20York/NYC-11-24-DSCF5597.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/New%20York/NYC-11-24-DSCF5597.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/New%20York/NYC-11-24-DSCF5722.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/New%20York/NYC-11-24-DSCF5722.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/New%20York/NYC-11-24-DSCF5825.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/New%20York/NYC-11-24-DSCF5825.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/New%20York/NYC-11-24-DSCF5851.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/New%20York/NYC-11-24-DSCF5851.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/New%20York/NYC-11-24-DSCF6086.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/New%20York/NYC-11-24-DSCF6086.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/New%20York/NYC-11-24-DSCF6089.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/New%20York/NYC-11-24-DSCF6089.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/New%20York/NYC-15.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/New%20York/NYC-15.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/New%20York/NYC-22.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/New%20York/NYC-22.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/New%20York/NYC-51.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/New%20York/NYC-51.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/New%20York/NYC-90.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/New%20York/NYC-90.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/New%20York/NYC-111-Website-2.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/New%20York/NYC-111-Website-2.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/New%20York/NYC-116.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/New%20York/NYC-116.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/New%20York/NYC-135.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/New%20York/NYC-135.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/New%20York/NYC-139.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/New%20York/NYC-139.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/New%20York/NYC-142.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/New%20York/NYC-142.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/New%20York/NYC-153.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/New%20York/NYC-153.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/New%20York/NYC-159-Website-2.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/New%20York/NYC-159-Website-2.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/New%20York/NYC-159.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/New%20York/NYC-159.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/New%20York/NYC-182.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/New%20York/NYC-182.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/New%20York/NYC-197.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/New%20York/NYC-197.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/New%20York/NYC-204.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/New%20York/NYC-204.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/New%20York/NYC-209.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/New%20York/NYC-209.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/New%20York/NYC-270.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/New%20York/NYC-270.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/New%20York/NYC-273.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/New%20York/NYC-273.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/New%20York/NYC-292.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/New%20York/NYC-292.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/New%20York/NYC-313%20copy.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/New%20York/NYC-313%20copy.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/New%20York/NYC-328.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/New%20York/NYC-328.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/New%20York/NYC-357.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/New%20York/NYC-357.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/New%20York/NYC-408.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/New%20York/NYC-408.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/New%20York/NYC-434.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/New%20York/NYC-434.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/New%20York/NYC-455.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/New%20York/NYC-455.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/New%20York/NYC-568.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/New%20York/NYC-568.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/New%20York/NYC-584.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/New%20York/NYC-584.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/New%20York/NYC-1132.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/New%20York/NYC-1132.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/New%20York/NYC-8360.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/New%20York/NYC-8360.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/New%20York/NYC-8468.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/New%20York/NYC-8468.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/New%20York/NYC-8521.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/New%20York/NYC-8521.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/New%20York/NYC-8638.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/New%20York/NYC-8638.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/New%20York/NYC-8704.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/New%20York/NYC-8704.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/New%20York/NYC-8785-Website-2.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/New%20York/NYC-8785-Website-2.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/New%20York/NYC-8865.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/New%20York/NYC-8865.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/New%20York/Snack%20Time.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/New%20York/Snack%20Time.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/New%20York/Stop%20Light.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/New%20York/Stop%20Light.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/North%20America/New%20York/untitled-107.jpg",
-        "mobile": "/Website%20beloveful.com/North%20America/New%20York/untitled-107.jpg"
-      }
-    ]
-  },
-  {
-    "region": "South America",
-    "country": "Argentina",
-    "slug": "argentina",
-    "images": [
-      {
-        "desktop": "/Website%20beloveful.com/South%20America/Argentina/_DSF5908.jpg",
-        "mobile": "/Website%20beloveful.com/South%20America/Argentina/_DSF5908.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/South%20America/Argentina/_DSF5960.jpg",
-        "mobile": "/Website%20beloveful.com/South%20America/Argentina/_DSF5960.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/South%20America/Argentina/_DSF6120.jpg",
-        "mobile": "/Website%20beloveful.com/South%20America/Argentina/_DSF6120.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/South%20America/Argentina/_DSF6182-2.jpg",
-        "mobile": "/Website%20beloveful.com/South%20America/Argentina/_DSF6182-2.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/South%20America/Argentina/_DSF6263.jpg",
-        "mobile": "/Website%20beloveful.com/South%20America/Argentina/_DSF6263.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/South%20America/Argentina/_DSF6444-2.jpg",
-        "mobile": "/Website%20beloveful.com/South%20America/Argentina/_DSF6444-2.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/South%20America/Argentina/_DSF6559.jpg",
-        "mobile": "/Website%20beloveful.com/South%20America/Argentina/_DSF6559.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/South%20America/Argentina/_DSF6704.jpg",
-        "mobile": "/Website%20beloveful.com/South%20America/Argentina/_DSF6704.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/South%20America/Argentina/_DSF6728-2.jpg",
-        "mobile": "/Website%20beloveful.com/South%20America/Argentina/_DSF6728-2.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/South%20America/Argentina/_DSF6742-2.jpg",
-        "mobile": "/Website%20beloveful.com/South%20America/Argentina/_DSF6742-2.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/South%20America/Argentina/_DSF6798-3.jpg",
-        "mobile": "/Website%20beloveful.com/South%20America/Argentina/_DSF6798-3.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/South%20America/Argentina/_DSF6820.jpg",
-        "mobile": "/Website%20beloveful.com/South%20America/Argentina/_DSF6820.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/South%20America/Argentina/_DSF6993%20copy.jpg",
-        "mobile": "/Website%20beloveful.com/South%20America/Argentina/_DSF6993%20copy.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/South%20America/Argentina/_DSF6993.jpg",
-        "mobile": "/Website%20beloveful.com/South%20America/Argentina/_DSF6993.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/South%20America/Argentina/_DSF7175-4.jpg",
-        "mobile": "/Website%20beloveful.com/South%20America/Argentina/_DSF7175-4.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/South%20America/Argentina/_DSF7204-5.jpg",
-        "mobile": "/Website%20beloveful.com/South%20America/Argentina/_DSF7204-5.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/South%20America/Argentina/_DSF7244-3.jpg",
-        "mobile": "/Website%20beloveful.com/South%20America/Argentina/_DSF7244-3.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/South%20America/Argentina/_DSF8239-3.jpg",
-        "mobile": "/Website%20beloveful.com/South%20America/Argentina/_DSF8239-3.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/South%20America/Argentina/_DSF8320.jpg",
-        "mobile": "/Website%20beloveful.com/South%20America/Argentina/_DSF8320.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/South%20America/Argentina/_DSF8547.jpg",
-        "mobile": "/Website%20beloveful.com/South%20America/Argentina/_DSF8547.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/South%20America/Argentina/Arg-7220.jpg",
-        "mobile": "/Website%20beloveful.com/South%20America/Argentina/Arg-7220.jpg"
-      },
-      {
-        "desktop": "/Website%20beloveful.com/South%20America/Argentina/ARG-8518.jpg",
-        "mobile": "/Website%20beloveful.com/South%20America/Argentina/ARG-8518.jpg"
-      }
-    ]
+    region: "North America",
+    country: "St. Martin",
+    slug: "st-martin",
+    images: [
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620517/STM-8082_abjbjg.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620517/STM-8082_abjbjg.jpg' },
+      { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620517/STM-8234_bks8vn.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620517/STM-8234_bks8vn.jpg' }
+    ],
   }
-] as any;
-
-export const GENERATED_HOME_SLIDESHOW: SlideshowImage[] = [] as any;
-
-export const GENERATED_CLIENT_LOGOS: string[] = [
-  "/Website%20beloveful.com/Clients%20%26%20Partners/2019-02-05%2010.22.37%20pm.png",
-  "/Website%20beloveful.com/Clients%20%26%20Partners/benq.png",
-  "/Website%20beloveful.com/Clients%20%26%20Partners/breaks-chicago.jpg",
-  "/Website%20beloveful.com/Clients%20%26%20Partners/Crowneplaza4.png",
-  "/Website%20beloveful.com/Clients%20%26%20Partners/egypt.png",
-  "/Website%20beloveful.com/Clients%20%26%20Partners/Flickr_logo.png",
-  "/Website%20beloveful.com/Clients%20%26%20Partners/kissclipart-navy-pier-logo-clipart-chicago-shakespeare-theater-e550ac399dac0a24.jpg",
-  "/Website%20beloveful.com/Clients%20%26%20Partners/logo.png",
-  "/Website%20beloveful.com/Clients%20%26%20Partners/mediakit_branding_1.jpg",
-  "/Website%20beloveful.com/Clients%20%26%20Partners/national-geographic-logo-vector-768x768.png",
-  "/Website%20beloveful.com/Clients%20%26%20Partners/Netflix_Logo_RGB.png",
-  "/Website%20beloveful.com/Clients%20%26%20Partners/pngegg%20(1).png",
-  "/Website%20beloveful.com/Clients%20%26%20Partners/pngegg%20(2).png",
-  "/Website%20beloveful.com/Clients%20%26%20Partners/pngegg.png",
-  "/Website%20beloveful.com/Clients%20%26%20Partners/TED.jpg",
-  "/Website%20beloveful.com/Clients%20%26%20Partners/Time_Magazine_logo.svg.png"
-] as any;
+];

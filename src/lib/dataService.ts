@@ -55,88 +55,20 @@ class DataService {
   }
 
   async getAlbums(): Promise<CountryAlbum[]> {
-    const cacheKey = 'albums';
-    const cached = this.cache.get(cacheKey);
-    
-    if (cached && !this.isExpired(cached.timestamp)) {
-      return cached.data;
-    }
-
-    try {
-      const data = await this.fetchWithFallback('/api/public/albums', { success: false });
-      
-      if (data.success && data.albums) {
-        // Convert API format to static format
-        const albums: CountryAlbum[] = data.albums.map((album: ApiAlbum) => ({
-          region: album.region as Region,
-          country: album.country,
-          slug: album.slug,
-          images: album.images?.map(img => ({
-            desktop: img.desktop_url,
-            mobile: img.mobile_url
-          })) || []
-        }));
-        
-        this.cache.set(cacheKey, { data: albums, timestamp: Date.now() });
-        return albums;
-      }
-    } catch (error) {
-      console.warn('Failed to fetch dynamic albums, using static data', error);
-    }
-
-    // Fallback to static data
+    // Use static Cloudinary data directly
+    console.log('🗂️ DataService: Using static Cloudinary albums data');
     return ALBUMS;
   }
 
   async getAlbumBySlug(slug: string): Promise<CountryAlbum | undefined> {
-    try {
-      const data = await this.fetchWithFallback(`/api/public/albums/${slug}`, { success: false });
-      
-      if (data.success && data.album) {
-        const album: ApiAlbum = data.album;
-        return {
-          region: album.region as Region,
-          country: album.country,
-          slug: album.slug,
-          images: album.images?.map(img => ({
-            desktop: img.desktop_url,
-            mobile: img.mobile_url
-          })) || []
-        };
-      }
-    } catch (error) {
-      console.warn('Failed to fetch dynamic album, using static data', error);
-    }
-
-    // Fallback to static data
+    // Use static Cloudinary data directly
+    console.log(`🗾 DataService: Getting album ${slug} from static data`);
     return ALBUMS.find(album => album.slug === slug);
   }
 
   async getSlideshow(): Promise<SlideshowImage[]> {
-    const cacheKey = 'slideshow';
-    const cached = this.cache.get(cacheKey);
-    
-    if (cached && !this.isExpired(cached.timestamp)) {
-      return cached.data;
-    }
-
-    try {
-      const data = await this.fetchWithFallback('/api/public/slideshow', { success: false });
-      
-      if (data.success && data.images) {
-        const slideshow: SlideshowImage[] = data.images.map((img: ApiSlideshowImage) => ({
-          desktop: img.desktop_url,
-          mobile: img.mobile_url
-        }));
-        
-        this.cache.set(cacheKey, { data: slideshow, timestamp: Date.now() });
-        return slideshow;
-      }
-    } catch (error) {
-      console.warn('Failed to fetch dynamic slideshow, using static data', error);
-    }
-
-    // Fallback to static data
+    // Use static Cloudinary data directly  
+    console.log('🎠 DataService: Using static Cloudinary slideshow data');
     return HOME_SLIDESHOW;
   }
 

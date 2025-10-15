@@ -21,7 +21,11 @@ export default function ShopDropdown({ variant = "auto" }: ShopDropdownProps) {
     <div className="relative" ref={ref}>
       <button
         onClick={() => setOpen((v) => !v)}
-        className={`hover:opacity-70 transition-opacity ${variant === "white" ? "text-white" : ""}`}
+        className={`nav-link transition-opacity text-lg font-medium ${
+          variant === "white" 
+            ? "text-white hover:text-gray-200" 
+            : "text-black dark:text-white hover:opacity-70"
+        }`}
         aria-haspopup="menu"
         aria-expanded={open}
       >
@@ -31,21 +35,21 @@ export default function ShopDropdown({ variant = "auto" }: ShopDropdownProps) {
       {open && (
         <div
           role="menu"
-          className="absolute right-0 z-50 mt-2 min-w-56 rounded-lg border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 shadow-lg"
+          className="absolute left-0 z-50 mt-2 min-w-56 rounded-lg border border-gray-200 dark:border-neutral-700 bg-white dark:bg-neutral-900 shadow-lg"
         >
           <a
             role="menuitem"
             href="https://www.printinnovationlab.com/collections/beloveful"
             target="_blank"
             rel="noopener noreferrer"
-            className="block px-4 py-3 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors"
+            className="block px-4 py-3 text-black dark:text-white hover:bg-gray-100 dark:hover:bg-neutral-800 transition-colors"
           >
             Limited Edition
           </a>
           <Link
             role="menuitem"
             to="/shop/special"
-            className="block px-4 py-3 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors"
+            className="block px-4 py-3 text-black dark:text-white hover:bg-gray-100 dark:hover:bg-neutral-800 transition-colors"
             onClick={() => setOpen(false)}
           >
             Special Edition

@@ -5,6 +5,7 @@ import { Logo } from "./Logo";
 import { SocialIcons } from "./SocialIcons";
 import { MobileDrawer } from "./MobileDrawer";
 import ShopDropdown from "./ShopDropdown";
+import { PortfolioDropdown } from "./PortfolioDropdown";
 
 interface HeaderProps {
   variant: "home" | "default";
@@ -14,12 +15,16 @@ export function Header({ variant }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
 
-  const navigationLinks = [
+  // Navigation order requested: Home, Portfolio, Workshops, About, Events, Contact, Privacy Policy
+  const navigationPrimary = [
     { name: "Home", path: "/" },
-    { name: "Portfolio", path: "/portfolio" },
+  ];
+  const navigationSecondary = [
     { name: "Workshops", path: "/workshops" },
     { name: "About", path: "/about" },
-    { name: "Contact", path: "/contact" }
+    { name: "Events", path: "/events" },
+    { name: "Contact", path: "/contact" },
+    { name: "Privacy Policy", path: "/faq" },
   ];
 
   const isActive = (path: string) => {
@@ -41,11 +46,27 @@ export function Header({ variant }: HeaderProps) {
           {/* Left side navigation */}
           <nav className="fixed left-8 top-32 z-40">
             <ul className="space-y-4">
-              {navigationLinks.map((link) => (
+              {/* Home first */}
+              {navigationPrimary.map((link) => (
                 <li key={link.name}>
                   <Link
                     to={link.path}
-                    className="nav-link text-white hover:underline hover:underline-offset-4 hover:decoration-white"
+                    className="nav-link text-white hover:underline hover:underline-offset-4 hover:decoration-white text-lg"
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+              {/* Portfolio second */}
+              <li>
+                <PortfolioDropdown variant="white" />
+              </li>
+              {/* Then the rest */}
+              {navigationSecondary.map((link) => (
+                <li key={link.name}>
+                  <Link
+                    to={link.path}
+                    className="nav-link text-white hover:underline hover:underline-offset-4 hover:decoration-white text-lg"
                   >
                     {link.name}
                   </Link>
@@ -88,7 +109,7 @@ export function Header({ variant }: HeaderProps) {
   return (
     <>
       {/* Desktop Default Header */}
-      <header className="hidden md:block sticky top-0 z-40 bg-white dark:bg-neutral-950 border-b border-gray-100 dark:border-neutral-800 px-8 py-4">
+      <header className="hidden md:block sticky top-0 z-40 nav-bar px-8 py-4">
         <div className="max-w-screen-xl mx-auto flex items-center justify-between">
           {/* Logo top-left */}
           <Logo variant="auto" />
@@ -96,11 +117,27 @@ export function Header({ variant }: HeaderProps) {
           {/* Centered navigation */}
           <nav className="flex-1 flex justify-center">
             <ul className="flex items-center space-x-8">
-              {navigationLinks.map((link) => (
+              {/* Home first */}
+              {navigationPrimary.map((link) => (
                 <li key={link.name}>
                   <Link
                     to={link.path}
-                    className="nav-link hover:opacity-70 transition-opacity"
+                    className="nav-link text-black dark:text-white hover:opacity-70 transition-opacity text-lg"
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+              {/* Portfolio second */}
+              <li>
+                <PortfolioDropdown />
+              </li>
+              {/* Then the rest */}
+              {navigationSecondary.map((link) => (
+                <li key={link.name}>
+                  <Link
+                    to={link.path}
+                    className="nav-link text-black dark:text-white hover:opacity-70 transition-opacity text-lg"
                   >
                     {link.name}
                   </Link>
@@ -117,8 +154,8 @@ export function Header({ variant }: HeaderProps) {
         </div>
       </header>
 
-      {/* Mobile Header */}
-      <header className="md:hidden sticky top-0 z-50 bg-white dark:bg-neutral-950 border-b border-gray-100 dark:border-neutral-800 p-4">
+        {/* Mobile Header */}
+        <header className="md:hidden sticky top-0 z-50 nav-bar p-4">
         <div className="flex items-center justify-between">
           <div className="flex-1 flex justify-center">
             <Logo variant="auto" />

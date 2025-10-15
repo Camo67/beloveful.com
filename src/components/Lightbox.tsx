@@ -3,6 +3,7 @@ import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import { SlideshowImage } from "@/lib/data";
 import { createProxiedImageUrl, getImageAltText } from "@/lib/images";
 import { useImageProtection } from "@/hooks/use-image-protection";
+import { Link } from "react-router-dom";
 
 interface LightboxProps {
   images: SlideshowImage[];
@@ -10,9 +11,18 @@ interface LightboxProps {
   onClose: () => void;
   onNavigate: (index: number) => void;
   country: string;
+  /**
+   * Optional CTA href generator. If provided, a CTA link will be rendered in the caption
+   * that navigates to the returned href for the current image.
+   */
+  getCtaHref?: (image: SlideshowImage) => string;
+  /**
+   * Optional CTA label. Defaults to "Would you like this as a print?".
+   */
+  ctaLabel?: string;
 }
 
-export function Lightbox({ images, currentIndex, onClose, onNavigate, country }: LightboxProps) {
+export function Lightbox({ images, currentIndex, onClose, onNavigate, country, getCtaHref, ctaLabel = "Would you like this as a print?" }: LightboxProps) {
   const currentImage = images[currentIndex];
   
   // Enable comprehensive image protection
@@ -167,9 +177,22 @@ export function Lightbox({ images, currentIndex, onClose, onNavigate, country }:
           
           {/* Caption */}
           <div className="absolute bottom-0 left-0 right-0 p-4 bg-black bg-opacity-70 text-white z-20">
-            <p className="text-sm text-center">
-              {country} – {extractFilename(currentImage.desktop)}
-            </p>
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2">
+              <p className="text-sm text-center md:text-left">
+                {country} – {extractFilename(currentImage.desktop)}
+              </p>
+              {getCtaHref && (
+                <div className="text-center md:text-right">
+                  <Link
+                    to={getCtaHref(currentImage)}
+                    className="inline-block text-xs md:text-sm underline underline-offset-2 hover:no-underline"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    {ctaLabel}
+                  </Link>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </div>

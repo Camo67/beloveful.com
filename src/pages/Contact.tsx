@@ -34,10 +34,10 @@ export default function Contact() {
       <Header variant="default" />
       
       <PageContainer className="min-h-[70vh]">
-        <h1 className="text-3xl md:text-4xl font-light mb-8">Contact</h1>
+        <h1 className="text-3xl md:text-4xl font-light mb-8 text-black dark:text-white">Contact</h1>
 
         {submitted && (
-          <div className="mb-6 rounded-md border border-emerald-300/40 bg-emerald-50 dark:bg-emerald-950/30 px-4 py-3 text-sm">
+          <div className="mb-6 rounded-md border border-emerald-300/40 bg-emerald-50 dark:bg-emerald-950/30 px-4 py-3 text-sm text-emerald-800 dark:text-emerald-200">
             Thanks! We've received your message and will follow up shortly.
           </div>
         )}
@@ -75,26 +75,26 @@ export default function Contact() {
           >
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <label className="flex flex-col gap-2">
-                <span className="text-sm font-medium">Name</span>
+                <span className="text-sm font-medium text-black dark:text-white">Name</span>
                 <input
                   name="name"
                   required
-                  className="border border-neutral-300 dark:border-neutral-700 rounded-md px-3 py-2 bg-transparent focus:outline-none focus:ring-2 focus:ring-neutral-400"
+                  className="border border-neutral-300 dark:border-neutral-700 rounded-md px-3 py-2 bg-transparent text-black dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-neutral-400 dark:focus:ring-neutral-500"
                 />
               </label>
               <label className="flex flex-col gap-2">
-                <span className="text-sm font-medium">Email</span>
+                <span className="text-sm font-medium text-black dark:text-white">Email</span>
                 <input
                   type="email"
                   name="email"
                   required
-                  className="border border-neutral-300 dark:border-neutral-700 rounded-md px-3 py-2 bg-transparent focus:outline-none focus:ring-2 focus:ring-neutral-400"
+                  className="border border-neutral-300 dark:border-neutral-700 rounded-md px-3 py-2 bg-transparent text-black dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-neutral-400 dark:focus:ring-neutral-500"
                 />
               </label>
             </div>
 
             <label className="flex flex-col gap-2">
-              <span className="text-sm font-medium">Message</span>
+              <span className="text-sm font-medium text-black dark:text-white">Message</span>
               <textarea
                 name="message"
                 rows={6}
@@ -103,7 +103,7 @@ export default function Contact() {
                     ? "Tell us preferred size, paper, framing, shipping city, etc."
                     : "How can we help?"
                 }
-                className="border border-neutral-300 dark:border-neutral-700 rounded-md px-3 py-2 bg-transparent focus:outline-none focus:ring-2 focus:ring-neutral-400 resize-none"
+                className="border border-neutral-300 dark:border-neutral-700 rounded-md px-3 py-2 bg-transparent text-black dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-neutral-400 dark:focus:ring-neutral-500 resize-none"
               />
             </label>
 
@@ -126,7 +126,7 @@ export default function Contact() {
             <div className="flex items-center gap-3">
               <button
                 type="submit"
-                className="px-6 py-2 rounded-md border border-neutral-900 dark:border-neutral-200 hover:bg-neutral-900 hover:text-white dark:hover:bg-white dark:hover:text-black transition"
+                className="px-6 py-2 rounded-md border border-neutral-900 dark:border-neutral-200 bg-transparent text-black dark:text-white hover:bg-neutral-900 hover:text-white dark:hover:bg-white dark:hover:text-black transition-all duration-200"
               >
                 Send Message
               </button>

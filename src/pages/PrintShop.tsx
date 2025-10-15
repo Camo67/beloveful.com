@@ -1,54 +1,53 @@
 import { Header } from "@/components/Header";
 import FooterStrip from "@/components/FooterStrip";
 import PageContainer from "@/components/PageContainer";
+import { createProxiedImageUrl } from "@/lib/images";
+import shopData from "@/lib/printlab.json";
 
 export default function PrintShop() {
+  const products = (shopData as any)?.products?.filter((p: any) => p?.image) || [];
+
   return (
     <div className="min-h-screen">
       <Header variant="default" />
       
-      <PageContainer className="max-w-4xl">
-        <div className="text-center">
-          <h1 className="text-4xl md:text-5xl font-light mb-8 text-black dark:text-white">Print Shop</h1>
-          
-          <div className="max-w-2xl mx-auto">
-            <p className="text-lg text-gray-600 dark:text-gray-300 mb-12">
-              Bring BELOVEFUL photography into your space with high-quality prints. 
-              Each piece is carefully curated and professionally printed to showcase 
-              the authentic moments captured across the globe.
-            </p>
-            
-            <div className="bg-gray-50 dark:bg-gray-800 p-12 mb-8">
-              <h2 className="text-2xl font-medium mb-6 text-black dark:text-white">Available Now</h2>
-              <p className="text-gray-600 dark:text-gray-300 mb-8">
-                Explore our collection of limited edition prints, featuring iconic 
-                street photography moments from Egypt, India, Japan, Myanmar, and more.
-              </p>
-              
-              <a
-                href="https://www.printinnovationlab.com/collections/beloveful"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-primary inline-block"
-              >
-                Visit Print Shop
-              </a>
-            </div>
-            
-            <div className="text-center">
-              <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
-                Stay updated on new print releases and exclusive collections
-              </p>
-              <a
-                href="https://lb.benchmarkemail.com//listbuilder/signupnew?IkfHTmyPVq92wBnn4lX%252FTf5pwVnAjsSIeL8KRSOgMpXtO5iNRn8gS049TyW7spdJ"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-secondary"
-              >
-                Join Newsletter
-              </a>
-            </div>
-          </div>
+      <PageContainer>
+        <div className="mb-10 text-center">
+          <h1 className="text-4xl md:text-5xl font-light mb-4 text-black dark:text-white">Print Shop</h1>
+          <p className="text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto">
+            Limited and open edition prints fulfilled by Print Innovation Lab. Click any image to purchase.
+          </p>
+          <p className="mt-2 text-xs text-neutral-500 dark:text-neutral-500">
+            Synced {new Date((shopData as any)?.lastUpdated || Date.now()).toLocaleDateString()} · {products.length} items
+          </p>
+        </div>
+
+        <div className="gallery-grid">
+          {products.map((p: any) => (
+            <a
+              key={p.id}
+              href={p.buyUrl || p.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative block"
+            >
+              <div className="relative bg-gray-100 dark:bg-neutral-800" style={{ aspectRatio: '4/3' }}>
+                <img
+                  src={createProxiedImageUrl(p.image)}
+                  alt={p.title}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/15 transition-colors duration-300" />
+              </div>
+              <div className="mt-3 flex items-center justify-between gap-2">
+                <div className="text-sm text-black dark:text-white truncate" title={p.title}>{p.title}</div>
+                {Number.isFinite(p.minPrice) && (
+                  <div className="text-xs text-neutral-600 dark:text-neutral-400">from ${p.minPrice}</div>
+                )}
+              </div>
+            </a>
+          ))}
         </div>
       </PageContainer>
 

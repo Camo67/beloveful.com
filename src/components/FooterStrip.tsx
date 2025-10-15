@@ -41,6 +41,9 @@ export default function FooterStrip() {
           </button>
         </form>
 
+        {/* Theme toggle next to newsletter */}
+        <ThemeToggle />
+
         <div className="ml-auto flex items-center gap-3">
           {/* socials with icons */}
           <a 
@@ -70,8 +73,6 @@ export default function FooterStrip() {
           >
             <ExternalLink size={20} />
           </a>
-
-          <ThemeToggle />
         </div>
       </div>
     </footer>

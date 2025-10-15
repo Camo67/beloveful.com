@@ -29,7 +29,7 @@ export async function onRequestGet(context: any): Promise<Response> {
       FROM images i
       LEFT JOIN albums a ON i.album_id = a.id
     `;
-    let params: any[] = [];
+    const params: any[] = [];
     
     if (albumId) {
       query += ' WHERE i.album_id = ?';

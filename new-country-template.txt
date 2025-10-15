@@ -1,0 +1,11 @@
+
+// Template for adding a new country:
+{
+  region: "RegionName",
+  country: "CountryName", 
+  slug: "country-slug",
+  images: [
+    { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/...', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/...' },
+    // Add more images...
+  ],
+},

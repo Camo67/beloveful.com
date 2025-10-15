@@ -1,0 +1,140 @@
+{
+  "totalCountries": 24,
+  "totalImages": 894,
+  "remainingUnassigned": 1683,
+  "newlyAssigned": 240,
+  "countriesByRegion": {
+    "Africa": [
+      {
+        "country": "Egypt",
+        "slug": "egypt",
+        "imageCount": 103
+      },
+      {
+        "country": "Namibia",
+        "slug": "namibia",
+        "imageCount": 15
+      },
+      {
+        "country": "Ethiopia",
+        "slug": "ethiopia",
+        "imageCount": 7
+      },
+      {
+        "country": "Morocco",
+        "slug": "morocco",
+        "imageCount": 3
+      }
+    ],
+    "Asia": [
+      {
+        "country": "India",
+        "slug": "india",
+        "imageCount": 67
+      },
+      {
+        "country": "Philippines",
+        "slug": "philippines",
+        "imageCount": 42
+      },
+      {
+        "country": "Thailand",
+        "slug": "thailand",
+        "imageCount": 25
+      },
+      {
+        "country": "Japan",
+        "slug": "japan",
+        "imageCount": 20
+      },
+      {
+        "country": "Nepal",
+        "slug": "nepal",
+        "imageCount": 19
+      },
+      {
+        "country": "Myanmar",
+        "slug": "myanmar",
+        "imageCount": 18
+      },
+      {
+        "country": "Hong Kong",
+        "slug": "hong-kong",
+        "imageCount": 17
+      },
+      {
+        "country": "Vietnam",
+        "slug": "vietnam",
+        "imageCount": 12
+      }
+    ],
+    "Europe": [
+      {
+        "country": "Italy",
+        "slug": "italy",
+        "imageCount": 147
+      },
+      {
+        "country": "France",
+        "slug": "france",
+        "imageCount": 21
+      }
+    ],
+    "Middle East": [
+      {
+        "country": "Israel_Palestine",
+        "slug": "israel-palestine",
+        "imageCount": 97
+      },
+      {
+        "country": "Jordan",
+        "slug": "jordan",
+        "imageCount": 68
+      },
+      {
+        "country": "Saudi Arabia",
+        "slug": "saudi-arabia",
+        "imageCount": 14
+      }
+    ],
+    "North America": [
+      {
+        "country": "Mexico",
+        "slug": "mexico",
+        "imageCount": 99
+      },
+      {
+        "country": "Chicago",
+        "slug": "chicago",
+        "imageCount": 76
+      },
+      {
+        "country": "Caribbean",
+        "slug": "caribbean",
+        "imageCount": 14
+      },
+      {
+        "country": "Puerto Rico",
+        "slug": "puerto-rico",
+        "imageCount": 4
+      },
+      {
+        "country": "New York",
+        "slug": "new-york",
+        "imageCount": 3
+      },
+      {
+        "country": "St. Martin",
+        "slug": "st-martin",
+        "imageCount": 2
+      }
+    ],
+    "South America": [
+      {
+        "country": "Argentina",
+        "slug": "argentina",
+        "imageCount": 1
+      }
+    ]
+  }
+}

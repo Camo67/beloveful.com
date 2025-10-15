@@ -97,36 +97,18 @@ export function useImageProtection() {
     return false;
   }, []);
 
-  // Detect dev tools opening (basic detection)
+  // Detect dev tools opening (disabled to prevent slideshow blur)
   useEffect(() => {
-    let devtools = { open: false };
-    const threshold = 160;
-
-    const checkDevTools = () => {
-      if (
-        window.outerHeight - window.innerHeight > threshold ||
-        window.outerWidth - window.innerWidth > threshold
-      ) {
-        if (!devtools.open) {
-          devtools.open = true;
-          // Optionally blur or hide sensitive content
-          document.body.style.filter = 'blur(5px)';
-          console.clear();
-        }
-      } else {
-        if (devtools.open) {
-          devtools.open = false;
-          document.body.style.filter = 'none';
-        }
-      }
-    };
-
-    // Check every 100ms
-    const interval = setInterval(checkDevTools, 100);
-
+    // Temporarily disabled dev tools detection that was causing blur
+    // The blur was interfering with normal slideshow display
+    
     return () => {
-      clearInterval(interval);
+      // Clean up any remaining filters
       document.body.style.filter = 'none';
+      const protectedElements = document.querySelectorAll('.protected-container');
+      protectedElements.forEach(el => {
+        (el as HTMLElement).style.filter = 'none';
+      });
     };
   }, []);
 
