@@ -97,29 +97,99 @@ console.log('   API Secret set:', !!cloudConfig.api_secret);
 console.log();
 
 // Mapping of country/region identifiers to proper names and regions
+// Note: keys are flexible identifiers that may appear in public_id prefixes OR folder paths.
 const COUNTRY_MAPPING = {
+  // Africa
   'EGY': { country: 'Egypt', region: 'Africa' },
   'ETH': { country: 'Ethiopia', region: 'Africa' },
+  'NAM': { country: 'Namibia', region: 'Africa' },
+  'MAR': { country: 'Morocco', region: 'Africa' },
+  'MOR': { country: 'Morocco', region: 'Africa' },
+  'ZAF': { country: 'South Africa', region: 'Africa' },
+  'RSA': { country: 'South Africa', region: 'Africa' },
+  'SOUTH AFRICA': { country: 'South Africa', region: 'Africa' },
+
+  // Asia
   'HK': { country: 'Hong Kong', region: 'Asia' },
   'IND': { country: 'India', region: 'Asia' },
   'JAP': { country: 'Japan', region: 'Asia' },
+  'JPN': { country: 'Japan', region: 'Asia' },
   'MYA': { country: 'Myanmar', region: 'Asia' },
   'NEP': { country: 'Nepal', region: 'Asia' },
   'PHI': { country: 'Philippines', region: 'Asia' },
   'THAI': { country: 'Thailand', region: 'Asia' },
+  'THA': { country: 'Thailand', region: 'Asia' },
   'VIET': { country: 'Vietnam', region: 'Asia' },
+
+  // Middle East
   'PAL': { country: 'Israel_Palestine', region: 'Middle East' },
+  'ISR': { country: 'Israel_Palestine', region: 'Middle East' },
   'JOR': { country: 'Jordan', region: 'Middle East' },
-  'ARG': { country: 'Argentina', region: 'South America' },
-  'CHI': { country: 'Chicago', region: 'North America' },
+  'SAU': { country: 'Saudi Arabia', region: 'Middle East' },
+  'SAUDI': { country: 'Saudi Arabia', region: 'Middle East' },
+
+  // Europe
   'ITA': { country: 'Italy', region: 'Europe' },
   'FRA': { country: 'France', region: 'Europe' },
   'ESP': { country: 'Spain', region: 'Europe' },
   'POR': { country: 'Portugal', region: 'Europe' },
   'GRE': { country: 'Greece', region: 'Europe' },
+  'GRC': { country: 'Greece', region: 'Europe' },
   'UK': { country: 'UK & Ireland', region: 'Europe' },
   'IRL': { country: 'UK & Ireland', region: 'Europe' },
+
+  // North America
+  'CHI': { country: 'Chicago', region: 'North America' },
+  'NYC': { country: 'New York', region: 'North America' },
+  'PR': { country: 'Puerto Rico', region: 'North America' },
+  'CAR': { country: 'Caribbean', region: 'North America' },
+  'STM': { country: 'St. Martin', region: 'North America' },
+  'CAL': { country: 'California', region: 'North America' },
+  'TEX': { country: 'Texas', region: 'North America' },
+  'MEX': { country: 'Mexico', region: 'North America' },
+  'CUBA': { country: 'Cuba', region: 'North America' },
+  'CUB': { country: 'Cuba', region: 'North America' },
+
+  // South America
+  'ARG': { country: 'Argentina', region: 'South America' },
+  'BRA': { country: 'Brazil', region: 'South America' },
+
+  // Oceania
+  'AUS': { country: 'Australia', region: 'Oceania' },
+  'AUSTRALIA': { country: 'Australia', region: 'Oceania' },
+  'NZ': { country: 'New Zealand', region: 'Oceania' },
+  'NZL': { country: 'New Zealand', region: 'Oceania' },
+  'NEW ZEALAND': { country: 'New Zealand', region: 'Oceania' },
 };
+
+// Normalize region from folder names used in uploads
+const REGION_FOLDER_MAP = {
+  'Africa': 'Africa',
+  'Asia': 'Asia',
+  'Middle East': 'Middle East',
+  'South America': 'South America',
+  'North America': 'North America',
+  'Oceania': 'Oceania',
+  'Europe & Scandinavia': 'Europe',
+  'Australia & New Zealand': 'Oceania',
+  'Central America & Caribbean': 'North America',
+  'Erasing Borders': 'Erasing Borders',
+};
+
+// Try to extract region/country from folder path like:
+// Website beloveful.com/<Region>/<Country>/<file>
+function parseRegionCountryFromPath(publicId) {
+  if (typeof publicId !== 'string') return null;
+  const parts = publicId.split('/');
+  const idx = parts.findIndex(p => p.toLowerCase() === 'website beloveful.com');
+  if (idx === -1) return null;
+  const regionFolder = parts[idx + 1];
+  const countryFolder = parts[idx + 2];
+  if (!regionFolder) return null;
+  const region = REGION_FOLDER_MAP[regionFolder] || regionFolder;
+  const country = countryFolder ? countryFolder : region;
+  return { region, country };
+}
 
 // Generate slug from country name
 function generateSlug(countryName) {
@@ -138,21 +208,35 @@ function extractCountryCode(publicId) {
 
 // Get country info from public_id or folder
 function getCountryInfo(publicId, folder = '') {
-  // Try to extract from public_id first
+  // 1) Prefer parsing from full folder path if available
+  const byPath = parseRegionCountryFromPath(publicId);
+  if (byPath && byPath.region && byPath.country) {
+    return byPath;
+  }
+
+  // 2) Try to extract from public_id code prefix
   const countryCode = extractCountryCode(publicId);
   if (countryCode && COUNTRY_MAPPING[countryCode]) {
     return COUNTRY_MAPPING[countryCode];
   }
   
-  // Try to match folder name
+  // 3) Try to match known codes or country names in Cloudinary folder name
+  const folderLc = String(folder || '').toLowerCase();
   for (const [code, info] of Object.entries(COUNTRY_MAPPING)) {
-    if (folder.toLowerCase().includes(code.toLowerCase()) || 
-        folder.toLowerCase().includes(info.country.toLowerCase())) {
+    const codeLc = code.toLowerCase();
+    const nameLc = info.country.toLowerCase();
+    if (folderLc.includes(codeLc) || folderLc.includes(nameLc)) {
       return info;
     }
   }
+
+  // 4) Special handling for ambiguous 'SA' prefix (South Africa vs Saudi Arabia)
+  if (countryCode === 'SA') {
+    if (folderLc.includes('south africa')) return { country: 'South Africa', region: 'Africa' };
+    if (folderLc.includes('saudi') || folderLc.includes('middle east')) return { country: 'Saudi Arabia', region: 'Middle East' };
+  }
   
-  // Default to mixed/other
+  // Default fallback
   return { country: 'Mixed Countries', region: 'Oceania' };
 }
 
