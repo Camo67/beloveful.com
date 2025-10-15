@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import { SlideshowImage } from "@/lib/data";
-import { createProxiedImageUrl, getImageAltText } from "@/lib/images";
+import { createProxiedImageUrl, getImageAltText, buildProxiedSrcSet } from "@/lib/images";
 import { useImageProtection } from "@/hooks/use-image-protection";
 import { Link } from "react-router-dom";
 
@@ -124,9 +124,12 @@ export function Lightbox({ images, currentIndex, onClose, onNavigate, country, g
         <div className="relative max-w-full max-h-full protected-container">
           <img
             src={createProxiedImageUrl(currentImage.desktop)}
+            srcSet={buildProxiedSrcSet(currentImage.desktop)}
+            sizes="100vw"
             alt={getImageAltText(currentImage.desktop, country)}
             className="max-w-full max-h-screen object-contain image-protected"
             draggable={false}
+            decoding="async"
             onContextMenu={(e) => {
               e.preventDefault();
               e.stopPropagation();

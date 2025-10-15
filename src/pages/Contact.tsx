@@ -3,6 +3,7 @@ import FooterStrip from "@/components/FooterStrip";
 import PageContainer from "@/components/PageContainer";
 import { useSearchParams } from "react-router-dom";
 import { useState } from "react";
+import { Logo } from "@/components/Logo";
 
 export default function Contact() {
   const [searchParams] = useSearchParams();
@@ -34,7 +35,10 @@ export default function Contact() {
       <Header variant="default" />
       
       <PageContainer className="min-h-[70vh]">
-        <h1 className="text-3xl md:text-4xl font-light mb-8 text-black dark:text-white">Contact</h1>
+        <div className="flex justify-center mb-6">
+          <Logo variant="auto" />
+        </div>
+        <h1 className="text-3xl md:text-4xl font-light mb-8 text-black dark:text-white text-center">Contact</h1>
 
         {submitted && (
           <div className="mb-6 rounded-md border border-emerald-300/40 bg-emerald-50 dark:bg-emerald-950/30 px-4 py-3 text-sm text-emerald-800 dark:text-emerald-200">

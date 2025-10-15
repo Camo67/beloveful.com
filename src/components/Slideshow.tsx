@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { createProxiedImageUrl } from "@/lib/images";
+import { createProxiedImageUrl, buildProxiedSrcSet } from "@/lib/images";
 import { useImageProtection } from "@/hooks/use-image-protection";
 import { useSlideshow } from "@/hooks/use-slideshow";
 
@@ -57,7 +57,8 @@ export function Slideshow() {
           <picture>
             <source 
               media="(max-width: 768px)" 
-              srcSet={createProxiedImageUrl(slide.mobile)}
+              srcSet={buildProxiedSrcSet(slide.mobile)}
+              sizes="100vw"
               style={{
                 WebkitUserSelect: 'none',
                 userSelect: 'none'
@@ -65,11 +66,14 @@ export function Slideshow() {
             />
             <img
               src={createProxiedImageUrl(slide.desktop)}
+              srcSet={buildProxiedSrcSet(slide.desktop)}
+              sizes="100vw"
               alt={`BELOVEFUL Photography Slide ${index + 1}`}
               className="slideshow-image image-protected"
               draggable={false}
               loading={index === 0 ? "eager" : "lazy"}
               decoding="async"
+              fetchPriority={index === 0 ? ("high" as any) : ("low" as any)}
               onContextMenu={(e) => {
                 e.preventDefault();
                 e.stopPropagation();

@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { SlideshowImage } from "@/lib/data";
-import { createProxiedImageUrl, getImageAltText } from "@/lib/images";
+import { createProxiedImageUrl, getImageAltText, buildProxiedSrcSet, DEFAULT_SIZES } from "@/lib/images";
 import { useImageProtection } from "@/hooks/use-image-protection";
 import { Lightbox } from "./Lightbox";
 
@@ -83,29 +83,35 @@ export function Gallery({ images, country, region, enablePrintCta = false, ctaLa
               return false;
             }}
           >
-            <img
-              src={createProxiedImageUrl(image.desktop)}
-              alt={getImageAltText(image.desktop, country)}
-              className="img-responsive transition-all duration-300 group-hover:scale-105"
-              draggable={false}
-              loading={index < 6 ? "eager" : "lazy"}
-              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-              onContextMenu={(e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                return false;
-              }}
-              onDragStart={(e) => {
-                e.preventDefault();
-                return false;
-              }}
-              style={{
-                maxWidth: '100%',
-                height: 'auto',
-                objectFit: 'cover',
-                aspectRatio: '4/3'
-              }}
-            />
+            <picture>
+              <source media="(max-width: 768px)" srcSet={createProxiedImageUrl(image.mobile)} />
+              <img
+                src={createProxiedImageUrl(image.desktop)}
+                srcSet={buildProxiedSrcSet(image.desktop)}
+                sizes={DEFAULT_SIZES}
+                alt={getImageAltText(image.desktop, country)}
+                className="img-responsive transition-all duration-300 group-hover:scale-105"
+                draggable={false}
+                loading={index < 3 ? "eager" : "lazy"}
+                decoding="async"
+                fetchPriority={index < 3 ? ("high" as any) : ("auto" as any)}
+                onContextMenu={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  return false;
+                }}
+                onDragStart={(e) => {
+                  e.preventDefault();
+                  return false;
+                }}
+                style={{
+                  maxWidth: '100%',
+                  height: 'auto',
+                  objectFit: 'cover',
+                  aspectRatio: '4/3'
+                }}
+              />
+            </picture>
             <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300 pointer-events-none" />
           </div>
         ))}

@@ -64,6 +64,21 @@
     --slideshow-duration: 8s;
     --slideshow-transition: 1.5s;
   }
+
+  /* Dark theme tokens */
+  .dark {
+    --background: 0 0% 5%;        /* near-black */
+    --foreground: 0 0% 98%;       /* near-white text */
+    --muted: 0 0% 12%;
+    --muted-foreground: 0 0% 70%;
+    --text-secondary: 0 0% 85%;
+    --text-tertiary: 0 0% 70%;
+    --border: 0 0% 20%;
+    --border-strong: 0 0% 35%;
+    --ring: 0 0% 85%;
+    --hover: 0 0% 90%;
+    /* keep accent colors as-is for brand consistency */
+  }
   
   /* Mobile typography overrides - Enhanced for small screens */
   @media (max-width: 768px) {
