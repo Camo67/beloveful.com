@@ -84,17 +84,11 @@ export function useImageProtection() {
 
   // Handle touch events for mobile protection
   const handleTouchStart = useCallback((e: TouchEvent) => {
-    // Prevent long press on images
+    // Prevent multi-touch gestures that often trigger system UI
     if (e.touches.length > 1) {
       e.preventDefault();
       return false;
     }
-  }, []);
-
-  const handleTouchEnd = useCallback((e: TouchEvent) => {
-    // Prevent context menu on touch end
-    e.preventDefault();
-    return false;
   }, []);
 
   // Detect dev tools opening (disabled to prevent slideshow blur)
@@ -138,7 +132,6 @@ export function useImageProtection() {
     document.addEventListener('dragstart', handleDragStart, true);
     document.addEventListener('selectstart', handleSelectStart, true);
     document.addEventListener('touchstart', handleTouchStart, { passive: false });
-    document.addEventListener('touchend', handleTouchEnd, { passive: false });
 
     // Prevent right-click on images specifically
     const images = document.querySelectorAll('img');
@@ -167,7 +160,6 @@ export function useImageProtection() {
       document.removeEventListener('dragstart', handleDragStart, true);
       document.removeEventListener('selectstart', handleSelectStart, true);
       document.removeEventListener('touchstart', handleTouchStart);
-      document.removeEventListener('touchend', handleTouchEnd);
 
       // Remove image-specific listeners
       const images = document.querySelectorAll('img');
@@ -176,7 +168,7 @@ export function useImageProtection() {
         img.removeEventListener('dragstart', handleDragStart);
       });
     };
-  }, [handleKeyDown, handleContextMenu, handleDragStart, handleSelectStart, handleTouchStart, handleTouchEnd]);
+  }, [handleKeyDown, handleContextMenu, handleDragStart, handleSelectStart, handleTouchStart]);
 
   // Return utility functions for manual protection
   return {

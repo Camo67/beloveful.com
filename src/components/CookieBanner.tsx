@@ -18,7 +18,10 @@ export default function CookieBanner() {
   const setConsent = (value: "accepted" | "rejected") => {
     try {
       localStorage.setItem("cookie-consent", value);
-    } catch {}
+    } catch (err) {
+      // Ignore storage errors (e.g., private mode); still hide the banner
+      console.warn("cookie-consent storage unavailable", err);
+    }
     setVisible(false);
   };
 
