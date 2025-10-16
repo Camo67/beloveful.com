@@ -178,25 +178,20 @@ export function Lightbox({ images, currentIndex, onClose, onNavigate, country, g
             }}
           />
           
-          {/* Caption */}
-          <div className="absolute bottom-0 left-0 right-0 p-4 bg-black bg-opacity-70 text-white z-20">
-            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2">
-              <p className="text-sm text-center md:text-left">
-                {country} – {extractFilename(currentImage.desktop)}
-              </p>
-              {getCtaHref && (
-                <div className="text-center md:text-right">
-                  <Link
-                    to={getCtaHref(currentImage)}
-                    className="inline-block text-xs md:text-sm underline underline-offset-2 hover:no-underline"
-                    onClick={(e) => e.stopPropagation()}
-                  >
-                    {ctaLabel}
-                  </Link>
-                </div>
-              )}
+          {/* Caption / CTA only */}
+          {getCtaHref && (
+            <div className="absolute bottom-0 left-0 right-0 p-4 bg-black bg-opacity-70 text-white z-20">
+              <div className="text-center md:text-right">
+                <Link
+                  to={getCtaHref(currentImage)}
+                  className="inline-block text-sm underline underline-offset-2 hover:no-underline"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  {ctaLabel}
+                </Link>
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </div>
     </div>

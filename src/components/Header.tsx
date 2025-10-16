@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { Menu } from "lucide-react";
 import { Logo } from "./Logo";
 import { SocialIcons } from "./SocialIcons";
 import { MobileDrawer } from "./MobileDrawer";
@@ -15,7 +15,7 @@ export function Header({ variant }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
 
-  // Navigation order requested: Home, Portfolio, Workshops, About, Events, Contact, Privacy Policy
+  // Navigation order requested: Home, Portfolio, Shop, Workshops, About, Events, Contact, Privacy Policy
   const navigationPrimary = [
     { name: "Home", path: "/" },
   ];
@@ -61,6 +61,10 @@ export function Header({ variant }: HeaderProps) {
               <li>
                 <PortfolioDropdown variant="white" />
               </li>
+              {/* Shop third */}
+              <li className="text-white">
+                <ShopDropdown variant="white" />
+              </li>
               {/* Then the rest */}
               {navigationSecondary.map((link) => (
                 <li key={link.name}>
@@ -72,9 +76,6 @@ export function Header({ variant }: HeaderProps) {
                   </Link>
                 </li>
               ))}
-              <li className="text-white">
-                <ShopDropdown variant="white" />
-              </li>
             </ul>
           </nav>
           
@@ -86,17 +87,17 @@ export function Header({ variant }: HeaderProps) {
 
         {/* Mobile Header */}
         <header className="md:hidden fixed inset-x-0 top-0 z-50 bg-black bg-opacity-50 p-4">
-        <div className="flex items-center justify-between">
-          <div className="flex-1 flex justify-center">
-            <Logo variant="white" />
-          </div>
-          <button
-            onClick={() => setMobileMenuOpen(true)}
-            className="text-white p-2 absolute right-4"
-            aria-label="Open menu"
-          >
-            <Menu size={24} />
-          </button>
+          <div className="flex items-center justify-between">
+            <div className="flex-1 flex justify-center">
+              <Logo variant="white" />
+            </div>
+            <button
+              onClick={() => setMobileMenuOpen(true)}
+              className="text-white p-2 absolute right-4"
+              aria-label="Open menu"
+            >
+              <Menu size={24} />
+            </button>
           </div>
         </header>
 
@@ -132,6 +133,10 @@ export function Header({ variant }: HeaderProps) {
               <li>
                 <PortfolioDropdown />
               </li>
+              {/* Shop third */}
+              <li>
+                <ShopDropdown />
+              </li>
               {/* Then the rest */}
               {navigationSecondary.map((link) => (
                 <li key={link.name}>
@@ -143,9 +148,6 @@ export function Header({ variant }: HeaderProps) {
                   </Link>
                 </li>
               ))}
-              <li>
-                <ShopDropdown />
-              </li>
             </ul>
           </nav>
           
@@ -154,8 +156,8 @@ export function Header({ variant }: HeaderProps) {
         </div>
       </header>
 
-        {/* Mobile Header */}
-        <header className="md:hidden sticky top-0 z-50 nav-bar p-4">
+      {/* Mobile Header */}
+      <header className="md:hidden sticky top-0 z-50 nav-bar p-4">
         <div className="flex items-center justify-between">
           <div className="flex-1 flex justify-center">
             <Logo variant="auto" />

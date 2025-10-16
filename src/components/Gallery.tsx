@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
 import { SlideshowImage } from "@/lib/data";
 import { createProxiedImageUrl, getImageAltText, buildProxiedSrcSet, DEFAULT_SIZES } from "@/lib/images";
 import { useImageProtection } from "@/hooks/use-image-protection";
@@ -14,52 +14,19 @@ interface GalleryProps {
 
 export function Gallery({ images, country, region, enablePrintCta = false, ctaLabel = "Would you like this as a print?" }: GalleryProps) {
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
-  const [visibleImages, setVisibleImages] = useState<Set<number>>(new Set());
-  const observerRef = useRef<IntersectionObserver | null>(null);
   
   // Enable comprehensive image protection
   const { protectElement } = useImageProtection();
 
-  useEffect(() => {
-    // Auto-load images immediately for better UX, with lazy loading for performance
-    setVisibleImages(new Set(images.map((_, index) => index)));
-    
-    // Still set up intersection observer for future enhancements
-    observerRef.current = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const index = parseInt(entry.target.getAttribute('data-index') || '0');
-            setVisibleImages(prev => new Set(prev).add(index));
-          }
-        });
-      },
-      { threshold: 0.1, rootMargin: '100px' } // Increased root margin for earlier loading
-    );
-
-    return () => {
-      observerRef.current?.disconnect();
-    };
-  }, [country, images]);
-
-  const handleImageLoad = (index: number, element: HTMLDivElement) => {
-    if (observerRef.current) {
-      observerRef.current.observe(element);
-    }
-  };
-
   return (
     <>
-      <div className="gallery-grid no-screenshot">
+      <div className="gallery-grid no-screenshot" aria-live="polite">
         {images.map((image, index) => (
           <div
             key={index}
             className="relative group clickable-area bg-muted rounded-lg overflow-hidden shadow-sm hover:shadow-md"
-            style={{ aspectRatio: '4/3' }}
-            data-index={index}
             ref={(el) => {
               if (el) {
-                handleImageLoad(index, el);
                 protectElement(el);
               }
             }}
@@ -90,11 +57,11 @@ export function Gallery({ images, country, region, enablePrintCta = false, ctaLa
                 srcSet={buildProxiedSrcSet(image.desktop)}
                 sizes={DEFAULT_SIZES}
                 alt={getImageAltText(image.desktop, country)}
-                className="img-responsive transition-all duration-300 group-hover:scale-105"
+                className="w-full h-auto max-w-full transition-all duration-300"
                 draggable={false}
-                loading={index < 3 ? "eager" : "lazy"}
+                loading="lazy"
                 decoding="async"
-                fetchPriority={index < 3 ? ("high" as any) : ("auto" as any)}
+                fetchPriority={("auto" as any)}
                 onContextMenu={(e) => {
                   e.preventDefault();
                   e.stopPropagation();
@@ -106,9 +73,7 @@ export function Gallery({ images, country, region, enablePrintCta = false, ctaLa
                 }}
                 style={{
                   maxWidth: '100%',
-                  height: 'auto',
-                  objectFit: 'cover',
-                  aspectRatio: '4/3'
+                  height: 'auto'
                 }}
               />
             </picture>

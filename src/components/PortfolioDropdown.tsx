@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { ChevronDown } from "lucide-react";
 import {
@@ -18,14 +18,41 @@ export function PortfolioDropdown({ variant = "auto" }: PortfolioDropdownProps) 
   const [isOpen, setIsOpen] = useState(false);
   const albums = getAllAlbumsSorted();
 
-  // Group albums by region for better organization
-  const albumsByRegion = albums.reduce((acc, album) => {
-    if (!acc[album.region]) {
-      acc[album.region] = [];
+  // Desired region display order (exclude "Erasing Borders" from grouped list)
+  const orderedRegions = useMemo(
+    () => [
+      "Africa",
+      "Asia",
+      "Middle East",
+      "South America",
+      "North America",
+      "Europe",
+      "Oceania",
+    ],
+    []
+  );
+
+  // Group albums by region and sort countries within each region
+  const albumsByRegion = useMemo(() => {
+    const grouped = albums.reduce((acc, album) => {
+      if (!acc[album.region]) acc[album.region] = [] as typeof albums;
+      acc[album.region].push(album);
+      return acc;
+    }, {} as Record<string, typeof albums>);
+
+    for (const key of Object.keys(grouped)) {
+      grouped[key] = grouped[key].slice().sort((a, b) => a.country.localeCompare(b.country));
     }
-    acc[album.region].push(album);
-    return acc;
-  }, {} as Record<string, typeof albums>);
+    return grouped;
+  }, [albums]);
+
+  // Resolve a target for the special "Erasing Borders" link
+  const erasingBordersTarget = useMemo(() => {
+    const bySlug = albums.find(a => a.slug === "erasing-borders");
+    if (bySlug) return bySlug;
+    const firstInRegion = albums.find(a => a.region === "Erasing Borders");
+    return firstInRegion;
+  }, [albums]);
 
   const textColorClass = variant === "white" 
     ? "text-white hover:text-gray-200" 
@@ -47,7 +74,7 @@ export function PortfolioDropdown({ variant = "auto" }: PortfolioDropdownProps) 
         </button>
       </DropdownMenuTrigger>
       <DropdownMenuContent 
-        className="w-56 max-h-96 overflow-y-auto dropdown-content text-black dark:text-white"
+        className="w-64 max-h-96 overflow-y-auto dropdown-content text-black dark:text-white"
         align="start"
       >
         <DropdownMenuItem asChild>
@@ -56,32 +83,44 @@ export function PortfolioDropdown({ variant = "auto" }: PortfolioDropdownProps) 
             className="w-full px-2 py-2 font-semibold hover:bg-muted focus-enhanced text-black dark:text-white"
             onClick={() => setIsOpen(false)}
           >
-            All Countries
+            All
           </Link>
         </DropdownMenuItem>
         <DropdownMenuSeparator />
         
-        {Object.entries(albumsByRegion)
-          .sort(([a], [b]) => a.localeCompare(b))
-          .map(([region, regionAlbums]) => (
-            <div key={region}>
-              <div className="px-2 py-1 text-xs font-semibold text-text-tertiary uppercase tracking-wide">
-                {region}
-              </div>
-              {regionAlbums.map((album) => (
-                <DropdownMenuItem key={album.slug} asChild>
-                  <Link
-                    to={`/portfolio/${album.region.toLowerCase().replace(' ', '-')}/${album.slug}`}
-                    className="w-full px-4 py-2 hover:bg-muted focus-enhanced pl-4 text-black dark:text-white"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    {album.country}
-                  </Link>
-                </DropdownMenuItem>
-              ))}
+        {orderedRegions.map((region) => (
+          <div key={region}>
+            <div className="px-2 py-1 text-xs font-semibold text-text-tertiary uppercase tracking-wide">
+              {region}
             </div>
-          ))
-        }
+            {(albumsByRegion[region] || []).map((album) => (
+              <DropdownMenuItem key={album.slug} asChild>
+                <Link
+                  to={`/portfolio/${album.region.toLowerCase().replace(' ', '-')}/${album.slug}`}
+                  className="w-full px-4 py-2 hover:bg-muted focus-enhanced pl-4 text-black dark:text-white"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {album.country}
+                </Link>
+              </DropdownMenuItem>
+            ))}
+          </div>
+        ))}
+
+        {erasingBordersTarget && (
+          <>
+            <DropdownMenuSeparator />
+            <DropdownMenuItem asChild>
+              <Link
+                to={`/portfolio/${erasingBordersTarget.region.toLowerCase().replace(' ', '-')}/${erasingBordersTarget.slug}`}
+                className="w-full px-2 py-2 font-semibold hover:bg-muted focus-enhanced text-black dark:text-white"
+                onClick={() => setIsOpen(false)}
+              >
+                Erasing Borders
+              </Link>
+            </DropdownMenuItem>
+          </>
+        )}
       </DropdownMenuContent>
     </DropdownMenu>
   );

@@ -3,16 +3,23 @@ import { Link } from "react-router-dom";
 import { Header } from "@/components/Header";
 import FooterStrip from "@/components/FooterStrip";
 import PageContainer from "@/components/PageContainer";
-import { getAllAlbumsSorted } from "@/lib/data";
+import { getAllAlbumsSorted, REGIONS, type Region } from "@/lib/data";
 import { useAlbums } from "@/hooks/use-albums";
 import { Lightbox } from "@/components/Lightbox";
 
 export default function Portfolio() {
   const [chicagoLightboxIndex, setChicagoLightboxIndex] = useState<number | null>(null);
+  const [selectedRegion, setSelectedRegion] = useState<Region | "All">("All");
   const { data: allAlbums, isLoading } = useAlbums();
 
-  // Get all albums sorted alphabetically by country name
-  const sortedAlbums = allAlbums ? getAllAlbumsSorted() : [];
+  // Get all albums sorted alphabetically by country name (exclude Logo content)
+  const allSortedAlbums = allAlbums ? getAllAlbumsSorted().filter(a => a.region !== "Logo") : [];
+  
+  // Filter albums based on selected region
+  const sortedAlbums = selectedRegion === "All" 
+    ? allSortedAlbums 
+    : allSortedAlbums.filter(a => a.region === selectedRegion);
+  
   const chicagoAlbum = allAlbums?.find(a => a.region === "North America" && a.slug === "chicago");
   
   // Announce page content changes for screen readers
@@ -38,6 +45,39 @@ export default function Portfolio() {
           <div className="sr-only" aria-live="polite">
             Portfolio contains {totalCountries} countries with {totalImages} total photographs
           </div>
+        </div>
+
+        {/* Region Filter Tabs - Desktop Only */}
+        <div className="hidden md:flex flex-wrap justify-center gap-2 mb-12" role="tablist" aria-label="Filter portfolio by region">
+          <button
+            onClick={() => setSelectedRegion("All")}
+            className={`px-4 py-2 rounded-lg font-medium transition-all duration-200 ${
+              selectedRegion === "All"
+                ? "bg-accent-neutral text-white shadow-md"
+                : "bg-white dark:bg-neutral-800 text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-gray-700 hover:border-accent-neutral hover:text-accent-neutral dark:hover:border-accent-warm dark:hover:text-accent-warm"
+            }`}
+            role="tab"
+            aria-selected={selectedRegion === "All"}
+            aria-controls="portfolio-grid"
+          >
+            All Regions
+          </button>
+          {REGIONS.map((region) => (
+            <button
+              key={region}
+              onClick={() => setSelectedRegion(region)}
+              className={`px-4 py-2 rounded-lg font-medium transition-all duration-200 ${
+                selectedRegion === region
+                  ? "bg-accent-neutral text-white shadow-md"
+                  : "bg-white dark:bg-neutral-800 text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-gray-700 hover:border-accent-neutral hover:text-accent-neutral dark:hover:border-accent-warm dark:hover:text-accent-warm"
+              }`}
+              role="tab"
+              aria-selected={selectedRegion === region}
+              aria-controls="portfolio-grid"
+            >
+              {region}
+            </button>
+          ))}
         </div>
 
         {/* Section 1: Chicago (origin point) */}
@@ -88,7 +128,7 @@ export default function Portfolio() {
 
 
         {/* Country Grid */}
-        <section aria-label="Photography collections by country">
+        <section aria-label="Photography collections by country" id="portfolio-grid" role="tabpanel">
           {isLoading ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" role="status" aria-label="Loading portfolio">
               {[1, 2, 3, 4, 5, 6].map((i) => (

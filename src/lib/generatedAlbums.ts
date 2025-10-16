@@ -899,9 +899,9 @@ export const GENERATED_ALBUMS: CountryAlbum[] = [
     ],
   },
   {
-    region: "Middle East",
-    country: "Saudi Arabia",
-    slug: "saudi-arabia",
+    region: "Africa",
+    country: "South Africa",
+    slug: "south-africa",
     images: [
       { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621049/SA-11-22-DSCF5780_ine99g.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621049/SA-11-22-DSCF5780_ine99g.jpg' },
       { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621049/SA-11-22-DSCF5766_gr3cyj.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621049/SA-11-22-DSCF5766_gr3cyj.jpg' },

@@ -29,44 +29,81 @@ export const CLIENT_NAMES: string[] = CLIENT_LOGOS_SOURCE.map((url) => {
   );
 });
 
-// Best-effort website mapping based on filename patterns.
-// Unknown entries return null so the UI can gracefully render without links.
+// Partner website mapping with provided URLs
+// Maps logo filenames/patterns to their official website URLs
 export function getClientLinkForIndex(index: number): string | null {
   const original = CURATED_CLIENT_LOGOS[index] || "";
   const lower = original.toLowerCase();
+  
+  // National Geographic
   if (lower.includes("natgeo") || lower.includes("national") || lower.includes("geo")) {
     return "https://www.nationalgeographic.com/";
   }
+  
+  // Netflix
   if (lower.includes("netflix")) {
-    return "https://www.netflix.com/";
+    return "https://www.netflix.com/?utm_source=chatgpt.com";
   }
+  
+  // TED
   if (lower.includes("ted")) {
     return "https://www.ted.com/";
   }
+  
+  // TIME Magazine
   if (lower.includes("time")) {
-    return "https://time.com/";
+    return "https://time.com/?utm_source=chatgpt.com";
   }
+  
+  // Flickr
   if (lower.includes("flickr")) {
-    return "https://www.flickr.com/";
+    return "https://www.flickr.com/?utm_source=chatgpt.com";
   }
+  
+  // Hard Rock Hotels
   if (lower.includes("hard_rock") || lower.includes("hard-rock") || lower.includes("hard rock")) {
-    return "https://www.hardrockhotels.com/";
+    return "https://hotel.hardrock.com/?utm_source=chatgpt.com";
   }
+  
+  // Crowne Plaza (IHG)
   if (lower.includes("crowne")) {
-    return "https://www.ihg.com/crowneplaza";
+    return "https://www.ihg.com/crowneplaza/hotels/us/en/cairo/caisz/hoteldetail?utm_source=chatgpt.com";
   }
+  
+  // Navy Pier / Chicago Shakespeare Theater
   if (lower.includes("navy") && lower.includes("pier")) {
-    return "https://navypier.org/";
+    return "https://www.chicagoshakes.com/?utm_source=chatgpt.com";
   }
+  
+  // BenQ
   if (lower.includes("benq")) {
-    return "https://www.benq.com/";
+    return "https://www.benq.com/en-us/index.html?utm_source=chatgpt.com";
   }
+  
+  // Cairo International Airport (Egypt)
   if (lower.includes("egypt")) {
-    return "https://www.egypt.travel/";
+    return "https://www.cairo-airport.com/en-us/?utm_source=chatgpt.com";
   }
+  
+  // The Second City (breaks-chicago)
   if (lower.includes("breaks")) {
-    // Unknown exact domain; keep null to avoid mislinking.
-    return null;
+    return "https://www.secondcity.com/?utm_source=chatgpt.com";
   }
+  
+  // Google
+  if (lower.includes("google")) {
+    return "https://www.google.com/?utm_source=chatgpt.com";
+  }
+  
+  // Fairmont Hotels
+  if (lower.includes("fairmont")) {
+    return "https://www.fairmont.com/en.html?utm_source=chatgpt.com";
+  }
+  
+  // Moab, Utah
+  if (lower.includes("moab")) {
+    return "https://www.discovermoab.com/?utm_source=chatgpt.com";
+  }
+  
   return null;
 }

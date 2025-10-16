@@ -1,7 +1,7 @@
 import { X, ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
 import { SocialIcons } from "./SocialIcons";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { getAllAlbumsSorted } from "@/lib/data";
 
 interface MobileDrawerProps {
@@ -13,7 +13,7 @@ export function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
   const [shopOpen, setShopOpen] = useState(false);
   const [portfolioOpen, setPortfolioOpen] = useState(false);
   
-  // Order: Home, Portfolio (button), Workshops, About, Events, Contact, Privacy Policy
+  // Order: Home, Portfolio, Shop, Workshops, About, Events, Contact, Privacy Policy
   const navigationLinks = [
     { name: "Home", path: "/" },
     { name: "Workshops", path: "/workshops" },
@@ -25,14 +25,41 @@ export function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
   
   const albums = getAllAlbumsSorted();
   
-  // Group albums by region for mobile display
-  const albumsByRegion = albums.reduce((acc, album) => {
-    if (!acc[album.region]) {
-      acc[album.region] = [];
+  // Desired region order and grouping (exclude Erasing Borders from grouped list)
+  const orderedRegions = useMemo(
+    () => [
+      "Africa",
+      "Asia",
+      "Middle East",
+      "South America",
+      "North America",
+      "Europe",
+      "Oceania",
+    ],
+    []
+  );
+
+  // Group albums by region and sort countries within each region
+  const albumsByRegion = useMemo(() => {
+    const grouped = albums.reduce((acc, album) => {
+      if (!acc[album.region]) acc[album.region] = [] as typeof albums;
+      acc[album.region].push(album);
+      return acc;
+    }, {} as Record<string, typeof albums>);
+
+    for (const key of Object.keys(grouped)) {
+      grouped[key] = grouped[key].slice().sort((a, b) => a.country.localeCompare(b.country));
     }
-    acc[album.region].push(album);
-    return acc;
-  }, {} as Record<string, typeof albums>);
+    return grouped;
+  }, [albums]);
+
+  // Resolve a target for the special "Erasing Borders" link
+  const erasingBordersTarget = useMemo(() => {
+    const bySlug = albums.find(a => a.slug === "erasing-borders");
+    if (bySlug) return bySlug;
+    const firstInRegion = albums.find(a => a.region === "Erasing Borders");
+    return firstInRegion;
+  }, [albums]);
 
   return (
     <>
@@ -93,32 +120,82 @@ export function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
                         className="text-lg text-gray-600 dark:text-gray-400 hover:underline hover:underline-offset-4 hover:decoration-white transition-opacity font-medium"
                         onClick={onClose}
                       >
-                        All Countries
+                        All
                       </Link>
                     </li>
-                    {Object.entries(albumsByRegion)
-                      .sort(([a], [b]) => a.localeCompare(b))
-                      .map(([region, regionAlbums]) => (
-                        <li key={region}>
-                          <div className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-2">
-                            {region}
-                          </div>
-                          <ul className="space-y-2 ml-2">
-                            {regionAlbums.map((album) => (
-                              <li key={album.slug}>
-                                <Link
-                                  to={`/portfolio/${album.region.toLowerCase().replace(' ', '-')}/${album.slug}`}
-                                  className="text-base text-gray-600 dark:text-gray-400 hover:underline hover:underline-offset-4 hover:decoration-white transition-opacity"
-                                  onClick={onClose}
-                                >
-                                  {album.country}
-                                </Link>
-                              </li>
-                            ))}
-                          </ul>
-                        </li>
-                      ))
-                    }
+                    {orderedRegions.map((region) => (
+                      <li key={region}>
+                        <div className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-2">
+                          {region}
+                        </div>
+                        <ul className="space-y-2 ml-2">
+                          {(albumsByRegion[region] || []).map((album) => (
+                            <li key={album.slug}>
+                              <Link
+                                to={`/portfolio/${album.region.toLowerCase().replace(' ', '-')}/${album.slug}`}
+                                className="text-base text-gray-600 dark:text-gray-400 hover:underline hover:underline-offset-4 hover:decoration-white transition-opacity"
+                                onClick={onClose}
+                              >
+                                {album.country}
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      </li>
+                    ))}
+
+                    {erasingBordersTarget && (
+                      <li>
+                        <div className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-2">
+                          —
+                        </div>
+                        <Link
+                          to={`/portfolio/${erasingBordersTarget.region.toLowerCase().replace(' ', '-')}/${erasingBordersTarget.slug}`}
+                          className="text-lg text-gray-600 dark:text-gray-400 hover:underline hover:underline-offset-4 hover:decoration-white transition-opacity font-medium"
+                          onClick={onClose}
+                        >
+                          Erasing Borders
+                        </Link>
+                      </li>
+                    )}
+                  </ul>
+                )}
+              </li>
+
+              {/* Shop third */}
+              <li>
+                <button
+                  onClick={() => setShopOpen(!shopOpen)}
+                  className="flex items-center gap-2 text-xl text-black dark:text-white hover:underline hover:underline-offset-4 hover:decoration-white transition-opacity duration-300"
+                >
+                  Shop
+                  <ChevronDown
+                    size={20}
+                    className={`transition-transform ${shopOpen ? "rotate-180" : ""}`}
+                  />
+                </button>
+                {shopOpen && (
+                  <ul className="mt-3 ml-4 space-y-3">
+                    <li>
+                      <Link
+                        to="/open-edition"
+                        className="text-lg text-gray-600 dark:text-gray-400 hover:underline hover:underline-offset-4 hover:decoration-white transition-opacity"
+                        onClick={onClose}
+                      >
+                        Open Edition
+                      </Link>
+                    </li>
+                    <li>
+                      <a
+                        href="https://www.printinnovationlab.com/collections/beloveful"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-lg text-gray-600 dark:text-gray-400 hover:underline hover:underline-offset-4 hover:decoration-white transition-opacity"
+                        onClick={onClose}
+                      >
+                        Limited Collection
+                      </a>
+                    </li>
                   </ul>
                 )}
               </li>
@@ -135,44 +212,6 @@ export function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
                   </Link>
                 </li>
               ))}
-
-              {/* Shop Dropdown */}
-              <li>
-                <button
-                  onClick={() => setShopOpen(!shopOpen)}
-                  className="flex items-center gap-2 text-xl text-black dark:text-white hover:underline hover:underline-offset-4 hover:decoration-white transition-opacity duration-300"
-                >
-                  Shop
-                  <ChevronDown
-                    size={20}
-                    className={`transition-transform ${shopOpen ? "rotate-180" : ""}`}
-                  />
-                </button>
-                {shopOpen && (
-                  <ul className="mt-3 ml-4 space-y-3">
-                    <li>
-                      <a
-                        href="https://www.printinnovationlab.com/collections/beloveful"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-lg text-gray-600 dark:text-gray-400 hover:underline hover:underline-offset-4 hover:decoration-white transition-opacity"
-                        onClick={onClose}
-                      >
-                        Limited Edition
-                      </a>
-                    </li>
-                    <li>
-                      <Link
-                        to="/shop/special"
-                        className="text-lg text-gray-600 dark:text-gray-400 hover:underline hover:underline-offset-4 hover:decoration-white transition-opacity"
-                        onClick={onClose}
-                      >
-                        Open Edition
-                      </Link>
-                    </li>
-                  </ul>
-                )}
-              </li>
             </ul>
           </nav>
           
