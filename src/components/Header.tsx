@@ -6,6 +6,7 @@ import { SocialIcons } from "./SocialIcons";
 import { MobileDrawer } from "./MobileDrawer";
 import ShopDropdown from "./ShopDropdown";
 import { PortfolioDropdown } from "./PortfolioDropdown";
+import ThemeToggle from "./ThemeToggle";
 
 interface HeaderProps {
   variant: "home" | "default";
@@ -37,21 +38,23 @@ export function Header({ variant }: HeaderProps) {
     return (
       <>
         {/* Desktop Home Header */}
-        <header className="hidden md:block fixed inset-x-0 top-0 z-40 p-8">
+        <header className="hidden md:block fixed inset-x-0 top-0 z-40 p-6">
           {/* Logo centered at top */}
-          <div className="flex justify-center mb-8">
-            <Logo variant="white" />
+            <div className="flex justify-center mb-6">
+            <div className="text-black dark:text-white">
+              <Logo variant="auto" />
+            </div>
           </div>
           
           {/* Left side navigation */}
-          <nav className="fixed left-8 top-32 z-40">
-            <ul className="space-y-4">
+          <nav className="fixed left-6 top-28 z-40">
+            <ul className="space-y-3">
               {/* Home first */}
               {navigationPrimary.map((link) => (
                 <li key={link.name}>
                   <Link
                     to={link.path}
-                    className="nav-link text-white hover:underline hover:underline-offset-4 hover:decoration-white text-lg"
+                    className="nav-link text-black dark:text-white hover:underline hover:underline-offset-4 hover:decoration-white text-lg"
                   >
                     {link.name}
                   </Link>
@@ -62,7 +65,7 @@ export function Header({ variant }: HeaderProps) {
                 <PortfolioDropdown variant="white" />
               </li>
               {/* Shop third */}
-              <li className="text-white">
+              <li className="text-black dark:text-white">
                 <ShopDropdown variant="white" />
               </li>
               {/* Then the rest */}
@@ -70,7 +73,7 @@ export function Header({ variant }: HeaderProps) {
                 <li key={link.name}>
                   <Link
                     to={link.path}
-                    className="nav-link text-white hover:underline hover:underline-offset-4 hover:decoration-white text-lg"
+                    className="nav-link text-black dark:text-white hover:underline hover:underline-offset-4 hover:decoration-white text-lg"
                   >
                     {link.name}
                   </Link>
@@ -80,20 +83,20 @@ export function Header({ variant }: HeaderProps) {
           </nav>
           
           {/* Top-right social icons */}
-          <div className="fixed right-8 top-8 z-40">
-            <SocialIcons iconSize={18} variant="white" />
+          <div className="fixed right-6 top-6 z-40">
+            <SocialIcons iconSize={18} variant="auto" />
           </div>
         </header>
 
         {/* Mobile Header */}
-        <header className="md:hidden fixed inset-x-0 top-0 z-50 bg-black bg-opacity-50 p-4">
+        <header className="md:hidden fixed inset-x-0 top-0 z-50 bg-black/50 p-3">
           <div className="flex items-center justify-between">
-            <div className="flex-1 flex justify-center">
-              <Logo variant="white" />
+          <div className="flex-1 flex justify-center text-black dark:text-white">
+              <Logo variant="auto" />
             </div>
             <button
               onClick={() => setMobileMenuOpen(true)}
-              className="text-white p-2 absolute right-4"
+              className="text-black dark:text-white p-2 absolute right-4"
               aria-label="Open menu"
             >
               <Menu size={24} />
@@ -110,14 +113,14 @@ export function Header({ variant }: HeaderProps) {
   return (
     <>
       {/* Desktop Default Header */}
-      <header className="hidden md:block sticky top-0 z-40 nav-bar px-8 py-4">
+      <header className="hidden md:block sticky top-0 z-40 nav-bar px-6 py-3">
         <div className="max-w-screen-xl mx-auto flex items-center justify-between">
           {/* Logo top-left */}
           <Logo variant="auto" />
           
           {/* Centered navigation */}
           <nav className="flex-1 flex justify-center">
-            <ul className="flex items-center space-x-8">
+            <ul className="flex items-center space-x-6">
               {/* Home first */}
               {navigationPrimary.map((link) => (
                 <li key={link.name}>
@@ -151,13 +154,16 @@ export function Header({ variant }: HeaderProps) {
             </ul>
           </nav>
           
-          {/* Top-right social icons */}
-          <SocialIcons />
+          {/* Top-right social icons and theme toggle */}
+          <div className="flex items-center gap-4">
+            <ThemeToggle />
+            <SocialIcons />
+          </div>
         </div>
       </header>
 
       {/* Mobile Header */}
-      <header className="md:hidden sticky top-0 z-50 nav-bar p-4">
+      <header className="md:hidden sticky top-0 z-50 nav-bar p-3">
         <div className="flex items-center justify-between">
           <div className="flex-1 flex justify-center">
             <Logo variant="auto" />

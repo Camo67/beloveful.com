@@ -40,12 +40,13 @@ export default {
       },
       fontFamily: {
         sans: [
+          'Inter',
+          'Poppins',
           'ui-sans-serif',
           'system-ui',
           '-apple-system',
           '"Segoe UI"',
           'Roboto',
-          'Inter',
           'Helvetica',
           'Arial',
           '"Apple Color Emoji"',

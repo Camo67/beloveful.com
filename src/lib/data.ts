@@ -4228,7 +4228,43 @@ function mergeAlbums(staticAlbums: CountryAlbum[], generatedAlbums: CountryAlbum
   return Array.from(bySlug.values());
 }
 
-const MERGED_ALBUMS: CountryAlbum[] = mergeAlbums(ALBUMS, GENERATED_ALBUMS ?? []);
+// Deduplicate and clean images within albums
+function isLowResOrThumb(url: string): boolean {
+  return /nggid|120x90|180x0|_thumb|thumbnail/i.test(url);
+}
+
+function normalizeCloudinaryId(url: string): string {
+  try {
+    const u = new URL(url);
+    const parts = u.pathname.split('/');
+    const uploadIdx = parts.findIndex(p => p === 'upload');
+    if (uploadIdx === -1) return url;
+    const afterUpload = parts.slice(uploadIdx + 1);
+    // Drop transformation chunk if present (first segment not starting with 'v')
+    const first = afterUpload[0];
+    const rest = first?.startsWith('v') ? afterUpload : afterUpload.slice(1);
+    // Remove version segment if present
+    const noVersion = rest[0]?.startsWith('v') ? rest.slice(1) : rest;
+    return noVersion.join('/');
+  } catch {
+    return url;
+  }
+}
+
+function cleanAlbum(album: CountryAlbum): CountryAlbum {
+  const seen = new Set<string>();
+  const cleaned = album.images.filter((img) => {
+    if (!img?.desktop) return false;
+    if (isLowResOrThumb(img.desktop)) return false;
+    const key = normalizeCloudinaryId(img.desktop);
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+  return { ...album, images: cleaned };
+}
+
+const MERGED_ALBUMS: CountryAlbum[] = mergeAlbums(ALBUMS, GENERATED_ALBUMS ?? []).map(cleanAlbum);
 
 export const getAlbumsByRegion = (region: Region): CountryAlbum[] => {
   return MERGED_ALBUMS

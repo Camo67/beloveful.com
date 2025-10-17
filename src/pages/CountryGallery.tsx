@@ -1,20 +1,31 @@
+import { useMemo } from "react";
 import { useParams, Link, Navigate } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import { Header } from "@/components/Header";
 import FooterStrip from "@/components/FooterStrip";
 import PageContainer from "@/components/PageContainer";
 import { Gallery } from "@/components/Gallery";
-import { getAlbumBySlug } from "@/lib/data";
+import { getAlbumBySlug, getAllAlbumsSorted } from "@/lib/data";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export default function CountryGallery() {
-  const { country } = useParams<{ country: string }>();
-  
-  if (!country) {
+  const params = useParams<{ country: string }>();
+  const countrySlug = params.country;
+
+  const album = countrySlug ? getAlbumBySlug(countrySlug) : undefined;
+
+  const albums = getAllAlbumsSorted().filter((a) => a.region !== "Logo");
+  const countriesInRegion = useMemo(() => {
+    const region = album?.region ?? "";
+    return albums
+      .filter((a) => a.region === region)
+      .sort((a, b) => a.country.localeCompare(b.country));
+  }, [albums, album?.region]);
+
+  if (!countrySlug) {
     return <Navigate to="/portfolio" replace />;
   }
 
-  const album = getAlbumBySlug(country);
-  
   if (!album) {
     return <Navigate to="/portfolio" replace />;
   }
@@ -24,8 +35,40 @@ export default function CountryGallery() {
       <Header variant="default" />
       
       <PageContainer>
-        {/* Navigation */}
-        <div className="mb-8">
+        {/* Persistent Region Tabs with mobile swipe */}
+        <div className="sticky top-[56px] md:top-[64px] z-30 -mx-4 px-4 md:mx-0 md:px-0 bg-white/90 dark:bg-neutral-950/95 backdrop-blur border-b border-border mb-6">
+          <Tabs value={album.region}>
+            <TabsList className="w-full overflow-x-auto whitespace-nowrap no-scrollbar flex gap-1 md:gap-2 px-2 py-2 md:px-4 md:py-3">
+              {/* Link back to All on Portfolio */}
+              <TabsTrigger asChild value="All" className="px-3 md:px-4 py-1.5 rounded-md text-sm md:text-base">
+                <Link to="/portfolio">All</Link>
+              </TabsTrigger>
+              {Array.from(new Set(albums.map((a) => a.region))).map((region) => (
+                <TabsTrigger key={region} asChild value={region} className="px-3 md:px-4 py-1.5 rounded-md text-sm md:text-base data-[state=active]:bg-accent-neutral data-[state=active]:text-white">
+                  <Link to={`/portfolio?region=${encodeURIComponent(region)}`}>{region}</Link>
+                </TabsTrigger>
+              ))}
+            </TabsList>
+          </Tabs>
+
+          {/* Country pills for current region */}
+          <div className="overflow-x-auto no-scrollbar whitespace-nowrap px-2 pb-2 md:px-4">
+            {countriesInRegion.map((c) => (
+              <Link
+                key={c.slug}
+                to={`/portfolio/${c.region.toLowerCase().replace(' ', '-')}/${c.slug}`}
+                className={`inline-block mr-2 mb-2 px-3 py-1.5 rounded-full text-sm border transition-colors ${
+                  c.slug === album.slug ? "bg-accent-neutral text-white border-accent-neutral" : "bg-white dark:bg-neutral-900 text-foreground border-border hover:border-accent-neutral"
+                }`}
+              >
+                {c.country}
+              </Link>
+            ))}
+          </div>
+        </div>
+
+        {/* Back link */}
+        <div className="mb-6">
           <Link 
             to="/portfolio"
             className="inline-flex items-center text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors duration-300"
@@ -36,7 +79,7 @@ export default function CountryGallery() {
         </div>
 
         {/* Header */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-10">
           <h1 className="text-4xl md:text-5xl font-light mb-4 text-black dark:text-white">{album.country}</h1>
           <p className="text-lg text-gray-600 dark:text-gray-300">
             {album.region} • {album.images.length} photographs
@@ -45,7 +88,7 @@ export default function CountryGallery() {
 
         {/* Erasing Borders Hero Text */}
         {album.slug === "erasing-borders" && (
-          <div className="max-w-4xl mx-auto mb-16 px-4">
+          <div className="max-w-4xl mx-auto mb-12 px-4">
             <div className="text-center text-gray-800 dark:text-gray-200 leading-relaxed">
               <p className="text-lg md:text-xl font-light mb-6">
                 Roughly 8 billion human beings are roaming the earth this very moment. Each one of us living varied experiences in different climates, cultures, and environments. Driven by insatiable curiosity & forever fascination with the world; I left being a physician to pursue my passion of travel & photography. Each trip expanded my mind, opened my heart, & I began seeing the world in a different light; becoming part of an ever smaller & more connected world.
@@ -57,7 +100,7 @@ export default function CountryGallery() {
           </div>
         )}
 
-        {/* Gallery */}
+        {/* Landscape-first masonry gallery with micro-spacing and subtle hover */}
         <Gallery 
           images={album.images} 
           country={album.country} 

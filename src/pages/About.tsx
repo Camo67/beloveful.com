@@ -84,6 +84,22 @@ export default function About() {
           </div>
         </section>
 
+        {/* Spotify Podcast Episode */}
+        <section className="bg-white dark:bg-neutral-900 rounded-lg shadow-sm border border-gray-200 dark:border-neutral-700 p-6 mb-16">
+          <h2 className="text-2xl md:text-3xl font-medium text-black dark:text-white mb-6">Featured Podcast</h2>
+          <div className="relative w-full">
+            <iframe
+              src="https://open.spotify.com/embed/episode/7oSy7AVlUke9TQaIVBndjs?utm_source=generator"
+              width="100%"
+              height="352"
+              frameBorder="0"
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+              loading="lazy"
+              className="rounded-lg"
+            />
+          </div>
+        </section>
+
         {/* Publications & Awards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="bg-white dark:bg-neutral-900 rounded-lg shadow-sm border border-gray-200 dark:border-neutral-700 p-6">
@@ -154,9 +170,6 @@ export default function About() {
         <section className="mt-20 bg-white dark:bg-neutral-900 rounded-lg shadow-sm border border-gray-200 dark:border-neutral-700 p-6">
           <div className="text-center mb-8">
             <h2 className="text-2xl md:text-3xl font-medium text-black dark:text-white mb-4">Clients & Partners</h2>
-            <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-              A selection of organizations and collaborators that have supported and showcased the work.
-            </p>
           </div>
           <ClientsPartnersGrid />
         </section>

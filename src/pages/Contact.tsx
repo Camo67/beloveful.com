@@ -14,6 +14,7 @@ export default function Contact() {
   const region = searchParams.get("region");
   const country = searchParams.get("country");
   const variant = searchParams.get("variant");
+  const subject = searchParams.get("subject");
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -126,6 +127,7 @@ export default function Contact() {
             <input type="hidden" name="region" value={region ?? ""} />
             <input type="hidden" name="country" value={country ?? ""} />
             <input type="hidden" name="variant" value={variant ?? ""} />
+            <input type="hidden" name="subject" value={subject ?? ""} />
 
             <div className="flex items-center gap-3">
               <button
