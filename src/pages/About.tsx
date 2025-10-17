@@ -3,6 +3,7 @@ import FooterStrip from "@/components/FooterStrip";
 import PageContainer from "@/components/PageContainer";
 import { CLIENT_LOGOS_SOURCE, CLIENT_NAMES, getClientLinkForIndex } from "@/lib/clients";
 import { Button } from "@/components/ui/button";
+import PodcastPlaylist from "@/components/PodcastPlaylist";
 
 export default function About() {
   return (
@@ -82,33 +83,10 @@ export default function About() {
           </div>
         </section>
 
-        {/* Spotify Podcast */}
+        {/* Featured Podcast (RSS-based playlist) */}
         <section className="mb-16">
           <h2 className="text-2xl md:text-3xl font-medium text-black dark:text-white mb-6">Featured Podcast</h2>
-          
-          {/* Episode Embed */}
-          <div className="relative w-full mb-6">
-            <iframe
-              src="https://open.spotify.com/embed/episode/5quv9fsalpAty6SlkMSMXx?utm_source=generator"
-              width="100%"
-              height="352"
-              frameBorder="0"
-              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-              loading="lazy"
-            />
-          </div>
-          
-          {/* Show Embed */}
-          <div className="relative w-full">
-            <iframe
-              src="https://open.spotify.com/embed/show/6rVAZOk3wUCXtsbVYphVkN?utm_source=generator"
-              width="100%"
-              height="352"
-              frameBorder="0"
-              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-              loading="lazy"
-            />
-          </div>
+          <PodcastPlaylist />
         </section>
 
         {/* Publications & Awards */}

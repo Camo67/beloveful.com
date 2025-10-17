@@ -26,3 +26,7 @@ dist-ssr
 # Environment files
 .env
 .env.local
+
+# Ignore podcast media in public
+/public/*.mp3
+/public/**/*.mp3
