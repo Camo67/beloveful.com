@@ -16,7 +16,7 @@ export function Header({ variant }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
 
-  // Navigation order requested: Home, Portfolio, Shop, Workshops, About, Events, Contact, Privacy Policy
+  // Navigation order requested: Home, Portfolio, Shop, Workshops, About, Events, Contact
   const navigationPrimary = [
     { name: "Home", path: "/" },
   ];
@@ -25,7 +25,6 @@ export function Header({ variant }: HeaderProps) {
     { name: "About", path: "/about" },
     { name: "Events", path: "/events" },
     { name: "Contact", path: "/contact" },
-    { name: "Privacy Policy", path: "/faq" },
   ];
 
   const isActive = (path: string) => {

@@ -11,20 +11,25 @@ export default function Workshops() {
   const [includePrintInquiry, setIncludePrintInquiry] = useState(false);
   const [includePortfolioAddon, setIncludePortfolioAddon] = useState(false);
 
-  const erasingBordersImages = [
-    {
-      src: "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218570/Website%20beloveful.com/Erasing%20Borders/Vietnam-DSCF8153_copy_vwsvcl.jpg",
-      alt: "Erasing Borders - Vietnam"
+  const heroImage = {
+    src: "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218570/Website%20beloveful.com/Erasing%20Borders/Tony_Menias_-_Two_Girls_in_Window_rgthwg.jpg",
+    alt: "Erasing Borders - Two Girls in Window"
+  };
+
+  const workshopImages = {
+    mentorship: {
+      src: "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218570/Website%20beloveful.com/Erasing%20Borders/Tony_Menias_-_Two_Girls_in_Window_rgthwg.jpg",
+      alt: "Erasing Borders - Two Girls in Window"
     },
-    {
+    workshop: {
       src: "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218565/Website%20beloveful.com/Erasing%20Borders/NyC-DSCF8922_copy_2_lswqmq.jpg",
       alt: "Erasing Borders - New York City"
     },
-    {
-      src: "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218570/Website%20beloveful.com/Erasing%20Borders/Tony_Menias_-_Two_Girls_in_Window_rgthwg.jpg",
-      alt: "Erasing Borders - Two Girls in Window"
+    class: {
+      src: "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218570/Website%20beloveful.com/Erasing%20Borders/Vietnam-DSCF8153_copy_vwsvcl.jpg",
+      alt: "Erasing Borders - Vietnam"
     }
-  ];
+  };
 
   const youthTags = [
     "mentorship",
@@ -36,6 +41,7 @@ export default function Workshops() {
     "analog-digital hybrid",
   ];
 
+
   return (
     <div className="min-h-screen">
       <Header variant="default" />
@@ -43,8 +49,8 @@ export default function Workshops() {
       {/* Hero Section */}
       <section className="relative h-72 md:h-[420px] overflow-hidden">
         <img
-          src={erasingBordersImages[0].src}
-          alt={erasingBordersImages[0].alt}
+          src={heroImage.src}
+          alt={heroImage.alt}
           className="w-full h-full object-cover"
           draggable={false}
           onContextMenu={(e) => e.preventDefault()}
@@ -61,22 +67,6 @@ export default function Workshops() {
       </section>
 
       <PageContainer className="max-w-5xl">
-        {/* Erasing Borders Strip */}
-        <section className="-mt-10 md:-mt-16 relative z-10 mb-12">
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 md:gap-3">
-            {erasingBordersImages.map((img, i) => (
-              <div key={i} className="aspect-[4/3] overflow-hidden bg-black/5 dark:bg-white/5">
-                <img
-                  src={img.src}
-                  alt={img.alt}
-                  className="w-full h-full object-cover"
-                  draggable={false}
-                  onContextMenu={(e) => e.preventDefault()}
-                />
-              </div>
-            ))}
-          </div>
-        </section>
 
         {/* Tabs: Mentorship / Workshop / Class */}
         <section className="mb-16">
@@ -111,8 +101,8 @@ export default function Workshops() {
 
             {/* Mentorship Tab */}
             <TabsContent value="mentorship" className="mt-6">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div className="md:col-span-2 space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+                <div className="space-y-6">
                   <h2 className="text-3xl md:text-4xl font-light text-black dark:text-white">1-on-1 Mentorship</h2>
                   <div className="text-gray-800 dark:text-gray-200 space-y-4 leading-relaxed">
                     <p>
@@ -149,27 +139,37 @@ export default function Workshops() {
                       >Notify Me</a>
                     </Button>
                   </div>
+                  <div className="bg-gray-50 dark:bg-gray-900/40 p-5 space-y-4 rounded-md">
+                    <h3 className="text-lg font-medium">Booking</h3>
+                    <p className="text-sm text-gray-700 dark:text-gray-300">
+                      Mentorship sessions are tailored to where you are. Share a portfolio link or a question when you book.
+                    </p>
+                    {includePortfolioAddon && (
+                      <p className="text-xs text-gray-600 dark:text-gray-400">Portfolio add-on enabled: we'll allocate extra time to review and annotate 10–15 images.</p>
+                    )}
+                    {includePrintInquiry && (
+                      <p className="text-xs text-gray-600 dark:text-gray-400">Print inquiry enabled: we'll discuss paper, sizing, and editions.</p>
+                    )}
+                  </div>
                 </div>
 
-                <div className="bg-gray-50 dark:bg-gray-900/40 p-5 space-y-4 rounded-md">
-                  <h3 className="text-lg font-medium">Booking</h3>
-                  <p className="text-sm text-gray-700 dark:text-gray-300">
-                    Mentorship sessions are tailored to where you are. Share a portfolio link or a question when you book.
-                  </p>
-                  {includePortfolioAddon && (
-                    <p className="text-xs text-gray-600 dark:text-gray-400">Portfolio add-on enabled: we’ll allocate extra time to review and annotate 10–15 images.</p>
-                  )}
-                  {includePrintInquiry && (
-                    <p className="text-xs text-gray-600 dark:text-gray-400">Print inquiry enabled: we’ll discuss paper, sizing, and editions.</p>
-                  )}
+                <div className="flex justify-center">
+                  <img
+                    src={workshopImages.mentorship.src}
+                    alt={workshopImages.mentorship.alt}
+                    className="w-full max-w-md h-auto object-cover rounded-lg shadow-lg"
+                    draggable={false}
+                    onContextMenu={(e) => e.preventDefault()}
+                  />
                 </div>
               </div>
+
             </TabsContent>
 
             {/* Workshop Tab */}
             <TabsContent value="workshop" className="mt-6">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div className="md:col-span-2 space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+                <div className="space-y-6">
                   <h2 className="text-3xl md:text-4xl font-light text-black dark:text-white">Online Workshop (3.5 Hours)</h2>
                   <div className="text-gray-800 dark:text-gray-200 space-y-4 leading-relaxed">
                     <p>Format: Live, interactive</p>
@@ -203,22 +203,22 @@ export default function Workshops() {
                   </div>
                 </div>
 
-                <div className="bg-gray-50 dark:bg-gray-900/40 p-5 space-y-4 rounded-md">
-                  <h3 className="text-lg font-medium">Flow</h3>
-                  <ul className="text-sm list-disc pl-5 space-y-2 text-gray-700 dark:text-gray-300">
-                    <li>Warm-up and intention setting</li>
-                    <li>Story-driven shooting approach</li>
-                    <li>Live critique and guided exercises</li>
-                    <li>Open Q&amp;A</li>
-                  </ul>
+                <div className="flex justify-center">
+                  <img
+                    src={workshopImages.workshop.src}
+                    alt={workshopImages.workshop.alt}
+                    className="w-full max-w-md h-auto object-cover rounded-lg shadow-lg"
+                    draggable={false}
+                    onContextMenu={(e) => e.preventDefault()}
+                  />
                 </div>
               </div>
             </TabsContent>
 
             {/* Class Tab */}
             <TabsContent value="class" className="mt-6">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div className="md:col-span-2 space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+                <div className="space-y-6">
                   <h2 className="text-3xl md:text-4xl font-light text-black dark:text-white">Online Class (Self-Paced)</h2>
                   <div className="text-gray-800 dark:text-gray-200 space-y-4 leading-relaxed">
                     <p>Format: Pre-recorded modules</p>
@@ -252,14 +252,14 @@ export default function Workshops() {
                   </div>
                 </div>
 
-                <div className="bg-gray-50 dark:bg-gray-900/40 p-5 space-y-4 rounded-md">
-                  <h3 className="text-lg font-medium">Modules</h3>
-                  <ul className="text-sm list-disc pl-5 space-y-2 text-gray-700 dark:text-gray-300">
-                    <li>Seeing light and timing</li>
-                    <li>Editing for feeling</li>
-                    <li>Ethics, consent, and dignity</li>
-                    <li>Finding your own rhythm</li>
-                  </ul>
+                <div className="flex justify-center">
+                  <img
+                    src={workshopImages.class.src}
+                    alt={workshopImages.class.alt}
+                    className="w-full max-w-md h-auto object-cover rounded-lg shadow-lg"
+                    draggable={false}
+                    onContextMenu={(e) => e.preventDefault()}
+                  />
                 </div>
               </div>
             </TabsContent>

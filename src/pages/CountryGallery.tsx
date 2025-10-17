@@ -35,16 +35,16 @@ export default function CountryGallery() {
       <Header variant="default" />
       
       <PageContainer>
-        {/* Persistent Region Tabs with mobile swipe */}
+        {/* Persistent Region Tabs - minimalist flat design */}
         <div className="sticky top-[56px] md:top-[64px] z-30 -mx-4 px-4 md:mx-0 md:px-0 bg-white/90 dark:bg-neutral-950/95 backdrop-blur border-b border-border mb-6">
           <Tabs value={album.region}>
-            <TabsList className="w-full overflow-x-auto whitespace-nowrap no-scrollbar flex gap-1 md:gap-2 px-2 py-2 md:px-4 md:py-3">
+            <TabsList className="minimalist-tabs-container">
               {/* Link back to All on Portfolio */}
-              <TabsTrigger asChild value="All" className="px-3 md:px-4 py-1.5 rounded-md text-sm md:text-base">
+              <TabsTrigger asChild value="All" className="minimalist-tab-trigger">
                 <Link to="/portfolio">All</Link>
               </TabsTrigger>
               {Array.from(new Set(albums.map((a) => a.region))).map((region) => (
-                <TabsTrigger key={region} asChild value={region} className="px-3 md:px-4 py-1.5 rounded-md text-sm md:text-base data-[state=active]:bg-accent-neutral data-[state=active]:text-white">
+                <TabsTrigger key={region} asChild value={region} className="minimalist-tab-trigger">
                   <Link to={`/portfolio?region=${encodeURIComponent(region)}`}>{region}</Link>
                 </TabsTrigger>
               ))}

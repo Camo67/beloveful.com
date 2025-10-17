@@ -65,37 +65,65 @@ export default function Portfolio() {
           </div>
 
           {/* Sticky Region Tabs */}
-          <div className="sticky top-[56px] md:top-[64px] z-30 bg-white/90 dark:bg-neutral-950/95 backdrop-blur supports-[backdrop-filter]:bg-white/60 dark:supports-[backdrop-filter]:bg-neutral-950/70 border-b border-border">
-            <Tabs value={selectedRegion} onValueChange={handleTabChange}>
-              <TabsList className="w-full overflow-x-auto whitespace-nowrap no-scrollbar flex gap-1 md:gap-2 px-2 py-2 md:px-4 md:py-3">
-                <TabsTrigger value="All" className="px-3 md:px-4 py-1.5 rounded-md text-xs md:text-sm data-[state=active]:bg-accent-neutral data-[state=active]:text-white">
-                  All
-                </TabsTrigger>
-                {REGIONS.map((region) => (
-                  <TabsTrigger
-                    key={region}
-                    value={region}
-                    className="px-3 md:px-4 py-1.5 rounded-md text-xs md:text-sm data-[state=active]:bg-accent-neutral data-[state=active]:text-white"
-                  >
-                    {region}
-                  </TabsTrigger>
-                ))}
-              </TabsList>
-            </Tabs>
+          <div className="sticky top-[56px] md:top-[64px] z-30 bg-white/90 dark:bg-neutral-950/95
+                backdrop-blur supports-[backdrop-filter]:bg-white/60
+                dark:supports-[backdrop-filter]:bg-neutral-950/70
+                border-b border-border">
 
+            {/* Tabs Container */}
+            <div
+              role="tablist"
+              className="w-full flex justify-center gap-1 px-2 py-2 md:px-4 md:py-3 
+                         overflow-x-auto md:overflow-x-visible whitespace-nowrap"
+              data-orientation="horizontal"
+            >
+              {/* AI Prompt: Keep horizontal scroll only on mobile. Do NOT add scroll on desktop. */}
+
+              <button
+                type="button"
+                role="tab"
+                aria-selected={selectedRegion === "All"}
+                onClick={() => handleTabChange("All")}
+                className={`inline-flex items-center justify-center px-3 md:px-4 py-1.5
+                           rounded-md text-xs md:text-sm font-medium transition-colors
+                           ${selectedRegion === "All" 
+                             ? 'bg-accent-neutral text-white' 
+                             : 'text-black dark:text-white hover:bg-muted'}`}
+              >
+                All
+              </button>
+
+              {REGIONS.map((region) => (
+                <button
+                  key={region}
+                  type="button"
+                  role="tab"
+                  aria-selected={selectedRegion === region}
+                  onClick={() => handleTabChange(region)}
+                  className={`inline-flex items-center justify-center px-3 md:px-4 py-1.5
+                             rounded-md text-xs md:text-sm font-medium transition-colors
+                             ${selectedRegion === region 
+                               ? 'bg-accent-neutral text-white' 
+                               : 'text-black dark:text-white hover:bg-muted'}`}
+                >
+                  {region}
+                </button>
+              ))}
+            </div>
+
+            {/* Sub-links below Tabs */}
             {selectedRegion !== "All" && selectedRegion !== "Erasing Borders" && filteredAlbums.length > 0 && (
-              <div className="px-2 md:px-4 py-2 border-t border-border">
-                <div className="overflow-x-auto no-scrollbar whitespace-nowrap">
-                  {filteredAlbums.map((album) => (
-                    <Link
-                      key={album.slug}
-                      to={`/portfolio/${album.region.toLowerCase().replace(" ", "-")}/${album.slug}`}
-                      className="inline-block mr-3 px-3 py-1 rounded-full text-sm border border-transparent hover:border-border hover:bg-muted transition-colors"
-                    >
-                      {album.country}
-                    </Link>
-                  ))}
-                </div>
+              <div className="px-2 md:px-4 py-2 border-t border-border overflow-x-auto md:overflow-x-visible whitespace-nowrap">
+                {filteredAlbums.map((album) => (
+                  <Link
+                    key={album.slug}
+                    to={`/portfolio/${album.region.toLowerCase().replace(" ", "-")}/${album.slug}`}
+                    className="inline-block mr-3 px-3 py-1 rounded-full text-sm border border-transparent
+                               hover:border-border hover:bg-muted transition-colors"
+                  >
+                    {album.country}
+                  </Link>
+                ))}
               </div>
             )}
           </div>
@@ -118,7 +146,7 @@ export default function Portfolio() {
                 if (!erasingBordersAlbum) return null;
                 return (
                   <>
-                    <div className="max-w-4xl mx-auto mb-12 px-4">
+                    <div className="mb-12">
                       <div className="text-center text-gray-800 dark:text-gray-200 leading-relaxed">
                         <p className="text-lg md:text-xl font-light mb-6">
                           Roughly 8 billion human beings are roaming the earth this very moment. Each one of us living varied experiences in different climates, cultures, and environments. Driven by insatiable curiosity & forever fascination with the world; I left being a physician to pursue my passion of travel & photography. Each trip expanded my mind, opened my heart, & I began seeing the world in a different light; becoming part of an ever smaller & more connected world.

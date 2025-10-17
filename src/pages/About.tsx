@@ -15,8 +15,8 @@ export default function About() {
         </div>
 
         {/* YouTube Video */}
-        <div className="mb-12 bg-white dark:bg-neutral-900 rounded-lg shadow-sm border border-gray-200 dark:border-neutral-700 p-6">
-          <div className="relative w-full aspect-video rounded-lg overflow-hidden">
+        <div className="mb-12">
+          <div className="relative w-full aspect-video overflow-hidden">
             <iframe
               src="https://www.youtube.com/embed/jNBE_RQECeA"
               title="BELOVEFUL Photography Documentary"
@@ -28,46 +28,44 @@ export default function About() {
         </div>
 
         {/* Featured Quote */}
-        <div className="mb-16 text-center bg-white dark:bg-neutral-900 rounded-lg shadow-sm border border-gray-200 dark:border-neutral-700 p-8 max-w-4xl mx-auto">
-          <blockquote className="text-xl md:text-2xl font-light italic text-black dark:text-white max-w-3xl mx-auto leading-relaxed">
+        <div className="mb-16 text-center">
+          <blockquote className="text-xl md:text-2xl font-light italic text-black dark:text-white leading-relaxed">
             "There's an unseen connection between everything on this earth and the Divine. My aim is to bring this connection into focus."
           </blockquote>
         </div>
 
         {/* Biography */}
-        <div className="bg-white dark:bg-neutral-900 rounded-lg shadow-sm border border-gray-200 dark:border-neutral-700 p-6 mb-12">
-          <p className="text-lg leading-relaxed text-black dark:text-white mb-0">
+        <div className="mb-12">
+          <p className="text-lg leading-relaxed text-black dark:text-white">
             Motivated by curiosity and forever fascinated by what this world has to offer, my love of capturing life around me started the day my father handed me my first camera at age seven. From medical school, to missions all across the globe for the impoverished, my photography was always a guiding light in finding love and beauty in the simplest things. Witnessing the purity of the souls I treated, those who could laugh and fearlessly move forward even in awful conditions, motivated a life-change where I left medicine to pursue my craft. Within my first year as a full-time photographer, I was recognized by National Geographic, held multiple exhibitions, and won an Award for Excellence from the Conception Global Art Collective. From then on, it became clear: photography wasn't just a hobby, it was a true calling.
           </p>
         </div>
 
-        {/* Portrait Image */}
-        <div className="mb-12 flex justify-center">
-          <div className="max-w-md w-full">
-            <img
-              src="https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620507/tony-hero-new_mtx9wk.jpg"
-              alt="Tony Menias Portrait"
-              className="w-full h-auto rounded-lg shadow-lg"
-              draggable={false}
-              loading="eager"
-              onContextMenu={(e) => e.preventDefault()}
-            />
-          </div>
-        </div>
 
         {/* Artist Statement */}
-        <div className="bg-white dark:bg-neutral-900 rounded-lg shadow-sm border border-gray-200 dark:border-neutral-700 p-6 mb-16">
+        <div className="mb-16">
           <p className="text-lg leading-relaxed text-black dark:text-white mb-6">
            My passion for capturing the raw and unfiltered aspects of life led me on a profound journey of self-discovery. With a keen eye for detail and an unwavering commitment to authenticity, I seek to portray the beauty and chaos of life in equal measure. Whether it be the bustling energy of a crowded market, the serene beauty of a remote landscape, or the intimate moments of daily life; I strive to convey a sense of connection and commonality among people, highlighting the rhythm that binds us together. The rhythm of life. I believe that photography is a powerful tool in promoting empathy and understanding between people. I hope to inspire others to explore the world and embrace different cultures; which can help foster greater empathy and understanding between people.
           </p>
           
-          <p className="text-lg leading-relaxed text-black dark:text-white mb-0">
+          <p className="text-lg leading-relaxed text-black dark:text-white">
            I see my photography as a powerful tool for building bridges and breaking down barriers, and I remain dedicated to using my art to promote unity and compassion in the world.
           </p>
         </div>
 
+        {/* Add this above the Approach & Teaching section */}
+        <div className="w-full flex justify-center mb-6">
+          <img 
+            src="https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620507/tony-hero-new_mtx9wk.jpg" 
+            alt="Tony Menias Portrait" 
+            className="w-full max-w-md h-64 object-cover"
+            draggable="false"
+            loading="eager"
+          />
+        </div>
+
         {/* Approach & Teaching */}
-        <section className="bg-white dark:bg-neutral-900 rounded-lg shadow-sm border border-gray-200 dark:border-neutral-700 p-6 mb-16">
+        <section className="mb-16">
           <h2 className="text-2xl md:text-3xl font-medium text-black dark:text-white mb-6">Approach & Teaching</h2>
           <div className="space-y-6">
             <p className="text-lg leading-relaxed text-black dark:text-white">
@@ -84,25 +82,38 @@ export default function About() {
           </div>
         </section>
 
-        {/* Spotify Podcast Episode */}
-        <section className="bg-white dark:bg-neutral-900 rounded-lg shadow-sm border border-gray-200 dark:border-neutral-700 p-6 mb-16">
+        {/* Spotify Podcast */}
+        <section className="mb-16">
           <h2 className="text-2xl md:text-3xl font-medium text-black dark:text-white mb-6">Featured Podcast</h2>
-          <div className="relative w-full">
+          
+          {/* Episode Embed */}
+          <div className="relative w-full mb-6">
             <iframe
-              src="https://open.spotify.com/embed/episode/7oSy7AVlUke9TQaIVBndjs?utm_source=generator"
+              src="https://open.spotify.com/embed/episode/5quv9fsalpAty6SlkMSMXx?utm_source=generator"
               width="100%"
               height="352"
               frameBorder="0"
               allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
               loading="lazy"
-              className="rounded-lg"
+            />
+          </div>
+          
+          {/* Show Embed */}
+          <div className="relative w-full">
+            <iframe
+              src="https://open.spotify.com/embed/show/6rVAZOk3wUCXtsbVYphVkN?utm_source=generator"
+              width="100%"
+              height="352"
+              frameBorder="0"
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+              loading="lazy"
             />
           </div>
         </section>
 
         {/* Publications & Awards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="bg-white dark:bg-neutral-900 rounded-lg shadow-sm border border-gray-200 dark:border-neutral-700 p-6">
+          <div>
             <h3 className="text-xl font-semibold text-black dark:text-white mb-6">Publications</h3>
             <ul className="space-y-4 text-black dark:text-white">
               <li className="flex justify-between items-start gap-4">
@@ -132,7 +143,7 @@ export default function About() {
             </ul>
           </div>
           
-          <div className="bg-white dark:bg-neutral-900 rounded-lg shadow-sm border border-gray-200 dark:border-neutral-700 p-6">
+          <div>
             <h3 className="text-xl font-semibold text-black dark:text-white mb-6">Honors & Awards</h3>
             <ul className="space-y-4 text-black dark:text-white">
               <li className="flex justify-between items-start gap-4">
@@ -167,7 +178,7 @@ export default function About() {
           </div>
         </div>
         {/* Clients & Partners */}
-        <section className="mt-20 bg-white dark:bg-neutral-900 rounded-lg shadow-sm border border-gray-200 dark:border-neutral-700 p-6">
+        <section className="mt-20">
           <div className="text-center mb-8">
             <h2 className="text-2xl md:text-3xl font-medium text-black dark:text-white mb-4">Clients & Partners</h2>
           </div>

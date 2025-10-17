@@ -12,9 +12,27 @@ const TabsList = React.forwardRef<
   <TabsPrimitive.List
     ref={ref}
     className={cn(
-      "inline-flex h-10 items-center justify-center rounded-md bg-muted p-1 text-muted-foreground",
+      // Modern minimalist flat design - completely remove container effects
+      "flex w-full justify-center gap-1 overflow-x-auto p-0 m-0",
+      // Remove all shadows and borders
+      "[--tw-ring-color:transparent] [--tw-ring-offset-color:transparent]",
+      "[--tw-ring-offset-shadow:none] [--tw-ring-shadow:none]", 
+      "[--tw-shadow:none] [--tw-shadow-colored:none] [--tw-drop-shadow:none]",
+      "border-0 border-transparent bg-transparent",
       className,
     )}
+    style={{
+      // Additional CSS custom properties for complete shadow removal
+      '--tw-ring-color': 'transparent',
+      '--tw-ring-offset-color': 'transparent',
+      '--tw-ring-offset-shadow': 'none',
+      '--tw-ring-shadow': 'none',
+      '--tw-shadow': 'none',
+      '--tw-shadow-colored': 'none',
+      '--tw-drop-shadow': 'none',
+      '--tw-border-spacing-x': '0',
+      '--tw-border-spacing-y': '0',
+    } as React.CSSProperties}
     {...props}
   />
 ));
@@ -27,9 +45,38 @@ const TabsTrigger = React.forwardRef<
   <TabsPrimitive.Trigger
     ref={ref}
     className={cn(
-      "inline-flex items-center justify-center whitespace-nowrap rounded-sm px-3 py-1.5 text-sm font-medium ring-offset-background transition-all data-[state=active]:bg-background data-[state=active]:text-foreground data-[state=active]:shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
+      // Clean minimalist trigger design - flat and borderless
+      "inline-flex items-center justify-center whitespace-nowrap px-3 py-1.5 text-sm font-medium",
+      // Smooth transitions for professional feel
+      "transition-all duration-200 ease-in-out", 
+      // Remove all shadow and ring effects
+      "[--tw-ring-color:transparent] [--tw-ring-offset-color:transparent]",
+      "[--tw-ring-offset-shadow:none] [--tw-ring-shadow:none]",
+      "[--tw-shadow:none] [--tw-shadow-colored:none] [--tw-drop-shadow:none]",
+      "border-0 border-transparent bg-transparent",
+      // Active state: subtle background, no shadows
+      "data-[state=active]:bg-neutral-100 data-[state=active]:text-neutral-900",
+      "dark:data-[state=active]:bg-neutral-800 dark:data-[state=active]:text-neutral-100",
+      // Focus state: clean outline without rings
+      "focus-visible:outline-none focus-visible:bg-neutral-50",
+      "dark:focus-visible:bg-neutral-900",
+      // Disabled state
+      "disabled:pointer-events-none disabled:opacity-50",
       className,
     )}
+    style={{
+      // Enforce shadow removal at the style level
+      '--tw-ring-color': 'transparent',
+      '--tw-ring-offset-color': 'transparent', 
+      '--tw-ring-offset-shadow': 'none',
+      '--tw-ring-shadow': 'none',
+      '--tw-shadow': 'none',
+      '--tw-shadow-colored': 'none',
+      '--tw-drop-shadow': 'none',
+      borderWidth: '0',
+      borderColor: 'transparent',
+      boxShadow: 'none',
+    } as React.CSSProperties}
     {...props}
   />
 ));

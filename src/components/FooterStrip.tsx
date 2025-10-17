@@ -44,7 +44,17 @@ export default function FooterStrip() {
         {/* Theme toggle next to newsletter */}
         <ThemeToggle />
 
-        <div className="ml-auto flex items-center gap-3">
+        {/* Privacy Policy - Center */}
+        <div className="flex-1 flex justify-center">
+          <a 
+            href="/faq#privacy" 
+            className="text-xs text-neutral-500 dark:text-neutral-400 hover:text-neutral-700 dark:hover:text-neutral-200 transition-colors underline-offset-2 hover:underline"
+          >
+            Privacy Policy
+          </a>
+        </div>
+
+        <div className="flex items-center gap-3">
           {/* socials with icons */}
           <a 
             href="https://www.instagram.com/beloveful/#" 
