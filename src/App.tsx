@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "next-themes";
 import { Suspense, lazy } from "react";
 import CookieBanner from "./components/CookieBanner";
+import RegionLanding from "./pages/RegionLanding";
 
 // Lazy load all page components
 const Index = lazy(() => import("./pages/Index"));
@@ -61,6 +62,11 @@ const App = () => (
               <Route path="/adminlogin" element={<Admin />} />
               <Route path="/admin/*" element={<Admin />} />
               <Route path="/debug" element={<Debug />} />
+
+              {/* Pretty region and country URLs */}
+              <Route path=":region" element={<RegionLanding />} />
+              <Route path=":region/:country" element={<CountryGallery />} />
+
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>

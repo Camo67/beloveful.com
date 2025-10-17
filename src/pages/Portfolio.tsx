@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { Link, useSearchParams } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { Header } from "@/components/Header";
 import FooterStrip from "@/components/FooterStrip";
 import PageContainer from "@/components/PageContainer";
@@ -11,6 +11,7 @@ import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 export default function Portfolio() {
   const { data: allAlbums, isLoading } = useAlbums();
   const [searchParams, setSearchParams] = useSearchParams();
+  const navigate = useNavigate();
 
   // Derive the active region directly from the URL, making it the source of truth.
   const activeRegion = useMemo(() => {
@@ -37,13 +38,15 @@ export default function Portfolio() {
     return allSortedAlbums.filter((a) => a.region === selectedRegion);
   }, [allSortedAlbums, selectedRegion]);
   
+  const normalizeRegion = (r: string) => r.toLowerCase().replace(/[^a-z]/g, "");
+
   const handleTabChange = (value: string) => {
     const next = value as Region | "All";
-    const params = new URLSearchParams();
-    if (next !== "All") {
-      params.set("region", next);
+    if (next === "All") {
+      navigate("/portfolio", { replace: true });
+      return;
     }
-    setSearchParams(params, { replace: true });
+    navigate(`/${normalizeRegion(next)}`, { replace: true });
   };
 
   const totalCountries = filteredAlbums.length;
@@ -117,7 +120,7 @@ export default function Portfolio() {
                 {filteredAlbums.map((album) => (
                   <Link
                     key={album.slug}
-                    to={`/portfolio/${album.region.toLowerCase().replace(" ", "-")}/${album.slug}`}
+                    to={`/${normalizeRegion(album.region)}/${album.slug}`}
                     className="inline-block mr-3 px-3 py-1 rounded-full text-sm border border-transparent
                                hover:border-border hover:bg-muted transition-colors"
                   >
@@ -165,7 +168,7 @@ export default function Portfolio() {
                 {filteredAlbums.map((album, index) => (
                   <Link
                     key={album.slug}
-                    to={`/portfolio/${album.region.toLowerCase().replace(" ", "-")}/${album.slug}`}
+                    to={`/${normalizeRegion(album.region)}/${album.slug}`}
                     className="group clickable-area focus-enhanced"
                     aria-label={`View ${album.country} photography collection with ${album.images.length} photographs`}
                     onKeyDown={(e) => {

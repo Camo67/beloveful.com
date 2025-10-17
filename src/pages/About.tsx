@@ -85,7 +85,19 @@ export default function About() {
 
         {/* Featured Podcast (RSS-based playlist) */}
         <section className="mb-16">
-          <h2 className="text-2xl md:text-3xl font-medium text-black dark:text-white mb-6">Featured Podcast</h2>
+          <div className="flex items-center justify-between mb-6">
+            <h2 className="text-2xl md:text-3xl font-medium text-black dark:text-white">Featured Podcast</h2>
+            <Button asChild size="sm" variant="outline">
+              <a
+                href="https://www.beloveful.com/shoot-wisely-podcast/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Open the full Shoot Wisely Podcast page"
+              >
+                Full podcast
+              </a>
+            </Button>
+          </div>
           <PodcastPlaylist />
         </section>
 

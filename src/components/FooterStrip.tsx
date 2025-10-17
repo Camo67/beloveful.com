@@ -5,7 +5,7 @@ import { Instagram, Facebook, ExternalLink } from "lucide-react";
 import ThemeToggle from "./ThemeToggle";
 
 const NEWSLETTER_URL =
-  "https://lb.benchmarkemail.com//listbuilder/signupnew?IkfHTmyPVq92wBnn4lX%252FTf5pwVnAjsSIeL8KRSOgMpXtO5iNRn8gS049TyW7spdJ";
+  "https://www.beloveful.com/sign-up/";
 
 export default function FooterStrip() {
   const [email, setEmail] = useState("");

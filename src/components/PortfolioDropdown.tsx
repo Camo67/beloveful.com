@@ -96,7 +96,7 @@ export function PortfolioDropdown({ variant = "auto" }: PortfolioDropdownProps) 
             {(albumsByRegion[region] || []).map((album) => (
               <DropdownMenuItem key={album.slug} asChild>
                 <Link
-                  to={`/portfolio/${album.region.toLowerCase().replace(' ', '-')}/${album.slug}`}
+                  to={`/${album.region.toLowerCase().replace(/[^a-z]/g, "")}/${album.slug}`}
                   className="w-full px-4 py-2 hover:bg-muted focus-enhanced pl-4 text-black dark:text-white"
                   onClick={() => setIsOpen(false)}
                 >
@@ -112,7 +112,7 @@ export function PortfolioDropdown({ variant = "auto" }: PortfolioDropdownProps) 
             <DropdownMenuSeparator />
             <DropdownMenuItem asChild>
               <Link
-                to={`/portfolio/${erasingBordersTarget.region.toLowerCase().replace(' ', '-')}/${erasingBordersTarget.slug}`}
+                to={`/${erasingBordersTarget.region.toLowerCase().replace(/[^a-z]/g, "")}/${erasingBordersTarget.slug}`}
                 className="w-full px-2 py-2 font-semibold hover:bg-muted focus-enhanced text-black dark:text-white"
                 onClick={() => setIsOpen(false)}
               >

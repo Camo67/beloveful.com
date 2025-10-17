@@ -45,7 +45,7 @@ export default function CountryGallery() {
               </TabsTrigger>
               {Array.from(new Set(albums.map((a) => a.region))).map((region) => (
                 <TabsTrigger key={region} asChild value={region} className="minimalist-tab-trigger">
-                  <Link to={`/portfolio?region=${encodeURIComponent(region)}`}>{region}</Link>
+                  <Link to={`/${region.toLowerCase().replace(/[^a-z]/g, "")}`}>{region}</Link>
                 </TabsTrigger>
               ))}
             </TabsList>
@@ -56,7 +56,7 @@ export default function CountryGallery() {
             {countriesInRegion.map((c) => (
               <Link
                 key={c.slug}
-                to={`/portfolio/${c.region.toLowerCase().replace(' ', '-')}/${c.slug}`}
+                to={`/${c.region.toLowerCase().replace(/[^a-z]/g, "")}/${c.slug}`}
                 className={`inline-block mr-2 mb-2 px-3 py-1.5 rounded-full text-sm border transition-colors ${
                   c.slug === album.slug ? "bg-accent-neutral text-white border-accent-neutral" : "bg-white dark:bg-neutral-900 text-foreground border-border hover:border-accent-neutral"
                 }`}
