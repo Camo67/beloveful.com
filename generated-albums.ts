@@ -1,5 +1,5 @@
 // Auto-generated from Cloudinary API
-// Generated on: 2025-10-14T17:14:32.502Z
+// Generated on: 2025-10-18T17:36:28.321Z
 
 import type { CountryAlbum } from './data';
 
@@ -781,63 +781,63 @@ export const GENERATED_ALBUMS: CountryAlbum[] = [
 
 export const GENERATED_HOME_SLIDESHOW = [
   {
-    desktop: "https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620801/JAP-03-17-_DSF2807_h7noxi.jpg",
-    mobile: "https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620801/JAP-03-17-_DSF2807_h7noxi.jpg",
+    desktop: "https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620838/THAI-01-20-DSCF4704_aq3qsy.jpg",
+    mobile: "https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620838/THAI-01-20-DSCF4704_aq3qsy.jpg",
   },
   {
-    desktop: "https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620597/JOR--10-30-22_mavyog.jpg",
-    mobile: "https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620597/JOR--10-30-22_mavyog.jpg",
+    desktop: "https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621042/NAM-03-18-DSCF3974-2_wisjdt.jpg",
+    mobile: "https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621042/NAM-03-18-DSCF3974-2_wisjdt.jpg",
   },
   {
-    desktop: "https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620687/IND-0027_l6zus5.jpg",
-    mobile: "https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620687/IND-0027_l6zus5.jpg",
+    desktop: "https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620831/NEP-8516_y3e2nt.jpg",
+    mobile: "https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620831/NEP-8516_y3e2nt.jpg",
   },
   {
-    desktop: "https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620832/NEP-8553_fxnxqo.jpg",
-    mobile: "https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620832/NEP-8553_fxnxqo.jpg",
+    desktop: "https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620843/THAI-03-17-_DSF4784_tgnnda.jpg",
+    mobile: "https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620843/THAI-03-17-_DSF4784_tgnnda.jpg",
   },
   {
-    desktop: "https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620914/ITA-06-15-19_jrg0hp.jpg",
-    mobile: "https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620914/ITA-06-15-19_jrg0hp.jpg",
-  },
-  {
-    desktop: "https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620804/JAP-03-17-_DSF2579_jgpine.jpg",
-    mobile: "https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620804/JAP-03-17-_DSF2579_jgpine.jpg",
-  },
-  {
-    desktop: "https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395833/ITA-06-15-19_ksnfuk.jpg",
-    mobile: "https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395833/ITA-06-15-19_ksnfuk.jpg",
-  },
-  {
-    desktop: "https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621039/EGY-1030_tmdg4s.jpg",
-    mobile: "https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621039/EGY-1030_tmdg4s.jpg",
-  },
-  {
-    desktop: "https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621038/EGY-1064_zdf7hn.jpg",
-    mobile: "https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621038/EGY-1064_zdf7hn.jpg",
-  },
-  {
-    desktop: "https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620729/IND-0027.jpg-nggid03263-ngg0dyn-180x0-00f0w010c010r110f110r010t010_nqexkq.jpg",
-    mobile: "https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620729/IND-0027.jpg-nggid03263-ngg0dyn-180x0-00f0w010c010r110f110r010t010_nqexkq.jpg",
+    desktop: "https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621040/NAM-03-18-DSCF3946_hd7bdg.jpg",
+    mobile: "https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621040/NAM-03-18-DSCF3946_hd7bdg.jpg",
   },
   {
     desktop: "https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620877/VIET-04-17-DSCF8417_x85azw.jpg",
     mobile: "https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620877/VIET-04-17-DSCF8417_x85azw.jpg",
   },
   {
-    desktop: "https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621051/ETH-03-14-IMG_1203_ocemca.jpg",
-    mobile: "https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621051/ETH-03-14-IMG_1203_ocemca.jpg",
-  },
-  {
-    desktop: "https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620598/JOR-10-19-DSCF4604_rv8ibh.jpg",
-    mobile: "https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620598/JOR-10-19-DSCF4604_rv8ibh.jpg",
-  },
-  {
-    desktop: "https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620563/PAL-10-19-DSCF3206_y8flpl.jpg",
-    mobile: "https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620563/PAL-10-19-DSCF3206_y8flpl.jpg",
+    desktop: "https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620801/JAP-03-17-_DSF2807_h7noxi.jpg",
+    mobile: "https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620801/JAP-03-17-_DSF2807_h7noxi.jpg",
   },
   {
     desktop: "https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621053/ETH-03-14-IMG_1327_pltrne.jpg",
     mobile: "https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621053/ETH-03-14-IMG_1327_pltrne.jpg",
+  },
+  {
+    desktop: "https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620861/PHI-0660_vupz0p.jpg",
+    mobile: "https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620861/PHI-0660_vupz0p.jpg",
+  },
+  {
+    desktop: "https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620848/PHI-0660_ddvhjq.jpg",
+    mobile: "https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620848/PHI-0660_ddvhjq.jpg",
+  },
+  {
+    desktop: "https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621051/ETH-03-14-IMG_1203_ocemca.jpg",
+    mobile: "https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621051/ETH-03-14-IMG_1203_ocemca.jpg",
+  },
+  {
+    desktop: "https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620951/ARG-8518_d1y1ut.jpg",
+    mobile: "https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620951/ARG-8518_d1y1ut.jpg",
+  },
+  {
+    desktop: "https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620877/VIET-04-17-DSCF8306_zftwy2.jpg",
+    mobile: "https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620877/VIET-04-17-DSCF8306_zftwy2.jpg",
+  },
+  {
+    desktop: "https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395833/ITA-06-15-19_ksnfuk.jpg",
+    mobile: "https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395833/ITA-06-15-19_ksnfuk.jpg",
+  },
+  {
+    desktop: "https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621038/EGY-1064_zdf7hn.jpg",
+    mobile: "https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621038/EGY-1064_zdf7hn.jpg",
   }
 ];

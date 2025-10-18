@@ -4700,6 +4700,50 @@
   ],
   "unassigned": [
     {
+      "filename": "cld-sample-2",
+      "url": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760770257/cld-sample-2.jpg"
+    },
+    {
+      "filename": "samples/waves",
+      "url": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760770257/samples/waves.png"
+    },
+    {
+      "filename": "cld-sample-4",
+      "url": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760770257/cld-sample-4.jpg"
+    },
+    {
+      "filename": "samples/radial_02",
+      "url": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760770257/samples/radial_02.png"
+    },
+    {
+      "filename": "cld-sample-3",
+      "url": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760770257/cld-sample-3.jpg"
+    },
+    {
+      "filename": "cld-sample-5",
+      "url": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760770257/cld-sample-5.jpg"
+    },
+    {
+      "filename": "samples/paper",
+      "url": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760770257/samples/paper.png"
+    },
+    {
+      "filename": "main-sample",
+      "url": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760770257/main-sample.png"
+    },
+    {
+      "filename": "samples/zoom",
+      "url": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760770257/samples/zoom.avif"
+    },
+    {
+      "filename": "samples/radial",
+      "url": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760770257/samples/radial.avif"
+    },
+    {
+      "filename": "samples/canvas",
+      "url": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760770257/samples/canvas.jpg"
+    },
+    {
       "filename": "Website beloveful.com/Middle East/Jordan/DSCF4610-4_uu35i7",
       "url": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218639/Website%20beloveful.com/Middle%20East/Jordan/DSCF4610-4_uu35i7.jpg"
     },
@@ -14500,6 +14544,6 @@
       "url": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620506/chicago-basketball-court_uf5asu.jpg"
     }
   ],
-  "totalImages": 3104,
+  "totalImages": 3115,
   "assignedImages": 654
 }

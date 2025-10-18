@@ -374,9 +374,6 @@
   .slideshow-image {
     @apply w-full h-full object-cover;
     animation: kenBurns var(--slideshow-duration, 12s) ease-in-out infinite alternate;
-    /* Ensure crisp image rendering */
-    image-rendering: -webkit-optimize-contrast;
-    image-rendering: crisp-edges;
     backface-visibility: hidden;
     transform: translateZ(0);
     will-change: transform;

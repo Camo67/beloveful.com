@@ -3,7 +3,6 @@ import FooterStrip from "@/components/FooterStrip";
 import PageContainer from "@/components/PageContainer";
 import { CLIENT_LOGOS_SOURCE, CLIENT_NAMES, getClientLinkForIndex } from "@/lib/clients";
 import { Button } from "@/components/ui/button";
-import PodcastPlaylist from "@/components/PodcastPlaylist";
 
 export default function About() {
   return (
@@ -38,7 +37,7 @@ export default function About() {
         {/* Biography */}
         <div className="mb-12">
           <p className="text-lg leading-relaxed text-black dark:text-white">
-            Motivated by curiosity and forever fascinated by what this world has to offer, my love of capturing life around me started the day my father handed me my first camera at age seven. From medical school, to missions all across the globe for the impoverished, my photography was always a guiding light in finding love and beauty in the simplest things. Witnessing the purity of the souls I treated, those who could laugh and fearlessly move forward even in awful conditions, motivated a life-change where I left medicine to pursue my craft. Within my first year as a full-time photographer, I was recognized by National Geographic, held multiple exhibitions, and won an Award for Excellence from the Conception Global Art Collective. From then on, it became clear: photography wasn't just a hobby, it was a true calling.
+            Tony's passion for capturing the raw and unfiltered aspects of life led him on a profound journey of self-discovery. With a keen eye for detail and an unwavering commitment to authenticity, he sought to portray the beauty and chaos of life in equal measure. Whether it be the bustling energy of a crowded market, the serene beauty of a remote landscape, or the intimate moments of daily life; He strives to convey a sense of connection and commonality among people, highlighting the rhythm that binds us together. The rhythm of life. Tony believes that photography is a powerful tool in promoting empathy and understanding between people. He hopes to inspire others to explore the world and embrace different cultures; which can help foster greater empathy and understanding between people. He sees his photography as a powerful tool for building bridges and breaking down barriers, and he remains dedicated to using his art to promote unity and compassion in the world.
           </p>
         </div>
 
@@ -57,7 +56,7 @@ export default function About() {
         {/* Add this above the Approach & Teaching section */}
         <div className="w-full flex justify-center mb-6">
           <img 
-            src="https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620507/tony-hero-new_mtx9wk.jpg" 
+            src="https://res.cloudinary.com/dvwdoezk1/image/upload/c_fill,ar_1:1,g_auto/v1758620507/tony-hero-new_mtx9wk.jpg" 
             alt="Tony Menias Portrait" 
             className="w-full max-w-md h-64 object-cover"
             draggable="false"
@@ -83,12 +82,14 @@ export default function About() {
           </div>
         </section>
 
-        {/* Featured Podcast (RSS-based playlist) */}
+        {/* Featured Podcast (Spotify embed) */}
         <section className="mb-16">
           <div className="mb-6">
             <h2 className="text-2xl md:text-3xl font-medium text-black dark:text-white">Featured Podcast</h2>
           </div>
-          <PodcastPlaylist />
+          <div className="w-full">
+            <iframe data-testid="embed-iframe" style={{ borderRadius: 12 }} src="https://open.spotify.com/embed/playlist/6Gy5nsKnrYir1tOx9pBuxW?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowFullScreen={true} allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+          </div>
         </section>
 
         {/* Publications & Awards */}

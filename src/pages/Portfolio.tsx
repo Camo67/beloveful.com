@@ -194,7 +194,6 @@ export default function Portfolio() {
                           loading={index < 6 ? "eager" : "lazy"}
                           onContextMenu={(e) => e.preventDefault()}
                         />
-                        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-500" />
                       </div>
                       <div className="p-4">
                         <h3 className="heading-3 mb-2">{album.country}</h3>

@@ -56,11 +56,14 @@ app.get('/', async (c) => {
 
   // Cache at edge for 24h to minimize costs
   try {
-    // @ts-ignore - caches provided by Workers runtime
+    // @ts-expect-error Workers runtime provides `caches`
     const cache = caches?.default;
     const cached = cache ? await cache.match(c.req.raw) : null;
     if (cached) return cached;
-  } catch {}
+  } catch (e) {
+    // eslint-disable-next-line no-console
+    console.warn('Cache lookup failed (non-fatal)', e);
+  }
 
   const images: { desktop: string; mobile: string; created_at?: string; public_id: string }[] = [];
   const seen = new Set<string>();
@@ -83,7 +86,10 @@ app.get('/', async (c) => {
         images.push({ desktop: url, mobile: url, created_at: r.created_at, public_id: pid });
       }
     }
-  } catch {}
+  } catch (e) {
+    // eslint-disable-next-line no-console
+    console.warn('Public tag listing failed, will try API', e);
+  }
 
   // Strategy 1: Try Collections API (requires credentials)
   if (images.length === 0) {
@@ -166,9 +172,12 @@ app.get('/', async (c) => {
   const resp = c.json({ success: true, count: images.length, images });
   resp.headers.set('Cache-Control', 'public, max-age=86400');
   try {
-    // @ts-ignore
+    // @ts-expect-error Workers runtime provides `caches`
     const cache = caches?.default; if (cache) await cache.put(c.req.raw, resp.clone());
-  } catch {}
+  } catch (e) {
+    // eslint-disable-next-line no-console
+    console.warn('Cache write failed (non-fatal)', e);
+  }
   return resp;
 });
 

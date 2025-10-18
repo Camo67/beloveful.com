@@ -1878,10 +1878,6 @@ export const ALBUMS: CountryAlbum[] = [
     "slug": "france",
     "images": [
       {
-        "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1759466078/FRA-DSCF0103_copy_gkgga5.jpg",
-        "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1759466078/FRA-DSCF0103_copy_gkgga5.jpg"
-      },
-      {
         "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1759396078/FRA-9803_rxwmpi.jpg",
         "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1759396078/FRA-9803_rxwmpi.jpg"
       },

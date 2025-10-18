@@ -21,10 +21,10 @@ export default function ShopDropdown({ variant = "auto" }: ShopDropdownProps) {
     <div className="relative" ref={ref}>
       <button
         onClick={() => setOpen((v) => !v)}
-        className={`nav-link transition-opacity text-lg font-medium ${
+        className={`nav-link transition-opacity text-lg ${
           variant === "white" 
-            ? "text-white hover:text-gray-200" 
-            : "text-black dark:text-white hover:opacity-70"
+            ? "text-white font-bold hover:text-gray-200" 
+            : "font-medium text-black dark:text-white hover:opacity-70"
         }`}
         aria-haspopup="menu"
         aria-expanded={open}

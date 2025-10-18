@@ -37,33 +37,34 @@ export function Header({ variant }: HeaderProps) {
       <>
         {/* Desktop Home Header */}
         <header className="hidden md:block fixed inset-x-0 top-0 z-40 p-6">
-          {/* Logo centered at top with localized tint */}
+          {/* Logo centered at top without background */}
           <div className="flex justify-center mb-6">
-            <div className="bg-black/10 backdrop-blur-sm rounded-sm px-3 py-2 text-black dark:text-white">
-              <Logo variant="auto" />
+            <div className="text-white">
+              <Logo variant="white" />
             </div>
           </div>
           
-          {/* Left side navigation with localized tint */}
-          <nav className="fixed left-6 top-28 z-40 bg-black/10 backdrop-blur-sm rounded-md p-4">
+          {/* Left side navigation without background */}
+          <nav className="fixed left-6 top-28 z-40 p-0">
             <ul className="space-y-3">
               {/* Home first */}
               {navigationPrimary.map((link) => (
                 <li key={link.name}>
                   <Link
                     to={link.path}
-                    className="nav-link text-black dark:text-white hover:underline hover:underline-offset-4 hover:decoration-white text-lg"
+                    className="nav-link text-white font-bold hover:underline hover:underline-offset-4 hover:decoration-white text-lg"
+                    style={{ WebkitTextStroke: '0.5px #000' }}
                   >
                     {link.name}
                   </Link>
                 </li>
               ))}
               {/* Portfolio second */}
-              <li>
+              <li style={{ WebkitTextStroke: '0.5px #000' }}>
                 <PortfolioDropdown variant="white" />
               </li>
               {/* Shop third */}
-              <li className="text-black dark:text-white">
+              <li style={{ WebkitTextStroke: '0.5px #000' }}>
                 <ShopDropdown variant="white" />
               </li>
               {/* Then the rest */}
@@ -71,7 +72,8 @@ export function Header({ variant }: HeaderProps) {
                 <li key={link.name}>
                   <Link
                     to={link.path}
-                    className="nav-link text-black dark:text-white hover:underline hover:underline-offset-4 hover:decoration-white text-lg"
+                    className="nav-link text-white font-bold hover:underline hover:underline-offset-4 hover:decoration-white text-lg"
+                    style={{ WebkitTextStroke: '0.5px #000' }}
                   >
                     {link.name}
                   </Link>
@@ -87,14 +89,14 @@ export function Header({ variant }: HeaderProps) {
         </header>
 
         {/* Mobile Header */}
-        <header className="md:hidden fixed inset-x-0 top-0 z-50 bg-black/10 p-3">
+        <header className="md:hidden fixed inset-x-0 top-0 z-50 p-3">
           <div className="flex items-center justify-between">
-          <div className="flex-1 flex justify-center text-black dark:text-white">
-              <Logo variant="auto" />
+            <div className="flex-1 flex justify-center text-white" style={{ WebkitTextStroke: '0.5px #000' }}>
+              <Logo variant="white" />
             </div>
             <button
               onClick={() => setMobileMenuOpen(true)}
-              className="text-black dark:text-white p-2 absolute right-4"
+              className="text-white p-2 absolute right-4"
               aria-label="Open menu"
             >
               <Menu size={24} />

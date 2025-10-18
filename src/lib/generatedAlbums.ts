@@ -1,5 +1,5 @@
 // Auto-generated from Cloudinary API
-// Generated on: 2025-10-14T19:57:04.560Z
+// Generated on: 2025-10-18T07:03:21.000Z
 
 import type { CountryAlbum } from './data';
 

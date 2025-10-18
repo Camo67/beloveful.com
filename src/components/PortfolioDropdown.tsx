@@ -55,7 +55,7 @@ export function PortfolioDropdown({ variant = "auto" }: PortfolioDropdownProps) 
   }, [albums]);
 
   const textColorClass = variant === "white" 
-    ? "text-white hover:text-gray-200" 
+    ? "text-white font-bold hover:text-gray-200" 
     : "text-black dark:text-white hover:opacity-70";
 
   const iconColorClass = variant === "white" ? "text-white" : "text-black dark:text-white";

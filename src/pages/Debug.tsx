@@ -1,5 +1,6 @@
 import { GENERATED_ALBUMS } from '../lib/generatedAlbums';
 import { getAlbumsByRegion } from '../lib/data';
+import { B2Test } from '../components/B2Test';
 
 export default function Debug() {
   const africaAlbums = getAlbumsByRegion('Africa');
@@ -8,6 +9,11 @@ export default function Debug() {
   return (
     <div style={{ padding: '20px' }}>
       <h1>Debug Information</h1>
+      
+      <div style={{ marginBottom: '40px' }}>
+        <h2>B2 System Test</h2>
+        <B2Test />
+      </div>
       
       <h2>Generated Albums</h2>
       <p>Total generated albums: {GENERATED_ALBUMS.length}</p>

@@ -112,13 +112,6 @@ export function Slideshow() {
               }}
             />
           </picture>
-          <div 
-            className="image-overlay"
-            onContextMenu={(e) => {
-              e.preventDefault();
-              return false;
-            }}
-          />
         </div>
       ))}
     </div>
