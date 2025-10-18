@@ -56,9 +56,9 @@ export default function About() {
         {/* Add this above the Approach & Teaching section */}
         <div className="w-full flex justify-center mb-6">
           <img 
-            src="/TonyMenias-3.jpg" 
-            alt="Tony Menias Portrait" 
-            className="w-full max-w-md h-64 object-cover"
+            src="/TonyMenias-monkey.jpg" 
+            alt="Tony Menias Portrait with Monkey" 
+            className="w-full max-w-md h-auto object-contain"
             draggable="false"
             loading="eager"
           />

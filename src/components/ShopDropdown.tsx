@@ -26,6 +26,7 @@ export default function ShopDropdown({ variant = "auto" }: ShopDropdownProps) {
             ? "text-white font-bold hover:text-gray-200" 
             : "font-medium text-black dark:text-white hover:opacity-70"
         }`}
+        style={variant === "white" ? { textShadow: '1px 1px 0 black' } : undefined}
         aria-haspopup="menu"
         aria-expanded={open}
       >

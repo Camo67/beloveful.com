@@ -53,18 +53,18 @@ export function Header({ variant }: HeaderProps) {
                   <Link
                     to={link.path}
                     className="nav-link text-white font-bold hover:underline hover:underline-offset-4 hover:decoration-white text-lg"
-                    style={{ WebkitTextStroke: '0.5px #000' }}
+                    style={{ textShadow: '1px 1px 0 black' }}
                   >
                     {link.name}
                   </Link>
                 </li>
               ))}
               {/* Portfolio second */}
-              <li style={{ WebkitTextStroke: '0.5px #000' }}>
+              <li>
                 <PortfolioDropdown variant="white" />
               </li>
               {/* Shop third */}
-              <li style={{ WebkitTextStroke: '0.5px #000' }}>
+              <li>
                 <ShopDropdown variant="white" />
               </li>
               {/* Then the rest */}
@@ -73,7 +73,7 @@ export function Header({ variant }: HeaderProps) {
                   <Link
                     to={link.path}
                     className="nav-link text-white font-bold hover:underline hover:underline-offset-4 hover:decoration-white text-lg"
-                    style={{ WebkitTextStroke: '0.5px #000' }}
+                    style={{ textShadow: '1px 1px 0 black' }}
                   >
                     {link.name}
                   </Link>
@@ -91,7 +91,7 @@ export function Header({ variant }: HeaderProps) {
         {/* Mobile Header */}
         <header className="md:hidden fixed inset-x-0 top-0 z-50 p-3">
           <div className="flex items-center justify-between">
-            <div className="flex-1 flex justify-center text-white" style={{ WebkitTextStroke: '0.5px #000' }}>
+            <div className="flex-1 flex justify-center text-white" style={{ textShadow: '1px 1px 0 black' }}>
               <Logo variant="white" />
             </div>
             <button

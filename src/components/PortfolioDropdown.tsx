@@ -65,6 +65,7 @@ export function PortfolioDropdown({ variant = "auto" }: PortfolioDropdownProps) 
       <DropdownMenuTrigger asChild>
         <button
           className={`flex items-center space-x-1 nav-link transition-colors duration-200 text-lg ${textColorClass}`}
+          style={variant === "white" ? { textShadow: '1px 1px 0 black' } : undefined}
         >
           <span>Portfolio</span>
           <ChevronDown 
