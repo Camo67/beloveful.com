@@ -121,8 +121,6 @@ export function Slideshow() {
           />
         </div>
       ))}
-      {/* Top gradient shade to improve text legibility over images */}
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/60 via-black/25 to-transparent" aria-hidden />
     </div>
   );
 }

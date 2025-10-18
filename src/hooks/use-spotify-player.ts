@@ -21,62 +21,32 @@ export interface SpotifyPlayerState {
 
 export interface UseSpotifyPlayerProps {
   clientId: string;
-  redirectUri: string;
-  scopes?: string[];
 }
 
-export function useSpotifyPlayer({ clientId, redirectUri, scopes = ['streaming', 'user-read-email', 'user-read-private'] }: UseSpotifyPlayerProps) {
+export function useSpotifyPlayer({ clientId }: UseSpotifyPlayerProps) {
   const [player, setPlayer] = useState<Spotify.Player | null>(null);
   const [deviceId, setDeviceId] = useState<string>('');
   const [playerState, setPlayerState] = useState<SpotifyPlayerState | null>(null);
   const [isReady, setIsReady] = useState(false);
-  const [accessToken, setAccessToken] = useState<string>('');
   const [isConnected, setIsConnected] = useState(false);
   const [error, setError] = useState<string>('');
+  const [loggedIn, setLoggedIn] = useState<boolean>(false);
   const intervalRef = useRef<NodeJS.Timeout>();
 
-  // Get access token from URL hash or localStorage
-  useEffect(() => {
-    const getAccessToken = () => {
-      const hash = window.location.hash;
-      if (hash) {
-        const token = new URLSearchParams(hash.substring(1)).get('access_token');
-        if (token) {
-          setAccessToken(token);
-          localStorage.setItem('spotify_access_token', token);
-          // Clear the hash from URL
-          window.history.replaceState(null, '', window.location.pathname + window.location.search);
-          return token;
-        }
-      }
-      
-      // Check localStorage
-      const storedToken = localStorage.getItem('spotify_access_token');
-      if (storedToken) {
-        setAccessToken(storedToken);
-        return storedToken;
-      }
-      
-      return null;
-    };
-
-    getAccessToken();
+  // Login to Spotify via backend
+  const login = useCallback(() => {
+    window.location.href = '/api/spotify/login';
   }, []);
 
-  // Login to Spotify
-  const login = useCallback(() => {
-    const scope = scopes.join('%20');
-    const authUrl = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=token&redirect_uri=${encodeURIComponent(redirectUri)}&scope=${scope}&show_dialog=true`;
-    window.location.href = authUrl;
-  }, [clientId, redirectUri, scopes]);
-
   // Logout
-  const logout = useCallback(() => {
-    if (player) {
-      player.disconnect();
+  const logout = useCallback(async () => {
+    try {
+      await fetch('/api/spotify/logout', { method: 'POST', credentials: 'include' });
+    } catch (e) {
+      console.warn('Spotify logout request failed (ignored)');
     }
-    localStorage.removeItem('spotify_access_token');
-    setAccessToken('');
+    if (player) player.disconnect();
+    setLoggedIn(false);
     setPlayer(null);
     setIsReady(false);
     setIsConnected(false);
@@ -84,23 +54,41 @@ export function useSpotifyPlayer({ clientId, redirectUri, scopes = ['streaming',
     setDeviceId('');
   }, [player]);
 
-  // Initialize Spotify Web SDK
+  // Helper to fetch access token from backend
+  const fetchAccessToken = useCallback(async (): Promise<string | null> => {
+    try {
+      const res = await fetch('/api/spotify/access-token', { credentials: 'include' });
+      if (!res.ok) return null;
+      const data = await res.json();
+      if (data?.access_token) return data.access_token as string;
+      return null;
+    } catch {
+      return null;
+    }
+  }, []);
+
+  // Initialize Spotify Web SDK after first successful token fetch
   useEffect(() => {
-    if (!accessToken) return;
+    let cancelled = false;
+    (async () => {
+      const token = await fetchAccessToken();
+      if (!token || cancelled) return;
+      setLoggedIn(true);
 
-    const script = document.createElement('script');
-    script.src = 'https://sdk.scdn.co/spotify-player.js';
-    script.async = true;
-    document.body.appendChild(script);
+      const script = document.createElement('script');
+      script.src = 'https://sdk.scdn.co/spotify-player.js';
+      script.async = true;
+      document.body.appendChild(script);
 
-    window.onSpotifyWebPlaybackSDKReady = () => {
-      const spotifyPlayer = new window.Spotify.Player({
-        name: 'Beloveful Visions Web Player',
-        getOAuthToken: (callback: (token: string) => void) => {
-          callback(accessToken);
-        },
-        volume: 0.5,
-      });
+      window.onSpotifyWebPlaybackSDKReady = () => {
+        const spotifyPlayer = new window.Spotify.Player({
+          name: 'Beloveful Visions Web Player',
+          getOAuthToken: async (callback: (token: string) => void) => {
+            const t = await fetchAccessToken();
+            if (t) callback(t);
+          },
+          volume: 0.5,
+        });
 
       spotifyPlayer.addListener('ready', ({ device_id }: { device_id: string }) => {
         console.log('Ready with Device ID', device_id);
@@ -146,10 +134,8 @@ export function useSpotifyPlayer({ clientId, redirectUri, scopes = ['streaming',
 
       spotifyPlayer.connect().then((success: boolean) => {
         if (success) {
-          console.log('Successfully connected to Spotify Web SDK');
           setPlayer(spotifyPlayer);
         } else {
-          console.error('Failed to connect to Spotify Web SDK');
           setError('Failed to connect to Spotify');
         }
       });
@@ -157,33 +143,36 @@ export function useSpotifyPlayer({ clientId, redirectUri, scopes = ['streaming',
 
     return () => {
       const currentInterval = intervalRef.current;
-      if (currentInterval) {
-        clearInterval(currentInterval);
-      }
+      if (currentInterval) clearInterval(currentInterval);
       script.remove();
     };
-  }, [accessToken]);
+  })();
+
+  return () => { cancelled = true; };
+  }, [fetchAccessToken]);
 
   // Player controls
   const play = useCallback(async (uri?: string) => {
-    if (!player || !deviceId || !accessToken) return;
+    if (!player || !deviceId) return;
 
     const body = uri ? { uris: [uri] } : undefined;
     
     try {
+      const token = await fetchAccessToken();
+      if (!token) { setError('Not authenticated'); return; }
       await fetch(`https://api.spotify.com/v1/me/player/play?device_id=${deviceId}`, {
         method: 'PUT',
         body: JSON.stringify(body),
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${accessToken}`,
+          'Authorization': `Bearer ${token}`,
         },
       });
     } catch (err) {
       console.error('Error playing track:', err);
       setError('Failed to play track');
     }
-  }, [player, deviceId, accessToken]);
+  }, [player, deviceId, fetchAccessToken]);
 
   const pause = useCallback(async () => {
     if (!player) return;
@@ -244,7 +233,7 @@ export function useSpotifyPlayer({ clientId, redirectUri, scopes = ['streaming',
     deviceId,
     playerState,
     isReady,
-    accessToken: !!accessToken,
+    accessToken: loggedIn,
     isConnected,
     error,
     login,

@@ -1,9 +1,9 @@
+/* Import minimalist tab styles */
+@import './components/ui/minimalist-tabs.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-/* Import minimalist tab styles */
-@import './components/ui/minimalist-tabs.css';
 
 /* BELOVEFUL Photography Portfolio Design System */
 

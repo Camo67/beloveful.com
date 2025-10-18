@@ -6,6 +6,7 @@ import FooterStrip from "@/components/FooterStrip";
 import PageContainer from "@/components/PageContainer";
 import { Gallery } from "@/components/Gallery";
 import { getAlbumBySlug, getAllAlbumsSorted } from "@/lib/data";
+import { useErasingBorders } from "@/hooks/use-erasing-borders";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export default function CountryGallery() {
@@ -13,6 +14,7 @@ export default function CountryGallery() {
   const countrySlug = params.country;
 
   const album = countrySlug ? getAlbumBySlug(countrySlug) : undefined;
+  const { data: erasingImages } = useErasingBorders();
 
   const albums = getAllAlbumsSorted().filter((a) => a.region !== "Logo");
   const countriesInRegion = useMemo(() => {
@@ -82,7 +84,7 @@ export default function CountryGallery() {
         <div className="text-center mb-10">
           <h1 className="text-4xl md:text-5xl font-light mb-4 text-black dark:text-white">{album.country}</h1>
           <p className="text-lg text-gray-600 dark:text-gray-300">
-            {album.region} • {album.images.length} photographs
+            {album.region} • {(album.slug === 'erasing-borders' ? (erasingImages?.length || 0) : album.images.length)} photographs
           </p>
         </div>
 
@@ -102,7 +104,7 @@ export default function CountryGallery() {
 
         {/* Landscape-first masonry gallery with micro-spacing and subtle hover */}
         <Gallery 
-          images={album.images} 
+          images={album.slug === 'erasing-borders' && erasingImages ? erasingImages : album.images} 
           country={album.country} 
           region={album.region}
           enablePrintCta

@@ -1914,38 +1914,6 @@ export const ALBUMS: CountryAlbum[] = [
         "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1759396064/FRA-DSCF9765_pycgqe.jpg"
       },
       {
-        "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620890/FRA-05-18-DSCF9815_jti8jj.jpg",
-        "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620890/FRA-05-18-DSCF9815_jti8jj.jpg"
-      },
-      {
-        "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620890/FRA-05-18-18_otpd6f.jpg",
-        "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620890/FRA-05-18-18_otpd6f.jpg"
-      },
-      {
-        "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620889/FRA-0366_yr6tpl.jpg",
-        "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620889/FRA-0366_yr6tpl.jpg"
-      },
-      {
-        "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620889/FRA-05-19-18_e8h21o.jpg",
-        "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620889/FRA-05-19-18_e8h21o.jpg"
-      },
-      {
-        "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620889/FRA-0103_ofiooc.jpg",
-        "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620889/FRA-0103_ofiooc.jpg"
-      },
-      {
-        "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620888/FRA-9803_btrfp6.jpg",
-        "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620888/FRA-9803_btrfp6.jpg"
-      },
-      {
-        "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620885/FRA-DSCF9765_dkb7az.jpg",
-        "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620885/FRA-DSCF9765_dkb7az.jpg"
-      },
-      {
-        "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620879/FRA-DSCF0125_omylpt.png",
-        "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620879/FRA-DSCF0125_omylpt.png"
-      },
-      {
         "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620660/FRA-DSCF0103-copy.jpg-nggid03314-ngg0dyn-180x0-00f0w010c010r110f110r010t010_d6frag.jpg",
         "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620660/FRA-DSCF0103-copy.jpg-nggid03314-ngg0dyn-180x0-00f0w010c010r110f110r010t010_d6frag.jpg"
       },
@@ -4233,19 +4201,22 @@ function isLowResOrThumb(url: string): boolean {
   return /nggid|120x90|180x0|_thumb|thumbnail/i.test(url);
 }
 
-function normalizeCloudinaryId(url: string): string {
+// Produce a stable, content-oriented key for a Cloudinary URL by
+// using the filename and stripping hashes and common suffixes (copy, website variants)
+function getGlobalImageKey(url: string): string {
   try {
     const u = new URL(url);
-    const parts = u.pathname.split('/');
-    const uploadIdx = parts.findIndex(p => p === 'upload');
-    if (uploadIdx === -1) return url;
-    const afterUpload = parts.slice(uploadIdx + 1);
-    // Drop transformation chunk if present (first segment not starting with 'v')
-    const first = afterUpload[0];
-    const rest = first?.startsWith('v') ? afterUpload : afterUpload.slice(1);
-    // Remove version segment if present
-    const noVersion = rest[0]?.startsWith('v') ? rest.slice(1) : rest;
-    return noVersion.join('/');
+    let name = decodeURIComponent(u.pathname.split('/').pop() || '');
+    // drop extension
+    name = name.replace(/\.(jpg|jpeg|png|webp|gif|avif)$/i, '');
+    // remove trailing random hash tokens like _abc123
+    name = name.replace(/_[a-z0-9]{5,}$/i, '');
+    // normalize known variants like -copy, _copy, -website, -website-2, etc.
+    name = name.replace(/(?:[_-](?:copy|website)(?:[_-]?\d+)*)+$/i, '');
+    // collapse whitespace/punctuation and case
+    name = name.replace(/\s+/g, '-').replace(/[^a-z0-9-]+/gi, '-');
+    name = name.replace(/-+/g, '-').replace(/^-|-$/g, '');
+    return name.toLowerCase();
   } catch {
     return url;
   }
@@ -4256,7 +4227,7 @@ function cleanAlbum(album: CountryAlbum): CountryAlbum {
   const cleaned = album.images.filter((img) => {
     if (!img?.desktop) return false;
     if (isLowResOrThumb(img.desktop)) return false;
-    const key = normalizeCloudinaryId(img.desktop);
+    const key = getGlobalImageKey(img.desktop);
     if (seen.has(key)) return false;
     seen.add(key);
     return true;
@@ -4264,7 +4235,40 @@ function cleanAlbum(album: CountryAlbum): CountryAlbum {
   return { ...album, images: cleaned };
 }
 
-const MERGED_ALBUMS: CountryAlbum[] = mergeAlbums(ALBUMS, GENERATED_ALBUMS ?? []).map(cleanAlbum);
+// Remove duplicates across albums (global dedupe), keeping country albums first,
+// and removing duplicates from "Erasing Borders" last.
+function dedupeAcrossAlbums(albums: CountryAlbum[]): CountryAlbum[] {
+  const isLogo = (a: CountryAlbum) => a.region === 'Logo';
+  const isErasing = (a: CountryAlbum) => a.region === 'Erasing Borders';
+
+  const normal = albums.filter(a => !isLogo(a) && !isErasing(a));
+  const erasing = albums.filter(isErasing);
+  const logos = albums.filter(isLogo);
+
+  const globalSeen = new Set<string>();
+  const dedupeList = (list: CountryAlbum[]) => list.map(a => {
+    const imgs = a.images.filter(img => {
+      const key = img?.desktop ? getGlobalImageKey(img.desktop) : '';
+      if (!key) return false;
+      if (globalSeen.has(key)) return false;
+      globalSeen.add(key);
+      return true;
+    });
+    return { ...a, images: imgs };
+  });
+
+  const normalD = dedupeList(normal);
+  const erasingD = dedupeList(erasing);
+  // Leave logos as-is (not part of portfolio grid)
+
+  // Reconstruct original order based on input array
+  const bySlug = new Map<string, CountryAlbum>();
+  for (const a of [...normalD, ...erasingD, ...logos]) bySlug.set(a.slug, a);
+  return albums.map(a => bySlug.get(a.slug) || a);
+}
+
+const CLEANED_ALBUMS: CountryAlbum[] = mergeAlbums(ALBUMS, GENERATED_ALBUMS ?? []).map(cleanAlbum);
+const MERGED_ALBUMS: CountryAlbum[] = dedupeAcrossAlbums(CLEANED_ALBUMS);
 
 export const getAlbumsByRegion = (region: Region): CountryAlbum[] => {
   return MERGED_ALBUMS

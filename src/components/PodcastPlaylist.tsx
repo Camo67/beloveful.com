@@ -21,7 +21,12 @@ export default function PodcastPlaylist() {
     (async () => {
       try {
         setLoading(true);
-        const res = await fetch('/api/rss/playlist', { signal: ctrl.signal });
+        // Try local dev functions first
+        let res = await fetch('/api/rss/playlist', { signal: ctrl.signal });
+        if (!res.ok) {
+          // Fallback to production URL if local dev functions aren’t running
+          res = await fetch('https://www.beloveful.com/api/rss/playlist', { signal: ctrl.signal });
+        }
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const data = await res.json();
         const list: Episode[] = Array.isArray(data.episodes) ? data.episodes : [];

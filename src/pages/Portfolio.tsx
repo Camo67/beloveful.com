@@ -6,10 +6,12 @@ import PageContainer from "@/components/PageContainer";
 import { getAllAlbumsSorted, REGIONS, type Region } from "@/lib/data";
 import { useAlbums } from "@/hooks/use-albums";
 import { Gallery } from "@/components/Gallery";
+import { useErasingBorders } from "@/hooks/use-erasing-borders";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export default function Portfolio() {
   const { data: allAlbums, isLoading } = useAlbums();
+  const { data: erasingImages, isLoading: ebLoading } = useErasingBorders();
   const [searchParams, setSearchParams] = useSearchParams();
   const navigate = useNavigate();
 
@@ -159,7 +161,11 @@ export default function Portfolio() {
                         </p>
                       </div>
                     </div>
-                    <Gallery images={erasingBordersAlbum.images} country={erasingBordersAlbum.country} region={erasingBordersAlbum.region} enablePrintCta />
+                    {ebLoading ? (
+                      <div className="text-center text-gray-600 dark:text-gray-300">Loading collection…</div>
+                    ) : (
+                      <Gallery images={(erasingImages && erasingImages.length) ? erasingImages : erasingBordersAlbum.images} country={erasingBordersAlbum.country} region={erasingBordersAlbum.region} enablePrintCta />
+                    )}
                   </>
                 );
               })()

@@ -6,7 +6,6 @@ import { SocialIcons } from "./SocialIcons";
 import { MobileDrawer } from "./MobileDrawer";
 import ShopDropdown from "./ShopDropdown";
 import { PortfolioDropdown } from "./PortfolioDropdown";
-import ThemeToggle from "./ThemeToggle";
 
 interface HeaderProps {
   variant: "home" | "default";
@@ -38,15 +37,15 @@ export function Header({ variant }: HeaderProps) {
       <>
         {/* Desktop Home Header */}
         <header className="hidden md:block fixed inset-x-0 top-0 z-40 p-6">
-          {/* Logo centered at top */}
-            <div className="flex justify-center mb-6">
-            <div className="text-black dark:text-white">
+          {/* Logo centered at top with localized tint */}
+          <div className="flex justify-center mb-6">
+            <div className="bg-black/10 backdrop-blur-sm rounded-sm px-3 py-2 text-black dark:text-white">
               <Logo variant="auto" />
             </div>
           </div>
           
-          {/* Left side navigation */}
-          <nav className="fixed left-6 top-28 z-40">
+          {/* Left side navigation with localized tint */}
+          <nav className="fixed left-6 top-28 z-40 bg-black/10 backdrop-blur-sm rounded-md p-4">
             <ul className="space-y-3">
               {/* Home first */}
               {navigationPrimary.map((link) => (
@@ -88,7 +87,7 @@ export function Header({ variant }: HeaderProps) {
         </header>
 
         {/* Mobile Header */}
-        <header className="md:hidden fixed inset-x-0 top-0 z-50 bg-black/50 p-3">
+        <header className="md:hidden fixed inset-x-0 top-0 z-50 bg-black/10 p-3">
           <div className="flex items-center justify-between">
           <div className="flex-1 flex justify-center text-black dark:text-white">
               <Logo variant="auto" />
@@ -153,9 +152,8 @@ export function Header({ variant }: HeaderProps) {
             </ul>
           </nav>
           
-          {/* Top-right social icons and theme toggle */}
+          {/* Top-right social icons */}
           <div className="flex items-center gap-4">
-            <ThemeToggle />
             <SocialIcons />
           </div>
         </div>

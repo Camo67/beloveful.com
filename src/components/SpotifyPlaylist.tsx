@@ -57,22 +57,21 @@ export default function SpotifyPlaylist() {
     setVolume: setSpotifyVolume,
   } = useSpotifyPlayer({
     clientId: SPOTIFY_CLIENT_ID,
-    redirectUri: REDIRECT_URI,
-    scopes: ['streaming', 'user-read-email', 'user-read-private', 'playlist-read-public'],
   });
 
-  // Load playlist data when access token is available
+  // Load playlist data when logged in
   useEffect(() => {
     if (!accessToken || !SPOTIFY_CLIENT_ID) return;
 
     const fetchPlaylist = async () => {
       try {
-        const token = localStorage.getItem('spotify_access_token');
-        if (!token) return;
-
+        const tokenRes = await fetch('/api/spotify/access-token', { credentials: 'include' });
+        if (!tokenRes.ok) return;
+        const { access_token } = await tokenRes.json();
+        if (!access_token) return;
         const response = await fetch(`https://api.spotify.com/v1/playlists/6Gy5nsKnrYir1tOx9pBuxW`, {
           headers: {
-            'Authorization': `Bearer ${token}`,
+            'Authorization': `Bearer ${access_token}`,
           },
         });
 
