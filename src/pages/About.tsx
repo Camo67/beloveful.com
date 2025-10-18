@@ -56,7 +56,7 @@ export default function About() {
         {/* Add this above the Approach & Teaching section */}
         <div className="w-full flex justify-center mb-6">
           <img 
-            src="https://res.cloudinary.com/dvwdoezk1/image/upload/c_fill,ar_1:1,g_auto/v1758620507/tony-hero-new_mtx9wk.jpg" 
+            src="/TonyMenias-3.jpg" 
             alt="Tony Menias Portrait" 
             className="w-full max-w-md h-64 object-cover"
             draggable="false"
