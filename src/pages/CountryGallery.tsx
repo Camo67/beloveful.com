@@ -38,7 +38,7 @@ export default function CountryGallery() {
       
       <PageContainer>
         {/* Persistent Region Tabs - minimalist flat design */}
-        <div className="sticky top-[56px] md:top-[64px] z-30 -mx-4 px-4 md:mx-0 md:px-0 bg-white/90 dark:bg-neutral-950/95 backdrop-blur border-b border-border mb-6">
+        <div className="sticky top-[48px] md:top-[52px] z-30 -mx-4 px-4 md:mx-0 md:px-0 bg-white/95 dark:bg-neutral-950/95 backdrop-blur-md border-b border-border shadow-sm mb-6 transition-all duration-200">
           <Tabs value={album.region}>
             <TabsList className="minimalist-tabs-container">
               {/* Link back to All on Portfolio */}
