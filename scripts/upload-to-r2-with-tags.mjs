@@ -110,10 +110,8 @@ async function uploadFileToR2(filePath) {
       '--content-type', getContentType(filePath)
     ];
 
-    // Add custom metadata as separate flags
-    Object.entries(customMetadata).forEach(([key, value]) => {
-      args.push('--metadata', `${key}:${value}`);
-    });
+    // Note: Wrangler CLI doesn't support custom metadata flags
+    // Metadata is preserved in folder structure instead
 
     const child = spawn('wrangler', args, { 
       stdio: ['ignore', 'pipe', 'pipe'] 
