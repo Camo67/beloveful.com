@@ -2,8 +2,13 @@ import { Header } from "@/components/Header";
 import FooterStrip from "@/components/FooterStrip";
 import { CLIENT_LOGOS_SOURCE, CLIENT_NAMES, getClientLinkForIndex } from "@/lib/clients";
 import { Button } from "@/components/ui/button";
+import { useEffect } from "react";
 
 export default function About() {
+  useEffect(() => {
+    document.title = "Bio & Artist Statement";
+  }, []);
+
   return (
     <div className="min-h-screen">
       <Header variant="default" fullWidth />
@@ -19,11 +24,14 @@ export default function About() {
         <div className="mb-12 max-w-4xl mx-auto">
           <div className="relative w-full aspect-video overflow-hidden rounded-lg">
             <iframe
-              src="https://www.youtube.com/embed/jNBE_RQECeA"
+              src="https://www.youtube.com/embed/jNBE_RQECeA?si=YP-eEfwLWxWL1RLe"
               title="BELOVEFUL Photography Documentary"
               className="absolute inset-0 w-full h-full"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
               allowFullScreen
+              loading="lazy"
             />
           </div>
         </div>
