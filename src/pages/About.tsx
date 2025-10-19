@@ -10,6 +10,24 @@ export default function About() {
       
       <div className="w-full px-6 md:px-12 lg:px-20 py-12">
 
+        {/* Page Title */}
+        <div className="text-center mb-12">
+          <h1 className="text-4xl md:text-5xl font-light mb-8 text-black dark:text-white">Bio & Artist Statement</h1>
+        </div>
+
+        {/* YouTube Video */}
+        <div className="mb-12 max-w-4xl mx-auto">
+          <div className="relative w-full aspect-video overflow-hidden rounded-lg">
+            <iframe
+              src="https://www.youtube.com/embed/jNBE_RQECeA"
+              title="BELOVEFUL Photography Documentary"
+              className="absolute inset-0 w-full h-full"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+          </div>
+        </div>
+
         {/* Biography */}
         <div className="mb-12 max-w-4xl mx-auto">
           <div className="space-y-6">
@@ -189,8 +207,8 @@ function ClientsPartnersGrid() {
             alt={`${clientName} logo`}
             className="
               max-h-28 md:max-h-32 lg:max-h-36 max-w-full w-auto object-contain image-protected 
-              filter grayscale transition-all duration-300
-              hover:grayscale-0 hover:[filter:grayscale(0%)_drop-shadow(0_0_15px_rgba(0,0,0,0.4))] dark:hover:[filter:grayscale(0%)_drop-shadow(0_0_15px_rgba(255,255,255,0.4))]
+              filter grayscale transition-all duration-300 transform
+              hover:grayscale-0 hover:scale-110 hover:[filter:grayscale(0%)_drop-shadow(0_0_15px_rgba(0,0,0,0.4))] dark:hover:[filter:grayscale(0%)_drop-shadow(0_0_15px_rgba(255,255,255,0.4))]
             "
             loading="lazy"
             draggable={false}
