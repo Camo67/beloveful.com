@@ -79,10 +79,10 @@ export default function About() {
           </blockquote>
         </div>
 
-        {/* Featured Podcast */}
+        {/* Interviews */}
         <section className="mb-16">
           <div className="mb-6 text-center">
-            <h2 className="text-2xl md:text-3xl font-medium text-black dark:text-white transition-all hover:[text-shadow:0_0_8px_rgba(0,0,0,0.25)] dark:hover:[text-shadow:0_0_10px_rgba(255,255,255,0.35)]">Featured Podcast</h2>
+            <h2 className="text-2xl md:text-3xl font-medium text-black dark:text-white transition-all hover:[text-shadow:0_0_8px_rgba(0,0,0,0.25)] dark:hover:[text-shadow:0_0_10px_rgba(255,255,255,0.35)]">Interviews</h2>
           </div>
           <div className="w-full max-w-4xl mx-auto">
             <iframe data-testid="embed-iframe" style={{ borderRadius: 12 }} src="https://open.spotify.com/embed/playlist/6Gy5nsKnrYir1tOx9pBuxW?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowFullScreen={true} allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
