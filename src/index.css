@@ -177,15 +177,15 @@
     @apply absolute -bottom-1 left-0 h-0.5 w-full bg-accent-neutral dark:bg-white rounded-full;
   }
   
-  /* Navigation bar styling with subtle shadow */
+  /* Navigation bar styling with transparent background */
   .nav-bar {
-    @apply bg-white dark:bg-neutral-950 backdrop-blur-sm;
-    @apply border-b border-border;
-    background-color: rgba(255, 255, 255, 0.9);
+    @apply bg-transparent dark:bg-transparent;
+    @apply border-b-0;
+    background-color: transparent;
   }
   
   .dark .nav-bar {
-    background-color: rgba(9, 9, 11, 0.95);
+    background-color: transparent;
   }
   
   /* Enhanced dropdown styling */
@@ -201,7 +201,7 @@
   
   /* Logo styles */
   .logo {
-    @apply block transition-opacity duration-300 hover:opacity-80;
+    @apply block;
   }
 
   /* Responsive logo size caps (proportions locked via auto height/width) */

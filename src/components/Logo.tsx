@@ -7,7 +7,7 @@ interface LogoProps {
 
 // Local logo assets from public directory
 const LOGO_BLACK = "/Website beloveful.com/Logo/Beloveful black transparent.png";
-const LOGO_WHITE = "/Website beloveful.com/Logo/belovefullogowhite.png";
+const LOGO_WHITE = "/Website beloveful.com/Logo/White/Beloveful white transparent.png";
 
 export function Logo({ variant = "auto", className = "" }: LogoProps) {
   if (variant === "auto") {

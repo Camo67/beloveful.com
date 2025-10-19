@@ -10,6 +10,11 @@ routes = [
   { pattern = "www.beloveful.com/*", zone_name = "beloveful.com" }
 ]
 
+# R2 bucket configuration
+[[r2_buckets]]
+binding = "R2_BUCKET"
+bucket_name = "beloveful"
+
 # Database configuration
 [[d1_databases]]
 binding = "DB"

@@ -148,6 +148,30 @@ export default {
       return handleMetadataSync(request, env);
     }
 
+    // Serve images from R2
+    if (pathname.startsWith('/r2/')) {
+      const key = pathname.slice(4); // Remove '/r2/' prefix
+      
+      try {
+        const object = await env.R2_BUCKET.get(key);
+        
+        if (!object) {
+          return new Response('Image not found', { status: 404 });
+        }
+
+        const headers = new Headers();
+        object.writeHttpMetadata(headers);
+        headers.set('etag', object.httpEtag);
+        headers.set('cache-control', 'public, max-age=31536000, immutable');
+        headers.set('access-control-allow-origin', '*');
+
+        return new Response(object.body, { headers });
+      } catch (error) {
+        console.error('R2 fetch error:', error);
+        return new Response('Error fetching image', { status: 500 });
+      }
+    }
+
     // Handle OPTIONS for CORS
     if (pathname.startsWith('/api/') && request.method === 'OPTIONS') {
       return new Response(null, {
