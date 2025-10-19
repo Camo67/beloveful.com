@@ -1,6 +1,5 @@
 import { Header } from "@/components/Header";
 import FooterStrip from "@/components/FooterStrip";
-import PageContainer from "@/components/PageContainer";
 import { CLIENT_LOGOS_SOURCE, CLIENT_NAMES, getClientLinkForIndex } from "@/lib/clients";
 import { Button } from "@/components/ui/button";
 
@@ -9,33 +8,10 @@ export default function About() {
     <div className="min-h-screen">
       <Header variant="default" fullWidth />
       
-      <PageContainer className="max-w-4xl">
-        <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-light mb-8 text-black dark:text-white">Bio & Artist Statement</h1>
-        </div>
-
-        {/* YouTube Video */}
-        <div className="mb-12">
-          <div className="relative w-full aspect-video overflow-hidden">
-            <iframe
-              src="https://www.youtube.com/embed/jNBE_RQECeA"
-              title="BELOVEFUL Photography Documentary"
-              className="absolute inset-0 w-full h-full"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            />
-          </div>
-        </div>
-
-        {/* Featured Quote */}
-        <div className="mb-16 text-center">
-          <blockquote className="text-xl md:text-2xl font-light italic text-black dark:text-white leading-relaxed transition-all hover:[text-shadow:0_0_8px_rgba(0,0,0,0.25)] dark:hover:[text-shadow:0_0_10px_rgba(255,255,255,0.35)]">
-            "There's an unseen connection between everything on this earth and the Divine. My aim is to bring this connection into focus." -Tony Menias
-          </blockquote>
-        </div>
+      <div className="w-full px-6 md:px-12 lg:px-20 py-12">
 
         {/* Biography */}
-        <div className="mb-12">
+        <div className="mb-12 max-w-4xl mx-auto">
           <div className="space-y-6">
             <p className="text-lg leading-relaxed text-black dark:text-white">
               Motivated by curiosity and forever fascinated by what this world has to offer, Tony's love of capturing life around him began the day his father handed him his first camera at age seven. That simple gesture ignited a lifelong pursuit of finding beauty in the everyday and meaning in the margins.
@@ -59,58 +35,36 @@ export default function About() {
         </div>
 
 
-        {/* Artist Statement */}
-        <div className="mb-16">
-          <p className="text-lg leading-relaxed text-black dark:text-white mb-6">
-           My passion for capturing the raw and unfiltered aspects of life led me on a profound journey of self-discovery. With a keen eye for detail and an unwavering commitment to authenticity, I seek to portray the beauty and chaos of life in equal measure. Whether it be the bustling energy of a crowded market, the serene beauty of a remote landscape, or the intimate moments of daily life; I strive to convey a sense of connection and commonality among people, highlighting the rhythm that binds us together. The rhythm of life. I believe that photography is a powerful tool in promoting empathy and understanding between people. I hope to inspire others to explore the world and embrace different cultures; which can help foster greater empathy and understanding between people.
-          </p>
-          
-          <p className="text-lg leading-relaxed text-black dark:text-white">
-           I see my photography as a powerful tool for building bridges and breaking down barriers, and I remain dedicated to using my art to promote unity and compassion in the world.
-          </p>
-        </div>
-
-        {/* Add this above the Approach & Teaching section */}
-        <div className="w-full flex justify-center mb-6">
+        {/* Tony Image */}
+        <div className="w-full flex justify-center mb-12">
           <img 
             src="/TonyMenias-monkey.jpg" 
-            alt="Tony Menias Portrait with Monkey" 
-            className="w-full max-w-md h-auto object-contain"
+            alt="Tony Menias Portrait" 
+            className="w-full max-w-2xl h-auto object-contain"
             draggable="false"
             loading="eager"
           />
         </div>
 
-        {/* Approach & Teaching */}
-        <section className="mb-16">
-          <h2 className="text-2xl md:text-3xl font-medium text-black dark:text-white mb-6">Approach & Teaching</h2>
-          <div className="space-y-6">
-            <p className="text-lg leading-relaxed text-black dark:text-white">
-              The work is rooted in dignity, presence, and creative agency. When teaching—whether one-on-one or with a group—youth-first learning comes first: we focus on confidence, clarity, and honest storytelling.
-            </p>
-            <p className="text-lg leading-relaxed text-black dark:text-white">
-              If you're beginning your journey or refining your vision, there's space for you. Mentorship and workshops are designed to be practical, emotionally aware, and empowering.
-            </p>
-            <div className="pt-2">
-              <Button asChild>
-                <a href="/workshops" aria-label="Explore mentorship and workshops">Explore Mentorship & Workshops</a>
-              </Button>
-            </div>
-          </div>
-        </section>
+        {/* Featured Quote */}
+        <div className="mb-16 text-center max-w-4xl mx-auto">
+          <blockquote className="text-xl md:text-2xl font-light italic text-black dark:text-white leading-relaxed transition-all hover:[text-shadow:0_0_8px_rgba(0,0,0,0.25)] dark:hover:[text-shadow:0_0_10px_rgba(255,255,255,0.35)]">
+            "There's an unseen connection between everything on this earth and the Divine. My aim is to bring this connection into focus." -Tony Menias
+          </blockquote>
+        </div>
 
-        {/* Featured Podcast (Spotify embed) */}
+        {/* Featured Podcast */}
         <section className="mb-16">
-          <div className="mb-6">
+          <div className="mb-6 text-center">
             <h2 className="text-2xl md:text-3xl font-medium text-black dark:text-white transition-all hover:[text-shadow:0_0_8px_rgba(0,0,0,0.25)] dark:hover:[text-shadow:0_0_10px_rgba(255,255,255,0.35)]">Featured Podcast</h2>
           </div>
-          <div className="w-full">
+          <div className="w-full max-w-4xl mx-auto">
             <iframe data-testid="embed-iframe" style={{ borderRadius: 12 }} src="https://open.spotify.com/embed/playlist/6Gy5nsKnrYir1tOx9pBuxW?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowFullScreen={true} allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
           </div>
         </section>
 
         {/* Publications & Awards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16 max-w-4xl mx-auto">
           <div>
             <h3 className="text-xl font-semibold text-black dark:text-white mb-6 transition-all hover:[text-shadow:0_0_8px_rgba(0,0,0,0.25)] dark:hover:[text-shadow:0_0_10px_rgba(255,255,255,0.35)]">Publications</h3>
             <ul className="space-y-4 text-black dark:text-white">
@@ -176,13 +130,32 @@ export default function About() {
           </div>
         </div>
         {/* Clients & Partners */}
-        <section className="mt-20">
+        <section className="mb-16">
           <div className="text-center mb-8">
-            <h2 className="text-2xl md:text-3xl font-medium text-black dark:text-white mb-4">Clients & Partners</h2>
+            <h2 className="text-2xl md:text-3xl font-medium text-black dark:text-white mb-4 transition-all hover:[text-shadow:0_0_8px_rgba(0,0,0,0.25)] dark:hover:[text-shadow:0_0_10px_rgba(255,255,255,0.35)]">Clients & Partners</h2>
           </div>
-          <ClientsPartnersGrid />
+          <div className="max-w-6xl mx-auto">
+            <ClientsPartnersGrid />
+          </div>
         </section>
-      </PageContainer>
+
+        {/* Final Journey Section */}
+        <section className="mb-16 text-center max-w-4xl mx-auto">
+          <div className="space-y-6">
+            <p className="text-lg leading-relaxed text-black dark:text-white">
+              Today, my journey has evolved into something larger than photography itself — it's about connection, growth, and shared vision.
+            </p>
+            <p className="text-lg leading-relaxed text-black dark:text-white">
+              My love for learning runs as deep as my love for teaching, and I believe both are essential to truly seeing the world. I invite others into a space of openness and exploration and create a safe place where curiosity, courage, and creativity can thrive together.
+            </p>
+            <div className="pt-4">
+              <Button asChild>
+                <a href="/workshops" aria-label="Join the journey through workshops">Reach out if you'd like to join that journey.</a>
+              </Button>
+            </div>
+          </div>
+        </section>
+      </div>
 
       <FooterStrip />
     </div>
@@ -205,7 +178,7 @@ function ClientsPartnersGrid() {
   // Function is imported at the top of the file
 
   return (
-    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 items-center">
+    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-8 md:gap-10 lg:gap-12 items-center">
       {clientLogos.map((src: string, i: number) => {
         // Use the cleaned client name from CLIENT_NAMES array
         const clientName = CLIENT_NAMES[i] || `Partner ${i + 1}`;
@@ -214,11 +187,11 @@ function ClientsPartnersGrid() {
           <img
             src={src}
             alt={`${clientName} logo`}
-            className={`
-              max-h-20 md:max-h-24 max-w-full w-auto object-contain image-protected 
+            className="
+              max-h-28 md:max-h-32 lg:max-h-36 max-w-full w-auto object-contain image-protected 
               filter grayscale transition-all duration-300
-              md:group-hover:grayscale-0 md:group-hover:[filter:grayscale(0%)_drop-shadow(0_0_10px_rgba(0,0,0,0.25))] dark:md:group-hover:[filter:grayscale(0%)_drop-shadow(0_0_10px_rgba(255,255,255,0.25))]
-            `}
+              hover:grayscale-0 hover:[filter:grayscale(0%)_drop-shadow(0_0_15px_rgba(0,0,0,0.4))] dark:hover:[filter:grayscale(0%)_drop-shadow(0_0_15px_rgba(255,255,255,0.4))]
+            "
             loading="lazy"
             draggable={false}
             onContextMenu={(e) => e.preventDefault()}
@@ -239,7 +212,7 @@ function ClientsPartnersGrid() {
         return (
           <div 
             key={i} 
-            className="relative flex items-center justify-center p-4 bg-gray-50 dark:bg-gray-800 rounded-lg group transition-colors duration-300 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer"
+            className="relative flex items-center justify-center p-6 md:p-8 bg-gray-50 dark:bg-gray-800 rounded-lg group transition-colors duration-300 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer"
             title={clientName}
           >
             {/* Desktop-only arrow indicator */}
