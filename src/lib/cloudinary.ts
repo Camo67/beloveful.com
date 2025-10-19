@@ -1,11 +1,9 @@
-import { Cloudinary } from '@cloudinary/url-gen';
-
-// Central Cloudinary instance for the app
-export const cld = new Cloudinary({
-  cloud: {
-    cloudName: (import.meta as any)?.env?.VITE_CLOUDINARY_CLOUD_NAME || 'dvwdoezk1',
-  },
-});
+/**
+ * Cloudinary utility functions
+ * 
+ * This file provides helper functions for working with Cloudinary URLs.
+ * No transformations are applied - images are displayed as-is from the source.
+ */
 
 // Check if a URL is a Cloudinary delivery URL
 export function isCloudinaryUrl(url: string): boolean {
@@ -30,4 +28,9 @@ export function publicIdFromUrl(url: string): string | null {
   } catch {
     return null;
   }
+}
+
+// Get Cloudinary cloud name from environment
+export function getCloudName(): string {
+  return (import.meta as any)?.env?.VITE_CLOUDINARY_CLOUD_NAME || 'dvwdoezk1';
 }

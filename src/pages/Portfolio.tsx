@@ -8,6 +8,7 @@ import { useAlbums } from "@/hooks/use-albums";
 import { Gallery } from "@/components/Gallery";
 import { useErasingBorders } from "@/hooks/use-erasing-borders";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { CloudImage } from "@/components/CloudImage";
 
 export default function Portfolio() {
   const { data: allAlbums, isLoading } = useAlbums();
@@ -186,8 +187,8 @@ export default function Portfolio() {
                   >
                     <article className="content-card">
                       <div className="relative overflow-hidden bg-muted aspect-[4/3] rounded-sm">
-                        <img
-                          src={album.images[0]?.desktop}
+                        <CloudImage
+                          url={album.images[0]?.desktop}
                           alt={`Representative image from ${album.country} collection`}
                           className="img-responsive transition-transform duration-300 group-hover:scale-[1.03]"
                           draggable={false}

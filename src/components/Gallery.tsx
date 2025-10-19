@@ -1,8 +1,9 @@
 import { useMemo, useState } from "react";
 import { SlideshowImage } from "@/lib/data";
-import { createProxiedImageUrl, getImageAltText, buildProxiedSrcSet, DEFAULT_SIZES } from "@/lib/images";
+import { getImageAltText } from "@/lib/images";
 import { useImageProtection } from "@/hooks/use-image-protection";
 import { Lightbox } from "./Lightbox";
+import { CloudImage } from "@/components/CloudImage";
 
 interface GalleryProps {
   images: SlideshowImage[];
@@ -54,30 +55,24 @@ export function Gallery({ images, country, region, enablePrintCta = false, ctaLa
               className="block w-full text-left outline-none"
               aria-label={`View ${getImageAltText(image.desktop, country)} in lightbox`}
             >
-              <picture>
-                <source media="(max-width: 768px)" srcSet={createProxiedImageUrl(image.mobile)} />
-                <img
-                  src={createProxiedImageUrl(image.desktop)}
-                  srcSet={buildProxiedSrcSet(image.desktop)}
-                  sizes={DEFAULT_SIZES}
-                  alt={getImageAltText(image.desktop, country)}
-                  className="w-full h-auto max-w-full transform-gpu transition-transform duration-500 will-change-transform group-hover:scale-[1.02]"
-                  draggable={false}
-                  loading="lazy"
-                  decoding="async"
-                  fetchPriority={("auto" as any)}
-                  onContextMenu={(e) => {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    return false;
-                  }}
-                  onDragStart={(e) => {
-                    e.preventDefault();
-                    return false;
-                  }}
-                  style={{ maxWidth: "100%", height: "auto" }}
-                />
-              </picture>
+              <CloudImage
+                url={image.desktop}
+                alt={getImageAltText(image.desktop, country)}
+                className="w-full h-auto max-w-full transform-gpu transition-transform duration-500 will-change-transform group-hover:scale-[1.02]"
+                draggable={false}
+                loading="lazy"
+                decoding="async"
+                onContextMenu={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  return false;
+                }}
+                onDragStart={(e) => {
+                  e.preventDefault();
+                  return false;
+                }}
+                style={{ maxWidth: "100%", height: "auto" }}
+              />
             </button>
           </figure>
         ))}
