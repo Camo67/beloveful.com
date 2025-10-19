@@ -28,89 +28,106 @@ export interface SlideshowImage {
   mobile: string;
 }
 
-// Generated slideshow images from Cloudinary
+/**
+ * Defines the structure for a featured work/project
+ */
+export interface Work {
+  title: string;
+  slug: string;
+  description?: string;
+  coverImage: {
+    desktop: string;
+    mobile: string;
+  };
+  images: {
+    desktop: string;
+    mobile: string;
+  }[];
+}
+
+// Local slideshow images with Cloudinary fallbacks
 export const HOME_SLIDESHOW: SlideshowImage[] = [
   {
-    desktop: "https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620570/JOR-4604_weouv8.jpg",
-    mobile: "https://res.cloudinary.com/dvwdoezk1/image/upload/v1759396031/DSCF0103_twkdba.jpg"
+    desktop: "/Website beloveful.com/Homepage/Desktop Landscape/JOR-4604.jpg",
+    mobile: "/Website beloveful.com/Homepage/Mobile Portrait/DSCF0103.jpg"
   },
   {
-    desktop: "https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400253/CHI-2084-Website-2_wr8h5y.jpg",
-    mobile: "https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400269/CHI-65_fgjwby.jpg"
+    desktop: "/Website beloveful.com/Homepage/Desktop Landscape/CHI-2084-Website-2.jpg",
+    mobile: "/Website beloveful.com/Homepage/Mobile Portrait/CHI-65.jpg"
   },
   {
-    desktop: "https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400267/CHI-770_h8vtwg.jpg",
-    mobile: "https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400311/DSCF8938_lowoiy.jpg"
+    desktop: "/Website beloveful.com/Homepage/Desktop Landscape/CHI-770.jpg",
+    mobile: "/Website beloveful.com/Homepage/Mobile Portrait/DSCF8938.jpg"
   },
   {
-    desktop: "https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620833/Simpler_Times_oj3qes.jpg",
-    mobile: "https://res.cloudinary.com/dvwdoezk1/image/upload/v1759402567/Into_the_Rabbit_Hole_taaxtc.jpg"
+    desktop: "/Website beloveful.com/Homepage/Desktop Landscape/Simpler Times.jpg",
+    mobile: "/Website beloveful.com/Homepage/Mobile Portrait/Into the Rabbit Hole.jpg"
   },
   {
-    desktop: "https://cdn.shopify.com/s/files/1/1602/8723/products/SnackTime-Tony-Menias-photoinnovationlab.jpg?v=1750350492",
-    mobile: "https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621040/NAM-11-22-DSCF8088_pzgoe6.jpg"
+    desktop: "/Website beloveful.com/Homepage/Desktop Landscape/Snack Time.jpg",
+    mobile: "/Website beloveful.com/Homepage/Mobile Portrait/NAM-11-22-DSCF8088.jpg"
   },
   {
-    desktop: "https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621042/NAM-03-18-DSCF3974-2_wisjdt.jpg",
-    mobile: "https://res.cloudinary.com/dvwdoezk1/image/upload/v1759402610/Sense_of_Scale_leennx.jpg"
+    desktop: "/Website beloveful.com/Homepage/Desktop Landscape/NAM-03-18-DSCF3974-2.jpg",
+    mobile: "/Website beloveful.com/Homepage/Mobile Portrait/Sense of Scale.jpg"
   },
   {
     desktop: "https://cdn.shopify.com/s/files/1/1602/8723/files/The-Headless-Horseman-PiL-Beloveful-Tony-Menias.jpg?v=1758731834",
-    mobile: "https://res.cloudinary.com/dvwdoezk1/image/upload/v1759402471/WanderingPaths_uoz9ea.jpg"
+    mobile: "/Website beloveful.com/Homepage/Mobile Portrait/WanderingPaths.jpg"
   },
   {
-    desktop: "https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620819/Tony_Menias-Fly_yc61ae.jpg",
-    mobile: "https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620821/Enlightened_yoigxl.jpg"
+    desktop: "/Website beloveful.com/Homepage/Desktop Landscape/Tony Menias-Fly.jpg",
+    mobile: "/Website beloveful.com/Homepage/Mobile Portrait/Enlightened.jpg"
   },
   {
     desktop: "https://cdn.shopify.com/s/files/1/1602/8723/products/CalmBeforeTheStorm-Tony-Menias-photoinnovationlab.jpg?v=1652377339",
-    mobile: "https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620678/Pastel_Playground_sluwyy.jpg"
+    mobile: "/Website beloveful.com/Homepage/Mobile Portrait/Pastel Playground.jpg"
   }
 ];
 
-// Generated albums from Cloudinary
+// Portfolio albums using local images
 export const ALBUMS: CountryAlbum[] = [
   {
     "region": "Middle East",
     "country": "Jordan",
     "slug": "jordan",
     "images": [
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218639/Website%20beloveful.com/Middle%20East/Jordan/DSCF4610-4_uu35i7.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218639/Website%20beloveful.com/Middle%20East/Jordan/DSCF4610-4_uu35i7.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218639/Website%20beloveful.com/Middle%20East/Jordan/DSCF4694_huyfxr.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218639/Website%20beloveful.com/Middle%20East/Jordan/DSCF4694_huyfxr.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218638/Website%20beloveful.com/Middle%20East/Jordan/DSCF4640_h4akz1.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218638/Website%20beloveful.com/Middle%20East/Jordan/DSCF4640_h4akz1.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218637/Website%20beloveful.com/Middle%20East/Jordan/DSCF4385_j6s1g4.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218637/Website%20beloveful.com/Middle%20East/Jordan/DSCF4385_j6s1g4.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218637/Website%20beloveful.com/Middle%20East/Jordan/DSCF4619_etckse.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218637/Website%20beloveful.com/Middle%20East/Jordan/DSCF4619_etckse.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218637/Website%20beloveful.com/Middle%20East/Jordan/DSCF4488_vos7sk.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218637/Website%20beloveful.com/Middle%20East/Jordan/DSCF4488_vos7sk.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218636/Website%20beloveful.com/Middle%20East/Jordan/DSCF4561_qgxdpq.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218636/Website%20beloveful.com/Middle%20East/Jordan/DSCF4561_qgxdpq.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218635/Website%20beloveful.com/Middle%20East/Jordan/DSCF4430_l7ksx6.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218635/Website%20beloveful.com/Middle%20East/Jordan/DSCF4430_l7ksx6.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218635/Website%20beloveful.com/Middle%20East/Jordan/DSCF4537-Website-2_zwwsiy.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218635/Website%20beloveful.com/Middle%20East/Jordan/DSCF4537-Website-2_zwwsiy.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218634/Website%20beloveful.com/Middle%20East/Jordan/JDN-4461_mky4nj.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218634/Website%20beloveful.com/Middle%20East/Jordan/JDN-4461_mky4nj.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218633/Website%20beloveful.com/Middle%20East/Jordan/JDN-4455_dq0qfo.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218633/Website%20beloveful.com/Middle%20East/Jordan/JDN-4455_dq0qfo.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218633/Website%20beloveful.com/Middle%20East/Jordan/JOR-4604_wzuqox.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218633/Website%20beloveful.com/Middle%20East/Jordan/JOR-4604_wzuqox.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218632/Website%20beloveful.com/Middle%20East/Jordan/JOR-5061_kma1ff.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218632/Website%20beloveful.com/Middle%20East/Jordan/JOR-5061_kma1ff.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218632/Website%20beloveful.com/Middle%20East/Jordan/JOR-4569_xieper.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218632/Website%20beloveful.com/Middle%20East/Jordan/JOR-4569_xieper.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218631/Website%20beloveful.com/Middle%20East/Jordan/JOR-4723_e796m6.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218631/Website%20beloveful.com/Middle%20East/Jordan/JOR-4723_e796m6.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218631/Website%20beloveful.com/Middle%20East/Jordan/JOR-4597_wfaibp.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218631/Website%20beloveful.com/Middle%20East/Jordan/JOR-4597_wfaibp.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218630/Website%20beloveful.com/Middle%20East/Jordan/JOR-4876_iiiz94.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218630/Website%20beloveful.com/Middle%20East/Jordan/JOR-4876_iiiz94.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218630/Website%20beloveful.com/Middle%20East/Jordan/JOR-4957_uh7djm.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218630/Website%20beloveful.com/Middle%20East/Jordan/JOR-4957_uh7djm.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218629/Website%20beloveful.com/Middle%20East/Jordan/JOR-4516_jdtgwb.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218629/Website%20beloveful.com/Middle%20East/Jordan/JOR-4516_jdtgwb.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218628/Website%20beloveful.com/Middle%20East/Jordan/JOR-4574_wlc2xf.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218628/Website%20beloveful.com/Middle%20East/Jordan/JOR-4574_wlc2xf.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218627/Website%20beloveful.com/Middle%20East/Jordan/JOR-4615_thgegw.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218627/Website%20beloveful.com/Middle%20East/Jordan/JOR-4615_thgegw.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218628/Website%20beloveful.com/Middle%20East/Jordan/JOR-4577_dnakcs.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218628/Website%20beloveful.com/Middle%20East/Jordan/JOR-4577_dnakcs.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218626/Website%20beloveful.com/Middle%20East/Jordan/JOR-5232103122_sw3cix.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218626/Website%20beloveful.com/Middle%20East/Jordan/JOR-5232103122_sw3cix.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218626/Website%20beloveful.com/Middle%20East/Jordan/JOR--10-30-22_odgkni.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218626/Website%20beloveful.com/Middle%20East/Jordan/JOR--10-30-22_odgkni.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218625/Website%20beloveful.com/Middle%20East/Jordan/JOR-5044-10-30-22_vkrkjc.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218625/Website%20beloveful.com/Middle%20East/Jordan/JOR-5044-10-30-22_vkrkjc.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218625/Website%20beloveful.com/Middle%20East/Jordan/JOR-5001-10-30-22_xuhih3.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218625/Website%20beloveful.com/Middle%20East/Jordan/JOR-5001-10-30-22_xuhih3.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218624/Website%20beloveful.com/Middle%20East/Jordan/JOR-10-22-DSCF5274_jsjtia.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218624/Website%20beloveful.com/Middle%20East/Jordan/JOR-10-22-DSCF5274_jsjtia.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218624/Website%20beloveful.com/Middle%20East/Jordan/JOR-10-22-DSCF5272_b2mvnb.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218624/Website%20beloveful.com/Middle%20East/Jordan/JOR-10-22-DSCF5272_b2mvnb.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218623/Website%20beloveful.com/Middle%20East/Jordan/JOR-10-22-DSCF5216_r6nnbz.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218623/Website%20beloveful.com/Middle%20East/Jordan/JOR-10-22-DSCF5216_r6nnbz.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218623/Website%20beloveful.com/Middle%20East/Jordan/JOR-10-22-DSCF5213_cxeiwg.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218623/Website%20beloveful.com/Middle%20East/Jordan/JOR-10-22-DSCF5213_cxeiwg.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218622/Website%20beloveful.com/Middle%20East/Jordan/JOR-10-22-DSCF4984_txlbtf.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218622/Website%20beloveful.com/Middle%20East/Jordan/JOR-10-22-DSCF4984_txlbtf.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218621/Website%20beloveful.com/Middle%20East/Jordan/JOR-10-22-DSCF5146_dcqlnh.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218621/Website%20beloveful.com/Middle%20East/Jordan/JOR-10-22-DSCF5146_dcqlnh.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218621/Website%20beloveful.com/Middle%20East/Jordan/JOR-11-22-DSCF5588_dg5fld.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218621/Website%20beloveful.com/Middle%20East/Jordan/JOR-11-22-DSCF5588_dg5fld.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218621/Website%20beloveful.com/Middle%20East/Jordan/JOR-10-22-DSCF4959_c9wc7m.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218621/Website%20beloveful.com/Middle%20East/Jordan/JOR-10-22-DSCF4959_c9wc7m.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218620/Website%20beloveful.com/Middle%20East/Jordan/JOR-11-22-DSCF5655_cpfoam.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218620/Website%20beloveful.com/Middle%20East/Jordan/JOR-11-22-DSCF5655_cpfoam.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218619/Website%20beloveful.com/Middle%20East/Jordan/JOR-10-19-DSCF4604_poqdvg.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218619/Website%20beloveful.com/Middle%20East/Jordan/JOR-10-19-DSCF4604_poqdvg.jpg" },
+      { "desktop": "/Website beloveful.com/Middle East/Jordan/DSCF4610-4.jpg", "mobile": "/Website beloveful.com/Middle East/Jordan/DSCF4610-4.jpg" },
+      { "desktop": "/Website beloveful.com/Middle East/Jordan/DSCF4694.jpg", "mobile": "/Website beloveful.com/Middle East/Jordan/DSCF4694.jpg" },
+      { "desktop": "/Website beloveful.com/Middle East/Jordan/DSCF4640.jpg", "mobile": "/Website beloveful.com/Middle East/Jordan/DSCF4640.jpg" },
+      { "desktop": "/Website beloveful.com/Middle East/Jordan/DSCF4385.jpg", "mobile": "/Website beloveful.com/Middle East/Jordan/DSCF4385.jpg" },
+      { "desktop": "/Website beloveful.com/Middle East/Jordan/DSCF4619.jpg", "mobile": "/Website beloveful.com/Middle East/Jordan/DSCF4619.jpg" },
+      { "desktop": "/Website beloveful.com/Middle East/Jordan/DSCF4488.jpg", "mobile": "/Website beloveful.com/Middle East/Jordan/DSCF4488.jpg" },
+      { "desktop": "/Website beloveful.com/Middle East/Jordan/DSCF4561.jpg", "mobile": "/Website beloveful.com/Middle East/Jordan/DSCF4561.jpg" },
+      { "desktop": "/Website beloveful.com/Middle East/Jordan/DSCF4430.jpg", "mobile": "/Website beloveful.com/Middle East/Jordan/DSCF4430.jpg" },
+      { "desktop": "/Website beloveful.com/Middle East/Jordan/DSCF4537-Website-2.jpg", "mobile": "/Website beloveful.com/Middle East/Jordan/DSCF4537-Website-2.jpg" },
+      { "desktop": "/Website beloveful.com/Middle East/Jordan/JDN-4461.jpg", "mobile": "/Website beloveful.com/Middle East/Jordan/JDN-4461.jpg" },
+      { "desktop": "/Website beloveful.com/Middle East/Jordan/JDN-4455.jpg", "mobile": "/Website beloveful.com/Middle East/Jordan/JDN-4455.jpg" },
+      { "desktop": "/Website beloveful.com/Middle East/Jordan/JOR-4604.jpg", "mobile": "/Website beloveful.com/Middle East/Jordan/JOR-4604.jpg" },
+      { "desktop": "/Website beloveful.com/Middle East/Jordan/JOR-5061.jpg", "mobile": "/Website beloveful.com/Middle East/Jordan/JOR-5061.jpg" },
+      { "desktop": "/Website beloveful.com/Middle East/Jordan/JOR-4569.jpg", "mobile": "/Website beloveful.com/Middle East/Jordan/JOR-4569.jpg" },
+      { "desktop": "/Website beloveful.com/Middle East/Jordan/JOR-4723.jpg", "mobile": "/Website beloveful.com/Middle East/Jordan/JOR-4723.jpg" },
+      { "desktop": "/Website beloveful.com/Middle East/Jordan/JOR-4597.jpg", "mobile": "/Website beloveful.com/Middle East/Jordan/JOR-4597.jpg" },
+      { "desktop": "/Website beloveful.com/Middle East/Jordan/JOR-4876.jpg", "mobile": "/Website beloveful.com/Middle East/Jordan/JOR-4876.jpg" },
+      { "desktop": "/Website beloveful.com/Middle East/Jordan/JOR-4957.jpg", "mobile": "/Website beloveful.com/Middle East/Jordan/JOR-4957.jpg" },
+      { "desktop": "/Website beloveful.com/Middle East/Jordan/JOR-4516.jpg", "mobile": "/Website beloveful.com/Middle East/Jordan/JOR-4516.jpg" },
+      { "desktop": "/Website beloveful.com/Middle East/Jordan/JOR-4574.jpg", "mobile": "/Website beloveful.com/Middle East/Jordan/JOR-4574.jpg" },
+      { "desktop": "/Website beloveful.com/Middle East/Jordan/JOR-4615.jpg", "mobile": "/Website beloveful.com/Middle East/Jordan/JOR-4615.jpg" },
+      { "desktop": "/Website beloveful.com/Middle East/Jordan/JOR-4577.jpg", "mobile": "/Website beloveful.com/Middle East/Jordan/JOR-4577.jpg" },
+      { "desktop": "/Website beloveful.com/Middle East/Jordan/JOR-5232103122.jpg", "mobile": "/Website beloveful.com/Middle East/Jordan/JOR-5232103122.jpg" },
+      { "desktop": "/Website beloveful.com/Middle East/Jordan/JOR--10-30-22.jpg", "mobile": "/Website beloveful.com/Middle East/Jordan/JOR--10-30-22.jpg" },
+      { "desktop": "/Website beloveful.com/Middle East/Jordan/JOR-5044-10-30-22.jpg", "mobile": "/Website beloveful.com/Middle East/Jordan/JOR-5044-10-30-22.jpg" },
+      { "desktop": "/Website beloveful.com/Middle East/Jordan/JOR-5001-10-30-22.jpg", "mobile": "/Website beloveful.com/Middle East/Jordan/JOR-5001-10-30-22.jpg" },
+      { "desktop": "/Website beloveful.com/Middle East/Jordan/JOR-10-22-DSCF5274.jpg", "mobile": "/Website beloveful.com/Middle East/Jordan/JOR-10-22-DSCF5274.jpg" },
+      { "desktop": "/Website beloveful.com/Middle East/Jordan/JOR-10-22-DSCF5272.jpg", "mobile": "/Website beloveful.com/Middle East/Jordan/JOR-10-22-DSCF5272.jpg" },
+      { "desktop": "/Website beloveful.com/Middle East/Jordan/JOR-10-22-DSCF5216.jpg", "mobile": "/Website beloveful.com/Middle East/Jordan/JOR-10-22-DSCF5216.jpg" },
+      { "desktop": "/Website beloveful.com/Middle East/Jordan/JOR-10-22-DSCF5213.jpg", "mobile": "/Website beloveful.com/Middle East/Jordan/JOR-10-22-DSCF5213.jpg" },
+      { "desktop": "/Website beloveful.com/Middle East/Jordan/JOR-10-22-DSCF4984.jpg", "mobile": "/Website beloveful.com/Middle East/Jordan/JOR-10-22-DSCF4984.jpg" },
+      { "desktop": "/Website beloveful.com/Middle East/Jordan/JOR-10-22-DSCF5146.jpg", "mobile": "/Website beloveful.com/Middle East/Jordan/JOR-10-22-DSCF5146.jpg" },
+      { "desktop": "/Website beloveful.com/Middle East/Jordan/JOR-11-22-DSCF5588.jpg", "mobile": "/Website beloveful.com/Middle East/Jordan/JOR-11-22-DSCF5588.jpg" },
+      { "desktop": "/Website beloveful.com/Middle East/Jordan/JOR-10-22-DSCF4959.jpg", "mobile": "/Website beloveful.com/Middle East/Jordan/JOR-10-22-DSCF4959.jpg" },
+      { "desktop": "/Website beloveful.com/Middle East/Jordan/JOR-11-22-DSCF5655.jpg", "mobile": "/Website beloveful.com/Middle East/Jordan/JOR-11-22-DSCF5655.jpg" },
+      { "desktop": "/Website beloveful.com/Middle East/Jordan/JOR-10-19-DSCF4604.jpg", "mobile": "/Website beloveful.com/Middle East/Jordan/JOR-10-19-DSCF4604.jpg" },
       { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1759466071/JOR-4461_kkru8x.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1759466071/JOR-4461_kkru8x.jpg" },
       { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620664/JOR-4461.jpg-nggid03307-ngg0dyn-180x0-00f0w010c010r110f110r010t010_nvnoby.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620664/JOR-4461.jpg-nggid03307-ngg0dyn-180x0-00f0w010c010r110f110r010t010_nvnoby.jpg" },
       { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620662/JOR-4461.jpg-nggid03307-ngg0dyn-120x90-00f0w010c011r110f110r010t010_xsfpwk.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620662/JOR-4461.jpg-nggid03307-ngg0dyn-120x90-00f0w010c011r110f110r010t010_xsfpwk.jpg" },
@@ -148,54 +165,54 @@ export const ALBUMS: CountryAlbum[] = [
     "country": "Israel | Palestine",
     "slug": "israel-palestine",
     "images": [
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218619/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/DSCF3088_m0spty.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218619/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/DSCF3088_m0spty.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218618/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/DSCF2675_ar5plz.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218618/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/DSCF2675_ar5plz.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218617/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/DSCF3675_vznaue.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218617/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/DSCF3675_vznaue.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218617/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/DSCF2992_m5doqi.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218617/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/DSCF2992_m5doqi.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218616/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/TonyMenias-Hesalwayslistening_ukmuhb.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218616/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/TonyMenias-Hesalwayslistening_ukmuhb.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218616/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/DSCF3559_ei0iam.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218616/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/DSCF3559_ei0iam.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218615/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/DSCF2938_shuk1d.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218615/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/DSCF2938_shuk1d.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218614/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/DSCF2969_kjplq0.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218614/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/DSCF2969_kjplq0.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218614/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-3238_rzm8wg.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218614/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-3238_rzm8wg.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218614/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-3250_m4tccn.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218614/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-3250_m4tccn.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218613/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-3116_l6gm9c.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218613/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-3116_l6gm9c.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218612/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/untitled-4506-5_qelzzx.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218612/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/untitled-4506-5_qelzzx.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218612/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-10-19-DSCF3773_zk6xyh.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218612/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-10-19-DSCF3773_zk6xyh.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218611/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-10-19-DSCF3270_wwectj.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218611/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-10-19-DSCF3270_wwectj.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218611/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-10-19-DSCF3313_b9efng.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218611/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-10-19-DSCF3313_b9efng.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218610/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-10-19-DSCF3322_aihh2l.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218610/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-10-19-DSCF3322_aihh2l.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218610/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-10-19-DSCF3566_qeu5c7.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218610/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-10-19-DSCF3566_qeu5c7.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218610/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-10-19-DSCF3303_mei77g.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218610/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-10-19-DSCF3303_mei77g.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218608/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-10-19-DSCF3581_hjevfi.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218608/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-10-19-DSCF3581_hjevfi.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218608/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-10-19-DSCF3582_zdf66h.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218608/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-10-19-DSCF3582_zdf66h.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218607/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-10-19-DSCF3611_rt7e6b.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218607/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-10-19-DSCF3611_rt7e6b.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218607/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-10-19-DSCF3266_hvtpsw.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218607/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-10-19-DSCF3266_hvtpsw.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218606/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-10-19-DSCF3206_fyzwtk.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218606/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-10-19-DSCF3206_fyzwtk.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218606/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-10-19-DSCF3208_gptblh.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218606/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-10-19-DSCF3208_gptblh.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218605/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-10-19-DSCF3211_xgwzo9.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218605/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-10-19-DSCF3211_xgwzo9.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218604/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-10-19-DSCF3315_gxk85o.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218604/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-10-19-DSCF3315_gxk85o.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218604/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-10-19-DSCF3221_gecjfb.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218604/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-10-19-DSCF3221_gecjfb.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218604/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-10-22-DSCF4570_wjnxmq.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218604/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-10-22-DSCF4570_wjnxmq.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218603/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-10-22-DSCF4888_pbjkbp.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218603/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-10-22-DSCF4888_pbjkbp.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218602/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-10-22-DSCF4890_ksnaew.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218602/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-10-22-DSCF4890_ksnaew.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218602/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-10-22-DSCF4891_bjsjmb.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218602/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-10-22-DSCF4891_bjsjmb.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218601/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-10-22-DSCF4892_laocxx.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218601/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-10-22-DSCF4892_laocxx.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218601/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-10-22-DSCF4893_vh9hbo.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218601/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-10-22-DSCF4893_vh9hbo.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218600/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/ISR-10-19-DSCF2937_mfy45m.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218600/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/ISR-10-19-DSCF2937_mfy45m.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218600/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-10-19-DSCF3722_pq2gdp.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218600/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-10-19-DSCF3722_pq2gdp.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218599/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/ISR-10-19-DSCF4212_qm5kot.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218599/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/ISR-10-19-DSCF4212_qm5kot.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218598/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/ISR-10-19-DSCF4131_hozimu.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218598/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/ISR-10-19-DSCF4131_hozimu.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218598/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/ISR-10-19-DSCF4159_cucscs.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218598/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/ISR-10-19-DSCF4159_cucscs.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218598/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/ISR-10-19-DSCF2980-Enhanced-NR_dpixxa.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218598/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/ISR-10-19-DSCF2980-Enhanced-NR_dpixxa.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218597/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/ISR-10-19-DSCF3016_b0ss9k.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218597/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/ISR-10-19-DSCF3016_b0ss9k.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218597/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/ISR-10-19-DSCF3499_dg7o8o.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218597/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/ISR-10-19-DSCF3499_dg7o8o.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218595/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/ISR-10-19-DSCF3674_ffeyui.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218595/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/ISR-10-19-DSCF3674_ffeyui.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218595/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/ISR-10-19-DSCF3016-2_dpjkhg.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218595/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/ISR-10-19-DSCF3016-2_dpjkhg.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218594/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/ISR-10-19-DSCF2603_ape1d6.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218594/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/ISR-10-19-DSCF2603_ape1d6.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218594/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-10-19-DSCF3283_sxynzo.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218594/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-10-19-DSCF3283_sxynzo.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218593/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-10-22-DSCF4693_uih0vi.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218593/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-10-22-DSCF4693_uih0vi.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218593/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-10-22-DSCF4464_ceuybl.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218593/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-10-22-DSCF4464_ceuybl.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218593/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-10-22-DSCF4834_vdjlya.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218593/Website%20beloveful.com/Middle%20East/Israel%20%7C%20Palestine/PAL-10-22-DSCF4834_vdjlya.jpg" }
+      { "desktop": "/Website beloveful.com/Middle East/Israel | Palestine/DSCF3088.jpg", "mobile": "/Website beloveful.com/Middle East/Israel | Palestine/DSCF3088.jpg" },
+      { "desktop": "/Website beloveful.com/Middle East/Israel | Palestine/DSCF2675.jpg", "mobile": "/Website beloveful.com/Middle East/Israel | Palestine/DSCF2675.jpg" },
+      { "desktop": "/Website beloveful.com/Middle East/Israel | Palestine/DSCF3675.jpg", "mobile": "/Website beloveful.com/Middle East/Israel | Palestine/DSCF3675.jpg" },
+      { "desktop": "/Website beloveful.com/Middle East/Israel | Palestine/DSCF2992.jpg", "mobile": "/Website beloveful.com/Middle East/Israel | Palestine/DSCF2992.jpg" },
+      { "desktop": "/Website beloveful.com/Middle East/Israel | Palestine/TonyMenias-Hesalwayslistening.jpg", "mobile": "/Website beloveful.com/Middle East/Israel | Palestine/TonyMenias-Hesalwayslistening.jpg" },
+      { "desktop": "/Website beloveful.com/Middle East/Israel | Palestine/DSCF3559.jpg", "mobile": "/Website beloveful.com/Middle East/Israel | Palestine/DSCF3559.jpg" },
+      { "desktop": "/Website beloveful.com/Middle East/Israel | Palestine/DSCF2938.jpg", "mobile": "/Website beloveful.com/Middle East/Israel | Palestine/DSCF2938.jpg" },
+      { "desktop": "/Website beloveful.com/Middle East/Israel | Palestine/DSCF2969.jpg", "mobile": "/Website beloveful.com/Middle East/Israel | Palestine/DSCF2969.jpg" },
+      { "desktop": "/Website beloveful.com/Middle East/Israel | Palestine/PAL-3238.jpg", "mobile": "/Website beloveful.com/Middle East/Israel | Palestine/PAL-3238.jpg" },
+      { "desktop": "/Website beloveful.com/Middle East/Israel | Palestine/PAL-3250.jpg", "mobile": "/Website beloveful.com/Middle East/Israel | Palestine/PAL-3250.jpg" },
+      { "desktop": "/Website beloveful.com/Middle East/Israel | Palestine/PAL-3116.jpg", "mobile": "/Website beloveful.com/Middle East/Israel | Palestine/PAL-3116.jpg" },
+      { "desktop": "/Website beloveful.com/Middle East/Israel | Palestine/untitled-4506-5.jpg", "mobile": "/Website beloveful.com/Middle East/Israel | Palestine/untitled-4506-5.jpg" },
+      { "desktop": "/Website beloveful.com/Middle East/Israel | Palestine/PAL-10-19-DSCF3773.jpg", "mobile": "/Website beloveful.com/Middle East/Israel | Palestine/PAL-10-19-DSCF3773.jpg" },
+      { "desktop": "/Website beloveful.com/Middle East/Israel | Palestine/PAL-10-19-DSCF3270.jpg", "mobile": "/Website beloveful.com/Middle East/Israel | Palestine/PAL-10-19-DSCF3270.jpg" },
+      { "desktop": "/Website beloveful.com/Middle East/Israel | Palestine/PAL-10-19-DSCF3313.jpg", "mobile": "/Website beloveful.com/Middle East/Israel | Palestine/PAL-10-19-DSCF3313.jpg" },
+      { "desktop": "/Website beloveful.com/Middle East/Israel | Palestine/PAL-10-19-DSCF3322.jpg", "mobile": "/Website beloveful.com/Middle East/Israel | Palestine/PAL-10-19-DSCF3322.jpg" },
+      { "desktop": "/Website beloveful.com/Middle East/Israel | Palestine/PAL-10-19-DSCF3566.jpg", "mobile": "/Website beloveful.com/Middle East/Israel | Palestine/PAL-10-19-DSCF3566.jpg" },
+      { "desktop": "/Website beloveful.com/Middle East/Israel | Palestine/PAL-10-19-DSCF3303.jpg", "mobile": "/Website beloveful.com/Middle East/Israel | Palestine/PAL-10-19-DSCF3303.jpg" },
+      { "desktop": "/Website beloveful.com/Middle East/Israel | Palestine/PAL-10-19-DSCF3581.jpg", "mobile": "/Website beloveful.com/Middle East/Israel | Palestine/PAL-10-19-DSCF3581.jpg" },
+      { "desktop": "/Website beloveful.com/Middle East/Israel | Palestine/PAL-10-19-DSCF3582.jpg", "mobile": "/Website beloveful.com/Middle East/Israel | Palestine/PAL-10-19-DSCF3582.jpg" },
+      { "desktop": "/Website beloveful.com/Middle East/Israel | Palestine/PAL-10-19-DSCF3611.jpg", "mobile": "/Website beloveful.com/Middle East/Israel | Palestine/PAL-10-19-DSCF3611.jpg" },
+      { "desktop": "/Website beloveful.com/Middle East/Israel | Palestine/PAL-10-19-DSCF3266.jpg", "mobile": "/Website beloveful.com/Middle East/Israel | Palestine/PAL-10-19-DSCF3266.jpg" },
+      { "desktop": "/Website beloveful.com/Middle East/Israel | Palestine/PAL-10-19-DSCF3206.jpg", "mobile": "/Website beloveful.com/Middle East/Israel | Palestine/PAL-10-19-DSCF3206.jpg" },
+      { "desktop": "/Website beloveful.com/Middle East/Israel | Palestine/PAL-10-19-DSCF3208.jpg", "mobile": "/Website beloveful.com/Middle East/Israel | Palestine/PAL-10-19-DSCF3208.jpg" },
+      { "desktop": "/Website beloveful.com/Middle East/Israel | Palestine/PAL-10-19-DSCF3211.jpg", "mobile": "/Website beloveful.com/Middle East/Israel | Palestine/PAL-10-19-DSCF3211.jpg" },
+      { "desktop": "/Website beloveful.com/Middle East/Israel | Palestine/PAL-10-19-DSCF3315.jpg", "mobile": "/Website beloveful.com/Middle East/Israel | Palestine/PAL-10-19-DSCF3315.jpg" },
+      { "desktop": "/Website beloveful.com/Middle East/Israel | Palestine/PAL-10-19-DSCF3221.jpg", "mobile": "/Website beloveful.com/Middle East/Israel | Palestine/PAL-10-19-DSCF3221.jpg" },
+      { "desktop": "/Website beloveful.com/Middle East/Israel | Palestine/PAL-10-22-DSCF4570.jpg", "mobile": "/Website beloveful.com/Middle East/Israel | Palestine/PAL-10-22-DSCF4570.jpg" },
+      { "desktop": "/Website beloveful.com/Middle East/Israel | Palestine/PAL-10-22-DSCF4888.jpg", "mobile": "/Website beloveful.com/Middle East/Israel | Palestine/PAL-10-22-DSCF4888.jpg" },
+      { "desktop": "/Website beloveful.com/Middle East/Israel | Palestine/PAL-10-22-DSCF4890.jpg", "mobile": "/Website beloveful.com/Middle East/Israel | Palestine/PAL-10-22-DSCF4890.jpg" },
+      { "desktop": "/Website beloveful.com/Middle East/Israel | Palestine/PAL-10-22-DSCF4891.jpg", "mobile": "/Website beloveful.com/Middle East/Israel | Palestine/PAL-10-22-DSCF4891.jpg" },
+      { "desktop": "/Website beloveful.com/Middle East/Israel | Palestine/PAL-10-22-DSCF4892.jpg", "mobile": "/Website beloveful.com/Middle East/Israel | Palestine/PAL-10-22-DSCF4892.jpg" },
+      { "desktop": "/Website beloveful.com/Middle East/Israel | Palestine/PAL-10-22-DSCF4893.jpg", "mobile": "/Website beloveful.com/Middle East/Israel | Palestine/PAL-10-22-DSCF4893.jpg" },
+      { "desktop": "/Website beloveful.com/Middle East/Israel | Palestine/ISR-10-19-DSCF2937.jpg", "mobile": "/Website beloveful.com/Middle East/Israel | Palestine/ISR-10-19-DSCF2937.jpg" },
+      { "desktop": "/Website beloveful.com/Middle East/Israel | Palestine/PAL-10-19-DSCF3722.jpg", "mobile": "/Website beloveful.com/Middle East/Israel | Palestine/PAL-10-19-DSCF3722.jpg" },
+      { "desktop": "/Website beloveful.com/Middle East/Israel | Palestine/ISR-10-19-DSCF4212.jpg", "mobile": "/Website beloveful.com/Middle East/Israel | Palestine/ISR-10-19-DSCF4212.jpg" },
+      { "desktop": "/Website beloveful.com/Middle East/Israel | Palestine/ISR-10-19-DSCF4131.jpg", "mobile": "/Website beloveful.com/Middle East/Israel | Palestine/ISR-10-19-DSCF4131.jpg" },
+      { "desktop": "/Website beloveful.com/Middle East/Israel | Palestine/ISR-10-19-DSCF4159.jpg", "mobile": "/Website beloveful.com/Middle East/Israel | Palestine/ISR-10-19-DSCF4159.jpg" },
+      { "desktop": "/Website beloveful.com/Middle East/Israel | Palestine/ISR-10-19-DSCF2980-Enhanced-NR.jpg", "mobile": "/Website beloveful.com/Middle East/Israel | Palestine/ISR-10-19-DSCF2980-Enhanced-NR.jpg" },
+      { "desktop": "/Website beloveful.com/Middle East/Israel | Palestine/ISR-10-19-DSCF3016.jpg", "mobile": "/Website beloveful.com/Middle East/Israel | Palestine/ISR-10-19-DSCF3016.jpg" },
+      { "desktop": "/Website beloveful.com/Middle East/Israel | Palestine/ISR-10-19-DSCF3499.jpg", "mobile": "/Website beloveful.com/Middle East/Israel | Palestine/ISR-10-19-DSCF3499.jpg" },
+      { "desktop": "/Website beloveful.com/Middle East/Israel | Palestine/ISR-10-19-DSCF3674.jpg", "mobile": "/Website beloveful.com/Middle East/Israel | Palestine/ISR-10-19-DSCF3674.jpg" },
+      { "desktop": "/Website beloveful.com/Middle East/Israel | Palestine/ISR-10-19-DSCF3016-2.jpg", "mobile": "/Website beloveful.com/Middle East/Israel | Palestine/ISR-10-19-DSCF3016-2.jpg" },
+      { "desktop": "/Website beloveful.com/Middle East/Israel | Palestine/ISR-10-19-DSCF2603.jpg", "mobile": "/Website beloveful.com/Middle East/Israel | Palestine/ISR-10-19-DSCF2603.jpg" },
+      { "desktop": "/Website beloveful.com/Middle East/Israel | Palestine/PAL-10-19-DSCF3283.jpg", "mobile": "/Website beloveful.com/Middle East/Israel | Palestine/PAL-10-19-DSCF3283.jpg" },
+      { "desktop": "/Website beloveful.com/Middle East/Israel | Palestine/PAL-10-22-DSCF4693.jpg", "mobile": "/Website beloveful.com/Middle East/Israel | Palestine/PAL-10-22-DSCF4693.jpg" },
+      { "desktop": "/Website beloveful.com/Middle East/Israel | Palestine/PAL-10-22-DSCF4464.jpg", "mobile": "/Website beloveful.com/Middle East/Israel | Palestine/PAL-10-22-DSCF4464.jpg" },
+      { "desktop": "/Website beloveful.com/Middle East/Israel | Palestine/PAL-10-22-DSCF4834.jpg", "mobile": "/Website beloveful.com/Middle East/Israel | Palestine/PAL-10-22-DSCF4834.jpg" }
     ]
   },
   {
@@ -203,12 +220,12 @@ export const ALBUMS: CountryAlbum[] = [
     "country": "White",
     "slug": "white",
     "images": [
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218583/Website%20beloveful.com/Logo/White/Belovefulwhitetransparent_fl7l4e.png", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218583/Website%20beloveful.com/Logo/White/Belovefulwhitetransparent_fl7l4e.png" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218582/Website%20beloveful.com/Logo/White/Smaller_Logo_j43ss5.png", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218582/Website%20beloveful.com/Logo/White/Smaller_Logo_j43ss5.png" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218582/Website%20beloveful.com/Logo/White/Beloveful_dniflr.png", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218582/Website%20beloveful.com/Logo/White/Beloveful_dniflr.png" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218581/Website%20beloveful.com/Logo/White/Smallest_aqjfu9.png", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218581/Website%20beloveful.com/Logo/White/Smallest_aqjfu9.png" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218580/Website%20beloveful.com/Logo/White/Beloveful_white_transparent_audwbh.png", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218580/Website%20beloveful.com/Logo/White/Beloveful_white_transparent_audwbh.png" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218580/Website%20beloveful.com/Logo/White/Smaller_2_rnvcjh.png", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218580/Website%20beloveful.com/Logo/White/Smaller_2_rnvcjh.png" }
+      { "desktop": "/Website beloveful.com/Logo/White/Belovefulwhitetransparent.png", "mobile": "/Website beloveful.com/Logo/White/Belovefulwhitetransparent.png" },
+      { "desktop": "/Website beloveful.com/Logo/White/Smaller_Logo.png", "mobile": "/Website beloveful.com/Logo/White/Smaller_Logo.png" },
+      { "desktop": "/Website beloveful.com/Logo/White/Beloveful.png", "mobile": "/Website beloveful.com/Logo/White/Beloveful.png" },
+      { "desktop": "/Website beloveful.com/Logo/White/Smallest.png", "mobile": "/Website beloveful.com/Logo/White/Smallest.png" },
+      { "desktop": "/Website beloveful.com/Logo/White/Beloveful_white.png", "mobile": "/Website beloveful.com/Logo/White/Beloveful_white.png" },
+      { "desktop": "/Website beloveful.com/Logo/White/Smaller.png", "mobile": "/Website beloveful.com/Logo/White/Smaller.png" }
     ]
   },
   {
@@ -216,7 +233,7 @@ export const ALBUMS: CountryAlbum[] = [
     "country": "IMG_0007_f4jnqu",
     "slug": "img0007f4jnqu",
     "images": [
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218578/Website%20beloveful.com/Logo/IMG_0007_f4jnqu.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218578/Website%20beloveful.com/Logo/IMG_0007_f4jnqu.jpg" }
+      { "desktop": "/Website beloveful.com/Logo/IMG.jpg", "mobile": "/Website beloveful.com/Logo/IMG.jpg" }
     ]
   },
   {
@@ -224,7 +241,7 @@ export const ALBUMS: CountryAlbum[] = [
     "country": "Beloveful_copy_2_ovexsu",
     "slug": "belovefulcopy2ovexsu",
     "images": [
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218578/Website%20beloveful.com/Logo/Beloveful_copy_2_ovexsu.png", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218578/Website%20beloveful.com/Logo/Beloveful_copy_2_ovexsu.png" }
+      { "desktop": "/Website beloveful.com/Logo/Beloveful_copy.png", "mobile": "/Website beloveful.com/Logo/Beloveful_copy.png" }
     ]
   },
   {
@@ -232,7 +249,7 @@ export const ALBUMS: CountryAlbum[] = [
     "country": "belovefullogowhite_ho0tiz",
     "slug": "belovefullogowhiteho0tiz",
     "images": [
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218577/Website%20beloveful.com/Logo/belovefullogowhite_ho0tiz.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218577/Website%20beloveful.com/Logo/belovefullogowhite_ho0tiz.jpg" }
+      { "desktop": "/Website beloveful.com/Logo/belovefullogowhite.jpg", "mobile": "/Website beloveful.com/Logo/belovefullogowhite.jpg" }
     ]
   },
   {
@@ -240,7 +257,7 @@ export const ALBUMS: CountryAlbum[] = [
     "country": "nooutline_q5wysb",
     "slug": "nooutlineq5wysb",
     "images": [
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218576/Website%20beloveful.com/Logo/nooutline_q5wysb.png", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218576/Website%20beloveful.com/Logo/nooutline_q5wysb.png" }
+      { "desktop": "/Website beloveful.com/Logo/nooutline.png", "mobile": "/Website beloveful.com/Logo/nooutline.png" }
     ]
   },
   {
@@ -248,7 +265,7 @@ export const ALBUMS: CountryAlbum[] = [
     "country": "IMG_4610_copy.jpg_copy_3_yrluid",
     "slug": "img4610copyjpgcopy3yrluid",
     "images": [
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218576/Website%20beloveful.com/Logo/IMG_4610_copy.jpg_copy_3_yrluid.png", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218576/Website%20beloveful.com/Logo/IMG_4610_copy.jpg_copy_3_yrluid.png" }
+      { "desktop": "/Website beloveful.com/Logo/IMG.jpg", "mobile": "/Website beloveful.com/Logo/IMG.jpg" }
     ]
   },
   {
@@ -256,7 +273,7 @@ export const ALBUMS: CountryAlbum[] = [
     "country": "Beloveful_black_transparent_hscezu",
     "slug": "belovefulblacktransparenthscezu",
     "images": [
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218576/Website%20beloveful.com/Logo/Beloveful_black_transparent_hscezu.png", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218576/Website%20beloveful.com/Logo/Beloveful_black_transparent_hscezu.png" }
+      { "desktop": "/Website beloveful.com/Logo/Beloveful_black.png", "mobile": "/Website beloveful.com/Logo/Beloveful_black.png" }
     ]
   },
   {
@@ -264,7 +281,7 @@ export const ALBUMS: CountryAlbum[] = [
     "country": "Beloveful_copy_ghik9l",
     "slug": "belovefulcopyghik9l",
     "images": [
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218575/Website%20beloveful.com/Logo/Beloveful_copy_ghik9l.png", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218575/Website%20beloveful.com/Logo/Beloveful_copy_ghik9l.png" }
+      { "desktop": "/Website beloveful.com/Logo/Beloveful.png", "mobile": "/Website beloveful.com/Logo/Beloveful.png" }
     ]
   },
   {
@@ -272,7 +289,7 @@ export const ALBUMS: CountryAlbum[] = [
     "country": "IMG_4610_hpu56z",
     "slug": "img4610hpu56z",
     "images": [
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218575/Website%20beloveful.com/Logo/IMG_4610_hpu56z.png", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218575/Website%20beloveful.com/Logo/IMG_4610_hpu56z.png" }
+      { "desktop": "/Website beloveful.com/Logo/IMG.png", "mobile": "/Website beloveful.com/Logo/IMG.png" }
     ]
   },
   {
@@ -280,7 +297,7 @@ export const ALBUMS: CountryAlbum[] = [
     "country": "beloveful_logo_inverted_75__opacity_t8dpdk",
     "slug": "belovefullogoinverted75opacityt8dpdk",
     "images": [
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218574/Website%20beloveful.com/Logo/beloveful_logo_inverted_75__opacity_t8dpdk.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218574/Website%20beloveful.com/Logo/beloveful_logo_inverted_75__opacity_t8dpdk.jpg" }
+      { "desktop": "/Website beloveful.com/Logo/beloveful_logo_inverted_75_.jpg", "mobile": "/Website beloveful.com/Logo/beloveful_logo_inverted_75_.jpg" }
     ]
   },
   {
@@ -288,7 +305,7 @@ export const ALBUMS: CountryAlbum[] = [
     "country": "Beloveful_copy_3_owljbn",
     "slug": "belovefulcopy3owljbn",
     "images": [
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218573/Website%20beloveful.com/Logo/Beloveful_copy_3_owljbn.png", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218573/Website%20beloveful.com/Logo/Beloveful_copy_3_owljbn.png" }
+      { "desktop": "/Website beloveful.com/Logo/Beloveful_copy.png", "mobile": "/Website beloveful.com/Logo/Beloveful_copy.png" }
     ]
   },
   {
@@ -296,7 +313,7 @@ export const ALBUMS: CountryAlbum[] = [
     "country": "IMG_SMALl_l4akll",
     "slug": "imgsmalll4akll",
     "images": [
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218573/Website%20beloveful.com/Logo/IMG_SMALl_l4akll.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218573/Website%20beloveful.com/Logo/IMG_SMALl_l4akll.jpg" }
+      { "desktop": "/Website beloveful.com/Logo/IMG_SMALl.jpg", "mobile": "/Website beloveful.com/Logo/IMG_SMALl.jpg" }
     ]
   },
   {
@@ -304,7 +321,7 @@ export const ALBUMS: CountryAlbum[] = [
     "country": "IMG_0007_copy_ftdbzr",
     "slug": "img0007copyftdbzr",
     "images": [
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218572/Website%20beloveful.com/Logo/IMG_0007_copy_ftdbzr.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218572/Website%20beloveful.com/Logo/IMG_0007_copy_ftdbzr.jpg" }
+      { "desktop": "/Website beloveful.com/Logo/IMG_0007.jpg", "mobile": "/Website beloveful.com/Logo/IMG_0007.jpg" }
     ]
   },
   {
@@ -312,7 +329,7 @@ export const ALBUMS: CountryAlbum[] = [
     "country": "Beloveful_copy_6_k5mwpt",
     "slug": "belovefulcopy6k5mwpt",
     "images": [
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218571/Website%20beloveful.com/Logo/Beloveful_copy_6_k5mwpt.png", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218571/Website%20beloveful.com/Logo/Beloveful_copy_6_k5mwpt.png" }
+      { "desktop": "/Website beloveful.com/Logo/Beloveful_copy.png", "mobile": "/Website beloveful.com/Logo/Beloveful_copy.png" }
     ]
   },
   {
@@ -320,7 +337,7 @@ export const ALBUMS: CountryAlbum[] = [
     "country": "IMG_1052_ekyghu",
     "slug": "img1052ekyghu",
     "images": [
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218571/Website%20beloveful.com/Logo/IMG_1052_ekyghu.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218571/Website%20beloveful.com/Logo/IMG_1052_ekyghu.jpg" }
+      { "desktop": "/Website beloveful.com/Logo/IMG.jpg", "mobile": "/Website beloveful.com/Logo/IMG.jpg" }
     ]
   },
   {
@@ -328,33 +345,33 @@ export const ALBUMS: CountryAlbum[] = [
     "country": "Erasing Borders",
     "slug": "erasing-borders",
     "images": [
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218570/Website%20beloveful.com/Erasing%20Borders/Tony_Menias_-_Two_Girls_in_Window_rgthwg.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218570/Website%20beloveful.com/Erasing%20Borders/Tony_Menias_-_Two_Girls_in_Window_rgthwg.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218570/Website%20beloveful.com/Erasing%20Borders/Vietnam-DSCF8153_copy_vwsvcl.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218570/Website%20beloveful.com/Erasing%20Borders/Vietnam-DSCF8153_copy_vwsvcl.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218570/Website%20beloveful.com/Erasing%20Borders/MOR-IMG_5248_copy_uekfqp.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218570/Website%20beloveful.com/Erasing%20Borders/MOR-IMG_5248_copy_uekfqp.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218569/Website%20beloveful.com/Erasing%20Borders/CHI-DSCF9471_omluyg.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218569/Website%20beloveful.com/Erasing%20Borders/CHI-DSCF9471_omluyg.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218568/Website%20beloveful.com/Erasing%20Borders/IND-MeniasTony_8_hycmrp.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218568/Website%20beloveful.com/Erasing%20Borders/IND-MeniasTony_8_hycmrp.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218568/Website%20beloveful.com/Erasing%20Borders/NatureVSNurture_copy_cpmmlj.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218568/Website%20beloveful.com/Erasing%20Borders/NatureVSNurture_copy_cpmmlj.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218567/Website%20beloveful.com/Erasing%20Borders/NEP-Silent_Stare_copy_jg5dfb.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218567/Website%20beloveful.com/Erasing%20Borders/NEP-Silent_Stare_copy_jg5dfb.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218567/Website%20beloveful.com/Erasing%20Borders/TonyMeniasAMansLegacy_jwoufh.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218567/Website%20beloveful.com/Erasing%20Borders/TonyMeniasAMansLegacy_jwoufh.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218566/Website%20beloveful.com/Erasing%20Borders/NEP-DSCF8737_copy_g093tk.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218566/Website%20beloveful.com/Erasing%20Borders/NEP-DSCF8737_copy_g093tk.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218566/Website%20beloveful.com/Erasing%20Borders/IND-MeniasTony_16_koedqp.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218566/Website%20beloveful.com/Erasing%20Borders/IND-MeniasTony_16_koedqp.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218565/Website%20beloveful.com/Erasing%20Borders/NyC-DSCF8922_copy_2_lswqmq.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218565/Website%20beloveful.com/Erasing%20Borders/NyC-DSCF8922_copy_2_lswqmq.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218564/Website%20beloveful.com/Erasing%20Borders/DSCF3088_copy_xtmkva.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218564/Website%20beloveful.com/Erasing%20Borders/DSCF3088_copy_xtmkva.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218564/Website%20beloveful.com/Erasing%20Borders/MYA-DSCF0783_copy_ngdvkp.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218564/Website%20beloveful.com/Erasing%20Borders/MYA-DSCF0783_copy_ngdvkp.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218563/Website%20beloveful.com/Erasing%20Borders/CHI-MeniasTony_12_zhmfdu.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218563/Website%20beloveful.com/Erasing%20Borders/CHI-MeniasTony_12_zhmfdu.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218563/Website%20beloveful.com/Erasing%20Borders/THAI-DSCF3890_copy_t2frpq.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218563/Website%20beloveful.com/Erasing%20Borders/THAI-DSCF3890_copy_t2frpq.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218562/Website%20beloveful.com/Erasing%20Borders/PAL-DSCF3675_copy_hkjes9.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218562/Website%20beloveful.com/Erasing%20Borders/PAL-DSCF3675_copy_hkjes9.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218561/Website%20beloveful.com/Erasing%20Borders/MYA-DSCF9634_copy_rnu1bw.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218561/Website%20beloveful.com/Erasing%20Borders/MYA-DSCF9634_copy_rnu1bw.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218561/Website%20beloveful.com/Erasing%20Borders/PAL-MeniasTony_13_umcpbf.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218561/Website%20beloveful.com/Erasing%20Borders/PAL-MeniasTony_13_umcpbf.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218560/Website%20beloveful.com/Erasing%20Borders/FRA-DSCF0103_copy_scnm1o.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218560/Website%20beloveful.com/Erasing%20Borders/FRA-DSCF0103_copy_scnm1o.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218560/Website%20beloveful.com/Erasing%20Borders/Israel-MeniasTony_20_yrd47y.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218560/Website%20beloveful.com/Erasing%20Borders/Israel-MeniasTony_20_yrd47y.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218559/Website%20beloveful.com/Erasing%20Borders/MOR-IMG_5277_jagvrq.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218559/Website%20beloveful.com/Erasing%20Borders/MOR-IMG_5277_jagvrq.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218558/Website%20beloveful.com/Erasing%20Borders/Greece-DSCF3935_copy_3_kfb8tr.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218558/Website%20beloveful.com/Erasing%20Borders/Greece-DSCF3935_copy_3_kfb8tr.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218558/Website%20beloveful.com/Erasing%20Borders/PHI-1662_copy_iuo0hw.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218558/Website%20beloveful.com/Erasing%20Borders/PHI-1662_copy_iuo0hw.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218558/Website%20beloveful.com/Erasing%20Borders/CHI-Beloveful6_n0hlne.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218558/Website%20beloveful.com/Erasing%20Borders/CHI-Beloveful6_n0hlne.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218558/Website%20beloveful.com/Erasing%20Borders/JOR-4461_teauee.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218558/Website%20beloveful.com/Erasing%20Borders/JOR-4461_teauee.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218557/Website%20beloveful.com/Erasing%20Borders/IND-MeniasTony_14_cnvjhb.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218557/Website%20beloveful.com/Erasing%20Borders/IND-MeniasTony_14_cnvjhb.jpg" },
-      { "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218557/Website%20beloveful.com/Erasing%20Borders/JAP-3265_v8dugw.jpg", "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218557/Website%20beloveful.com/Erasing%20Borders/JAP-3265_v8dugw.jpg" }
+      { "desktop": "/Website beloveful.com/Erasing Borders/Tony_Menias_-_Two_Girls_in_Window.jpg", "mobile": "/Website beloveful.com/Erasing Borders/Tony_Menias_-_Two_Girls_in_Window.jpg" },
+      { "desktop": "/Website beloveful.com/Erasing Borders/Vietnam-DSCF8153.jpg", "mobile": "/Website beloveful.com/Erasing Borders/Vietnam-DSCF8153.jpg" },
+      { "desktop": "/Website beloveful.com/Erasing Borders/MOR-IMG_5248.jpg", "mobile": "/Website beloveful.com/Erasing Borders/MOR-IMG_5248.jpg" },
+      { "desktop": "/Website beloveful.com/Erasing Borders/CHI-DSCF9471.jpg", "mobile": "/Website beloveful.com/Erasing Borders/CHI-DSCF9471.jpg" },
+      { "desktop": "/Website beloveful.com/Erasing Borders/IND-MeniasTony.jpg", "mobile": "/Website beloveful.com/Erasing Borders/IND-MeniasTony.jpg" },
+      { "desktop": "/Website beloveful.com/Erasing Borders/NatureVSNurture.jpg", "mobile": "/Website beloveful.com/Erasing Borders/NatureVSNurture.jpg" },
+      { "desktop": "/Website beloveful.com/Erasing Borders/NEP-Silent_Stare.jpg", "mobile": "/Website beloveful.com/Erasing Borders/NEP-Silent_Stare.jpg" },
+      { "desktop": "/Website beloveful.com/Erasing Borders/TonyMeniasAMansLegacy.jpg", "mobile": "/Website beloveful.com/Erasing Borders/TonyMeniasAMansLegacy.jpg" },
+      { "desktop": "/Website beloveful.com/Erasing Borders/NEP-DSCF8737.jpg", "mobile": "/Website beloveful.com/Erasing Borders/NEP-DSCF8737.jpg" },
+      { "desktop": "/Website beloveful.com/Erasing Borders/IND-MeniasTony.jpg", "mobile": "/Website beloveful.com/Erasing Borders/IND-MeniasTony.jpg" },
+      { "desktop": "/Website beloveful.com/Erasing Borders/NyC-DSCF8922_copy.jpg", "mobile": "/Website beloveful.com/Erasing Borders/NyC-DSCF8922_copy.jpg" },
+      { "desktop": "/Website beloveful.com/Erasing Borders/DSCF3088.jpg", "mobile": "/Website beloveful.com/Erasing Borders/DSCF3088.jpg" },
+      { "desktop": "/Website beloveful.com/Erasing Borders/MYA-DSCF0783.jpg", "mobile": "/Website beloveful.com/Erasing Borders/MYA-DSCF0783.jpg" },
+      { "desktop": "/Website beloveful.com/Erasing Borders/CHI-MeniasTony.jpg", "mobile": "/Website beloveful.com/Erasing Borders/CHI-MeniasTony.jpg" },
+      { "desktop": "/Website beloveful.com/Erasing Borders/THAI-DSCF3890.jpg", "mobile": "/Website beloveful.com/Erasing Borders/THAI-DSCF3890.jpg" },
+      { "desktop": "/Website beloveful.com/Erasing Borders/PAL-DSCF3675.jpg", "mobile": "/Website beloveful.com/Erasing Borders/PAL-DSCF3675.jpg" },
+      { "desktop": "/Website beloveful.com/Erasing Borders/MYA-DSCF9634.jpg", "mobile": "/Website beloveful.com/Erasing Borders/MYA-DSCF9634.jpg" },
+      { "desktop": "/Website beloveful.com/Erasing Borders/PAL-MeniasTony.jpg", "mobile": "/Website beloveful.com/Erasing Borders/PAL-MeniasTony.jpg" },
+      { "desktop": "/Website beloveful.com/Erasing Borders/FRA-DSCF0103.jpg", "mobile": "/Website beloveful.com/Erasing Borders/FRA-DSCF0103.jpg" },
+      { "desktop": "/Website beloveful.com/Erasing Borders/Israel-MeniasTony.jpg", "mobile": "/Website beloveful.com/Erasing Borders/Israel-MeniasTony.jpg" },
+      { "desktop": "/Website beloveful.com/Erasing Borders/MOR-IMG.jpg", "mobile": "/Website beloveful.com/Erasing Borders/MOR-IMG.jpg" },
+      { "desktop": "/Website beloveful.com/Erasing Borders/Greece-DSCF3935_copy.jpg", "mobile": "/Website beloveful.com/Erasing Borders/Greece-DSCF3935_copy.jpg" },
+      { "desktop": "/Website beloveful.com/Erasing Borders/PHI-1662.jpg", "mobile": "/Website beloveful.com/Erasing Borders/PHI-1662.jpg" },
+      { "desktop": "/Website beloveful.com/Erasing Borders/CHI-Beloveful6.jpg", "mobile": "/Website beloveful.com/Erasing Borders/CHI-Beloveful6.jpg" },
+      { "desktop": "/Website beloveful.com/Erasing Borders/JOR-4461.jpg", "mobile": "/Website beloveful.com/Erasing Borders/JOR-4461.jpg" },
+      { "desktop": "/Website beloveful.com/Erasing Borders/IND-MeniasTony.jpg", "mobile": "/Website beloveful.com/Erasing Borders/IND-MeniasTony.jpg" },
+      { "desktop": "/Website beloveful.com/Erasing Borders/JAP-3265.jpg", "mobile": "/Website beloveful.com/Erasing Borders/JAP-3265.jpg" }
     ]
   },
   {
@@ -1366,8 +1383,8 @@ function dedupeAcrossAlbums(albums: CountryAlbum[]): CountryAlbum[] {
   return albums.map(a => bySlug.get(a.slug) || a);
 }
 
-const CLEANED_ALBUMS: CountryAlbum[] = mergeAlbums(ALBUMS, GENERATED_ALBUMS ?? []).map(cleanAlbum);
-const MERGED_ALBUMS: CountryAlbum[] = dedupeAcrossAlbums(CLEANED_ALBUMS);
+const CLEANED_ALBUMS: CountryAlbum[] = [];
+const MERGED_ALBUMS: CountryAlbum[] = [];
 
 export const getAlbumsByRegion = (region: Region): CountryAlbum[] => {
   return MERGED_ALBUMS

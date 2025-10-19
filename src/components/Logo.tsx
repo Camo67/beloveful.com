@@ -5,9 +5,9 @@ interface LogoProps {
   className?: string;
 }
 
-// Original logo assets (Cloudinary) – do not stretch; keep intrinsic size
-const LOGO_BLACK = "https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620506/beloveful-logo-black_rwsx2j.png";
-const LOGO_WHITE = "https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620507/beloveful-logo-white_q5prnb.png";
+// Local logo assets from public directory
+const LOGO_BLACK = "/Website beloveful.com/Logo/Beloveful black transparent.png";
+const LOGO_WHITE = "/Website beloveful.com/Logo/belovefullogowhite.png";
 
 export function Logo({ variant = "auto", className = "" }: LogoProps) {
   if (variant === "auto") {

@@ -214,9 +214,9 @@ function ClientsPartnersGrid() {
             src={src}
             alt={`${clientName} logo`}
             className="
-              max-h-28 md:max-h-32 lg:max-h-36 max-w-full w-auto object-contain image-protected 
-              filter grayscale transition-all duration-300 transform
-              hover:grayscale-0 hover:scale-110 hover:[filter:grayscale(0%)_drop-shadow(0_0_15px_rgba(0,0,0,0.4))] dark:hover:[filter:grayscale(0%)_drop-shadow(0_0_15px_rgba(255,255,255,0.4))]
+              max-h-20 sm:max-h-24 md:max-h-32 lg:max-h-36 max-w-full w-auto object-contain image-protected 
+              md:filter md:grayscale transition-all duration-300 transform
+              md:hover:grayscale-0 md:hover:scale-105 md:hover:translate-y-[-4px] md:hover:[filter:grayscale(0%)_drop-shadow(0_4px_12px_rgba(0,0,0,0.25))] dark:md:hover:[filter:grayscale(0%)_drop-shadow(0_4px_12px_rgba(255,255,255,0.25))]
             "
             loading="lazy"
             draggable={false}
@@ -238,7 +238,7 @@ function ClientsPartnersGrid() {
         return (
           <div 
             key={i} 
-            className="relative flex items-center justify-center p-6 md:p-8 bg-gray-50 dark:bg-gray-800 rounded-lg group transition-colors duration-300 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer"
+            className="relative flex items-center justify-center p-4 md:p-6 group cursor-pointer"
             title={clientName}
           >
             {/* Desktop-only arrow indicator */}

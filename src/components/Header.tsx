@@ -16,12 +16,14 @@ export function Header({ variant, fullWidth = false }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
 
-  // Navigation order: Home, Workshops, About, Events, Contact
+  // Navigation order: Home, Travel Portfolio, Works, Workshop, Shop, About, Contact
   const navigationItems = [
     { name: "Home", path: "/" },
-    { name: "Workshops", path: "/workshops" },
+    { name: "Travel Portfolio", path: "/portfolio" },
+    { name: "Works", path: "/works" },
+    { name: "Workshop", path: "/workshops" },
+    { name: "Shop", path: "/print-shop" },
     { name: "About", path: "/about" },
-    { name: "Events", path: "/events" },
     { name: "Contact", path: "/contact" },
   ];
 
@@ -98,9 +100,14 @@ export function Header({ variant, fullWidth = false }: HeaderProps) {
     <>
       {/* Desktop Default Header */}
       <header className="hidden md:block sticky top-0 z-40 nav-bar px-6 py-3">
-        <div className={`${fullWidth ? "max-w-none w-full" : "max-w-screen-xl mx-auto"} flex items-center justify-center`}>
+        <div className={`${fullWidth ? "max-w-none w-full" : "max-w-screen-xl mx-auto"} flex items-center justify-between`}>
+          {/* Logo in top-left */}
+          <div className="flex-shrink-0">
+            <Logo variant="auto" />
+          </div>
+          
           {/* Centered navigation */}
-          <nav className="flex justify-center">
+          <nav className="flex justify-center flex-1">
             <ul className="flex items-center space-x-6">
               {navigationItems.map((link) => (
                 <li key={link.name}>
@@ -120,6 +127,11 @@ export function Header({ variant, fullWidth = false }: HeaderProps) {
               </li>
             </ul>
           </nav>
+          
+          {/* Social icons in top-right */}
+          <div className="flex-shrink-0">
+            <SocialIcons iconSize={18} variant="auto" />
+          </div>
         </div>
       </header>
 

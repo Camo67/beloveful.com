@@ -15,6 +15,10 @@ const CountryGallery = lazy(() => import("./pages/CountryGallery"));
 const About = lazy(() => import("./pages/About"));
 const Events = lazy(() => import("./pages/Events"));
 const Workshops = lazy(() => import("./pages/Workshops"));
+const WorkshopChicagoPrivate = lazy(() => import("./pages/WorkshopChicagoPrivate"));
+const WorkshopChicagoGroup = lazy(() => import("./pages/WorkshopChicagoGroup"));
+const WorkshopOnline = lazy(() => import("./pages/WorkshopOnline"));
+const Mentorship = lazy(() => import("./pages/Mentorship"));
 const PrintShop = lazy(() => import("./pages/PrintShop"));
 const SpecialEdition = lazy(() => import("./pages/SpecialEdition"));
 const OpenEdition = lazy(() => import("./pages/OpenEdition"));
@@ -55,6 +59,10 @@ const App = () => (
               <Route path="/about" element={<About />} />
               <Route path="/events" element={<Events />} />
               <Route path="/workshops" element={<Workshops />} />
+              <Route path="/workshop-chicago-private" element={<WorkshopChicagoPrivate />} />
+              <Route path="/workshop-chicago-group" element={<WorkshopChicagoGroup />} />
+              <Route path="/workshop-online" element={<WorkshopOnline />} />
+              <Route path="/mentorship" element={<Mentorship />} />
               <Route path="/faq" element={<FAQ />} />
               <Route path="/print-shop" element={<PrintShop />} />
               <Route path="/shop/special" element={<SpecialEdition />} />
