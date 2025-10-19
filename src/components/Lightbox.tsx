@@ -1,9 +1,10 @@
 import { useEffect } from "react";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import { SlideshowImage } from "@/lib/data";
-import { createProxiedImageUrl, getImageAltText, buildProxiedSrcSet } from "@/lib/images";
+import { getImageAltText } from "@/lib/images";
 import { useImageProtection } from "@/hooks/use-image-protection";
 import { Link } from "react-router-dom";
+import { CloudImage } from "@/components/CloudImage";
 
 interface LightboxProps {
   images: SlideshowImage[];
@@ -122,14 +123,13 @@ export function Lightbox({ images, currentIndex, onClose, onNavigate, country, g
 
         {/* Image */}
         <div className="relative max-w-full max-h-full protected-container">
-          <img
-            src={createProxiedImageUrl(currentImage.desktop)}
-            srcSet={buildProxiedSrcSet(currentImage.desktop)}
-            sizes="100vw"
+          <CloudImage
+            url={currentImage.desktop}
             alt={getImageAltText(currentImage.desktop, country)}
             className="max-w-full max-h-screen object-contain image-protected"
             draggable={false}
             decoding="async"
+            sizes="100vw"
             onContextMenu={(e) => {
               e.preventDefault();
               e.stopPropagation();
@@ -147,7 +147,7 @@ export function Lightbox({ images, currentIndex, onClose, onNavigate, country, g
               e.preventDefault();
             }}
             onTouchStart={(e) => {
-              if (e.touches.length > 1) {
+              if ((e as any).touches && (e as any).touches.length > 1) {
                 e.preventDefault();
               }
             }}

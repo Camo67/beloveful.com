@@ -22,6 +22,8 @@
     "dev:functions": "wrangler pages dev . --local --port=8787"
   },
   "dependencies": {
+    "@cloudinary/react": "^1.14.0",
+    "@cloudinary/url-gen": "^1.14.0",
     "@hookform/resolvers": "^3.10.0",
     "@radix-ui/react-accordion": "^1.2.11",
     "@radix-ui/react-alert-dialog": "^1.1.14",
