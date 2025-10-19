@@ -13,7 +13,7 @@ export function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
   const [shopOpen, setShopOpen] = useState(false);
   const [portfolioOpen, setPortfolioOpen] = useState(false);
   
-  // Order: Home, Portfolio, Shop, Workshops, About, Events, Contact
+  // Navigation order: Home, Workshops, About, Events, Contact
   const navigationLinks = [
     { name: "Home", path: "/" },
     { name: "Workshops", path: "/workshops" },
@@ -88,18 +88,18 @@ export function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
           {/* Navigation */}
           <nav className="flex-1 px-4 py-6">
             <ul className="space-y-6">
-              {/* Home first */}
-              <li>
-                <Link
-                  to={navigationLinks[0].path}
-                  className="text-xl text-black dark:text-white hover:underline hover:underline-offset-4 hover:decoration-white focus-visible:underline focus-visible:decoration-white transition-opacity duration-300"
-                  onClick={onClose}
-                >
-                  {navigationLinks[0].name}
-                </Link>
-              </li>
+              {navigationLinks.map((link) => (
+                <li key={link.name}>
+                  <Link
+                    to={link.path}
+                    className="text-xl text-black dark:text-white hover:underline hover:underline-offset-4 hover:decoration-white focus-visible:underline focus-visible:decoration-white transition-opacity duration-300"
+                    onClick={onClose}
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
               
-              {/* Portfolio second */}
               <li>
                 <button
                   onClick={() => setPortfolioOpen(!portfolioOpen)}
@@ -161,7 +161,6 @@ export function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
                 )}
               </li>
 
-              {/* Shop third */}
               <li>
                 <button
                   onClick={() => setShopOpen(!shopOpen)}
@@ -198,19 +197,6 @@ export function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
                   </ul>
                 )}
               </li>
-              
-              {/* Then the rest */}
-              {navigationLinks.slice(1).map((link) => (
-                <li key={link.name}>
-                  <Link
-                    to={link.path}
-                    className="text-xl text-black dark:text-white hover:underline hover:underline-offset-4 hover:decoration-white focus-visible:underline focus-visible:decoration-white transition-opacity duration-300"
-                    onClick={onClose}
-                  >
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
             </ul>
           </nav>
           

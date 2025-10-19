@@ -23,6 +23,7 @@ const Admin = lazy(() => import("./pages/Admin"));
 const Debug = lazy(() => import("./pages/Debug"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const FAQ = lazy(() => import("./pages/FAQ"));
+const WorldMap = lazy(() => import("./pages/WorldMap"));
 
 const queryClient = new QueryClient();
 
@@ -62,6 +63,7 @@ const App = () => (
               <Route path="/adminlogin" element={<Admin />} />
               <Route path="/admin/*" element={<Admin />} />
               <Route path="/debug" element={<Debug />} />
+              <Route path="/map" element={<WorldMap />} />
 
               {/* Pretty region and country URLs */}
               <Route path=":region" element={<RegionLanding />} />

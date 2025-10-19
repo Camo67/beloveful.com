@@ -44,13 +44,20 @@ export default function FooterStrip() {
         {/* Theme toggle next to newsletter */}
         <ThemeToggle />
 
-        {/* Privacy Policy - Center */}
-        <div className="flex-1 flex justify-center">
+        {/* Contact & Privacy - Center */}
+        <div className="flex-1 flex justify-center items-center gap-4">
+          <a 
+            href="/contact" 
+            className="text-xs text-neutral-500 dark:text-neutral-400 hover:text-neutral-700 dark:hover:text-neutral-200 transition-colors underline-offset-2 hover:underline"
+          >
+            Contact
+          </a>
+          <span className="text-xs text-neutral-400">•</span>
           <a 
             href="/faq#privacy" 
             className="text-xs text-neutral-500 dark:text-neutral-400 hover:text-neutral-700 dark:hover:text-neutral-200 transition-colors underline-offset-2 hover:underline"
           >
-            Privacy Policy
+            Privacy
           </a>
         </div>
 

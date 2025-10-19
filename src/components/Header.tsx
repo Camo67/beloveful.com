@@ -16,11 +16,9 @@ export function Header({ variant, fullWidth = false }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
 
-  // Navigation order requested: Home, Portfolio, Shop, Workshops, About, Events, Contact
-  const navigationPrimary = [
+  // Navigation order: Home, Workshops, About, Events, Contact
+  const navigationItems = [
     { name: "Home", path: "/" },
-  ];
-  const navigationSecondary = [
     { name: "Workshops", path: "/workshops" },
     { name: "About", path: "/about" },
     { name: "Events", path: "/events" },
@@ -48,8 +46,7 @@ export function Header({ variant, fullWidth = false }: HeaderProps) {
           {/* Left side navigation without background */}
           <nav className="fixed left-6 top-28 z-40 p-0">
             <ul className="space-y-3">
-              {/* Home first */}
-              {navigationPrimary.map((link) => (
+              {navigationItems.map((link) => (
                 <li key={link.name}>
                   <Link
                     to={link.path}
@@ -60,26 +57,12 @@ export function Header({ variant, fullWidth = false }: HeaderProps) {
                   </Link>
                 </li>
               ))}
-              {/* Portfolio second */}
               <li>
                 <PortfolioDropdown variant="white" />
               </li>
-              {/* Shop third */}
               <li>
                 <ShopDropdown variant="white" />
               </li>
-              {/* Then the rest */}
-              {navigationSecondary.map((link) => (
-                <li key={link.name}>
-                  <Link
-                    to={link.path}
-                    className="nav-link text-white font-bold hover:underline hover:underline-offset-4 hover:decoration-white text-lg"
-                    style={{ textShadow: '1px 1px 0 black' }}
-                  >
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
             </ul>
           </nav>
           
@@ -115,15 +98,11 @@ export function Header({ variant, fullWidth = false }: HeaderProps) {
     <>
       {/* Desktop Default Header */}
       <header className="hidden md:block sticky top-0 z-40 nav-bar px-6 py-3">
-        <div className={`${fullWidth ? "max-w-none w-full" : "max-w-screen-xl mx-auto"} flex items-center justify-between`}>
-          {/* Logo top-left */}
-          <Logo variant="auto" />
-          
+        <div className={`${fullWidth ? "max-w-none w-full" : "max-w-screen-xl mx-auto"} flex items-center justify-center`}>
           {/* Centered navigation */}
-          <nav className="flex-1 flex justify-center">
+          <nav className="flex justify-center">
             <ul className="flex items-center space-x-6">
-              {/* Home first */}
-              {navigationPrimary.map((link) => (
+              {navigationItems.map((link) => (
                 <li key={link.name}>
                   <Link
                     to={link.path}
@@ -133,32 +112,14 @@ export function Header({ variant, fullWidth = false }: HeaderProps) {
                   </Link>
                 </li>
               ))}
-              {/* Portfolio second */}
               <li>
                 <PortfolioDropdown />
               </li>
-              {/* Shop third */}
               <li>
                 <ShopDropdown />
               </li>
-              {/* Then the rest */}
-              {navigationSecondary.map((link) => (
-                <li key={link.name}>
-                  <Link
-                    to={link.path}
-                    className="nav-link text-black dark:text-white hover:opacity-70 transition-opacity text-lg"
-                  >
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
             </ul>
           </nav>
-          
-          {/* Top-right social icons */}
-          <div className="flex items-center gap-4">
-            <SocialIcons />
-          </div>
         </div>
       </header>
 
