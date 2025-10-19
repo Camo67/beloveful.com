@@ -66,7 +66,7 @@ export default function FooterStrip() {
             <Instagram size={20} />
           </a>
           <a 
-            href="https://www.facebook.com/tony.menias#" 
+            href="https://www.facebook.com/BelovefulPhotography" 
             target="_blank" 
             rel="noopener noreferrer"
             className="text-black dark:text-white hover:opacity-75 transition-opacity" 

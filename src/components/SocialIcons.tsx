@@ -22,7 +22,7 @@ export function SocialIcons({ className = "", iconSize = 20, variant = "auto" }:
     },
     {
       name: "Facebook", 
-      url: "https://www.facebook.com/tony.menias#",
+      url: "https://www.facebook.com/BelovefulPhotography",
       icon: Facebook,
       label: "Follow on Facebook"
     },

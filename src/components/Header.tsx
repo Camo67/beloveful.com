@@ -9,9 +9,10 @@ import { PortfolioDropdown } from "./PortfolioDropdown";
 
 interface HeaderProps {
   variant: "home" | "default";
+  fullWidth?: boolean; // allow full-width header container on desktop default variant
 }
 
-export function Header({ variant }: HeaderProps) {
+export function Header({ variant, fullWidth = false }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
 
@@ -114,7 +115,7 @@ export function Header({ variant }: HeaderProps) {
     <>
       {/* Desktop Default Header */}
       <header className="hidden md:block sticky top-0 z-40 nav-bar px-6 py-3">
-        <div className="max-w-screen-xl mx-auto flex items-center justify-between">
+        <div className={`${fullWidth ? "max-w-none w-full" : "max-w-screen-xl mx-auto"} flex items-center justify-between`}>
           {/* Logo top-left */}
           <Logo variant="auto" />
           
