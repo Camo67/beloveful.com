@@ -361,14 +361,19 @@
   /* Slideshow */
   .slideshow-container {
     @apply relative w-full h-screen overflow-hidden;
+    background: #000; /* Fallback color */
   }
   
   .slideshow-slide {
-    @apply absolute inset-0 w-full h-full opacity-0 transition-opacity duration-1000;
+    @apply absolute inset-0 w-full h-full;
+    opacity: 0;
+    transition: opacity 1500ms ease-in-out;
+    z-index: 1;
   }
   
   .slideshow-slide.active {
-    @apply opacity-100;
+    opacity: 1;
+    z-index: 2;
   }
   
   .slideshow-image {
