@@ -9,19 +9,11 @@ interface ApiResponse {
 }
 
 export function useErasingBorders() {
+  // Source disabled intentionally to prevent duplicate images; returns empty list.
   return useQuery<GalleryImage[]>({
     queryKey: ['erasing-borders'],
-    queryFn: async () => {
-      let res = await fetch('/api/collections/erasing-borders', { credentials: 'include' });
-      if (!res.ok) {
-        res = await fetch('https://www.beloveful.com/api/collections/erasing-borders');
-      }
-      if (!res.ok) throw new Error('Failed to load Erasing Borders images');
-      const data: ApiResponse = await res.json();
-      if (!data.success) throw new Error('API error');
-      return data.images;
-    },
-    staleTime: 5 * 60 * 1000,
-    retry: 1,
+    queryFn: async () => [],
+    staleTime: Infinity,
+    retry: false,
   });
 }

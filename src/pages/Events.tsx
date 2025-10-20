@@ -1,6 +1,7 @@
 import { Header } from "@/components/Header";
 import FooterStrip from "@/components/FooterStrip";
 import PageContainer from "@/components/PageContainer";
+import { Button } from "@/components/ui/button";
 
 interface Exhibition {
   title: string;
@@ -169,21 +170,56 @@ export default function Events() {
     }
   };
 
+  const heroImage = {
+    src: "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218570/Website%20beloveful.com/Erasing%20Borders/Tony_Menias_-_Two_Girls_in_Window_rgthwg.jpg",
+    alt: "Photography Events and Exhibitions"
+  };
+
+  const scrollToEvents = () => {
+    const element = document.getElementById('events-section');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <div className="min-h-screen">
       <Header variant="default" />
-      
-      <PageContainer className="max-w-4xl">
-        <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-light mb-8 text-black dark:text-white">Events</h1>
-          <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-            Exhibitions and art fairs showcasing photography that captures the beauty and rhythm of life across cultures and continents.
-          </p>
+
+      {/* Hero Section */}
+      <section className="relative h-screen overflow-hidden">
+        <img
+          src={heroImage.src}
+          alt={heroImage.alt}
+          className="w-full h-full object-cover"
+          draggable={false}
+          onContextMenu={(e) => e.preventDefault()}
+        />
+        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="text-center text-white px-6 max-w-4xl">
+            <h1 className="text-5xl md:text-7xl font-bold mb-8 tracking-tight">
+              Events
+            </h1>
+            <p className="text-xl md:text-2xl opacity-95 leading-relaxed mb-12">
+              Keep up with my latest exhibitions, art fairs, talks and photowalks. This calendar is where you can see what's coming next, revisit where I've been, and join me somewhere along the journey. Each event is an open invitation to connect, create, and enjoy.
+            </p>
+            <Button 
+              onClick={scrollToEvents}
+              size="lg"
+              className="text-lg px-8 py-4 bg-white text-black hover:bg-gray-100"
+            >
+              View Events →
+            </Button>
+          </div>
         </div>
+      </section>
+      
+      <PageContainer className="max-w-4xl" id="events-section">
 
         {/* Upcoming Exhibitions */}
         {upcomingExhibitions.length > 0 && (
-          <div className="mb-16">
+          <div className="mb-16 pt-20">
             <h2 className="text-2xl md:text-3xl font-light mb-8 text-center text-black dark:text-white">
               Upcoming Exhibitions
             </h2>
@@ -222,7 +258,7 @@ export default function Events() {
         )}
 
         {/* All Exhibitions by Year */}
-        <div>
+        <div className={upcomingExhibitions.length === 0 ? 'pt-20' : ''}>
           <h2 className="text-2xl md:text-3xl font-light mb-8 text-center text-black dark:text-white">
             Exhibition History
           </h2>

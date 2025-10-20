@@ -7,61 +7,120 @@ import { createProxiedImageUrl } from "@/lib/images";
 import { useNavigate } from "react-router-dom";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 
-// Curated selection of images for Open Edition
+// Open Edition 5x7 prints from local directory
 const OPEN_EDITION_IMAGES: SlideshowImage[] = [
-  // Egypt - Pyramids and desert scenes
-  { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621040/EGY-68_y6bkd2.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621040/EGY-68_y6bkd2.jpg' },
-  { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621037/EGY-565-Website-3_ojuwmi.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621037/EGY-565-Website-3_ojuwmi.jpg' },
-  { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620954/EGY-61_nxpg46.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620954/EGY-61_nxpg46.jpg' },
-
-  // Hong Kong - Urban landscapes
-  { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620680/HK-Unexpected_perspective-6919_zzi74r.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620680/HK-Unexpected_perspective-6919_zzi74r.jpg' },
-  { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620678/HK-Pastel_Playground_3-6617_ayxssd.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620678/HK-Pastel_Playground_3-6617_ayxssd.jpg' },
-  { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620676/_DSF6933_b9ihxi.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620676/_DSF6933_b9ihxi.jpg' },
-
-  // Japan - Traditional and modern
-  { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620805/JAP-03-17-_DSF2819_awss97.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620805/JAP-03-17-_DSF2819_awss97.jpg' },
-  { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620804/JAP-3636-03-24-17_m2s1dz.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620804/JAP-3636-03-24-17_m2s1dz.jpg' },
-  { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620801/WanderingPaths_x2mcir.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620801/WanderingPaths_x2mcir.jpg' },
-
-  // Myanmar - Cultural and landscape
-  { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620829/MYA-9925-04-25-17_edkog3.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620829/MYA-9925-04-25-17_edkog3.jpg' },
-  { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620827/MYA-Morning_Catch_gddpsa.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620827/MYA-Morning_Catch_gddpsa.jpg' },
-  { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620824/Serendipity_wxoipu.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620824/Serendipity_wxoipu.jpg' },
-
-  // India - Vibrant culture
-  { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620711/MadameJodhpur_kxinxc.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620711/MadameJodhpur_kxinxc.jpg' },
-  { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620710/DSCF9689-Website-2_pkowsx.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620710/DSCF9689-Website-2_pkowsx.jpg' },
-  { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620702/INDTAJ-_eoyvuq.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620702/INDTAJ-_eoyvuq.jpg' },
-
-  // Jordan - Desert landscapes
-  { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620598/JOR-10-19-DSCF4604_rv8ibh.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620598/JOR-10-19-DSCF4604_rv8ibh.jpg' },
-  { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620597/JOR-10-19-DSCF4602_vkmhxu.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620597/JOR-10-19-DSCF4602_vkmhxu.jpg' },
-
-  // Argentina - Patagonia
-  { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620954/_DSF6993_copy_ez4ele.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620954/_DSF6993_copy_ez4ele.jpg' },
-  { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620953/ARG-_DSF6915_x7lhsa.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620953/ARG-_DSF6915_x7lhsa.jpg' },
-
-  // Italy - Architecture and landscapes
-  { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395887/ITA-06-19-DSCF7678_fx2ick.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395887/ITA-06-19-DSCF7678_fx2ick.jpg' },
-  { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395880/ITA-06-19-DSCF6993_iebkie.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395880/ITA-06-19-DSCF6993_iebkie.jpg' },
-  { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395877/ITA-06-19-DSCF5753_jtqvpi.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395877/ITA-06-19-DSCF5753_jtqvpi.jpg' },
-
-  // Philippines - Tropical paradise
-  { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620861/DSCF1066_dlp2l5.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620861/DSCF1066_dlp2l5.jpg' },
-  { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620860/DSCF0146_i2balz.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620860/DSCF0146_i2balz.jpg' },
-
-  // Vietnam - Street life and culture
-  { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620878/VIET-04-17-DSCF9132_xehdbe.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620878/VIET-04-17-DSCF9132_xehdbe.jpg' },
-  { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620878/VIET-Chaos_dklvgp.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620878/VIET-Chaos_dklvgp.jpg' },
-
-  // Thailand - Temples and culture
-  { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620843/THAI-12-19-DSCF2334_jk2cwl.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620843/THAI-12-19-DSCF2334_jk2cwl.jpg' },
-  { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620842/THAI-12-19-DSCF2314_fv0p7m.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620842/THAI-12-19-DSCF2314_fv0p7m.jpg' },
-
-  // Nepal - Mountains
-  { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620832/NEP-8794_gv7u6z.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620832/NEP-8794_gv7u6z.jpg' },
-  { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620828/NEP-Silent_Stare_zde6db.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620828/NEP-Silent_Stare_zde6db.jpg' },
+  {
+    desktop: "/Website beloveful.com/Open Edition size 5x7/Open Edition 5x7/5x7-Caretaker.jpg",
+    mobile: "/Website beloveful.com/Open Edition size 5x7/Open Edition 5x7/5x7-Caretaker.jpg"
+  },
+  {
+    desktop: "/Website beloveful.com/Open Edition size 5x7/Open Edition 5x7/5x7s-03.jpg",
+    mobile: "/Website beloveful.com/Open Edition size 5x7/Open Edition 5x7/5x7s-03.jpg"
+  },
+  {
+    desktop: "/Website beloveful.com/Open Edition size 5x7/Open Edition 5x7/5x7s-07.jpg",
+    mobile: "/Website beloveful.com/Open Edition size 5x7/Open Edition 5x7/5x7s-07.jpg"
+  },
+  {
+    desktop: "/Website beloveful.com/Open Edition size 5x7/Open Edition 5x7/5x7s-19.jpg",
+    mobile: "/Website beloveful.com/Open Edition size 5x7/Open Edition 5x7/5x7s-19.jpg"
+  },
+  {
+    desktop: "/Website beloveful.com/Open Edition size 5x7/Open Edition 5x7/5x7s-26.jpg",
+    mobile: "/Website beloveful.com/Open Edition size 5x7/Open Edition 5x7/5x7s-26.jpg"
+  },
+  {
+    desktop: "/Website beloveful.com/Open Edition size 5x7/Open Edition 5x7/5x7s-27.jpg",
+    mobile: "/Website beloveful.com/Open Edition size 5x7/Open Edition 5x7/5x7s-27.jpg"
+  },
+  {
+    desktop: "/Website beloveful.com/Open Edition size 5x7/Open Edition 5x7/5x7s-29.jpg",
+    mobile: "/Website beloveful.com/Open Edition size 5x7/Open Edition 5x7/5x7s-29.jpg"
+  },
+  {
+    desktop: "/Website beloveful.com/Open Edition size 5x7/Open Edition 5x7/5x7s-Ascension.jpg",
+    mobile: "/Website beloveful.com/Open Edition size 5x7/Open Edition 5x7/5x7s-Ascension.jpg"
+  },
+  {
+    desktop: "/Website beloveful.com/Open Edition size 5x7/Open Edition 5x7/5x7s-Family Meal.jpg",
+    mobile: "/Website beloveful.com/Open Edition size 5x7/Open Edition 5x7/5x7s-Family Meal.jpg"
+  },
+  {
+    desktop: "/Website beloveful.com/Open Edition size 5x7/Open Edition 5x7/5x7s-Hide N Seek.jpg",
+    mobile: "/Website beloveful.com/Open Edition size 5x7/Open Edition 5x7/5x7s-Hide N Seek.jpg"
+  },
+  {
+    desktop: "/Website beloveful.com/Open Edition size 5x7/Open Edition 5x7/5x7s-Into the Rabbit Hole.jpg",
+    mobile: "/Website beloveful.com/Open Edition size 5x7/Open Edition 5x7/5x7s-Into the Rabbit Hole.jpg"
+  },
+  {
+    desktop: "/Website beloveful.com/Open Edition size 5x7/Open Edition 5x7/5x7s Life_s a Highway.jpg",
+    mobile: "/Website beloveful.com/Open Edition size 5x7/Open Edition 5x7/5x7s Life_s a Highway.jpg"
+  },
+  {
+    desktop: "/Website beloveful.com/Open Edition size 5x7/Open Edition 5x7/5x7s-Long Day.jpg",
+    mobile: "/Website beloveful.com/Open Edition size 5x7/Open Edition 5x7/5x7s-Long Day.jpg"
+  },
+  {
+    desktop: "/Website beloveful.com/Open Edition size 5x7/Open Edition 5x7/5x7s-Mag Mile.jpg",
+    mobile: "/Website beloveful.com/Open Edition size 5x7/Open Edition 5x7/5x7s-Mag Mile.jpg"
+  },
+  {
+    desktop: "/Website beloveful.com/Open Edition size 5x7/Open Edition 5x7/5x7s-Serendipity.jpg",
+    mobile: "/Website beloveful.com/Open Edition size 5x7/Open Edition 5x7/5x7s-Serendipity.jpg"
+  },
+  {
+    desktop: "/Website beloveful.com/Open Edition size 5x7/Open Edition 5x7/5x7s-Shapes & Shadows.jpg",
+    mobile: "/Website beloveful.com/Open Edition size 5x7/Open Edition 5x7/5x7s-Shapes & Shadows.jpg"
+  },
+  {
+    desktop: "/Website beloveful.com/Open Edition size 5x7/Open Edition 5x7/5x7s-Textures.jpg",
+    mobile: "/Website beloveful.com/Open Edition size 5x7/Open Edition 5x7/5x7s-Textures.jpg"
+  },
+  {
+    desktop: "/Website beloveful.com/Open Edition size 5x7/Open Edition 5x7/5x7s-Tranquility.jpg",
+    mobile: "/Website beloveful.com/Open Edition size 5x7/Open Edition 5x7/5x7s-Tranquility.jpg"
+  },
+  {
+    desktop: "/Website beloveful.com/Open Edition size 5x7/Open Edition 5x7/5x7s-Ville de Lamour.jpg",
+    mobile: "/Website beloveful.com/Open Edition size 5x7/Open Edition 5x7/5x7s-Ville de Lamour.jpg"
+  },
+  {
+    desktop: "/Website beloveful.com/Open Edition size 5x7/Open Edition 5x7/Between The Lines 5x7.jpg",
+    mobile: "/Website beloveful.com/Open Edition size 5x7/Open Edition 5x7/Between The Lines 5x7.jpg"
+  },
+  {
+    desktop: "/Website beloveful.com/Open Edition size 5x7/Open Edition 5x7/NY Slice 5x7.jpg",
+    mobile: "/Website beloveful.com/Open Edition size 5x7/Open Edition 5x7/NY Slice 5x7.jpg"
+  },
+  {
+    desktop: "/Website beloveful.com/Open Edition size 5x7/Open Edition 5x7/Pressed 5x7.jpg",
+    mobile: "/Website beloveful.com/Open Edition size 5x7/Open Edition 5x7/Pressed 5x7.jpg"
+  },
+  {
+    desktop: "/Website beloveful.com/Open Edition size 5x7/Open Edition 5x7/She Waited 5x7.jpg",
+    mobile: "/Website beloveful.com/Open Edition size 5x7/Open Edition 5x7/She Waited 5x7.jpg"
+  },
+  {
+    desktop: "/Website beloveful.com/Open Edition size 5x7/Open Edition 5x7/Shy or Shame 5x7.jpg",
+    mobile: "/Website beloveful.com/Open Edition size 5x7/Open Edition 5x7/Shy or Shame 5x7.jpg"
+  },
+  {
+    desktop: "/Website beloveful.com/Open Edition size 5x7/Open Edition 5x7/snack time 5x7.jpg",
+    mobile: "/Website beloveful.com/Open Edition size 5x7/Open Edition 5x7/snack time 5x7.jpg"
+  },
+  {
+    desktop: "/Website beloveful.com/Open Edition size 5x7/Open Edition 5x7/Sun Maiden 5x7.jpg",
+    mobile: "/Website beloveful.com/Open Edition size 5x7/Open Edition 5x7/Sun Maiden 5x7.jpg"
+  },
+  {
+    desktop: "/Website beloveful.com/Open Edition size 5x7/Open Edition 5x7/Towel-Head 5x7.jpg",
+    mobile: "/Website beloveful.com/Open Edition size 5x7/Open Edition 5x7/Towel-Head 5x7.jpg"
+  },
+  {
+    desktop: "/Website beloveful.com/Open Edition size 5x7/Open Edition 5x7/Violet Canine 5x7.jpg",
+    mobile: "/Website beloveful.com/Open Edition size 5x7/Open Edition 5x7/Violet Canine 5x7.jpg"
+  }
 ];
 
 interface OpenEditionLightboxProps {
@@ -248,10 +307,29 @@ export default function OpenEdition() {
       <PageContainer>
         <div className="mb-12">
           <h1 className="text-3xl md:text-4xl font-light mb-4 text-black dark:text-white">Open Edition</h1>
-          <p className="text-neutral-600 dark:text-neutral-400 max-w-2xl">
+          <p className="text-neutral-600 dark:text-neutral-400 max-w-2xl mb-6">
             A carefully curated selection of travel photography prints available for purchase. 
             Each image captures a unique moment from my journeys around the world.
           </p>
+          
+          {/* Pricing Section */}
+          <div className="bg-neutral-50 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-lg p-6 max-w-2xl">
+            <h2 className="text-xl font-semibold mb-4 text-black dark:text-white">5x7 Print Pricing</h2>
+            <div className="space-y-3">
+              <div className="flex justify-between items-center">
+                <span className="text-neutral-700 dark:text-neutral-300">1 Print</span>
+                <span className="font-semibold text-black dark:text-white">$10</span>
+              </div>
+              <div className="flex justify-between items-center">
+                <span className="text-neutral-700 dark:text-neutral-300">4 Prints</span>
+                <span className="font-semibold text-black dark:text-white">$35 <span className="text-sm text-neutral-500 dark:text-neutral-400">(Save $5)</span></span>
+              </div>
+              <div className="flex justify-between items-center">
+                <span className="text-neutral-700 dark:text-neutral-300">8 Prints</span>
+                <span className="font-semibold text-black dark:text-white">$70 <span className="text-sm text-neutral-500 dark:text-neutral-400">(Save $10)</span></span>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div className="gallery-grid">

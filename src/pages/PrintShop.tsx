@@ -2,10 +2,9 @@ import { Header } from "@/components/Header";
 import FooterStrip from "@/components/FooterStrip";
 import PageContainer from "@/components/PageContainer";
 import { createProxiedImageUrl } from "@/lib/images";
-import shopData from "@/lib/printlab.json";
 
 export default function PrintShop() {
-  const products = (shopData as any)?.products?.filter((p: any) => p?.image) || [];
+  const products: any[] = [];
 
   return (
     <div className="min-h-screen">
@@ -18,7 +17,7 @@ export default function PrintShop() {
             Limited and open edition prints fulfilled by Print Innovation Lab. Click any image to purchase.
           </p>
           <p className="mt-2 text-xs text-neutral-500 dark:text-neutral-500">
-            Synced {new Date((shopData as any)?.lastUpdated || Date.now()).toLocaleDateString()} · {products.length} items
+            Synced {new Date().toLocaleDateString()} · {products.length} items
           </p>
         </div>
 

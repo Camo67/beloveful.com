@@ -1,0 +1,2 @@
+# SPA fallback - handled by worker.js
+# This file prevents Cloudflare Pages from auto-generating conflicting redirects
