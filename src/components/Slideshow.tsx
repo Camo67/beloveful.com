@@ -85,11 +85,6 @@ export function Slideshow() {
 
   return (
     <div className="slideshow-container homepage-slideshow no-screenshot" style={{"--slideshow-duration":"14s", backgroundColor: "#000000"} as any}>
-      {!firstImageLoaded && (
-        <div className="absolute inset-0 flex items-center justify-center bg-black z-50">
-          <div className="text-white text-lg">Loading...</div>
-        </div>
-      )}
       {images.map((slide, index) => (
         <div
           key={index}

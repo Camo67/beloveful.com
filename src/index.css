@@ -369,6 +369,17 @@
   body:has(.homepage-slideshow) {
     background-color: #000000 !important;
   }
+
+  /* Homepage-specific: remove any CSS filters and blurs from header/nav/dropdowns */
+  body:has(.homepage-slideshow) .nav-bar {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background-color: transparent !important;
+  }
+  body:has(.homepage-slideshow) .dropdown-content {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
   
   /* Slideshow */
   .slideshow-container {

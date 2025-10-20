@@ -516,5 +516,116 @@ export const CLOUDINARY_ALBUMS: CountryAlbum[] = [
         "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621053/ETH-03-14-IMG_2202_vn1mwt.jpg"
       }
     ]
+  },
+  {
+    "region": "Erasing Borders",
+    "country": "Erasing Borders",
+    "slug": "erasing-borders",
+    "images": [
+      {
+        "desktop": "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Erasing Borders/CHI-Beloveful6.jpg",
+        "mobile": "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Erasing Borders/CHI-Beloveful6.jpg"
+      },
+      {
+        "desktop": "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Erasing Borders/CHI-DSCF9471.jpg",
+        "mobile": "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Erasing Borders/CHI-DSCF9471.jpg"
+      },
+      {
+        "desktop": "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Erasing Borders/CHI-MeniasTony_12.jpg",
+        "mobile": "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Erasing Borders/CHI-MeniasTony_12.jpg"
+      },
+      {
+        "desktop": "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Erasing Borders/DSCF3088%20copy.jpg",
+        "mobile": "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Erasing Borders/DSCF3088%20copy.jpg"
+      },
+      {
+        "desktop": "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Erasing Borders/FRA-DSCF0103%20copy.jpg",
+        "mobile": "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Erasing Borders/FRA-DSCF0103%20copy.jpg"
+      },
+      {
+        "desktop": "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Erasing Borders/Greece-DSCF3935%20copy%203.jpg",
+        "mobile": "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Erasing Borders/Greece-DSCF3935%20copy%203.jpg"
+      },
+      {
+        "desktop": "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Erasing Borders/IND-MeniasTony_14.jpg",
+        "mobile": "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Erasing Borders/IND-MeniasTony_14.jpg"
+      },
+      {
+        "desktop": "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Erasing Borders/IND-MeniasTony_16.jpg",
+        "mobile": "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Erasing Borders/IND-MeniasTony_16.jpg"
+      },
+      {
+        "desktop": "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Erasing Borders/IND-MeniasTony_8.jpg",
+        "mobile": "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Erasing Borders/IND-MeniasTony_8.jpg"
+      },
+      {
+        "desktop": "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Erasing Borders/JAP-3265.jpg",
+        "mobile": "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Erasing Borders/JAP-3265.jpg"
+      },
+      {
+        "desktop": "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Erasing Borders/JOR-4461.jpg",
+        "mobile": "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Erasing Borders/JOR-4461.jpg"
+      },
+      {
+        "desktop": "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Erasing Borders/MOR-IMG_5248%20copy.jpg",
+        "mobile": "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Erasing Borders/MOR-IMG_5248%20copy.jpg"
+      },
+      {
+        "desktop": "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Erasing Borders/MOR-IMG_5277.jpg",
+        "mobile": "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Erasing Borders/MOR-IMG_5277.jpg"
+      },
+      {
+        "desktop": "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Erasing Borders/MYA-DSCF0783%20copy.jpg",
+        "mobile": "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Erasing Borders/MYA-DSCF0783%20copy.jpg"
+      },
+      {
+        "desktop": "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Erasing Borders/MYA-DSCF9634%20copy.jpg",
+        "mobile": "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Erasing Borders/MYA-DSCF9634%20copy.jpg"
+      },
+      {
+        "desktop": "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Erasing Borders/NatureVSNurture%20copy.jpg",
+        "mobile": "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Erasing Borders/NatureVSNurture%20copy.jpg"
+      },
+      {
+        "desktop": "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Erasing Borders/NEP-DSCF8737%20copy.jpg",
+        "mobile": "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Erasing Borders/NEP-DSCF8737%20copy.jpg"
+      },
+      {
+        "desktop": "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Erasing Borders/NEP-Silent%20Stare%20copy.jpg",
+        "mobile": "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Erasing Borders/NEP-Silent%20Stare%20copy.jpg"
+      },
+      {
+        "desktop": "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Erasing Borders/NyC-DSCF8922%20copy%202.jpg",
+        "mobile": "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Erasing Borders/NyC-DSCF8922%20copy%202.jpg"
+      },
+      {
+        "desktop": "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Erasing Borders/PAL-DSCF3675%20copy.jpg",
+        "mobile": "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Erasing Borders/PAL-DSCF3675%20copy.jpg"
+      },
+      {
+        "desktop": "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Erasing Borders/PAL-MeniasTony_13.jpg",
+        "mobile": "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Erasing Borders/PAL-MeniasTony_13.jpg"
+      },
+      {
+        "desktop": "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Erasing Borders/PHI-1662%20copy.jpg",
+        "mobile": "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Erasing Borders/PHI-1662%20copy.jpg"
+      },
+      {
+        "desktop": "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Erasing Borders/THAI-DSCF3890%20copy.jpg",
+        "mobile": "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Erasing Borders/THAI-DSCF3890%20copy.jpg"
+      },
+      {
+        "desktop": "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Erasing Borders/TonyMeniasAMansLegacy.jpg",
+        "mobile": "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Erasing Borders/TonyMeniasAMansLegacy.jpg"
+      },
+      {
+        "desktop": "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Erasing Borders/Tony%20Menias%20-%20Two%20Girls%20in%20Window.jpg",
+        "mobile": "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Erasing Borders/Tony%20Menias%20-%20Two%20Girls%20in%20Window.jpg"
+      },
+      {
+        "desktop": "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Erasing Borders/Vietnam-DSCF8153%20copy.jpg",
+        "mobile": "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Erasing Borders/Vietnam-DSCF8153%20copy.jpg"
+      }
+    ]
   }
 ];
