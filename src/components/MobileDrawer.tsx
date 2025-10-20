@@ -110,7 +110,7 @@ export function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
                   <ul className="mt-3 ml-4 space-y-3 max-h-64 overflow-y-auto" role="listbox" aria-label="Portfolio Countries">
                     <li>
                       <Link
-                        to="/africa"
+                        to="/portfolio"
                         className="text-lg text-gray-600 dark:text-gray-400 hover:underline hover:underline-offset-4 hover:decoration-white transition-opacity font-medium"
                         onClick={onClose}
                       >

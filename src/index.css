@@ -476,7 +476,7 @@
   }
   
   .mobile-drawer.closed {
-    @apply translate-x-full;
+    @apply translate-x-full pointer-events-none;
   }
   
   .mobile-drawer.open {
