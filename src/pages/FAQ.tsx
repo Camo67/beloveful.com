@@ -9,6 +9,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import type { ReactNode } from "react";
+import { Link } from "react-router-dom";
 
 export default function FAQ() {
   type QA = { q: string; a: ReactNode };
@@ -17,7 +18,7 @@ export default function FAQ() {
       q: "Can I purchase prints of your work?",
       a: (
         <>
-          Yes. If you see an image labeled “Would you like this as a print?”, click it to inquire. You’ll be taken to the contact page, and the image title will be passed silently—no need to remember it. You can always reach us directly via the <a href="/contact" className="underline underline-offset-4">contact page</a>.
+          Yes. If you see an image labeled “Would you like this as a print?”, click it to inquire. You’ll be taken to the contact page, and the image title will be passed silently—no need to remember it. You can always reach us directly via the <Link to="/contact" className="underline underline-offset-4">contact page</Link>.
         </>
       ),
     },
@@ -41,13 +42,13 @@ export default function FAQ() {
           </ul>
           <p>Each is designed to build confidence, not comparison.</p>
           <div className="pt-1">
-            <a
-              href="/workshops"
+            <Link
+              to="/workshops"
               className="underline underline-offset-4"
               aria-label="See mentorship and workshops"
             >
               See Mentorship & Workshops →
-            </a>
+            </Link>
           </div>
         </div>
       ),
@@ -208,20 +209,20 @@ export default function FAQ() {
 
             <h3 className="heading-3 mt-8 mb-4">Contact</h3>
             <p className="text-body">
-              Questions about privacy? <a href="/contact" className="underline underline-offset-4 text-accent-neutral hover:text-accent-warm transition-colors focus-enhanced">Contact us</a> and we'll be happy to help.
+              Questions about privacy? <Link to="/contact" className="underline underline-offset-4 text-accent-neutral hover:text-accent-warm transition-colors focus-enhanced">Contact us</Link> and we'll be happy to help.
             </p>
           </div>
         </section>
 
         <div className="mt-16 text-center">
-          <a
-            href="/contact"
+          <Link
+            to="/contact"
             className="btn-secondary inline-flex items-center gap-2 focus-enhanced"
             aria-label="Contact for more questions"
           >
             Still have a question? Contact us
             <span aria-hidden="true">→</span>
-          </a>
+          </Link>
         </div>
       </PageContainer>
       <FooterStrip />

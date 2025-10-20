@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import { Instagram, Facebook, ExternalLink } from "lucide-react";
 import ThemeToggle from "./ThemeToggle";
 
@@ -46,19 +46,19 @@ export default function FooterStrip() {
 
         {/* Contact & Privacy - Left aligned */}
         <div className="flex-1 flex justify-start items-center gap-4">
-          <a 
-            href="/contact" 
+          <Link 
+            to="/contact" 
             className="text-xs text-neutral-500 dark:text-neutral-400 hover:text-neutral-700 dark:hover:text-neutral-200 transition-colors underline-offset-2 hover:underline"
           >
             Contact
-          </a>
+          </Link>
           <span className="text-xs text-neutral-400">•</span>
-          <a 
-            href="/faq#privacy" 
+          <Link 
+            to={{ pathname: "/faq", hash: "#privacy" }} 
             className="text-xs text-neutral-500 dark:text-neutral-400 hover:text-neutral-700 dark:hover:text-neutral-200 transition-colors underline-offset-2 hover:underline"
           >
             Privacy
-          </a>
+          </Link>
         </div>
 
         <div className="flex items-center gap-3">

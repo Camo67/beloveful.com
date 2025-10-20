@@ -1,6 +1,2 @@
-# SPA fallback for client-side routing
-/*    /index.html   200
-
-# Notes:
-# - Ensures pretty links like /africa and /europe/france render the SPA
-# - Keep API/function routes above this line if needed
+# Redirects are handled by the Worker (src/worker.js) including SPA fallback.
+# Leaving this file without catch-all rules avoids infinite loop validation errors.

@@ -48,6 +48,24 @@ export interface Work {
   }[];
 }
 
+// Derived Projects (non-country works)
+export const PROJECTS: Work[] = (() => {
+  const projectsFromAlbums = (CLOUDINARY_ALBUMS || [])
+    .filter(a => a.slug === 'erasing-borders' || a.region === 'Erasing Borders')
+    .map(a => ({
+      title: a.country || 'Erasing Borders',
+      slug: a.slug,
+      description: 'A humanist photography project connecting experiences across borders.',
+      coverImage: a.images[0] || { desktop: '', mobile: '' },
+      images: a.images
+    }));
+  return projectsFromAlbums;
+})();
+
+export const getProjectBySlug = (slug: string): Work | undefined => {
+  return PROJECTS.find(p => p.slug === slug);
+};
+
 // Local slideshow images served from /public
 export const HOME_SLIDESHOW: SlideshowImage[] = [
   {

@@ -3,6 +3,7 @@ import FooterStrip from "@/components/FooterStrip";
 import { CLIENT_LOGOS_SOURCE, CLIENT_NAMES, getClientLinkForIndex } from "@/lib/clients";
 import { Button } from "@/components/ui/button";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 
 export default function About() {
   useEffect(() => {
@@ -176,7 +177,7 @@ export default function About() {
             </p>
             <div className="pt-4">
               <Button asChild>
-                <a href="/workshops" aria-label="Join the journey through workshops">Reach out if you'd like to join that journey.</a>
+                <Link to="/workshops" aria-label="Join the journey through workshops">Reach out if you'd like to join that journey.</Link>
               </Button>
             </div>
           </div>

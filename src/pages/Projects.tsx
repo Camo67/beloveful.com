@@ -64,7 +64,7 @@ export default function Projects() {
                   Roughly 8 billion human beings are roaming the earth this very moment. I aim to bring this connection into focus through the images in this collection, celebrating the shared humanity that transcends geographical and cultural boundaries.
                 </p>
                 <Link 
-                  to="/erasingborders/erasing-borders"
+                  to="/projects/erasing-borders"
                   className="inline-flex items-center px-6 py-3 bg-black dark:bg-white text-white dark:text-black font-medium rounded-lg hover:bg-gray-800 dark:hover:bg-gray-100 transition-colors"
                 >
                   View Project →

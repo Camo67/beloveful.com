@@ -30,7 +30,9 @@
     "deploy": "npm run build && wrangler deploy",
     "dev:worker": "wrangler dev --local",
     "dev:functions": "wrangler pages dev . --local --port=8787",
-    "cloudinary:generate": "ts-node scripts/generate-cloudinary-albums.ts"
+    "cloudinary:generate": "ts-node scripts/generate-cloudinary-albums.ts",
+    "cloudinary:urls": "node scripts/export-cloudinary-urls.mjs",
+    "portfolio:build": "node scripts/build-albums-from-cloudinary.mjs"
   },
   "dependencies": {
     "@cloudflare/kv-asset-handler": "^0.4.0",

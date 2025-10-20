@@ -1,6 +1,7 @@
 import { Header } from "@/components/Header";
 import FooterStrip from "@/components/FooterStrip";
 import PageContainer from "@/components/PageContainer";
+import { Link } from "react-router-dom";
 
 export default function Workshops() {
   const heroImage = {
@@ -115,10 +116,10 @@ export default function Workshops() {
 
           {/* Horizontal Overview Blocks */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-            {workshops.map((workshop) => (
-              <a
+{workshops.map((workshop) => (
+              <Link
                 key={workshop.id}
-                href={workshop.buttonHref}
+                to={workshop.buttonHref}
                 className="group block bg-white dark:bg-neutral-900 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:scale-[1.02]"
               >
                 {/* Small Image */}
@@ -148,7 +149,7 @@ export default function Workshops() {
                     </svg>
                   </div>
                 </div>
-              </a>
+              </Link>
             ))}
           </div>
         </section>
