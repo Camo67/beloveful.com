@@ -18,7 +18,7 @@ export function PortfolioDropdown({ variant = "auto" }: PortfolioDropdownProps) 
   const [isOpen, setIsOpen] = useState(false);
   const albums = getAllAlbumsSorted();
 
-  // Desired region display order (exclude "Erasing Borders" from grouped list)
+  // Desired region display order 
   const orderedRegions = useMemo(
     () => [
       "Africa",
@@ -28,6 +28,7 @@ export function PortfolioDropdown({ variant = "auto" }: PortfolioDropdownProps) 
       "North America",
       "Europe",
       "Oceania",
+      "Erasing Borders",
     ],
     []
   );
@@ -46,13 +47,6 @@ export function PortfolioDropdown({ variant = "auto" }: PortfolioDropdownProps) 
     return grouped;
   }, [albums]);
 
-  // Resolve a target for the special "Erasing Borders" link
-  const erasingBordersTarget = useMemo(() => {
-    const bySlug = albums.find(a => a.slug === "erasing-borders");
-    if (bySlug) return bySlug;
-    const firstInRegion = albums.find(a => a.region === "Erasing Borders");
-    return firstInRegion;
-  }, [albums]);
 
   const textColorClass = variant === "white" 
     ? "text-white font-bold hover:text-gray-200" 
@@ -108,20 +102,6 @@ export function PortfolioDropdown({ variant = "auto" }: PortfolioDropdownProps) 
           </div>
         ))}
 
-        {erasingBordersTarget && (
-          <>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem asChild>
-              <Link
-                to={`/${erasingBordersTarget.region.toLowerCase().replace(/[^a-z]/g, "")}/${erasingBordersTarget.slug}`}
-                className="w-full px-2 py-2 font-semibold hover:bg-muted focus-enhanced text-black dark:text-white"
-                onClick={() => setIsOpen(false)}
-              >
-                Erasing Borders
-              </Link>
-            </DropdownMenuItem>
-          </>
-        )}
       </DropdownMenuContent>
     </DropdownMenu>
   );

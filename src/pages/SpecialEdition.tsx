@@ -71,13 +71,17 @@ export default function SpecialEdition() {
                 className="group overflow-hidden rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-950 shadow-sm hover:shadow-md transition-shadow"
                 draggable={false}
               >
-                <div
-                  className="aspect-square bg-center bg-cover select-none"
-                  style={{ backgroundImage: `url("${proxied}")` }}
-                  aria-label="5x7 Open edition print"
-                  role="img"
-                  onContextMenu={(e) => e.preventDefault()}
-                />
+                <div className="aspect-square select-none">
+                  <img
+                    src={proxied}
+                    alt="5x7 Open edition print"
+                    className="w-full h-full object-contain image-protected"
+                    draggable={false}
+                    onContextMenu={(e) => e.preventDefault()}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
                 <div className="p-4 flex items-center justify-between">
                   <span className="text-xs text-gray-600 dark:text-gray-400">
                     5×7 Open Edition Print

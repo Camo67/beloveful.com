@@ -17,8 +17,9 @@ export function createProxiedImageUrl(originalUrl: string): string {
         const proxied = `${BASE_ASSET_URL}/images?src=${encodeURIComponent(originalUrl)}`;
         return proxied;
       }
-      // Otherwise, serve as-is
-      return originalUrl;
+      // Otherwise, safely encode the URL to handle spaces and special characters
+      // encodeURI preserves existing encodings and query delimiters
+      return encodeURI(originalUrl);
     } catch {
       // If URL parsing fails, fall through to return as-is
       return originalUrl;

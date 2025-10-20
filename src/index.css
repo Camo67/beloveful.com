@@ -368,12 +368,12 @@
     @apply absolute inset-0 w-full h-full;
     opacity: 0;
     transition: opacity 1500ms ease-in-out;
-    z-index: 1;
+    z-index: 0; /* keep slideshow beneath header/nav */
   }
   
   .slideshow-slide.active {
     opacity: 1;
-    z-index: 150;
+    z-index: 10; /* active slide above other slides but still below header/nav */
     position: relative;
   }
   

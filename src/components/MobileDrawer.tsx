@@ -24,7 +24,7 @@ export function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
   
   const albums = getAllAlbumsSorted();
   
-  // Desired region order and grouping (exclude Erasing Borders from grouped list)
+  // Desired region order and grouping
   const orderedRegions = useMemo(
     () => [
       "Africa",
@@ -34,6 +34,7 @@ export function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
       "North America",
       "Europe",
       "Oceania",
+      "Erasing Borders",
     ],
     []
   );
@@ -52,13 +53,6 @@ export function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
     return grouped;
   }, [albums]);
 
-  // Resolve a target for the special "Erasing Borders" link
-  const erasingBordersTarget = useMemo(() => {
-    const bySlug = albums.find(a => a.slug === "erasing-borders");
-    if (bySlug) return bySlug;
-    const firstInRegion = albums.find(a => a.region === "Erasing Borders");
-    return firstInRegion;
-  }, [albums]);
 
   return (
     <>
@@ -131,7 +125,7 @@ export function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
                           {(albumsByRegion[region] || []).map((album) => (
                             <li key={album.slug}>
                               <Link
-                                to={`/portfolio/${album.region.toLowerCase().replace(' ', '-')}/${album.slug}`}
+                                to={`/${album.region.toLowerCase().replace(/[^a-z]/g, "")}/${album.slug}`}
                                 className="text-base text-gray-600 dark:text-gray-400 hover:underline hover:underline-offset-4 hover:decoration-white transition-opacity"
                                 onClick={onClose}
                               >
@@ -142,21 +136,6 @@ export function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
                         </ul>
                       </li>
                     ))}
-
-                    {erasingBordersTarget && (
-                      <li>
-                        <div className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-2">
-                          —
-                        </div>
-                        <Link
-                          to={`/portfolio/${erasingBordersTarget.region.toLowerCase().replace(' ', '-')}/${erasingBordersTarget.slug}`}
-                          className="text-lg text-gray-600 dark:text-gray-400 hover:underline hover:underline-offset-4 hover:decoration-white transition-opacity font-medium"
-                          onClick={onClose}
-                        >
-                          Erasing Borders
-                        </Link>
-                      </li>
-                    )}
                   </ul>
                 )}
               </li>

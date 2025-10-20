@@ -122,7 +122,7 @@ export default function Portfolio() {
                           By Continent
                         </h3>
                         <ul className="grid gap-1.5">
-                          {REGIONS.filter(r => r !== "Erasing Borders").map((region) => (
+                        {REGIONS.map((region) => (
                             <li key={region}>
                               <NavigationMenuLink asChild>
                                 <button
