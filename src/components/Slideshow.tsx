@@ -3,17 +3,72 @@ import { createProxiedImageUrl, buildProxiedSrcSet } from "@/lib/images";
 import { useImageProtection } from "@/hooks/use-image-protection";
 import { useSlideshow } from "@/hooks/use-slideshow";
 import { HOME_SLIDESHOW } from "@/lib/data";
+import { raceImageSources } from "@/lib/dualImageLoader";
 
 export function Slideshow() {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const { data: slideshowImages, isLoading } = useSlideshow();
+  const [firstImageLoaded, setFirstImageLoaded] = useState(false);
+  const [fastestUrls, setFastestUrls] = useState<Map<number, string>>(new Map());
+  const { data: slideshowImages } = useSlideshow();
   
   // Enable comprehensive image protection
   const { protectElement } = useImageProtection();
 
-  // Don't show loading state - render immediately with fallback
+  // Always use data immediately - no loading state
   const images = slideshowImages || HOME_SLIDESHOW;
   
+  // Race R2 vs Cloudinary for first image immediately
+  useEffect(() => {
+    if (!images || images.length === 0) return;
+    
+    const firstImage = images[0];
+    if (firstImage.desktopCloudinary) {
+      console.log('🏁 Racing first image: R2 vs Cloudinary');
+      raceImageSources(
+        createProxiedImageUrl(firstImage.desktop),
+        firstImage.desktopCloudinary
+      ).then(result => {
+        setFastestUrls(prev => new Map(prev).set(0, result.url));
+        setFirstImageLoaded(true);
+      }).catch(() => {
+        // Fallback to R2 if race fails
+        setFastestUrls(prev => new Map(prev).set(0, createProxiedImageUrl(firstImage.desktop)));
+        setFirstImageLoaded(true);
+      });
+    } else {
+      // No Cloudinary fallback, just use R2
+      setFastestUrls(prev => new Map(prev).set(0, createProxiedImageUrl(firstImage.desktop)));
+    }
+  }, [images]);
+  
+  // Preload remaining images in background with dual-source racing
+  useEffect(() => {
+    if (!images || images.length === 0 || !firstImageLoaded) return;
+    
+    const preloadRemainingImages = async () => {
+      for (let i = 1; i < images.length; i++) {
+        const slide = images[i];
+        if (slide.desktopCloudinary) {
+          try {
+            const result = await raceImageSources(
+              createProxiedImageUrl(slide.desktop),
+              slide.desktopCloudinary
+            );
+            setFastestUrls(prev => new Map(prev).set(i, result.url));
+          } catch {
+            setFastestUrls(prev => new Map(prev).set(i, createProxiedImageUrl(slide.desktop)));
+          }
+        } else {
+          setFastestUrls(prev => new Map(prev).set(i, createProxiedImageUrl(slide.desktop)));
+        }
+      }
+    };
+    
+    // Start preloading after a short delay
+    setTimeout(preloadRemainingImages, 200);
+  }, [images, firstImageLoaded]);
+  
+  // Start slideshow immediately
   useEffect(() => {
     if (!images || images.length === 0) return;
     
@@ -29,7 +84,12 @@ export function Slideshow() {
   }
 
   return (
-    <div className="slideshow-container homepage-slideshow no-screenshot" style={{"--slideshow-duration":"14s"} as any}>
+    <div className="slideshow-container homepage-slideshow no-screenshot" style={{"--slideshow-duration":"14s", backgroundColor: "#000000"} as any}>
+      {!firstImageLoaded && (
+        <div className="absolute inset-0 flex items-center justify-center bg-black z-50">
+          <div className="text-white text-lg">Loading...</div>
+        </div>
+      )}
       {images.map((slide, index) => (
         <div
           key={index}
@@ -59,15 +119,31 @@ export function Slideshow() {
               sizes="100vw"
             />
             <img
-              src={createProxiedImageUrl(slide.desktop)}
+              src={fastestUrls.get(index) || createProxiedImageUrl(slide.desktop)}
               srcSet={buildProxiedSrcSet(slide.desktop)}
               sizes="100vw"
               alt={`BELOVEFUL Photography Slide ${index + 1}`}
               className="slideshow-image image-protected"
               draggable={false}
-              loading={index < 3 ? "eager" : "lazy"}
-              decoding="async"
-              fetchPriority={index === 0 ? ("high" as any) : index < 3 ? ("auto" as any) : ("low" as any)}
+              loading={index === 0 ? "eager" : "lazy"}
+              decoding={index === 0 ? "sync" : "async"}
+              fetchPriority={index === 0 ? "high" : "low"}
+              onLoad={() => { 
+                if (index === 0 && !firstImageLoaded) {
+                  console.log('✅ First image loaded successfully');
+                  setFirstImageLoaded(true); 
+                }
+              }}
+              onError={(e) => { 
+                if (index === 0) {
+                  console.error('❌ First image failed to load from:', (e.target as HTMLImageElement).src);
+                  // Try Cloudinary fallback on error
+                  if (slide.desktopCloudinary && (e.target as HTMLImageElement).src !== slide.desktopCloudinary) {
+                    console.log('🔄 Switching to Cloudinary fallback...');
+                    (e.target as HTMLImageElement).src = slide.desktopCloudinary;
+                  }
+                }
+              }}
               onContextMenu={(e) => {
                 e.preventDefault();
                 e.stopPropagation();
