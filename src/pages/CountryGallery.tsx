@@ -6,7 +6,6 @@ import FooterStrip from "@/components/FooterStrip";
 import PageContainer from "@/components/PageContainer";
 import { Gallery } from "@/components/Gallery";
 import { getAlbumBySlug, getAllAlbumsSorted } from "@/lib/data";
-import { useErasingBorders } from "@/hooks/use-erasing-borders";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export default function CountryGallery() {
@@ -14,7 +13,6 @@ export default function CountryGallery() {
   const countrySlug = params.country;
 
   const album = countrySlug ? getAlbumBySlug(countrySlug) : undefined;
-  const { data: erasingImages } = useErasingBorders();
 
   const albums = getAllAlbumsSorted().filter((a) => a.region !== "Logo");
   const countriesInRegion = useMemo(() => {
@@ -84,27 +82,14 @@ export default function CountryGallery() {
         <div className="text-center mb-10">
           <h1 className="text-4xl md:text-5xl font-light mb-4 text-black dark:text-white">{album.country}</h1>
           <p className="text-lg text-gray-600 dark:text-gray-300">
-            {album.region} • {(album.slug === 'erasing-borders' ? (erasingImages?.length || 0) : album.images.length)} photographs
+            {album.region} • {album.images.length} photographs
           </p>
         </div>
 
-        {/* Erasing Borders Hero Text */}
-        {album.slug === "erasing-borders" && (
-          <div className="max-w-4xl mx-auto mb-12 px-4">
-            <div className="text-center text-gray-800 dark:text-gray-200 leading-relaxed">
-              <p className="text-lg md:text-xl font-light mb-6">
-                Roughly 8 billion human beings are roaming the earth this very moment. Each one of us living varied experiences in different climates, cultures, and environments. Driven by insatiable curiosity & forever fascination with the world; I left being a physician to pursue my passion of travel & photography. Each trip expanded my mind, opened my heart, & I began seeing the world in a different light; becoming part of an ever smaller & more connected world.
-              </p>
-              <p className="text-lg md:text-xl font-light">
-                I aim to bring this connection into focus through the images in this collection. Even though we come from different nations & cultures, we all share one thing: The human condition. Our innate ability to empathize & feel each other's plights & joys is what unites us; Erasing the borders & restrictions of ego, time, & space.
-              </p>
-            </div>
-          </div>
-        )}
 
         {/* Landscape-first masonry gallery with micro-spacing and subtle hover */}
         <Gallery 
-          images={album.slug === 'erasing-borders' && (erasingImages && erasingImages.length ? erasingImages : album.images) || album.images} 
+          images={album.images} 
           country={album.country} 
           region={album.region}
           enablePrintCta

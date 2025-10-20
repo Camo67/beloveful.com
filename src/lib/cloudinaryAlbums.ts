@@ -17,6 +17,17 @@ export const CLOUDINARY_ALBUMS: CountryAlbum[] = [
     ]
   },
   {
+    "region": "Erasing Borders",
+    "country": "Erasing Borders",
+    "slug": "erasing-borders",
+    "images": [
+      {
+        "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218570/Website%20beloveful.com/Erasing%20Borders/Tony_Menias_-_Two_Girls_in_Window_rgthwg.jpg",
+        "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218570/Website%20beloveful.com/Erasing%20Borders/Tony_Menias_-_Two_Girls_in_Window_rgthwg.jpg"
+      }
+    ]
+  },
+  {
     "region": "Middle East",
     "country": "Jordan",
     "slug": "jordan",
@@ -166,5 +177,11 @@ export const CLOUDINARY_ALBUMS: CountryAlbum[] = [
         "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760976363/home/camo/new/beloveful.com/public/Website%20beloveful.com/Middle%20East/Jordan/JOR-5232103122.jpg"
       }
     ]
+  },
+  {
+    "region": "Erasing Borders",
+    "country": "Erasing Borders",
+    "slug": "erasing-borders",
+    "images": []
   }
 ];

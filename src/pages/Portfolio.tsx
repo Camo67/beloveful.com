@@ -122,7 +122,7 @@ export default function Portfolio() {
                           By Continent
                         </h3>
                         <ul className="grid gap-1.5">
-                        {REGIONS.map((region) => (
+                        {REGIONS.filter(region => region !== "Erasing Borders").map((region) => (
                             <li key={region}>
                               <NavigationMenuLink asChild>
                                 <button
@@ -154,7 +154,7 @@ export default function Portfolio() {
                                        [&::-webkit-scrollbar-thumb]:bg-muted-foreground/20
                                        [&::-webkit-scrollbar-thumb]:rounded-full
                                        [&::-webkit-scrollbar-thumb]:hover:bg-muted-foreground/30">
-                          {allSortedAlbums.slice(0, 20).map((album) => (
+                          {allSortedAlbums.filter(album => album.slug !== 'erasing-borders').slice(0, 20).map((album) => (
                             <li key={album.slug}>
                               <NavigationMenuLink asChild>
                                 <Link
@@ -225,7 +225,7 @@ export default function Portfolio() {
                 All
               </button>
 
-              {REGIONS.map((region) => (
+              {REGIONS.filter(region => region !== "Erasing Borders").map((region) => (
                 <button
                   key={region}
                   type="button"
@@ -272,30 +272,6 @@ export default function Portfolio() {
                   </div>
                 ))}
               </div>
-            ) : selectedRegion === "Erasing Borders" ? (
-              (() => {
-                const erasingBordersAlbum = allSortedAlbums.find((a) => a.slug === 'erasing-borders');
-                if (!erasingBordersAlbum) return null;
-                return (
-                  <>
-                    <div className="mb-12">
-                      <div className="text-center text-gray-800 dark:text-gray-200 leading-relaxed">
-                        <p className="text-lg md:text-xl font-light mb-6">
-                          Roughly 8 billion human beings are roaming the earth this very moment. Each one of us living varied experiences in different climates, cultures, and environments. Driven by insatiable curiosity & forever fascination with the world; I left being a physician to pursue my passion of travel & photography. Each trip expanded my mind, opened my heart, & I began seeing the world in a different light; becoming part of an ever smaller & more connected world.
-                        </p>
-                        <p className="text-lg md:text-xl font-light">
-                          I aim to bring this connection into focus through the images in this collection. Even though we come from different nations & cultures, we all share one thing: The human condition. Our innate ability to empathize & feel each other's plights & joys is what unites us; Erasing the borders & restrictions of ego, time, & space.
-                        </p>
-                      </div>
-                    </div>
-                    {ebLoading ? (
-                      <div className="text-center text-gray-600 dark:text-gray-300">Loading collection…</div>
-                    ) : (
-                      <Gallery images={(erasingImages && erasingImages.length) ? erasingImages : erasingBordersAlbum.images} country={erasingBordersAlbum.country} region={erasingBordersAlbum.region} enablePrintCta />
-                    )}
-                  </>
-                );
-              })()
             ) : (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 transition-opacity duration-500">
                 {filteredAlbums.map((album, index) => (

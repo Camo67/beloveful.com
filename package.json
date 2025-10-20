@@ -29,7 +29,8 @@
     "db:migrate:local": "wrangler d1 execute beloveful-cms --local --file=server/schema.sql",
     "deploy": "npm run build && wrangler deploy",
     "dev:worker": "wrangler dev --local",
-    "dev:functions": "wrangler pages dev . --local --port=8787"
+    "dev:functions": "wrangler pages dev . --local --port=8787",
+    "cloudinary:generate": "ts-node scripts/generate-cloudinary-albums.ts"
   },
   "dependencies": {
     "@cloudflare/kv-asset-handler": "^0.4.0",
