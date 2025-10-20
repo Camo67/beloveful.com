@@ -390,33 +390,14 @@
   .slideshow-slide {
     @apply absolute inset-0 w-full h-full;
     opacity: 0;
-    transition: opacity 2000ms cubic-bezier(0.4, 0.0, 0.2, 1);
-    z-index: 1;
-    background: #000000;
-    pointer-events: none;
+    transition: opacity 1500ms ease-in-out;
+    z-index: 0; /* keep slideshow beneath header/nav */
   }
   
   .slideshow-slide.active {
     opacity: 1;
-    z-index: 2;
-    transition: opacity 2000ms cubic-bezier(0.4, 0.0, 0.2, 1);
-    pointer-events: auto;
-  }
-  
-  /* First slide visible immediately - no white flash on load */
-  .slideshow-slide:first-child {
-    opacity: 1 !important;
-    z-index: 3;
-    transition: none !important;
-  }
-  
-  /* Ensure smooth crossfade by keeping previous slide visible during transition */
-  .slideshow-slide:not(.active) {
-    will-change: opacity;
-  }
-  
-  .slideshow-slide.active ~ .slideshow-slide {
-    z-index: 0;
+    z-index: 10; /* active slide above other slides but still below header/nav */
+    position: relative;
   }
   
   .slideshow-image {

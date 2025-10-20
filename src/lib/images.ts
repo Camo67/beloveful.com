@@ -17,7 +17,8 @@ export function createProxiedImageUrl(originalUrl: string): string {
         const proxied = `${BASE_ASSET_URL}/images?src=${encodeURIComponent(originalUrl)}`;
         return proxied;
       }
-      // Otherwise, return a safely encoded absolute URL (handles spaces and other unsafe chars)
+      // Otherwise, safely encode the URL to handle spaces and special characters
+      // encodeURI preserves existing encodings and query delimiters
       return encodeURI(originalUrl);
     } catch {
       // If URL parsing fails, fall through but ensure encoding of spaces at least
