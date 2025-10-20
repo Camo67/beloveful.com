@@ -121,25 +121,9 @@ export function Slideshow() {
               alt={`BELOVEFUL Photography Slide ${index + 1}`}
               className="slideshow-image image-protected"
               draggable={false}
-              loading={index === 0 ? "eager" : "lazy"}
-              decoding={index === 0 ? "sync" : "async"}
-              fetchPriority={index === 0 ? "high" : "low"}
-              onLoad={() => { 
-                if (index === 0 && !firstImageLoaded) {
-                  console.log('✅ First image loaded successfully');
-                  setFirstImageLoaded(true); 
-                }
-              }}
-              onError={(e) => { 
-                if (index === 0) {
-                  console.error('❌ First image failed to load from:', (e.target as HTMLImageElement).src);
-                  // Try Cloudinary fallback on error
-                  if (slide.desktopCloudinary && (e.target as HTMLImageElement).src !== slide.desktopCloudinary) {
-                    console.log('🔄 Switching to Cloudinary fallback...');
-                    (e.target as HTMLImageElement).src = slide.desktopCloudinary;
-                  }
-                }
-              }}
+              loading="eager"
+              decoding="async"
+              fetchPriority={index === 0 ? ("high" as any) : ("auto" as any)}
               onContextMenu={(e) => {
                 e.preventDefault();
                 e.stopPropagation();
