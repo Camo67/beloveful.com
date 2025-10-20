@@ -1,0 +1,225 @@
+{
+  "info": {
+    "name": "Cloudinary Image Management",
+    "description": "Upload and retrieve images from Cloudinary",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "cloud_name",
+      "value": "YOUR_CLOUD_NAME",
+      "type": "string"
+    },
+    {
+      "key": "api_key",
+      "value": "YOUR_API_KEY",
+      "type": "string"
+    },
+    {
+      "key": "api_secret",
+      "value": "YOUR_API_SECRET",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "1. Upload Image (Unsigned)",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "file",
+              "type": "file",
+              "src": "/path/to/your/image.jpg",
+              "description": "Select image file to upload"
+            },
+            {
+              "key": "upload_preset",
+              "value": "your_upload_preset",
+              "type": "text",
+              "description": "Upload preset name (create in Cloudinary dashboard)"
+            },
+            {
+              "key": "folder",
+              "value": "Website beloveful.com/Homepage/Desktop Landscape",
+              "type": "text"
+            },
+            {
+              "key": "public_id",
+              "value": "JOR-4604",
+              "type": "text",
+              "description": "Optional: custom image name"
+            }
+          ]
+        },
+        "url": {
+          "raw": "https://api.cloudinary.com/v1_1/{{cloud_name}}/image/upload",
+          "protocol": "https",
+          "host": ["api", "cloudinary", "com"],
+          "path": ["v1_1", "{{cloud_name}}", "image", "upload"]
+        },
+        "description": "Upload image without authentication (requires upload preset)"
+      }
+    },
+    {
+      "name": "2. Upload Image (Signed with API Key)",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "file",
+              "type": "file",
+              "src": "/path/to/your/image.jpg"
+            },
+            {
+              "key": "api_key",
+              "value": "{{api_key}}",
+              "type": "text"
+            },
+            {
+              "key": "timestamp",
+              "value": "{{$timestamp}}",
+              "type": "text"
+            },
+            {
+              "key": "signature",
+              "value": "CALCULATE_SIGNATURE",
+              "type": "text",
+              "description": "Generate using: SHA1(timestamp=XXX&api_secret=YOUR_SECRET)"
+            },
+            {
+              "key": "folder",
+              "value": "Website beloveful.com/Homepage",
+              "type": "text"
+            }
+          ]
+        },
+        "url": {
+          "raw": "https://api.cloudinary.com/v1_1/{{cloud_name}}/image/upload",
+          "protocol": "https",
+          "host": ["api", "cloudinary", "com"],
+          "path": ["v1_1", "{{cloud_name}}", "image", "upload"]
+        }
+      }
+    },
+    {
+      "name": "3. Get All Images from Folder",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://{{api_key}}:{{api_secret}}@api.cloudinary.com/v1_1/{{cloud_name}}/resources/image?type=upload&prefix=Website beloveful.com/Homepage&max_results=500",
+          "protocol": "https",
+          "auth": "{{api_key}}:{{api_secret}}",
+          "host": ["api", "cloudinary", "com"],
+          "path": ["v1_1", "{{cloud_name}}", "resources", "image"],
+          "query": [
+            {
+              "key": "type",
+              "value": "upload"
+            },
+            {
+              "key": "prefix",
+              "value": "Website beloveful.com/Homepage",
+              "description": "Filter by folder path"
+            },
+            {
+              "key": "max_results",
+              "value": "500",
+              "description": "Number of results (max 500)"
+            }
+          ]
+        },
+        "description": "Get all images from a specific folder with authentication"
+      }
+    },
+    {
+      "name": "4. Get All Images (Paginated)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://{{api_key}}:{{api_secret}}@api.cloudinary.com/v1_1/{{cloud_name}}/resources/image/upload?max_results=500&next_cursor=",
+          "protocol": "https",
+          "host": ["api", "cloudinary", "com"],
+          "path": ["v1_1", "{{cloud_name}}", "resources", "image", "upload"],
+          "query": [
+            {
+              "key": "max_results",
+              "value": "500"
+            },
+            {
+              "key": "next_cursor",
+              "value": "",
+              "description": "Use cursor from previous response for pagination"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "5. Search Images by Tag",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://{{api_key}}:{{api_secret}}@api.cloudinary.com/v1_1/{{cloud_name}}/resources/search?expression=folder:Website*&max_results=500",
+          "protocol": "https",
+          "host": ["api", "cloudinary", "com"],
+          "path": ["v1_1", "{{cloud_name}}", "resources", "search"],
+          "query": [
+            {
+              "key": "expression",
+              "value": "folder:Website*",
+              "description": "Search query"
+            },
+            {
+              "key": "max_results",
+              "value": "500"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "6. Bulk Upload (Multiple Images)",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "file",
+              "type": "file",
+              "src": "/path/to/image1.jpg"
+            },
+            {
+              "key": "upload_preset",
+              "value": "your_upload_preset",
+              "type": "text"
+            },
+            {
+              "key": "folder",
+              "value": "Website beloveful.com/Homepage/Desktop Landscape",
+              "type": "text"
+            }
+          ]
+        },
+        "url": {
+          "raw": "https://api.cloudinary.com/v1_1/{{cloud_name}}/image/upload",
+          "protocol": "https",
+          "host": ["api", "cloudinary", "com"],
+          "path": ["v1_1", "{{cloud_name}}", "image", "upload"]
+        },
+        "description": "Repeat this request for each image you want to upload"
+      }
+    }
+  ]
+}

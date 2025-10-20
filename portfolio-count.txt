@@ -1,0 +1,8 @@
+Africa: 245 images
+Asia: 152 images
+Middle East: 36 images
+South America: 22 images
+North America: 170 images
+Europe & Scandinavia: 207 images
+Oceania: 0 images
+Erasing Borders: 26 images

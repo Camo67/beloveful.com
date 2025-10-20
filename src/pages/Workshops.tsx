@@ -19,7 +19,7 @@ export default function Workshops() {
       shortDescription: "Slow down, observe, and rediscover the beauty in everyday life.",
       description: "This private workshop blends technique with intuition, helping you see deeper and create with intention. Explore Chicago's streets and capture moments that tell compelling stories while receiving personalized guidance.",
       buttonText: "Learn More",
-buttonHref: "/workshop-chicago-private"
+      buttonHref: "/workshop-chicago-private"
     },
     {
       id: "group-chicago",
@@ -31,7 +31,7 @@ buttonHref: "/workshop-chicago-private"
       shortDescription: "See Chicago differently alongside other photographers.",
       description: "This small-group workshop combines hands-on street shooting with guided instruction. Learn to notice, connect, and capture meaningful stories while refining your eye and creative voice in a collaborative setting.",
       buttonText: "Learn More",
-buttonHref: "/workshop-chicago-group"
+      buttonHref: "/workshop-chicago-group"
     },
     {
       id: "online",
@@ -43,7 +43,7 @@ buttonHref: "/workshop-chicago-group"
       shortDescription: "Learn to see the world differently from wherever you are.",
       description: "Through live sessions, creative assignments, and personalized feedback, this online workshop teaches you how to notice, compose, and tell visual stories that resonate. Build a consistent practice and strengthen your craft without leaving home.",
       buttonText: "Learn More",
-buttonHref: "/workshop-online"
+      buttonHref: "/workshop-online"
     },
     {
       id: "mentorship",
@@ -55,7 +55,7 @@ buttonHref: "/workshop-online"
       shortDescription: "Develop your vision and grow as a photographer with personalized guidance.",
       description: "This mentorship is for photographers at any stage who want to strengthen their craft, explore their creative voice, and develop a consistent practice. One-on-one sessions, personalized critiques, and ongoing guidance will help you refine your skills, overcome challenges, and expand your understanding of photography as both an art and a practice.",
       buttonText: "Learn More",
-buttonHref: "/mentorship"
+      buttonHref: "/mentorship"
     }
   ];
 
@@ -81,14 +81,14 @@ buttonHref: "/mentorship"
         />
         <div className="absolute inset-0 bg-black/40" />
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="text-center text-white px-6 max-w-4xl">
-            <h1 className="text-5xl md:text-7xl font-bold mb-8 tracking-tight">
+          <div className="text-center text-white px-4 sm:px-6 md:px-8 max-w-5xl">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 sm:mb-6 md:mb-8 tracking-tight">
               Discover the Art of Street Photography
             </h1>
-            <p className="text-xl md:text-2xl opacity-95 leading-relaxed mb-12">
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl opacity-95 leading-relaxed mb-6 sm:mb-8 md:mb-10">
               Street photography is more than capturing moments. It is about seeing the extraordinary in the everyday, noticing the rhythm of life, and telling stories through light, shadow, and human connection. Whether you are exploring Chicago's streets or observing the world from your own neighborhood, it invites you to slow down, look closer, and create images that speak.
             </p>
-            <p className="text-lg md:text-xl opacity-90 leading-relaxed mb-12">
+            <p className="hidden sm:block text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl opacity-90 leading-relaxed mb-6 sm:mb-8 md:mb-10">
               It is about openness to possibility: a heated argument between strangers, the balletic movement of pedestrians, or witty juxtapositions of seemingly unrelated subjects. It is about spontaneity—the choreography of an emotional or cerebral response, realized in the milliseconds it takes to capture the decisive moment.
             </p>
             <button 

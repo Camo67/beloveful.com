@@ -2,55 +2,91 @@ import { useState, useEffect } from "react";
 import { createProxiedImageUrl, buildProxiedSrcSet } from "@/lib/images";
 import { useImageProtection } from "@/hooks/use-image-protection";
 import { useSlideshow } from "@/hooks/use-slideshow";
+import { HOME_SLIDESHOW } from "@/lib/data";
+import { raceImageSources } from "@/lib/dualImageLoader";
 
 export function Slideshow() {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const { data: slideshowImages, isLoading } = useSlideshow();
+  const [firstImageLoaded, setFirstImageLoaded] = useState(false);
+  const [fastestUrls, setFastestUrls] = useState<Map<number, string>>(new Map());
+  const { data: slideshowImages } = useSlideshow();
   
   // Enable comprehensive image protection
   const { protectElement } = useImageProtection();
 
-  // Preload all slideshow images up front to avoid any blank frames
+  // Always use data immediately - no loading state
+  const images = slideshowImages || HOME_SLIDESHOW;
+  
+  // Race R2 vs Cloudinary for first image immediately
   useEffect(() => {
-    if (!slideshowImages || slideshowImages.length === 0) return;
-    const preloaders: HTMLImageElement[] = [];
-    slideshowImages.forEach((slide) => {
-      const d = new Image();
-      d.src = createProxiedImageUrl(slide.desktop);
-      preloaders.push(d);
-      const m = new Image();
-      m.src = createProxiedImageUrl(slide.mobile);
-      preloaders.push(m);
-    });
-    return () => {
-      // cleanup references
-      preloaders.splice(0, preloaders.length);
+    if (!images || images.length === 0) return;
+    
+    const firstImage = images[0];
+    if (firstImage.desktopCloudinary) {
+      console.log('🏁 Racing first image: R2 vs Cloudinary');
+      raceImageSources(
+        createProxiedImageUrl(firstImage.desktop),
+        firstImage.desktopCloudinary
+      ).then(result => {
+        setFastestUrls(prev => new Map(prev).set(0, result.url));
+        setFirstImageLoaded(true);
+      }).catch(() => {
+        // Fallback to R2 if race fails
+        setFastestUrls(prev => new Map(prev).set(0, createProxiedImageUrl(firstImage.desktop)));
+        setFirstImageLoaded(true);
+      });
+    } else {
+      // No Cloudinary fallback, just use R2
+      setFastestUrls(prev => new Map(prev).set(0, createProxiedImageUrl(firstImage.desktop)));
+      setFirstImageLoaded(true);
+    }
+  }, [images]);
+  
+  // Preload remaining images in background with dual-source racing
+  useEffect(() => {
+    if (!images || images.length === 0 || !firstImageLoaded) return;
+    
+    const preloadRemainingImages = async () => {
+      for (let i = 1; i < images.length; i++) {
+        const slide = images[i];
+        if (slide.desktopCloudinary) {
+          try {
+            const result = await raceImageSources(
+              createProxiedImageUrl(slide.desktop),
+              slide.desktopCloudinary
+            );
+            setFastestUrls(prev => new Map(prev).set(i, result.url));
+          } catch {
+            setFastestUrls(prev => new Map(prev).set(i, createProxiedImageUrl(slide.desktop)));
+          }
+        } else {
+          setFastestUrls(prev => new Map(prev).set(i, createProxiedImageUrl(slide.desktop)));
+        }
+      }
     };
-  }, [slideshowImages]);
-
+    
+    // Start preloading after a short delay
+    setTimeout(preloadRemainingImages, 200);
+  }, [images, firstImageLoaded]);
+  
+  // Start slideshow immediately
   useEffect(() => {
-    if (!slideshowImages || slideshowImages.length === 0) return;
+    if (!images || images.length === 0) return;
     
     const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slideshowImages.length);
+      setCurrentSlide((prev) => (prev + 1) % images.length);
     }, 8000); // 8 seconds per slide
 
     return () => clearInterval(interval);
-  }, [slideshowImages]);
-
-  if (isLoading || !slideshowImages) {
-    return (
-      <div className="slideshow-container no-screenshot">
-        <div className="slideshow-slide active">
-          <div className="w-full h-screen bg-gray-200 dark:bg-gray-800 animate-pulse" />
-        </div>
-      </div>
-    );
+  }, [images]);
+  
+  if (!images || images.length === 0) {
+    return null;
   }
 
   return (
-    <div className="slideshow-container no-screenshot" style={{"--slideshow-duration":"14s"} as any}>
-      {slideshowImages.map((slide, index) => (
+    <div className="slideshow-container homepage-slideshow no-screenshot" style={{"--slideshow-duration":"14s", backgroundColor: "#000000"} as any}>
+      {images.map((slide, index) => (
         <div
           key={index}
           className={`slideshow-slide protected-container ${index === currentSlide ? "active" : ""}`}
@@ -77,13 +113,9 @@ export function Slideshow() {
               media="(max-width: 768px)" 
               srcSet={buildProxiedSrcSet(slide.mobile)}
               sizes="100vw"
-              style={{
-                WebkitUserSelect: 'none',
-                userSelect: 'none'
-              }}
             />
             <img
-              src={createProxiedImageUrl(slide.desktop)}
+              src={fastestUrls.get(index) || createProxiedImageUrl(slide.desktop)}
               srcSet={buildProxiedSrcSet(slide.desktop)}
               sizes="100vw"
               alt={`BELOVEFUL Photography Slide ${index + 1}`}

@@ -25,11 +25,11 @@ export default function CountryGallery() {
   }, [albums, album?.region]);
 
   if (!countrySlug) {
-    return <Navigate to="/portfolio" replace />;
+    return <Navigate to="/africa" replace />;
   }
 
   if (!album) {
-    return <Navigate to="/portfolio" replace />;
+    return <Navigate to="/africa" replace />;
   }
 
   return (
@@ -41,9 +41,9 @@ export default function CountryGallery() {
         <div className="sticky top-[48px] md:top-[52px] z-30 -mx-4 px-4 md:mx-0 md:px-0 bg-white/95 dark:bg-neutral-950/95 backdrop-blur-md border-b border-border shadow-sm mb-6 transition-all duration-200">
           <Tabs value={album.region}>
             <TabsList className="minimalist-tabs-container">
-              {/* Link back to All on Portfolio */}
+              {/* Link back to All Regions */}
               <TabsTrigger asChild value="All" className="minimalist-tab-trigger">
-                <Link to="/portfolio">All</Link>
+                <Link to="/africa">All</Link>
               </TabsTrigger>
               {Array.from(new Set(albums.map((a) => a.region))).map((region) => (
                 <TabsTrigger key={region} asChild value={region} className="minimalist-tab-trigger">
@@ -72,11 +72,11 @@ export default function CountryGallery() {
         {/* Back link */}
         <div className="mb-6">
           <Link 
-            to="/portfolio"
+            to={`/${album.region.toLowerCase().replace(/[^a-z]/g, "")}`}
             className="inline-flex items-center text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors duration-300"
           >
             <ArrowLeft size={20} className="mr-2" />
-            Back to Portfolio
+            Back to {album.region}
           </Link>
         </div>
 

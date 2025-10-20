@@ -1,0 +1,91 @@
+import { GENERATED_ALBUMS, GENERATED_HOME_SLIDESHOW } from "./generatedAlbums";
+import { CLOUDINARY_ALBUMS } from "./cloudinaryAlbums";
+
+export type Region =
+  | "Africa"
+  | "Asia"
+  | "Middle East"
+  | "South America"
+  | "North America"
+  | "Europe"
+  | "Oceania"
+  | "Erasing Borders"
+
+/**
+ * Defines the structure for a single album, representing a country/location.
+ */
+export interface CountryAlbum {
+  region: Region
+  country: string
+  slug: string
+  images: {
+    desktop: string // URL for landscape image
+    mobile: string // URL for portrait image
+  }[];
+}
+
+export interface SlideshowImage {
+  desktop: string;
+  mobile: string;
+  desktopCloudinary?: string; // Cloudinary fallback for desktop
+  mobileCloudinary?: string; // Cloudinary fallback for mobile
+}
+
+/**
+ * Defines the structure for a featured work/project
+ */
+export interface Work {
+  title: string;
+  slug: string;
+  description?: string;
+  coverImage: {
+    desktop: string;
+    mobile: string;
+  };
+  images: {
+    desktop: string;
+    mobile: string;
+  }[];
+}
+
+// Slideshow images - using Cloudinary URLs directly
+export const HOME_SLIDESHOW: SlideshowImage[] = [
+  {
+    desktop: "https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620570/JOR-4604_weouv8.jpg",
+    mobile: "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760968696/home/camo/new/beloveful.com/public/Website%20beloveful.com/DSCF0103.jpg"
+  },
+  {
+    desktop: "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760968556/home/camo/new/beloveful.com/public/Website%20beloveful.com/CHI-770.jpg",
+    mobile: "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760968668/home/camo/new/beloveful.com/public/Website%20beloveful.com/CHI-65.jpg"
+  },
+  {
+    desktop: "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760968579/home/camo/new/beloveful.com/public/Website%20beloveful.com/Calm%20Before%20The%20Storm.jpg",
+    mobile: "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760968764/home/camo/new/beloveful.com/public/Website%20beloveful.com/Pastel%20Playground.jpg"
+  },
+  {
+    desktop: "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760968620/home/camo/new/beloveful.com/public/Website%20beloveful.com/Simpler%20Times.jpg",
+    mobile: "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760968735/home/camo/new/beloveful.com/public/Website%20beloveful.com/Into%20the%20Rabbit%20Hole.jpg"
+  },
+  {
+    desktop: "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760968651/home/camo/new/beloveful.com/public/Website%20beloveful.com/Tony%20Menias-Fly.jpg",
+    mobile: "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760968710/home/camo/new/beloveful.com/public/Website%20beloveful.com/Enlightened.jpg"
+  }
+];
+
+// Portfolio albums using Cloudinary images
+export const ALBUMS: CountryAlbum[] = CLOUDINARY_ALBUMS;
+
+// Helper functions
+export const getAllAlbumsSorted = (): CountryAlbum[] => {
+  return [...ALBUMS].sort((a, b) => a.country.localeCompare(b.country));
+};
+
+export const getAlbumsByRegion = (region: Region): CountryAlbum[] => {
+  return ALBUMS.filter((album): album is CountryAlbum => album.region === region);
+};
+
+export const getAlbumBySlug = (slug: string): CountryAlbum | undefined => {
+  return ALBUMS.find(album => album.slug === slug);
+};
+
+export const REGIONS: Region[] = ["Africa", "Asia", "Middle East", "South America", "North America", "Europe", "Oceania", "Erasing Borders"];

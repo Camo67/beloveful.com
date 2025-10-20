@@ -27,7 +27,10 @@ export default function RegionLanding() {
   }, [region]);
 
   if (!target) {
-    return <Navigate to="/portfolio" replace />;
+    return <Navigate to="/africa" replace />;
   }
-  return <Navigate to={`/portfolio?region=${encodeURIComponent(target)}`} replace />;
+  
+  // Instead of redirecting to /portfolio?region=X, we now need a region-specific landing page
+  // For now, redirect to /africa as the default
+  return <Navigate to="/africa" replace />;
 }

@@ -305,7 +305,7 @@ export default function OpenEdition() {
       <Header variant="default" />
       
       <PageContainer>
-        <div className="mb-12">
+        <div className="flex flex-col items-center justify-center mb-12 text-center">
           <h1 className="text-3xl md:text-4xl font-light mb-4 text-black dark:text-white">Open Edition</h1>
           <p className="text-neutral-600 dark:text-neutral-400 max-w-2xl mb-6">
             A carefully curated selection of travel photography prints available for purchase. 
@@ -313,8 +313,8 @@ export default function OpenEdition() {
           </p>
           
           {/* Pricing Section */}
-          <div className="bg-neutral-50 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-lg p-6 max-w-2xl">
-            <h2 className="text-xl font-semibold mb-4 text-black dark:text-white">5x7 Print Pricing</h2>
+          <div className="bg-neutral-50 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-lg p-6 w-full max-w-md">
+            <h2 className="text-xl font-semibold mb-4 text-black dark:text-white text-center">5x7 Print Pricing</h2>
             <div className="space-y-3">
               <div className="flex justify-between items-center">
                 <span className="text-neutral-700 dark:text-neutral-300">1 Print</span>
@@ -332,7 +332,7 @@ export default function OpenEdition() {
           </div>
         </div>
 
-        <div className="gallery-grid">
+        <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 w-full px-4">
           {OPEN_EDITION_IMAGES.map((image, index) => (
             <div key={index} className="group relative">
               {/* Image number - hidden on small screens, small on md+ */}
@@ -342,7 +342,7 @@ export default function OpenEdition() {
               
               <div
                 className="relative cursor-pointer bg-gray-100 dark:bg-neutral-800"
-                style={{ aspectRatio: '4/3' }}
+                style={{ aspectRatio: '5/7' }}
                 data-index={index}
                 ref={(el) => el && handleImageLoad(index, el)}
                 onClick={() => setLightboxIndex(index)}
@@ -364,15 +364,15 @@ export default function OpenEdition() {
               </div>
 
               {/* CTA Button */}
-              <div className="mt-4">
+              <div className="mt-3 text-center">
                 <button
                   onClick={(e) => {
                     e.stopPropagation();
                     handlePrintRequest(index);
                   }}
-                  className="w-full px-4 py-2 text-sm border border-neutral-300 dark:border-neutral-600 hover:bg-neutral-50 dark:hover:bg-neutral-800 transition-colors duration-200 rounded"
+                  className="w-full px-3 py-2 text-xs border border-neutral-300 dark:border-neutral-600 hover:bg-neutral-50 dark:hover:bg-neutral-800 transition-colors duration-200 rounded"
                 >
-                  Would you like this image as a print?
+                  Order this print →
                 </button>
               </div>
             </div>
