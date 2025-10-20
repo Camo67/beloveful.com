@@ -6,8 +6,6 @@ import PageContainer from "@/components/PageContainer";
 import { getAllAlbumsSorted, REGIONS, type Region } from "@/lib/data";
 import { useAlbums } from "@/hooks/use-albums";
 import { Gallery } from "@/components/Gallery";
-import { useErasingBorders } from "@/hooks/use-erasing-borders";
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { CloudImage } from "@/components/CloudImage";
 import {
   NavigationMenu,
@@ -20,7 +18,6 @@ import {
 
 export default function Portfolio() {
   const { data: allAlbums, isLoading } = useAlbums();
-  const { data: erasingImages, isLoading: ebLoading } = useErasingBorders();
   const [searchParams, setSearchParams] = useSearchParams();
   const navigate = useNavigate();
 
@@ -72,7 +69,7 @@ export default function Portfolio() {
       <PageContainer>
         <main id="main-content" role="main">
           <div className="text-center mb-6 md:mb-8">
-            <h1 className="heading-1 mb-4">Portfolio</h1>
+            <h1 className="heading-1 mb-4">Travel Portfolio</h1>
             <div className="sr-only" aria-live="polite">
               Portfolio contains {totalCountries} countries with {totalImages} total photographs
             </div>

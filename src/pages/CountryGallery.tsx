@@ -43,7 +43,7 @@ export default function CountryGallery() {
               <TabsTrigger asChild value="All" className="minimalist-tab-trigger">
                 <Link to="/portfolio">All</Link>
               </TabsTrigger>
-              {Array.from(new Set(albums.map((a) => a.region))).map((region) => (
+              {Array.from(new Set(albums.map((a) => a.region))).filter((region) => region !== "Erasing Borders").map((region) => (
                 <TabsTrigger key={region} asChild value={region} className="minimalist-tab-trigger">
                   <Link to={`/${region.toLowerCase().replace(/[^a-z]/g, "")}`}>{region}</Link>
                 </TabsTrigger>
