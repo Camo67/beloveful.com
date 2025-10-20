@@ -3,8 +3,9 @@ main = "src/worker.js"
 compatibility_date = "2025-09-01"
 workers_dev = false
 
-[site]
-bucket = "dist"
+[assets]
+directory = "dist"
+binding = "ASSETS"
 
 # Custom domain routes must be defined at the top-level (not inside d1_databases)
 routes = [

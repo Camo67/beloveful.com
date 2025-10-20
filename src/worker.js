@@ -131,10 +131,8 @@ async function handleMetadataSync(request, env) {
   }
 }
 
-import { getAssetFromKV } from '@cloudflare/kv-asset-handler';
-
 export default {
-  async fetch(request, env, ctx) {
+  async fetch(request, env) {
     const url = new URL(request.url);
     const pathname = url.pathname;
 
@@ -184,39 +182,20 @@ export default {
         },
       });
     }
-    
-    try {
-      // Try to get static assets using the KV asset handler
-      return await getAssetFromKV({
-        request,
-        waitUntil: ctx.waitUntil.bind(ctx),
-      }, {
-        ASSET_NAMESPACE: env.__STATIC_CONTENT,
-        ASSET_MANIFEST: env.__STATIC_CONTENT_MANIFEST,
-        mapRequestToAsset: req => {
-          const url = new URL(req.url);
-          // For SPA routing - if it's not a file, serve index.html
-          if (!url.pathname.includes('.') || url.pathname.endsWith('/')) {
-            return new Request(`${url.origin}/index.html`, req);
-          }
-          return req;
-        },
-      });
-    } catch (e) {
-      console.error('Asset fetch error:', e);
-      // If asset not found, serve index.html for SPA routing
-      try {
-        const indexRequest = new Request(`${url.origin}/index.html`, request);
-        return await getAssetFromKV({
-          request: indexRequest,
-          waitUntil: ctx.waitUntil.bind(ctx),
-        }, {
-          ASSET_NAMESPACE: env.__STATIC_CONTENT,
-          ASSET_MANIFEST: env.__STATIC_CONTENT_MANIFEST,
-        });
-      } catch (indexError) {
-        return new Response('Page not found', { status: 404 });
-      }
+
+    // Static asset handling via Wrangler [assets] binding
+    const assetResponse = await env.ASSETS.fetch(request);
+    if (assetResponse.status !== 404) {
+      return assetResponse;
     }
+
+    // SPA fallback: serve index.html when path has no extension
+    if (!pathname.includes('.') || pathname.endsWith('/')) {
+      const indexRequest = new Request(`${url.origin}/index.html`, request);
+      const indexResponse = await env.ASSETS.fetch(indexRequest);
+      if (indexResponse.status !== 404) return indexResponse;
+    }
+
+    return new Response('Not Found', { status: 404 });
   },
 };
