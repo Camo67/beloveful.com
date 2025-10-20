@@ -1,0 +1,125 @@
+{
+  "routes": [
+    {
+      "routePath": "/api/images/admin/slideshow/all",
+      "mountPath": "/api/images/admin/slideshow",
+      "method": "DELETE",
+      "module": [
+        "api/images/admin/slideshow/all.ts:onRequestDelete"
+      ]
+    },
+    {
+      "routePath": "/api/images/admin/slideshow/all",
+      "mountPath": "/api/images/admin/slideshow",
+      "method": "GET",
+      "module": [
+        "api/images/admin/slideshow/all.ts:onRequestGet"
+      ]
+    },
+    {
+      "routePath": "/api/images/admin/slideshow/all",
+      "mountPath": "/api/images/admin/slideshow",
+      "method": "POST",
+      "module": [
+        "api/images/admin/slideshow/all.ts:onRequestPost"
+      ]
+    },
+    {
+      "routePath": "/api/images/admin/slideshow/all",
+      "mountPath": "/api/images/admin/slideshow",
+      "method": "PUT",
+      "module": [
+        "api/images/admin/slideshow/all.ts:onRequestPut"
+      ]
+    },
+    {
+      "routePath": "/api/albums/admin/all",
+      "mountPath": "/api/albums/admin",
+      "method": "GET",
+      "module": [
+        "api/albums/admin/all.ts:onRequestGet"
+      ]
+    },
+    {
+      "routePath": "/api/albums/admin/all",
+      "mountPath": "/api/albums/admin",
+      "method": "POST",
+      "module": [
+        "api/albums/admin/all.ts:onRequestPost"
+      ]
+    },
+    {
+      "routePath": "/api/images/admin/all",
+      "mountPath": "/api/images/admin",
+      "method": "GET",
+      "module": [
+        "api/images/admin/all.ts:onRequestGet"
+      ]
+    },
+    {
+      "routePath": "/api/images/admin/all",
+      "mountPath": "/api/images/admin",
+      "method": "POST",
+      "module": [
+        "api/images/admin/all.ts:onRequestPost"
+      ]
+    },
+    {
+      "routePath": "/api/public/albums/:slug",
+      "mountPath": "/api/public/albums",
+      "method": "GET",
+      "module": [
+        "api/public/albums/[slug].ts:onRequestGet"
+      ]
+    },
+    {
+      "routePath": "/api/auth/change-password",
+      "mountPath": "/api/auth",
+      "method": "POST",
+      "module": [
+        "api/auth/change-password.ts:onRequestPost"
+      ]
+    },
+    {
+      "routePath": "/api/auth/login",
+      "mountPath": "/api/auth",
+      "method": "POST",
+      "module": [
+        "api/auth/login.ts:onRequestPost"
+      ]
+    },
+    {
+      "routePath": "/api/auth/verify",
+      "mountPath": "/api/auth",
+      "method": "POST",
+      "module": [
+        "api/auth/verify.ts:onRequestPost"
+      ]
+    },
+    {
+      "routePath": "/api/images/upload",
+      "mountPath": "/api/images",
+      "method": "POST",
+      "module": [
+        "api/images/upload.ts:onRequestPost"
+      ]
+    },
+    {
+      "routePath": "/api/public/albums",
+      "mountPath": "/api/public",
+      "method": "GET",
+      "module": [
+        "api/public/albums.ts:onRequestGet"
+      ]
+    },
+    {
+      "routePath": "/api/public/slideshow",
+      "mountPath": "/api/public",
+      "method": "GET",
+      "module": [
+        "api/public/slideshow.ts:onRequestGet"
+      ]
+    }
+  ],
+  "baseURL": "/"
+}
