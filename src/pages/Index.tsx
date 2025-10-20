@@ -21,9 +21,9 @@ const Index = () => {
   }, [theme, setTheme]);
 
   return (
-    <div className="relative min-h-screen">
+    <div className="relative min-h-screen" style={{ backgroundColor: 'transparent' }}>
       <Header variant="home" />
-      <main>
+      <main style={{ backgroundColor: 'transparent' }}>
         <Slideshow />
       </main>
     </div>

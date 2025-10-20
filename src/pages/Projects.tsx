@@ -5,7 +5,7 @@ import { Gallery } from "@/components/Gallery";
 import { useErasingBorders } from "@/hooks/use-erasing-borders";
 import { getAllAlbumsSorted } from "@/lib/data";
 
-export default function Works() {
+export default function Projects() {
   const { data: erasingImages, isLoading: ebLoading } = useErasingBorders();
   
   const allSortedAlbums = getAllAlbumsSorted();
@@ -20,7 +20,7 @@ export default function Works() {
       <PageContainer>
         <main id="main-content" role="main">
           <div className="text-center mb-6 md:mb-8">
-            <h1 className="heading-1 mb-4">Works</h1>
+            <h1 className="heading-1 mb-4">Projects</h1>
           </div>
 
           {/* Erasing Borders Section */}

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { createProxiedImageUrl, buildProxiedSrcSet } from "@/lib/images";
 import { useImageProtection } from "@/hooks/use-image-protection";
 import { useSlideshow } from "@/hooks/use-slideshow";
+import { HOME_SLIDESHOW } from "@/lib/data";
 
 export function Slideshow() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -10,29 +11,26 @@ export function Slideshow() {
   // Enable comprehensive image protection
   const { protectElement } = useImageProtection();
 
+  // Don't show loading state - render immediately with fallback
+  const images = slideshowImages || HOME_SLIDESHOW;
+  
   useEffect(() => {
-    if (!slideshowImages || slideshowImages.length === 0) return;
+    if (!images || images.length === 0) return;
     
     const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slideshowImages.length);
+      setCurrentSlide((prev) => (prev + 1) % images.length);
     }, 8000); // 8 seconds per slide
 
     return () => clearInterval(interval);
-  }, [slideshowImages]);
-
-  if (isLoading || !slideshowImages) {
-    return (
-      <div className="slideshow-container no-screenshot">
-        <div className="slideshow-slide active">
-          <div className="w-full h-screen bg-gray-200 dark:bg-gray-800 animate-pulse" />
-        </div>
-      </div>
-    );
+  }, [images]);
+  
+  if (!images || images.length === 0) {
+    return null;
   }
 
   return (
-    <div className="slideshow-container no-screenshot" style={{"--slideshow-duration":"14s"} as any}>
-      {slideshowImages.map((slide, index) => (
+    <div className="slideshow-container homepage-slideshow no-screenshot" style={{"--slideshow-duration":"14s"} as any}>
+      {images.map((slide, index) => (
         <div
           key={index}
           className={`slideshow-slide protected-container ${index === currentSlide ? "active" : ""}`}
@@ -59,10 +57,6 @@ export function Slideshow() {
               media="(max-width: 768px)" 
               srcSet={buildProxiedSrcSet(slide.mobile)}
               sizes="100vw"
-              style={{
-                WebkitUserSelect: 'none',
-                userSelect: 'none'
-              }}
             />
             <img
               src={createProxiedImageUrl(slide.desktop)}
@@ -71,9 +65,9 @@ export function Slideshow() {
               alt={`BELOVEFUL Photography Slide ${index + 1}`}
               className="slideshow-image image-protected"
               draggable={false}
-              loading={index === 0 ? "eager" : "lazy"}
+              loading={index < 3 ? "eager" : "lazy"}
               decoding="async"
-              fetchPriority={index === 0 ? ("high" as any) : ("low" as any)}
+              fetchPriority={index === 0 ? ("high" as any) : index < 3 ? ("auto" as any) : ("low" as any)}
               onContextMenu={(e) => {
                 e.preventDefault();
                 e.stopPropagation();

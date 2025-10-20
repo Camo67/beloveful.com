@@ -180,7 +180,7 @@ export default function Portfolio() {
                 <NavigationMenuItem>
                   <NavigationMenuLink asChild>
                     <Link
-                      to="/portfolio/works"
+                      to="/projects"
                       className="group inline-flex h-10 w-max items-center justify-center rounded-md 
                                bg-background px-6 py-2.5 text-sm md:text-base font-medium 
                                transition-all duration-200 shadow-sm
@@ -188,7 +188,7 @@ export default function Portfolio() {
                                focus:bg-accent focus:text-accent-foreground focus:outline-none focus:shadow-md
                                active:scale-95 touch-manipulation"
                     >
-                      Works
+                      Projects
                     </Link>
                   </NavigationMenuLink>
                 </NavigationMenuItem>

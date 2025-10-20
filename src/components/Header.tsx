@@ -16,11 +16,11 @@ export function Header({ variant, fullWidth = false }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
 
-  // Navigation order: Home, Travel Portfolio, Works, Workshop, Shop, About, Contact
+  // Navigation order: Home, Travel Portfolio, Projects, Workshop, Shop, About, Contact
   const navigationItems = [
     { name: "Home", path: "/" },
     { name: "Travel Portfolio", path: "/portfolio" },
-    { name: "Works", path: "/works" },
+    { name: "Projects", path: "/projects" },
     { name: "Workshop", path: "/workshops" },
     { name: "Shop", path: "/print-shop" },
     { name: "About", path: "/about" },

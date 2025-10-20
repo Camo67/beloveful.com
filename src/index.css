@@ -177,15 +177,16 @@
     @apply absolute -bottom-1 left-0 h-0.5 w-full bg-accent-neutral dark:bg-white rounded-full;
   }
   
-  /* Navigation bar styling with transparent background */
+  /* Navigation bar styling with soft tints for visibility */
   .nav-bar {
-    @apply bg-transparent dark:bg-transparent;
     @apply border-b-0;
-    background-color: transparent;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
   }
   
   .dark .nav-bar {
-    background-color: transparent;
+    background-color: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(8px);
   }
   
   /* Enhanced dropdown styling */
@@ -358,21 +359,33 @@
     }
   }
   
+  /* Homepage body override - white background for image visibility */
+  body:has(.homepage-slideshow) {
+    background-color: #ffffff !important;
+  }
+  
   /* Slideshow */
   .slideshow-container {
     @apply relative w-full h-screen overflow-hidden;
-    background: #000; /* Fallback color */
+    background: #ffffff;
   }
   
   .slideshow-slide {
     @apply absolute inset-0 w-full h-full;
     opacity: 0;
-    transition: opacity 1500ms ease-in-out;
+    transition: none;
     z-index: 1;
   }
   
   .slideshow-slide.active {
     opacity: 1;
+    z-index: 2;
+    transition: opacity 1500ms ease-in-out;
+  }
+  
+  /* First slide visible immediately - no transition */
+  .slideshow-slide:first-child {
+    opacity: 1 !important;
     z-index: 2;
   }
   
