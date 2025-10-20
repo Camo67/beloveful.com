@@ -214,6 +214,7 @@ function ClientsPartnersGrid() {
             src={src}
             alt={`${clientName} logo`}
             className="
+              relative z-10
               max-h-20 sm:max-h-24 md:max-h-32 lg:max-h-36 max-w-full w-auto object-contain image-protected 
               md:filter md:grayscale transition-all duration-300 transform
               md:hover:grayscale-0 md:hover:scale-105 md:hover:translate-y-[-4px] md:hover:[filter:grayscale(0%)_drop-shadow(0_4px_12px_rgba(0,0,0,0.25))] dark:md:hover:[filter:grayscale(0%)_drop-shadow(0_4px_12px_rgba(255,255,255,0.25))]
@@ -242,7 +243,7 @@ function ClientsPartnersGrid() {
             title={clientName}
           >
             {/* Desktop-only arrow indicator */}
-            <div className="absolute inset-0 hidden md:flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+            <div className="absolute inset-0 hidden md:flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-0">
               <div className="absolute top-2 right-2">
                 <svg 
                   width="16" 
@@ -268,7 +269,7 @@ function ClientsPartnersGrid() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={`${clientName} website`}
-                className="inline-flex"
+                className="inline-flex relative z-10"
               >
                 {content}
               </a>

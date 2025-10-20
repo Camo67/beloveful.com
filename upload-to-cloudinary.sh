@@ -1,132 +1,55 @@
 #!/bin/bash
 
-# Cloudinary Upload Script for Beloveful Photography Portfolio
-# This script uploads images to your Cloudinary account using the CLI
+# Upload local images to Cloudinary
+# Generated automatically - review before running
 
-# Color codes for output
-RED='\033[0;31m'
-GREEN='\033[0;32m'
-YELLOW='\033[1;33m'
-NC='\033[0m' # No Color
+echo "Uploading TonyMenias-3.jpg..."
+cld uploader upload "/home/camo/new/beloveful.com/public/TonyMenias-3.jpg" --public_id="tonymenias-3" --overwrite=false
+echo "Uploading TonyMenias-monkey.jpg..."
+cld uploader upload "/home/camo/new/beloveful.com/public/TonyMenias-monkey.jpg" --public_id="tonymenias-monkey" --overwrite=false
+echo "Uploading Tony Menias - Tuk Tuk Graveyard .jpg..."
+cld uploader upload "/home/camo/new/beloveful.com/public/Website beloveful.com/Africa/Egypt/Tony Menias - Tuk Tuk Graveyard .jpg" --public_id="tony menias - tuk tuk graveyard " --overwrite=false
+echo "Uploading CAR-12-24-DSCF9138.jpg..."
+cld uploader upload "/home/camo/new/beloveful.com/public/Website beloveful.com/Central America & Caribbean/Caribbean/CAR-12-24-DSCF9138.jpg" --public_id="car-12-24-dscf9138" --overwrite=false
+echo "Uploading CAR-12-24-DSCF9175.jpg..."
+cld uploader upload "/home/camo/new/beloveful.com/public/Website beloveful.com/Central America & Caribbean/Caribbean/CAR-12-24-DSCF9175.jpg" --public_id="car-12-24-dscf9175" --overwrite=false
+echo "Uploading _DSF8197.jpg..."
+cld uploader upload "/home/camo/new/beloveful.com/public/Website beloveful.com/Central America & Caribbean/Caribbean/_DSF8197.jpg" --public_id="_dsf8197" --overwrite=false
+echo "Uploading CUBA-01-23-DSCF0588.jpg..."
+cld uploader upload "/home/camo/new/beloveful.com/public/Website beloveful.com/Central America & Caribbean/Cuba/CUBA-01-23-DSCF0588.jpg" --public_id="cuba-01-23-dscf0588" --overwrite=false
+echo "Uploading MEX-09-20-DSCF5845.jpg..."
+cld uploader upload "/home/camo/new/beloveful.com/public/Website beloveful.com/Central America & Caribbean/Mexico/MEX-09-20-DSCF5845.jpg" --public_id="mex-09-20-dscf5845" --overwrite=false
+echo "Uploading MEX-10-20-DSCF1423.jpg..."
+cld uploader upload "/home/camo/new/beloveful.com/public/Website beloveful.com/Central America & Caribbean/Mexico/MEX-10-20-DSCF1423.jpg" --public_id="mex-10-20-dscf1423" --overwrite=false
+echo "Uploading MEX-56.jpg..."
+cld uploader upload "/home/camo/new/beloveful.com/public/Website beloveful.com/Central America & Caribbean/Mexico/MEX-56.jpg" --public_id="mex-56" --overwrite=false
+echo "Uploading 2019-02-05 10.22.37 pm.png..."
+cld uploader upload "/home/camo/new/beloveful.com/public/Website beloveful.com/Clients & Partners/2019-02-05 10.22.37 pm.png" --public_id="2019-02-05 10.22.37 pm" --overwrite=false
+echo "Uploading Time_Magazine_logo.svg.png..."
+cld uploader upload "/home/camo/new/beloveful.com/public/Website beloveful.com/clients/Time_Magazine_logo.svg.png" --public_id="time_magazine_logo.svg" --overwrite=false
+echo "Uploading natgeo.png..."
+cld uploader upload "/home/camo/new/beloveful.com/public/Website beloveful.com/Clients & Partners/natgeo.png" --public_id="natgeo" --overwrite=false
+echo "Uploading netflix.png..."
+cld uploader upload "/home/camo/new/beloveful.com/public/Website beloveful.com/Clients & Partners/netflix.png" --public_id="netflix" --overwrite=false
+echo "Uploading Greece-DSCF3935 copy 3.jpg..."
+cld uploader upload "/home/camo/new/beloveful.com/public/Website beloveful.com/Erasing Borders/Greece-DSCF3935 copy 3.jpg" --public_id="greece-dscf3935 copy 3" --overwrite=false
+echo "Uploading DSCF5990.jpg..."
+cld uploader upload "/home/camo/new/beloveful.com/public/Website beloveful.com/Europe & Scandinavia/Italy/DSCF5990.jpg" --public_id="dscf5990" --overwrite=false
+echo "Uploading DSCF7381.jpg..."
+cld uploader upload "/home/camo/new/beloveful.com/public/Website beloveful.com/Europe & Scandinavia/Italy/DSCF7381.jpg" --public_id="dscf7381" --overwrite=false
+echo "Uploading ITA-06-19-DSCF7323.jpg..."
+cld uploader upload "/home/camo/new/beloveful.com/public/Website beloveful.com/Europe & Scandinavia/Italy/ITA-06-19-DSCF7323.jpg" --public_id="ita-06-19-dscf7323" --overwrite=false
+echo "Uploading IMG_4610 copy.jpg copy 3.png..."
+cld uploader upload "/home/camo/new/beloveful.com/public/Website beloveful.com/Logo/IMG_4610 copy.jpg copy 3.png" --public_id="img_4610 copy.jpg copy 3" --overwrite=false
+echo "Uploading 5x7-Caretaker.jpg..."
+cld uploader upload "/home/camo/new/beloveful.com/public/Website beloveful.com/Open Edition size 5x7/Open Edition 5x7/5x7-Caretaker.jpg" --public_id="5x7-caretaker" --overwrite=false
+echo "Uploading 5x7s-Shapes & Shadows.jpg..."
+cld uploader upload "/home/camo/new/beloveful.com/public/Website beloveful.com/Open Edition size 5x7/Open Edition 5x7/5x7s-Shapes & Shadows.jpg" --public_id="5x7s-shapes & shadows" --overwrite=false
+echo "Uploading _DSF8547.jpg..."
+cld uploader upload "/home/camo/new/beloveful.com/public/Website beloveful.com/South America/Argentina/_DSF8547.jpg" --public_id="_dsf8547" --overwrite=false
+echo "Uploading Copy of CHI-2084-Website-2.jpg..."
+cld uploader upload "/home/camo/new/beloveful.com/public/workshop-photos/Copy of CHI-2084-Website-2.jpg" --public_id="copy of chi-2084-website-2" --overwrite=false
+echo "Uploading Copy of Tony_Menias 1.jpg..."
+cld uploader upload "/home/camo/new/beloveful.com/public/workshop-photos/Copy of Tony_Menias 1.jpg" --public_id="copy of tony_menias 1" --overwrite=false
 
-echo -e "${GREEN}🌄 Beloveful Cloudinary Upload Script${NC}"
-echo "======================================"
-
-# Check if environment variables are set
-if [[ -z "$CLOUDINARY_CLOUD_NAME" || -z "$CLOUDINARY_API_KEY" || -z "$CLOUDINARY_API_SECRET" ]]; then
-    echo -e "${RED}❌ Error: Cloudinary credentials not set!${NC}"
-    echo "Please set the following environment variables:"
-    echo "  export CLOUDINARY_CLOUD_NAME='dvwdoezk1'"
-    echo "  export CLOUDINARY_API_KEY='{{your_api_key}}'"
-    echo "  export CLOUDINARY_API_SECRET='{{your_api_secret}}'"
-    echo ""
-    echo "You can add these to your ~/.bashrc or ~/.profile for persistence"
-    exit 1
-fi
-
-# Function to upload a single image
-upload_image() {
-    local file_path="$1"
-    local public_id="$2"
-    
-    echo -e "${YELLOW}📤 Uploading: $file_path${NC}"
-    echo "   Public ID: $public_id"
-    
-    # Upload using the cloudinary CLI
-    node ~/.nvm/versions/node/v22.20.0/lib/node_modules/cloudinary-cli/cloudinary.js upload "$file_path" \
-        --cloud_name="$CLOUDINARY_CLOUD_NAME" \
-        --api_key="$CLOUDINARY_API_KEY" \
-        --api_secret="$CLOUDINARY_API_SECRET" \
-        --public_id="$public_id" \
-        --overwrite=true \
-        --resource_type=image
-    
-    if [ $? -eq 0 ]; then
-        echo -e "${GREEN}✅ Successfully uploaded: $public_id${NC}"
-        echo "   URL: https://res.cloudinary.com/$CLOUDINARY_CLOUD_NAME/image/upload/v$(date +%s)/${public_id}.jpg"
-        echo ""
-    else
-        echo -e "${RED}❌ Failed to upload: $file_path${NC}"
-        echo ""
-    fi
-}
-
-# Function to upload all images from a directory
-upload_directory() {
-    local directory="$1"
-    local country_prefix="$2"
-    
-    if [ ! -d "$directory" ]; then
-        echo -e "${RED}❌ Directory not found: $directory${NC}"
-        return 1
-    fi
-    
-    echo -e "${GREEN}📁 Uploading images from: $directory${NC}"
-    echo "   Using prefix: $country_prefix"
-    echo ""
-    
-    counter=1
-    for file in "$directory"/*.{jpg,jpeg,png,JPG,JPEG,PNG}; do
-        [ -f "$file" ] || continue
-        
-        # Generate public ID with country prefix and counter
-        public_id="${country_prefix}-$(printf "%03d" $counter)"
-        
-        upload_image "$file" "$public_id"
-        counter=$((counter + 1))
-    done
-}
-
-# Help function
-show_help() {
-    echo "Usage: $0 [command] [options]"
-    echo ""
-    echo "Commands:"
-    echo "  single <file_path> <public_id>     Upload a single image"
-    echo "  directory <dir_path> <prefix>      Upload all images from directory"
-    echo "  help                               Show this help message"
-    echo ""
-    echo "Examples:"
-    echo "  $0 single ./photo.jpg EGY-001"
-    echo "  $0 directory ./new_egypt_photos EGY"
-    echo ""
-    echo "Country prefixes used in your site:"
-    echo "  EGY - Egypt          CHI - China         HK - Hong Kong"
-    echo "  ETH - Ethiopia       IND - India         JOR - Jordan"
-    echo "  MYA - Myanmar        NAM - Namibia       PAL - Palestine"
-    echo "  THAI - Thailand      VIET - Vietnam"
-    echo ""
-    echo "Environment variables required:"
-    echo "  CLOUDINARY_CLOUD_NAME (should be: dvwdoezk1)"
-    echo "  CLOUDINARY_API_KEY"
-    echo "  CLOUDINARY_API_SECRET"
-}
-
-# Main script logic
-case "$1" in
-    "single")
-        if [ $# -ne 3 ]; then
-            echo -e "${RED}❌ Error: Wrong number of arguments for 'single' command${NC}"
-            echo "Usage: $0 single <file_path> <public_id>"
-            exit 1
-        fi
-        upload_image "$2" "$3"
-        ;;
-    "directory")
-        if [ $# -ne 3 ]; then
-            echo -e "${RED}❌ Error: Wrong number of arguments for 'directory' command${NC}"
-            echo "Usage: $0 directory <dir_path> <prefix>"
-            exit 1
-        fi
-        upload_directory "$2" "$3"
-        ;;
-    "help" | "--help" | "-h" | "")
-        show_help
-        ;;
-    *)
-        echo -e "${RED}❌ Error: Unknown command '$1'${NC}"
-        echo ""
-        show_help
-        exit 1
-        ;;
-esac
+echo "Upload complete!"

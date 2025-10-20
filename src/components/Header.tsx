@@ -6,6 +6,7 @@ import { SocialIcons } from "./SocialIcons";
 import { MobileDrawer } from "./MobileDrawer";
 import ShopDropdown from "./ShopDropdown";
 import { TravelPortfolioDropdown } from "./TravelPortfolioDropdown";
+import ProjectsDropdown from "./ProjectsDropdown";
 
 interface HeaderProps {
   variant: "home" | "default";
@@ -16,12 +17,11 @@ export function Header({ variant, fullWidth = false }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
 
-  // Navigation order: Home, Projects, Workshop, Shop, About, Contact
-  const navigationItems = [
+  // Top-level links (dropdowns rendered explicitly to control order)
+  const navigation = [
     { name: "Home", path: "/" },
     { name: "Projects", path: "/projects" },
-    { name: "Workshop", path: "/workshops" },
-    { name: "Shop", path: "/print-shop" },
+    { name: "Workshops", path: "/workshops" },
     { name: "About", path: "/about" },
     { name: "Contact", path: "/contact" },
   ];
@@ -47,22 +47,68 @@ export function Header({ variant, fullWidth = false }: HeaderProps) {
           {/* Left side navigation without background */}
           <nav className="fixed left-6 top-28 z-40 p-0">
             <ul className="space-y-3">
-              {navigationItems.map((link) => (
-                <li key={link.name}>
-                  <Link
-                    to={link.path}
-                    className="nav-link text-white font-bold hover:underline hover:underline-offset-4 hover:decoration-white text-lg"
-                    style={{ textShadow: '1px 1px 0 black' }}
-                  >
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
+              {/* Home */}
+              <li>
+                <Link
+                  to="/"
+                  className="nav-link text-white font-bold hover:underline hover:underline-offset-4 hover:decoration-white text-lg"
+                  style={{ textShadow: '1px 1px 0 black' }}
+                >
+                  Home
+                </Link>
+              </li>
+              {/* Travel Portfolio */}
               <li>
                 <TravelPortfolioDropdown variant="white" />
               </li>
+              {/* Projects */}
+              <li>
+                <ProjectsDropdown variant="white" />
+              </li>
+              {/* Workshops */}
+              {/* Workshops */}
+              <li>
+                <Link
+                  to="/workshops"
+                  className="nav-link text-white font-bold hover:underline hover:underline-offset-4 hover:decoration-white text-lg"
+                  style={{ textShadow: '1px 1px 0 black' }}
+                >
+                  Workshops
+                </Link>
+              </li>
+              {/* Events */}
+              <li>
+                <Link
+                  to="/events"
+                  className="nav-link text-white font-bold hover:underline hover:underline-offset-4 hover:decoration-white text-lg"
+                  style={{ textShadow: '1px 1px 0 black' }}
+                >
+                  Events
+                </Link>
+              </li>
+              {/* Shop */}
               <li>
                 <ShopDropdown variant="white" />
+              </li>
+              {/* About */}
+              <li>
+                <Link
+                  to="/about"
+                  className="nav-link text-white font-bold hover:underline hover:underline-offset-4 hover:decoration-white text-lg"
+                  style={{ textShadow: '1px 1px 0 black' }}
+                >
+                  About
+                </Link>
+              </li>
+              {/* Contact */}
+              <li>
+                <Link
+                  to="/contact"
+                  className="nav-link text-white font-bold hover:underline hover:underline-offset-4 hover:decoration-white text-lg"
+                  style={{ textShadow: '1px 1px 0 black' }}
+                >
+                  Contact
+                </Link>
               </li>
             </ul>
           </nav>
@@ -108,21 +154,38 @@ export function Header({ variant, fullWidth = false }: HeaderProps) {
           {/* Centered navigation */}
           <nav className="flex justify-center flex-1">
             <ul className="flex items-center space-x-6">
-              {navigationItems.map((link) => (
-                <li key={link.name}>
-                  <Link
-                    to={link.path}
-                    className="nav-link text-black dark:text-white hover:opacity-70 transition-opacity text-lg"
-                  >
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
+              {/* Home */}
+              <li>
+                <Link to="/" className="nav-link text-black dark:text-white hover:opacity-70 transition-opacity text-lg">Home</Link>
+              </li>
+              {/* Travel Portfolio */}
               <li>
                 <TravelPortfolioDropdown />
               </li>
+              {/* Projects */}
+              <li>
+                <ProjectsDropdown />
+              </li>
+              {/* Workshops (no dropdown) */}
+              {/* Workshops (no dropdown) */}
+              <li>
+                <Link to="/workshops" className="nav-link text-black dark:text-white hover:opacity-70 transition-opacity text-lg">Workshops</Link>
+              </li>
+              {/* Events */}
+              <li>
+                <Link to="/events" className="nav-link text-black dark:text-white hover:opacity-70 transition-opacity text-lg">Events</Link>
+              </li>
+              {/* Shop */}
               <li>
                 <ShopDropdown />
+              </li>
+              {/* About */}
+              <li>
+                <Link to="/about" className="nav-link text-black dark:text-white hover:opacity-70 transition-opacity text-lg">About</Link>
+              </li>
+              {/* Contact */}
+              <li>
+                <Link to="/contact" className="nav-link text-black dark:text-white hover:opacity-70 transition-opacity text-lg">Contact</Link>
               </li>
             </ul>
           </nav>

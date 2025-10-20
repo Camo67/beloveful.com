@@ -4,13 +4,15 @@ import PageContainer from "@/components/PageContainer";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
-import { workshopImages } from "@/lib/workshop-data";
+import { useWorkshopImages } from "@/hooks/use-workshop-images";
 
 export default function WorkshopOnline() {
   const heroImage = {
     src: "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218565/Website%20beloveful.com/Erasing%20Borders/NyC-DSCF8922_copy_2_lswqmq.jpg",
     alt: "Online Street Photography Workshop"
   };
+
+  const { data } = useWorkshopImages();
 
   return (
     <div className="min-h-screen">
@@ -92,13 +94,13 @@ export default function WorkshopOnline() {
             </div>
 
             {/* Workshop Images Gallery */}
-            {workshopImages.online.length > 1 && (
+            {data?.online && data.online.length > 1 && (
               <div className="my-16">
                 <h2 className="text-3xl font-bold mb-8 text-center text-gray-900 dark:text-white">
                   Workshop Experience
                 </h2>
                 <div className="grid md:grid-cols-2 gap-4">
-                  {workshopImages.online.slice(1).map((img, idx) => (
+                  {data.online.slice(1, 5).map((img, idx) => (
                     <div key={idx} className="aspect-[4/3] overflow-hidden rounded-lg">
                       <img
                         src={img.src}

@@ -131,8 +131,10 @@ async function handleMetadataSync(request, env) {
   }
 }
 
+import { getAssetFromKV } from '@cloudflare/kv-asset-handler';
+
 export default {
-  async fetch(request, env) {
+  async fetch(request, env, ctx) {
     const url = new URL(request.url);
     const pathname = url.pathname;
 
@@ -183,20 +185,38 @@ export default {
       });
     }
     
-    // Try to get static assets
-    const response = await env.ASSETS.fetch(request);
-    
-    if (response.status !== 404) {
-      return response;
+    try {
+      // Try to get static assets using the KV asset handler
+      return await getAssetFromKV({
+        request,
+        waitUntil: ctx.waitUntil.bind(ctx),
+      }, {
+        ASSET_NAMESPACE: env.__STATIC_CONTENT,
+        ASSET_MANIFEST: env.__STATIC_CONTENT_MANIFEST,
+        mapRequestToAsset: req => {
+          const url = new URL(req.url);
+          // For SPA routing - if it's not a file, serve index.html
+          if (!url.pathname.includes('.') || url.pathname.endsWith('/')) {
+            return new Request(`${url.origin}/index.html`, req);
+          }
+          return req;
+        },
+      });
+    } catch (e) {
+      console.error('Asset fetch error:', e);
+      // If asset not found, serve index.html for SPA routing
+      try {
+        const indexRequest = new Request(`${url.origin}/index.html`, request);
+        return await getAssetFromKV({
+          request: indexRequest,
+          waitUntil: ctx.waitUntil.bind(ctx),
+        }, {
+          ASSET_NAMESPACE: env.__STATIC_CONTENT,
+          ASSET_MANIFEST: env.__STATIC_CONTENT_MANIFEST,
+        });
+      } catch (indexError) {
+        return new Response('Page not found', { status: 404 });
+      }
     }
-    
-    // If the request is for a static asset (has file extension) and not found, return 404
-    if (pathname.includes('.') && !pathname.endsWith('/')) {
-      return new Response('Not Found', { status: 404 });
-    }
-    
-    // For all other routes (SPA routes), serve index.html
-    const indexRequest = new Request(`${url.origin}/index.html`, request);
-    return env.ASSETS.fetch(indexRequest);
   },
 };

@@ -44,8 +44,8 @@ export default function FooterStrip() {
         {/* Theme toggle next to newsletter */}
         <ThemeToggle />
 
-        {/* Contact & Privacy - Center */}
-        <div className="flex-1 flex justify-center items-center gap-4">
+        {/* Contact & Privacy - Left aligned */}
+        <div className="flex-1 flex justify-start items-center gap-4">
           <a 
             href="/contact" 
             className="text-xs text-neutral-500 dark:text-neutral-400 hover:text-neutral-700 dark:hover:text-neutral-200 transition-colors underline-offset-2 hover:underline"

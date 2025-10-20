@@ -18,7 +18,7 @@ export default function Workshops() {
       },
       shortDescription: "Slow down, observe, and rediscover the beauty in everyday life.",
       description: "This private workshop blends technique with intuition, helping you see deeper and create with intention. Explore Chicago's streets and capture moments that tell compelling stories while receiving personalized guidance.",
-      buttonText: "Learn More",
+      buttonText: "Read More",
       buttonHref: "/workshop-chicago-private"
     },
     {
@@ -30,7 +30,7 @@ export default function Workshops() {
       },
       shortDescription: "See Chicago differently alongside other photographers.",
       description: "This small-group workshop combines hands-on street shooting with guided instruction. Learn to notice, connect, and capture meaningful stories while refining your eye and creative voice in a collaborative setting.",
-      buttonText: "Learn More",
+      buttonText: "Read More",
       buttonHref: "/workshop-chicago-group"
     },
     {
@@ -42,7 +42,7 @@ export default function Workshops() {
       },
       shortDescription: "Learn to see the world differently from wherever you are.",
       description: "Through live sessions, creative assignments, and personalized feedback, this online workshop teaches you how to notice, compose, and tell visual stories that resonate. Build a consistent practice and strengthen your craft without leaving home.",
-      buttonText: "Learn More",
+      buttonText: "Read More",
       buttonHref: "/workshop-online"
     },
     {
@@ -54,7 +54,7 @@ export default function Workshops() {
       },
       shortDescription: "Develop your vision and grow as a photographer with personalized guidance.",
       description: "This mentorship is for photographers at any stage who want to strengthen their craft, explore their creative voice, and develop a consistent practice. One-on-one sessions, personalized critiques, and ongoing guidance will help you refine your skills, overcome challenges, and expand your understanding of photography as both an art and a practice.",
-      buttonText: "Learn More",
+      buttonText: "Read More",
       buttonHref: "/mentorship"
     }
   ];

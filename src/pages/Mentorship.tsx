@@ -4,13 +4,15 @@ import PageContainer from "@/components/PageContainer";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
-import { workshopImages } from "@/lib/workshop-data";
+import { useWorkshopImages } from "@/hooks/use-workshop-images";
 
 export default function Mentorship() {
   const heroImage = {
     src: "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218570/Website%20beloveful.com/Erasing%20Borders/Tony_Menias_-_Two_Girls_in_Window_rgthwg.jpg",
     alt: "Photography Mentorship"
   };
+
+  const { data } = useWorkshopImages();
 
   return (
     <div className="min-h-screen">
@@ -78,13 +80,13 @@ export default function Mentorship() {
             </p>
 
             {/* Workshop Images Gallery */}
-            {workshopImages.mentorship.length > 1 && (
+            {data?.mentorship && data.mentorship.length > 1 && (
               <div className="my-16">
                 <h2 className="text-3xl font-bold mb-8 text-center text-gray-900 dark:text-white">
                   Mentorship Experience
                 </h2>
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-                  {workshopImages.mentorship.slice(1).map((img, idx) => (
+                  {data.mentorship.slice(1, 5).map((img, idx) => (
                     <div key={idx} className="aspect-[4/3] overflow-hidden rounded-lg">
                       <img
                         src={img.src}

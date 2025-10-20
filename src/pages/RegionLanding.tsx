@@ -27,10 +27,10 @@ export default function RegionLanding() {
   }, [region]);
 
   if (!target) {
-    return <Navigate to="/africa" replace />;
+    return <Navigate to="/portfolio" replace />;
   }
   
-  // Instead of redirecting to /portfolio?region=X, we now need a region-specific landing page
-  // For now, redirect to /africa as the default
-  return <Navigate to="/africa" replace />;
+  // Redirect to the portfolio page filtered by the resolved region
+  const params = new URLSearchParams({ region: target });
+  return <Navigate to={`/portfolio?${params.toString()}`} replace />;
 }

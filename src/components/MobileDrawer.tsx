@@ -13,12 +13,13 @@ export function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
   const [shopOpen, setShopOpen] = useState(false);
   const [portfolioOpen, setPortfolioOpen] = useState(false);
   
-  // Navigation order: Home, Workshops, About, Events, Contact
+  // Navigation order: Home, Projects, Workshops, Events, About, Contact
   const navigationLinks = [
     { name: "Home", path: "/" },
+    { name: "Projects", path: "/projects" },
     { name: "Workshops", path: "/workshops" },
-    { name: "About", path: "/about" },
     { name: "Events", path: "/events" },
+    { name: "About", path: "/about" },
     { name: "Contact", path: "/contact" },
   ];
   

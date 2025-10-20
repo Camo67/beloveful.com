@@ -26,9 +26,10 @@ export function createProxiedImageUrl(originalUrl: string): string {
     }
   }
 
-  // If it's root-relative and we have a CDN base, prefix it
-  if (originalUrl.startsWith("/") && BASE_ASSET_URL) {
-    return `${BASE_ASSET_URL}${originalUrl}`;
+  // If it's root-relative, optionally prefix with CDN base and ensure proper encoding of spaces
+  if (originalUrl.startsWith("/")) {
+    const combined = BASE_ASSET_URL ? `${BASE_ASSET_URL}${originalUrl}` : originalUrl;
+    return encodeURI(combined);
   }
 
   return originalUrl;

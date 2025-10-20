@@ -7,6 +7,18 @@ import { createProxiedImageUrl } from "@/lib/images";
 import { useNavigate } from "react-router-dom";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 
+// Build Cloudinary absolute URL from root-relative paths used in constants below
+const CLOUDINARY_BASE = "https://res.cloudinary.com/dvwdoezk1/image/upload";
+const encodePathSegments = (path: string) => path.split("/").map((seg, i) => i === 0 ? seg : encodeURIComponent(seg)).join("/");
+const toCloudinaryAbsolute = (path: string) => {
+  if (!path) return path;
+  if (/^https?:\/\//i.test(path)) return path;
+  const clean = path.startsWith("/") ? path : `/${path}`;
+  // encode each segment except leading empty before first slash
+  const encoded = encodePathSegments(clean);
+  return `${CLOUDINARY_BASE}${encoded}`;
+};
+
 // Open Edition 5x7 prints from local directory
 const OPEN_EDITION_IMAGES: SlideshowImage[] = [
   {
@@ -235,7 +247,7 @@ function OpenEditionLightbox({ images, currentIndex, onClose, onNavigate }: Open
         {/* Image */}
         <div className="relative max-w-full max-h-full">
           <img
-            src={createProxiedImageUrl(currentImage.desktop)}
+            src={createProxiedImageUrl(toCloudinaryAbsolute(currentImage.desktop))}
             alt={`Open Edition print ${currentIndex + 1}`}
             className="max-w-full max-h-screen object-contain image-protected"
             draggable={false}
@@ -288,7 +300,7 @@ export default function OpenEdition() {
     
     // Navigate to contact with image parameters
     const params = new URLSearchParams({
-      image: encodeURIComponent(image.desktop),
+      image: encodeURIComponent(toCloudinaryAbsolute(image.desktop)),
       source: 'open-edition',
       variant: `open-edition-${imageNumber}`
     });
@@ -351,7 +363,7 @@ export default function OpenEdition() {
                 {visibleImages.has(index) && (
                   <>
                     <img
-                      src={createProxiedImageUrl(image.desktop)}
+                      src={createProxiedImageUrl(toCloudinaryAbsolute(image.desktop))}
                       alt={`Open Edition print ${index + 1}`}
                       className="w-full h-full object-cover image-protected transition-transform duration-500 group-hover:scale-105"
                       draggable={false}

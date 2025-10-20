@@ -2,7 +2,9 @@ name = "beloveful-visions"
 main = "src/worker.js"
 compatibility_date = "2025-09-01"
 workers_dev = false
-assets = { directory = "dist" }
+
+[site]
+bucket = "dist"
 
 # Custom domain routes must be defined at the top-level (not inside d1_databases)
 routes = [

@@ -25,11 +25,11 @@ export default function CountryGallery() {
   }, [albums, album?.region]);
 
   if (!countrySlug) {
-    return <Navigate to="/africa" replace />;
+    return <Navigate to="/portfolio" replace />;
   }
 
   if (!album) {
-    return <Navigate to="/africa" replace />;
+    return <Navigate to="/portfolio" replace />;
   }
 
   return (
@@ -43,7 +43,7 @@ export default function CountryGallery() {
             <TabsList className="minimalist-tabs-container">
               {/* Link back to All Regions */}
               <TabsTrigger asChild value="All" className="minimalist-tab-trigger">
-                <Link to="/africa">All</Link>
+                <Link to="/portfolio">All</Link>
               </TabsTrigger>
               {Array.from(new Set(albums.map((a) => a.region))).map((region) => (
                 <TabsTrigger key={region} asChild value={region} className="minimalist-tab-trigger">
@@ -104,7 +104,7 @@ export default function CountryGallery() {
 
         {/* Landscape-first masonry gallery with micro-spacing and subtle hover */}
         <Gallery 
-          images={album.slug === 'erasing-borders' && erasingImages ? erasingImages : album.images} 
+          images={album.slug === 'erasing-borders' && (erasingImages && erasingImages.length ? erasingImages : album.images) || album.images} 
           country={album.country} 
           region={album.region}
           enablePrintCta

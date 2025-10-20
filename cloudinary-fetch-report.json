@@ -1,0 +1,391 @@
+{
+  "timestamp": "2025-10-20T19:31:16.353Z",
+  "stats": {
+    "total": 2228,
+    "assigned": 37,
+    "unassigned": 2191,
+    "duplicates": 0
+  },
+  "countries": [
+    {
+      "region": "Africa",
+      "country": "Namibia",
+      "slug": "namibia",
+      "imageCount": 1,
+      "firstImage": "NAM-11-22-DSCF8088_qvkaoy",
+      "lastImage": "NAM-11-22-DSCF8088_qvkaoy"
+    },
+    {
+      "region": "Middle East",
+      "country": "Jordan",
+      "slug": "jordan",
+      "imageCount": 36,
+      "firstImage": "home/camo/new/beloveful.com/public/Website beloveful.com/Middle East/Jordan/DSCF4385",
+      "lastImage": "home/camo/new/beloveful.com/public/Website beloveful.com/Middle East/Jordan/JOR-5232103122"
+    }
+  ],
+  "unassigned": [
+    {
+      "filename": "home/camo/new/beloveful.com/public/Website beloveful.com/DSCF8938_wffjtp",
+      "url": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760982963/home/camo/new/beloveful.com/public/Website%20beloveful.com/DSCF8938_wffjtp.jpg",
+      "tags": [],
+      "width": 960,
+      "height": 1440
+    },
+    {
+      "filename": "WanderingPaths_lv7jhx",
+      "url": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760982963/WanderingPaths_lv7jhx.jpg",
+      "tags": [],
+      "width": 835,
+      "height": 1080
+    },
+    {
+      "filename": "home/camo/new/beloveful.com/public/Website beloveful.com/CHI-65_mgg5rs",
+      "url": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760982961/home/camo/new/beloveful.com/public/Website%20beloveful.com/CHI-65_mgg5rs.jpg",
+      "tags": [],
+      "width": 960,
+      "height": 1440
+    },
+    {
+      "filename": "Sense_of_Scale_rmvor4",
+      "url": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760982960/Sense_of_Scale_rmvor4.jpg",
+      "tags": [],
+      "width": 800,
+      "height": 1200
+    },
+    {
+      "filename": "home/camo/new/beloveful.com/public/Website beloveful.com/DSCF0103_lkgf5f",
+      "url": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760982960/home/camo/new/beloveful.com/public/Website%20beloveful.com/DSCF0103_lkgf5f.jpg",
+      "tags": [],
+      "width": 960,
+      "height": 1440
+    },
+    {
+      "filename": "Pastel_Playground_crdta7",
+      "url": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760982862/Pastel_Playground_crdta7.jpg",
+      "tags": [],
+      "width": 1113,
+      "height": 1440
+    },
+    {
+      "filename": "Into_the_Rabbit_Hole_ccnpyd",
+      "url": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760982858/Into_the_Rabbit_Hole_ccnpyd.jpg",
+      "tags": [],
+      "width": 960,
+      "height": 1440
+    },
+    {
+      "filename": "home/camo/new/beloveful.com/public/Website beloveful.com/JOR-4604_dgf7r0",
+      "url": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760982423/home/camo/new/beloveful.com/public/Website%20beloveful.com/JOR-4604_dgf7r0.jpg",
+      "tags": [],
+      "width": 1440,
+      "height": 960
+    },
+    {
+      "filename": "home/camo/new/beloveful.com/public/Website beloveful.com/Tony_Menias-Fly_lqrkh8",
+      "url": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760982419/home/camo/new/beloveful.com/public/Website%20beloveful.com/Tony_Menias-Fly_lqrkh8.jpg",
+      "tags": [],
+      "width": 1440,
+      "height": 976
+    },
+    {
+      "filename": "home/camo/new/beloveful.com/public/Website beloveful.com/Snack_Time_batbhh",
+      "url": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760982177/home/camo/new/beloveful.com/public/Website%20beloveful.com/Snack_Time_batbhh.jpg",
+      "tags": [],
+      "width": 1440,
+      "height": 960
+    },
+    {
+      "filename": "home/camo/new/beloveful.com/public/Website beloveful.com/NAM-03-18-DSCF3974-2_lek6nc",
+      "url": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760981945/home/camo/new/beloveful.com/public/Website%20beloveful.com/NAM-03-18-DSCF3974-2_lek6nc.jpg",
+      "tags": [],
+      "width": 1440,
+      "height": 960
+    },
+    {
+      "filename": "home/camo/new/beloveful.com/public/Website beloveful.com/Simpler_Times_zu4lyy",
+      "url": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760981878/home/camo/new/beloveful.com/public/Website%20beloveful.com/Simpler_Times_zu4lyy.jpg",
+      "tags": [],
+      "width": 1440,
+      "height": 989
+    },
+    {
+      "filename": "home/camo/new/beloveful.com/public/Website beloveful.com/CHI-2084-Website-2_uimucp",
+      "url": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760981823/home/camo/new/beloveful.com/public/Website%20beloveful.com/CHI-2084-Website-2_uimucp.jpg",
+      "tags": [],
+      "width": 1440,
+      "height": 960
+    },
+    {
+      "filename": "home/camo/new/beloveful.com/public/Website beloveful.com/CHI-770_j5bcir",
+      "url": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760981664/home/camo/new/beloveful.com/public/Website%20beloveful.com/CHI-770_j5bcir.jpg",
+      "tags": [],
+      "width": 1440,
+      "height": 895
+    },
+    {
+      "filename": "home/camo/new/beloveful.com/public/Website beloveful.com/ITA-06-19-DSCF6766_od1vjt",
+      "url": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760979547/home/camo/new/beloveful.com/public/Website%20beloveful.com/ITA-06-19-DSCF6766_od1vjt.jpg",
+      "tags": [],
+      "width": 960,
+      "height": 1440
+    },
+    {
+      "filename": "home/camo/new/beloveful.com/public/Website beloveful.com/IND-MeniasTony_8_lnvwzr",
+      "url": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760979548/home/camo/new/beloveful.com/public/Website%20beloveful.com/IND-MeniasTony_8_lnvwzr.jpg",
+      "tags": [],
+      "width": 960,
+      "height": 1440
+    },
+    {
+      "filename": "home/camo/new/beloveful.com/public/Website beloveful.com/GRE-06-17-DSCF3935",
+      "url": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760979546/home/camo/new/beloveful.com/public/Website%20beloveful.com/GRE-06-17-DSCF3935.jpg",
+      "tags": [],
+      "width": 960,
+      "height": 1440
+    },
+    {
+      "filename": "home/camo/new/beloveful.com/public/Website beloveful.com/MEX-4731",
+      "url": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760979544/home/camo/new/beloveful.com/public/Website%20beloveful.com/MEX-4731.jpg",
+      "tags": [],
+      "width": 1440,
+      "height": 960
+    },
+    {
+      "filename": "home/camo/new/beloveful.com/public/Website beloveful.com/CUBA-01-23-DSCF3844",
+      "url": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760979543/home/camo/new/beloveful.com/public/Website%20beloveful.com/CUBA-01-23-DSCF3844.jpg",
+      "tags": [],
+      "width": 960,
+      "height": 1440
+    },
+    {
+      "filename": "home/camo/new/beloveful.com/public/Website beloveful.com/Copy_of_CHI-9867_bsl6zu",
+      "url": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760979543/home/camo/new/beloveful.com/public/Website%20beloveful.com/Copy_of_CHI-9867_bsl6zu.jpg",
+      "tags": [],
+      "width": 1440,
+      "height": 960
+    },
+    {
+      "filename": "home/camo/new/beloveful.com/public/Website beloveful.com/CHI-01-21-DSCF9440",
+      "url": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760979542/home/camo/new/beloveful.com/public/Website%20beloveful.com/CHI-01-21-DSCF9440.jpg",
+      "tags": [],
+      "width": 1152,
+      "height": 1440
+    },
+    {
+      "filename": "home/camo/new/beloveful.com/public/Website beloveful.com/EGY-350",
+      "url": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760979539/home/camo/new/beloveful.com/public/Website%20beloveful.com/EGY-350.jpg",
+      "tags": [],
+      "width": 1440,
+      "height": 960
+    },
+    {
+      "filename": "home/camo/new/beloveful.com/public/Website beloveful.com/PAL-10-22-DSCF4464_qq1v25",
+      "url": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760979538/home/camo/new/beloveful.com/public/Website%20beloveful.com/PAL-10-22-DSCF4464_qq1v25.jpg",
+      "tags": [],
+      "width": 1440,
+      "height": 960
+    },
+    {
+      "filename": "home/camo/new/beloveful.com/public/Website beloveful.com/JOR-5061_gvcktv",
+      "url": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760979535/home/camo/new/beloveful.com/public/Website%20beloveful.com/JOR-5061_gvcktv.jpg",
+      "tags": [],
+      "width": 1440,
+      "height": 960
+    },
+    {
+      "filename": "home/camo/new/beloveful.com/public/Website beloveful.com/_DSF6182-2",
+      "url": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760979527/home/camo/new/beloveful.com/public/Website%20beloveful.com/_DSF6182-2.jpg",
+      "tags": [],
+      "width": 1080,
+      "height": 720
+    },
+    {
+      "filename": "home/camo/new/beloveful.com/public/Website beloveful.com/JOR-11-22-DSCF5655",
+      "url": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760979515/home/camo/new/beloveful.com/public/Website%20beloveful.com/JOR-11-22-DSCF5655.jpg",
+      "tags": [],
+      "width": 1440,
+      "height": 960
+    },
+    {
+      "filename": "home/camo/new/beloveful.com/public/Website beloveful.com/Homepage/Desktop Landscape/JOR-4604",
+      "url": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760979513/home/camo/new/beloveful.com/public/Website%20beloveful.com/Homepage/Desktop%20Landscape/JOR-4604.jpg",
+      "tags": [
+        "beloveful-website",
+        "portfolio"
+      ],
+      "width": 1440,
+      "height": 960
+    },
+    {
+      "filename": "home/camo/new/beloveful.com/public/Website beloveful.com/ITA-DSCF6964",
+      "url": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760979514/home/camo/new/beloveful.com/public/Website%20beloveful.com/ITA-DSCF6964.jpg",
+      "tags": [],
+      "width": 1440,
+      "height": 915
+    },
+    {
+      "filename": "home/camo/new/beloveful.com/public/Website beloveful.com/Ireland-DSCF2233_epsgvy",
+      "url": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760979516/home/camo/new/beloveful.com/public/Website%20beloveful.com/Ireland-DSCF2233_epsgvy.jpg",
+      "tags": [],
+      "width": 960,
+      "height": 1440
+    },
+    {
+      "filename": "home/camo/new/beloveful.com/public/Website beloveful.com/Hard_Rock_Hotel_zj0w5s",
+      "url": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760979511/home/camo/new/beloveful.com/public/Website%20beloveful.com/Hard_Rock_Hotel_zj0w5s.svg",
+      "tags": [],
+      "width": 1000,
+      "height": 575
+    },
+    {
+      "filename": "home/camo/new/beloveful.com/public/Website beloveful.com/EGY-467",
+      "url": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760979513/home/camo/new/beloveful.com/public/Website%20beloveful.com/EGY-467.jpg",
+      "tags": [],
+      "width": 1440,
+      "height": 960
+    },
+    {
+      "filename": "home/camo/new/beloveful.com/public/Website beloveful.com/IMG_1052_ohp6mo",
+      "url": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760979513/home/camo/new/beloveful.com/public/Website%20beloveful.com/IMG_1052_ohp6mo.jpg",
+      "tags": [],
+      "width": 1369,
+      "height": 1369
+    },
+    {
+      "filename": "home/camo/new/beloveful.com/public/Website beloveful.com/TonyMeniasAMansLegacy_vucnpk",
+      "url": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760979513/home/camo/new/beloveful.com/public/Website%20beloveful.com/TonyMeniasAMansLegacy_vucnpk.jpg",
+      "tags": [],
+      "width": 2149,
+      "height": 3030
+    },
+    {
+      "filename": "home/camo/new/beloveful.com/public/Website beloveful.com/DSCF4538_jgehd1",
+      "url": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760979513/home/camo/new/beloveful.com/public/Website%20beloveful.com/DSCF4538_jgehd1.jpg",
+      "tags": [],
+      "width": 720,
+      "height": 1080
+    },
+    {
+      "filename": "home/camo/new/beloveful.com/public/Website beloveful.com/NYC-434",
+      "url": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760979512/home/camo/new/beloveful.com/public/Website%20beloveful.com/NYC-434.jpg",
+      "tags": [],
+      "width": 1440,
+      "height": 960
+    },
+    {
+      "filename": "home/camo/new/beloveful.com/public/Website beloveful.com/DSCF0459",
+      "url": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760979512/home/camo/new/beloveful.com/public/Website%20beloveful.com/DSCF0459.jpg",
+      "tags": [],
+      "width": 1440,
+      "height": 960
+    },
+    {
+      "filename": "home/camo/new/beloveful.com/public/Website beloveful.com/PAL-10-22-DSCF4693_pox8y4",
+      "url": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760979511/home/camo/new/beloveful.com/public/Website%20beloveful.com/PAL-10-22-DSCF4693_pox8y4.jpg",
+      "tags": [],
+      "width": 1440,
+      "height": 960
+    },
+    {
+      "filename": "home/camo/new/beloveful.com/public/Website beloveful.com/PAL-10-19-DSCF3303_rhunll",
+      "url": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760979508/home/camo/new/beloveful.com/public/Website%20beloveful.com/PAL-10-19-DSCF3303_rhunll.jpg",
+      "tags": [],
+      "width": 1440,
+      "height": 960
+    },
+    {
+      "filename": "home/camo/new/beloveful.com/public/Website beloveful.com/North America/Chicago/CHI-440-Website-2",
+      "url": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760979503/home/camo/new/beloveful.com/public/Website%20beloveful.com/North%20America/Chicago/CHI-440-Website-2.jpg",
+      "tags": [
+        "beloveful-website",
+        "portfolio"
+      ],
+      "width": 1440,
+      "height": 810
+    },
+    {
+      "filename": "home/camo/new/beloveful.com/public/Website beloveful.com/EGY-359",
+      "url": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760979507/home/camo/new/beloveful.com/public/Website%20beloveful.com/EGY-359.jpg",
+      "tags": [],
+      "width": 1440,
+      "height": 960
+    },
+    {
+      "filename": "home/camo/new/beloveful.com/public/Website beloveful.com/DSCF4619_yyh1qx",
+      "url": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760979506/home/camo/new/beloveful.com/public/Website%20beloveful.com/DSCF4619_yyh1qx.jpg",
+      "tags": [],
+      "width": 960,
+      "height": 1440
+    },
+    {
+      "filename": "home/camo/new/beloveful.com/public/Website beloveful.com/CHI-5927",
+      "url": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760979490/home/camo/new/beloveful.com/public/Website%20beloveful.com/CHI-5927.jpg",
+      "tags": [],
+      "width": 1440,
+      "height": 822
+    },
+    {
+      "filename": "home/camo/new/beloveful.com/public/Website beloveful.com/DSCF7366_cqa5za",
+      "url": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760979503/home/camo/new/beloveful.com/public/Website%20beloveful.com/DSCF7366_cqa5za.jpg",
+      "tags": [],
+      "width": 960,
+      "height": 1440
+    },
+    {
+      "filename": "home/camo/new/beloveful.com/public/Website beloveful.com/Open Edition size 5x7/Open Edition 5x7/5x7s-Mag Mile",
+      "url": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760979503/home/camo/new/beloveful.com/public/Website%20beloveful.com/Open%20Edition%20size%205x7/Open%20Edition%205x7/5x7s-Mag%20Mile.jpg",
+      "tags": [
+        "beloveful-website",
+        "portfolio"
+      ],
+      "width": 500,
+      "height": 700
+    },
+    {
+      "filename": "home/camo/new/beloveful.com/public/Website beloveful.com/DSCF2992_ifmqjk",
+      "url": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760979503/home/camo/new/beloveful.com/public/Website%20beloveful.com/DSCF2992_ifmqjk.jpg",
+      "tags": [],
+      "width": 1440,
+      "height": 946
+    },
+    {
+      "filename": "home/camo/new/beloveful.com/public/Website beloveful.com/MEX-203",
+      "url": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760979501/home/camo/new/beloveful.com/public/Website%20beloveful.com/MEX-203.jpg",
+      "tags": [],
+      "width": 1440,
+      "height": 960
+    },
+    {
+      "filename": "home/camo/new/beloveful.com/public/Website beloveful.com/Copy_of_CHI-65_z6pska",
+      "url": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760979502/home/camo/new/beloveful.com/public/Website%20beloveful.com/Copy_of_CHI-65_z6pska.jpg",
+      "tags": [],
+      "width": 960,
+      "height": 1440
+    },
+    {
+      "filename": "home/camo/new/beloveful.com/public/Website beloveful.com/GoneGirl_r1omeq",
+      "url": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760979498/home/camo/new/beloveful.com/public/Website%20beloveful.com/GoneGirl_r1omeq.jpg",
+      "tags": [],
+      "width": 1440,
+      "height": 946
+    },
+    {
+      "filename": "home/camo/new/beloveful.com/public/Website beloveful.com/North America/New York/NYC-159",
+      "url": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760979501/home/camo/new/beloveful.com/public/Website%20beloveful.com/North%20America/New%20York/NYC-159.jpg",
+      "tags": [
+        "beloveful-website",
+        "portfolio"
+      ],
+      "width": 960,
+      "height": 1440
+    },
+    {
+      "filename": "home/camo/new/beloveful.com/public/Website beloveful.com/MEX-11-20-DSCF6087",
+      "url": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760979499/home/camo/new/beloveful.com/public/Website%20beloveful.com/MEX-11-20-DSCF6087.jpg",
+      "tags": [],
+      "width": 960,
+      "height": 1440
+    }
+  ]
+}

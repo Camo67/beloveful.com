@@ -14,6 +14,16 @@
     "r2:mirror": "node scripts/mirror-r2-direct.mjs",
     "data:generate": "node scripts/generate-albums.mjs",
     "shop:sync": "node scripts/sync-printlab.mjs",
+    "portfolio:fetch": "node scripts/fetch-cloudinary-portfolio.mjs",
+    "portfolio:analyze": "node scripts/portfolio-manager.mjs analyze",
+    "portfolio:audit": "node scripts/portfolio-manager.mjs audit",
+    "portfolio:update": "node scripts/portfolio-manager.mjs update",
+    "portfolio:tag": "node scripts/portfolio-manager.mjs tag",
+    "portfolio:sync": "node scripts/cross-reference-local.mjs",
+    "portfolio:cleanup": "node scripts/cleanup-filenames.mjs",
+    "portfolio:smart-cleanup": "node scripts/smart-cleanup.mjs",
+    "portfolio:tag-from-folders": "node scripts/tag-from-folders.mjs",
+    "portfolio:folders": "node scripts/folder-based-assignment.mjs",
     "db:create": "wrangler d1 create beloveful-cms",
     "db:migrate": "wrangler d1 execute beloveful-cms --file=server/schema.sql",
     "db:migrate:local": "wrangler d1 execute beloveful-cms --local --file=server/schema.sql",
@@ -22,6 +32,7 @@
     "dev:functions": "wrangler pages dev . --local --port=8787"
   },
   "dependencies": {
+    "@cloudflare/kv-asset-handler": "^0.4.0",
     "@hookform/resolvers": "^3.10.0",
     "@radix-ui/react-accordion": "^1.2.11",
     "@radix-ui/react-alert-dialog": "^1.1.14",
@@ -82,6 +93,7 @@
     "zod": "^3.25.76"
   },
   "devDependencies": {
+    "@aws-sdk/client-s3": "^3.621.0",
     "@eslint/js": "^9.32.0",
     "@tailwindcss/typography": "^0.5.16",
     "@types/bcryptjs": "^2.4.6",
@@ -90,7 +102,6 @@
     "@types/react": "^18.3.23",
     "@types/react-dom": "^18.3.7",
     "@types/spotify-web-playback-sdk": "^0.1.19",
-    "@aws-sdk/client-s3": "^3.621.0",
     "@vitejs/plugin-react-swc": "^3.11.0",
     "autoprefixer": "^10.4.21",
     "cloudinary": "^2.8.0",

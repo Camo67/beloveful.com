@@ -74,7 +74,7 @@ export function PortfolioDropdown({ variant = "auto" }: PortfolioDropdownProps) 
       >
         <DropdownMenuItem asChild>
           <Link 
-            to="/africa" 
+            to="/portfolio" 
             className="w-full px-2 py-2 font-semibold hover:bg-muted focus-enhanced text-black dark:text-white"
             onClick={() => setIsOpen(false)}
           >
