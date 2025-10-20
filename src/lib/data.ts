@@ -45,43 +45,43 @@ export interface Work {
   }[];
 }
 
-// Local slideshow images with Cloudinary fallbacks
+// Local slideshow images served from /public
 export const HOME_SLIDESHOW: SlideshowImage[] = [
   {
-    desktop: "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Homepage/Desktop Landscape/JOR-4604.jpg",
-    mobile: "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Homepage/Mobile Portrait/DSCF0103.jpg"
+    desktop: "/Website beloveful.com/Homepage/Desktop Landscape/JOR-4604.jpg",
+    mobile: "/Website beloveful.com/Homepage/Mobile Portrait/DSCF0103.jpg"
   },
   {
-    desktop: "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Homepage/Desktop Landscape/CHI-2084-Website-2.jpg",
-    mobile: "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Homepage/Mobile Portrait/CHI-65.jpg"
+    desktop: "/Website beloveful.com/Homepage/Desktop Landscape/CHI-2084-Website-2.jpg",
+    mobile: "/Website beloveful.com/Homepage/Mobile Portrait/CHI-65.jpg"
   },
   {
-    desktop: "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Homepage/Desktop Landscape/CHI-770.jpg",
-    mobile: "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Homepage/Mobile Portrait/DSCF8938.jpg"
+    desktop: "/Website beloveful.com/Homepage/Desktop Landscape/CHI-770.jpg",
+    mobile: "/Website beloveful.com/Homepage/Mobile Portrait/DSCF8938.jpg"
   },
   {
-    desktop: "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Homepage/Desktop Landscape/Simpler Times.jpg",
-    mobile: "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Homepage/Mobile Portrait/Into the Rabbit Hole.jpg"
+    desktop: "/Website beloveful.com/Homepage/Desktop Landscape/Simpler Times.jpg",
+    mobile: "/Website beloveful.com/Homepage/Mobile Portrait/Into the Rabbit Hole.jpg"
   },
   {
-    desktop: "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Homepage/Desktop Landscape/Snack Time.jpg",
-    mobile: "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Homepage/Mobile Portrait/NAM-11-22-DSCF8088.jpg"
+    desktop: "/Website beloveful.com/Homepage/Desktop Landscape/Snack Time.jpg",
+    mobile: "/Website beloveful.com/Homepage/Mobile Portrait/NAM-11-22-DSCF8088.jpg"
   },
   {
-    desktop: "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Homepage/Desktop Landscape/NAM-03-18-DSCF3974-2.jpg",
-    mobile: "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Homepage/Mobile Portrait/Sense of Scale.jpg"
+    desktop: "/Website beloveful.com/Homepage/Desktop Landscape/NAM-03-18-DSCF3974-2.jpg",
+    mobile: "/Website beloveful.com/Homepage/Mobile Portrait/Sense of Scale.jpg"
   },
   {
-    desktop: "https://cdn.shopify.com/s/files/1/1602/8723/files/The-Headless-Horseman-PiL-Beloveful-Tony-Menias.jpg?v=1758731834",
-    mobile: "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Homepage/Mobile Portrait/WanderingPaths.jpg"
+    desktop: "/Website beloveful.com/Homepage/Desktop Landscape/Tony Menias-Fly.jpg",
+    mobile: "/Website beloveful.com/Homepage/Mobile Portrait/WanderingPaths.jpg"
   },
   {
-    desktop: "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Homepage/Desktop Landscape/Tony Menias-Fly.jpg",
-    mobile: "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Homepage/Mobile Portrait/Enlightened.jpg"
+    desktop: "/Website beloveful.com/Homepage/Desktop Landscape/Tony Menias-Fly.jpg",
+    mobile: "/Website beloveful.com/Homepage/Mobile Portrait/Enlightened.jpg"
   },
   {
-    desktop: "https://cdn.shopify.com/s/files/1/1602/8723/products/CalmBeforeTheStorm-Tony-Menias-photoinnovationlab.jpg?v=1652377339",
-    mobile: "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Homepage/Mobile Portrait/Pastel Playground.jpg"
+    desktop: "/Website beloveful.com/Homepage/Desktop Landscape/Simpler Times.jpg",
+    mobile: "/Website beloveful.com/Homepage/Mobile Portrait/Pastel Playground.jpg"
   }
 ];
 

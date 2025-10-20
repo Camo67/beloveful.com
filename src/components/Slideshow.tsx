@@ -10,6 +10,24 @@ export function Slideshow() {
   // Enable comprehensive image protection
   const { protectElement } = useImageProtection();
 
+  // Preload all slideshow images up front to avoid any blank frames
+  useEffect(() => {
+    if (!slideshowImages || slideshowImages.length === 0) return;
+    const preloaders: HTMLImageElement[] = [];
+    slideshowImages.forEach((slide) => {
+      const d = new Image();
+      d.src = createProxiedImageUrl(slide.desktop);
+      preloaders.push(d);
+      const m = new Image();
+      m.src = createProxiedImageUrl(slide.mobile);
+      preloaders.push(m);
+    });
+    return () => {
+      // cleanup references
+      preloaders.splice(0, preloaders.length);
+    };
+  }, [slideshowImages]);
+
   useEffect(() => {
     if (!slideshowImages || slideshowImages.length === 0) return;
     
@@ -71,9 +89,9 @@ export function Slideshow() {
               alt={`BELOVEFUL Photography Slide ${index + 1}`}
               className="slideshow-image image-protected"
               draggable={false}
-              loading={index === 0 ? "eager" : "lazy"}
+              loading="eager"
               decoding="async"
-              fetchPriority={index === 0 ? ("high" as any) : ("low" as any)}
+              fetchPriority={index === 0 ? ("high" as any) : ("auto" as any)}
               onContextMenu={(e) => {
                 e.preventDefault();
                 e.stopPropagation();
