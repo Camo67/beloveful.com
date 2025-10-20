@@ -17,11 +17,11 @@ export function createProxiedImageUrl(originalUrl: string): string {
         const proxied = `${BASE_ASSET_URL}/images?src=${encodeURIComponent(originalUrl)}`;
         return proxied;
       }
-      // Otherwise, serve as-is
-      return originalUrl;
+      // Otherwise, return a safely encoded absolute URL (handles spaces and other unsafe chars)
+      return encodeURI(originalUrl);
     } catch {
-      // If URL parsing fails, fall through to return as-is
-      return originalUrl;
+      // If URL parsing fails, fall through but ensure encoding of spaces at least
+      return originalUrl.replace(/\s/g, "%20");
     }
   }
 

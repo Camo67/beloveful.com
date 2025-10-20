@@ -1,0 +1,817 @@
+{
+  "completed": 0,
+  "failed": 90,
+  "total": 886,
+  "results": [
+    {
+      "localPath": "/Website beloveful.com/Africa/Egypt/11-21-EGY-262 2.jpg",
+      "r2Url": "https://pub-beloveful2.r2.dev/Africa/Egypt/11-21-EGY-262 2.jpg",
+      "filename": "11-21-EGY-262 2.jpg",
+      "countryCode": "EGY",
+      "albumKey": "egypt",
+      "error": "Invalid api_key your_api_key",
+      "success": false
+    },
+    {
+      "localPath": "/Website beloveful.com/Africa/Egypt/11-16-EGY-1128.jpg",
+      "r2Url": "https://pub-beloveful2.r2.dev/Africa/Egypt/11-16-EGY-1128.jpg",
+      "filename": "11-16-EGY-1128.jpg",
+      "countryCode": "EGY",
+      "albumKey": "egypt",
+      "error": "Invalid api_key your_api_key",
+      "success": false
+    },
+    {
+      "localPath": "/Website beloveful.com/Africa/Egypt/11-17-EGY-172.jpg",
+      "r2Url": "https://pub-beloveful2.r2.dev/Africa/Egypt/11-17-EGY-172.jpg",
+      "filename": "11-17-EGY-172.jpg",
+      "countryCode": "EGY",
+      "albumKey": "egypt",
+      "error": "Invalid api_key your_api_key",
+      "success": false
+    },
+    {
+      "localPath": "/Website beloveful.com/Africa/Egypt/11-17-EGY-550.jpg",
+      "r2Url": "https://pub-beloveful2.r2.dev/Africa/Egypt/11-17-EGY-550.jpg",
+      "filename": "11-17-EGY-550.jpg",
+      "countryCode": "EGY",
+      "albumKey": "egypt",
+      "error": "Invalid api_key your_api_key",
+      "success": false
+    },
+    {
+      "localPath": "/Website beloveful.com/Africa/Egypt/11-28-EGY-508.jpg",
+      "r2Url": "https://pub-beloveful2.r2.dev/Africa/Egypt/11-28-EGY-508.jpg",
+      "filename": "11-28-EGY-508.jpg",
+      "countryCode": "EGY",
+      "albumKey": "egypt",
+      "error": "Invalid api_key your_api_key",
+      "success": false
+    },
+    {
+      "localPath": "/Website beloveful.com/Africa/Egypt/11-18-EGY-110.jpg",
+      "r2Url": "https://pub-beloveful2.r2.dev/Africa/Egypt/11-18-EGY-110.jpg",
+      "filename": "11-18-EGY-110.jpg",
+      "countryCode": "EGY",
+      "albumKey": "egypt",
+      "error": "Invalid api_key your_api_key",
+      "success": false
+    },
+    {
+      "localPath": "/Website beloveful.com/Africa/Egypt/12-01-EGY-150.jpg",
+      "r2Url": "https://pub-beloveful2.r2.dev/Africa/Egypt/12-01-EGY-150.jpg",
+      "filename": "12-01-EGY-150.jpg",
+      "countryCode": "EGY",
+      "albumKey": "egypt",
+      "error": "Invalid api_key your_api_key",
+      "success": false
+    },
+    {
+      "localPath": "/Website beloveful.com/Africa/Egypt/11-16-EGY-1107.jpg",
+      "r2Url": "https://pub-beloveful2.r2.dev/Africa/Egypt/11-16-EGY-1107.jpg",
+      "filename": "11-16-EGY-1107.jpg",
+      "countryCode": "EGY",
+      "albumKey": "egypt",
+      "error": "Invalid api_key your_api_key",
+      "success": false
+    },
+    {
+      "localPath": "/Website beloveful.com/Africa/Egypt/12-14-EGY-342.jpg",
+      "r2Url": "https://pub-beloveful2.r2.dev/Africa/Egypt/12-14-EGY-342.jpg",
+      "filename": "12-14-EGY-342.jpg",
+      "countryCode": "EGY",
+      "albumKey": "egypt",
+      "error": "Invalid api_key your_api_key",
+      "success": false
+    },
+    {
+      "localPath": "/Website beloveful.com/Africa/Egypt/11-17-EGY-598.jpg",
+      "r2Url": "https://pub-beloveful2.r2.dev/Africa/Egypt/11-17-EGY-598.jpg",
+      "filename": "11-17-EGY-598.jpg",
+      "countryCode": "EGY",
+      "albumKey": "egypt",
+      "error": "Invalid api_key your_api_key",
+      "success": false
+    },
+    {
+      "localPath": "/Website beloveful.com/Africa/Egypt/EGY-02-22-DSCF3370.jpg",
+      "r2Url": "https://pub-beloveful2.r2.dev/Africa/Egypt/EGY-02-22-DSCF3370.jpg",
+      "filename": "EGY-02-22-DSCF3370.jpg",
+      "countryCode": "EGY",
+      "albumKey": "egypt",
+      "error": "Invalid api_key your_api_key",
+      "success": false
+    },
+    {
+      "localPath": "/Website beloveful.com/Africa/Egypt/EGY-02-22-DSCF3236.jpg",
+      "r2Url": "https://pub-beloveful2.r2.dev/Africa/Egypt/EGY-02-22-DSCF3236.jpg",
+      "filename": "EGY-02-22-DSCF3236.jpg",
+      "countryCode": "EGY",
+      "albumKey": "egypt",
+      "error": "Invalid api_key your_api_key",
+      "success": false
+    },
+    {
+      "localPath": "/Website beloveful.com/Africa/Egypt/EGY-01-22-DSCF2904.jpg",
+      "r2Url": "https://pub-beloveful2.r2.dev/Africa/Egypt/EGY-01-22-DSCF2904.jpg",
+      "filename": "EGY-01-22-DSCF2904.jpg",
+      "countryCode": "EGY",
+      "albumKey": "egypt",
+      "error": "Invalid api_key your_api_key",
+      "success": false
+    },
+    {
+      "localPath": "/Website beloveful.com/Africa/Egypt/EGY-02-22-DSCF3226.jpg",
+      "r2Url": "https://pub-beloveful2.r2.dev/Africa/Egypt/EGY-02-22-DSCF3226.jpg",
+      "filename": "EGY-02-22-DSCF3226.jpg",
+      "countryCode": "EGY",
+      "albumKey": "egypt",
+      "error": "Invalid api_key your_api_key",
+      "success": false
+    },
+    {
+      "localPath": "/Website beloveful.com/Africa/Egypt/EGY-01-31-22.jpg",
+      "r2Url": "https://pub-beloveful2.r2.dev/Africa/Egypt/EGY-01-31-22.jpg",
+      "filename": "EGY-01-31-22.jpg",
+      "countryCode": "EGY",
+      "albumKey": "egypt",
+      "error": "Invalid api_key your_api_key",
+      "success": false
+    },
+    {
+      "localPath": "/Website beloveful.com/Africa/Egypt/EGY-02-22-DSCF3390.jpg",
+      "r2Url": "https://pub-beloveful2.r2.dev/Africa/Egypt/EGY-02-22-DSCF3390.jpg",
+      "filename": "EGY-02-22-DSCF3390.jpg",
+      "countryCode": "EGY",
+      "albumKey": "egypt",
+      "error": "Invalid api_key your_api_key",
+      "success": false
+    },
+    {
+      "localPath": "/Website beloveful.com/Africa/Egypt/EGY-02-22-DSCF3373.jpg",
+      "r2Url": "https://pub-beloveful2.r2.dev/Africa/Egypt/EGY-02-22-DSCF3373.jpg",
+      "filename": "EGY-02-22-DSCF3373.jpg",
+      "countryCode": "EGY",
+      "albumKey": "egypt",
+      "error": "Invalid api_key your_api_key",
+      "success": false
+    },
+    {
+      "localPath": "/Website beloveful.com/Africa/Egypt/EGY-01-22-01-31-EGY-26-Enhanced-NR.jpg",
+      "r2Url": "https://pub-beloveful2.r2.dev/Africa/Egypt/EGY-01-22-01-31-EGY-26-Enhanced-NR.jpg",
+      "filename": "EGY-01-22-01-31-EGY-26-Enhanced-NR.jpg",
+      "countryCode": "EGY",
+      "albumKey": "egypt",
+      "error": "Invalid api_key your_api_key",
+      "success": false
+    },
+    {
+      "localPath": "/Website beloveful.com/Africa/Egypt/EGY-01-22-01-31-EGY-98-Enhanced-NR.jpg",
+      "r2Url": "https://pub-beloveful2.r2.dev/Africa/Egypt/EGY-01-22-01-31-EGY-98-Enhanced-NR.jpg",
+      "filename": "EGY-01-22-01-31-EGY-98-Enhanced-NR.jpg",
+      "countryCode": "EGY",
+      "albumKey": "egypt",
+      "error": "Invalid api_key your_api_key",
+      "success": false
+    },
+    {
+      "localPath": "/Website beloveful.com/Africa/Egypt/EGY-01-22-DSCF2977.jpg",
+      "r2Url": "https://pub-beloveful2.r2.dev/Africa/Egypt/EGY-01-22-DSCF2977.jpg",
+      "filename": "EGY-01-22-DSCF2977.jpg",
+      "countryCode": "EGY",
+      "albumKey": "egypt",
+      "error": "Invalid api_key your_api_key",
+      "success": false
+    },
+    {
+      "localPath": "/Website beloveful.com/Africa/Egypt/EGY-1064.jpg",
+      "r2Url": "https://pub-beloveful2.r2.dev/Africa/Egypt/EGY-1064.jpg",
+      "filename": "EGY-1064.jpg",
+      "countryCode": "EGY",
+      "albumKey": "egypt",
+      "error": "Invalid api_key your_api_key",
+      "success": false
+    },
+    {
+      "localPath": "/Website beloveful.com/Africa/Egypt/EGY-11-21-11-16-EGY-1135-Enhanced-NR.jpg",
+      "r2Url": "https://pub-beloveful2.r2.dev/Africa/Egypt/EGY-11-21-11-16-EGY-1135-Enhanced-NR.jpg",
+      "filename": "EGY-11-21-11-16-EGY-1135-Enhanced-NR.jpg",
+      "countryCode": "EGY",
+      "albumKey": "egypt",
+      "error": "Invalid api_key your_api_key",
+      "success": false
+    },
+    {
+      "localPath": "/Website beloveful.com/Africa/Egypt/EGY-11-21-DSCF1297.jpg",
+      "r2Url": "https://pub-beloveful2.r2.dev/Africa/Egypt/EGY-11-21-DSCF1297.jpg",
+      "filename": "EGY-11-21-DSCF1297.jpg",
+      "countryCode": "EGY",
+      "albumKey": "egypt",
+      "error": "Invalid api_key your_api_key",
+      "success": false
+    },
+    {
+      "localPath": "/Website beloveful.com/Africa/Egypt/EGY-11-21-11-16-EGY-993-Enhanced-NR.jpg",
+      "r2Url": "https://pub-beloveful2.r2.dev/Africa/Egypt/EGY-11-21-11-16-EGY-993-Enhanced-NR.jpg",
+      "filename": "EGY-11-21-11-16-EGY-993-Enhanced-NR.jpg",
+      "countryCode": "EGY",
+      "albumKey": "egypt",
+      "error": "Invalid api_key your_api_key",
+      "success": false
+    },
+    {
+      "localPath": "/Website beloveful.com/Africa/Egypt/EGY-11-21-DSCF1322.jpg",
+      "r2Url": "https://pub-beloveful2.r2.dev/Africa/Egypt/EGY-11-21-DSCF1322.jpg",
+      "filename": "EGY-11-21-DSCF1322.jpg",
+      "countryCode": "EGY",
+      "albumKey": "egypt",
+      "error": "Invalid api_key your_api_key",
+      "success": false
+    },
+    {
+      "localPath": "/Website beloveful.com/Africa/Egypt/EGY-11-21-11-16-EGY-989-Enhanced-NR.jpg",
+      "r2Url": "https://pub-beloveful2.r2.dev/Africa/Egypt/EGY-11-21-11-16-EGY-989-Enhanced-NR.jpg",
+      "filename": "EGY-11-21-11-16-EGY-989-Enhanced-NR.jpg",
+      "countryCode": "EGY",
+      "albumKey": "egypt",
+      "error": "Invalid api_key your_api_key",
+      "success": false
+    },
+    {
+      "localPath": "/Website beloveful.com/Africa/Egypt/EGY-03-23-DSCF6538.jpg",
+      "r2Url": "https://pub-beloveful2.r2.dev/Africa/Egypt/EGY-03-23-DSCF6538.jpg",
+      "filename": "EGY-03-23-DSCF6538.jpg",
+      "countryCode": "EGY",
+      "albumKey": "egypt",
+      "error": "Invalid api_key your_api_key",
+      "success": false
+    },
+    {
+      "localPath": "/Website beloveful.com/Africa/Egypt/EGY-1079.jpg",
+      "r2Url": "https://pub-beloveful2.r2.dev/Africa/Egypt/EGY-1079.jpg",
+      "filename": "EGY-1079.jpg",
+      "countryCode": "EGY",
+      "albumKey": "egypt",
+      "error": "Invalid api_key your_api_key",
+      "success": false
+    },
+    {
+      "localPath": "/Website beloveful.com/Africa/Egypt/EGY-11-21-21.jpg",
+      "r2Url": "https://pub-beloveful2.r2.dev/Africa/Egypt/EGY-11-21-21.jpg",
+      "filename": "EGY-11-21-21.jpg",
+      "countryCode": "EGY",
+      "albumKey": "egypt",
+      "error": "Invalid api_key your_api_key",
+      "success": false
+    },
+    {
+      "localPath": "/Website beloveful.com/Africa/Egypt/EGY-1030.jpg",
+      "r2Url": "https://pub-beloveful2.r2.dev/Africa/Egypt/EGY-1030.jpg",
+      "filename": "EGY-1030.jpg",
+      "countryCode": "EGY",
+      "albumKey": "egypt",
+      "error": "Invalid api_key your_api_key",
+      "success": false
+    },
+    {
+      "localPath": "/Website beloveful.com/Africa/Egypt/EGY-1135.jpg",
+      "r2Url": "https://pub-beloveful2.r2.dev/Africa/Egypt/EGY-1135.jpg",
+      "filename": "EGY-1135.jpg",
+      "countryCode": "EGY",
+      "albumKey": "egypt",
+      "error": "Invalid api_key your_api_key",
+      "success": false
+    },
+    {
+      "localPath": "/Website beloveful.com/Africa/Egypt/EGY-11-21-DSCF5200.jpg",
+      "r2Url": "https://pub-beloveful2.r2.dev/Africa/Egypt/EGY-11-21-DSCF5200.jpg",
+      "filename": "EGY-11-21-DSCF5200.jpg",
+      "countryCode": "EGY",
+      "albumKey": "egypt",
+      "error": "Invalid api_key your_api_key",
+      "success": false
+    },
+    {
+      "localPath": "/Website beloveful.com/Africa/Egypt/EGY-11-21-DSCF1720.jpg",
+      "r2Url": "https://pub-beloveful2.r2.dev/Africa/Egypt/EGY-11-21-DSCF1720.jpg",
+      "filename": "EGY-11-21-DSCF1720.jpg",
+      "countryCode": "EGY",
+      "albumKey": "egypt",
+      "error": "Invalid api_key your_api_key",
+      "success": false
+    },
+    {
+      "localPath": "/Website beloveful.com/Africa/Egypt/EGY-11-21-DSCF5175.jpg",
+      "r2Url": "https://pub-beloveful2.r2.dev/Africa/Egypt/EGY-11-21-DSCF5175.jpg",
+      "filename": "EGY-11-21-DSCF5175.jpg",
+      "countryCode": "EGY",
+      "albumKey": "egypt",
+      "error": "Invalid api_key your_api_key",
+      "success": false
+    },
+    {
+      "localPath": "/Website beloveful.com/Africa/Egypt/EGY-110.jpg",
+      "r2Url": "https://pub-beloveful2.r2.dev/Africa/Egypt/EGY-110.jpg",
+      "filename": "EGY-110.jpg",
+      "countryCode": "EGY",
+      "albumKey": "egypt",
+      "error": "Invalid api_key your_api_key",
+      "success": false
+    },
+    {
+      "localPath": "/Website beloveful.com/Africa/Egypt/EGY-114.jpg",
+      "r2Url": "https://pub-beloveful2.r2.dev/Africa/Egypt/EGY-114.jpg",
+      "filename": "EGY-114.jpg",
+      "countryCode": "EGY",
+      "albumKey": "egypt",
+      "error": "Invalid api_key your_api_key",
+      "success": false
+    },
+    {
+      "localPath": "/Website beloveful.com/Africa/Egypt/EGY-11-21-DSCF5812.jpg",
+      "r2Url": "https://pub-beloveful2.r2.dev/Africa/Egypt/EGY-11-21-DSCF5812.jpg",
+      "filename": "EGY-11-21-DSCF5812.jpg",
+      "countryCode": "EGY",
+      "albumKey": "egypt",
+      "error": "Invalid api_key your_api_key",
+      "success": false
+    },
+    {
+      "localPath": "/Website beloveful.com/Africa/Egypt/EGY-1142-Website-2.jpg",
+      "r2Url": "https://pub-beloveful2.r2.dev/Africa/Egypt/EGY-1142-Website-2.jpg",
+      "filename": "EGY-1142-Website-2.jpg",
+      "countryCode": "EGY",
+      "albumKey": "egypt",
+      "error": "Invalid api_key your_api_key",
+      "success": false
+    },
+    {
+      "localPath": "/Website beloveful.com/Africa/Egypt/EGY-11-21-DSCF5281.jpg",
+      "r2Url": "https://pub-beloveful2.r2.dev/Africa/Egypt/EGY-11-21-DSCF5281.jpg",
+      "filename": "EGY-11-21-DSCF5281.jpg",
+      "countryCode": "EGY",
+      "albumKey": "egypt",
+      "error": "Invalid api_key your_api_key",
+      "success": false
+    },
+    {
+      "localPath": "/Website beloveful.com/Africa/Egypt/EGY-11-21-DSCF1337.jpg",
+      "r2Url": "https://pub-beloveful2.r2.dev/Africa/Egypt/EGY-11-21-DSCF1337.jpg",
+      "filename": "EGY-11-21-DSCF1337.jpg",
+      "countryCode": "EGY",
+      "albumKey": "egypt",
+      "error": "Invalid api_key your_api_key",
+      "success": false
+    },
+    {
+      "localPath": "/Website beloveful.com/Africa/Egypt/EGY-1143.jpg",
+      "r2Url": "https://pub-beloveful2.r2.dev/Africa/Egypt/EGY-1143.jpg",
+      "filename": "EGY-1143.jpg",
+      "countryCode": "EGY",
+      "albumKey": "egypt",
+      "error": "Invalid api_key your_api_key",
+      "success": false
+    },
+    {
+      "localPath": "/Website beloveful.com/Africa/Egypt/EGY-1178.jpg",
+      "r2Url": "https://pub-beloveful2.r2.dev/Africa/Egypt/EGY-1178.jpg",
+      "filename": "EGY-1178.jpg",
+      "countryCode": "EGY",
+      "albumKey": "egypt",
+      "error": "Invalid api_key your_api_key",
+      "success": false
+    },
+    {
+      "localPath": "/Website beloveful.com/Africa/Egypt/EGY-115.jpg",
+      "r2Url": "https://pub-beloveful2.r2.dev/Africa/Egypt/EGY-115.jpg",
+      "filename": "EGY-115.jpg",
+      "countryCode": "EGY",
+      "albumKey": "egypt",
+      "error": "Invalid api_key your_api_key",
+      "success": false
+    },
+    {
+      "localPath": "/Website beloveful.com/Africa/Egypt/EGY-12-21-12-14-EGY-617-Enhanced-NR.jpg",
+      "r2Url": "https://pub-beloveful2.r2.dev/Africa/Egypt/EGY-12-21-12-14-EGY-617-Enhanced-NR.jpg",
+      "filename": "EGY-12-21-12-14-EGY-617-Enhanced-NR.jpg",
+      "countryCode": "EGY",
+      "albumKey": "egypt",
+      "error": "Invalid api_key your_api_key",
+      "success": false
+    },
+    {
+      "localPath": "/Website beloveful.com/Africa/Egypt/EGY-12-14-21.jpg",
+      "r2Url": "https://pub-beloveful2.r2.dev/Africa/Egypt/EGY-12-14-21.jpg",
+      "filename": "EGY-12-14-21.jpg",
+      "countryCode": "EGY",
+      "albumKey": "egypt",
+      "error": "Invalid api_key your_api_key",
+      "success": false
+    },
+    {
+      "localPath": "/Website beloveful.com/Africa/Egypt/EGY-12-21-12-01-EGY-304-Enhanced-NR.jpg",
+      "r2Url": "https://pub-beloveful2.r2.dev/Africa/Egypt/EGY-12-21-12-01-EGY-304-Enhanced-NR.jpg",
+      "filename": "EGY-12-21-12-01-EGY-304-Enhanced-NR.jpg",
+      "countryCode": "EGY",
+      "albumKey": "egypt",
+      "error": "Invalid api_key your_api_key",
+      "success": false
+    },
+    {
+      "localPath": "/Website beloveful.com/Africa/Egypt/EGY-12-21-DSCF0169.jpg",
+      "r2Url": "https://pub-beloveful2.r2.dev/Africa/Egypt/EGY-12-21-DSCF0169.jpg",
+      "filename": "EGY-12-21-DSCF0169.jpg",
+      "countryCode": "EGY",
+      "albumKey": "egypt",
+      "error": "Invalid api_key your_api_key",
+      "success": false
+    },
+    {
+      "localPath": "/Website beloveful.com/Africa/Egypt/EGY-12-14-21-2.jpg",
+      "r2Url": "https://pub-beloveful2.r2.dev/Africa/Egypt/EGY-12-14-21-2.jpg",
+      "filename": "EGY-12-14-21-2.jpg",
+      "countryCode": "EGY",
+      "albumKey": "egypt",
+      "error": "Invalid api_key your_api_key",
+      "success": false
+    },
+    {
+      "localPath": "/Website beloveful.com/Africa/Egypt/EGY-12-04-21.jpg",
+      "r2Url": "https://pub-beloveful2.r2.dev/Africa/Egypt/EGY-12-04-21.jpg",
+      "filename": "EGY-12-04-21.jpg",
+      "countryCode": "EGY",
+      "albumKey": "egypt",
+      "error": "Invalid api_key your_api_key",
+      "success": false
+    },
+    {
+      "localPath": "/Website beloveful.com/Africa/Egypt/EGY-12-01-21.jpg",
+      "r2Url": "https://pub-beloveful2.r2.dev/Africa/Egypt/EGY-12-01-21.jpg",
+      "filename": "EGY-12-01-21.jpg",
+      "countryCode": "EGY",
+      "albumKey": "egypt",
+      "error": "Invalid api_key your_api_key",
+      "success": false
+    },
+    {
+      "localPath": "/Website beloveful.com/Africa/Egypt/EGY-12-21-DSCF0508.jpg",
+      "r2Url": "https://pub-beloveful2.r2.dev/Africa/Egypt/EGY-12-21-DSCF0508.jpg",
+      "filename": "EGY-12-21-DSCF0508.jpg",
+      "countryCode": "EGY",
+      "albumKey": "egypt",
+      "error": "Invalid api_key your_api_key",
+      "success": false
+    },
+    {
+      "localPath": "/Website beloveful.com/Africa/Egypt/EGY-12-21-DSCF1321.jpg",
+      "r2Url": "https://pub-beloveful2.r2.dev/Africa/Egypt/EGY-12-21-DSCF1321.jpg",
+      "filename": "EGY-12-21-DSCF1321.jpg",
+      "countryCode": "EGY",
+      "albumKey": "egypt",
+      "error": "Invalid api_key your_api_key",
+      "success": false
+    },
+    {
+      "localPath": "/Website beloveful.com/Africa/Egypt/EGY-12-21-DSCF1974.jpg",
+      "r2Url": "https://pub-beloveful2.r2.dev/Africa/Egypt/EGY-12-21-DSCF1974.jpg",
+      "filename": "EGY-12-21-DSCF1974.jpg",
+      "countryCode": "EGY",
+      "albumKey": "egypt",
+      "error": "Invalid api_key your_api_key",
+      "success": false
+    },
+    {
+      "localPath": "/Website beloveful.com/Africa/Egypt/EGY-12-21-DSCF1991-2.jpg",
+      "r2Url": "https://pub-beloveful2.r2.dev/Africa/Egypt/EGY-12-21-DSCF1991-2.jpg",
+      "filename": "EGY-12-21-DSCF1991-2.jpg",
+      "countryCode": "EGY",
+      "albumKey": "egypt",
+      "error": "Invalid api_key your_api_key",
+      "success": false
+    },
+    {
+      "localPath": "/Website beloveful.com/Africa/Egypt/EGY-12-21-DSCF1013.jpg",
+      "r2Url": "https://pub-beloveful2.r2.dev/Africa/Egypt/EGY-12-21-DSCF1013.jpg",
+      "filename": "EGY-12-21-DSCF1013.jpg",
+      "countryCode": "EGY",
+      "albumKey": "egypt",
+      "error": "Invalid api_key your_api_key",
+      "success": false
+    },
+    {
+      "localPath": "/Website beloveful.com/Africa/Egypt/EGY-12-21-DSCF1039.jpg",
+      "r2Url": "https://pub-beloveful2.r2.dev/Africa/Egypt/EGY-12-21-DSCF1039.jpg",
+      "filename": "EGY-12-21-DSCF1039.jpg",
+      "countryCode": "EGY",
+      "albumKey": "egypt",
+      "error": "Invalid api_key your_api_key",
+      "success": false
+    },
+    {
+      "localPath": "/Website beloveful.com/Africa/Egypt/EGY-12-21-DSCF1938.jpg",
+      "r2Url": "https://pub-beloveful2.r2.dev/Africa/Egypt/EGY-12-21-DSCF1938.jpg",
+      "filename": "EGY-12-21-DSCF1938.jpg",
+      "countryCode": "EGY",
+      "albumKey": "egypt",
+      "error": "Invalid api_key your_api_key",
+      "success": false
+    },
+    {
+      "localPath": "/Website beloveful.com/Africa/Egypt/EGY-12-21-DSCF1468.jpg",
+      "r2Url": "https://pub-beloveful2.r2.dev/Africa/Egypt/EGY-12-21-DSCF1468.jpg",
+      "filename": "EGY-12-21-DSCF1468.jpg",
+      "countryCode": "EGY",
+      "albumKey": "egypt",
+      "error": "Invalid api_key your_api_key",
+      "success": false
+    },
+    {
+      "localPath": "/Website beloveful.com/Africa/Egypt/EGY-12-21-DSCF1974-2.jpg",
+      "r2Url": "https://pub-beloveful2.r2.dev/Africa/Egypt/EGY-12-21-DSCF1974-2.jpg",
+      "filename": "EGY-12-21-DSCF1974-2.jpg",
+      "countryCode": "EGY",
+      "albumKey": "egypt",
+      "error": "Invalid api_key your_api_key",
+      "success": false
+    },
+    {
+      "localPath": "/Website beloveful.com/Africa/Egypt/EGY-12-21-DSCF1870.jpg",
+      "r2Url": "https://pub-beloveful2.r2.dev/Africa/Egypt/EGY-12-21-DSCF1870.jpg",
+      "filename": "EGY-12-21-DSCF1870.jpg",
+      "countryCode": "EGY",
+      "albumKey": "egypt",
+      "error": "Invalid api_key your_api_key",
+      "success": false
+    },
+    {
+      "localPath": "/Website beloveful.com/Africa/Egypt/EGY-12-21-DSCF2037.jpg",
+      "r2Url": "https://pub-beloveful2.r2.dev/Africa/Egypt/EGY-12-21-DSCF2037.jpg",
+      "filename": "EGY-12-21-DSCF2037.jpg",
+      "countryCode": "EGY",
+      "albumKey": "egypt",
+      "error": "Invalid api_key your_api_key",
+      "success": false
+    },
+    {
+      "localPath": "/Website beloveful.com/Africa/Egypt/EGY-12-21-DSCF2562.jpg",
+      "r2Url": "https://pub-beloveful2.r2.dev/Africa/Egypt/EGY-12-21-DSCF2562.jpg",
+      "filename": "EGY-12-21-DSCF2562.jpg",
+      "countryCode": "EGY",
+      "albumKey": "egypt",
+      "error": "Invalid api_key your_api_key",
+      "success": false
+    },
+    {
+      "localPath": "/Website beloveful.com/Africa/Egypt/EGY-12-21-DSCF2038.jpg",
+      "r2Url": "https://pub-beloveful2.r2.dev/Africa/Egypt/EGY-12-21-DSCF2038.jpg",
+      "filename": "EGY-12-21-DSCF2038.jpg",
+      "countryCode": "EGY",
+      "albumKey": "egypt",
+      "error": "Invalid api_key your_api_key",
+      "success": false
+    },
+    {
+      "localPath": "/Website beloveful.com/Africa/Egypt/EGY-12-21-DSCF2734.jpg",
+      "r2Url": "https://pub-beloveful2.r2.dev/Africa/Egypt/EGY-12-21-DSCF2734.jpg",
+      "filename": "EGY-12-21-DSCF2734.jpg",
+      "countryCode": "EGY",
+      "albumKey": "egypt",
+      "error": "Invalid api_key your_api_key",
+      "success": false
+    },
+    {
+      "localPath": "/Website beloveful.com/Africa/Egypt/EGY-12-21-DSCF2753.jpg",
+      "r2Url": "https://pub-beloveful2.r2.dev/Africa/Egypt/EGY-12-21-DSCF2753.jpg",
+      "filename": "EGY-12-21-DSCF2753.jpg",
+      "countryCode": "EGY",
+      "albumKey": "egypt",
+      "error": "Invalid api_key your_api_key",
+      "success": false
+    },
+    {
+      "localPath": "/Website beloveful.com/Africa/Egypt/EGY-12-21-DSCF2361.jpg",
+      "r2Url": "https://pub-beloveful2.r2.dev/Africa/Egypt/EGY-12-21-DSCF2361.jpg",
+      "filename": "EGY-12-21-DSCF2361.jpg",
+      "countryCode": "EGY",
+      "albumKey": "egypt",
+      "error": "Invalid api_key your_api_key",
+      "success": false
+    },
+    {
+      "localPath": "/Website beloveful.com/Africa/Egypt/EGY-12-21-DSCF2743.jpg",
+      "r2Url": "https://pub-beloveful2.r2.dev/Africa/Egypt/EGY-12-21-DSCF2743.jpg",
+      "filename": "EGY-12-21-DSCF2743.jpg",
+      "countryCode": "EGY",
+      "albumKey": "egypt",
+      "error": "Invalid api_key your_api_key",
+      "success": false
+    },
+    {
+      "localPath": "/Website beloveful.com/Africa/Egypt/EGY-12-21-DSCF2697.jpg",
+      "r2Url": "https://pub-beloveful2.r2.dev/Africa/Egypt/EGY-12-21-DSCF2697.jpg",
+      "filename": "EGY-12-21-DSCF2697.jpg",
+      "countryCode": "EGY",
+      "albumKey": "egypt",
+      "error": "Invalid api_key your_api_key",
+      "success": false
+    },
+    {
+      "localPath": "/Website beloveful.com/Africa/Egypt/EGY-12-21-DSCF2747.jpg",
+      "r2Url": "https://pub-beloveful2.r2.dev/Africa/Egypt/EGY-12-21-DSCF2747.jpg",
+      "filename": "EGY-12-21-DSCF2747.jpg",
+      "countryCode": "EGY",
+      "albumKey": "egypt",
+      "error": "Invalid api_key your_api_key",
+      "success": false
+    },
+    {
+      "localPath": "/Website beloveful.com/Africa/Egypt/EGY-12-21-DSCF2010.jpg",
+      "r2Url": "https://pub-beloveful2.r2.dev/Africa/Egypt/EGY-12-21-DSCF2010.jpg",
+      "filename": "EGY-12-21-DSCF2010.jpg",
+      "countryCode": "EGY",
+      "albumKey": "egypt",
+      "error": "Invalid api_key your_api_key",
+      "success": false
+    },
+    {
+      "localPath": "/Website beloveful.com/Africa/Egypt/EGY-12-21-DSCF7137.jpg",
+      "r2Url": "https://pub-beloveful2.r2.dev/Africa/Egypt/EGY-12-21-DSCF7137.jpg",
+      "filename": "EGY-12-21-DSCF7137.jpg",
+      "countryCode": "EGY",
+      "albumKey": "egypt",
+      "error": "Invalid api_key your_api_key",
+      "success": false
+    },
+    {
+      "localPath": "/Website beloveful.com/Africa/Egypt/EGY-12-21-DSCF7339.jpg",
+      "r2Url": "https://pub-beloveful2.r2.dev/Africa/Egypt/EGY-12-21-DSCF7339.jpg",
+      "filename": "EGY-12-21-DSCF7339.jpg",
+      "countryCode": "EGY",
+      "albumKey": "egypt",
+      "error": "Invalid api_key your_api_key",
+      "success": false
+    },
+    {
+      "localPath": "/Website beloveful.com/Africa/Egypt/EGY-130.jpg",
+      "r2Url": "https://pub-beloveful2.r2.dev/Africa/Egypt/EGY-130.jpg",
+      "filename": "EGY-130.jpg",
+      "countryCode": "EGY",
+      "albumKey": "egypt",
+      "error": "Invalid api_key your_api_key",
+      "success": false
+    },
+    {
+      "localPath": "/Website beloveful.com/Africa/Egypt/EGY-12-21-DSCF7928.jpg",
+      "r2Url": "https://pub-beloveful2.r2.dev/Africa/Egypt/EGY-12-21-DSCF7928.jpg",
+      "filename": "EGY-12-21-DSCF7928.jpg",
+      "countryCode": "EGY",
+      "albumKey": "egypt",
+      "error": "Invalid api_key your_api_key",
+      "success": false
+    },
+    {
+      "localPath": "/Website beloveful.com/Africa/Egypt/EGY-12-21-DSCF9132-2.jpg",
+      "r2Url": "https://pub-beloveful2.r2.dev/Africa/Egypt/EGY-12-21-DSCF9132-2.jpg",
+      "filename": "EGY-12-21-DSCF9132-2.jpg",
+      "countryCode": "EGY",
+      "albumKey": "egypt",
+      "error": "Invalid api_key your_api_key",
+      "success": false
+    },
+    {
+      "localPath": "/Website beloveful.com/Africa/Egypt/EGY-134.jpg",
+      "r2Url": "https://pub-beloveful2.r2.dev/Africa/Egypt/EGY-134.jpg",
+      "filename": "EGY-134.jpg",
+      "countryCode": "EGY",
+      "albumKey": "egypt",
+      "error": "Invalid api_key your_api_key",
+      "success": false
+    },
+    {
+      "localPath": "/Website beloveful.com/Africa/Egypt/EGY-120.jpg",
+      "r2Url": "https://pub-beloveful2.r2.dev/Africa/Egypt/EGY-120.jpg",
+      "filename": "EGY-120.jpg",
+      "countryCode": "EGY",
+      "albumKey": "egypt",
+      "error": "Invalid api_key your_api_key",
+      "success": false
+    },
+    {
+      "localPath": "/Website beloveful.com/Africa/Egypt/EGY-12-21-DSCF2826.jpg",
+      "r2Url": "https://pub-beloveful2.r2.dev/Africa/Egypt/EGY-12-21-DSCF2826.jpg",
+      "filename": "EGY-12-21-DSCF2826.jpg",
+      "countryCode": "EGY",
+      "albumKey": "egypt",
+      "error": "Invalid api_key your_api_key",
+      "success": false
+    },
+    {
+      "localPath": "/Website beloveful.com/Africa/Egypt/EGY-128.jpg",
+      "r2Url": "https://pub-beloveful2.r2.dev/Africa/Egypt/EGY-128.jpg",
+      "filename": "EGY-128.jpg",
+      "countryCode": "EGY",
+      "albumKey": "egypt",
+      "error": "Invalid api_key your_api_key",
+      "success": false
+    },
+    {
+      "localPath": "/Website beloveful.com/Africa/Egypt/EGY-145.jpg",
+      "r2Url": "https://pub-beloveful2.r2.dev/Africa/Egypt/EGY-145.jpg",
+      "filename": "EGY-145.jpg",
+      "countryCode": "EGY",
+      "albumKey": "egypt",
+      "error": "Invalid api_key your_api_key",
+      "success": false
+    },
+    {
+      "localPath": "/Website beloveful.com/Africa/Egypt/EGY-165.jpg",
+      "r2Url": "https://pub-beloveful2.r2.dev/Africa/Egypt/EGY-165.jpg",
+      "filename": "EGY-165.jpg",
+      "countryCode": "EGY",
+      "albumKey": "egypt",
+      "error": "Invalid api_key your_api_key",
+      "success": false
+    },
+    {
+      "localPath": "/Website beloveful.com/Africa/Egypt/EGY-160.jpg",
+      "r2Url": "https://pub-beloveful2.r2.dev/Africa/Egypt/EGY-160.jpg",
+      "filename": "EGY-160.jpg",
+      "countryCode": "EGY",
+      "albumKey": "egypt",
+      "error": "Invalid api_key your_api_key",
+      "success": false
+    },
+    {
+      "localPath": "/Website beloveful.com/Africa/Egypt/EGY-121.jpg",
+      "r2Url": "https://pub-beloveful2.r2.dev/Africa/Egypt/EGY-121.jpg",
+      "filename": "EGY-121.jpg",
+      "countryCode": "EGY",
+      "albumKey": "egypt",
+      "error": "Invalid api_key your_api_key",
+      "success": false
+    },
+    {
+      "localPath": "/Website beloveful.com/Africa/Egypt/EGY-143.jpg",
+      "r2Url": "https://pub-beloveful2.r2.dev/Africa/Egypt/EGY-143.jpg",
+      "filename": "EGY-143.jpg",
+      "countryCode": "EGY",
+      "albumKey": "egypt",
+      "error": "Invalid api_key your_api_key",
+      "success": false
+    },
+    {
+      "localPath": "/Website beloveful.com/Africa/Egypt/EGY-172.jpg",
+      "r2Url": "https://pub-beloveful2.r2.dev/Africa/Egypt/EGY-172.jpg",
+      "filename": "EGY-172.jpg",
+      "countryCode": "EGY",
+      "albumKey": "egypt",
+      "error": "Invalid api_key your_api_key",
+      "success": false
+    },
+    {
+      "localPath": "/Website beloveful.com/Africa/Egypt/EGY-148 copy.jpg",
+      "r2Url": "https://pub-beloveful2.r2.dev/Africa/Egypt/EGY-148 copy.jpg",
+      "filename": "EGY-148 copy.jpg",
+      "countryCode": "EGY",
+      "albumKey": "egypt",
+      "error": "Invalid api_key your_api_key",
+      "success": false
+    },
+    {
+      "localPath": "/Website beloveful.com/Africa/Egypt/EGY-168.jpg",
+      "r2Url": "https://pub-beloveful2.r2.dev/Africa/Egypt/EGY-168.jpg",
+      "filename": "EGY-168.jpg",
+      "countryCode": "EGY",
+      "albumKey": "egypt",
+      "error": "Invalid api_key your_api_key",
+      "success": false
+    },
+    {
+      "localPath": "/Website beloveful.com/Africa/Egypt/EGY-1573.jpg",
+      "r2Url": "https://pub-beloveful2.r2.dev/Africa/Egypt/EGY-1573.jpg",
+      "filename": "EGY-1573.jpg",
+      "countryCode": "EGY",
+      "albumKey": "egypt",
+      "error": "Invalid api_key your_api_key",
+      "success": false
+    },
+    {
+      "localPath": "/Website beloveful.com/Africa/Egypt/EGY-154.jpg",
+      "r2Url": "https://pub-beloveful2.r2.dev/Africa/Egypt/EGY-154.jpg",
+      "filename": "EGY-154.jpg",
+      "countryCode": "EGY",
+      "albumKey": "egypt",
+      "error": "Invalid api_key your_api_key",
+      "success": false
+    },
+    {
+      "localPath": "/Website beloveful.com/Africa/Egypt/EGY-148.jpg",
+      "r2Url": "https://pub-beloveful2.r2.dev/Africa/Egypt/EGY-148.jpg",
+      "filename": "EGY-148.jpg",
+      "countryCode": "EGY",
+      "albumKey": "egypt",
+      "error": "Invalid api_key your_api_key",
+      "success": false
+    }
+  ]
+}

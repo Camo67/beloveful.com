@@ -38,6 +38,7 @@ export function Slideshow() {
     } else {
       // No Cloudinary fallback, just use R2
       setFastestUrls(prev => new Map(prev).set(0, createProxiedImageUrl(firstImage.desktop)));
+      setFirstImageLoaded(true);
     }
   }, [images]);
   
