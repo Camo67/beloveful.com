@@ -10,7 +10,6 @@ import RegionLanding from "./pages/RegionLanding";
 
 // Lazy load all page components
 const Index = lazy(() => import("./pages/Index"));
-const Portfolio = lazy(() => import("./pages/Portfolio"));
 const Projects = lazy(() => import("./pages/Projects"));
 const CountryGallery = lazy(() => import("./pages/CountryGallery"));
 const About = lazy(() => import("./pages/About"));
@@ -54,9 +53,7 @@ const App = () => (
           <Suspense fallback={<LoadingSpinner />}>
             <Routes>
               <Route path="/" element={<Index />} />
-              <Route path="/portfolio" element={<Portfolio />} />
               <Route path="/projects" element={<Projects />} />
-              <Route path="/portfolio/:region/:country" element={<CountryGallery />} />
               <Route path="/about" element={<About />} />
               <Route path="/events" element={<Events />} />
               <Route path="/workshops" element={<Workshops />} />

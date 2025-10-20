@@ -2,9 +2,10 @@ import { Header } from "@/components/Header";
 import FooterStrip from "@/components/FooterStrip";
 import PageContainer from "@/components/PageContainer";
 import { createProxiedImageUrl } from "@/lib/images";
+import printlabData from "@/lib/printlab.json";
 
 export default function PrintShop() {
-  const products: any[] = [];
+  const products = printlabData.products || [];
 
   return (
     <div className="min-h-screen">

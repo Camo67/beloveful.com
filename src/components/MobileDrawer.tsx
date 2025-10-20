@@ -105,7 +105,7 @@ export function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
                   onClick={() => setPortfolioOpen(!portfolioOpen)}
                   className="flex items-center gap-2 text-xl text-black dark:text-white hover:underline hover:underline-offset-4 hover:decoration-white transition-opacity duration-300"
                 >
-                  Portfolio
+                  Travel Portfolio
                   <ChevronDown
                     size={20}
                     className={`transition-transform ${portfolioOpen ? "rotate-180" : ""}`}
@@ -115,11 +115,11 @@ export function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
                   <ul className="mt-3 ml-4 space-y-3 max-h-64 overflow-y-auto" role="listbox" aria-label="Portfolio Countries">
                     <li>
                       <Link
-                        to="/portfolio"
+                        to="/africa"
                         className="text-lg text-gray-600 dark:text-gray-400 hover:underline hover:underline-offset-4 hover:decoration-white transition-opacity font-medium"
                         onClick={onClose}
                       >
-                        All
+                        All Regions
                       </Link>
                     </li>
                     {orderedRegions.map((region) => (
@@ -131,7 +131,7 @@ export function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
                           {(albumsByRegion[region] || []).map((album) => (
                             <li key={album.slug}>
                               <Link
-                                to={`/portfolio/${album.region.toLowerCase().replace(' ', '-')}/${album.slug}`}
+                                to={`/${album.region.toLowerCase().replace(/[^a-z]/g, "")}/${album.slug}`}
                                 className="text-base text-gray-600 dark:text-gray-400 hover:underline hover:underline-offset-4 hover:decoration-white transition-opacity"
                                 onClick={onClose}
                               >
@@ -149,7 +149,7 @@ export function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
                           —
                         </div>
                         <Link
-                          to={`/portfolio/${erasingBordersTarget.region.toLowerCase().replace(' ', '-')}/${erasingBordersTarget.slug}`}
+                          to={`/${erasingBordersTarget.region.toLowerCase().replace(/[^a-z]/g, "")}/${erasingBordersTarget.slug}`}
                           className="text-lg text-gray-600 dark:text-gray-400 hover:underline hover:underline-offset-4 hover:decoration-white transition-opacity font-medium"
                           onClick={onClose}
                         >

@@ -5,7 +5,7 @@ import { Logo } from "./Logo";
 import { SocialIcons } from "./SocialIcons";
 import { MobileDrawer } from "./MobileDrawer";
 import ShopDropdown from "./ShopDropdown";
-import { PortfolioDropdown } from "./PortfolioDropdown";
+import { TravelPortfolioDropdown } from "./TravelPortfolioDropdown";
 
 interface HeaderProps {
   variant: "home" | "default";
@@ -16,10 +16,9 @@ export function Header({ variant, fullWidth = false }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
 
-  // Navigation order: Home, Travel Portfolio, Projects, Workshop, Shop, About, Contact
+  // Navigation order: Home, Projects, Workshop, Shop, About, Contact
   const navigationItems = [
     { name: "Home", path: "/" },
-    { name: "Travel Portfolio", path: "/portfolio" },
     { name: "Projects", path: "/projects" },
     { name: "Workshop", path: "/workshops" },
     { name: "Shop", path: "/print-shop" },
@@ -60,7 +59,7 @@ export function Header({ variant, fullWidth = false }: HeaderProps) {
                 </li>
               ))}
               <li>
-                <PortfolioDropdown variant="white" />
+                <TravelPortfolioDropdown variant="white" />
               </li>
               <li>
                 <ShopDropdown variant="white" />
@@ -120,7 +119,7 @@ export function Header({ variant, fullWidth = false }: HeaderProps) {
                 </li>
               ))}
               <li>
-                <PortfolioDropdown />
+                <TravelPortfolioDropdown />
               </li>
               <li>
                 <ShopDropdown />

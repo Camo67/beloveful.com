@@ -73,11 +73,11 @@ export function TravelPortfolioDropdown({ variant = "auto" }: TravelPortfolioDro
       >
         <DropdownMenuItem asChild>
           <Link 
-            to="/portfolio" 
+            to="/africa" 
             className="w-full px-2 py-2 font-semibold hover:bg-muted focus-enhanced text-black dark:text-white"
             onClick={() => setIsOpen(false)}
           >
-            All
+            All Regions
           </Link>
         </DropdownMenuItem>
         <DropdownMenuSeparator />

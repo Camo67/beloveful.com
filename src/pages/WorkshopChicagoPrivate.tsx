@@ -2,6 +2,9 @@ import { Header } from "@/components/Header";
 import FooterStrip from "@/components/FooterStrip";
 import PageContainer from "@/components/PageContainer";
 import { Button } from "@/components/ui/button";
+import { ArrowLeft } from "lucide-react";
+import { Link } from "react-router-dom";
+import { workshopImages } from "@/lib/workshop-data";
 
 export default function WorkshopChicagoPrivate() {
   const heroImage = {
@@ -12,6 +15,15 @@ export default function WorkshopChicagoPrivate() {
   return (
     <div className="min-h-screen">
       <Header variant="default" />
+      
+      <PageContainer className="max-w-5xl pt-8">
+        <Link to="/workshops">
+          <Button variant="ghost" className="mb-4 -ml-4">
+            <ArrowLeft className="mr-2 h-4 w-4" />
+            Back to Workshops
+          </Button>
+        </Link>
+      </PageContainer>
 
       {/* Hero Section */}
       <section className="relative h-96 md:h-[500px] overflow-hidden">
@@ -77,6 +89,28 @@ export default function WorkshopChicagoPrivate() {
                 Duration: 3 hours
               </div>
             </div>
+
+            {/* Workshop Images Gallery */}
+            {workshopImages.chicagoPrivate.length > 1 && (
+              <div className="my-16">
+                <h2 className="text-3xl font-bold mb-8 text-center text-gray-900 dark:text-white">
+                  Workshop Experience
+                </h2>
+                <div className="grid md:grid-cols-2 gap-4">
+                  {workshopImages.chicagoPrivate.slice(1).map((img, idx) => (
+                    <div key={idx} className="aspect-[4/3] overflow-hidden rounded-lg">
+                      <img
+                        src={img.src}
+                        alt={img.alt}
+                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                        draggable={false}
+                        onContextMenu={(e) => e.preventDefault()}
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
 
             <div className="text-center">
               <Button asChild size="lg" className="text-lg px-12 py-6">

@@ -1,0 +1,13 @@
+{
+	"name": "2b914a643d2e9af6cb45aab785096761",
+	"version": "0.0.0",
+	"private": true,
+	"scripts": {
+		"deploy": "wrangler deploy",
+		"start": "wrangler dev",
+		"dev": "wrangler dev"
+	},
+	"devDependencies": {
+		"wrangler": "^4.43.0"
+	}
+}
