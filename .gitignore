@@ -30,3 +30,11 @@ dist-ssr
 # Ignore podcast media in public
 /public/*.mp3
 /public/**/*.mp3
+
+# Cloudinary assets
+/cloudinary-assets/
+/cloudinary_asset_urls.csv
+/export-urls.js
+/organize-urls.js
+/scripts/map-cloudinary-prefixes.mjs
+/update-image-data.js
