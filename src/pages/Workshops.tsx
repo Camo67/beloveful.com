@@ -2,6 +2,7 @@ import { Header } from "@/components/Header";
 import FooterStrip from "@/components/FooterStrip";
 import PageContainer from "@/components/PageContainer";
 import { Link } from "react-router-dom";
+import { CloudImage } from "@/components/CloudImage";
 
 export default function Workshops() {
   const heroImage = {
@@ -73,12 +74,10 @@ export default function Workshops() {
 
       {/* Hero Section */}
       <section className="relative h-screen overflow-hidden">
-        <img
-          src={heroImage.src}
+        <CloudImage
+          url={heroImage.src}
           alt={heroImage.alt}
           className="w-full h-full object-cover"
-          draggable={false}
-          onContextMenu={(e) => e.preventDefault()}
         />
         <div className="absolute inset-0 bg-black/40" />
         <div className="absolute inset-0 flex items-center justify-center">
@@ -124,12 +123,10 @@ export default function Workshops() {
               >
                 {/* Small Image */}
                 <div className="relative h-48 overflow-hidden">
-                  <img
-                    src={workshop.image.src}
+                  <CloudImage
+                    url={workshop.image.src}
                     alt={workshop.image.alt}
                     className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                    draggable={false}
-                    onContextMenu={(e) => e.preventDefault()}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                 </div>
