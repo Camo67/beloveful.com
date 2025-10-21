@@ -41,6 +41,7 @@ export interface SlideshowImage {
  * Defines the structure for a featured work/project
  */
 export interface Work {
+  images: any;
   title: string;
   slug: string;
   description?: string;
@@ -53,6 +54,7 @@ export const PROJECTS: Work[] = (() => {
   const projectsFromAlbums = (CLOUDINARY_ALBUMS || [])
     .filter(a => a.slug === 'erasing-borders' || a.region === 'Erasing Borders')
     .map(a => ({
+      images: a.images || [],
       title: a.country || 'Erasing Borders',
       slug: a.slug,
       description: 'A humanist photography project connecting experiences across borders.',

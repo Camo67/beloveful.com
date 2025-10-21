@@ -10,8 +10,8 @@ export default defineConfig(({ mode }) => ({
     port: 8080,
     proxy: {
       '/api': {
-        // Proxy to local Cloudflare Pages Functions dev server
-        target: 'http://localhost:8787',
+        // Proxy API requests to the local images server during development
+        target: 'http://localhost:4001',
         changeOrigin: true,
         secure: false,
       },

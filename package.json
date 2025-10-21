@@ -32,7 +32,8 @@
     "dev:functions": "wrangler pages dev . --local --port=8787",
     "cloudinary:generate": "ts-node scripts/generate-cloudinary-albums.ts",
     "cloudinary:urls": "node scripts/export-cloudinary-urls.mjs",
-    "portfolio:build": "node scripts/build-albums-from-cloudinary.mjs"
+    "portfolio:build": "node scripts/build-albums-from-cloudinary.mjs",
+    "images:serve": "node server/images.cjs"
   },
   "dependencies": {
     "@cloudflare/kv-asset-handler": "^0.4.0",
@@ -75,6 +76,7 @@
     "cursor": "^0.1.5",
     "date-fns": "^3.6.0",
     "embla-carousel-react": "^8.6.0",
+    "express": "^4.18.2",
     "hono": "^4.6.11",
     "input-otp": "^1.4.2",
     "json2csv": "^6.0.0-alpha.2",
@@ -94,6 +96,7 @@
     "sonner": "^1.7.4",
     "tailwind-merge": "^2.6.0",
     "tailwindcss-animate": "^1.0.7",
+    "ts-node": "^10.9.2",
     "vaul": "^0.9.9",
     "zod": "^3.25.76"
   },
@@ -104,7 +107,7 @@
     "@tanstack/react-query-devtools": "^5.90.2",
     "@types/bcryptjs": "^2.4.6",
     "@types/leaflet.markercluster": "^1.5.6",
-    "@types/node": "^22.18.10",
+    "@types/node": "^22.18.12",
     "@types/react": "^18.3.23",
     "@types/react-dom": "^18.3.7",
     "@types/react-query": "^1.2.8",
@@ -120,7 +123,7 @@
     "lovable-tagger": "^1.1.10",
     "postcss": "^8.5.6",
     "tailwindcss": "^3.4.17",
-    "typescript": "^5.8.3",
+    "typescript": "^5.9.3",
     "typescript-eslint": "^8.38.0",
     "vite": "^6.3.6",
     "wrangler": "^4.43.0"

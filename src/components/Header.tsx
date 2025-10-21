@@ -21,8 +21,11 @@ export function Header({ variant, fullWidth = false }: HeaderProps) {
   const navigation = [
     { name: "Home", path: "/" },
     { name: "Projects", path: "/projects" },
-    { name: "Workshops", path: "/workshops" },
+  { name: "Workshops", path: "/workshops" },
     { name: "About", path: "/about" },
+    { name: "Mentorship", path: "/mentorship" },
+    { name: "FAQ", path: "/faq" },
+    { name: "Print Shop", path: "/print-shop" },
     { name: "Contact", path: "/contact" },
   ];
 
@@ -166,14 +169,38 @@ export function Header({ variant, fullWidth = false }: HeaderProps) {
               <li>
                 <ProjectsDropdown />
               </li>
-              {/* Workshops (no dropdown) */}
-              {/* Workshops (no dropdown) */}
-              <li>
-                <Link to="/workshops" className="nav-link text-black dark:text-white hover:opacity-70 transition-opacity text-lg">Workshops</Link>
+              {/* Workshops (simple dropdown with Mentorship) */}
+              <li className="relative">
+                <div className="group inline-block">
+                  <Link to="/workshops" className="nav-link text-black dark:text-white hover:opacity-70 transition-opacity text-lg">Workshops</Link>
+                  <div className="absolute left-0 mt-2 w-48 bg-white dark:bg-neutral-950 border border-border rounded-md shadow-md opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity pointer-events-none group-hover:pointer-events-auto">
+                    <ul className="p-2">
+                      <li>
+                        <Link to="/workshops" className="block px-3 py-2 text-sm text-black dark:text-white hover:bg-muted rounded" >All Workshops</Link>
+                      </li>
+                      <li>
+                        <Link to="/mentorship" className="block px-3 py-2 text-sm text-black dark:text-white hover:bg-muted rounded">Mentorship</Link>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
               </li>
               {/* Events */}
               <li>
                 <Link to="/events" className="nav-link text-black dark:text-white hover:opacity-70 transition-opacity text-lg">Events</Link>
+              </li>
+              {/* Map */}
+              <li>
+                <Link to="/map" className="nav-link text-black dark:text-white hover:opacity-70 transition-opacity text-lg">Map</Link>
+              </li>
+              {/* Mentorship moved into Workshops dropdown */}
+              {/* FAQ */}
+              <li>
+                <Link to="/faq" className="nav-link text-black dark:text-white hover:opacity-70 transition-opacity text-lg">FAQ</Link>
+              </li>
+              {/* Print Shop */}
+              <li>
+                <Link to="/print-shop" className="nav-link text-black dark:text-white hover:opacity-70 transition-opacity text-lg">Print Shop</Link>
               </li>
               {/* Shop */}
               <li>

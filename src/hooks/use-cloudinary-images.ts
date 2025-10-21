@@ -1,5 +1,5 @@
 // /home/camo/new/beloveful.com/src/hooks/use-cloudinary-images.ts
-import { useCallback } from 'react';
+import { useEffect, useRef, useState, useCallback } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { CLOUDINARY_ALBUMS } from '@/lib/cloudinaryAlbums';
 
@@ -12,34 +12,27 @@ export type GalleryImage = { desktop: string; mobile: string };
  * for a real API call later (server function that uses CLOUDINARY_API_KEY & SECRET).
  */
 export function useCloudinaryImages(folderSlug: string) {
-  const queryFn = useCallback(async () => {
-    try {
-      // Validate folderSlug parameter
-      if (!folderSlug || typeof folderSlug !== 'string') {
-        return [];
-      }
-
-      // Find the album by slug
-      const album = CLOUDINARY_ALBUMS.find((a) => a.slug === folderSlug);
-      if (!album || !Array.isArray(album.images)) return [];
-
-      // Sort images by desktop url alphabetical using localeCompare for better performance
-      const images = [...album.images].sort((a, b) => 
-        a.desktop.localeCompare(b.desktop)
-      );
-
-      return images.map((i) => ({ desktop: i.desktop, mobile: i.mobile }));
-    } catch (err) {
-      console.error(`Error fetching Cloudinary images for folder: ${folderSlug}`, err);
-      return [];
-    }
-  }, [folderSlug]);
-
   return useQuery<GalleryImage[]>({
     queryKey: ['cloudinary', folderSlug],
-    queryFn,
+    queryFn: async () => {
+      try {
+        // Find the album by slug
+        const album = CLOUDINARY_ALBUMS.find((a) => a.slug === folderSlug);
+        if (!album || !Array.isArray(album.images)) return [];
+
+        // Sort images by desktop url alphabetical
+        const images = [...album.images].sort((a, b) => 
+          a.desktop.localeCompare(b.desktop)
+        );
+
+        return images.map((i) => ({ desktop: i.desktop, mobile: i.mobile }));
+      } catch (err) {
+        // In a real implementation, you might want to log this error
+        // console.error('Error fetching Cloudinary images:', err);
+        return [];
+      }
+    },
     staleTime: 1000 * 60 * 60,
     retry: 1,
-    enabled: !!folderSlug && typeof folderSlug === 'string', // Only run query if folderSlug is valid
   });
 }

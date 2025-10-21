@@ -93,11 +93,24 @@ export function TravelPortfolioDropdown({ variant = "auto" }: TravelPortfolioDro
                   to={`/${album.region.toLowerCase().replace(/[^a-z]/g, "")}/${album.slug}`}
                   className="w-full px-4 py-2 hover:bg-muted focus-enhanced pl-4 text-black dark:text-white"
                   onClick={() => setIsOpen(false)}
+                    data-album-slug={album.slug}
                 >
                   {album.country}
                 </Link>
               </DropdownMenuItem>
             ))}
+              {/* Add a direct Map link inside the Travel Portfolio for quick access */}
+              <div className="px-2 py-2">
+                <DropdownMenuItem asChild>
+                  <Link
+                    to="/map"
+                    className="w-full px-4 py-2 hover:bg-muted focus-enhanced pl-4 text-black dark:text-white font-medium"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    Map
+                  </Link>
+                </DropdownMenuItem>
+              </div>
           </div>
         ))}
       </DropdownMenuContent>

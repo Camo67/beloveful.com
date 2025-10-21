@@ -115,6 +115,7 @@ export const GENERATED_ALBUMS: CountryAlbum[] = [
       { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621020/EGY-LUX-425_obwqb6.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621020/EGY-LUX-425_obwqb6.jpg' },
       { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620961/EGY-LUX-531_tqbxiq.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620961/EGY-LUX-531_tqbxiq.jpg' }
     ],
+    title: ''
   },
   {
     region: "Africa",
@@ -129,6 +130,7 @@ export const GENERATED_ALBUMS: CountryAlbum[] = [
       { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621051/ETH-1076_epz2yh.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621051/ETH-1076_epz2yh.jpg' },
       { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621052/ETH-2206_lundkq.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621052/ETH-2206_lundkq.jpg' }
     ],
+    title: ''
   },
   {
     region: "Africa",
@@ -151,6 +153,7 @@ export const GENERATED_ALBUMS: CountryAlbum[] = [
       { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621040/NAM-11-22-DSCF8088_pzgoe6.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621040/NAM-11-22-DSCF8088_pzgoe6.jpg' },
       { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621044/NAM-11-22-DSCF8100_c36s7p.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621044/NAM-11-22-DSCF8100_c36s7p.jpg' }
     ],
+    title: ''
   },
   {
     region: "Asia",
@@ -175,6 +178,7 @@ export const GENERATED_ALBUMS: CountryAlbum[] = [
       { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620675/HK-Pastel_Playground_4-6559_yeil6k.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620675/HK-Pastel_Playground_4-6559_yeil6k.jpg' },
       { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620680/HK-Unexpected_perspective-6919_zzi74r.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620680/HK-Unexpected_perspective-6919_zzi74r.jpg' }
     ],
+    title: ''
   },
   {
     region: "Asia",
@@ -249,6 +253,7 @@ export const GENERATED_ALBUMS: CountryAlbum[] = [
       { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620625/IND-MeniasTony_16.jpg-nggid03311-ngg0dyn-180x0-00f0w010c010r110f110r010t010_o0avxw.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620625/IND-MeniasTony_16.jpg-nggid03311-ngg0dyn-180x0-00f0w010c010r110f110r010t010_o0avxw.jpg' },
       { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759466089/IND-MeniasTony_8_kfjhfw.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759466089/IND-MeniasTony_8_kfjhfw.jpg' }
     ],
+    title: ''
   },
   {
     region: "Asia",
@@ -276,6 +281,7 @@ export const GENERATED_ALBUMS: CountryAlbum[] = [
       { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620804/JAP-3636-03-24-17_m2s1dz.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620804/JAP-3636-03-24-17_m2s1dz.jpg' },
       { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620801/JAP-4028_xdk6sm.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620801/JAP-4028_xdk6sm.jpg' }
     ],
+    title: ''
   },
   {
     region: "Asia",
@@ -301,6 +307,7 @@ export const GENERATED_ALBUMS: CountryAlbum[] = [
       { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759466079/MYA-DSCF9634_copy_ftq8wd.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759466079/MYA-DSCF9634_copy_ftq8wd.jpg' },
       { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620827/MYA-Morning_Catch_gddpsa.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620827/MYA-Morning_Catch_gddpsa.jpg' }
     ],
+    title: ''
   },
   {
     region: "Asia",
@@ -327,6 +334,7 @@ export const GENERATED_ALBUMS: CountryAlbum[] = [
       { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620663/NEP-Silent-Stare-copy.jpg-nggid03301-ngg0dyn-180x0-00f0w010c010r110f110r010t010_jof63m.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620663/NEP-Silent-Stare-copy.jpg-nggid03301-ngg0dyn-180x0-00f0w010c010r110f110r010t010_jof63m.jpg' },
       { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620831/NPL-8750_lspnpu.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620831/NPL-8750_lspnpu.jpg' }
     ],
+    title: ''
   },
   {
     region: "Asia",
@@ -376,6 +384,7 @@ export const GENERATED_ALBUMS: CountryAlbum[] = [
       { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620844/PHI-9895_lawc2h.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620844/PHI-9895_lawc2h.jpg' },
       { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620858/PHI-9895_wnvbet.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620858/PHI-9895_wnvbet.jpg' }
     ],
+    title: ''
   },
   {
     region: "Asia",
@@ -408,6 +417,7 @@ export const GENERATED_ALBUMS: CountryAlbum[] = [
       { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620841/THA-3538_bammx3.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620841/THA-3538_bammx3.jpg' },
       { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620837/THA-2780_najztt.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620837/THA-2780_najztt.jpg' }
     ],
+    title: ''
   },
   {
     region: "Asia",
@@ -427,6 +437,7 @@ export const GENERATED_ALBUMS: CountryAlbum[] = [
       { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218570/Website%20beloveful.com/Erasing%20Borders/Vietnam-DSCF8153_copy_vwsvcl.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218570/Website%20beloveful.com/Erasing%20Borders/Vietnam-DSCF8153_copy_vwsvcl.jpg' },
       { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759466093/Vietnam-DSCF8153_copy_afm450.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759466093/Vietnam-DSCF8153_copy_afm450.jpg' }
     ],
+    title: ''
   },
   {
     region: "Europe",
@@ -455,6 +466,7 @@ export const GENERATED_ALBUMS: CountryAlbum[] = [
       { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620885/FRA-DSCF9765_dkb7az.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620885/FRA-DSCF9765_dkb7az.jpg' },
       { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759396064/FRA-DSCF9765_pycgqe.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759396064/FRA-DSCF9765_pycgqe.jpg' }
     ],
+    title: ''
   },
   {
     region: "Europe",
@@ -609,6 +621,7 @@ export const GENERATED_ALBUMS: CountryAlbum[] = [
       { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395209/ITA-DSCF6964_hni4vg.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395209/ITA-DSCF6964_hni4vg.jpg' },
       { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395715/ITA-DSCF6964_ymu4nb.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759395715/ITA-DSCF6964_ymu4nb.jpg' }
     ],
+    title: ''
   },
   {
     region: "Middle East",
@@ -713,6 +726,7 @@ export const GENERATED_ALBUMS: CountryAlbum[] = [
       { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620563/ISR-10-19-DSCF4131_k2wo6p.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620563/ISR-10-19-DSCF4131_k2wo6p.jpg' },
       { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620558/ISR-10-19-DSCF2937_a1ummg.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620558/ISR-10-19-DSCF2937_a1ummg.jpg' }
     ],
+    title: ''
   },
   {
     region: "Middle East",
@@ -788,6 +802,7 @@ export const GENERATED_ALBUMS: CountryAlbum[] = [
       { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620572/JDN-4455_vyvg5h.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620572/JDN-4455_vyvg5h.jpg' },
       { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620569/JDN-4461_jwxate.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620569/JDN-4461_jwxate.jpg' }
     ],
+    title: ''
   },
   {
     region: "North America",
@@ -871,6 +886,7 @@ export const GENERATED_ALBUMS: CountryAlbum[] = [
       { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400208/CHI-HotNCold-_icwrgo.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400208/CHI-HotNCold-_icwrgo.jpg' },
       { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759466082/CHI-MeniasTony_12_ywrfrc.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759466082/CHI-MeniasTony_12_ywrfrc.jpg' }
     ],
+    title: ''
   },
   {
     region: "South America",
@@ -879,6 +895,7 @@ export const GENERATED_ALBUMS: CountryAlbum[] = [
     images: [
       { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620951/ARG-8518_d1y1ut.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620951/ARG-8518_d1y1ut.jpg' }
     ],
+    title: ''
   },
   {
     region: "North America",
@@ -889,6 +906,7 @@ export const GENERATED_ALBUMS: CountryAlbum[] = [
       { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759466084/NyC-DSCF8922_copy_2_w7uu8e.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1759466084/NyC-DSCF8922_copy_2_w7uu8e.jpg' },
       { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620665/thumbs_NyC-DSCF8922-copy-2_sixink.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620665/thumbs_NyC-DSCF8922-copy-2_sixink.jpg' }
     ],
+    title: ''
   },
   {
     region: "Africa",
@@ -899,6 +917,7 @@ export const GENERATED_ALBUMS: CountryAlbum[] = [
       { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621056/MOR-5380-05-07-16_jqwcrp.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621056/MOR-5380-05-07-16_jqwcrp.jpg' },
       { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621055/MOR-05-16-IMG_5205_nscxid.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621055/MOR-05-16-IMG_5205_nscxid.jpg' }
     ],
+    title: ''
   },
   {
     region: "Africa",
@@ -920,6 +939,7 @@ export const GENERATED_ALBUMS: CountryAlbum[] = [
       { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621045/SA-11-22-DSCF6237_ukd0oy.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621045/SA-11-22-DSCF6237_ukd0oy.jpg' },
       { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621044/SA-11-22-DSCF6201_lespup.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621044/SA-11-22-DSCF6201_lespup.jpg' }
     ],
+    title: ''
   },
   {
     region: "North America",
@@ -931,6 +951,7 @@ export const GENERATED_ALBUMS: CountryAlbum[] = [
       { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620552/PR-DSF8358_irvw2j.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620552/PR-DSF8358_irvw2j.jpg' },
       { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620551/PR-DSF8343_wfmmui.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620551/PR-DSF8343_wfmmui.jpg' }
     ],
+    title: ''
   },
   {
     region: "North America",
@@ -1037,6 +1058,7 @@ export const GENERATED_ALBUMS: CountryAlbum[] = [
       { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620519/MEX-Miss_Technicolor-8_xldvhz.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620519/MEX-Miss_Technicolor-8_xldvhz.jpg' },
       { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620519/MEX-65_jyrd0s.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620519/MEX-65_jyrd0s.jpg' }
     ],
+    title: ''
   },
   {
     region: "North America",
@@ -1058,6 +1080,7 @@ export const GENERATED_ALBUMS: CountryAlbum[] = [
       { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620508/CAR-12-24-DSCF9563_a0v6pj.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620508/CAR-12-24-DSCF9563_a0v6pj.jpg' },
       { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620508/CAR-12-24-DSCF9138_p1n3fe.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620508/CAR-12-24-DSCF9138_p1n3fe.jpg' }
     ],
+    title: ''
   },
   {
     region: "North America",
@@ -1067,5 +1090,6 @@ export const GENERATED_ALBUMS: CountryAlbum[] = [
       { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620517/STM-8082_abjbjg.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620517/STM-8082_abjbjg.jpg' },
       { desktop: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620517/STM-8234_bks8vn.jpg', mobile: 'https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620517/STM-8234_bks8vn.jpg' }
     ],
+    title: ''
   }
 ];

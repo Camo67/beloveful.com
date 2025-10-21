@@ -20,6 +20,9 @@ export function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
     { name: "Workshops", path: "/workshops" },
     { name: "Events", path: "/events" },
     { name: "About", path: "/about" },
+    // Mentorship moved under Workshops
+    { name: "FAQ", path: "/faq" },
+    { name: "Print Shop", path: "/print-shop" },
     { name: "Contact", path: "/contact" },
   ];
   
@@ -67,7 +70,7 @@ export function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
       
       {/* Drawer */}
       <div className={`mobile-drawer ${isOpen ? "open" : "closed"}`}>
-        <div className="flex flex-col h-full">
+        <div className="flex flex-col h-full min-h-0">
           {/* Header */}
           <div className="flex items-center justify-between p-4 border-b border-gray-100 dark:border-neutral-800">
             <span className="text-lg font-medium text-black dark:text-white">Menu</span>
@@ -81,7 +84,7 @@ export function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
           </div>
           
           {/* Navigation */}
-          <nav className="flex-1 px-4 py-6">
+          <nav className="flex-1 px-4 py-6 overflow-y-auto">
             <ul className="space-y-6">
               {navigationLinks.map((link) => (
                 <li key={link.name}>
@@ -176,6 +179,18 @@ export function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
                     </li>
                   </ul>
                 )}
+              </li>
+              {/* Workshops quick links, include Mentorship */}
+              <li className="mt-4">
+                <div className="text-lg font-medium">Workshops</div>
+                <ul className="mt-2 ml-3 space-y-2">
+                  <li>
+                    <Link to="/workshops" className="text-base text-gray-600 dark:text-gray-400 hover:underline" onClick={onClose}>All Workshops</Link>
+                  </li>
+                  <li>
+                    <Link to="/mentorship" className="text-base text-gray-600 dark:text-gray-400 hover:underline" onClick={onClose}>Mentorship</Link>
+                  </li>
+                </ul>
               </li>
             </ul>
           </nav>

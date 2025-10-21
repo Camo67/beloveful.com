@@ -23,6 +23,7 @@ export type MapMarker = {
   position: LatLngExpression;
   title?: string;
   imageUrl?: string;
+  albumSlug?: string; // optional slug to navigate to when clicked
 };
 
 interface LeafletWorldMapProps {
@@ -101,19 +102,42 @@ const ClusterLayer: React.FC<{ markers: MapMarker[]; }> = ({ markers }) => {
     clusterRef.current = cluster;
 
     markers.forEach((m) => {
-      const marker = L.marker(m.position, {
-        title: m.title,
-        icon: L.divIcon({
-          className: 'custom-pin',
-          html: iconHtml(m.title),
-          iconSize: [10, 10],
-        }),
-      });
+      let marker: L.Marker;
+
       if (m.imageUrl) {
+        // create an icon using the imageUrl (thumbnail)
+        const icon = L.icon({
+          iconUrl: m.imageUrl,
+          iconSize: [44, 44],
+          className: 'rounded-full border',
+        });
+        marker = L.marker(m.position, { title: m.title, icon });
         marker.bindPopup(`<div style="max-width:220px"><img src="${m.imageUrl}" style="width:100%;height:auto;border-radius:8px"/><div style="margin-top:6px;font-weight:600">${m.title ?? ''}</div></div>`);
-      } else if (m.title) {
-        marker.bindPopup(`<div style="padding:4px 6px;font-weight:600">${m.title}</div>`);
+      } else {
+        marker = L.marker(m.position, {
+          title: m.title,
+          icon: L.divIcon({
+            className: 'custom-pin',
+            html: iconHtml(m.title),
+            iconSize: [10, 10],
+          }),
+        });
+        if (m.title) marker.bindPopup(`<div style="padding:4px 6px;font-weight:600">${m.title}</div>`);
       }
+
+      // If marker has an albumSlug, navigate to the album when clicked
+      if ((m as any).albumSlug) {
+        marker.on('click', () => {
+          // open album route in same app
+          const slug = (m as any).albumSlug;
+          // navigate to region/slug path — if albumSlug contains region prefix just use it
+          // We'll try opening /portfolio as a fallback
+          const target = `/${slug}`;
+          // Use location.assign to allow full page nav (SPA routers will also handle)
+          window.location.assign(target);
+        });
+      }
+
       cluster.addLayer(marker);
     });
 
