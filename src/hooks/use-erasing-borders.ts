@@ -1,4 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
+import { CLOUDINARY_ALBUMS } from '@/lib/cloudinaryAlbums';
 
 export type GalleryImage = { desktop: string; mobile: string };
 
@@ -13,17 +14,23 @@ export function useErasingBorders() {
     queryKey: ['erasing-borders'],
     queryFn: async () => {
       try {
+        // Try the API route first (if configured)
         const res = await fetch('/api/collections/erasing-borders');
-        if (!res.ok) return [];
-        const data: ApiResponse = await res.json();
-        if (data?.success && Array.isArray(data.images)) {
-          return data.images.map((i) => ({ desktop: i.desktop, mobile: i.mobile }));
+        if (res.ok) {
+          const data: ApiResponse = await res.json();
+          if (data?.success && Array.isArray(data.images)) {
+            return data.images.map((i) => ({ desktop: i.desktop, mobile: i.mobile }));
+          }
         }
-        return [];
-      } catch {
-        // Fallback: no dynamic images; pages will use static album if present
-        return [];
+      } catch (err) {
+        // ignore and fall back
       }
+
+      // Fallback to local generated Cloudinary dataset
+      const album = CLOUDINARY_ALBUMS.find((a) => a.slug === 'erasing-borders');
+      if (!album || !Array.isArray(album.images)) return [];
+
+      return album.images.map((i) => ({ desktop: i.desktop, mobile: i.mobile }));
     },
     staleTime: 1000 * 60 * 60, // 1 hour
     retry: 1,

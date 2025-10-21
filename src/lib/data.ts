@@ -10,6 +10,8 @@ export type Region =
   | "Europe"
   | "Oceania"
   | "Erasing Borders"
+  | "Shop"
+  | "Logo"
 
 /**
  * Defines the structure for a single album, representing a country/location.
@@ -18,6 +20,10 @@ export interface CountryAlbum {
   region: Region
   country: string
   slug: string
+  title: string
+  description?: string
+  price?: number
+  featured?: boolean
   images: {
     desktop: string // URL for landscape image
     mobile: string // URL for portrait image
@@ -38,14 +44,8 @@ export interface Work {
   title: string;
   slug: string;
   description?: string;
-  coverImage: {
-    desktop: string;
-    mobile: string;
-  };
-  images: {
-    desktop: string;
-    mobile: string;
-  }[];
+  region: Region;
+  featured?: boolean;
 }
 
 // Derived Projects (non-country works)
@@ -56,8 +56,8 @@ export const PROJECTS: Work[] = (() => {
       title: a.country || 'Erasing Borders',
       slug: a.slug,
       description: 'A humanist photography project connecting experiences across borders.',
-      coverImage: a.images[0] || { desktop: '', mobile: '' },
-      images: a.images
+      region: "Erasing Borders" as Region,
+      featured: true
     }));
   return projectsFromAlbums;
 })();
@@ -106,8 +106,121 @@ export const HOME_SLIDESHOW: SlideshowImage[] = [
   }
 ];
 
-// Portfolio albums using Cloudinary images
-export const ALBUMS: CountryAlbum[] = CLOUDINARY_ALBUMS;
+// Portfolio albums: merge generated albums, Cloudinary albums, and manual entries.
+const normalize = (a: Partial<CountryAlbum>): CountryAlbum => ({
+  slug: a.slug || 'unknown',
+  region: (a.region as Region) || 'North America',
+  country: a.country || 'Unknown',
+  title: a.title || a.country || a.slug || 'Untitled',
+  description: a.description || '',
+  price: a.price,
+  featured: a.featured || false,
+  images: a.images || [{ desktop: '', mobile: '' }]
+});
+
+const mappedGenerated = (GENERATED_ALBUMS || []).map((a) => normalize(a as Partial<CountryAlbum>));
+const mappedCloudinary = (CLOUDINARY_ALBUMS || []).map((a) => normalize(a as Partial<CountryAlbum>));
+
+// Manual overrides / extra albums
+const manualAlbums: CountryAlbum[] = [
+  {
+    slug: "beloveful-abandoned-beauty",
+    region: "North America",
+    country: "United States",
+    title: "Abandoned Beauty",
+    description: "Urban exploration revealing hidden beauty in decay",
+    price: 35,
+    featured: true,
+    images: [{
+      desktop: "/images/abandoned-beauty-desktop.jpg",
+      mobile: "/images/abandoned-beauty-mobile.jpg"
+    }]
+  },
+  {
+    slug: "beloveful-afternoon-drink",
+    region: "Asia",
+    country: "Vietnam",
+    title: "Afternoon Drink",
+    description: "Street life moments in Hanoi",
+    price: 35,
+    featured: false,
+    images: [{
+      desktop: "/images/afternoon-drink-desktop.jpg",
+      mobile: "/images/afternoon-drink-mobile.jpg"
+    }]
+  },
+  {
+    slug: "beloveful-almost-home",
+    region: "North America",
+    country: "United States",
+    title: "Almost Home",
+    description: "Urban landscapes of Chicago",
+    price: 35,
+    featured: false,
+    images: [{
+      desktop: "/images/almost-home-desktop.jpg",
+      mobile: "/images/almost-home-mobile.jpg"
+    }]
+  },
+  {
+    slug: "beloveful-amalfi",
+    region: "Europe",
+    country: "Italy",
+    title: "Amalfi",
+    description: "Coastal beauty of the Amalfi Coast",
+    price: 35,
+    featured: true,
+    images: [{
+      desktop: "/images/amalfi-desktop.jpg",
+      mobile: "/images/amalfi-mobile.jpg"
+    }]
+  },
+  {
+    slug: "beloveful-ascension",
+    region: "Asia",
+    country: "Thailand",
+    title: "Ascension",
+    description: "Spiritual journey through Thai temples",
+    price: 35,
+    featured: false,
+    images: [{
+      desktop: "/images/ascension-desktop.jpg",
+      mobile: "/images/ascension-mobile.jpg"
+    }]
+  },
+  {
+    slug: "beloveful-between-the-lines",
+    region: "North America",
+    country: "United States",
+    title: "Between The Lines",
+    description: "Abstract urban compositions",
+    price: 35,
+    featured: true,
+    images: [{
+      desktop: "/images/between-the-lines-desktop.jpg",
+      mobile: "/images/between-the-lines-mobile.jpg"
+    }]
+  },
+  {
+    slug: "beloveful-bountifully-barren",
+    region: "Middle East",
+    country: "Jordan",
+    title: "Bountifully Barren",
+    description: "Desert landscapes of Wadi Rum",
+    price: 35,
+    featured: true,
+    images: [{
+      desktop: "/images/bountifully-barren-desktop.jpg",
+      mobile: "/images/bountifully-barren-mobile.jpg"
+    }]
+  }
+];
+
+export const ALBUMS: CountryAlbum[] = [
+  ...mappedGenerated,
+  ...mappedCloudinary,
+  ...manualAlbums
+];
 
 // Helper functions
 export const getAllAlbumsSorted = (): CountryAlbum[] => {
@@ -122,4 +235,15 @@ export const getAlbumBySlug = (slug: string): CountryAlbum | undefined => {
   return ALBUMS.find(album => album.slug === slug);
 };
 
-export const REGIONS: Region[] = ["Africa", "Asia", "Middle East", "South America", "North America", "Europe", "Oceania", "Erasing Borders"];
+export const REGIONS: Region[] = [
+  "Africa",
+  "Asia",
+  "Middle East",
+  "South America",
+  "North America",
+  "Europe",
+  "Oceania",
+  "Erasing Borders",
+  "Shop",
+  "Logo"
+];

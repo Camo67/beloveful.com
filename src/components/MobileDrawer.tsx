@@ -35,14 +35,14 @@ export function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
       "North America",
       "Europe",
       "Oceania",
-      "Erasing Borders",
     ],
     []
   );
 
   // Group albums by region and sort countries within each region
   const albumsByRegion = useMemo(() => {
-    const grouped = albums.reduce((acc, album) => {
+    const filtered = albums.filter(album => album.region !== "Erasing Borders");
+    const grouped = filtered.reduce((acc, album) => {
       if (!acc[album.region]) acc[album.region] = [] as typeof albums;
       acc[album.region].push(album);
       return acc;

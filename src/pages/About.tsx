@@ -4,6 +4,8 @@ import { CLIENT_LOGOS_SOURCE, CLIENT_NAMES, getClientLinkForIndex } from "@/lib/
 import { Button } from "@/components/ui/button";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useCloudinaryImages } from '@/hooks/use-cloudinary-images';
+import { createProxiedImageUrl } from '@/lib/images';
 
 export default function About() {
   useEffect(() => {
@@ -190,8 +192,9 @@ export default function About() {
 }
 
 function ClientsPartnersGrid() {
-  // Use the client logos from the imported data
-  const clientLogos = CLIENT_LOGOS_SOURCE;
+  // Prefer dynamic logos from Cloudinary (folder slug: "logos") and fallback to curated set
+  const { data: dynamicLogos = [] } = useCloudinaryImages('logos');
+  const clientLogos = dynamicLogos.length > 0 ? dynamicLogos.map((i) => createProxiedImageUrl(i.desktop)) : CLIENT_LOGOS_SOURCE;
   
   // Don't render if no logos are available
   if (!clientLogos || clientLogos.length === 0) {

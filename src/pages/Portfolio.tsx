@@ -40,8 +40,11 @@ export default function Portfolio() {
 
   const filteredAlbums = useMemo(() => {
     if (selectedRegion === "All") {
-      // Exclude "Erasing Borders" from the main "All" grid.
-      return allSortedAlbums.filter(a => a.slug !== 'erasing-borders');
+      // Exclude Erasing Borders and any non-travel photos
+      return allSortedAlbums.filter(a => 
+        a.slug !== 'erasing-borders' && 
+        a.region !== 'Erasing Borders'
+      );
     } 
     return allSortedAlbums.filter((a) => a.region === selectedRegion);
   }, [allSortedAlbums, selectedRegion]);
@@ -119,7 +122,7 @@ export default function Portfolio() {
                           By Continent
                         </h3>
                         <ul className="grid gap-1.5">
-                        {REGIONS.filter(region => region !== "Erasing Borders").map((region) => (
+                        {REGIONS.filter(region => region !== "Erasing Borders" && region !== "Logo").map((region) => (
                             <li key={region}>
                               <NavigationMenuLink asChild>
                                 <button
@@ -151,7 +154,14 @@ export default function Portfolio() {
                                        [&::-webkit-scrollbar-thumb]:bg-muted-foreground/20
                                        [&::-webkit-scrollbar-thumb]:rounded-full
                                        [&::-webkit-scrollbar-thumb]:hover:bg-muted-foreground/30">
-                          {allSortedAlbums.filter(album => album.slug !== 'erasing-borders').slice(0, 20).map((album) => (
+                          {allSortedAlbums
+                            .filter(album => 
+                              album.slug !== 'erasing-borders' && 
+                              album.region !== 'Erasing Borders' && 
+                              album.region !== 'Logo'
+                            )
+                            .slice(0, 20)
+                            .map((album) => (
                             <li key={album.slug}>
                               <NavigationMenuLink asChild>
                                 <Link

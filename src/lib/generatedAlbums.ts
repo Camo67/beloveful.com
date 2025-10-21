@@ -1,7 +1,9 @@
 // Auto-generated from Cloudinary API
 // Generated on: 2025-10-18T07:03:21.000Z
 
-import type { CountryAlbum } from './data';
+import type { CountryAlbum, SlideshowImage } from './data';
+
+export const GENERATED_HOME_SLIDESHOW: SlideshowImage[] = [];
 
 export const GENERATED_ALBUMS: CountryAlbum[] = [
   {

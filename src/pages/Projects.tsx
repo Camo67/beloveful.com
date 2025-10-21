@@ -7,6 +7,7 @@ import { getAllAlbumsSorted, REGIONS, type Region } from "@/lib/data";
 import { useAlbums } from "@/hooks/use-albums";
 import { Gallery } from "@/components/Gallery";
 import { useErasingBorders } from "@/hooks/use-erasing-borders";
+import ImageGrid from '@/components/ImageGrid';
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger } from "@/components/ui/navigation-menu";
 
 export default function Projects() {
@@ -23,7 +24,7 @@ export default function Projects() {
   const [selectedRegion, setSelectedRegion] = useState<Region | "All">(activeRegion);
   useEffect(() => setSelectedRegion(activeRegion), [activeRegion]);
 
-  const allSortedAlbums = useMemo(() => (allAlbums ? getAllAlbumsSorted().filter(a => a.region !== "Logo") : []), [allAlbums]);
+  const allSortedAlbums = useMemo(() => (allAlbums ? getAllAlbumsSorted().filter(a => a.region !== "Erasing Borders") : []), [allAlbums]);
 
   const filteredAlbums = useMemo(() => {
     if (selectedRegion === "All") return allSortedAlbums.filter(a => a.slug !== 'erasing-borders');
@@ -72,19 +73,8 @@ export default function Projects() {
               </div>
               <div className="lg:w-1/2">
                 {erasingImages && erasingImages.length > 0 && (
-                  <div className="grid grid-cols-2 gap-3">
-                    {erasingImages.slice(0, 4).map((img, i) => (
-                      <div key={i} className="relative aspect-[4/3] overflow-hidden rounded-lg bg-muted">
-                        <img
-                          src={encodeURI(img.desktop)}
-                          alt={`Erasing Borders preview ${i + 1}`}
-                          className="w-full h-full object-cover"
-                          draggable={false}
-                          onContextMenu={(e) => e.preventDefault()}
-                          loading="lazy"
-                        />
-                      </div>
-                    ))}
+                  <div>
+                    <ImageGrid images={erasingImages.slice(0, 4)} maxColumns={2} gap={12} />
                   </div>
                 )}
               </div>

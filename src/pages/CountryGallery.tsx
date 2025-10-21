@@ -14,7 +14,7 @@ export default function CountryGallery() {
 
   const album = countrySlug ? getAlbumBySlug(countrySlug) : undefined;
 
-  const albums = getAllAlbumsSorted().filter((a) => a.region !== "Logo");
+  const albums = getAllAlbumsSorted().filter((a) => a.region !== "Erasing Borders");
   const countriesInRegion = useMemo(() => {
     const region = album?.region ?? "";
     return albums
