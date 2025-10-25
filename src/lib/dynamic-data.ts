@@ -32,6 +32,7 @@ export interface DynamicImage {
 
 // Enhanced album interface
 export interface DynamicCountryAlbum {
+  error: boolean;
   id: string;
   region: Region;
   country: string;
@@ -98,7 +99,8 @@ export class ImageManager {
         country,
         slug: country.toLowerCase().replace(/[^a-z0-9]/g, '-'),
         images: [],
-        loading: true
+        loading: true,
+        error: false
       };
 
       this.albums.set(albumId, album);

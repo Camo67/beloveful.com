@@ -67,7 +67,8 @@ export const CLOUDINARY_ALBUMS: CountryAlbum[] = [
         "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620567/PAL-10-19-DSCF3283_j0zztl.jpg",
         "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620567/PAL-10-19-DSCF3283_j0zztl.jpg"
       }
-    ]
+    ],
+    title: ''
   },
   {
     "region": "Middle East",
@@ -146,7 +147,8 @@ export const CLOUDINARY_ALBUMS: CountryAlbum[] = [
         "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620598/JOR-10-19-DSCF4604_rv8ibh.jpg",
         "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620598/JOR-10-19-DSCF4604_rv8ibh.jpg"
       }
-    ]
+    ],
+    title: ''
   },
   {
     "region": "Asia",
@@ -245,7 +247,8 @@ export const CLOUDINARY_ALBUMS: CountryAlbum[] = [
         "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400269/CHI-65_fgjwby.jpg",
         "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1759400269/CHI-65_fgjwby.jpg"
       }
-    ]
+    ],
+    title: ''
   },
   {
     "region": "Asia",
@@ -296,7 +299,8 @@ export const CLOUDINARY_ALBUMS: CountryAlbum[] = [
         "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620805/JAP-03-17-_DSF3291_eqvftc.jpg",
         "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620805/JAP-03-17-_DSF3291_eqvftc.jpg"
       }
-    ]
+    ],
+    title: ''
   },
   {
     "region": "Asia",
@@ -327,7 +331,8 @@ export const CLOUDINARY_ALBUMS: CountryAlbum[] = [
         "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620679/HK-5958-04-05-17_fk4wuo.jpg",
         "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620679/HK-5958-04-05-17_fk4wuo.jpg"
       }
-    ]
+    ],
+    title: ''
   },
   {
     "region": "Asia",
@@ -362,7 +367,8 @@ export const CLOUDINARY_ALBUMS: CountryAlbum[] = [
         "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620711/IND-4740_c5rfdh.jpg",
         "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1758620711/IND-4740_c5rfdh.jpg"
       }
-    ]
+    ],
+    title: ''
   },
   {
     "region": "Africa",
@@ -461,7 +467,8 @@ export const CLOUDINARY_ALBUMS: CountryAlbum[] = [
         "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621040/EGY-68_y6bkd2.jpg",
         "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621040/EGY-68_y6bkd2.jpg"
       }
-    ]
+    ],
+    title: ''
   },
   {
     "region": "Africa",
@@ -480,7 +487,8 @@ export const CLOUDINARY_ALBUMS: CountryAlbum[] = [
         "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621044/NAM-11-22-DSCF8053_zbbdiv.jpg",
         "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621044/NAM-11-22-DSCF8053_zbbdiv.jpg"
       }
-    ]
+    ],
+    title: ''
   },
   {
     "region": "Africa",
@@ -515,117 +523,7 @@ export const CLOUDINARY_ALBUMS: CountryAlbum[] = [
         "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621053/ETH-03-14-IMG_2202_vn1mwt.jpg",
         "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1758621053/ETH-03-14-IMG_2202_vn1mwt.jpg"
       }
-    ]
+    ],
+    title: ''
   },
-  {
-    "region": "Erasing Borders",
-    "country": "Erasing Borders",
-    "slug": "erasing-borders",
-    "images": [
-      {
-        "desktop": "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Erasing Borders/CHI-Beloveful6.jpg",
-        "mobile": "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Erasing Borders/CHI-Beloveful6.jpg"
-      },
-      {
-        "desktop": "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Erasing Borders/CHI-DSCF9471.jpg",
-        "mobile": "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Erasing Borders/CHI-DSCF9471.jpg"
-      },
-      {
-        "desktop": "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Erasing Borders/CHI-MeniasTony_12.jpg",
-        "mobile": "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Erasing Borders/CHI-MeniasTony_12.jpg"
-      },
-      {
-        "desktop": "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Erasing Borders/DSCF3088%20copy.jpg",
-        "mobile": "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Erasing Borders/DSCF3088%20copy.jpg"
-      },
-      {
-        "desktop": "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Erasing Borders/FRA-DSCF0103%20copy.jpg",
-        "mobile": "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Erasing Borders/FRA-DSCF0103%20copy.jpg"
-      },
-      {
-        "desktop": "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Erasing Borders/Greece-DSCF3935%20copy%203.jpg",
-        "mobile": "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Erasing Borders/Greece-DSCF3935%20copy%203.jpg"
-      },
-      {
-        "desktop": "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Erasing Borders/IND-MeniasTony_14.jpg",
-        "mobile": "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Erasing Borders/IND-MeniasTony_14.jpg"
-      },
-      {
-        "desktop": "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Erasing Borders/IND-MeniasTony_16.jpg",
-        "mobile": "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Erasing Borders/IND-MeniasTony_16.jpg"
-      },
-      {
-        "desktop": "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Erasing Borders/IND-MeniasTony_8.jpg",
-        "mobile": "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Erasing Borders/IND-MeniasTony_8.jpg"
-      },
-      {
-        "desktop": "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Erasing Borders/JAP-3265.jpg",
-        "mobile": "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Erasing Borders/JAP-3265.jpg"
-      },
-      {
-        "desktop": "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Erasing Borders/JOR-4461.jpg",
-        "mobile": "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Erasing Borders/JOR-4461.jpg"
-      },
-      {
-        "desktop": "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Erasing Borders/MOR-IMG_5248%20copy.jpg",
-        "mobile": "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Erasing Borders/MOR-IMG_5248%20copy.jpg"
-      },
-      {
-        "desktop": "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Erasing Borders/MOR-IMG_5277.jpg",
-        "mobile": "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Erasing Borders/MOR-IMG_5277.jpg"
-      },
-      {
-        "desktop": "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Erasing Borders/MYA-DSCF0783%20copy.jpg",
-        "mobile": "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Erasing Borders/MYA-DSCF0783%20copy.jpg"
-      },
-      {
-        "desktop": "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Erasing Borders/MYA-DSCF9634%20copy.jpg",
-        "mobile": "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Erasing Borders/MYA-DSCF9634%20copy.jpg"
-      },
-      {
-        "desktop": "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Erasing Borders/NatureVSNurture%20copy.jpg",
-        "mobile": "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Erasing Borders/NatureVSNurture%20copy.jpg"
-      },
-      {
-        "desktop": "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Erasing Borders/NEP-DSCF8737%20copy.jpg",
-        "mobile": "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Erasing Borders/NEP-DSCF8737%20copy.jpg"
-      },
-      {
-        "desktop": "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Erasing Borders/NEP-Silent%20Stare%20copy.jpg",
-        "mobile": "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Erasing Borders/NEP-Silent%20Stare%20copy.jpg"
-      },
-      {
-        "desktop": "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Erasing Borders/NyC-DSCF8922%20copy%202.jpg",
-        "mobile": "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Erasing Borders/NyC-DSCF8922%20copy%202.jpg"
-      },
-      {
-        "desktop": "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Erasing Borders/PAL-DSCF3675%20copy.jpg",
-        "mobile": "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Erasing Borders/PAL-DSCF3675%20copy.jpg"
-      },
-      {
-        "desktop": "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Erasing Borders/PAL-MeniasTony_13.jpg",
-        "mobile": "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Erasing Borders/PAL-MeniasTony_13.jpg"
-      },
-      {
-        "desktop": "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Erasing Borders/PHI-1662%20copy.jpg",
-        "mobile": "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Erasing Borders/PHI-1662%20copy.jpg"
-      },
-      {
-        "desktop": "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Erasing Borders/THAI-DSCF3890%20copy.jpg",
-        "mobile": "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Erasing Borders/THAI-DSCF3890%20copy.jpg"
-      },
-      {
-        "desktop": "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Erasing Borders/TonyMeniasAMansLegacy.jpg",
-        "mobile": "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Erasing Borders/TonyMeniasAMansLegacy.jpg"
-      },
-      {
-        "desktop": "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Erasing Borders/Tony%20Menias%20-%20Two%20Girls%20in%20Window.jpg",
-        "mobile": "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Erasing Borders/Tony%20Menias%20-%20Two%20Girls%20in%20Window.jpg"
-      },
-      {
-        "desktop": "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Erasing Borders/Vietnam-DSCF8153%20copy.jpg",
-        "mobile": "https://pub-6ca7f958f39144099d9effd483242d2d.r2.dev/Website beloveful.com/Erasing Borders/Vietnam-DSCF8153%20copy.jpg"
-      }
-    ]
-  }
-];
+ ];

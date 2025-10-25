@@ -4,6 +4,22 @@
 
 **URL**: www.beloveful.com
 
+## Project Structure
+
+```
+beloveful.com/
+├── src/
+│   ├── components/     # React components
+│   ├── hooks/          # Custom React hooks
+│   ├── lib/            # Utility functions and data
+│   │   ├── cloudinary-assets/  # Cloudinary asset data and JSON files
+│   │   ├── portolio/   # Portfolio data (note: typo in directory name)
+│   │   └── generated/  # Generated data files
+│   └── pages/          # Page components
+├── functions/          # Cloudflare Workers functions
+└── server/             # Server routes
+```
+
 ## How can I edit this code?
 vscode Next.js
 
@@ -111,7 +127,7 @@ drwxrwxr-x  2 camo camo   60 Oct 21 00:59 tmp
 -rw-------  1 camo camo    0 Oct 20 18:38 tmp.6fcEbpQHfr
 drwx------  2 camo camo   40 Oct 21 05:22 tmp.7rZCCmtAdI
 -rw-------  1 camo camo    0 Oct 20 22:06 tmp.9b105vrgAx
--rw-------  1 camo camo    0 Oct 20 21:08 tmp.9uaPIYcHME
+-rw-------  1 camo camo    0 Oct 21 01:27 tmp.9uaPIYcHME
 -rw-------  1 camo camo    0 Oct 20 23:33 tmp.9WXryHf9sp
 -rw-------  1 camo camo    0 Oct 20 17:47 tmp.ADX8oBacH3
 drwxrwxr-x  2 camo camo   80 Oct 21 06:37 .tmpBiE8eH
@@ -255,6 +271,44 @@ This project is built with:
 Simply open (https://beloveful.com) and click on Share -> Publish.
 
 
+
+## Accessing JSON Assets
+
+This project includes JSON asset files in two main directories:
+1. `src/lib/cloudinary-assets/` - Contains Cloudinary asset data
+2. `src/lib/portolio/` - Contains portfolio data (note the typo in the directory name)
+
+### API Routes
+
+JSON assets can be accessed through the following API routes:
+
+1. Cloudinary assets: `/api/content/assets/cloudinary-assets/*`
+   - Example: `/api/content/assets/cloudinary-assets/index.json`
+   - Example: `/api/content/assets/cloudinary-assets/Africa/Egypt/urls.json`
+
+2. Portfolio assets: `/api/content/assets/portolio/*`
+   - Example: `/api/content/assets/portolio/Africa/urls.json`
+
+3. Main Cloudinary index: `/api/content/assets/cloudinary-assets.json`
+
+### Frontend Usage
+
+To access these assets from the frontend, you can use the utility functions in `src/lib/assetLoader.ts`:
+
+```typescript
+import { loadCloudinaryIndex, loadCloudinaryAsset, loadPortfolioAsset } from '@/lib/assetLoader';
+
+// Load the main cloudinary index
+const index = await loadCloudinaryIndex();
+
+// Load a specific cloudinary asset
+const assetData = await loadCloudinaryAsset('Africa/Egypt/urls.json');
+
+// Load a specific portfolio asset
+const portfolioData = await loadPortfolioAsset('Africa/urls.json');
+```
+
+Example component using these utilities can be found in `src/components/AssetExample.tsx`.
 
 const cloudinary = require('cloudinary').v2;
 // (Optional) cloudinary.config({ cloud_name: 'your-cloud-name' });

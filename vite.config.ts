@@ -8,6 +8,17 @@ export default defineConfig(({ mode }) => ({
   server: {
     host: "::",
     port: 8080,
+    watch: {
+      // Exclude large directories from being watched to avoid file watcher limit issues
+      ignored: [
+        '**/node_modules/**',
+        '**/.wrangler/**',
+        '**/dist/**',
+        '**/build/**',
+        '**/.git/**',
+        '**/public/Website beloveful.com/**'
+      ]
+    },
     proxy: {
       '/api': {
         // Proxy API requests to the local images server during development
