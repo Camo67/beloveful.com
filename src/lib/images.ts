@@ -1,6 +1,7 @@
 import { validateAndFixImageUrl, fixImageUrl } from './image-utils';
 
 const BASE_ASSET_URL = (import.meta as any)?.env?.VITE_ASSET_BASE_URL?.replace(/\/$/, "") || "";
+const ENABLE_IMAGE_PROXY = String((import.meta as any)?.env?.VITE_ENABLE_IMAGE_PROXY ?? "false").toLowerCase() === "true";
 
 // Domains we consider as Cloudinary
 const CLOUDINARY_HOSTS = new Set([
@@ -34,7 +35,7 @@ export function createProxiedImageUrl(originalUrl: string): string {
     try {
       const url = new URL(trimmedUrl);
       // If it's a Cloudinary URL and we have a CDN base, route through our worker as read-through cache
-      if (BASE_ASSET_URL && CLOUDINARY_HOSTS.has(url.hostname)) {
+      if (ENABLE_IMAGE_PROXY && BASE_ASSET_URL && CLOUDINARY_HOSTS.has(url.hostname)) {
         // For Cloudinary URLs, we need to be careful with encoding
         // The src parameter should be encoded, but we need to avoid double encoding
         const proxied = `${BASE_ASSET_URL}/images?src=${encodeURIComponent(trimmedUrl)}`;

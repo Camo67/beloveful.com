@@ -27,15 +27,22 @@ export const CloudImage: React.FC<CloudImageProps> = ({ url, alt = '', className
     const updateImageSrc = async () => {
       try {
         const trimmedUrl = url.trim();
-        // Check if URL is accessible and get a working URL or fallback
-        const workingUrl = await getWorkingImageUrl(trimmedUrl);
-        const proxiedUrl = createProxiedImageUrl(workingUrl);
+        // Create proxied URL immediately for faster initial display
+        const proxiedUrl = createProxiedImageUrl(trimmedUrl);
         setImageSrc(proxiedUrl);
+        
+        // Check if URL is accessible and get a working URL or fallback
+        // But don't block the initial image display
+        const workingUrl = await getWorkingImageUrl(trimmedUrl);
+        if (workingUrl !== trimmedUrl) {
+          // Only update if we got a different URL (fallback)
+          const newProxiedUrl = createProxiedImageUrl(workingUrl);
+          setImageSrc(newProxiedUrl);
+        }
       } catch (error) {
         console.error('Error processing image URL in CloudImage:', url, error);
-        setImageSrc(getFallbackImage());
+        // Keep the original proxied URL, but mark as error for tracking
         setHasError(true);
-        return;
       }
     };
 
@@ -62,7 +69,6 @@ export const CloudImage: React.FC<CloudImageProps> = ({ url, alt = '', className
     // Reset error state if image loads successfully
     setHasError(false);
   };
-
 
   return (
     <img

@@ -23,6 +23,9 @@
 
     /* JSON modules */
     "resolveJsonModule": true,
+    
+    /* Deprecation warnings */
+    "ignoreDeprecations": "6.0",
 
     "baseUrl": ".",
     "paths": {

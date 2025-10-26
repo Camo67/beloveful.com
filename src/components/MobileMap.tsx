@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { MapContainer, TileLayer, useMap } from 'react-leaflet';
 import L, { LatLngExpression } from 'leaflet';
@@ -137,7 +138,7 @@ const ClusterLayer: React.FC<{ markers: any[]; }> = ({ markers }) => {
     return () => {
       map.removeLayer(cluster);
     };
-  }, [map, markers]);
+  }, [iconHtml, map, markers]);
 
   return null;
 };
@@ -159,23 +160,25 @@ const MobileMap: React.FC<MobileMapProps> = ({ isVisible }) => {
   }
 
   return (
-    <div className="fixed inset-0 z-30">
-      <MapContainer
-        center={[20, 0]}
-        zoom={2}
-        minZoom={2}
-        maxZoom={18}
-        maxBounds={worldBounds}
-        maxBoundsViscosity={1.0}
-        zoomControl={false}
-        className="h-full w-full"
-        fadeAnimation
-        zoomAnimation
-        preferCanvas
-      >
-        <TileLayerWithFade themeMode={themeMode} />
-        {mapMarkers.length > 0 && <ClusterLayer markers={mapMarkers} />}
-      </MapContainer>
+    <div className="pointer-events-none fixed inset-x-0 top-16 bottom-6 z-30 px-3">
+      <div className="h-full w-full rounded-3xl border border-white/40 shadow-2xl overflow-hidden">
+        <MapContainer
+          center={[20, 0]}
+          zoom={2}
+          minZoom={2}
+          maxZoom={18}
+          maxBounds={worldBounds}
+          maxBoundsViscosity={1.0}
+          zoomControl={false}
+          className="h-full w-full pointer-events-none"
+          fadeAnimation
+          zoomAnimation
+          preferCanvas
+        >
+          <TileLayerWithFade themeMode={themeMode} />
+          {mapMarkers.length > 0 && <ClusterLayer markers={mapMarkers} />}
+        </MapContainer>
+      </div>
     </div>
   );
 };

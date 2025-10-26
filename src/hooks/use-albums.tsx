@@ -12,26 +12,32 @@ export const useAlbums = () => {
         const verifiedAlbums = [];
         for (const album of ALBUMS) {
           const verifiedImages = [];
-          for (const image of album.images) {
+          // Process only the first image for verification to improve performance
+          if (album.images.length > 0) {
+            const firstImage = album.images[0];
             try {
               // Add a timeout to prevent hanging
               const timeoutPromise = new Promise<string>((_, reject) => {
-                setTimeout(() => reject(new Error('Image verification timeout')), 10000); // 10 second timeout
+                setTimeout(() => reject(new Error('Image verification timeout')), 5000); // 5 second timeout
               });
               
-              const verifiedUrlPromise = getWorkingImageUrl(image.desktop);
+              const verifiedUrlPromise = getWorkingImageUrl(firstImage.desktop);
               const verifiedDesktop = await Promise.race([verifiedUrlPromise, timeoutPromise]);
               
-              const verifiedMobilePromise = getWorkingImageUrl(image.mobile);
+              const verifiedMobilePromise = getWorkingImageUrl(firstImage.mobile);
               const verifiedMobile = await Promise.race([verifiedMobilePromise, timeoutPromise]);
               
               verifiedImages.push({
                 desktop: verifiedDesktop as string,
                 mobile: verifiedMobile as string
               });
+              
+              // Add the rest of the images without verification for performance
+              verifiedImages.push(...album.images.slice(1));
             } catch (error) {
-              console.warn('Failed to verify image URL:', image, error);
-              // Skip broken images
+              console.warn('Failed to verify first image URL:', firstImage, error);
+              // Use all images as-is if verification fails
+              verifiedImages.push(...album.images);
             }
           }
           
@@ -43,7 +49,8 @@ export const useAlbums = () => {
         return verifiedAlbums;
       } catch (error) {
         console.error('Failed to load albums:', error);
-        return [];
+        // Return original albums if verification process fails
+        return ALBUMS;
       }
     },
     staleTime: 1000 * 60 * 60, // 1 hour

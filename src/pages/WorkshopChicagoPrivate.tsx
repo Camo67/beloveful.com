@@ -105,7 +105,7 @@ export default function WorkshopChicagoPrivate() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Book Your Private Workshop
+                  Enroll Now
                 </a>
               </Button>
             </div>

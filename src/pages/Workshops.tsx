@@ -16,17 +16,17 @@ export default function Workshops() {
       summary: "Personal guidance for photographers at any stage.",
       description:
         "Strengthen your craft, explore your voice, and build a consistent practice through tailored sessions focused on your goals, challenges, and creative questions.",
-      buttonText: "Explore Mentorship",
+      buttonText: "Book Mentorship",
       buttonHref: "/workshops/mentorship",
     },
     {
       id: "private-chicago",
       title: "Private Chicago Workshop",
       image: workshopImages.chicagoPrivate[0],
-      summary: "A custom 1:1 immersion through Chicago’s streets.",
+      summary: "A custom 1:1 immersion through Chicago's streets.",
       description:
         "Walk the city together, slow down, and learn how to anticipate light, gesture, and emotion while refining workflow, editing, and storytelling with direct feedback.",
-      buttonText: "View Details",
+      buttonText: "Book Private Workshop",
       buttonHref: "/workshops/private-chicago",
     },
     {
@@ -36,7 +36,7 @@ export default function Workshops() {
       summary: "Collaborative learning in an intimate group setting.",
       description:
         "Shoot alongside fellow photographers, learn to visualize scenes before they unfold, and exchange critique that helps everyone level up together.",
-      buttonText: "View Details",
+      buttonText: "Join Group Workshop",
       buttonHref: "/workshops/group-chicago",
     },
     {
@@ -46,7 +46,7 @@ export default function Workshops() {
       summary: "Live virtual sessions, assignments, and critique.",
       description:
         "Wherever you are, join a guided series that blends instruction, homework, and feedback so you can keep your practice alive between travels.",
-      buttonText: "View Details",
+      buttonText: "Enroll in Online Workshop",
       buttonHref: "/workshops/online-group",
     },
   ];

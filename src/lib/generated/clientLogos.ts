@@ -2,7 +2,6 @@
 // Generated on: 2025-10-25T14:32:04
 
 export const CLIENT_LOGOS: string[] = [
-  "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760977109/home/camo/new/beloveful.com/public/Website%20beloveful.com/clients/kissclipart-navy-pier-logo-clipart-chicago-shakespeare-theater-e550ac399dac0a24.jpg",
   "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760979277/home/camo/new/beloveful.com/public/Website%20beloveful.com/clients/breaks-chicago.jpg",
   "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760978688/home/camo/new/beloveful.com/public/Website%20beloveful.com/clients/egypt.png",
   "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760976132/home/camo/new/beloveful.com/public/Website%20beloveful.com/clients/mediakit_branding_1.jpg",
@@ -27,12 +26,6 @@ export interface ClientLogo {
 }
 
 export const CLIENT_LOGOS_DATA: ClientLogo[] = [
-  {
-    "name": "Kissclipart Navy Pier Logo Clipart Chicago Shakespeare Theater E550Ac399Dac0A24",
-    "slug": "kissclipart-navy-pier-logo-clipart-chicago-shakespeare-theater-e550ac399dac0a24",
-    "url": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760977109/home/camo/new/beloveful.com/public/Website%20beloveful.com/clients/kissclipart-navy-pier-logo-clipart-chicago-shakespeare-theater-e550ac399dac0a24.jpg",
-    "alt": "Kissclipart Navy Pier Logo Clipart Chicago Shakespeare Theater E550Ac399Dac0A24 logo"
-  },
   {
     "name": "Breaks Chicago",
     "slug": "breaks-chicago",

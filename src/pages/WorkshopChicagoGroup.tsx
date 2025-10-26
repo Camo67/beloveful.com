@@ -111,7 +111,7 @@ export default function WorkshopChicagoGroup() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Join Group Workshop
+                  Enroll in Group Workshop
                 </a>
               </Button>
             </div>

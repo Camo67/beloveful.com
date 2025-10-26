@@ -83,8 +83,9 @@ const ClusterLayer: React.FC<{ markers: MapMarker[]; }> = ({ markers }) => {
   const clusterRef = useRef<L.MarkerClusterGroup | null>(null);
   const themeMode: 'light' | 'dark' = (document.documentElement.classList.contains('dark') ? 'dark' : 'light') as any;
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const iconHtml = (title?: string) => `
-    <div style="
+    <div sntyle="
       width:10px;height:10px;border-radius:50%;
       background:${themeMode === 'dark' ? '#fff' : '#000'};
       box-shadow:0 0 0 2px ${themeMode === 'dark' ? '#000' : '#fff'};
@@ -145,7 +146,7 @@ const ClusterLayer: React.FC<{ markers: MapMarker[]; }> = ({ markers }) => {
     return () => {
       map.removeLayer(cluster);
     };
-  }, [map, markers]);
+  }, [iconHtml, map, markers]);
 
   return null;
 };
@@ -157,7 +158,7 @@ const LeafletWorldMap: React.FC<LeafletWorldMapProps> = ({ markers = [], center 
   const worldBounds = useMemo(() => L.latLngBounds([-85, -180], [85, 180]), []);
 
   return (
-    <div className="relative h-[calc(100vh-4rem)] w-full rounded-lg overflow-hidden border">
+    <div className="relative h-[60vh] md:h-[calc(100vh-4rem)] max-h-[900px] w-full rounded-lg overflow-hidden border">
       <MapContainer
         center={center}
         zoom={zoom}

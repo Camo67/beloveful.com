@@ -134,7 +134,7 @@ export default function Mentorship() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Book Your Session
+                Book Your Mentorship Session
               </a>
             </Button>
           </div>

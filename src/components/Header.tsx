@@ -161,14 +161,13 @@ export function Header({ variant, fullWidth = false }: HeaderProps) {
           
           {/* Centered navigation */}
           <nav className="flex justify-center flex-1">
-            <ul className="flex items-center space-x-6">
-              {/* Home */}
-              <li>
-                <Link to="/" className="nav-link text-black dark:text-white hover:opacity-70 transition-opacity text-lg">Home</Link>
-              </li>
+            <ul className="flex flex-wrap items-center gap-5 lg:gap-7 xl:gap-10">
               {/* Travel Portfolio */}
               <li>
-                <TravelPortfolioDropdown />
+                <div className="flex flex-col leading-tight">
+                  <span className="text-xs uppercase tracking-widest text-gray-500 dark:text-gray-400 text-center">Travel</span>
+                  <TravelPortfolioDropdown />
+                </div>
               </li>
               {/* Projects */}
               <li>
@@ -194,14 +193,7 @@ export function Header({ variant, fullWidth = false }: HeaderProps) {
               <li>
                 <Link to="/events" className="nav-link text-black dark:text-white hover:opacity-70 transition-opacity text-lg">Events</Link>
               </li>
-              {/* Map */}
-              <li>
-                <Link to="/map" className="nav-link text-black dark:text-white hover:opacity-70 transition-opacity text-lg">Map</Link>
-              </li>
               {/* Mentorship moved into Workshops dropdown */}
-              <li>
-                <Link to="/faq" className="nav-link text-black dark:text-white hover:opacity-70 transition-opacity text-lg">FAQ</Link>
-              </li>
               {/* Shop */}
               <li>
                 <ShopDropdown />

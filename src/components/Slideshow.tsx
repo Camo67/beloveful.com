@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { createProxiedImageUrl, buildProxiedSrcSet } from "@/lib/images";
+import { createProxiedImageUrl } from "@/lib/images";
 import { useImageProtection } from "@/hooks/use-image-protection";
 import { useSlideshow } from "@/hooks/use-slideshow";
 import { HOME_SLIDESHOW } from "@/lib/data";
@@ -15,7 +15,7 @@ export function Slideshow(): JSX.Element | null {
   const [currentSlide, setCurrentSlide] = useState<number>(0);
   const [firstImageLoaded, setFirstImageLoaded] = useState<boolean>(false);
   const [fastestUrls, setFastestUrls] = useState<Map<number, string>>(new Map());
-  const { data: slideshowImages, isLoading, error } = useSlideshow(true); // Bypass protection for homepage
+  const { data: slideshowImages, isLoading, error } = useSlideshow();
   const { protectElement } = useImageProtection();
 
   const images: SlideImage[] = slideshowImages ?? (HOME_SLIDESHOW as any);
@@ -109,11 +109,13 @@ export function Slideshow(): JSX.Element | null {
           }}
         >
           <picture>
-            <source media="(max-width: 768px)" srcSet={buildProxiedSrcSet(slide.mobile)} sizes="100vw" />
+            <source 
+              media="(max-width: 768px)" 
+              srcSet={createProxiedImageUrl(slide.mobile)} 
+              sizes="100vw" 
+            />
             <img
               src={fastestUrls.get(index) || createProxiedImageUrl(slide.desktop)}
-              srcSet={buildProxiedSrcSet(slide.desktop)}
-              sizes="100vw"
               alt={`BELOVEFUL Photography Slide ${index + 1}`}
               className="slideshow-image image-protected"
               draggable={false}

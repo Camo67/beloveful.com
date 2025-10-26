@@ -119,7 +119,7 @@ export default function WorkshopOnline() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Enroll in Online Workshop
+                  Join Now
                 </a>
               </Button>
             </div>
