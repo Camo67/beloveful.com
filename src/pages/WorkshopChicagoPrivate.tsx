@@ -6,10 +6,11 @@ import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useWorkshopImages } from "@/hooks/use-workshop-images";
 import { CORE_WORKSHOP_TOPICS } from "@/lib/workshop-content";
+import { CloudImage } from "@/components/CloudImage";
 
 export default function WorkshopChicagoPrivate() {
   const heroImage = {
-    src: "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218565/Website%20beloveful.com/Erasing%20Borders/NyC-DSCF8922_copy_2_lswqmq.jpg",
+    src: "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760979008/home/camo/new/beloveful.com/public/Website%20beloveful.com/Workshop%20Photos/Copy%20of%20CHI-359.jpg",
     alt: "1:1 Street Photography Workshop Chicago"
   };
 
@@ -30,12 +31,10 @@ export default function WorkshopChicagoPrivate() {
 
       {/* Hero Section */}
       <section className="relative h-96 md:h-[500px] overflow-hidden">
-        <img
-          src={heroImage.src}
+        <CloudImage
+          url={heroImage.src}
           alt={heroImage.alt}
           className="w-full h-full object-cover"
-          draggable={false}
-          onContextMenu={(e) => e.preventDefault()}
         />
         <div className="absolute inset-0 bg-black/50" />
         <div className="absolute inset-0 flex items-center justify-center">
@@ -79,24 +78,31 @@ export default function WorkshopChicagoPrivate() {
             {/* Workshop Images Gallery */}
             {data?.chicagoPrivate && data.chicagoPrivate.length > 1 && (
               <div className="my-16">
-                <h2 className="text-3xl font-bold mb-8 text-center text-gray-900 dark:text-white">
-                  Workshop Experience
+                <h2 className="text-3xl font-semibold text-gray-900 dark:text-white mb-8 text-center">
+                  Workshop Gallery
                 </h2>
-                <div className="grid md:grid-cols-2 gap-4">
-                  {data.chicagoPrivate.slice(1, 5).map((img, idx) => (
-                    <div key={idx} className="aspect-[4/3] overflow-hidden rounded-lg">
-                      <img
-                        src={img.desktop}
-                        alt={img.alt}
-                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                        draggable={false}
-                        onContextMenu={(e) => e.preventDefault()}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {data.chicagoPrivate.slice(0, 4).map((image, index) => (
+                    <div key={index} className="rounded-lg overflow-hidden shadow-lg">
+                      <CloudImage
+                        url={image.src}
+                        alt={image.alt}
+                        className="w-full h-64 object-cover"
                       />
                     </div>
                   ))}
                 </div>
               </div>
             )}
+
+            <div className="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-8 border border-blue-100 dark:border-blue-900/50">
+              <h2 className="text-2xl font-semibold text-blue-900 dark:text-blue-100 mb-4">
+                Customized for You
+              </h2>
+              <p className="text-lg text-blue-800 dark:text-blue-200 leading-relaxed">
+                This private session adapts to your skill level and interests. Whether you're working on a personal project or want to improve specific techniques, we'll focus on what matters most to your growth as a photographer.
+              </p>
+            </div>
 
             <div className="text-center">
               <Button asChild size="lg" className="text-lg px-12 py-6">

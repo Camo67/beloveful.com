@@ -6,6 +6,7 @@ import 'leaflet.markercluster/dist/MarkerCluster.css';
 import 'leaflet.markercluster/dist/MarkerCluster.Default.css';
 import 'leaflet.markercluster';
 import { useTheme } from 'next-themes';
+import { useNavigate } from 'react-router-dom';
 
 // Fix default icon paths for Leaflet in bundlers
 // Using CDN fallbacks to prevent 404 errors when local assets aren't found
@@ -23,6 +24,8 @@ export type MapMarker = {
   title?: string;
   imageUrl?: string;
   albumSlug?: string; // optional slug to navigate to when clicked
+  region?: string;
+  country?: string;
 };
 
 interface LeafletWorldMapProps {
@@ -81,11 +84,12 @@ const TileLayerWithFade: React.FC<{ themeMode: 'light' | 'dark'; }> = ({ themeMo
 const ClusterLayer: React.FC<{ markers: MapMarker[]; }> = ({ markers }) => {
   const map = useMap();
   const clusterRef = useRef<L.MarkerClusterGroup | null>(null);
+  const navigate = useNavigate();
   const themeMode: 'light' | 'dark' = (document.documentElement.classList.contains('dark') ? 'dark' : 'light') as any;
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const iconHtml = (title?: string) => `
-    <div sntyle="
+    <div style="
       width:10px;height:10px;border-radius:50%;
       background:${themeMode === 'dark' ? '#fff' : '#000'};
       box-shadow:0 0 0 2px ${themeMode === 'dark' ? '#000' : '#fff'};
@@ -125,16 +129,12 @@ const ClusterLayer: React.FC<{ markers: MapMarker[]; }> = ({ markers }) => {
         if (m.title) marker.bindPopup(`<div style="padding:4px 6px;font-weight:600">${m.title}</div>`);
       }
 
-      // If marker has an albumSlug, navigate to the album when clicked
-      if ((m as any).albumSlug) {
+      // If marker has region and country, navigate to the album when clicked
+      if (m.region && m.country) {
         marker.on('click', () => {
-          // open album route in same app
-          const slug = (m as any).albumSlug;
-          // navigate to region/slug path — if albumSlug contains region prefix just use it
-          // We'll try opening /portfolio as a fallback
-          const target = `/${slug}`;
-          // Use location.assign to allow full page nav (SPA routers will also handle)
-          window.location.assign(target);
+          // Navigate to the correct route for country galleries
+          const regionSlug = m.region?.toLowerCase().replace(/[^a-z]/g, "");
+          navigate(`/${regionSlug}/${m.country}`);
         });
       }
 
@@ -146,7 +146,7 @@ const ClusterLayer: React.FC<{ markers: MapMarker[]; }> = ({ markers }) => {
     return () => {
       map.removeLayer(cluster);
     };
-  }, [iconHtml, map, markers]);
+  }, [iconHtml, map, markers, navigate]);
 
   return null;
 };

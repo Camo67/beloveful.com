@@ -6,6 +6,7 @@ import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useWorkshopImages } from "@/hooks/use-workshop-images";
 import { CORE_WORKSHOP_TOPICS } from "@/lib/workshop-content";
+import { CloudImage } from "@/components/CloudImage";
 
 export default function WorkshopChicagoGroup() {
   const heroImage = {
@@ -30,12 +31,10 @@ export default function WorkshopChicagoGroup() {
 
       {/* Hero Section */}
       <section className="relative h-96 md:h-[500px] overflow-hidden">
-        <img
-          src={heroImage.src}
+        <CloudImage
+          url={heroImage.src}
           alt={heroImage.alt}
           className="w-full h-full object-cover"
-          draggable={false}
-          onContextMenu={(e) => e.preventDefault()}
         />
         <div className="absolute inset-0 bg-black/50" />
         <div className="absolute inset-0 flex items-center justify-center">
@@ -85,24 +84,31 @@ export default function WorkshopChicagoGroup() {
             {/* Workshop Images Gallery */}
             {data?.chicagoGroup && data.chicagoGroup.length > 1 && (
               <div className="my-16">
-                <h2 className="text-3xl font-bold mb-8 text-center text-gray-900 dark:text-white">
-                  Workshop Experience
+                <h2 className="text-3xl font-semibold text-gray-900 dark:text-white mb-8 text-center">
+                  Workshop Gallery
                 </h2>
-                <div className="grid md:grid-cols-2 gap-4">
-                  {data.chicagoGroup.slice(1, 5).map((img, idx) => (
-                    <div key={idx} className="aspect-[4/3] overflow-hidden rounded-lg">
-                      <img
-                        src={img.src}
-                        alt={img.alt}
-                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                        draggable={false}
-                        onContextMenu={(e) => e.preventDefault()}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {data.chicagoGroup.slice(0, 4).map((image, index) => (
+                    <div key={index} className="rounded-lg overflow-hidden shadow-lg">
+                      <CloudImage
+                        url={image.src}
+                        alt={image.alt}
+                        className="w-full h-64 object-cover"
                       />
                     </div>
                   ))}
                 </div>
               </div>
             )}
+
+            <div className="bg-green-50 dark:bg-green-900/20 rounded-lg p-8 border border-green-100 dark:border-green-900/50">
+              <h2 className="text-2xl font-semibold text-green-900 dark:text-green-100 mb-4">
+                Why Group Learning Works
+              </h2>
+              <p className="text-lg text-green-800 dark:text-green-200 leading-relaxed">
+                In a small group, you'll not only receive direct feedback but also learn from how others approach the same scenes. This collaborative environment often leads to breakthrough moments that wouldn't happen in isolation.
+              </p>
+            </div>
 
             <div className="text-center">
               <Button asChild size="lg" className="text-lg px-12 py-6">

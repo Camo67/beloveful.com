@@ -8,12 +8,13 @@ import { useCloudinaryImages } from '@/hooks/use-cloudinary-images';
 import { createProxiedImageUrl } from '@/lib/images';
 
 const BIO_PARAGRAPHS = [
-  "Motivated by curiosity and forever fascinated by what this world has to offer, Tony's love of capturing life around him began the day his father handed him his first camera at age seven. That simple gesture ignited a lifelong pursuit of finding beauty in the everyday and meaning in the margins.",
-  "From medical school to missions across the globe serving impoverished communities, his photography remained a constant—a guiding light in discovering grace and resilience in the simplest moments. Witnessing the purity of souls who could laugh and move fearlessly forward even in devastating conditions, Tony experienced a revelation. These encounters illuminated a truth he could no longer ignore: his calling wasn't to heal bodies, but to reveal the sacred in the human experience.",
-  "The decision to leave medicine and pursue photography full-time was met with immediate affirmation. Within his first year, Tony earned recognition from National Geographic, held multiple exhibitions, and received an Award for Excellence from the Conception Global Art Collective. The message was unmistakable: photography wasn't merely a passion, it was his purpose.",
-  "Tony's work captures the raw and unfiltered essence of life with an unwavering commitment to authenticity. His lens seeks both beauty and chaos in equal measure: the electric energy of crowded markets, the quiet majesty of remote landscapes, the tender intimacy of daily rituals. Through each frame, he reveals a fundamental truth—that despite our differences, we are bound by a common rhythm. The rhythm of life itself.",
-  "He believes photography transcends documentation; it is a bridge between souls, a catalyst for empathy, and a mirror reflecting our shared humanity. His images invite viewers to see beyond surface differences and recognize the divine thread connecting all beings. Whether capturing joy in the face of hardship or stillness amid turmoil, Tony's work asks us to pause, to witness, and to remember what binds us together.",
-  "In a fractured world, he remains dedicated to using his art as an instrument of unity and compassion—revealing not just what separates us, but the sacred connection that makes us whole."
+  "Motivated by curiosity and forever fascinated by what this world has to offer, Tony's love of capturing life around him began the day his father handed him his first camera at the age seven.",
+  "From medical school to missions across the globe serving impoverished communities, his photography remained a constant guiding light in finding love and beauty in the simplest things. Witnessing the purity of souls who could laugh and move fearlessly even in devastating conditions, motivated a life-change where Tony left medicine to pursue his craft.",
+  "This decision was met with immediate affirmation. Within his first year, Tony earned recognition from National Geographic, held multiple exhibitions, and received an Award of Excellence from the Conception Global Art Collective. From then on, it became clear: photography wasn't just a hobby, it was a true calling.",
+  "Tony's passion for capturing the raw and unfiltered aspects of life led him on a profound journey of self-discovery. With a keen eye for detail and an unwavering commitment to authenticity, he sought to portray the beauty and chaos of life in equal measure. Whether it be the buzzing energy of crowded markets, the quiet majesty of remote landscapes or the intimate moments of daily life. Through each frame, he reveals a fundamental truth that despite our differences, we are unified by a common rhythm. The rhythm of life itself.",
+  "He believes photography transcends documentation; it is a catalyst for empathy, and a mirror reflecting our shared humanity, and a bridge between souls. His images invite viewers to pause and to see with our hearts, not just with our eyes to witness the divine thread connecting all beings.",
+  "Tony's shows how everyday moments  become visual poetry when we slow down and look closer. In a fractured world, he remains dedicated to using his art as an instrument to promote unity and compassion revealing not just what separates us, but the sacred connection that makes us whole.",
+  "For in embracing our differences, we find our commonality; in understanding one another, we find our unity."
 ];
 
 const PUBLICATIONS_AND_AWARDS = [
@@ -32,7 +33,7 @@ const PUBLICATIONS_AND_AWARDS = [
 
 export default function About() {
   useEffect(() => {
-    document.title = "Bio & Artist Statement";
+    document.title = "Bio";
   }, []);
 
   const spotifyEmbedUrl =
@@ -45,7 +46,7 @@ export default function About() {
       <div className="w-full px-6 md:px-12 lg:px-20 py-12 space-y-16">
         <header className="text-center space-y-4">
           <p className="text-sm uppercase tracking-[0.35em] text-muted-foreground">About Tony Menias</p>
-          <h1 className="text-4xl md:text-5xl font-light text-black dark:text-white">Bio & Artist Statement</h1>
+          <h1 className="text-4xl md:text-5xl font-light text-black dark:text-white">Bio</h1>
         </header>
 
         <section className="max-w-4xl mx-auto">
@@ -79,12 +80,13 @@ export default function About() {
           </div>
         </section>
 
-        <section className="bg-gray-50 dark:bg-gray-900 rounded-3xl px-6 py-10 md:px-10 md:py-14 border border-gray-100 dark:border-gray-800 text-center space-y-6">
-          <p className="text-sm uppercase tracking-[0.35em] text-muted-foreground">Artist Statement</p>
-          <blockquote className="text-2xl md:text-3xl font-light text-black dark:text-white leading-relaxed">
-            "There's an unseen connection between everything on this earth and the Divine. My aim is to bring this connection into focus."
-          </blockquote>
-          <p className="text-base tracking-wide text-muted-foreground">— Tony Menias</p>
+        {/* Added container with the specified text */}
+        <section className="max-w-4xl mx-auto py-8">
+          <div className="bg-gray-50 dark:bg-gray-900 rounded-2xl p-8 text-center">
+            <p className="text-xl md:text-2xl font-light italic text-black dark:text-white">
+              "For in embracing our differences, we find our commonality; in understanding one another, we find our unity."
+            </p>
+          </div>
         </section>
 
         <section className="max-w-5xl mx-auto space-y-6">
@@ -130,9 +132,11 @@ export default function About() {
                     {item.title}
                   </a>
                 ) : (
-                  <p className="text-xl font-semibold text-black dark:text-white">{item.title}</p>
+                  <>
+                    <h3 className="text-xl font-semibold text-black dark:text-white">{item.title}</h3>
+                    <p className="text-muted-foreground">{item.context}</p>
+                  </>
                 )}
-                <p className="text-sm text-muted-foreground mt-2">{item.context}</p>
               </div>
             ))}
           </div>

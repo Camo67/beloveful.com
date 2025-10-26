@@ -1,8 +1,7 @@
-import { X, ChevronDown } from "lucide-react";
+import { X, ChevronDown, ShoppingCart } from "lucide-react";
 import { Link } from "react-router-dom";
 import { SocialIcons } from "./SocialIcons";
-import { useMemo, useState } from "react";
-import { getAllAlbumsSorted } from "@/lib/data";
+import { useState } from "react";
 
 interface MobileDrawerProps {
   isOpen: boolean;
@@ -13,136 +12,82 @@ export function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
   const [shopOpen, setShopOpen] = useState(false);
   const [portfolioOpen, setPortfolioOpen] = useState(false);
   
-  // Navigation order: Home, Projects, Workshops, Events, About, Contact
+  // Navigation order matching desktop: Home, Portfolio, Shop, Workshops, Events, About, Contact
   const navigationLinks = [
     { name: "Home", path: "/" },
-    { name: "Projects", path: "/projects" },
+    { name: "Portfolio", path: "/portfolio" },
+    { name: "Shop", path: "/shop" },
     { name: "Workshops", path: "/workshops" },
     { name: "Events", path: "/events" },
     { name: "About", path: "/about" },
-    // Mentorship moved under Workshops
-    { name: "Print Shop", path: "/print-shop" },
     { name: "Contact", path: "/contact" },
   ];
-  
-  const albums = getAllAlbumsSorted();
-  
-  // Desired region order and grouping
-  const orderedRegions = useMemo(
-    () => [
-      "Africa",
-      "Asia",
-      "Middle East",
-      "South America",
-      "North America",
-      "Europe",
-      "Oceania",
-    ],
-    []
-  );
 
-  // Group albums by region and sort countries within each region
-  const albumsByRegion = useMemo(() => {
-    const filtered = albums.filter(album => album.region !== "Erasing Borders");
-    const grouped = filtered.reduce((acc, album) => {
-      if (!acc[album.region]) acc[album.region] = [] as typeof albums;
-      acc[album.region].push(album);
-      return acc;
-    }, {} as Record<string, typeof albums>);
-
-    for (const key of Object.keys(grouped)) {
-      grouped[key] = grouped[key].slice().sort((a, b) => a.country.localeCompare(b.country));
-    }
-    return grouped;
-  }, [albums]);
-
+  if (!isOpen) return null;
 
   return (
-    <>
+    <div className="fixed inset-0 z-[1050] md:hidden">
       {/* Backdrop */}
-      {isOpen && (
-        <div
-          className="fixed inset-0 z-40 bg-black bg-opacity-50"
-          onClick={onClose}
-        />
-      )}
-      
+      <div 
+        className="fixed inset-0 bg-black/70 backdrop-blur-sm z-[1000]"
+        onClick={onClose}
+        aria-hidden="true"
+      />
+
       {/* Drawer */}
-      <div className={`mobile-drawer ${isOpen ? "open" : "closed"}`}>
-        <div className="flex flex-col h-full min-h-0">
-          {/* Header */}
-          <div className="flex items-center justify-between p-4 border-b border-gray-100 dark:border-neutral-800">
-            <span className="text-lg font-medium text-black dark:text-white">Menu</span>
-            <button
-              onClick={onClose}
-              className="p-2 text-black dark:text-white"
-              aria-label="Close menu"
-            >
-              <X size={24} />
-            </button>
-          </div>
-          
-          {/* Navigation */}
-          <nav className="flex-1 px-4 py-6 overflow-y-auto">
+      <div className="fixed inset-y-0 right-0 w-4/5 max-w-sm bg-white dark:bg-black border-l border-gray-200 dark:border-gray-800 z-[1050] overflow-y-auto">
+        <div className="flex flex-col h-full">
+          {/* Navigation Links */}
+          <nav className="flex-1 p-4 pt-8">
             <ul className="space-y-6">
-              {navigationLinks.map((link) => (
-                <li key={link.name}>
-                  <Link
-                    to={link.path}
-                    className="text-xl text-black dark:text-white hover:underline hover:underline-offset-4 hover:decoration-white focus-visible:underline focus-visible:decoration-white transition-opacity duration-300"
-                    onClick={onClose}
-                  >
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
+              {/* Home */}
+              <li>
+                <Link
+                  to="/"
+                  className="text-xl text-black dark:text-white hover:underline hover:underline-offset-4 hover:decoration-white transition-opacity duration-300"
+                  onClick={onClose}
+                >
+                  Home
+                </Link>
+              </li>
               
+              {/* Portfolio */}
               <li>
                 <button
                   onClick={() => setPortfolioOpen(!portfolioOpen)}
                   className="flex items-center gap-2 text-xl text-black dark:text-white hover:underline hover:underline-offset-4 hover:decoration-white transition-opacity duration-300"
                 >
-                  Travel Portfolio
+                  Portfolio
                   <ChevronDown
                     size={20}
                     className={`transition-transform ${portfolioOpen ? "rotate-180" : ""}`}
                   />
                 </button>
                 {portfolioOpen && (
-                  <ul className="mt-3 ml-4 space-y-3 max-h-64 overflow-y-auto" role="listbox" aria-label="Portfolio Countries">
+                  <ul className="mt-3 ml-4 space-y-3" role="listbox" aria-label="Portfolio options">
                     <li>
                       <Link
                         to="/portfolio"
                         className="text-lg text-gray-600 dark:text-gray-400 hover:underline hover:underline-offset-4 hover:decoration-white transition-opacity font-medium"
                         onClick={onClose}
                       >
-                        All Regions
+                        Travel
                       </Link>
                     </li>
-                    {orderedRegions.map((region) => (
-                      <li key={region}>
-                        <div className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-2">
-                          {region}
-                        </div>
-                        <ul className="space-y-2 ml-2">
-                          {(albumsByRegion[region] || []).map((album) => (
-                            <li key={album.slug}>
-                              <Link
-                                to={`/${album.region.toLowerCase().replace(/[^a-z]/g, "")}/${album.slug}`}
-                                className="text-base text-gray-600 dark:text-gray-400 hover:underline hover:underline-offset-4 hover:decoration-white transition-opacity"
-                                onClick={onClose}
-                              >
-                                {album.country}
-                              </Link>
-                            </li>
-                          ))}
-                        </ul>
-                      </li>
-                    ))}
+                    <li>
+                      <Link
+                        to="/projects"
+                        className="text-lg text-gray-600 dark:text-gray-400 hover:underline hover:underline-offset-4 hover:decoration-white transition-opacity font-medium"
+                        onClick={onClose}
+                      >
+                        Projects
+                      </Link>
+                    </li>
                   </ul>
                 )}
               </li>
-
+              
+              {/* Shop */}
               <li>
                 <button
                   onClick={() => setShopOpen(!shopOpen)}
@@ -173,53 +118,88 @@ export function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
                         className="text-lg text-gray-600 dark:text-gray-400 hover:underline hover:underline-offset-4 hover:decoration-white transition-opacity"
                         onClick={onClose}
                       >
-                        Limited Collection
+                        Limited Edition
                       </a>
                     </li>
                   </ul>
                 )}
               </li>
-              {/* Workshops quick links, include Mentorship */}
-              <li className="mt-4">
-                <div className="text-lg font-medium">Workshops</div>
-                <ul className="mt-2 ml-3 space-y-2">
-                  <li>
-                    <Link to="/workshops" className="text-base text-gray-600 dark:text-gray-400 hover:underline" onClick={onClose}>All Workshops</Link>
-                  </li>
-                  <li>
-                    <Link to="/workshops/mentorship" className="text-base text-gray-600 dark:text-gray-400 hover:underline" onClick={onClose}>Mentorship</Link>
-                  </li>
-                  <li>
-                    <Link to="/workshops/private-chicago" className="text-base text-gray-600 dark:text-gray-400 hover:underline" onClick={onClose}>Private Chicago</Link>
-                  </li>
-                  <li>
-                    <Link to="/workshops/group-chicago" className="text-base text-gray-600 dark:text-gray-400 hover:underline" onClick={onClose}>Group Chicago</Link>
-                  </li>
-                  <li>
-                    <Link to="/workshops/online-group" className="text-base text-gray-600 dark:text-gray-400 hover:underline" onClick={onClose}>Online Group</Link>
-                  </li>
-                </ul>
+              
+              {/* Workshops */}
+              <li>
+                <Link
+                  to="/workshops"
+                  className="text-xl text-black dark:text-white hover:underline hover:underline-offset-4 hover:decoration-white transition-opacity duration-300"
+                  onClick={onClose}
+                >
+                  Workshops
+                </Link>
+              </li>
+              
+              {/* Events */}
+              <li>
+                <Link
+                  to="/events"
+                  className="text-xl text-black dark:text-white hover:underline hover:underline-offset-4 hover:decoration-white transition-opacity duration-300"
+                  onClick={onClose}
+                >
+                  Events
+                </Link>
+              </li>
+              
+              {/* About */}
+              <li>
+                <Link
+                  to="/about"
+                  className="text-xl text-black dark:text-white hover:underline hover:underline-offset-4 hover:decoration-white transition-opacity duration-300"
+                  onClick={onClose}
+                >
+                  About
+                </Link>
+              </li>
+              
+              {/* Contact */}
+              <li>
+                <Link
+                  to="/contact"
+                  className="text-xl text-black dark:text-white hover:underline hover:underline-offset-4 hover:decoration-white transition-opacity duration-300"
+                  onClick={onClose}
+                >
+                  Contact
+                </Link>
+              </li>
+              
+              {/* Basket and Checkout */}
+              <li>
+                <Link
+                  to="/cart"
+                  className="flex items-center gap-2 text-xl text-black dark:text-white hover:underline hover:underline-offset-4 hover:decoration-white transition-opacity duration-300"
+                  onClick={onClose}
+                >
+                  <ShoppingCart size={20} />
+                  Cart
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/checkout"
+                  className="flex items-center gap-2 text-xl text-black dark:text-white hover:underline hover:underline-offset-4 hover:decoration-white transition-opacity duration-300"
+                  onClick={onClose}
+                >
+                  Checkout
+                </Link>
               </li>
             </ul>
           </nav>
-          
-          {/* Footer */}
-          <div className="p-4 border-t border-gray-100 dark:border-neutral-800">
-            <div className="flex items-center justify-between">
-              <SocialIcons />
-              <a
-                href="https://lb.benchmarkemail.com//listbuilder/signupnew?IkfHTmyPVq92wBnn4lX%252FTf5pwVnAjsSIeL8KRSOgMpXtO5iNRn8gS049TyW7spdJ"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-primary text-sm px-4 py-2"
-                onClick={onClose}
-              >
-                Join Newsletter
-              </a>
-            </div>
+
+          {/* Footer - Removed SocialIcons */}
+          <div className="p-4 border-t border-gray-200 dark:border-gray-800">
+            <p className="text-sm text-gray-500 dark:text-gray-400">
+              © {new Date().getFullYear()} Beloveful. All rights reserved.
+            </p>
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }

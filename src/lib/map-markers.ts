@@ -52,7 +52,8 @@ export function generateMapMarkers(albums: CountryAlbum[]): any[] {
         position,
         title: `${album.country}, ${album.region}`,
         imageUrl,
-        albumSlug: `${album.region.toLowerCase().replace(/[^a-z]/g, "")}/${album.slug}`
+        region: album.region,
+        country: album.slug
       };
     });
 }

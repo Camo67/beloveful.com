@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { ChevronDown } from "lucide-react";
 import {
@@ -9,6 +9,7 @@ import {
   DropdownMenuSeparator,
 } from "@/components/ui/dropdown-menu";
 import { getAllAlbumsSorted } from "@/lib/data";
+import type { CountryAlbum } from "@/lib/data";
 
 interface PortfolioDropdownProps {
   variant?: "white" | "auto";
@@ -16,37 +17,6 @@ interface PortfolioDropdownProps {
 
 export function PortfolioDropdown({ variant = "auto" }: PortfolioDropdownProps) {
   const [isOpen, setIsOpen] = useState(false);
-  const albums = getAllAlbumsSorted();
-
-  // Desired region display order 
-  const orderedRegions = useMemo(
-    () => [
-      "Africa",
-      "Asia",
-      "Middle East",
-      "South America",
-      "North America",
-      "Europe",
-      "Oceania",
-      "Erasing Borders",
-    ],
-    []
-  );
-
-  // Group albums by region and sort countries within each region
-  const albumsByRegion = useMemo(() => {
-    const grouped = albums.reduce((acc, album) => {
-      if (!acc[album.region]) acc[album.region] = [] as typeof albums;
-      acc[album.region].push(album);
-      return acc;
-    }, {} as Record<string, typeof albums>);
-
-    for (const key of Object.keys(grouped)) {
-      grouped[key] = grouped[key].slice().sort((a, b) => a.country.localeCompare(b.country));
-    }
-    return grouped;
-  }, [albums]);
-
 
   const textColorClass = variant === "white" 
     ? "text-white font-bold hover:text-gray-200" 
@@ -62,46 +32,35 @@ export function PortfolioDropdown({ variant = "auto" }: PortfolioDropdownProps) 
           style={variant === "white" ? { textShadow: '1px 1px 0 black' } : undefined}
         >
           <span>Portfolio</span>
-          <ChevronDown 
-            size={16} 
-            className={`transition-transform duration-200 ${isOpen ? 'rotate-180' : ''} ${iconColorClass}`} 
+          <ChevronDown
+            size={16}
+            className={`transition-transform duration-200 ${isOpen ? 'rotate-180' : ''} ${iconColorClass}`}
           />
         </button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent 
-        className="w-64 max-h-96 overflow-y-auto dropdown-content text-black dark:text-white"
-        align="start"
-      >
-        <DropdownMenuItem asChild>
-          <Link 
-            to="/portfolio" 
-            className="w-full px-2 py-2 font-semibold hover:bg-muted focus-enhanced text-black dark:text-white"
-            onClick={() => setIsOpen(false)}
-          >
-            All Regions
-          </Link>
-        </DropdownMenuItem>
+      <DropdownMenuContent className="w-[340px] sm:w-[420px] p-3 dropdown-content text-black dark:text-white" align="start">
+        {/* Travel link */}
+        <Link to="/portfolio" onClick={() => setIsOpen(false)} className="block group">
+          <div className="flex items-center justify-between mb-3">
+            <div className="text-base font-semibold">Travel</div>
+          </div>
+          <p className="text-sm text-gray-600 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-gray-200 mb-3">
+            Explore our collection of travel photography from around the world.
+          </p>
+        </Link>
+        
         <DropdownMenuSeparator />
         
-        {orderedRegions.map((region) => (
-          <div key={region}>
-            <div className="px-2 py-1 text-xs font-semibold text-text-tertiary uppercase tracking-wide">
-              {region}
-            </div>
-            {(albumsByRegion[region] || []).map((album) => (
-              <DropdownMenuItem key={album.slug} asChild>
-                <Link
-                  to={`/${album.region.toLowerCase().replace(/[^a-z]/g, "")}/${album.slug}`}
-                  className="w-full px-4 py-2 hover:bg-muted focus-enhanced pl-4 text-black dark:text-white"
-                  onClick={() => setIsOpen(false)}
-                >
-                  {album.country}
-                </Link>
-              </DropdownMenuItem>
-            ))}
+        {/* Projects link */}
+        <Link to="/projects" onClick={() => setIsOpen(false)} className="block group">
+          <div className="flex items-center justify-between mb-3">
+            <div className="text-base font-semibold">Projects</div>
           </div>
-        ))}
-
+          <p className="text-sm text-gray-600 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-gray-200 mb-3">
+            View our documentary and conceptual photography projects.
+          </p>
+        </Link>
+        
       </DropdownMenuContent>
     </DropdownMenu>
   );

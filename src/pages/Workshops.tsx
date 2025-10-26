@@ -11,7 +11,7 @@ export default function Workshops() {
   const workshopData = [
     {
       id: "mentorship",
-      title: "One-on-One Mentorship",
+      title: "Mentorship",
       image: workshopImages.mentorship[0],
       summary: "Personal guidance for photographers at any stage.",
       description:
@@ -21,7 +21,7 @@ export default function Workshops() {
     },
     {
       id: "private-chicago",
-      title: "Private Chicago Workshop",
+      title: "One-on-One Chicago Workshop",
       image: workshopImages.chicagoPrivate[0],
       summary: "A custom 1:1 immersion through Chicago's streets.",
       description:
@@ -41,7 +41,7 @@ export default function Workshops() {
     },
     {
       id: "online-group",
-      title: "Online Group Workshops",
+      title: "Online Workshop",
       image: workshopImages.online[0],
       summary: "Live virtual sessions, assignments, and critique.",
       description:

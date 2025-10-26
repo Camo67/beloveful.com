@@ -53,7 +53,7 @@ export default function ShopDropdown({ variant = "auto" }: ShopDropdownProps) {
             rel="noopener noreferrer"
             className="block px-4 py-3 text-black dark:text-white hover:bg-gray-100 dark:hover:bg-neutral-800 transition-colors"
           >
-            Limited Collection
+            Limited Edition
           </a>
         </div>
       )}

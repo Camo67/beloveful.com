@@ -139,6 +139,34 @@ const EXHIBITIONS: Exhibition[] = [
   }
 ];
 
+interface Event {
+  title: string;
+  location: string;
+  date: string;
+  description: string;
+}
+
+const UPCOMING_EVENTS: Event[] = [
+  {
+    title: 'Beloveful Art Fair',
+    location: 'Chicago, IL',
+    date: '2023-10-15',
+    description: 'Join us for an exclusive art fair featuring Beloveful\'s latest works.'
+  },
+  {
+    title: 'Photography Workshop',
+    location: 'Los Angeles, CA',
+    date: '2023-11-20',
+    description: 'Learn the art of photography with Beloveful in a hands-on workshop.'
+  },
+  {
+    title: 'Art Exhibition',
+    location: 'New York, NY',
+    date: '2023-12-10',
+    description: 'Experience Beloveful\'s art in a stunning exhibition at the Met.'
+  }
+];
+
 export default function Events() {
   // Group exhibitions by year
   const exhibitionsByYear = EXHIBITIONS.reduce((acc, exhibition) => {
@@ -190,174 +218,181 @@ export default function Events() {
     <div className="min-h-screen">
       <Header variant="default" />
 
-      {/* Hero Section */}
-      <section className="relative h-screen overflow-hidden">
-        <img
-          src={heroImage.src}
-          alt={heroImage.alt}
-          className="w-full h-full object-cover"
-          draggable={false}
-          onContextMenu={(e) => e.preventDefault()}
-        />
-        <div className="absolute inset-0 bg-black/40" />
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="text-center text-white px-6 max-w-4xl">
-            <h1 className="text-5xl md:text-7xl font-bold mb-8 tracking-tight">
-              Events
-            </h1>
-            <p className="text-xl md:text-2xl opacity-95 leading-relaxed mb-12">
-              Keep up with my latest exhibitions, art fairs, talks and photowalks. This calendar is where you can see what's coming next, revisit where I've been, and join me somewhere along the journey. Each event is an open invitation to connect, create, and enjoy.
-            </p>
-            <Button 
-              onClick={scrollToEvents}
-              size="lg"
-              className="text-lg px-8 py-4 bg-white text-black hover:bg-gray-100"
-            >
-              View Events →
-            </Button>
-          </div>
+      <PageContainer className="space-y-16">
+        <div className="text-center space-y-3">
+          <p className="text-sm uppercase tracking-[0.35em] text-muted-foreground">Events</p>
         </div>
-      </section>
-      
-      <PageContainer className="max-w-4xl" id="events-section">
-        <section className="py-16 space-y-6">
-          <div className="text-center space-y-2">
-            <p className="text-sm uppercase tracking-[0.35em] text-muted-foreground">Events Calendar</p>
-            <h2 className="text-3xl font-light text-black dark:text-white">Live Schedule</h2>
+
+          {/* Header */}
+          <div className="text-center space-y-4">
+            <h1 className="text-3xl md:text-4xl font-light text-black dark:text-white">
+              Events & Exhibitions
+            </h1>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Upcoming events, past exhibitions, and opportunities to experience Beloveful's work in person.
+            </p>
           </div>
-          <div className="rounded-2xl overflow-hidden shadow-lg border border-gray-200 dark:border-gray-800">
-            <iframe
-              src={calendarEmbedUrl}
-              className="w-full h-[600px]"
-              loading="lazy"
-              title="Beloveful events calendar"
-            />
-          </div>
-        </section>
-        {/* Upcoming Exhibitions */}
-        {upcomingExhibitions.length > 0 && (
-          <div className="mb-16 pt-20">
-            <h2 className="text-2xl md:text-3xl font-light mb-8 text-center text-black dark:text-white">
-              Upcoming Exhibitions
-            </h2>
-            <div className="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-950 dark:to-purple-950 rounded-lg p-6 mb-8">
-              <div className="space-y-4">
-                {upcomingExhibitions.map((exhibition, index) => (
-                  <div
-                    key={index}
-                    className="flex flex-col sm:flex-row sm:items-center sm:justify-between bg-white dark:bg-gray-800 rounded-lg p-4 shadow-sm"
-                  >
-                    <div className="flex-1 mb-2 sm:mb-0">
-                      <div className="flex flex-wrap items-center gap-2 mb-1">
-                        <span className={`px-2 py-1 rounded-full text-xs font-medium ${getTypeColor(exhibition.type)}`}>
-                          {exhibition.type}
-                        </span>
-                        <h3 className="font-medium text-gray-900 dark:text-gray-100">
-                          {exhibition.title}
-                        </h3>
-                      </div>
-                      {exhibition.location && (
-                        <p className="text-sm text-gray-600 dark:text-gray-400">
-                          {exhibition.location}
-                        </p>
-                      )}
-                    </div>
-                    <div className="text-right">
-                      <span className="text-lg font-semibold text-gray-900 dark:text-gray-100">
-                        {exhibition.year}
-                      </span>
-                    </div>
+
+
+          {/* Upcoming Events */}
+          <div>
+            <h2 className="text-2xl font-light mb-6 text-black dark:text-white">Upcoming Events</h2>
+            <div className="space-y-4">
+              {UPCOMING_EVENTS.map((event, index) => (
+                <div key={index} className="flex flex-col sm:flex-row sm:items-center gap-4 p-4 rounded-lg border border-gray-200 dark:border-gray-800">
+                  <div className="flex-shrink-0 w-16 h-16 rounded-lg bg-black dark:bg-white flex items-center justify-center text-white dark:text-black font-bold">
+                    {new Date(event.date).toLocaleDateString('en-US', { month: 'short' })}
+                    <br />
+                    {new Date(event.date).getDate()}
                   </div>
-                ))}
-              </div>
+                  <div className="flex-grow">
+                    <h3 className="font-medium text-lg text-black dark:text-white">{event.title}</h3>
+                    <p className="text-muted-foreground">{event.location}</p>
+                    <p className="text-sm text-muted-foreground mt-1">{event.description}</p>
+                  </div>
+                  <Button variant="outline" className="flex-shrink-0">
+                    Details
+                  </Button>
+                </div>
+              ))}
             </div>
           </div>
-        )}
 
-        {/* All Exhibitions by Year */}
-        <div className={upcomingExhibitions.length === 0 ? 'pt-20' : ''}>
-          <h2 className="text-2xl md:text-3xl font-light mb-8 text-center text-black dark:text-white">
-            Exhibition History
-          </h2>
-          
-          <div className="space-y-8">
-            {sortedYears.map(year => (
-              <div key={year} className="border-l-2 border-gray-200 dark:border-gray-700 pl-6">
-                <div className="relative">
-                  <div className="absolute -left-8 w-4 h-4 bg-black dark:bg-white rounded-full"></div>
-                  <h3 className="text-xl font-semibold mb-4 text-black dark:text-white">
-                    {year}
-                  </h3>
-                  <div className="space-y-3">
-                    {exhibitionsByYear[year].map((exhibition, index) => (
-                      <div
-                        key={index}
-                        className="flex flex-col sm:flex-row sm:items-center sm:justify-between bg-gray-50 dark:bg-gray-800 rounded-lg p-4"
-                      >
-                        <div className="flex-1 mb-2 sm:mb-0">
-                          <div className="flex flex-wrap items-center gap-2 mb-1">
-                            <span className={`px-2 py-1 rounded-full text-xs font-medium ${getTypeColor(exhibition.type)}`}>
-                              {exhibition.type}
-                            </span>
-                            <h4 className="font-medium text-gray-900 dark:text-gray-100">
-                              {exhibition.title}
-                            </h4>
-                          </div>
-                          {exhibition.location && (
-                            <p className="text-sm text-gray-600 dark:text-gray-400">
-                              {exhibition.location}
-                            </p>
-                          )}
-                        </div>
-                      </div>
-                    ))}
+          {/* Zoho Calendar Embed */}
+          <div className="rounded-2xl border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900 p-6">
+            <div className="text-center space-y-3">
+              <h2 className="text-xl font-semibold text-black dark:text-white">Schedule a Viewing</h2>
+              <p className="text-muted-foreground">
+                View my availability and schedule a private viewing or upcoming event
+              </p>
+              
+              {/* Zoho Calendar Embed */}
+              <div className="max-w-5xl mx-auto">
+                <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-4">
+                  <iframe 
+                    src="https://calendar.zoho.com/zc/ui/embed/#calendar=zz08011230de9f7af37169de9dbf574e3b7645706b02352eb08a17c13b60aab14fa1ecb5cda8c6b0b8df5e7960b4b7ff3d69be4a81&title=workshop%40beloveful.com&type=1&language=en&timezone=America%2FNew_York&showTitle=1&showTimezone=1&view=month&showDetail=0&theme=1&eventColorType=light&calendarColor=%23bfbf4d" 
+                    width="100%" 
+                    height="600" 
+                    frameBorder="0" 
+                    scrolling="no"
+                    title="workshop@beloveful.com">
+                  </iframe>
+                </div>
+              </div>
+              
+              <p className="text-sm text-muted-foreground">
+                After selecting a date, you'll be able to book your preferred time slot
+              </p>
+            </div>
+          </div>
+
+
+          {/* Past Exhibitions */}
+          <div>
+            <div className="space-y-1">
+              <h2 className="text-2xl font-light text-black dark:text-white">Past Exhibitions</h2>
+              <p className="text-sm text-neutral-500 dark:text-neutral-400">
+                A selection of exhibitions and shows from recent years.
+              </p>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
+              {EXHIBITIONS.map((exhibition, index) => (
+                <div key={index} className="rounded-2xl border border-gray-200 dark:border-gray-800 p-6 space-y-3">
+                  <div className="flex justify-between items-start">
+                    <h3 className="text-xl font-medium text-black dark:text-white">{exhibition.title}</h3>
+                    <span className="text-xs px-2 py-1 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200">
+                      {exhibition.year}
+                    </span>
+                  </div>
+                  <p className="text-neutral-600 dark:text-neutral-400">
+                    {exhibition.location}
+                  </p>
+                  <div className="text-sm">
+                    <span className={`px-2 py-1 rounded-full ${
+                      exhibition.type === 'Solo' 
+                        ? 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200' 
+                        : exhibition.type === 'Group' 
+                          ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200' 
+                          : 'bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200'
+                    }`}>
+                      {exhibition.type}
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
+            
+            <div className="mt-8 rounded-2xl border border-gray-200 dark:border-gray-800 p-6">
+              <div className="grid grid-cols-3 gap-4 text-center">
+                <div>
+                  <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">
+                    {EXHIBITIONS.filter(ex => ex.type === 'Solo').length}
+                  </div>
+                  <div className="text-sm text-gray-600 dark:text-gray-400">
+                    Solo Exhibitions
+                  </div>
+                </div>
+                <div>
+                  <div className="text-2xl font-bold text-purple-600 dark:text-purple-400">
+                    {EXHIBITIONS.filter(ex => ex.type === 'Invitational').length}
+                  </div>
+                  <div className="text-sm text-gray-600 dark:text-gray-400">
+                    Invitational
+                  </div>
+                </div>
+                <div>
+                  <div className="text-2xl font-bold text-green-600 dark:text-green-400">
+                    {EXHIBITIONS.filter(ex => ex.type === 'Group').length}
+                  </div>
+                  <div className="text-sm text-gray-600 dark:text-gray-400">
+                    Group Shows
                   </div>
                 </div>
               </div>
-            ))}
+            </div>
           </div>
-        </div>
 
-        {/* Statistics */}
-        <div className="mt-16 bg-gray-50 dark:bg-gray-900 rounded-lg p-8">
-          <h3 className="text-xl font-semibold mb-6 text-center text-black dark:text-white">
-            Exhibition Statistics
-          </h3>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-            <div>
-              <div className="text-2xl font-bold text-black dark:text-white">
-                {EXHIBITIONS.length}
+          {/* Statistics */}
+          <div className="mt-16 bg-gray-50 dark:bg-gray-900 rounded-lg p-8">
+            <h3 className="text-xl font-semibold mb-6 text-center text-black dark:text-white">
+              Exhibition Statistics
+            </h3>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+              <div>
+                <div className="text-2xl font-bold text-black dark:text-white">
+                  {EXHIBITIONS.length}
+                </div>
+                <div className="text-sm text-gray-600 dark:text-gray-400">
+                  Total Exhibitions
+                </div>
               </div>
-              <div className="text-sm text-gray-600 dark:text-gray-400">
-                Total Exhibitions
+              <div>
+                <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">
+                  {EXHIBITIONS.filter(ex => ex.type === 'Solo').length}
+                </div>
+                <div className="text-sm text-gray-600 dark:text-gray-400">
+                  Solo Shows
+                </div>
               </div>
-            </div>
-            <div>
-              <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">
-                {EXHIBITIONS.filter(ex => ex.type === 'Solo').length}
+              <div>
+                <div className="text-2xl font-bold text-purple-600 dark:text-purple-400">
+                  {EXHIBITIONS.filter(ex => ex.type === 'Invitational').length}
+                </div>
+                <div className="text-sm text-gray-600 dark:text-gray-400">
+                  Invitational
+                </div>
               </div>
-              <div className="text-sm text-gray-600 dark:text-gray-400">
-                Solo Shows
-              </div>
-            </div>
-            <div>
-              <div className="text-2xl font-bold text-purple-600 dark:text-purple-400">
-                {EXHIBITIONS.filter(ex => ex.type === 'Invitational').length}
-              </div>
-              <div className="text-sm text-gray-600 dark:text-gray-400">
-                Invitational
-              </div>
-            </div>
-            <div>
-              <div className="text-2xl font-bold text-green-600 dark:text-green-400">
-                {EXHIBITIONS.filter(ex => ex.type === 'Group').length}
-              </div>
-              <div className="text-sm text-gray-600 dark:text-gray-400">
-                Group Shows
+              <div>
+                <div className="text-2xl font-bold text-green-600 dark:text-green-400">
+                  {EXHIBITIONS.filter(ex => ex.type === 'Group').length}
+                </div>
+                <div className="text-sm text-gray-600 dark:text-gray-400">
+                  Group Shows
+                </div>
               </div>
             </div>
           </div>
-        </div>
       </PageContainer>
 
       <FooterStrip />

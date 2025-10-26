@@ -3,7 +3,6 @@ import FooterStrip from "@/components/FooterStrip";
 import PageContainer from "@/components/PageContainer";
 import { useSearchParams } from "react-router-dom";
 import { useState } from "react";
-import { Logo } from "@/components/Logo";
 import { SocialIcons } from "@/components/SocialIcons";
 import { CloudImage } from "@/components/CloudImage";
 
@@ -39,9 +38,6 @@ export default function Contact() {
       <Header variant="default" />
       
       <PageContainer className="min-h-[70vh] space-y-10">
-        <div className="flex justify-center mb-6">
-          <Logo variant="auto" />
-        </div>
         <h1 className="text-3xl md:text-4xl font-light mb-8 text-black dark:text-white text-center">Contact</h1>
 
         {submitted && (

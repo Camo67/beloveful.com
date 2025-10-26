@@ -3,15 +3,15 @@ main = "src/worker.js"
 compatibility_date = "2025-09-01"
 workers_dev = false
 
+# Custom domain routes must be defined at the top-level
+routes = [
+  { pattern = "*beloveful.com", zone_name = "beloveful.com" },
+  { pattern = "www.beloveful.com*", zone_name = "be" }
+]
+
 [assets]
 directory = "dist"
 binding = "ASSETS"
-
-# Custom domain routes must be defined at the top-level (not inside d1_databases)
-routes = [
-  { pattern = "beloveful.com/*", zone_name = "beloveful.com" },
-  { pattern = "www.beloveful.com/*", zone_name = "beloveful.com" }
-]
 
 # R2 bucket configuration
 [[r2_buckets]]
