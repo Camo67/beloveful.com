@@ -7,25 +7,49 @@ import { Link } from "react-router-dom";
 import { useCloudinaryImages } from '@/hooks/use-cloudinary-images';
 import { createProxiedImageUrl } from '@/lib/images';
 
+const BIO_PARAGRAPHS = [
+  "Motivated by curiosity and forever fascinated by what this world has to offer, Tony's love of capturing life around him began the day his father handed him his first camera at age seven. That simple gesture ignited a lifelong pursuit of finding beauty in the everyday and meaning in the margins.",
+  "From medical school to missions across the globe serving impoverished communities, his photography remained a constant—a guiding light in discovering grace and resilience in the simplest moments. Witnessing the purity of souls who could laugh and move fearlessly forward even in devastating conditions, Tony experienced a revelation. These encounters illuminated a truth he could no longer ignore: his calling wasn't to heal bodies, but to reveal the sacred in the human experience.",
+  "The decision to leave medicine and pursue photography full-time was met with immediate affirmation. Within his first year, Tony earned recognition from National Geographic, held multiple exhibitions, and received an Award for Excellence from the Conception Global Art Collective. The message was unmistakable: photography wasn't merely a passion, it was his purpose.",
+  "Tony's work captures the raw and unfiltered essence of life with an unwavering commitment to authenticity. His lens seeks both beauty and chaos in equal measure: the electric energy of crowded markets, the quiet majesty of remote landscapes, the tender intimacy of daily rituals. Through each frame, he reveals a fundamental truth—that despite our differences, we are bound by a common rhythm. The rhythm of life itself.",
+  "He believes photography transcends documentation; it is a bridge between souls, a catalyst for empathy, and a mirror reflecting our shared humanity. His images invite viewers to see beyond surface differences and recognize the divine thread connecting all beings. Whether capturing joy in the face of hardship or stillness amid turmoil, Tony's work asks us to pause, to witness, and to remember what binds us together.",
+  "In a fractured world, he remains dedicated to using his art as an instrument of unity and compassion—revealing not just what separates us, but the sacred connection that makes us whole."
+];
+
+const PUBLICATIONS_AND_AWARDS = [
+  { title: "TEDx Chicago Speaker", context: "TEDxChicago 2025", year: "2025" },
+  { title: "Photographer of the Year", context: "University Club — Chicago", year: "2024" },
+  { title: "Old Town Art Fair", context: "Invitational Exhibition — Chicago", year: "2024" },
+  { title: "Adobe Artist in Residence", context: "Creative Residency", year: "2022" },
+  { title: "TIME Magazine pieces Gallery", context: "Black Dove Gallery — Miami", year: "2022" },
+  { title: "Best in Show", context: "Fujifilm Printlife Exhibition — Birmingham", year: "2022" },
+  { title: "Featured Pick", context: "LensCulture Editorial Showcase", year: "2020" },
+  { title: "Editor's Showcase Winner", context: "National Geographic", year: "2021" },
+  { title: "Editor's Showcase Winner", context: "National Geographic", year: "2018" },
+  { title: "Award of Excellence", context: "Conception Global Art Collective", year: "2018" },
+  { title: "'Capturing Japan'", context: "ANNE Magazine", year: "2018" }
+];
+
 export default function About() {
   useEffect(() => {
     document.title = "Bio & Artist Statement";
   }, []);
 
+  const spotifyEmbedUrl =
+    "https://open.spotify.com/embed/playlist/6Gy5nsKnrYir1tOx9pBuxW?utm_source=generator&theme=0";
+
   return (
     <div className="min-h-screen">
       <Header variant="default" fullWidth />
-      
-      <div className="w-full px-6 md:px-12 lg:px-20 py-12">
 
-        {/* Page Title */}
-        <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-light mb-8 text-black dark:text-white">Bio & Artist Statement</h1>
-        </div>
+      <div className="w-full px-6 md:px-12 lg:px-20 py-12 space-y-16">
+        <header className="text-center space-y-4">
+          <p className="text-sm uppercase tracking-[0.35em] text-muted-foreground">About Tony Menias</p>
+          <h1 className="text-4xl md:text-5xl font-light text-black dark:text-white">Bio & Artist Statement</h1>
+        </header>
 
-        {/* YouTube Video */}
-        <div className="mb-12 max-w-4xl mx-auto">
-          <div className="relative w-full aspect-video overflow-hidden rounded-lg">
+        <section className="max-w-4xl mx-auto">
+          <div className="relative w-full aspect-video overflow-hidden rounded-lg shadow-lg">
             <iframe
               src="https://www.youtube.com/embed/jNBE_RQECeA?si=YP-eEfwLWxWL1RLe"
               title="BELOVEFUL Photography Documentary"
@@ -37,151 +61,103 @@ export default function About() {
               loading="lazy"
             />
           </div>
-        </div>
+        </section>
 
-        {/* Biography */}
-        <div className="mb-12 max-w-4xl mx-auto">
-          <div className="space-y-6">
-            <p className="text-lg leading-relaxed text-black dark:text-white">
-              Motivated by curiosity and forever fascinated by what this world has to offer, Tony's love of capturing life around him began the day his father handed him his first camera at age seven. That simple gesture ignited a lifelong pursuit of finding beauty in the everyday and meaning in the margins.
+        <section className="max-w-4xl mx-auto space-y-6">
+          {BIO_PARAGRAPHS.map((paragraph, index) => (
+            <p key={index} className="text-lg leading-relaxed text-black dark:text-white">
+              {paragraph}
             </p>
-            <p className="text-lg leading-relaxed text-black dark:text-white">
-              From medical school to missions across the globe serving impoverished communities, his photography remained a constant a guiding light in discovering grace and resilience in the simplest moments. Witnessing the purity of souls who could laugh and move fearlessly forward even in devastating conditions, Tony experienced a revelation. These encounters illuminated a truth he could no longer ignore: his calling wasn't to heal bodies, but to reveal the sacred in the human experience.
-            </p>
-            <p className="text-lg leading-relaxed text-black dark:text-white">
-              The decision to leave medicine and pursue photography full-time was met with immediate affirmation. Within his first year, Tony earned recognition from National Geographic, held multiple exhibitions, and received an Award for Excellence from the Conception Global Art Collective. The message was unmistakable photography wasn't merely a passion, it was his purpose.
-            </p>
-            <p className="text-lg leading-relaxed text-black dark:text-white">
-              Tony's work captures the raw and unfiltered essence of life with an unwavering commitment to authenticity. His lens seeks both beauty and chaos in equal measure: the electric energy of crowded markets, the quiet majesty of remote landscapes, the tender intimacy of daily rituals. Through each frame, he reveals a fundamental truth that despite our differences, we are bound by a common rhythm. The rhythm of life itself.
-            </p>
-            <p className="text-lg leading-relaxed text-black dark:text-white">
-              He believes photography transcends documentation; it is a bridge between souls, a catalyst for empathy, and a mirror reflecting our shared humanity. His images invite viewers to see beyond surface differences and recognize the divine thread connecting all beings. Whether capturing joy in the face of hardship or stillness amid turmoil, Tony's work asks us to pause, to witness, and to remember what binds us together.
-            </p>
-            <p className="text-lg leading-relaxed text-black dark:text-white">
-              In a fractured world, he remains dedicated to using his art as an instrument of unity and compassion revealing not just what separates us, but the sacred connection that makes us whole.
-            </p>
-          </div>
-        </div>
-
-
-        {/* Tony Image */}
-        <div className="w-full flex justify-center mb-12">
-          <img 
-            src="/TonyMenias-monkey.jpg" 
-            alt="Tony Menias Portrait" 
-            className="w-full max-w-2xl h-auto object-contain"
-            draggable="false"
-            loading="eager"
-          />
-        </div>
-
-        {/* Featured Quote */}
-        <div className="mb-16 text-center max-w-4xl mx-auto">
-          <blockquote className="text-xl md:text-2xl font-light italic text-black dark:text-white leading-relaxed transition-all hover:[text-shadow:0_0_8px_rgba(0,0,0,0.25)] dark:hover:[text-shadow:0_0_10px_rgba(255,255,255,0.35)]">
-            "There's an unseen connection between everything on this earth and the Divine. My aim is to bring this connection into focus." -Tony Menias
-          </blockquote>
-        </div>
-
-        {/* Interviews */}
-        <section className="mb-16">
-          <div className="mb-6 text-center">
-            <h2 className="text-2xl md:text-3xl font-medium text-black dark:text-white transition-all hover:[text-shadow:0_0_8px_rgba(0,0,0,0.25)] dark:hover:[text-shadow:0_0_10px_rgba(255,255,255,0.35)]">Interviews</h2>
-          </div>
-          <div className="w-full max-w-4xl mx-auto">
-            <iframe data-testid="embed-iframe" style={{ borderRadius: 12 }} src="https://open.spotify.com/embed/playlist/6Gy5nsKnrYir1tOx9pBuxW?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowFullScreen={true} allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+          ))}
+          <div className="w-full flex justify-center pt-4">
+            <img
+              src="/TonyMenias-monkey.jpg"
+              alt="Tony Menias portrait"
+              className="w-full max-w-2xl rounded-lg shadow-md object-cover"
+              draggable={false}
+            />
           </div>
         </section>
 
-        {/* Publications & Awards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16 max-w-4xl mx-auto">
-          <div>
-            <h3 className="text-xl font-semibold text-black dark:text-white mb-6 transition-all hover:[text-shadow:0_0_8px_rgba(0,0,0,0.25)] dark:hover:[text-shadow:0_0_10px_rgba(255,255,255,0.35)]">Publications</h3>
-            <ul className="space-y-4 text-black dark:text-white">
-              <li className="flex justify-between items-start gap-4">
-                <span className="flex-1">'Burning Man Tunes' Magnetic Magazine</span>
-                <span className="text-sm text-gray-600 dark:text-gray-400 font-medium">2023</span>
-              </li>
-              <li className="flex justify-between items-start gap-4">
-                <span className="flex-1">'Chicago' Bump Books</span>
-                <span className="text-sm text-gray-600 dark:text-gray-400 font-medium">2023</span>
-              </li>
-              <li className="flex justify-between items-start gap-4">
-                <span className="flex-1">'Story Behind the Still' Digital Photographers Magazine</span>
-                <span className="text-sm text-gray-600 dark:text-gray-400 font-medium">2022</span>
-              </li>
-              <li className="flex justify-between items-start gap-4">
-                <span className="flex-1">'Sunset Sails' Editors Showcase National Geographic</span>
-                <span className="text-sm text-gray-600 dark:text-gray-400 font-medium">2021</span>
-              </li>
-              <li className="flex justify-between items-start gap-4">
-                <span className="flex-1">'Into The Rabbit Hole' Editors Showcase National Geographic</span>
-                <span className="text-sm text-gray-600 dark:text-gray-400 font-medium">2018</span>
-              </li>
-              <li className="flex justify-between items-start gap-4">
-                <span className="flex-1">'Capturing Japan' ANNE Magazine</span>
-                <span className="text-sm text-gray-600 dark:text-gray-400 font-medium">2018</span>
-              </li>
-            </ul>
+        <section className="bg-gray-50 dark:bg-gray-900 rounded-3xl px-6 py-10 md:px-10 md:py-14 border border-gray-100 dark:border-gray-800 text-center space-y-6">
+          <p className="text-sm uppercase tracking-[0.35em] text-muted-foreground">Artist Statement</p>
+          <blockquote className="text-2xl md:text-3xl font-light text-black dark:text-white leading-relaxed">
+            "There's an unseen connection between everything on this earth and the Divine. My aim is to bring this connection into focus."
+          </blockquote>
+          <p className="text-base tracking-wide text-muted-foreground">— Tony Menias</p>
+        </section>
+
+        <section className="max-w-5xl mx-auto space-y-6">
+          <div className="text-center space-y-2">
+            <p className="text-sm uppercase tracking-[0.35em] text-muted-foreground">Interviews</p>
+            <h2 className="text-3xl font-light text-black dark:text-white">Listen & Learn</h2>
+            <p className="text-base text-muted-foreground max-w-3xl mx-auto">
+              A curated playlist of conversations about process, purpose, and street photography.
+            </p>
           </div>
-          
-          <div>
-            <h3 className="text-xl font-semibold text-black dark:text-white mb-6 transition-all hover:[text-shadow:0_0_8px_rgba(0,0,0,0.25)] dark:hover:[text-shadow:0_0_10px_rgba(255,255,255,0.35)]">Honors & Awards</h3>
-            <ul className="space-y-4 text-black dark:text-white">
-              <li className="flex justify-between items-start gap-4">
-                <span className="flex-1">Photographer of the Year University Club, Chicago</span>
-                <span className="text-sm text-gray-600 dark:text-gray-400 font-medium">2024</span>
-              </li>
-              <li className="flex justify-between items-start gap-4">
-                <span className="flex-1">Adobe Artist in Residence</span>
-                <span className="text-sm text-gray-600 dark:text-gray-400 font-medium">2022</span>
-              </li>
-              <li className="flex justify-between items-start gap-4">
-                <span className="flex-1">Best in Show Fujifilm Printlife Exhibition</span>
-                <span className="text-sm text-gray-600 dark:text-gray-400 font-medium">2022</span>
-              </li>
-              <li className="flex justify-between items-start gap-4">
-                <span className="flex-1">Winner Editor's Showcase National Geographic</span>
-                <span className="text-sm text-gray-600 dark:text-gray-400 font-medium">2021</span>
-              </li>
-              <li className="flex justify-between items-start gap-4">
-                <span className="flex-1">Featured Pick Lensculture</span>
-                <span className="text-sm text-gray-600 dark:text-gray-400 font-medium">2020</span>
-              </li>
-              <li className="flex justify-between items-start gap-4">
-                <span className="flex-1">Winner Editor's Showcase National Geographic</span>
-                <span className="text-sm text-gray-600 dark:text-gray-400 font-medium">2018</span>
-              </li>
-              <li className="flex justify-between items-start gap-4">
-                <span className="flex-1">Award Of Excellence Conception Global Art Collective</span>
-                <span className="text-sm text-gray-600 dark:text-gray-400 font-medium">2018</span>
-              </li>
-            </ul>
+          <div className="relative w-full overflow-hidden rounded-2xl shadow-lg">
+            <iframe
+              src={spotifyEmbedUrl}
+              width="100%"
+              height="352"
+              frameBorder="0"
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+              loading="lazy"
+              title="Spotify interviews playlist"
+            />
           </div>
-        </div>
-        {/* Clients & Partners */}
-        <section className="mb-16">
+        </section>
+
+        <section className="max-w-5xl mx-auto">
+          <div className="text-center space-y-2 mb-8">
+            <p className="text-sm uppercase tracking-[0.35em] text-muted-foreground">Publications & Awards</p>
+            <h2 className="text-3xl font-light text-black dark:text-white">Selected Highlights</h2>
+          </div>
+          <div className="grid gap-6 md:grid-cols-2">
+            {PUBLICATIONS_AND_AWARDS.map((item) => (
+              <div
+                key={`${item.title}-${item.year}`}
+                className="border border-gray-200 dark:border-gray-800 rounded-2xl p-6 bg-white/70 dark:bg-neutral-950/40"
+              >
+                <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground mb-2">{item.year}</p>
+                {item.title === "TEDx Chicago Speaker" ? (
+                  <a 
+                    href="https://www.tedxchicago.com/tonymenias-tedxchicago2025?fbclid=IwZXh0bgNhZW0CMTEAYnJpZBExaHViYUV6NGwyVXBKZnRsNAEe8yleX7fmOS-9lxtffGJPM3RtZsYYH04MVaDjiytl6pGY1G-aPTcmpWUn5rE_aem_qCQYQA_XIHWqptohqXo14w&brid=IvAmrFWqcArz4WBlMFbjhQ" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-xl font-semibold text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 underline"
+                  >
+                    {item.title}
+                  </a>
+                ) : (
+                  <p className="text-xl font-semibold text-black dark:text-white">{item.title}</p>
+                )}
+                <p className="text-sm text-muted-foreground mt-2">{item.context}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section>
           <div className="text-center mb-8">
-            <h2 className="text-2xl md:text-3xl font-medium text-black dark:text-white mb-4 transition-all hover:[text-shadow:0_0_8px_rgba(0,0,0,0.25)] dark:hover:[text-shadow:0_0_10px_rgba(255,255,255,0.35)]">Clients & Partners</h2>
+            <h2 className="text-2xl md:text-3xl font-medium text-black dark:text-white mb-4">Clients & Partners</h2>
           </div>
           <div className="max-w-6xl mx-auto">
             <ClientsPartnersGrid />
           </div>
         </section>
 
-        {/* Final Journey Section */}
-        <section className="mb-16 text-center max-w-4xl mx-auto">
-          <div className="space-y-6">
-            <p className="text-lg leading-relaxed text-black dark:text-white">
-              Today, my journey has evolved into something larger than photography itself — it's about connection, growth, and shared vision.
-            </p>
-            <p className="text-lg leading-relaxed text-black dark:text-white">
-              My love for learning runs as deep as my love for teaching, and I believe both are essential to truly seeing the world. I invite others into a space of openness and exploration and create a safe place where curiosity, courage, and creativity can thrive together.
-            </p>
-            <div className="pt-4">
-              <Button asChild>
-                <Link to="/workshops" aria-label="Join the journey through workshops">Reach out if you'd like to join that journey.</Link>
-              </Button>
-            </div>
+        <section className="text-center max-w-4xl mx-auto space-y-6">
+          <p className="text-sm uppercase tracking-[0.35em] text-muted-foreground">Final Journey</p>
+          <p className="text-lg leading-relaxed text-black dark:text-white">
+            Today, my work is as much about teaching and community as it is about making images. Workshops, mentorships, and collaborative projects keep the conversation alive.
+          </p>
+          <div className="pt-2">
+            <Button asChild size="lg">
+              <Link to="/workshops" aria-label="Explore workshops and mentorship">
+                Join the Journey
+              </Link>
+            </Button>
           </div>
         </section>
       </div>
@@ -192,11 +168,9 @@ export default function About() {
 }
 
 function ClientsPartnersGrid() {
-  // Prefer dynamic logos from Cloudinary (folder slug: "logos") and fallback to curated set
   const { data: dynamicLogos = [] } = useCloudinaryImages('logos');
   const clientLogos = dynamicLogos.length > 0 ? dynamicLogos.map((i) => createProxiedImageUrl(i.desktop)) : CLIENT_LOGOS_SOURCE;
-  
-  // Don't render if no logos are available
+
   if (!clientLogos || clientLogos.length === 0) {
     return (
       <div className="text-center text-gray-500 dark:text-gray-400">
@@ -205,12 +179,9 @@ function ClientsPartnersGrid() {
     );
   }
 
-  // Function is imported at the top of the file
-
   return (
     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-8 md:gap-10 lg:gap-12 items-center">
       {clientLogos.map((src: string, i: number) => {
-        // Use the cleaned client name from CLIENT_NAMES array
         const clientName = CLIENT_NAMES[i] || `Partner ${i + 1}`;
         const href: string | null = getClientLinkForIndex(i);
         const content = (
@@ -228,10 +199,8 @@ function ClientsPartnersGrid() {
             onContextMenu={(e) => e.preventDefault()}
             onError={(e) => {
               console.warn(`Failed to load ${clientName} logo:`, src);
-              // Hide the failed image gracefully
               const target = e.currentTarget as HTMLImageElement;
               target.style.display = 'none';
-              // Also hide the parent container if the image fails
               const parent = target.parentElement;
               if (parent) {
                 parent.style.display = 'none';
@@ -239,28 +208,27 @@ function ClientsPartnersGrid() {
             }}
           />
         );
-        
+
         return (
-          <div 
-            key={i} 
+          <div
+            key={i}
             className="relative flex items-center justify-center p-4 md:p-6 group cursor-pointer"
             title={clientName}
           >
-            {/* Desktop-only arrow indicator */}
             <div className="absolute inset-0 hidden md:flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-0">
               <div className="absolute top-2 right-2">
-                <svg 
-                  width="16" 
-                  height="16" 
-                  viewBox="0 0 24 24" 
-                  fill="none" 
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
                   className="text-gray-600 dark:text-gray-300"
                 >
-                  <path 
-                    d="M7 17L17 7M17 7H7M17 7V17" 
-                    stroke="currentColor" 
-                    strokeWidth="2" 
-                    strokeLinecap="round" 
+                  <path
+                    d="M7 17L17 7M17 7H7M17 7V17"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
                     strokeLinejoin="round"
                   />
                 </svg>

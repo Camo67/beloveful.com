@@ -1,4 +1,3 @@
-{
   "compilerOptions": {
     "target": "ES2020",
     "useDefineForClassFields": true,
@@ -20,6 +19,12 @@
     "noUnusedParameters": false,
     "noImplicitAny": false,
     "noFallthroughCasesInSwitch": false,
+
+    /* JSON modules */
+    "resolveJsonModule": true,
+
+    /* Deprecation warnings */
+    "ignoreDeprecations": "6.0",
 
     "baseUrl": ".",
     "paths": {

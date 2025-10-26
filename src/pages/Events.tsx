@@ -175,6 +175,10 @@ export default function Events() {
     alt: "Photography Events and Exhibitions"
   };
 
+  const calendarEmbedUrl =
+    import.meta.env.VITE_EVENTS_CALENDAR_EMBED ??
+    "https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%23ffffff&ctz=America%2FChicago&src=YmVsb3ZlZnVsLmV2ZW50c0BleGFtcGxlLmNvbQ";
+
   const scrollToEvents = () => {
     const element = document.getElementById('events-section');
     if (element) {
@@ -216,7 +220,20 @@ export default function Events() {
       </section>
       
       <PageContainer className="max-w-4xl" id="events-section">
-
+        <section className="py-16 space-y-6">
+          <div className="text-center space-y-2">
+            <p className="text-sm uppercase tracking-[0.35em] text-muted-foreground">Events Calendar</p>
+            <h2 className="text-3xl font-light text-black dark:text-white">Live Schedule</h2>
+          </div>
+          <div className="rounded-2xl overflow-hidden shadow-lg border border-gray-200 dark:border-gray-800">
+            <iframe
+              src={calendarEmbedUrl}
+              className="w-full h-[600px]"
+              loading="lazy"
+              title="Beloveful events calendar"
+            />
+          </div>
+        </section>
         {/* Upcoming Exhibitions */}
         {upcomingExhibitions.length > 0 && (
           <div className="mb-16 pt-20">

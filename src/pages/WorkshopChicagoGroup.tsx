@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useWorkshopImages } from "@/hooks/use-workshop-images";
+import { CORE_WORKSHOP_TOPICS } from "@/lib/workshop-content";
 
 export default function WorkshopChicagoGroup() {
   const heroImage = {
@@ -40,7 +41,7 @@ export default function WorkshopChicagoGroup() {
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="text-center text-white px-6 max-w-4xl">
             <h1 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight">
-              Group Street Photography Workshop — Chicago
+              Group Chicago Workshop
             </h1>
             <p className="text-xl md:text-2xl opacity-95 leading-relaxed">
               See Chicago differently alongside other photographers.
@@ -53,27 +54,20 @@ export default function WorkshopChicagoGroup() {
         <section className="py-20">
           <div className="prose prose-lg max-w-none dark:prose-invert">
             <p className="text-lg leading-relaxed mb-8">
-              This small-group workshop combines hands-on street shooting with guided instruction. Learn to notice, connect, and capture meaningful stories while refining your eye and creative voice in a collaborative setting.
+              This small-group experience blends hands-on street shooting with guided critiques. Learn from the energy of Chicago, the observations of your peers, and the coaching you receive in real time.
             </p>
 
-            <div className="bg-gray-50 dark:bg-gray-900 rounded-lg p-8 mb-8">
-              <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
-                What to Expect:
-              </h2>
+            <div className="bg-gray-50 dark:bg-gray-900 rounded-lg p-8 mb-8 border border-gray-100 dark:border-gray-800">
+              <h2 className="text-3xl font-semibold text-gray-900 dark:text-white mb-4">The workshop will include:</h2>
               <ul className="space-y-3 text-lg text-gray-700 dark:text-gray-300">
-                <li>• Small group experience (maximum 6 participants)</li>
-                <li>• Collaborative learning with fellow photographers</li>
-                <li>• Hands-on street shooting in Chicago's diverse neighborhoods</li>
-                <li>• Real-time feedback and guidance</li>
-                <li>• Learn from observing others' approaches</li>
-                <li>• Share techniques and creative insights</li>
-                <li>• Group critique and discussion</li>
-                <li>• Build connections with like-minded photographers</li>
+                {CORE_WORKSHOP_TOPICS.map((topic) => (
+                  <li key={topic}>• {topic}</li>
+                ))}
               </ul>
             </div>
 
             <p className="text-lg leading-relaxed font-medium text-gray-900 dark:text-white mb-8">
-              Experience the energy of collaborative creativity while developing your individual voice as a street photographer.
+              We close with a collaborative critique so you can see how others interpret the same city blocks—and sharpen your own visual instincts in the process.
             </p>
 
             <div className="bg-white dark:bg-gray-800 rounded-lg p-6 mb-8 border border-gray-200 dark:border-gray-700">

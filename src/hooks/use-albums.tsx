@@ -1,49 +1,53 @@
 import { useQuery } from '@tanstack/react-query';
-import { ALBUMS } from '@/lib/data'; // Fallback data
-
-// Interface for album data from API
-interface APIAlbum {
-  id: number;
-  region: string;
-  country: string;
-  slug: string;
-  description?: string;
-  images: Array<{
-    id: number;
-    desktop: string;
-    mobile: string;
-    title?: string;
-    description?: string;
-    altText?: string;
-  }>;
-}
-
-interface APIAlbumsResponse {
-  success: boolean;
-  albums: APIAlbum[];
-}
-
-// Transform API data to match existing interface
-const transformAlbum = (album: APIAlbum) => ({
-  region: album.region as any, // Type assertion for Region type
-  country: album.country,
-  slug: album.slug,
-  images: album.images.map(img => ({
-    desktop: img.desktop,
-    mobile: img.mobile
-  }))
-});
+import { ALBUMS } from '@/lib/data'; // Data from prefix-mapped.json
+import { getWorkingImageUrl } from '@/lib/image-utils';
 
 export const useAlbums = () => {
   return useQuery({
     queryKey: ['albums'],
-    queryFn: async (): Promise<any[]> => {
-      // Use static Cloudinary data directly
-      console.log('🎭 Loading albums from static Cloudinary data');
-      return ALBUMS;
+    queryFn: async () => {
+      try {
+        console.log('📚 Loading albums from prefix-mapped data');
+        // Create a copy of albums with verified image URLs
+        const verifiedAlbums = [];
+        for (const album of ALBUMS) {
+          const verifiedImages = [];
+          for (const image of album.images) {
+            try {
+              // Add a timeout to prevent hanging
+              const timeoutPromise = new Promise<string>((_, reject) => {
+                setTimeout(() => reject(new Error('Image verification timeout')), 10000); // 10 second timeout
+              });
+              
+              const verifiedUrlPromise = getWorkingImageUrl(image.desktop);
+              const verifiedDesktop = await Promise.race([verifiedUrlPromise, timeoutPromise]);
+              
+              const verifiedMobilePromise = getWorkingImageUrl(image.mobile);
+              const verifiedMobile = await Promise.race([verifiedMobilePromise, timeoutPromise]);
+              
+              verifiedImages.push({
+                desktop: verifiedDesktop as string,
+                mobile: verifiedMobile as string
+              });
+            } catch (error) {
+              console.warn('Failed to verify image URL:', image, error);
+              // Skip broken images
+            }
+          }
+          
+          verifiedAlbums.push({
+            ...album,
+            images: verifiedImages
+          });
+        }
+        return verifiedAlbums;
+      } catch (error) {
+        console.error('Failed to load albums:', error);
+        return [];
+      }
     },
-    staleTime: Infinity, // Cache forever since static data doesn't change
-    retry: false, // No need to retry static data
+    staleTime: 1000 * 60 * 60, // 1 hour
+    retry: 1,
   });
 };
 
@@ -53,10 +57,35 @@ export const useAlbum = (region: string, country: string) => {
     queryFn: async () => {
       // Use static Cloudinary data directly
       console.log(`🌍 Loading album for ${region}/${country} from static data`);
-      return ALBUMS.find(album => 
+      const album = ALBUMS.find(album => 
         album.region.toLowerCase().replace(/\s+/g, '-') === region && 
         album.slug === country
       );
+      
+      if (!album) {
+        return undefined;
+      }
+      
+      // Verify image URLs
+      const verifiedImages = [];
+      for (const image of album.images) {
+        try {
+          const verifiedDesktop = await getWorkingImageUrl(image.desktop);
+          const verifiedMobile = await getWorkingImageUrl(image.mobile);
+          verifiedImages.push({
+            desktop: verifiedDesktop,
+            mobile: verifiedMobile
+          });
+        } catch (error) {
+          console.warn('Failed to verify image URL:', image, error);
+          // Skip broken images
+        }
+      }
+      
+      return {
+        ...album,
+        images: verifiedImages
+      };
     },
     staleTime: Infinity, // Cache forever since static data doesn't change
     retry: false, // No need to retry static data

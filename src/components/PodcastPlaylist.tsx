@@ -73,7 +73,11 @@ export default function PodcastPlaylist() {
         <div className="rounded-lg border border-gray-200 dark:border-gray-700 p-4 bg-white dark:bg-gray-900">
           <div className="flex items-start gap-4">
             {current.image ? (
-              <img src={current.image} alt="Episode" className="w-24 h-24 object-cover rounded-md" />
+              <CloudImage 
+                url={current.image} 
+                alt="Episode" 
+                className="w-24 h-24 object-cover rounded-md" 
+              />
             ) : (
               <div className="w-24 h-24 rounded-md bg-gray-200 dark:bg-gray-800" />
             )}

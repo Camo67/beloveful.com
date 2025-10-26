@@ -33,7 +33,8 @@
     "cloudinary:generate": "ts-node scripts/generate-cloudinary-albums.ts",
     "cloudinary:urls": "node scripts/export-cloudinary-urls.mjs",
     "portfolio:build": "node scripts/build-albums-from-cloudinary.mjs",
-    "images:serve": "node server/images.cjs"
+    "images:serve": "node server/images.cjs",
+    "workshop:generate": "node scripts/generate-workshop-images-json.js"
   },
   "dependencies": {
     "@cloudflare/kv-asset-handler": "^0.4.0",

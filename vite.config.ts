@@ -28,26 +28,36 @@ export default defineConfig(({ mode }) => ({
       },
     },
   },
-  plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
+  define: {
+    __APP_ENV__: mode === 'production' ? JSON.stringify('prod') : JSON.stringify('dev'),
+  },
+  plugins: [
+    react(),
+    componentTagger(),
+  ],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
+      // Add explicit alias for leaflet images to prevent 404 errors
+      "leaflet/dist/images/marker-icon.png": path.resolve(__dirname, "node_modules/leaflet/dist/images/marker-icon.png"),
+      "leaflet/dist/images/marker-icon-2x.png": path.resolve(__dirname, "node_modules/leaflet/dist/images/marker-icon-2x.png"),
+      "leaflet/dist/images/marker-shadow.png": path.resolve(__dirname, "node_modules/leaflet/dist/images/marker-shadow.png"),
     },
   },
   build: {
     rollupOptions: {
       output: {
-        manualChunks: {
-          // React and related libraries
-          'react-vendor': ['react', 'react-dom', 'react-router-dom'],
-          // UI library chunks
-          'ui-vendor': ['@radix-ui/react-dialog', '@radix-ui/react-dropdown-menu', '@radix-ui/react-slot', '@radix-ui/react-toast', '@radix-ui/react-tooltip'],
-          // Query and state management
-          'query-vendor': ['@tanstack/react-query'],
-          // Theme and styling
-          'theme-vendor': ['next-themes', 'class-variance-authority', 'clsx', 'tailwind-merge'],
-          // Form handling
-          'form-vendor': ['react-hook-form', '@hookform/resolvers', 'zod'],
+        // Ensure assets have proper names to prevent caching issues
+        assetFileNames: (assetInfo) => {
+          if (!assetInfo.name) {
+            return 'assets/unknown-[hash][extname]';
+          }
+          
+          let extType = assetInfo.name.split('.').at(1);
+          if (/png|jpe?g|svg|gif|tiff|bmp|ico/i.test(extType)) {
+            extType = 'img';
+          }
+          return `assets/${extType}/[name]-[hash][extname]`;
         },
       },
     },

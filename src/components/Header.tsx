@@ -4,6 +4,7 @@ import { Menu } from "lucide-react";
 import { Logo } from "./Logo";
 import { SocialIcons } from "./SocialIcons";
 import { MobileDrawer } from "./MobileDrawer";
+import MobileMap from "./MobileMap";
 import ShopDropdown from "./ShopDropdown";
 import { TravelPortfolioDropdown } from "./TravelPortfolioDropdown";
 import ProjectsDropdown from "./ProjectsDropdown";
@@ -21,11 +22,9 @@ export function Header({ variant, fullWidth = false }: HeaderProps) {
   const navigation = [
     { name: "Home", path: "/" },
     { name: "Projects", path: "/projects" },
-  { name: "Workshops", path: "/workshops" },
+    { name: "Workshops", path: "/workshops" },
     { name: "About", path: "/about" },
-    { name: "Mentorship", path: "/mentorship" },
-    { name: "FAQ", path: "/faq" },
-    { name: "Print Shop", path: "/print-shop" },
+    { name: "Mentorship", path: "/workshops/mentorship" },
     { name: "Contact", path: "/contact" },
   ];
 
@@ -38,6 +37,9 @@ export function Header({ variant, fullWidth = false }: HeaderProps) {
   if (variant === "home") {
     return (
       <>
+        {/* Mobile Map - Behind the drawer */}
+        <MobileMap isVisible={mobileMenuOpen} />
+        
         {/* Desktop Home Header */}
         <header className="hidden md:block fixed inset-x-0 top-0 z-40 p-6">
           {/* Logo centered at top without background */}
@@ -146,6 +148,9 @@ export function Header({ variant, fullWidth = false }: HeaderProps) {
 
   return (
     <>
+      {/* Mobile Map - Behind the drawer */}
+      <MobileMap isVisible={mobileMenuOpen} />
+      
       {/* Desktop Default Header */}
       <header className="hidden md:block sticky top-0 z-40 nav-bar px-6 py-3">
         <div className={`${fullWidth ? "max-w-none w-full" : "max-w-screen-xl mx-auto"} flex items-center justify-between`}>
@@ -179,7 +184,7 @@ export function Header({ variant, fullWidth = false }: HeaderProps) {
                         <Link to="/workshops" className="block px-3 py-2 text-sm text-black dark:text-white hover:bg-muted rounded" >All Workshops</Link>
                       </li>
                       <li>
-                        <Link to="/mentorship" className="block px-3 py-2 text-sm text-black dark:text-white hover:bg-muted rounded">Mentorship</Link>
+                        <Link to="/workshops/mentorship" className="block px-3 py-2 text-sm text-black dark:text-white hover:bg-muted rounded">Mentorship</Link>
                       </li>
                     </ul>
                   </div>
@@ -194,13 +199,8 @@ export function Header({ variant, fullWidth = false }: HeaderProps) {
                 <Link to="/map" className="nav-link text-black dark:text-white hover:opacity-70 transition-opacity text-lg">Map</Link>
               </li>
               {/* Mentorship moved into Workshops dropdown */}
-              {/* FAQ */}
               <li>
                 <Link to="/faq" className="nav-link text-black dark:text-white hover:opacity-70 transition-opacity text-lg">FAQ</Link>
-              </li>
-              {/* Print Shop */}
-              <li>
-                <Link to="/print-shop" className="nav-link text-black dark:text-white hover:opacity-70 transition-opacity text-lg">Print Shop</Link>
               </li>
               {/* Shop */}
               <li>
@@ -225,7 +225,7 @@ export function Header({ variant, fullWidth = false }: HeaderProps) {
       </header>
 
       {/* Mobile Header */}
-      <header className="md:hidden sticky top-0 z-50 nav-bar p-3">
+      <header className="md:hidden fixed inset-x-0 top-0 z-50 nav-bar p-3">
         <div className="flex items-center justify-between">
           <div className="flex-1 flex justify-center">
             <Logo variant="auto" />

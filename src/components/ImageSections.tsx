@@ -1,6 +1,6 @@
 import React from "react";
 import { useImages } from "@/hooks/useImages";
-import { createProxiedImageUrl } from "@/lib/images";
+import { CloudImage } from "@/components/CloudImage";
 
 // Define interface for images
 interface ImageItem {
@@ -19,12 +19,12 @@ export const TravelPortfolio: React.FC = () => {
   return (
     <div className="travel-gallery">
       {travel.map((url: string, idx: number) => (
-        <img
+        <CloudImage
           key={url + idx}
-          src={createProxiedImageUrl(url)}
+          url={url}
           alt={`travel-${idx}`}
-          loading="lazy"
           className="portfolio-image"
+          loading="lazy"
         />
       ))}
     </div>
@@ -39,7 +39,7 @@ export const ProjectsSection: React.FC = () => {
     <div className="project-gallery">
       {projects.map((url: string, idx: number) => (
         <div key={url + idx} className="project-card">
-          <img src={createProxiedImageUrl(url)} alt={`project-${idx}`} loading="lazy" />
+          <CloudImage url={url} alt={`project-${idx}`} loading="lazy" />
           <p>{`Project ${idx + 1}`}</p>
         </div>
       ))}
@@ -54,7 +54,7 @@ export const LogosSection: React.FC = () => {
   return (
     <div className="logo-grid">
       {logos.map((url: string, idx: number) => (
-        <img key={url + idx} src={createProxiedImageUrl(url)} alt={`logo-${idx}`} loading="lazy" className="logo-image" />
+        <CloudImage key={url + idx} url={url} alt={`logo-${idx}`} loading="lazy" className="logo-image" />
       ))}
     </div>
   );

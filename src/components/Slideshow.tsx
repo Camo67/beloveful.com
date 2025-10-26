@@ -3,7 +3,7 @@ import { createProxiedImageUrl, buildProxiedSrcSet } from "@/lib/images";
 import { useImageProtection } from "@/hooks/use-image-protection";
 import { useSlideshow } from "@/hooks/use-slideshow";
 import { HOME_SLIDESHOW } from "@/lib/data";
-import { raceImageSources } from "@/lib/dualImageLoader";
+
 
 interface SlideImage {
   desktop: string;
@@ -15,44 +15,22 @@ export function Slideshow(): JSX.Element | null {
   const [currentSlide, setCurrentSlide] = useState<number>(0);
   const [firstImageLoaded, setFirstImageLoaded] = useState<boolean>(false);
   const [fastestUrls, setFastestUrls] = useState<Map<number, string>>(new Map());
-  const { data: slideshowImages } = useSlideshow() as { data?: SlideImage[] };
+  const { data: slideshowImages, isLoading, error } = useSlideshow();
   const { protectElement } = useImageProtection();
 
   const images: SlideImage[] = slideshowImages ?? (HOME_SLIDESHOW as any);
 
   useEffect(() => {
-    if (!images || images.length === 0) return;
-    const first = images[0];
-    if (first.desktopCloudinary) {
-      raceImageSources(createProxiedImageUrl(first.desktop), first.desktopCloudinary)
-        .then((r) => {
-          setFastestUrls((p) => new Map(p).set(0, r.url));
-          setFirstImageLoaded(true);
-        })
-        .catch(() => {
-          setFastestUrls((p) => new Map(p).set(0, createProxiedImageUrl(first.desktop)));
-          setFirstImageLoaded(true);
-        });
-    } else {
-      setFastestUrls((p) => new Map(p).set(0, createProxiedImageUrl(first.desktop)));
-      setFirstImageLoaded(true);
-    }
-  }, [images]);
-
-  useEffect(() => {
     if (!images || images.length === 0 || !firstImageLoaded) return;
     let cancelled = false;
     const preload = async () => {
-      for (let i = 1; i < images.length; i++) {
+      // Preload more images for better performance
+      for (let i = 1; i < Math.min(images.length, 10); i++) { // Increased from all to first 10
         if (cancelled) return;
         const slide = images[i];
         if (slide.desktopCloudinary) {
-          try {
-            const res = await raceImageSources(createProxiedImageUrl(slide.desktop), slide.desktopCloudinary);
-            setFastestUrls((p) => new Map(p).set(i, res.url));
-          } catch {
-            setFastestUrls((p) => new Map(p).set(i, createProxiedImageUrl(slide.desktop)));
-          }
+          // Use the Cloudinary URL if available
+          setFastestUrls((p) => new Map(p).set(i, createProxiedImageUrl(slide.desktopCloudinary!)));
         } else {
           setFastestUrls((p) => new Map(p).set(i, createProxiedImageUrl(slide.desktop)));
         }
@@ -67,11 +45,39 @@ export function Slideshow(): JSX.Element | null {
 
   useEffect(() => {
     if (!images || images.length === 0) return;
-    const interval = setInterval(() => setCurrentSlide((s) => (s + 1) % images.length), 8000);
+    // Adjust interval based on number of images
+    const intervalTime = Math.max(5000, Math.min(10000, 80000 / images.length)); // Between 5-10 seconds
+    const interval = setInterval(() => setCurrentSlide((s) => (s + 1) % images.length), intervalTime);
     return () => clearInterval(interval);
   }, [images]);
 
-  if (!images || images.length === 0) return null;
+  // Show loading state
+  if (isLoading) {
+    return (
+      <div className="slideshow-container homepage-slideshow" style={{ backgroundColor: "#000000", display: "flex", alignItems: "center", justifyContent: "center", height: "100vh" }}>
+        <p style={{ color: "white", fontSize: "1.5rem" }}>Loading slideshow...</p>
+      </div>
+    );
+  }
+
+  // Show error state
+  if (error) {
+    console.error("Error loading slideshow:", error);
+    return (
+      <div className="slideshow-container homepage-slideshow" style={{ backgroundColor: "#000000", display: "flex", alignItems: "center", justifyContent: "center", height: "100vh" }}>
+        <p style={{ color: "white", fontSize: "1.5rem" }}>Error loading slideshow. Please try again later.</p>
+      </div>
+    );
+  }
+
+  // Show fallback message if no images
+  if (!images || images.length === 0) {
+    return (
+      <div className="slideshow-container homepage-slideshow" style={{ backgroundColor: "#000000", display: "flex", alignItems: "center", justifyContent: "center", height: "100vh" }}>
+        <p style={{ color: "white", fontSize: "1.5rem" }}>No images available for slideshow</p>
+      </div>
+    );
+  }
 
   return (
     <div className="slideshow-container homepage-slideshow no-screenshot" style={{ "--slideshow-duration": "14s", backgroundColor: "#000000" } as any}>
@@ -124,6 +130,11 @@ export function Slideshow(): JSX.Element | null {
               }}
               style={{ WebkitUserSelect: "none", WebkitTouchCallout: "none", WebkitUserDrag: "none", userSelect: "none" } as any}
               ref={(el: HTMLImageElement | null) => el && protectElement(el)}
+              onLoad={() => {
+                if (index === 0) {
+                  setFirstImageLoaded(true);
+                }
+              }}
             />
           </picture>
         </div>

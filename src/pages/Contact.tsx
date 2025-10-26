@@ -4,10 +4,13 @@ import PageContainer from "@/components/PageContainer";
 import { useSearchParams } from "react-router-dom";
 import { useState } from "react";
 import { Logo } from "@/components/Logo";
+import { SocialIcons } from "@/components/SocialIcons";
+import { CloudImage } from "@/components/CloudImage";
 
 export default function Contact() {
   const [searchParams] = useSearchParams();
   const [submitted, setSubmitted] = useState(false);
+  const calendlyLink = import.meta.env.VITE_CALENDLY_LINK ?? "";
   
   const image = searchParams.get("image");
   const source = searchParams.get("source");
@@ -35,7 +38,7 @@ export default function Contact() {
     <div className="min-h-screen">
       <Header variant="default" />
       
-      <PageContainer className="min-h-[70vh]">
+      <PageContainer className="min-h-[70vh] space-y-10">
         <div className="flex justify-center mb-6">
           <Logo variant="auto" />
         </div>
@@ -47,6 +50,21 @@ export default function Contact() {
           </div>
         )}
 
+        {calendlyLink && (
+          <div className="rounded-2xl border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900 p-6 text-center space-y-3">
+            <p className="text-sm uppercase tracking-[0.35em] text-muted-foreground">Calendly</p>
+            <p className="text-lg text-black dark:text-white">Need to talk live? Grab a time that works for you.</p>
+            <a
+              href={calendlyLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center px-5 py-2 rounded-md bg-black text-white dark:bg-white dark:text-black text-sm font-medium hover:opacity-80 transition"
+            >
+              Schedule via Calendly
+            </a>
+          </div>
+        )}
+
         <div className="grid gap-8 md:grid-cols-5">
           {/* Contextual preview */}
           {image && (
@@ -55,11 +73,10 @@ export default function Contact() {
               onContextMenu={(e) => e.preventDefault()}
               draggable={false}
             >
-              <div
-                className="absolute inset-0 bg-center bg-cover"
-                style={{ backgroundImage: `url("${decodeURIComponent(image)}")` }}
-                aria-label="Requested print preview"
-                role="img"
+              <CloudImage
+                url={decodeURIComponent(image)}
+                alt="Requested print preview"
+                className="absolute inset-0 object-cover w-full h-full"
               />
               <div className="pointer-events-none absolute inset-0" />
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-4 text-xs text-white">
@@ -141,6 +158,11 @@ export default function Contact() {
               </p>
             </div>
           </form>
+        </div>
+
+        <div className="flex flex-col items-center gap-3 pt-4">
+          <p className="text-sm uppercase tracking-[0.3em] text-muted-foreground">Social</p>
+          <SocialIcons iconSize={18} variant="auto" />
         </div>
       </PageContainer>
 

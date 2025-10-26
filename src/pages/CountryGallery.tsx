@@ -5,14 +5,17 @@ import { Header } from "@/components/Header";
 import FooterStrip from "@/components/FooterStrip";
 import PageContainer from "@/components/PageContainer";
 import { Gallery } from "@/components/Gallery";
-import { getAlbumBySlug, getAllAlbumsSorted } from "@/lib/data";
+import { getAllAlbumsSorted } from "@/lib/data";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { useAlbum } from "@/hooks/use-albums";
+import { Skeleton } from "@/components/ui/skeleton";
 
 export default function CountryGallery() {
-  const params = useParams<{ country: string }>();
+  const params = useParams<{ region: string; country: string }>();
+  const regionSlug = params.region;
   const countrySlug = params.country;
 
-  const album = countrySlug ? getAlbumBySlug(countrySlug) : undefined;
+  const { data: album, isLoading, isError } = useAlbum(regionSlug || '', countrySlug || '');
 
   const albums = getAllAlbumsSorted().filter((a) => a.region !== "Erasing Borders");
   const countriesInRegion = useMemo(() => {
@@ -22,11 +25,33 @@ export default function CountryGallery() {
       .sort((a, b) => a.country.localeCompare(b.country));
   }, [albums, album?.region]);
 
-  if (!countrySlug) {
+  if (!regionSlug || !countrySlug) {
     return <Navigate to="/portfolio" replace />;
   }
 
-  if (!album) {
+  if (isLoading) {
+    return (
+      <div className="min-h-screen">
+        <Header variant="default" />
+        <PageContainer>
+          <div className="space-y-4">
+            <Skeleton className="h-10 w-32" />
+            <div className="space-y-2">
+              <Skeleton className="h-4 w-[250px]" />
+              <Skeleton className="h-4 w-[200px]" />
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {[...Array(6)].map((_, i) => (
+                <Skeleton key={i} className="h-64 w-full" />
+              ))}
+            </div>
+          </div>
+        </PageContainer>
+      </div>
+    );
+  }
+
+  if (isError || !album) {
     return <Navigate to="/portfolio" replace />;
   }
 
@@ -49,22 +74,22 @@ export default function CountryGallery() {
                 </TabsTrigger>
               ))}
             </TabsList>
-          </Tabs>
 
-          {/* Country pills for current region */}
-          <div className="overflow-x-auto no-scrollbar whitespace-nowrap px-2 pb-2 md:px-4">
-            {countriesInRegion.map((c) => (
-              <Link
-                key={c.slug}
-                to={`/${c.region.toLowerCase().replace(/[^a-z]/g, "")}/${c.slug}`}
-                className={`inline-block mr-2 mb-2 px-3 py-1.5 rounded-full text-sm border transition-colors ${
-                  c.slug === album.slug ? "bg-accent-neutral text-white border-accent-neutral" : "bg-white dark:bg-neutral-900 text-foreground border-border hover:border-accent-neutral"
-                }`}
-              >
-                {c.country}
-              </Link>
-            ))}
-          </div>
+            {/* Country pills for current region */}
+            <div className="overflow-x-auto no-scrollbar whitespace-nowrap px-2 pb-2 md:px-4">
+              {countriesInRegion.map((c) => (
+                <Link
+                  key={c.slug}
+                  to={`/${c.region.toLowerCase().replace(/[^a-z]/g, "")}/${c.slug}`}
+                  className={`inline-block mr-2 mb-2 px-3 py-1.5 rounded-full text-sm border transition-colors ${
+                    c.slug === album.slug ? "bg-accent-neutral text-white border-accent-neutral" : "bg-white dark:bg-neutral-900 text-foreground border-border hover:border-accent-neutral"
+                  }`}
+                >
+                  {c.country}
+                </Link>
+              ))}
+            </div>
+          </Tabs>
         </div>
 
         {/* Back link */}
@@ -85,7 +110,6 @@ export default function CountryGallery() {
             {album.region} • {album.images.length} photographs
           </p>
         </div>
-
 
         {/* Landscape-first masonry gallery with micro-spacing and subtle hover */}
         <Gallery 

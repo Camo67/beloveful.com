@@ -54,6 +54,13 @@ export default function FooterStrip() {
           </Link>
           <span className="text-xs text-neutral-400">•</span>
           <Link 
+            to="/faq"
+            className="text-xs text-neutral-500 dark:text-neutral-400 hover:text-neutral-700 dark:hover:text-neutral-200 transition-colors underline-offset-2 hover:underline"
+          >
+            FAQ
+          </Link>
+          <span className="text-xs text-neutral-400">•</span>
+          <Link 
             to={{ pathname: "/faq", hash: "#privacy" }} 
             className="text-xs text-neutral-500 dark:text-neutral-400 hover:text-neutral-700 dark:hover:text-neutral-200 transition-colors underline-offset-2 hover:underline"
           >

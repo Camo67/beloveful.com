@@ -1,36 +1,21 @@
 import { useQuery } from '@tanstack/react-query';
-import { CLOUDINARY_ALBUMS } from '@/lib/cloudinaryAlbums';
+import { PROJECTS } from '@/lib/data';
 
 export type GalleryImage = { desktop: string; mobile: string };
-
-interface ApiResponse {
-  success: boolean;
-  count: number;
-  images: Array<{ desktop: string; mobile: string }>;
-}
 
 export function useErasingBorders() {
   return useQuery<GalleryImage[]>({
     queryKey: ['erasing-borders'],
     queryFn: async () => {
-      try {
-        // Try the API route first (if configured)
-        const res = await fetch('/api/collections/erasing-borders');
-        if (res.ok) {
-          const data: ApiResponse = await res.json();
-          if (data?.success && Array.isArray(data.images)) {
-            return data.images.map((i) => ({ desktop: i.desktop, mobile: i.mobile }));
-          }
-        }
-      } catch (err) {
-        // ignore and fall back
-      }
+      // Use local data from prefix-mapped.json directly
+      const project = PROJECTS.find((p) => p.slug === 'erasing-borders');
+      if (!project || !Array.isArray(project.images)) return [];
 
-      // Fallback to local generated Cloudinary dataset
-      const album = CLOUDINARY_ALBUMS.find((a) => a.slug === 'erasing-borders');
-      if (!album || !Array.isArray(album.images)) return [];
-
-      return album.images.map((i) => ({ desktop: i.desktop, mobile: i.mobile }));
+      // Return more images for the Erasing Borders project
+      // Limit to a reasonable number for performance but more than before
+      return project.images
+        .map((i) => ({ desktop: i.desktop, mobile: i.mobile }))
+        .slice(0, 50); // Increased from no limit to 50 images
     },
     staleTime: 1000 * 60 * 60, // 1 hour
     retry: 1,

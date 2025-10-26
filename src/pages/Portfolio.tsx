@@ -7,6 +7,8 @@ import { getAllAlbumsSorted, REGIONS, type Region } from "@/lib/data";
 import { useAlbums } from "@/hooks/use-albums";
 import { Gallery } from "@/components/Gallery";
 import { CloudImage } from "@/components/CloudImage";
+import LeafletWorldMap from "@/components/LeafletWorldMap";
+import { generateMapMarkers } from "@/lib/map-markers";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -15,11 +17,15 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Skeleton } from "@/components/ui/skeleton";
+import { Button } from "react-day-picker";
 
 export default function Portfolio() {
-  const { data: allAlbums, isLoading } = useAlbums();
+  const { data: allAlbums, isLoading, isError } = useAlbums();
   const [searchParams, setSearchParams] = useSearchParams();
   const navigate = useNavigate();
+  const [showMap, setShowMap] = useState(true);
 
   // Derive the active region directly from the URL, making it the source of truth.
   const activeRegion = useMemo(() => {
@@ -29,6 +35,11 @@ export default function Portfolio() {
 
   // This state is now just a reflection of the URL.
   const [selectedRegion, setSelectedRegion] = useState<Region | "All">(activeRegion);
+
+  const mapMarkers = useMemo(() => {
+    if (!allAlbums) return [];
+    return generateMapMarkers(allAlbums);
+  }, [allAlbums]);
 
   useEffect(() => {
     setSelectedRegion(activeRegion);
@@ -45,20 +56,66 @@ export default function Portfolio() {
         a.slug !== 'erasing-borders' && 
         a.region !== 'Erasing Borders'
       );
-    } 
-    return allSortedAlbums.filter((a) => a.region === selectedRegion);
+    }
+    return allSortedAlbums.filter(a => a.region === selectedRegion);
   }, [allSortedAlbums, selectedRegion]);
-  
+
+  const handleTabChange = (region: Region | "All") => {
+    setSelectedRegion(region);
+    if (region === "All") {
+      setSearchParams({});
+    } else {
+      setSearchParams({ region });
+    }
+    navigate(`/portfolio${region === "All" ? "" : `?region=${encodeURIComponent(region)}`}`);
+  };
+
+  // Normalize region names for URLs (e.g. "North America" -> "northamerica")
   const normalizeRegion = (r: string) => r.toLowerCase().replace(/[^a-z]/g, "");
 
-  const handleTabChange = (value: string) => {
-    const next = value as Region | "All";
-    if (next === "All") {
-      navigate("/portfolio", { replace: true });
-      return;
-    }
-    navigate(`/${normalizeRegion(next)}`, { replace: true });
-  };
+  if (isLoading) {
+    return (
+      <div className="min-h-screen">
+        <Header variant="default" />
+        <PageContainer>
+          <div className="space-y-4">
+            <div className="space-y-2">
+              <Skeleton className="h-8 w-64" />
+              <Skeleton className="h-4 w-96" />
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+              {[...Array(6)].map((_, i) => (
+                <div key={i} className="space-y-2">
+                  <Skeleton className="aspect-[4/3] rounded-lg" />
+                  <Skeleton className="h-4 w-3/4" />
+                  <Skeleton className="h-3 w-1/2" />
+                </div>
+              ))}
+            </div>
+          </div>
+        </PageContainer>
+      </div>
+    );
+  }
+
+  if (isError) {
+    return (
+      <div className="min-h-screen">
+        <Header variant="default" />
+        <PageContainer>
+          <div className="text-center py-12">
+            <h2 className="text-2xl font-bold mb-4">Error Loading Portfolio</h2>
+            <p className="text-gray-600 dark:text-gray-400 mb-6">
+              There was an error loading the portfolio data. Please try again later.
+            </p>
+            <Button onClick={() => window.location.reload()}>
+              Reload Page
+            </Button>
+          </div>
+        </PageContainer>
+      </div>
+    );
+  }
 
   const totalCountries = filteredAlbums.length;
   const totalImages = filteredAlbums.reduce((sum, album) => sum + album.images.length, 0);
@@ -76,6 +133,35 @@ export default function Portfolio() {
             <div className="sr-only" aria-live="polite">
               Portfolio contains {totalCountries} countries with {totalImages} total photographs
             </div>
+          </div>
+
+          {/* World Map Section */}
+          <div className="mb-8">
+            <Card>
+              <CardHeader>
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+                  <div>
+                    <CardTitle>World Map</CardTitle>
+                    <CardDescription>
+                      Explore our photography collection around the globe
+                    </CardDescription>
+                  </div>
+                  <button
+                    onClick={() => setShowMap(!showMap)}
+                    className="px-4 py-2 text-sm font-medium rounded-md bg-accent hover:bg-accent/90 transition-colors"
+                  >
+                    {showMap ? 'Hide Map' : 'Show Map'}
+                  </button>
+                </div>
+              </CardHeader>
+              {showMap && (
+                <CardContent>
+                  <div className="h-[500px] rounded-lg overflow-hidden">
+                    <LeafletWorldMap markers={mapMarkers} />
+                  </div>
+                </CardContent>
+              )}
+            </Card>
           </div>
 
           {/* Navigation Dropdown - Full Width Responsive */}
@@ -285,24 +371,16 @@ export default function Portfolio() {
                   <Link
                     key={album.slug}
                     to={`/${normalizeRegion(album.region)}/${album.slug}`}
-                    className="group clickable-area focus-enhanced"
+                    className="group clickable-area"
                     aria-label={`View ${album.country} photography collection with ${album.images.length} photographs`}
-                    onKeyDown={(e) => {
-                      if (e.key === "Enter" || e.key === " ") {
-                        e.preventDefault();
-                        e.currentTarget.click();
-                      }
-                    }}
                   >
                     <article className="content-card">
-                      <div className="relative overflow-hidden bg-muted aspect-[4/3] rounded-sm">
+                      <div className="relative overflow-hidden bg-muted aspect-[4/3]">
                         <CloudImage
                           url={album.images[0]?.desktop}
                           alt={`Representative image from ${album.country} collection`}
                           className="img-responsive transition-transform duration-300 group-hover:scale-[1.03]"
-                          draggable={false}
                           loading={index < 6 ? "eager" : "lazy"}
-                          onContextMenu={(e) => e.preventDefault()}
                         />
                       </div>
                       <div className="p-4">

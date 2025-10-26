@@ -21,7 +21,6 @@ export function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
     { name: "Events", path: "/events" },
     { name: "About", path: "/about" },
     // Mentorship moved under Workshops
-    { name: "FAQ", path: "/faq" },
     { name: "Print Shop", path: "/print-shop" },
     { name: "Contact", path: "/contact" },
   ];
@@ -188,7 +187,16 @@ export function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
                     <Link to="/workshops" className="text-base text-gray-600 dark:text-gray-400 hover:underline" onClick={onClose}>All Workshops</Link>
                   </li>
                   <li>
-                    <Link to="/mentorship" className="text-base text-gray-600 dark:text-gray-400 hover:underline" onClick={onClose}>Mentorship</Link>
+                    <Link to="/workshops/mentorship" className="text-base text-gray-600 dark:text-gray-400 hover:underline" onClick={onClose}>Mentorship</Link>
+                  </li>
+                  <li>
+                    <Link to="/workshops/private-chicago" className="text-base text-gray-600 dark:text-gray-400 hover:underline" onClick={onClose}>Private Chicago</Link>
+                  </li>
+                  <li>
+                    <Link to="/workshops/group-chicago" className="text-base text-gray-600 dark:text-gray-400 hover:underline" onClick={onClose}>Group Chicago</Link>
+                  </li>
+                  <li>
+                    <Link to="/workshops/online-group" className="text-base text-gray-600 dark:text-gray-400 hover:underline" onClick={onClose}>Online Group</Link>
                   </li>
                 </ul>
               </li>

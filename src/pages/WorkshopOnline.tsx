@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useWorkshopImages } from "@/hooks/use-workshop-images";
+import { CORE_WORKSHOP_TOPICS } from "@/lib/workshop-content";
 
 export default function WorkshopOnline() {
   const heroImage = {
@@ -40,7 +41,7 @@ export default function WorkshopOnline() {
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="text-center text-white px-6 max-w-4xl">
             <h1 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight">
-              Online Street Photography Workshop
+              Online Group Workshops
             </h1>
             <p className="text-xl md:text-2xl opacity-95 leading-relaxed">
               Learn to see the world differently from wherever you are.
@@ -60,16 +61,12 @@ export default function WorkshopOnline() {
               The goal isn't just to take better photos; it's to strengthen your awareness, your eye, and your connection to the world around you.
             </p>
 
-            <div className="bg-gray-50 dark:bg-gray-900 rounded-lg p-8 mb-8">
-              <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
-                What you'll learn:
-              </h2>
+            <div className="bg-gray-50 dark:bg-gray-900 rounded-lg p-8 mb-8 border border-gray-100 dark:border-gray-800">
+              <h2 className="text-3xl font-semibold text-gray-900 dark:text-white mb-4">The workshop will include:</h2>
               <ul className="space-y-3 text-lg text-gray-700 dark:text-gray-300">
-                <li>• Live virtual lessons covering the art and technique of street photography</li>
-                <li>• Homework assignments to practice seeing, composing, and storytelling</li>
-                <li>• Guided critiques and personalized feedback on your work</li>
-                <li>• Lessons on approaching subjects, using light, and capturing emotion</li>
-                <li>• Advice on editing, sequencing, and sharing your work online</li>
+                {CORE_WORKSHOP_TOPICS.map((topic) => (
+                  <li key={topic}>• {topic}</li>
+                ))}
               </ul>
             </div>
 
@@ -103,7 +100,7 @@ export default function WorkshopOnline() {
                   {data.online.slice(1, 5).map((img, idx) => (
                     <div key={idx} className="aspect-[4/3] overflow-hidden rounded-lg">
                       <img
-                        src={img.src}
+                        src={img.desktop}
                         alt={img.alt}
                         className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                         draggable={false}

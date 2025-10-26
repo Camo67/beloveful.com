@@ -27,16 +27,29 @@ export default function Projects() {
                 to="/projects/erasing-borders"
                 className="inline-flex items-center px-6 py-3 bg-black dark:bg-white text-white dark:text-black font-medium rounded-lg hover:bg-gray-800 dark:hover:bg-gray-100 transition-colors"
               >
-                View Project →
+                View Full Project →
               </Link>
             </div>
           </section>
 
           {/* Featured images preview */}
           <section className="mb-12">
-            <div className="max-w-4xl mx-auto">
-              {erasingImages && erasingImages.length > 0 && (
-                <ImageGrid images={erasingImages.slice(0, 8)} maxColumns={4} gap={12} />
+            <div className="max-w-6xl mx-auto">
+              {ebLoading ? (
+                <div className="text-center py-8">Loading images...</div>
+              ) : erasingImages && erasingImages.length > 0 ? (
+                <>
+                  <ImageGrid images={erasingImages.slice(0, 12)} maxColumns={4} gap={16} />
+                  {erasingImages.length > 12 && (
+                    <div className="text-center mt-4 text-muted-foreground">
+                      Showing 12 of {erasingImages.length} images
+                    </div>
+                  )}
+                </>
+              ) : (
+                <div className="text-center py-8 text-muted-foreground">
+                  No images available for this project
+                </div>
               )}
             </div>
           </section>

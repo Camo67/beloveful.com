@@ -1,23 +1,22 @@
-// Workshop images data
-// Run `node scripts/generate-workshop-images.mjs` to populate this file
+import workshopImagesData from './cloudinary-assets/all-workshop-images.json';
 
 export interface WorkshopImage {
-  desktop: string;
-  mobile: string;
+  filename: string;
+  url: string;
+  format: string;
+  width: string;
+  height: string;
+  bytes: string;
 }
 
-export interface WorkshopImagesData {
-  success: boolean;
-  chicagoPrivate: WorkshopImage[];
-  chicagoGroup: WorkshopImage[];
-  online: WorkshopImage[];
-  mentorship: WorkshopImage[];
+export const workshopImages: WorkshopImage[] = workshopImagesData as WorkshopImage[];
+
+export function getWorkshopImageByName(filename: string): WorkshopImage | undefined {
+  return workshopImages.find(image => image.filename === filename);
 }
 
-export const WORKSHOP_IMAGES: WorkshopImagesData = {
-  success: true,
-  chicagoPrivate: [],
-  chicagoGroup: [],
-  online: [],
-  mentorship: []
-};
+export function getWorkshopImagesByFormat(format: string): WorkshopImage[] {
+  return workshopImages.filter(image => image.format === format);
+}
+
+export default workshopImages;
