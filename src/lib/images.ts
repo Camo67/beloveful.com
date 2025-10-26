@@ -97,11 +97,20 @@ function isCloudinaryUrl(url: string): boolean {
  * Keeps versioning (e.g. v123) and public id intact.
  */
 export function withCloudinaryTransform(originalUrl: string, transform: string): string {
-  // Validate and fix the original URL first
   const validatedUrl = validateAndFixImageUrl(originalUrl);
-  
-  if (!validatedUrl || !isCloudinaryUrl(validatedUrl)) return validatedUrl;
-  return validatedUrl.replace(/\/upload\//, `/upload/${transform}/`);
+  if (!validatedUrl || !isCloudinaryUrl(validatedUrl)) {
+    return validatedUrl;
+  }
+
+  const uploadSegment = '/upload/';
+  const uploadIndex = validatedUrl.indexOf(uploadSegment);
+  if (uploadIndex === -1) {
+    return validatedUrl;
+  }
+
+  const beforeUpload = validatedUrl.slice(0, uploadIndex + uploadSegment.length);
+  const afterUpload = validatedUrl.slice(uploadIndex + uploadSegment.length);
+  return `${beforeUpload}${transform}/${afterUpload}`;
 }
 
 export const DEFAULT_WIDTHS = [360, 480, 640, 768, 1024, 1280, 1536, 1920, 2048, 2560] as const;

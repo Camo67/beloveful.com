@@ -1,4 +1,6 @@
 import prefixMappedData from './cloudinary-assets/prefix-mapped.json';
+import homepageDesktopData from './cloudinary-assets/Homepage/Desktop Landscape/urls.json';
+import homepageMobileData from './cloudinary-assets/Homepage/Mobile Portrait/urls.json';
 import { validateAndFixImageUrl } from './image-utils';
 
 console.log('📦 Loading prefix-mapped data:', prefixMappedData);
@@ -60,6 +62,14 @@ export interface Work {
   description?: string;
   region: Region;
   featured?: boolean;
+}
+
+interface HomepageAsset {
+  filename?: string;
+  url?: string;
+  width?: string;
+  height?: string;
+  bytes?: string;
 }
 
 // Function to group prefix-mapped data by region and country
@@ -220,8 +230,45 @@ const transformPrefixMappedToSlideshow = (): SlideshowImage[] => {
   return images;
 }
 
-// Slideshow images from prefix-mapped data
-export const HOME_SLIDESHOW: SlideshowImage[] = transformPrefixMappedToSlideshow();
+function buildHomepageSlideshowFromCuratedAssets(): SlideshowImage[] {
+  const desktopAssets = (homepageDesktopData as HomepageAsset[]).filter(
+    (asset) => asset && typeof asset.url === 'string' && asset.url.trim().length > 0
+  );
+  const mobileAssets = (homepageMobileData as HomepageAsset[]).filter(
+    (asset) => asset && typeof asset.url === 'string' && asset.url.trim().length > 0
+  );
+
+  const maxSlides = Math.max(desktopAssets.length, mobileAssets.length);
+  if (maxSlides === 0) {
+    return [];
+  }
+
+  const slides: SlideshowImage[] = [];
+  for (let i = 0; i < maxSlides; i++) {
+    const desktopAsset = desktopAssets.length ? desktopAssets[i % desktopAssets.length] : null;
+    const mobileAsset = mobileAssets.length ? mobileAssets[i % mobileAssets.length] : null;
+
+    const desktopUrl = desktopAsset?.url || mobileAsset?.url || '';
+    const mobileUrl = mobileAsset?.url || desktopAsset?.url || '';
+
+    if (!desktopUrl && !mobileUrl) continue;
+
+    slides.push({
+      desktop: desktopUrl,
+      mobile: mobileUrl,
+      desktopCloudinary: desktopAsset?.url,
+      mobileCloudinary: mobileAsset?.url,
+    });
+  }
+
+  return slides;
+}
+
+const curatedHomepageSlideshow = buildHomepageSlideshowFromCuratedAssets();
+
+// Slideshow images from curated homepage assets with fallback to prefix-mapped data
+export const HOME_SLIDESHOW: SlideshowImage[] =
+  curatedHomepageSlideshow.length > 0 ? curatedHomepageSlideshow : transformPrefixMappedToSlideshow();
 
 // Simple data structures for when we want to use a simpler system
 export { 
