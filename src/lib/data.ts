@@ -1,4 +1,5 @@
 import prefixMappedData from './cloudinary-assets/prefix-mapped.json';
+import { validateAndFixImageUrl } from './image-utils';
 
 console.log('📦 Loading prefix-mapped data:', prefixMappedData);
 
@@ -62,7 +63,7 @@ export interface Work {
 }
 
 // Function to group prefix-mapped data by region and country
-async function groupPrefixMappedData(): Promise<CountryAlbum[]> {
+function groupPrefixMappedData(): CountryAlbum[] {
   console.log('📂 Grouping prefix-mapped data');
   const albums: CountryAlbum[] = [];
   
@@ -78,15 +79,12 @@ async function groupPrefixMappedData(): Promise<CountryAlbum[]> {
         // Process images to ensure they are accessible
         const processedImages = [];
         for (const image of (countryImages as any[]).filter((image: any) => image && image.url)) {
-          try {
-            const workingUrl = await getWorkingImageUrl(image.url);
+          const workingUrl = validateAndFixImageUrl(image.url);
+          if (workingUrl) {
             processedImages.push({
               desktop: workingUrl,
               mobile: workingUrl
             });
-          } catch (error) {
-            console.warn('Failed to process image URL:', image.url, error);
-            // Skip broken images
           }
         }
         
@@ -151,7 +149,7 @@ function createProjectsFromPrefixMapped(): Work[] {
 }
 
 // Cloudinary albums from prefix-mapped data
-export const ALBUMS: CountryAlbum[] = await groupPrefixMappedData();
+export const ALBUMS: CountryAlbum[] = groupPrefixMappedData();
 
 // Projects from prefix-mapped data
 export const PROJECTS: Work[] = createProjectsFromPrefixMapped();
@@ -243,7 +241,3 @@ export {
   getSimpleAlbumBySlug,
   getAllSimpleAlbumsSorted
 } from './simple-data';
-
-function getWorkingImageUrl(url: any) {
-  throw new Error('Function not implemented.');
-}
