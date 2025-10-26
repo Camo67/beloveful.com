@@ -49,14 +49,10 @@ export default defineConfig(({ mode }) => ({
       output: {
         // Ensure assets have proper names to prevent caching issues
         assetFileNames: (assetInfo) => {
-          if (!assetInfo.name) {
-            return 'assets/unknown-[hash][extname]';
-          }
-          
-          let extType = assetInfo.name.split('.').at(1);
-          if (/png|jpe?g|svg|gif|tiff|bmp|ico/i.test(extType)) {
-            extType = 'img';
-          }
+          const originalName = assetInfo.name ?? "";
+          const ext = path.extname(originalName).replace(".", "").toLowerCase();
+          const isImage = /png|jpe?g|svg|gif|tiff|bmp|ico|webp|avif/.test(ext);
+          const extType = isImage ? "img" : (ext || "asset");
           return `assets/${extType}/[name]-[hash][extname]`;
         },
       },

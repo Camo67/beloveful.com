@@ -1,18 +1,11 @@
 import { createProxiedImageUrl } from "./images";
+import { CLIENT_LOGOS as GENERATED_CLIENT_LOGOS } from "./generated/clientLogos";
 
 // Prefer curated, stable public assets for client/partner logos.
 // These are generated from cloudinary-assets data
-let CURATED_CLIENT_LOGOS: string[] = [];
-
-// Try to load generated client logos data
-try {
-  // Dynamically import the generated client logos
-  const clientLogosModule = await import("./generated/clientLogos");
-  CURATED_CLIENT_LOGOS = clientLogosModule.CLIENT_LOGOS || [];
-} catch (e) {
-  console.warn("Could not load generated client logos, using empty array", e);
-  CURATED_CLIENT_LOGOS = [];
-}
+const CURATED_CLIENT_LOGOS: string[] = Array.isArray(GENERATED_CLIENT_LOGOS)
+  ? GENERATED_CLIENT_LOGOS
+  : [];
 
 // Source of client/partner logo URLs for About page
 export const CLIENT_LOGOS_SOURCE: string[] = CURATED_CLIENT_LOGOS.map((url) =>

@@ -10,8 +10,8 @@
 export async function isUrlAccessible(url: string): Promise<boolean> {
   try {
     // Create a timeout promise
-    const timeoutPromise = new Promise<Response>((_, reject) => {
-      setTimeout(() => reject(new Error('Request timeout')), 5000); // 5 second timeout
+    const timeoutPromise = new Promise<boolean>((_, reject) => {
+      setTimeout(() => reject(new Error('Request timeout')), 3000); // 3 second timeout
     });
 
     // Race the fetch request against the timeout
@@ -80,7 +80,7 @@ export function createFallbackImageUrl(placeholderUrl: string = 'https://placeho
  * @param fallbackUrl - Optional fallback URL
  * @returns Valid URL or fallback
  */
-export function validateAndFixImageUrl(url: string, fallbackUrl?: string): string {
+export function validateAndFixImageUrl(url?: string | null, fallbackUrl?: string): string {
   // Handle empty or invalid URLs
   if (!url || typeof url !== 'string') {
     console.warn('Invalid URL provided to validateAndFixImageUrl:', url);
@@ -115,7 +115,7 @@ export function validateAndFixImageUrl(url: string, fallbackUrl?: string): strin
  * @param fallbackUrl - Optional fallback URL
  * @returns Promise that resolves to a working URL or fallback
  */
-export async function getWorkingImageUrl(url: string, fallbackUrl?: string): Promise<string> {
+export async function getWorkingImageUrl(url?: string | null, fallbackUrl?: string): Promise<string> {
   // Handle empty or invalid URLs
   if (!url || typeof url !== 'string') {
     console.warn('Invalid URL provided to getWorkingImageUrl:', url);
