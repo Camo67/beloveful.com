@@ -15,17 +15,21 @@ export function Slideshow(): JSX.Element | null {
   const [currentSlide, setCurrentSlide] = useState<number>(0);
   const [firstImageLoaded, setFirstImageLoaded] = useState<boolean>(false);
   const [fastestUrls, setFastestUrls] = useState<Map<number, string>>(new Map());
-  const { data: slideshowImages, isLoading, error } = useSlideshow();
+  const { data: slideshowImages, isLoading, error } = useSlideshow(true); // Bypass protection for homepage
   const { protectElement } = useImageProtection();
 
   const images: SlideImage[] = slideshowImages ?? (HOME_SLIDESHOW as any);
+
+  // Disable protection for homepage slideshow
+  const disableProtection = true;
 
   useEffect(() => {
     if (!images || images.length === 0 || !firstImageLoaded) return;
     let cancelled = false;
     const preload = async () => {
-      // Preload more images for better performance
-      for (let i = 1; i < Math.min(images.length, 10); i++) { // Increased from all to first 10
+      // Preload more images for better performance (but not all)
+      const preloadCount = Math.min(images.length, 5); // Reduced from 10 to 5
+      for (let i = 1; i < preloadCount; i++) {
         if (cancelled) return;
         const slide = images[i];
         if (slide.desktopCloudinary) {
@@ -36,7 +40,7 @@ export function Slideshow(): JSX.Element | null {
         }
       }
     };
-    const id = setTimeout(preload, 200);
+    const id = setTimeout(preload, 500); // Increased from 200 to 500ms
     return () => {
       cancelled = true;
       clearTimeout(id);
@@ -85,16 +89,21 @@ export function Slideshow(): JSX.Element | null {
         <div
           key={index}
           className={`slideshow-slide protected-container ${index === currentSlide ? "active" : ""}`}
-          ref={(el: HTMLDivElement | null) => el && protectElement(el)}
+          ref={(el: HTMLDivElement | null) => {
+            if (el && !disableProtection) protectElement(el);
+          }}
           onContextMenu={(e) => {
+            if (disableProtection) return;
             e.preventDefault();
             return false;
           }}
           onDragStart={(e) => {
+            if (disableProtection) return;
             e.preventDefault();
             return false;
           }}
           onPointerDown={(e) => {
+            if (disableProtection) return;
             e.preventDefault();
             return false;
           }}
@@ -111,25 +120,39 @@ export function Slideshow(): JSX.Element | null {
               loading="eager"
               decoding="async"
               onContextMenu={(e) => {
+                if (disableProtection) return;
                 e.preventDefault();
                 e.stopPropagation();
                 return false;
               }}
               onDragStart={(e) => {
+                if (disableProtection) return;
                 e.preventDefault();
                 return false;
               }}
               onPointerDown={(e) => {
+                if (disableProtection) return;
                 e.preventDefault();
                 return false;
               }}
-              onMouseDown={(e) => e.preventDefault()}
+              onMouseDown={(e) => {
+                if (disableProtection) return;
+                e.preventDefault();
+              }}
               onTouchStart={(e) => {
+                if (disableProtection) return;
                 const ev: any = e;
                 if (ev.touches && ev.touches.length > 1) ev.preventDefault();
               }}
-              style={{ WebkitUserSelect: "none", WebkitTouchCallout: "none", WebkitUserDrag: "none", userSelect: "none" } as any}
-              ref={(el: HTMLImageElement | null) => el && protectElement(el)}
+              style={{ 
+                WebkitUserSelect: disableProtection ? "auto" : "none", 
+                WebkitTouchCallout: disableProtection ? "auto" : "none", 
+                WebkitUserDrag: disableProtection ? "auto" : "none", 
+                userSelect: disableProtection ? "auto" : "none" 
+              } as any}
+              ref={(el: HTMLImageElement | null) => {
+                if (el && !disableProtection) protectElement(el);
+              }}
               onLoad={() => {
                 if (index === 0) {
                   setFirstImageLoaded(true);

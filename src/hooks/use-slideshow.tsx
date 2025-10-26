@@ -5,7 +5,7 @@ const loadHomepageSlideshow = async (): Promise<SlideshowImage[]> => {
   return HOME_SLIDESHOW;
 };
 
-export const useSlideshow = () => {
+export const useSlideshow = (_bypassProtection: boolean = false) => {
   return useQuery<SlideshowImage[]>({
     queryKey: ['slideshow'],
     queryFn: loadHomepageSlideshow,
