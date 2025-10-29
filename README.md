@@ -2,15 +2,10 @@
 
 ## Project info
 
-**URL**: https://lovable.dev/projects/f1939f94-5706-4c9b-8135-c451493f2222
+**URL**: www.beloveful.com
 
 ## How can I edit this code?
-
-There are several ways of editing your application.
-
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/f1939f94-5706-4c9b-8135-c451493f2222) and start prompting.
+vscode Next.js
 
 Changes made via Lovable will be committed automatically to this repo.
 
