@@ -10,7 +10,7 @@ import { CloudImage } from "@/components/CloudImage";
 
 export default function WorkshopChicagoPrivate() {
   const heroImage = {
-    src: "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760979008/home/camo/new/beloveful.com/public/Website%20beloveful.com/Workshop%20Photos/Copy%20of%20CHI-359.jpg",
+    src: "/Website%20beloveful.com/Workshop%20Photos/Copy%20of%20CHI-359.jpg",
     alt: "1:1 Street Photography Workshop Chicago"
   };
 

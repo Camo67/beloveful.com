@@ -11,8 +11,8 @@ export const GENERATED_WORKSHOP_PHOTOS: Work[] = [
     "region": "Workshop Photos",
     "featured": false,
     "images": {
-      "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760978884/home/camo/new/beloveful.com/public/Website%20beloveful.com/Workshop%20Photos/Copy%20of%20CHI-0871.jpg",
-      "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760978884/home/camo/new/beloveful.com/public/Website%20beloveful.com/Workshop%20Photos/Copy%20of%20CHI-0871.jpg"
+      "desktop": "https://cdn.beloveful.com/images/Workshop%20Photos/Copy%20of%20CHI-0871.jpg",
+      "mobile": "https://cdn.beloveful.com/images/Workshop%20Photos/Copy%20of%20CHI-0871.jpg"
     }
   },
   {
@@ -22,8 +22,8 @@ export const GENERATED_WORKSHOP_PHOTOS: Work[] = [
     "region": "Workshop Photos",
     "featured": false,
     "images": {
-      "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760979147/home/camo/new/beloveful.com/public/Website%20beloveful.com/Workshop%20Photos/Copy%20of%20CHI-09-19-DSCF5133.jpg",
-      "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760979147/home/camo/new/beloveful.com/public/Website%20beloveful.com/Workshop%20Photos/Copy%20of%20CHI-09-19-DSCF5133.jpg"
+      "desktop": "https://cdn.beloveful.com/images/Workshop%20Photos/Copy%20of%20CHI-09-19-DSCF5133.jpg",
+      "mobile": "https://cdn.beloveful.com/images/Workshop%20Photos/Copy%20of%20CHI-09-19-DSCF5133.jpg"
     }
   },
   {
@@ -33,8 +33,8 @@ export const GENERATED_WORKSHOP_PHOTOS: Work[] = [
     "region": "Workshop Photos",
     "featured": false,
     "images": {
-      "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760977345/home/camo/new/beloveful.com/public/Website%20beloveful.com/Workshop%20Photos/Copy%20of%20CHI-3.jpg",
-      "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760977345/home/camo/new/beloveful.com/public/Website%20beloveful.com/Workshop%20Photos/Copy%20of%20CHI-3.jpg"
+      "desktop": "https://cdn.beloveful.com/images/Workshop%20Photos/Copy%20of%20CHI-3.jpg",
+      "mobile": "https://cdn.beloveful.com/images/Workshop%20Photos/Copy%20of%20CHI-3.jpg"
     }
   },
   {
@@ -44,8 +44,8 @@ export const GENERATED_WORKSHOP_PHOTOS: Work[] = [
     "region": "Workshop Photos",
     "featured": false,
     "images": {
-      "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760979008/home/camo/new/beloveful.com/public/Website%20beloveful.com/Workshop%20Photos/Copy%20of%20CHI-359.jpg",
-      "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760979008/home/camo/new/beloveful.com/public/Website%20beloveful.com/Workshop%20Photos/Copy%20of%20CHI-359.jpg"
+      "desktop": "https://cdn.beloveful.com/images/Workshop%20Photos/Copy%20of%20CHI-359.jpg",
+      "mobile": "https://cdn.beloveful.com/images/Workshop%20Photos/Copy%20of%20CHI-359.jpg"
     }
   },
   {
@@ -55,8 +55,8 @@ export const GENERATED_WORKSHOP_PHOTOS: Work[] = [
     "region": "Workshop Photos",
     "featured": false,
     "images": {
-      "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760978713/home/camo/new/beloveful.com/public/Website%20beloveful.com/Workshop%20Photos/Copy%20of%20CHI-5041.jpg",
-      "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760978713/home/camo/new/beloveful.com/public/Website%20beloveful.com/Workshop%20Photos/Copy%20of%20CHI-5041.jpg"
+      "desktop": "https://cdn.beloveful.com/images/Workshop%20Photos/Copy%20of%20CHI-5041.jpg",
+      "mobile": "https://cdn.beloveful.com/images/Workshop%20Photos/Copy%20of%20CHI-5041.jpg"
     }
   },
   {
@@ -66,8 +66,8 @@ export const GENERATED_WORKSHOP_PHOTOS: Work[] = [
     "region": "Workshop Photos",
     "featured": false,
     "images": {
-      "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760978860/home/camo/new/beloveful.com/public/Website%20beloveful.com/Workshop%20Photos/Copy%20of%20CHI-5652.jpg",
-      "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760978860/home/camo/new/beloveful.com/public/Website%20beloveful.com/Workshop%20Photos/Copy%20of%20CHI-5652.jpg"
+      "desktop": "https://cdn.beloveful.com/images/Workshop%20Photos/Copy%20of%20CHI-5652.jpg",
+      "mobile": "https://cdn.beloveful.com/images/Workshop%20Photos/Copy%20of%20CHI-5652.jpg"
     }
   },
   {
@@ -77,8 +77,8 @@ export const GENERATED_WORKSHOP_PHOTOS: Work[] = [
     "region": "Workshop Photos",
     "featured": false,
     "images": {
-      "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760979179/home/camo/new/beloveful.com/public/Website%20beloveful.com/Workshop%20Photos/Copy%20of%20CHI-65.jpg",
-      "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760979179/home/camo/new/beloveful.com/public/Website%20beloveful.com/Workshop%20Photos/Copy%20of%20CHI-65.jpg"
+      "desktop": "https://cdn.beloveful.com/images/Workshop%20Photos/Copy%20of%20CHI-65.jpg",
+      "mobile": "https://cdn.beloveful.com/images/Workshop%20Photos/Copy%20of%20CHI-65.jpg"
     }
   },
   {
@@ -88,8 +88,8 @@ export const GENERATED_WORKSHOP_PHOTOS: Work[] = [
     "region": "Workshop Photos",
     "featured": false,
     "images": {
-      "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760978603/home/camo/new/beloveful.com/public/Website%20beloveful.com/Workshop%20Photos/Copy%20of%20CHI-8649.jpg",
-      "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760978603/home/camo/new/beloveful.com/public/Website%20beloveful.com/Workshop%20Photos/Copy%20of%20CHI-8649.jpg"
+      "desktop": "https://cdn.beloveful.com/images/Workshop%20Photos/Copy%20of%20CHI-8649.jpg",
+      "mobile": "https://cdn.beloveful.com/images/Workshop%20Photos/Copy%20of%20CHI-8649.jpg"
     }
   },
   {
@@ -99,8 +99,8 @@ export const GENERATED_WORKSHOP_PHOTOS: Work[] = [
     "region": "Workshop Photos",
     "featured": false,
     "images": {
-      "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760979066/home/camo/new/beloveful.com/public/Website%20beloveful.com/Workshop%20Photos/Copy%20of%20CHI-8789.jpg",
-      "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760979066/home/camo/new/beloveful.com/public/Website%20beloveful.com/Workshop%20Photos/Copy%20of%20CHI-8789.jpg"
+      "desktop": "https://cdn.beloveful.com/images/Workshop%20Photos/Copy%20of%20CHI-8789.jpg",
+      "mobile": "https://cdn.beloveful.com/images/Workshop%20Photos/Copy%20of%20CHI-8789.jpg"
     }
   },
   {
@@ -110,8 +110,8 @@ export const GENERATED_WORKSHOP_PHOTOS: Work[] = [
     "region": "Workshop Photos",
     "featured": false,
     "images": {
-      "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760978791/home/camo/new/beloveful.com/public/Website%20beloveful.com/Workshop%20Photos/Copy%20of%20CHI-9867.jpg",
-      "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760978791/home/camo/new/beloveful.com/public/Website%20beloveful.com/Workshop%20Photos/Copy%20of%20CHI-9867.jpg"
+      "desktop": "https://cdn.beloveful.com/images/Workshop%20Photos/Copy%20of%20CHI-9867.jpg",
+      "mobile": "https://cdn.beloveful.com/images/Workshop%20Photos/Copy%20of%20CHI-9867.jpg"
     }
   },
   {
@@ -121,8 +121,8 @@ export const GENERATED_WORKSHOP_PHOTOS: Work[] = [
     "region": "Workshop Photos",
     "featured": false,
     "images": {
-      "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760977139/home/camo/new/beloveful.com/public/Website%20beloveful.com/Workshop%20Photos/Copy%20of%20CHI-9872-Website-2.jpg",
-      "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760977139/home/camo/new/beloveful.com/public/Website%20beloveful.com/Workshop%20Photos/Copy%20of%20CHI-9872-Website-2.jpg"
+      "desktop": "https://cdn.beloveful.com/images/Workshop%20Photos/Copy%20of%20CHI-9872-Website-2.jpg",
+      "mobile": "https://cdn.beloveful.com/images/Workshop%20Photos/Copy%20of%20CHI-9872-Website-2.jpg"
     }
   },
   {
@@ -132,8 +132,8 @@ export const GENERATED_WORKSHOP_PHOTOS: Work[] = [
     "region": "Workshop Photos",
     "featured": false,
     "images": {
-      "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760977340/home/camo/new/beloveful.com/public/Website%20beloveful.com/Workshop%20Photos/Copy%20of%20CHI-Cafe-.jpg",
-      "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760977340/home/camo/new/beloveful.com/public/Website%20beloveful.com/Workshop%20Photos/Copy%20of%20CHI-Cafe-.jpg"
+      "desktop": "https://cdn.beloveful.com/images/Workshop%20Photos/Copy%20of%20CHI-Cafe-.jpg",
+      "mobile": "https://cdn.beloveful.com/images/Workshop%20Photos/Copy%20of%20CHI-Cafe-.jpg"
     }
   },
   {
@@ -143,8 +143,8 @@ export const GENERATED_WORKSHOP_PHOTOS: Work[] = [
     "region": "Workshop Photos",
     "featured": false,
     "images": {
-      "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760978477/home/camo/new/beloveful.com/public/Website%20beloveful.com/Workshop%20Photos/Copy%20of%20DSCF1980.jpg",
-      "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760978477/home/camo/new/beloveful.com/public/Website%20beloveful.com/Workshop%20Photos/Copy%20of%20DSCF1980.jpg"
+      "desktop": "https://cdn.beloveful.com/images/Workshop%20Photos/Copy%20of%20DSCF1980.jpg",
+      "mobile": "https://cdn.beloveful.com/images/Workshop%20Photos/Copy%20of%20DSCF1980.jpg"
     }
   },
   {
@@ -154,8 +154,8 @@ export const GENERATED_WORKSHOP_PHOTOS: Work[] = [
     "region": "Workshop Photos",
     "featured": false,
     "images": {
-      "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760979180/home/camo/new/beloveful.com/public/Website%20beloveful.com/Workshop%20Photos/Copy%20of%20DSCF8938.jpg",
-      "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760979180/home/camo/new/beloveful.com/public/Website%20beloveful.com/Workshop%20Photos/Copy%20of%20DSCF8938.jpg"
+      "desktop": "https://cdn.beloveful.com/images/Workshop%20Photos/Copy%20of%20DSCF8938.jpg",
+      "mobile": "https://cdn.beloveful.com/images/Workshop%20Photos/Copy%20of%20DSCF8938.jpg"
     }
   },
   {
@@ -165,8 +165,8 @@ export const GENERATED_WORKSHOP_PHOTOS: Work[] = [
     "region": "Workshop Photos",
     "featured": false,
     "images": {
-      "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760979212/home/camo/new/beloveful.com/public/Website%20beloveful.com/Workshop%20Photos/Copy%20of%20Fountain%20Fairy.jpg",
-      "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760979212/home/camo/new/beloveful.com/public/Website%20beloveful.com/Workshop%20Photos/Copy%20of%20Fountain%20Fairy.jpg"
+      "desktop": "https://cdn.beloveful.com/images/Workshop%20Photos/Copy%20of%20Fountain%20Fairy.jpg",
+      "mobile": "https://cdn.beloveful.com/images/Workshop%20Photos/Copy%20of%20Fountain%20Fairy.jpg"
     }
   },
   {
@@ -176,8 +176,8 @@ export const GENERATED_WORKSHOP_PHOTOS: Work[] = [
     "region": "Workshop Photos",
     "featured": false,
     "images": {
-      "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760978719/home/camo/new/beloveful.com/public/Website%20beloveful.com/Workshop%20Photos/IMG_1306.jpg",
-      "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760978719/home/camo/new/beloveful.com/public/Website%20beloveful.com/Workshop%20Photos/IMG_1306.jpg"
+      "desktop": "https://cdn.beloveful.com/images/Workshop%20Photos/IMG_1306.jpg",
+      "mobile": "https://cdn.beloveful.com/images/Workshop%20Photos/IMG_1306.jpg"
     }
   },
   {
@@ -187,8 +187,8 @@ export const GENERATED_WORKSHOP_PHOTOS: Work[] = [
     "region": "Workshop Photos",
     "featured": false,
     "images": {
-      "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760976039/home/camo/new/beloveful.com/public/Website%20beloveful.com/Workshop%20Photos/IMG_20190825_155659.jpg",
-      "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760976039/home/camo/new/beloveful.com/public/Website%20beloveful.com/Workshop%20Photos/IMG_20190825_155659.jpg"
+      "desktop": "https://cdn.beloveful.com/images/Workshop%20Photos/IMG_20190825_155659.jpg",
+      "mobile": "https://cdn.beloveful.com/images/Workshop%20Photos/IMG_20190825_155659.jpg"
     }
   }
 ];

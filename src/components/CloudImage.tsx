@@ -27,21 +27,29 @@ export const CloudImage: React.FC<CloudImageProps> = ({ url, alt = '', className
     const updateImageSrc = async () => {
       try {
         const trimmedUrl = url.trim();
-        // Create proxied URL immediately for faster initial display
-        const proxiedUrl = createProxiedImageUrl(trimmedUrl);
-        setImageSrc(proxiedUrl);
         
-        // Check if URL is accessible and get a working URL or fallback
-        // But don't block the initial image display
-        const workingUrl = await getWorkingImageUrl(trimmedUrl);
-        if (workingUrl !== trimmedUrl) {
-          // Only update if we got a different URL (fallback)
-          const newProxiedUrl = createProxiedImageUrl(workingUrl);
-          setImageSrc(newProxiedUrl);
+        // For Shopify CDN URLs, use them directly without proxy
+        if (trimmedUrl.includes('cdn.shopify.com')) {
+          // Check if URL is accessible
+          const workingUrl = await getWorkingImageUrl(trimmedUrl);
+          setImageSrc(workingUrl);
+        } else {
+          // Create proxied URL immediately for faster initial display
+          const proxiedUrl = createProxiedImageUrl(trimmedUrl);
+          setImageSrc(proxiedUrl);
+          
+          // Check if URL is accessible and get a working URL or fallback
+          // But don't block the initial image display
+          const workingUrl = await getWorkingImageUrl(trimmedUrl);
+          if (workingUrl !== trimmedUrl) {
+            // Only update if we got a different URL (fallback)
+            const newProxiedUrl = createProxiedImageUrl(workingUrl);
+            setImageSrc(newProxiedUrl);
+          }
         }
       } catch (error) {
         console.error('Error processing image URL in CloudImage:', url, error);
-        // Keep the original proxied URL, but mark as error for tracking
+        // Keep the original URL, but mark as error for tracking
         setHasError(true);
       }
     };

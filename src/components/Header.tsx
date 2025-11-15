@@ -11,9 +11,10 @@ import { PortfolioDropdown } from "./PortfolioDropdown";
 interface HeaderProps {
   variant: "home" | "default";
   fullWidth?: boolean; // allow full-width header container on desktop default variant
+  navStyle?: "standard" | "caps";
 }
 
-export function Header({ variant, fullWidth = false }: HeaderProps) {
+export function Header({ variant, fullWidth = false, navStyle = "standard" }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
 
@@ -30,26 +31,23 @@ export function Header({ variant, fullWidth = false }: HeaderProps) {
         <MobileMap isVisible={mobileMenuOpen} />
         
         {/* Desktop Home Header */}
-        <header className="hidden md:block fixed inset-x-0 top-0 z-40 p-4 bg-transparent">
-          {/* Centered logo */}
-          <div className="flex justify-center mb-3">
-            <div className="text-white">
-              <Logo variant="white" />
+        <header className="hidden md:block fixed inset-x-0 top-0 z-50 p-4 bg-transparent">
+          <div className="relative">
+            {/* Centered logo */}
+            <div className="flex justify-center mb-3">
+              <div className="text-white">
+                <Logo variant="white" />
+              </div>
             </div>
-          </div>
-          
-          {/* Top bar with social icons in the top-right corner */}
-          <div className="flex justify-between items-center mb-3">
-            <div></div> {/* Empty spacer for alignment */}
-            
-            {/* Social icons in the top-right corner */}
-            <div className="z-40">
+
+            {/* Social icons pinned to the top-right corner */}
+            <div className="absolute top-2 right-4 z-50">
               <SocialIcons variant="white" />
             </div>
           </div>
-          
+
           {/* Centered navigation */}
-          <nav className="flex justify-center z-40 p-0">
+          <nav className="flex justify-center z-50 p-0">
             <ul className="flex space-x-6 items-center">
               {/* Home */}
               <li>
@@ -114,11 +112,11 @@ export function Header({ variant, fullWidth = false }: HeaderProps) {
         </header>
 
         {/* Mobile Home Header */}
-        <header className="md:hidden relative z-50 bg-transparent backdrop-blur-md">
+        <header className="md:hidden fixed z-50 bg-transparent backdrop-blur-md inset-x-0 top-0">
           <div className="flex items-center justify-between h-16 px-4">
             <div className="flex items-center">
               <Link to="/" className="text-white">
-                <Logo variant="white" size="small" />
+                <Logo variant="white" />
               </Link>
             </div>
             
@@ -139,6 +137,19 @@ export function Header({ variant, fullWidth = false }: HeaderProps) {
   }
 
   // Default variant (for all other pages)
+  const navTextVariantClass =
+    navStyle === "caps"
+      ? "uppercase tracking-[0.45em] text-xs font-semibold font-serif"
+      : "font-medium";
+
+  const navSpacingClass = navStyle === "caps" ? "-mt-10 md:-mt-12" : "";
+
+  const getNavLinkClass = (path: string) => {
+    const colorClass = isActive(path)
+      ? "text-black dark:text-white underline"
+      : "text-gray-600 dark:text-gray-400";
+    return `nav-link hover:underline hover:underline-offset-4 ${navTextVariantClass} ${colorClass}`;
+  };
   return (
     <>
       <header className="sticky top-0 z-50 bg-transparent backdrop-blur-md border-b-0">
@@ -152,17 +163,13 @@ export function Header({ variant, fullWidth = false }: HeaderProps) {
           </div>
           
           {/* Centered navigation */}
-          <nav className="flex justify-center z-40 p-0">
+          <nav className={`flex justify-center z-50 p-0 ${navSpacingClass}`}>
             <ul className="flex space-x-6 items-center">
               {/* Home */}
               <li>
                 <Link
                   to="/"
-                  className={`nav-link font-medium hover:underline hover:underline-offset-4 ${
-                    isActive("/") 
-                      ? "text-black dark:text-white underline" 
-                      : "text-gray-600 dark:text-gray-400"
-                  }`}
+                  className={getNavLinkClass("/")}
                 >
                   Home
                 </Link>
@@ -182,11 +189,7 @@ export function Header({ variant, fullWidth = false }: HeaderProps) {
               <li>
                 <Link
                   to="/workshops"
-                  className={`nav-link font-medium hover:underline hover:underline-offset-4 ${
-                    isActive("/workshops") 
-                      ? "text-black dark:text-white underline" 
-                      : "text-gray-600 dark:text-gray-400"
-                  }`}
+                  className={getNavLinkClass("/workshops")}
                 >
                   Workshops
                 </Link>
@@ -196,11 +199,7 @@ export function Header({ variant, fullWidth = false }: HeaderProps) {
               <li>
                 <Link
                   to="/events"
-                  className={`nav-link font-medium hover:underline hover:underline-offset-4 ${
-                    isActive("/events") 
-                      ? "text-black dark:text-white underline" 
-                      : "text-gray-600 dark:text-gray-400"
-                  }`}
+                  className={getNavLinkClass("/events")}
                 >
                   Events
                 </Link>
@@ -210,11 +209,7 @@ export function Header({ variant, fullWidth = false }: HeaderProps) {
               <li>
                 <Link
                   to="/about"
-                  className={`nav-link font-medium hover:underline hover:underline-offset-4 ${
-                    isActive("/about") 
-                      ? "text-black dark:text-white underline" 
-                      : "text-gray-600 dark:text-gray-400"
-                  }`}
+                  className={getNavLinkClass("/about")}
                 >
                   About
                 </Link>
@@ -224,11 +219,7 @@ export function Header({ variant, fullWidth = false }: HeaderProps) {
               <li>
                 <Link
                   to="/contact"
-                  className={`nav-link font-medium hover:underline hover:underline-offset-4 ${
-                    isActive("/contact") 
-                      ? "text-black dark:text-white underline" 
-                      : "text-gray-600 dark:text-gray-400"
-                  }`}
+                  className={getNavLinkClass("/contact")}
                 >
                   Contact
                 </Link>
@@ -242,7 +233,7 @@ export function Header({ variant, fullWidth = false }: HeaderProps) {
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
               <Link to="/" className="text-black dark:text-white">
-                <Logo variant="auto" size="small" />
+                <Logo variant="auto" />
               </Link>
             </div>
             

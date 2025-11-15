@@ -1,0 +1,23 @@
+[
+  {
+    "source": "uk-ireland/DSCF0708.jpg",
+    "filename": "DSCF0708.jpg",
+    "output": "public/secure-images/d1/1a/6de0f5615f68.webp",
+    "watermarkTag": "beloveful:DSCF0708:f9c84c60-9f6f-46e4-b7eb-764d20fe2b30",
+    "createdAt": "2025-11-14T10:09:23.679Z"
+  },
+  {
+    "source": "uk-ireland/DSCF1055.jpg",
+    "filename": "DSCF1055.jpg",
+    "output": "public/secure-images/70/10/7011d9650afd.webp",
+    "watermarkTag": "beloveful:DSCF1055:711dba20-99f3-4ed4-903b-4aa76641e537",
+    "createdAt": "2025-11-14T10:09:24.007Z"
+  },
+  {
+    "source": "uk-ireland/IRL-2324.jpg",
+    "filename": "IRL-2324.jpg",
+    "output": "public/secure-images/57/2c/5db8a20e86f9.webp",
+    "watermarkTag": "beloveful:IRL-2324:c61888f1-5ef6-4dcb-845b-1897287f8ee6",
+    "createdAt": "2025-11-14T10:09:24.349Z"
+  }
+]

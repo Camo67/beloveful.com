@@ -11,8 +11,8 @@ export const GENERATED_ERASING_BORDERS: Work[] = [
     "region": "Erasing Borders",
     "featured": true,
     "images": {
-      "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760979037/home/camo/new/beloveful.com/public/Website%20beloveful.com/Erasing%20Borders/CHI-Beloveful6.jpg",
-      "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760979037/home/camo/new/beloveful.com/public/Website%20beloveful.com/Erasing%20Borders/CHI-Beloveful6.jpg"
+      "desktop": "https://cdn.beloveful.com/images/Erasing%20Borders/CHI-Beloveful6.jpg",
+      "mobile": "https://cdn.beloveful.com/images/Erasing%20Borders/CHI-Beloveful6.jpg"
     }
   },
   {
@@ -22,8 +22,8 @@ export const GENERATED_ERASING_BORDERS: Work[] = [
     "region": "Erasing Borders",
     "featured": true,
     "images": {
-      "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760978974/home/camo/new/beloveful.com/public/Website%20beloveful.com/Erasing%20Borders/CHI-DSCF9471.jpg",
-      "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760978974/home/camo/new/beloveful.com/public/Website%20beloveful.com/Erasing%20Borders/CHI-DSCF9471.jpg"
+      "desktop": "https://cdn.beloveful.com/images/Erasing%20Borders/CHI-DSCF9471.jpg",
+      "mobile": "https://cdn.beloveful.com/images/Erasing%20Borders/CHI-DSCF9471.jpg"
     }
   },
   {
@@ -33,8 +33,8 @@ export const GENERATED_ERASING_BORDERS: Work[] = [
     "region": "Erasing Borders",
     "featured": true,
     "images": {
-      "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760978680/home/camo/new/beloveful.com/public/Website%20beloveful.com/Erasing%20Borders/CHI-MeniasTony_12.jpg",
-      "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760978680/home/camo/new/beloveful.com/public/Website%20beloveful.com/Erasing%20Borders/CHI-MeniasTony_12.jpg"
+      "desktop": "https://cdn.beloveful.com/images/Erasing%20Borders/CHI-MeniasTony_12.jpg",
+      "mobile": "https://cdn.beloveful.com/images/Erasing%20Borders/CHI-MeniasTony_12.jpg"
     }
   },
   {
@@ -44,8 +44,8 @@ export const GENERATED_ERASING_BORDERS: Work[] = [
     "region": "Erasing Borders",
     "featured": true,
     "images": {
-      "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760978963/home/camo/new/beloveful.com/public/Website%20beloveful.com/Erasing%20Borders/DSCF3088%20copy.jpg",
-      "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760978963/home/camo/new/beloveful.com/public/Website%20beloveful.com/Erasing%20Borders/DSCF3088%20copy.jpg"
+      "desktop": "https://cdn.beloveful.com/images/Erasing%20Borders/DSCF3088%20copy.jpg",
+      "mobile": "https://cdn.beloveful.com/images/Erasing%20Borders/DSCF3088%20copy.jpg"
     }
   },
   {
@@ -55,8 +55,8 @@ export const GENERATED_ERASING_BORDERS: Work[] = [
     "region": "Erasing Borders",
     "featured": true,
     "images": {
-      "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760979112/home/camo/new/beloveful.com/public/Website%20beloveful.com/Erasing%20Borders/FRA-DSCF0103%20copy.jpg",
-      "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760979112/home/camo/new/beloveful.com/public/Website%20beloveful.com/Erasing%20Borders/FRA-DSCF0103%20copy.jpg"
+      "desktop": "https://cdn.beloveful.com/images/Erasing%20Borders/FRA-DSCF0103%20copy.jpg",
+      "mobile": "https://cdn.beloveful.com/images/Erasing%20Borders/FRA-DSCF0103%20copy.jpg"
     }
   },
   {
@@ -66,8 +66,8 @@ export const GENERATED_ERASING_BORDERS: Work[] = [
     "region": "Erasing Borders",
     "featured": true,
     "images": {
-      "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760979207/home/camo/new/beloveful.com/public/Website%20beloveful.com/Erasing%20Borders/IND-MeniasTony_14.jpg",
-      "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760979207/home/camo/new/beloveful.com/public/Website%20beloveful.com/Erasing%20Borders/IND-MeniasTony_14.jpg"
+      "desktop": "https://cdn.beloveful.com/images/Erasing%20Borders/IND-MeniasTony_14.jpg",
+      "mobile": "https://cdn.beloveful.com/images/Erasing%20Borders/IND-MeniasTony_14.jpg"
     }
   },
   {
@@ -77,8 +77,8 @@ export const GENERATED_ERASING_BORDERS: Work[] = [
     "region": "Erasing Borders",
     "featured": true,
     "images": {
-      "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760978527/home/camo/new/beloveful.com/public/Website%20beloveful.com/Erasing%20Borders/IND-MeniasTony_16.jpg",
-      "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760978527/home/camo/new/beloveful.com/public/Website%20beloveful.com/Erasing%20Borders/IND-MeniasTony_16.jpg"
+      "desktop": "https://cdn.beloveful.com/images/Erasing%20Borders/IND-MeniasTony_16.jpg",
+      "mobile": "https://cdn.beloveful.com/images/Erasing%20Borders/IND-MeniasTony_16.jpg"
     }
   },
   {
@@ -88,8 +88,8 @@ export const GENERATED_ERASING_BORDERS: Work[] = [
     "region": "Erasing Borders",
     "featured": true,
     "images": {
-      "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760979193/home/camo/new/beloveful.com/public/Website%20beloveful.com/Erasing%20Borders/IND-MeniasTony_8.jpg",
-      "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760979193/home/camo/new/beloveful.com/public/Website%20beloveful.com/Erasing%20Borders/IND-MeniasTony_8.jpg"
+      "desktop": "https://cdn.beloveful.com/images/Erasing%20Borders/IND-MeniasTony_8.jpg",
+      "mobile": "https://cdn.beloveful.com/images/Erasing%20Borders/IND-MeniasTony_8.jpg"
     }
   },
   {
@@ -99,8 +99,8 @@ export const GENERATED_ERASING_BORDERS: Work[] = [
     "region": "Erasing Borders",
     "featured": true,
     "images": {
-      "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760978148/home/camo/new/beloveful.com/public/Website%20beloveful.com/Erasing%20Borders/JAP-3265.jpg",
-      "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760978148/home/camo/new/beloveful.com/public/Website%20beloveful.com/Erasing%20Borders/JAP-3265.jpg"
+      "desktop": "https://cdn.beloveful.com/images/Erasing%20Borders/JAP-3265.jpg",
+      "mobile": "https://cdn.beloveful.com/images/Erasing%20Borders/JAP-3265.jpg"
     }
   },
   {
@@ -110,8 +110,8 @@ export const GENERATED_ERASING_BORDERS: Work[] = [
     "region": "Erasing Borders",
     "featured": true,
     "images": {
-      "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760978175/home/camo/new/beloveful.com/public/Website%20beloveful.com/Erasing%20Borders/JOR-4461.jpg",
-      "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760978175/home/camo/new/beloveful.com/public/Website%20beloveful.com/Erasing%20Borders/JOR-4461.jpg"
+      "desktop": "https://cdn.beloveful.com/images/Erasing%20Borders/JOR-4461.jpg",
+      "mobile": "https://cdn.beloveful.com/images/Erasing%20Borders/JOR-4461.jpg"
     }
   },
   {
@@ -121,8 +121,8 @@ export const GENERATED_ERASING_BORDERS: Work[] = [
     "region": "Erasing Borders",
     "featured": true,
     "images": {
-      "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760978432/home/camo/new/beloveful.com/public/Website%20beloveful.com/Erasing%20Borders/MOR-IMG_5248%20copy.jpg",
-      "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760978432/home/camo/new/beloveful.com/public/Website%20beloveful.com/Erasing%20Borders/MOR-IMG_5248%20copy.jpg"
+      "desktop": "https://cdn.beloveful.com/images/Erasing%20Borders/MOR-IMG_5248%20copy.jpg",
+      "mobile": "https://cdn.beloveful.com/images/Erasing%20Borders/MOR-IMG_5248%20copy.jpg"
     }
   },
   {
@@ -132,8 +132,8 @@ export const GENERATED_ERASING_BORDERS: Work[] = [
     "region": "Erasing Borders",
     "featured": true,
     "images": {
-      "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760979306/home/camo/new/beloveful.com/public/Website%20beloveful.com/Erasing%20Borders/MOR-IMG_5277.jpg",
-      "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760979306/home/camo/new/beloveful.com/public/Website%20beloveful.com/Erasing%20Borders/MOR-IMG_5277.jpg"
+      "desktop": "https://cdn.beloveful.com/images/Erasing%20Borders/MOR-IMG_5277.jpg",
+      "mobile": "https://cdn.beloveful.com/images/Erasing%20Borders/MOR-IMG_5277.jpg"
     }
   },
   {
@@ -143,8 +143,8 @@ export const GENERATED_ERASING_BORDERS: Work[] = [
     "region": "Erasing Borders",
     "featured": true,
     "images": {
-      "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760978896/home/camo/new/beloveful.com/public/Website%20beloveful.com/Erasing%20Borders/MYA-DSCF0783%20copy.jpg",
-      "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760978896/home/camo/new/beloveful.com/public/Website%20beloveful.com/Erasing%20Borders/MYA-DSCF0783%20copy.jpg"
+      "desktop": "https://cdn.beloveful.com/images/Erasing%20Borders/MYA-DSCF0783%20copy.jpg",
+      "mobile": "https://cdn.beloveful.com/images/Erasing%20Borders/MYA-DSCF0783%20copy.jpg"
     }
   },
   {
@@ -154,8 +154,8 @@ export const GENERATED_ERASING_BORDERS: Work[] = [
     "region": "Erasing Borders",
     "featured": true,
     "images": {
-      "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760978446/home/camo/new/beloveful.com/public/Website%20beloveful.com/Erasing%20Borders/MYA-DSCF9634%20copy.jpg",
-      "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760978446/home/camo/new/beloveful.com/public/Website%20beloveful.com/Erasing%20Borders/MYA-DSCF9634%20copy.jpg"
+      "desktop": "https://cdn.beloveful.com/images/Erasing%20Borders/MYA-DSCF9634%20copy.jpg",
+      "mobile": "https://cdn.beloveful.com/images/Erasing%20Borders/MYA-DSCF9634%20copy.jpg"
     }
   },
   {
@@ -165,8 +165,8 @@ export const GENERATED_ERASING_BORDERS: Work[] = [
     "region": "Erasing Borders",
     "featured": true,
     "images": {
-      "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760977917/home/camo/new/beloveful.com/public/Website%20beloveful.com/Erasing%20Borders/NatureVSNurture%20copy.jpg",
-      "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760977917/home/camo/new/beloveful.com/public/Website%20beloveful.com/Erasing%20Borders/NatureVSNurture%20copy.jpg"
+      "desktop": "https://cdn.beloveful.com/images/Erasing%20Borders/NatureVSNurture%20copy.jpg",
+      "mobile": "https://cdn.beloveful.com/images/Erasing%20Borders/NatureVSNurture%20copy.jpg"
     }
   },
   {
@@ -176,8 +176,8 @@ export const GENERATED_ERASING_BORDERS: Work[] = [
     "region": "Erasing Borders",
     "featured": true,
     "images": {
-      "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760978308/home/camo/new/beloveful.com/public/Website%20beloveful.com/Erasing%20Borders/NEP-DSCF8737%20copy.jpg",
-      "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760978308/home/camo/new/beloveful.com/public/Website%20beloveful.com/Erasing%20Borders/NEP-DSCF8737%20copy.jpg"
+      "desktop": "https://cdn.beloveful.com/images/Erasing%20Borders/NEP-DSCF8737%20copy.jpg",
+      "mobile": "https://cdn.beloveful.com/images/Erasing%20Borders/NEP-DSCF8737%20copy.jpg"
     }
   },
   {
@@ -187,8 +187,8 @@ export const GENERATED_ERASING_BORDERS: Work[] = [
     "region": "Erasing Borders",
     "featured": true,
     "images": {
-      "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760978196/home/camo/new/beloveful.com/public/Website%20beloveful.com/Erasing%20Borders/NEP-Silent%20Stare%20copy.jpg",
-      "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760978196/home/camo/new/beloveful.com/public/Website%20beloveful.com/Erasing%20Borders/NEP-Silent%20Stare%20copy.jpg"
+      "desktop": "https://cdn.beloveful.com/images/Erasing%20Borders/NEP-Silent%20Stare%20copy.jpg",
+      "mobile": "https://cdn.beloveful.com/images/Erasing%20Borders/NEP-Silent%20Stare%20copy.jpg"
     }
   },
   {
@@ -198,8 +198,8 @@ export const GENERATED_ERASING_BORDERS: Work[] = [
     "region": "Erasing Borders",
     "featured": true,
     "images": {
-      "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760978779/home/camo/new/beloveful.com/public/Website%20beloveful.com/Erasing%20Borders/NyC-DSCF8922%20copy%202.jpg",
-      "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760978779/home/camo/new/beloveful.com/public/Website%20beloveful.com/Erasing%20Borders/NyC-DSCF8922%20copy%202.jpg"
+      "desktop": "https://cdn.beloveful.com/images/Erasing%20Borders/NyC-DSCF8922%20copy%202.jpg",
+      "mobile": "https://cdn.beloveful.com/images/Erasing%20Borders/NyC-DSCF8922%20copy%202.jpg"
     }
   },
   {
@@ -209,8 +209,8 @@ export const GENERATED_ERASING_BORDERS: Work[] = [
     "region": "Erasing Borders",
     "featured": true,
     "images": {
-      "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760979367/home/camo/new/beloveful.com/public/Website%20beloveful.com/Erasing%20Borders/PAL-DSCF3675%20copy.jpg",
-      "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760979367/home/camo/new/beloveful.com/public/Website%20beloveful.com/Erasing%20Borders/PAL-DSCF3675%20copy.jpg"
+      "desktop": "https://cdn.beloveful.com/images/Erasing%20Borders/PAL-DSCF3675%20copy.jpg",
+      "mobile": "https://cdn.beloveful.com/images/Erasing%20Borders/PAL-DSCF3675%20copy.jpg"
     }
   },
   {
@@ -220,8 +220,8 @@ export const GENERATED_ERASING_BORDERS: Work[] = [
     "region": "Erasing Borders",
     "featured": true,
     "images": {
-      "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760978040/home/camo/new/beloveful.com/public/Website%20beloveful.com/Erasing%20Borders/PAL-MeniasTony_13.jpg",
-      "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760978040/home/camo/new/beloveful.com/public/Website%20beloveful.com/Erasing%20Borders/PAL-MeniasTony_13.jpg"
+      "desktop": "https://cdn.beloveful.com/images/Erasing%20Borders/PAL-MeniasTony_13.jpg",
+      "mobile": "https://cdn.beloveful.com/images/Erasing%20Borders/PAL-MeniasTony_13.jpg"
     }
   },
   {
@@ -231,8 +231,8 @@ export const GENERATED_ERASING_BORDERS: Work[] = [
     "region": "Erasing Borders",
     "featured": true,
     "images": {
-      "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760979498/home/camo/new/beloveful.com/public/Website%20beloveful.com/Erasing%20Borders/PHI-1662%20copy.jpg",
-      "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760979498/home/camo/new/beloveful.com/public/Website%20beloveful.com/Erasing%20Borders/PHI-1662%20copy.jpg"
+      "desktop": "https://cdn.beloveful.com/images/Erasing%20Borders/PHI-1662%20copy.jpg",
+      "mobile": "https://cdn.beloveful.com/images/Erasing%20Borders/PHI-1662%20copy.jpg"
     }
   },
   {
@@ -242,8 +242,8 @@ export const GENERATED_ERASING_BORDERS: Work[] = [
     "region": "Erasing Borders",
     "featured": true,
     "images": {
-      "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760978124/home/camo/new/beloveful.com/public/Website%20beloveful.com/Erasing%20Borders/THAI-DSCF3890%20copy.jpg",
-      "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760978124/home/camo/new/beloveful.com/public/Website%20beloveful.com/Erasing%20Borders/THAI-DSCF3890%20copy.jpg"
+      "desktop": "https://cdn.beloveful.com/images/Erasing%20Borders/THAI-DSCF3890%20copy.jpg",
+      "mobile": "https://cdn.beloveful.com/images/Erasing%20Borders/THAI-DSCF3890%20copy.jpg"
     }
   },
   {
@@ -253,8 +253,8 @@ export const GENERATED_ERASING_BORDERS: Work[] = [
     "region": "Erasing Borders",
     "featured": true,
     "images": {
-      "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760979362/home/camo/new/beloveful.com/public/Website%20beloveful.com/Erasing%20Borders/Tony%20Menias%20-%20Two%20Girls%20in%20Window.jpg",
-      "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760979362/home/camo/new/beloveful.com/public/Website%20beloveful.com/Erasing%20Borders/Tony%20Menias%20-%20Two%20Girls%20in%20Window.jpg"
+      "desktop": "https://cdn.beloveful.com/images/Erasing%20Borders/Tony%20Menias%20-%20Two%20Girls%20in%20Window.jpg",
+      "mobile": "https://cdn.beloveful.com/images/Erasing%20Borders/Tony%20Menias%20-%20Two%20Girls%20in%20Window.jpg"
     }
   },
   {
@@ -264,8 +264,8 @@ export const GENERATED_ERASING_BORDERS: Work[] = [
     "region": "Erasing Borders",
     "featured": true,
     "images": {
-      "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760978946/home/camo/new/beloveful.com/public/Website%20beloveful.com/Erasing%20Borders/TonyMeniasAMansLegacy.jpg",
-      "mobile": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760978946/home/camo/new/beloveful.com/public/Website%20beloveful.com/Erasing%20Borders/TonyMeniasAMansLegacy.jpg"
+      "desktop": "https://cdn.beloveful.com/images/Erasing%20Borders/TonyMeniasAMansLegacy.jpg",
+      "mobile": "https://cdn.beloveful.com/images/Erasing%20Borders/TonyMeniasAMansLegacy.jpg"
     }
   }
 ];

@@ -9,7 +9,7 @@ import { CORE_WORKSHOP_TOPICS } from "@/lib/workshop-content";
 
 export default function WorkshopOnline() {
   const heroImage = {
-    src: "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218565/Website%20beloveful.com/Erasing%20Borders/NyC-DSCF8922_copy_2_lswqmq.jpg",
+    src: "/Website%20beloveful.com/Erasing%20Borders/NyC-DSCF8922%20copy%202.jpg",
     alt: "Online Street Photography Workshop"
   };
 

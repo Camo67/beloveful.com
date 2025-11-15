@@ -46,7 +46,7 @@ export default function ProjectsDropdown({ variant = "auto" }: ProjectsDropdownP
         </button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-[340px] sm:w-[420px] p-3 dropdown-content text-black dark:text-white" align="start">
-        <Link to="/projects" onClick={() => setIsOpen(false)} className="block group">
+        <Link to="/projects/erasing-borders" onClick={() => setIsOpen(false)} className="block group">
           <div className="flex items-center justify-between mb-3">
             <div className="text-base font-semibold">Erasing Borders</div>
             <div className="text-xs text-accent-neutral group-hover:translate-x-1 transition-transform">View Project →</div>

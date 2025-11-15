@@ -6,6 +6,7 @@ import path from 'node:path';
 const ROOT = process.cwd();
 const SOURCE_DIR = path.join(ROOT, 'public/Website beloveful.com');
 const BUCKET = process.env.R2_BUCKET || 'beloveful';
+const R2_PREFIX = (process.env.R2_PREFIX || '').replace(/^[\\/]+|[\\/]+$/g, '');
 const CONCURRENCY = parseInt(process.env.UPLOAD_CONCURRENCY || '5', 10);
 const DRY_RUN = process.env.DRY_RUN === 'true';
 
@@ -87,12 +88,13 @@ async function getAllImageFiles(dir) {
 // Upload single file to R2 with metadata
 async function uploadFileToR2(filePath) {
   const metadata = parsePathMetadata(filePath);
-  const r2Key = metadata.path;
+  const relativePath = metadata.path.replace(/\\/g, '/');
+  const r2Key = R2_PREFIX ? `${R2_PREFIX}/${relativePath}` : relativePath;
   
   if (DRY_RUN) {
     console.log(`[DRY RUN] Would upload: ${r2Key}`);
     console.log(`  Tags: ${metadata.tags.join(', ')}`);
-    return { success: true, key: r2Key, dryRun: true };
+    return { success: true, key: r2Key, relativePath, tags: metadata.tags, dryRun: true };
   }
 
   return new Promise((resolve, reject) => {
@@ -107,7 +109,8 @@ async function uploadFileToR2(filePath) {
       'r2', 'object', 'put',
       `${BUCKET}/${r2Key}`,
       '--file', filePath,
-      '--content-type', getContentType(filePath)
+      '--content-type', getContentType(filePath),
+      '--remote'
     ];
 
     // Note: Wrangler CLI doesn't support custom metadata flags
@@ -128,6 +131,7 @@ async function uploadFileToR2(filePath) {
         resolve({ 
           success: true, 
           key: r2Key, 
+          relativePath,
           tags: metadata.tags 
         });
       } else {
@@ -205,7 +209,7 @@ async function generateUrlMapping(results) {
   const mapping = results
     .filter(r => r.success)
     .reduce((acc, r) => {
-      const localPath = `/Website beloveful.com/${r.key}`;
+      const localPath = `/Website beloveful.com/${r.relativePath}`;
       const r2Url = `${R2_PUBLIC_URL}/${r.key}`;
       acc[localPath] = r2Url;
       return acc;

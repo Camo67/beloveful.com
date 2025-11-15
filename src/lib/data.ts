@@ -1,16 +1,19 @@
 import prefixMappedData from './cloudinary-assets/prefix-mapped.json';
 import homepageDesktopData from './cloudinary-assets/Homepage/Desktop Landscape/urls.json';
 import homepageMobileData from './cloudinary-assets/Homepage/Mobile Portrait/urls.json';
-import { validateAndFixImageUrl } from './image-utils';
+import localAlbums from './local-albums.json';
+import { validateAndFixImageUrl, mapToCdnUrl } from './image-utils';
 
 console.log('📦 Loading prefix-mapped data:', prefixMappedData);
 
 export type Region =
   | "Africa"
   | "Asia"
+  | "Central America & Caribbean"
   | "Middle East"
   | "South America"
   | "North America"
+  | "Europe & Scandinavia"
   | "Europe"
   | "Oceania"
   | "Erasing Borders"
@@ -20,9 +23,11 @@ export type Region =
 export const REGIONS: Region[] = [
   "Africa",
   "Asia",
+  "Central America & Caribbean",
   "Middle East",
   "South America",
   "North America",
+  "Europe & Scandinavia",
   "Europe",
   "Oceania",
   "Erasing Borders"
@@ -91,9 +96,10 @@ function groupPrefixMappedData(): CountryAlbum[] {
         for (const image of (countryImages as any[]).filter((image: any) => image && image.url)) {
           const workingUrl = validateAndFixImageUrl(image.url);
           if (workingUrl) {
+            const cdnUrl = mapToCdnUrl(workingUrl) ?? workingUrl;
             processedImages.push({
-              desktop: workingUrl,
-              mobile: workingUrl
+              desktop: cdnUrl,
+              mobile: cdnUrl
             });
           }
         }
@@ -130,11 +136,13 @@ function createProjectsFromPrefixMapped(): Work[] {
       Object.values(region).forEach((cityImages: any) => {
         const validImages = (cityImages as any[]).filter((image: any) => image && image.url);
         validImages.forEach((image: any) => {
+          const workingUrl = validateAndFixImageUrl(image.url);
+          const cdnUrl = mapToCdnUrl(workingUrl) ?? workingUrl;
           // Include a broader range of images for the Erasing Borders project
           // This will include more images to make the project more substantial
           erasingBordersImages.push({
-            desktop: image.url,
-            mobile: image.url
+            desktop: cdnUrl,
+            mobile: cdnUrl
           });
         });
       });
@@ -159,10 +167,64 @@ function createProjectsFromPrefixMapped(): Work[] {
 }
 
 // Cloudinary albums from prefix-mapped data
-export const ALBUMS: CountryAlbum[] = groupPrefixMappedData();
+function normalizeLocalAlbums(): CountryAlbum[] {
+  try {
+    const parsed = (localAlbums as any[]) ?? [];
+    const regionSet = new Set<Region>(REGIONS);
+    return parsed
+      .map((album) => {
+        const regionName = album.region as Region;
+        if (!regionSet.has(regionName)) {
+          return null;
+        }
+        const images = Array.isArray(album.images)
+          ? album.images
+              .map((img: any) => ({
+                desktop: validateAndFixImageUrl(img.desktop),
+                mobile: validateAndFixImageUrl(img.mobile),
+              }))
+              .filter((img) => !!img.desktop)
+          : [];
+        if (!images.length) return null;
+        return {
+          region: album.region as Region,
+          country: album.country as string,
+          slug: album.slug as string,
+          title: album.title ?? album.country,
+          images,
+        } satisfies CountryAlbum;
+      })
+      .filter(Boolean) as CountryAlbum[];
+  } catch {
+    return [];
+  }
+}
+
+const LOCAL_ALBUMS = normalizeLocalAlbums();
+
+export const ALBUMS: CountryAlbum[] =
+  LOCAL_ALBUMS.length > 0 ? LOCAL_ALBUMS : groupPrefixMappedData();
 
 // Projects from prefix-mapped data
-export const PROJECTS: Work[] = createProjectsFromPrefixMapped();
+function createLocalProjects(): Work[] {
+  const erasingBorders = LOCAL_ALBUMS.filter(
+    (album) => album.region === "Erasing Borders",
+  );
+  if (!erasingBorders.length) return [];
+  return erasingBorders.map((album) => ({
+    title: album.title,
+    slug: album.slug,
+    description: album.description ?? album.title,
+    region: album.region as Region,
+    featured: true,
+    images: album.images,
+  }));
+}
+
+const LOCAL_PROJECTS = createLocalProjects();
+
+export const PROJECTS: Work[] =
+  LOCAL_PROJECTS.length > 0 ? LOCAL_PROJECTS : createProjectsFromPrefixMapped();
 
 export const getProjectBySlug = (slug: string): Work | undefined => {
   return PROJECTS.find(p => p.slug === slug);
@@ -202,9 +264,11 @@ const transformPrefixMappedToSlideshow = (): SlideshowImage[] => {
         // Take more images from each city for a richer slideshow
         const validImages = (cityImages as any[]).slice(0, 10).filter((image: any) => image && image.url);
         validImages.forEach((image: any) => {
+          const workingUrl = validateAndFixImageUrl(image.url);
+          const cdnUrl = mapToCdnUrl(workingUrl) ?? workingUrl;
           images.push({
-            desktop: image.url,
-            mobile: image.url
+            desktop: cdnUrl,
+            mobile: cdnUrl
           });
         });
       });
@@ -219,9 +283,11 @@ const transformPrefixMappedToSlideshow = (): SlideshowImage[] => {
     const unknownImages = (prefixMappedData as any).unknown.slice(0, 50 - images.length);
     const validUnknownImages = unknownImages.filter((image: any) => image && image.url);
     validUnknownImages.forEach((image: any) => {
+      const workingUrl = validateAndFixImageUrl(image.url);
+      const cdnUrl = mapToCdnUrl(workingUrl) ?? workingUrl;
       images.push({
-        desktop: image.url,
-        mobile: image.url
+        desktop: cdnUrl,
+        mobile: cdnUrl
       });
     });
   }
@@ -248,8 +314,12 @@ function buildHomepageSlideshowFromCuratedAssets(): SlideshowImage[] {
     const desktopAsset = desktopAssets.length ? desktopAssets[i % desktopAssets.length] : null;
     const mobileAsset = mobileAssets.length ? mobileAssets[i % mobileAssets.length] : null;
 
-    const desktopUrl = desktopAsset?.url || mobileAsset?.url || '';
-    const mobileUrl = mobileAsset?.url || desktopAsset?.url || '';
+    const rawDesktop = desktopAsset?.url || mobileAsset?.url || '';
+    const rawMobile = mobileAsset?.url || desktopAsset?.url || '';
+    const desktopWorking = rawDesktop ? validateAndFixImageUrl(rawDesktop) : '';
+    const mobileWorking = rawMobile ? validateAndFixImageUrl(rawMobile) : '';
+    const desktopUrl = desktopWorking ? mapToCdnUrl(desktopWorking) ?? desktopWorking : '';
+    const mobileUrl = mobileWorking ? mapToCdnUrl(mobileWorking) ?? mobileWorking : '';
 
     if (!desktopUrl && !mobileUrl) continue;
 

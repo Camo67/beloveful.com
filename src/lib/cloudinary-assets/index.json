@@ -1,16 +1,13 @@
-
-
-
 {
   "summary": {
-    "considered": 2228,
+    "considered": 1163,
     "skipped_already_foldered": 0,
-    "matched_regions": 5,
-    "unknown_count": 5
+    "matched_regions": 14,
+    "unknown_count": 0
   },
   "totals": {
-    "folders": 92,
-    "assets": 2228
+    "folders": 34,
+    "assets": 1163
   },
   "folders": [
     {
@@ -113,329 +110,123 @@
       "country": "Vietnam"
     },
     {
-      "folder": "clients/benq",
-      "path": "cloudinary-assets/clients/benq",
-      "type": "project",
-      "count": 1,
-      "assetsPath": "cloudinary-assets/clients/benq/urls.json",
+      "folder": "Central America & Caribbean/Caribbean",
+      "path": "cloudinary-assets/Central America & Caribbean/Caribbean",
+      "type": "country",
+      "count": 17,
+      "assetsPath": "cloudinary-assets/Central America & Caribbean/Caribbean/urls.json",
+      "region": "Central America & Caribbean",
+      "country": "Caribbean"
+    },
+    {
+      "folder": "Central America & Caribbean/Cuba",
+      "path": "cloudinary-assets/Central America & Caribbean/Cuba",
+      "type": "country",
+      "count": 50,
+      "assetsPath": "cloudinary-assets/Central America & Caribbean/Cuba/urls.json",
+      "region": "Central America & Caribbean",
+      "country": "Cuba"
+    },
+    {
+      "folder": "Central America & Caribbean/Mexico",
+      "path": "cloudinary-assets/Central America & Caribbean/Mexico",
+      "type": "country",
+      "count": 111,
+      "assetsPath": "cloudinary-assets/Central America & Caribbean/Mexico/urls.json",
+      "region": "Central America & Caribbean",
+      "country": "Mexico"
+    },
+    {
+      "folder": "Central America & Caribbean/Puerto Rico",
+      "path": "cloudinary-assets/Central America & Caribbean/Puerto Rico",
+      "type": "country",
+      "count": 5,
+      "assetsPath": "cloudinary-assets/Central America & Caribbean/Puerto Rico/urls.json",
+      "region": "Central America & Caribbean",
+      "country": "Puerto Rico"
+    },
+    {
+      "folder": "clients",
+      "path": "cloudinary-assets/clients",
+      "type": "clients",
+      "count": 16,
+      "assetsPath": "cloudinary-assets/clients/urls.json",
       "category": "clients"
     },
     {
-      "folder": "clients/breaks-chicago",
-      "path": "cloudinary-assets/clients/breaks-chicago",
-      "type": "project",
-      "count": 1,
-      "assetsPath": "cloudinary-assets/clients/breaks-chicago/urls.json",
-      "category": "clients"
+      "folder": "Clients & Partners",
+      "path": "cloudinary-assets/Clients & Partners",
+      "type": "clients",
+      "count": 20,
+      "assetsPath": "cloudinary-assets/Clients & Partners/urls.json",
+      "category": "Clients & Partners"
     },
     {
-      "folder": "clients/Crowneplaza4",
-      "path": "cloudinary-assets/clients/Crowneplaza4",
-      "type": "project",
-      "count": 1,
-      "assetsPath": "cloudinary-assets/clients/Crowneplaza4/urls.json",
-      "category": "clients"
-    },
-    {
-      "folder": "clients/egypt",
-      "path": "cloudinary-assets/clients/egypt",
-      "type": "project",
-      "count": 1,
-      "assetsPath": "cloudinary-assets/clients/egypt/urls.json",
-      "category": "clients"
-    },
-    {
-      "folder": "clients/Flickr_logo",
-      "path": "cloudinary-assets/clients/Flickr_logo",
-      "type": "project",
-      "count": 1,
-      "assetsPath": "cloudinary-assets/clients/Flickr_logo/urls.json",
-      "category": "clients"
-    },
-    {
-      "folder": "clients/kissclipart-navy-pier-logo-clipart-chicago-shakespeare-theater-e550ac399dac0a24",
-      "path": "cloudinary-assets/clients/kissclipart-navy-pier-logo-clipart-chicago-shakespeare-theater-e550ac399dac0a24",
-      "type": "project",
-      "count": 1,
-      "assetsPath": "cloudinary-assets/clients/kissclipart-navy-pier-logo-clipart-chicago-shakespeare-theater-e550ac399dac0a24/urls.json",
-      "category": "clients"
-    },
-    {
-      "folder": "clients/logo",
-      "path": "cloudinary-assets/clients/logo",
-      "type": "project",
-      "count": 1,
-      "assetsPath": "cloudinary-assets/clients/logo/urls.json",
-      "category": "clients"
-    },
-    {
-      "folder": "clients/mediakit_branding_1",
-      "path": "cloudinary-assets/clients/mediakit_branding_1",
-      "type": "project",
-      "count": 1,
-      "assetsPath": "cloudinary-assets/clients/mediakit_branding_1/urls.json",
-      "category": "clients"
-    },
-    {
-      "folder": "clients/national-geographic-logo-vector-768x768",
-      "path": "cloudinary-assets/clients/national-geographic-logo-vector-768x768",
-      "type": "project",
-      "count": 1,
-      "assetsPath": "cloudinary-assets/clients/national-geographic-logo-vector-768x768/urls.json",
-      "category": "clients"
-    },
-    {
-      "folder": "clients/Netflix_Logo_RGB",
-      "path": "cloudinary-assets/clients/Netflix_Logo_RGB",
-      "type": "project",
-      "count": 1,
-      "assetsPath": "cloudinary-assets/clients/Netflix_Logo_RGB/urls.json",
-      "category": "clients"
-    },
-    {
-      "folder": "clients/pngegg",
-      "path": "cloudinary-assets/clients/pngegg",
-      "type": "project",
-      "count": 1,
-      "assetsPath": "cloudinary-assets/clients/pngegg/urls.json",
-      "category": "clients"
-    },
-    {
-      "folder": "clients/pngegg (1)",
-      "path": "cloudinary-assets/clients/pngegg (1)",
-      "type": "project",
-      "count": 1,
-      "assetsPath": "cloudinary-assets/clients/pngegg (1)/urls.json",
-      "category": "clients"
-    },
-    {
-      "folder": "clients/pngegg (2)",
-      "path": "cloudinary-assets/clients/pngegg (2)",
-      "type": "project",
-      "count": 1,
-      "assetsPath": "cloudinary-assets/clients/pngegg (2)/urls.json",
-      "category": "clients"
-    },
-    {
-      "folder": "clients/TED",
-      "path": "cloudinary-assets/clients/TED",
-      "type": "project",
-      "count": 1,
-      "assetsPath": "cloudinary-assets/clients/TED/urls.json",
-      "category": "clients"
-    },
-    {
-      "folder": "clients/Time_Magazine_logo.svg",
-      "path": "cloudinary-assets/clients/Time_Magazine_logo.svg",
-      "type": "project",
-      "count": 1,
-      "assetsPath": "cloudinary-assets/clients/Time_Magazine_logo.svg/urls.json",
-      "category": "clients"
-    },
-    {
-      "folder": "Erasing Borders/CHI-Beloveful6",
-      "path": "cloudinary-assets/Erasing Borders/CHI-Beloveful6",
+      "folder": "Erasing Borders",
+      "path": "cloudinary-assets/Erasing Borders",
       "type": "erasing-borders",
-      "count": 1,
-      "assetsPath": "cloudinary-assets/Erasing Borders/CHI-Beloveful6/urls.json",
+      "count": 26,
+      "assetsPath": "cloudinary-assets/Erasing Borders/urls.json",
       "category": "Erasing Borders"
     },
     {
-      "folder": "Erasing Borders/CHI-DSCF9471",
-      "path": "cloudinary-assets/Erasing Borders/CHI-DSCF9471",
-      "type": "erasing-borders",
-      "count": 1,
-      "assetsPath": "cloudinary-assets/Erasing Borders/CHI-DSCF9471/urls.json",
-      "category": "Erasing Borders"
+      "folder": "Europe & Scandinavia/France",
+      "path": "cloudinary-assets/Europe & Scandinavia/France",
+      "type": "country",
+      "count": 26,
+      "assetsPath": "cloudinary-assets/Europe & Scandinavia/France/urls.json",
+      "region": "Europe & Scandinavia",
+      "country": "France"
     },
     {
-      "folder": "Erasing Borders/CHI-MeniasTony_12",
-      "path": "cloudinary-assets/Erasing Borders/CHI-MeniasTony_12",
-      "type": "erasing-borders",
-      "count": 1,
-      "assetsPath": "cloudinary-assets/Erasing Borders/CHI-MeniasTony_12/urls.json",
-      "category": "Erasing Borders"
+      "folder": "Europe & Scandinavia/Greece",
+      "path": "cloudinary-assets/Europe & Scandinavia/Greece",
+      "type": "country",
+      "count": 20,
+      "assetsPath": "cloudinary-assets/Europe & Scandinavia/Greece/urls.json",
+      "region": "Europe & Scandinavia",
+      "country": "Greece"
     },
     {
-      "folder": "Erasing Borders/DSCF3088 copy",
-      "path": "cloudinary-assets/Erasing Borders/DSCF3088 copy",
-      "type": "erasing-borders",
-      "count": 1,
-      "assetsPath": "cloudinary-assets/Erasing Borders/DSCF3088 copy/urls.json",
-      "category": "Erasing Borders"
+      "folder": "Europe & Scandinavia/Italy",
+      "path": "cloudinary-assets/Europe & Scandinavia/Italy",
+      "type": "country",
+      "count": 100,
+      "assetsPath": "cloudinary-assets/Europe & Scandinavia/Italy/urls.json",
+      "region": "Europe & Scandinavia",
+      "country": "Italy"
     },
     {
-      "folder": "Erasing Borders/FRA-DSCF0103 copy",
-      "path": "cloudinary-assets/Erasing Borders/FRA-DSCF0103 copy",
-      "type": "erasing-borders",
-      "count": 1,
-      "assetsPath": "cloudinary-assets/Erasing Borders/FRA-DSCF0103 copy/urls.json",
-      "category": "Erasing Borders"
+      "folder": "Europe & Scandinavia/Portugal",
+      "path": "cloudinary-assets/Europe & Scandinavia/Portugal",
+      "type": "country",
+      "count": 24,
+      "assetsPath": "cloudinary-assets/Europe & Scandinavia/Portugal/urls.json",
+      "region": "Europe & Scandinavia",
+      "country": "Portugal"
     },
     {
-      "folder": "Erasing Borders/IND-MeniasTony_14",
-      "path": "cloudinary-assets/Erasing Borders/IND-MeniasTony_14",
-      "type": "erasing-borders",
-      "count": 1,
-      "assetsPath": "cloudinary-assets/Erasing Borders/IND-MeniasTony_14/urls.json",
-      "category": "Erasing Borders"
+      "folder": "Europe & Scandinavia/Spain",
+      "path": "cloudinary-assets/Europe & Scandinavia/Spain",
+      "type": "country",
+      "count": 7,
+      "assetsPath": "cloudinary-assets/Europe & Scandinavia/Spain/urls.json",
+      "region": "Europe & Scandinavia",
+      "country": "Spain"
     },
     {
-      "folder": "Erasing Borders/IND-MeniasTony_16",
-      "path": "cloudinary-assets/Erasing Borders/IND-MeniasTony_16",
-      "type": "erasing-borders",
-      "count": 1,
-      "assetsPath": "cloudinary-assets/Erasing Borders/IND-MeniasTony_16/urls.json",
-      "category": "Erasing Borders"
-    },
-    {
-      "folder": "Erasing Borders/IND-MeniasTony_8",
-      "path": "cloudinary-assets/Erasing Borders/IND-MeniasTony_8",
-      "type": "erasing-borders",
-      "count": 1,
-      "assetsPath": "cloudinary-assets/Erasing Borders/IND-MeniasTony_8/urls.json",
-      "category": "Erasing Borders"
-    },
-    {
-      "folder": "Erasing Borders/JAP-3265",
-      "path": "cloudinary-assets/Erasing Borders/JAP-3265",
-      "type": "erasing-borders",
-      "count": 1,
-      "assetsPath": "cloudinary-assets/Erasing Borders/JAP-3265/urls.json",
-      "category": "Erasing Borders"
-    },
-    {
-      "folder": "Erasing Borders/JOR-4461",
-      "path": "cloudinary-assets/Erasing Borders/JOR-4461",
-      "type": "erasing-borders",
-      "count": 1,
-      "assetsPath": "cloudinary-assets/Erasing Borders/JOR-4461/urls.json",
-      "category": "Erasing Borders"
-    },
-    {
-      "folder": "Erasing Borders/MOR-IMG_5248 copy",
-      "path": "cloudinary-assets/Erasing Borders/MOR-IMG_5248 copy",
-      "type": "erasing-borders",
-      "count": 1,
-      "assetsPath": "cloudinary-assets/Erasing Borders/MOR-IMG_5248 copy/urls.json",
-      "category": "Erasing Borders"
-    },
-    {
-      "folder": "Erasing Borders/MOR-IMG_5277",
-      "path": "cloudinary-assets/Erasing Borders/MOR-IMG_5277",
-      "type": "erasing-borders",
-      "count": 1,
-      "assetsPath": "cloudinary-assets/Erasing Borders/MOR-IMG_5277/urls.json",
-      "category": "Erasing Borders"
-    },
-    {
-      "folder": "Erasing Borders/MYA-DSCF0783 copy",
-      "path": "cloudinary-assets/Erasing Borders/MYA-DSCF0783 copy",
-      "type": "erasing-borders",
-      "count": 1,
-      "assetsPath": "cloudinary-assets/Erasing Borders/MYA-DSCF0783 copy/urls.json",
-      "category": "Erasing Borders"
-    },
-    {
-      "folder": "Erasing Borders/MYA-DSCF9634 copy",
-      "path": "cloudinary-assets/Erasing Borders/MYA-DSCF9634 copy",
-      "type": "erasing-borders",
-      "count": 1,
-      "assetsPath": "cloudinary-assets/Erasing Borders/MYA-DSCF9634 copy/urls.json",
-      "category": "Erasing Borders"
-    },
-    {
-      "folder": "Erasing Borders/NatureVSNurture copy",
-      "path": "cloudinary-assets/Erasing Borders/NatureVSNurture copy",
-      "type": "erasing-borders",
-      "count": 1,
-      "assetsPath": "cloudinary-assets/Erasing Borders/NatureVSNurture copy/urls.json",
-      "category": "Erasing Borders"
-    },
-    {
-      "folder": "Erasing Borders/NEP-DSCF8737 copy",
-      "path": "cloudinary-assets/Erasing Borders/NEP-DSCF8737 copy",
-      "type": "erasing-borders",
-      "count": 1,
-      "assetsPath": "cloudinary-assets/Erasing Borders/NEP-DSCF8737 copy/urls.json",
-      "category": "Erasing Borders"
-    },
-    {
-      "folder": "Erasing Borders/NEP-Silent Stare copy",
-      "path": "cloudinary-assets/Erasing Borders/NEP-Silent Stare copy",
-      "type": "erasing-borders",
-      "count": 1,
-      "assetsPath": "cloudinary-assets/Erasing Borders/NEP-Silent Stare copy/urls.json",
-      "category": "Erasing Borders"
-    },
-    {
-      "folder": "Erasing Borders/NyC-DSCF8922 copy 2",
-      "path": "cloudinary-assets/Erasing Borders/NyC-DSCF8922 copy 2",
-      "type": "erasing-borders",
-      "count": 1,
-      "assetsPath": "cloudinary-assets/Erasing Borders/NyC-DSCF8922 copy 2/urls.json",
-      "category": "Erasing Borders"
-    },
-    {
-      "folder": "Erasing Borders/PAL-DSCF3675 copy",
-      "path": "cloudinary-assets/Erasing Borders/PAL-DSCF3675 copy",
-      "type": "erasing-borders",
-      "count": 1,
-      "assetsPath": "cloudinary-assets/Erasing Borders/PAL-DSCF3675 copy/urls.json",
-      "category": "Erasing Borders"
-    },
-    {
-      "folder": "Erasing Borders/PAL-MeniasTony_13",
-      "path": "cloudinary-assets/Erasing Borders/PAL-MeniasTony_13",
-      "type": "erasing-borders",
-      "count": 1,
-      "assetsPath": "cloudinary-assets/Erasing Borders/PAL-MeniasTony_13/urls.json",
-      "category": "Erasing Borders"
-    },
-    {
-      "folder": "Erasing Borders/PHI-1662 copy",
-      "path": "cloudinary-assets/Erasing Borders/PHI-1662 copy",
-      "type": "erasing-borders",
-      "count": 1,
-      "assetsPath": "cloudinary-assets/Erasing Borders/PHI-1662 copy/urls.json",
-      "category": "Erasing Borders"
-    },
-    {
-      "folder": "Erasing Borders/THAI-DSCF3890 copy",
-      "path": "cloudinary-assets/Erasing Borders/THAI-DSCF3890 copy",
-      "type": "erasing-borders",
-      "count": 1,
-      "assetsPath": "cloudinary-assets/Erasing Borders/THAI-DSCF3890 copy/urls.json",
-      "category": "Erasing Borders"
-    },
-    {
-      "folder": "Erasing Borders/Tony Menias - Two Girls in Window",
-      "path": "cloudinary-assets/Erasing Borders/Tony Menias - Two Girls in Window",
-      "type": "erasing-borders",
-      "count": 1,
-      "assetsPath": "cloudinary-assets/Erasing Borders/Tony Menias - Two Girls in Window/urls.json",
-      "category": "Erasing Borders"
-    },
-    {
-      "folder": "Erasing Borders/TonyMeniasAMansLegacy",
-      "path": "cloudinary-assets/Erasing Borders/TonyMeniasAMansLegacy",
-      "type": "erasing-borders",
-      "count": 1,
-      "assetsPath": "cloudinary-assets/Erasing Borders/TonyMeniasAMansLegacy/urls.json",
-      "category": "Erasing Borders"
-    },
-    {
-      "folder": "Erasing Borders/Vietnam-DSCF8153 copy",
-      "path": "cloudinary-assets/Erasing Borders/Vietnam-DSCF8153 copy",
-      "type": "erasing-borders",
-      "count": 1,
-      "assetsPath": "cloudinary-assets/Erasing Borders/Vietnam-DSCF8153 copy/urls.json",
-      "category": "Erasing Borders"
+      "folder": "Europe & Scandinavia/UK & Ireland",
+      "path": "cloudinary-assets/Europe & Scandinavia/UK & Ireland",
+      "type": "country",
+      "count": 30,
+      "assetsPath": "cloudinary-assets/Europe & Scandinavia/UK & Ireland/urls.json",
+      "region": "Europe & Scandinavia",
+      "country": "UK & Ireland"
     },
     {
       "folder": "Homepage/Desktop Landscape",
       "path": "cloudinary-assets/Homepage/Desktop Landscape",
-      "type": "project",
+      "type": "homepage",
       "count": 9,
       "assetsPath": "cloudinary-assets/Homepage/Desktop Landscape/urls.json",
       "category": "Homepage"
@@ -443,127 +234,23 @@
     {
       "folder": "Homepage/Mobile Portrait",
       "path": "cloudinary-assets/Homepage/Mobile Portrait",
-      "type": "project",
+      "type": "homepage",
       "count": 10,
       "assetsPath": "cloudinary-assets/Homepage/Mobile Portrait/urls.json",
       "category": "Homepage"
     },
     {
-      "folder": "Logo/Beloveful black transparent",
-      "path": "cloudinary-assets/Logo/Beloveful black transparent",
-      "type": "project",
-      "count": 1,
-      "assetsPath": "cloudinary-assets/Logo/Beloveful black transparent/urls.json",
-      "category": "Logo"
-    },
-    {
-      "folder": "Logo/Beloveful copy",
-      "path": "cloudinary-assets/Logo/Beloveful copy",
-      "type": "project",
-      "count": 1,
-      "assetsPath": "cloudinary-assets/Logo/Beloveful copy/urls.json",
-      "category": "Logo"
-    },
-    {
-      "folder": "Logo/Beloveful copy 2",
-      "path": "cloudinary-assets/Logo/Beloveful copy 2",
-      "type": "project",
-      "count": 1,
-      "assetsPath": "cloudinary-assets/Logo/Beloveful copy 2/urls.json",
-      "category": "Logo"
-    },
-    {
-      "folder": "Logo/Beloveful copy 3",
-      "path": "cloudinary-assets/Logo/Beloveful copy 3",
-      "type": "project",
-      "count": 1,
-      "assetsPath": "cloudinary-assets/Logo/Beloveful copy 3/urls.json",
-      "category": "Logo"
-    },
-    {
-      "folder": "Logo/Beloveful copy 6",
-      "path": "cloudinary-assets/Logo/Beloveful copy 6",
-      "type": "project",
-      "count": 1,
-      "assetsPath": "cloudinary-assets/Logo/Beloveful copy 6/urls.json",
-      "category": "Logo"
-    },
-    {
-      "folder": "Logo/beloveful logo inverted 75_ opacity",
-      "path": "cloudinary-assets/Logo/beloveful logo inverted 75_ opacity",
-      "type": "project",
-      "count": 1,
-      "assetsPath": "cloudinary-assets/Logo/beloveful logo inverted 75_ opacity/urls.json",
-      "category": "Logo"
-    },
-    {
-      "folder": "Logo/belovefullogowhite",
-      "path": "cloudinary-assets/Logo/belovefullogowhite",
-      "type": "project",
-      "count": 1,
-      "assetsPath": "cloudinary-assets/Logo/belovefullogowhite/urls.json",
-      "category": "Logo"
-    },
-    {
-      "folder": "Logo/IMG SMALl",
-      "path": "cloudinary-assets/Logo/IMG SMALl",
-      "type": "project",
-      "count": 1,
-      "assetsPath": "cloudinary-assets/Logo/IMG SMALl/urls.json",
-      "category": "Logo"
-    },
-    {
-      "folder": "Logo/IMG_0007",
-      "path": "cloudinary-assets/Logo/IMG_0007",
-      "type": "project",
-      "count": 1,
-      "assetsPath": "cloudinary-assets/Logo/IMG_0007/urls.json",
-      "category": "Logo"
-    },
-    {
-      "folder": "Logo/IMG_0007 copy",
-      "path": "cloudinary-assets/Logo/IMG_0007 copy",
-      "type": "project",
-      "count": 1,
-      "assetsPath": "cloudinary-assets/Logo/IMG_0007 copy/urls.json",
-      "category": "Logo"
-    },
-    {
-      "folder": "Logo/IMG_1052",
-      "path": "cloudinary-assets/Logo/IMG_1052",
-      "type": "project",
-      "count": 1,
-      "assetsPath": "cloudinary-assets/Logo/IMG_1052/urls.json",
-      "category": "Logo"
-    },
-    {
-      "folder": "Logo/IMG_4610",
-      "path": "cloudinary-assets/Logo/IMG_4610",
-      "type": "project",
-      "count": 1,
-      "assetsPath": "cloudinary-assets/Logo/IMG_4610/urls.json",
-      "category": "Logo"
-    },
-    {
-      "folder": "Logo/IMG_4610 copy.jpg copy 3",
-      "path": "cloudinary-assets/Logo/IMG_4610 copy.jpg copy 3",
-      "type": "project",
-      "count": 1,
-      "assetsPath": "cloudinary-assets/Logo/IMG_4610 copy.jpg copy 3/urls.json",
-      "category": "Logo"
-    },
-    {
-      "folder": "Logo/nooutline",
-      "path": "cloudinary-assets/Logo/nooutline",
-      "type": "project",
-      "count": 1,
-      "assetsPath": "cloudinary-assets/Logo/nooutline/urls.json",
+      "folder": "Logo",
+      "path": "cloudinary-assets/Logo",
+      "type": "logo",
+      "count": 14,
+      "assetsPath": "cloudinary-assets/Logo/urls.json",
       "category": "Logo"
     },
     {
       "folder": "Logo/White",
       "path": "cloudinary-assets/Logo/White",
-      "type": "project",
+      "type": "logo",
       "count": 6,
       "assetsPath": "cloudinary-assets/Logo/White/urls.json",
       "category": "Logo"
@@ -590,7 +277,7 @@
       "folder": "North America/New York",
       "path": "cloudinary-assets/North America/New York",
       "type": "country",
-      "count": 87,
+      "count": 88,
       "assetsPath": "cloudinary-assets/North America/New York/urls.json",
       "region": "North America",
       "country": "New York"
@@ -599,169 +286,25 @@
       "folder": "Open Edition size 5x7/Open Edition 5x7",
       "path": "cloudinary-assets/Open Edition size 5x7/Open Edition 5x7",
       "type": "open-edition",
-      "count": 26,
+      "count": 28,
       "assetsPath": "cloudinary-assets/Open Edition size 5x7/Open Edition 5x7/urls.json",
-      "category": "Open Edition"
-    },
-    {
-      "folder": "public/Website beloveful.com",
-      "path": "cloudinary-assets/public/Website beloveful.com",
-      "type": "project",
-      "count": 1479,
-      "assetsPath": "cloudinary-assets/public/Website beloveful.com/urls.json",
-      "category": "public"
+      "category": "Open Edition size 5x7"
     },
     {
       "folder": "South America/Argentina",
       "path": "cloudinary-assets/South America/Argentina",
       "type": "country",
-      "count": 20,
+      "count": 22,
       "assetsPath": "cloudinary-assets/South America/Argentina/urls.json",
       "region": "South America",
       "country": "Argentina"
     },
     {
-      "folder": "uncategorized",
-      "path": "cloudinary-assets/uncategorized",
-      "type": "project",
-      "count": 5,
-      "assetsPath": "cloudinary-assets/uncategorized/urls.json",
-      "category": "uncategorized"
-    },
-    {
-      "folder": "Workshop Photos/Copy of CHI-0871",
-      "path": "cloudinary-assets/Workshop Photos/Copy of CHI-0871",
+      "folder": "Workshop Photos",
+      "path": "cloudinary-assets/Workshop Photos",
       "type": "workshop",
-      "count": 1,
-      "assetsPath": "cloudinary-assets/Workshop Photos/Copy of CHI-0871/urls.json",
-      "category": "Workshop Photos"
-    },
-    {
-      "folder": "Workshop Photos/Copy of CHI-09-19-DSCF5133",
-      "path": "cloudinary-assets/Workshop Photos/Copy of CHI-09-19-DSCF5133",
-      "type": "workshop",
-      "count": 1,
-      "assetsPath": "cloudinary-assets/Workshop Photos/Copy of CHI-09-19-DSCF5133/urls.json",
-      "category": "Workshop Photos"
-    },
-    {
-      "folder": "Workshop Photos/Copy of CHI-3",
-      "path": "cloudinary-assets/Workshop Photos/Copy of CHI-3",
-      "type": "workshop",
-      "count": 1,
-      "assetsPath": "cloudinary-assets/Workshop Photos/Copy of CHI-3/urls.json",
-      "category": "Workshop Photos"
-    },
-    {
-      "folder": "Workshop Photos/Copy of CHI-359",
-      "path": "cloudinary-assets/Workshop Photos/Copy of CHI-359",
-      "type": "workshop",
-      "count": 1,
-      "assetsPath": "cloudinary-assets/Workshop Photos/Copy of CHI-359/urls.json",
-      "category": "Workshop Photos"
-    },
-    {
-      "folder": "Workshop Photos/Copy of CHI-5041",
-      "path": "cloudinary-assets/Workshop Photos/Copy of CHI-5041",
-      "type": "workshop",
-      "count": 1,
-      "assetsPath": "cloudinary-assets/Workshop Photos/Copy of CHI-5041/urls.json",
-      "category": "Workshop Photos"
-    },
-    {
-      "folder": "Workshop Photos/Copy of CHI-5652",
-      "path": "cloudinary-assets/Workshop Photos/Copy of CHI-5652",
-      "type": "workshop",
-      "count": 1,
-      "assetsPath": "cloudinary-assets/Workshop Photos/Copy of CHI-5652/urls.json",
-      "category": "Workshop Photos"
-    },
-    {
-      "folder": "Workshop Photos/Copy of CHI-65",
-      "path": "cloudinary-assets/Workshop Photos/Copy of CHI-65",
-      "type": "workshop",
-      "count": 1,
-      "assetsPath": "cloudinary-assets/Workshop Photos/Copy of CHI-65/urls.json",
-      "category": "Workshop Photos"
-    },
-    {
-      "folder": "Workshop Photos/Copy of CHI-8649",
-      "path": "cloudinary-assets/Workshop Photos/Copy of CHI-8649",
-      "type": "workshop",
-      "count": 1,
-      "assetsPath": "cloudinary-assets/Workshop Photos/Copy of CHI-8649/urls.json",
-      "category": "Workshop Photos"
-    },
-    {
-      "folder": "Workshop Photos/Copy of CHI-8789",
-      "path": "cloudinary-assets/Workshop Photos/Copy of CHI-8789",
-      "type": "workshop",
-      "count": 1,
-      "assetsPath": "cloudinary-assets/Workshop Photos/Copy of CHI-8789/urls.json",
-      "category": "Workshop Photos"
-    },
-    {
-      "folder": "Workshop Photos/Copy of CHI-9867",
-      "path": "cloudinary-assets/Workshop Photos/Copy of CHI-9867",
-      "type": "workshop",
-      "count": 1,
-      "assetsPath": "cloudinary-assets/Workshop Photos/Copy of CHI-9867/urls.json",
-      "category": "Workshop Photos"
-    },
-    {
-      "folder": "Workshop Photos/Copy of CHI-9872-Website-2",
-      "path": "cloudinary-assets/Workshop Photos/Copy of CHI-9872-Website-2",
-      "type": "workshop",
-      "count": 1,
-      "assetsPath": "cloudinary-assets/Workshop Photos/Copy of CHI-9872-Website-2/urls.json",
-      "category": "Workshop Photos"
-    },
-    {
-      "folder": "Workshop Photos/Copy of CHI-Cafe-",
-      "path": "cloudinary-assets/Workshop Photos/Copy of CHI-Cafe-",
-      "type": "workshop",
-      "count": 1,
-      "assetsPath": "cloudinary-assets/Workshop Photos/Copy of CHI-Cafe-/urls.json",
-      "category": "Workshop Photos"
-    },
-    {
-      "folder": "Workshop Photos/Copy of DSCF1980",
-      "path": "cloudinary-assets/Workshop Photos/Copy of DSCF1980",
-      "type": "workshop",
-      "count": 1,
-      "assetsPath": "cloudinary-assets/Workshop Photos/Copy of DSCF1980/urls.json",
-      "category": "Workshop Photos"
-    },
-    {
-      "folder": "Workshop Photos/Copy of DSCF8938",
-      "path": "cloudinary-assets/Workshop Photos/Copy of DSCF8938",
-      "type": "workshop",
-      "count": 1,
-      "assetsPath": "cloudinary-assets/Workshop Photos/Copy of DSCF8938/urls.json",
-      "category": "Workshop Photos"
-    },
-    {
-      "folder": "Workshop Photos/Copy of Fountain Fairy",
-      "path": "cloudinary-assets/Workshop Photos/Copy of Fountain Fairy",
-      "type": "workshop",
-      "count": 1,
-      "assetsPath": "cloudinary-assets/Workshop Photos/Copy of Fountain Fairy/urls.json",
-      "category": "Workshop Photos"
-    },
-    {
-      "folder": "Workshop Photos/IMG_1306",
-      "path": "cloudinary-assets/Workshop Photos/IMG_1306",
-      "type": "workshop",
-      "count": 1,
-      "assetsPath": "cloudinary-assets/Workshop Photos/IMG_1306/urls.json",
-      "category": "Workshop Photos"
-    },
-    {
-      "folder": "Workshop Photos/IMG_20190825_155659",
-      "path": "cloudinary-assets/Workshop Photos/IMG_20190825_155659",
-      "type": "workshop",
-      "count": 1,
-      "assetsPath": "cloudinary-assets/Workshop Photos/IMG_20190825_155659/urls.json",
+      "count": 19,
+      "assetsPath": "cloudinary-assets/Workshop Photos/urls.json",
       "category": "Workshop Photos"
     }
   ]

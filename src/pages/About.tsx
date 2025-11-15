@@ -4,8 +4,6 @@ import { CLIENT_LOGOS_SOURCE, CLIENT_NAMES, getClientLinkForIndex } from "@/lib/
 import { Button } from "@/components/ui/button";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { useCloudinaryImages } from '@/hooks/use-cloudinary-images';
-import { createProxiedImageUrl } from '@/lib/images';
 
 const BIO_PARAGRAPHS = [
   "Motivated by curiosity and forever fascinated by what this world has to offer, Tony's love of capturing life around him began the day his father handed him his first camera at the age seven.",
@@ -172,8 +170,7 @@ export default function About() {
 }
 
 function ClientsPartnersGrid() {
-  const { data: dynamicLogos = [] } = useCloudinaryImages('logos');
-  const clientLogos = dynamicLogos.length > 0 ? dynamicLogos.map((i) => createProxiedImageUrl(i.desktop)) : CLIENT_LOGOS_SOURCE;
+  const clientLogos = CLIENT_LOGOS_SOURCE;
 
   if (!clientLogos || clientLogos.length === 0) {
     return (

@@ -6,6 +6,7 @@ import printlabData from "@/lib/printlab.json";
 import { CloudImage } from "@/components/CloudImage";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import StripeCheckout from "@/components/StripeCheckout";
 
 export default function PrintShop() {
   const products = printlabData.products || [];
@@ -163,25 +164,37 @@ export default function PrintShop() {
                   <div className="border border-gray-200 dark:border-gray-800 rounded-lg p-4">
                     <div className="font-medium">1 Print</div>
                     <div className="text-lg font-medium my-1">$10</div>
+                    <StripeCheckout 
+                      priceId="price_open_edition_1" 
+                      quantity={1} 
+                      productName="Open Edition Print" 
+                    />
                   </div>
                   <div className="border border-gray-200 dark:border-gray-800 rounded-lg p-4">
                     <div className="font-medium">4 Prints</div>
                     <div className="text-lg font-medium my-1">$35</div>
                     <div className="text-xs text-gray-600 dark:text-gray-400">Save $5</div>
+                    <StripeCheckout 
+                      priceId="price_open_edition_4" 
+                      quantity={4} 
+                      productName="Open Edition Prints" 
+                    />
                   </div>
                   <div className="border border-gray-200 dark:border-gray-800 rounded-lg p-4">
                     <div className="font-medium">8 Prints</div>
                     <div className="text-lg font-medium my-1">$70</div>
                     <div className="text-xs text-gray-600 dark:text-gray-400">Save $10</div>
+                    <StripeCheckout 
+                      priceId="price_open_edition_8" 
+                      quantity={8} 
+                      productName="Open Edition Prints" 
+                    />
                   </div>
                 </div>
                 
-                <a 
-                  href="mailto:prints@beloveful.com?subject=Open Edition Print Request"
-                  className="inline-block px-6 py-3 rounded-md bg-black text-white dark:bg-white dark:text-black hover:opacity-80 transition"
-                >
-                  Request Open Edition Prints
-                </a>
+                <p className="text-sm text-gray-600 dark:text-gray-400 mt-6">
+                  After payment, you'll receive an email with instructions for your print order.
+                </p>
               </div>
             </div>
           </section>

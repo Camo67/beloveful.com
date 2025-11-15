@@ -37,10 +37,10 @@ export const TRAVEL_PORTFOLIO_ALL_IMAGES: TravelPortfolioImage[] = [
     "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760976949/home/camo/new/beloveful.com/public/Website%20beloveful.com/CHI-9867.jpg"
   },
   {
-    "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760977109/home/camo/new/beloveful.com/public/Website%20beloveful.com/clients/kissclipart-navy-pier-logo-clipart-chicago-shakespeare-theater-e550ac399dac0a24.jpg"
+    "desktop": "https://cdn.beloveful.com/images/clients/kissclipart-navy-pier-logo-clipart-chicago-shakespeare-theater-e550ac399dac0a24.jpg"
   },
   {
-    "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760977139/home/camo/new/beloveful.com/public/Website%20beloveful.com/Workshop%20Photos/Copy%20of%20CHI-9872-Website-2.jpg"
+    "desktop": "https://cdn.beloveful.com/images/Workshop%20Photos/Copy%20of%20CHI-9872-Website-2.jpg"
   },
   {
     "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760975531/home/camo/new/beloveful.com/public/Website%20beloveful.com/PR-DSF8358.jpg"
@@ -118,7 +118,7 @@ export const TRAVEL_PORTFOLIO_ALL_IMAGES: TravelPortfolioImage[] = [
     "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760978089/home/camo/new/beloveful.com/public/Website%20beloveful.com/JOR--10-30-22.jpg"
   },
   {
-    "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760978175/home/camo/new/beloveful.com/public/Website%20beloveful.com/Erasing%20Borders/JOR-4461.jpg"
+    "desktop": "https://cdn.beloveful.com/images/Erasing%20Borders/JOR-4461.jpg"
   },
   {
     "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760978224/home/camo/new/beloveful.com/public/Website%20beloveful.com/JOR-4574.jpg"
@@ -139,7 +139,7 @@ export const TRAVEL_PORTFOLIO_ALL_IMAGES: TravelPortfolioImage[] = [
     "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760976868/home/camo/new/beloveful.com/public/Website%20beloveful.com/NAM-11-22-DSCF8069.jpg"
   },
   {
-    "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760976992/home/camo/new/beloveful.com/public/Website%20beloveful.com/Homepage/Mobile%20Portrait/NAM-11-22-DSCF8088.jpg"
+    "desktop": "https://cdn.beloveful.com/images/Homepage/Mobile%20Portrait/NAM-11-22-DSCF8088.jpg"
   },
   {
     "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760978101/home/camo/new/beloveful.com/public/Website%20beloveful.com/NAM-11-22-DSCF8086.jpg"
@@ -151,7 +151,7 @@ export const TRAVEL_PORTFOLIO_ALL_IMAGES: TravelPortfolioImage[] = [
     "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760978396/home/camo/new/beloveful.com/public/Website%20beloveful.com/NAM-03-18-DSCF4108.jpg"
   },
   {
-    "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760978681/home/camo/new/beloveful.com/public/Website%20beloveful.com/Homepage/Desktop%20Landscape/NAM-03-18-DSCF3974-2.jpg"
+    "desktop": "https://cdn.beloveful.com/images/Homepage/Desktop%20Landscape/NAM-03-18-DSCF3974-2.jpg"
   },
   {
     "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760978763/home/camo/new/beloveful.com/public/Website%20beloveful.com/NAM-11-22-DSCF8053.jpg"
@@ -265,7 +265,7 @@ export const TRAVEL_PORTFOLIO_ALL_IMAGES: TravelPortfolioImage[] = [
     "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760978220/home/camo/new/beloveful.com/public/Website%20beloveful.com/MOR-IMG_5277.jpg"
   },
   {
-    "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760978432/home/camo/new/beloveful.com/public/Website%20beloveful.com/Erasing%20Borders/MOR-IMG_5248%20copy.jpg"
+    "desktop": "https://cdn.beloveful.com/images/Erasing%20Borders/MOR-IMG_5248%20copy.jpg"
   },
   {
     "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760978590/home/camo/new/beloveful.com/public/Website%20beloveful.com/Morocco-AlmostHome.jpg"
@@ -280,7 +280,7 @@ export const TRAVEL_PORTFOLIO_ALL_IMAGES: TravelPortfolioImage[] = [
     "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760979305/home/camo/new/beloveful.com/public/Website%20beloveful.com/Morocco-Hide%20n%20Seek.jpg"
   },
   {
-    "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760979306/home/camo/new/beloveful.com/public/Website%20beloveful.com/Erasing%20Borders/MOR-IMG_5277.jpg"
+    "desktop": "https://cdn.beloveful.com/images/Erasing%20Borders/MOR-IMG_5277.jpg"
   },
   {
     "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760975080/home/camo/new/beloveful.com/public/Website%20beloveful.com/VIET-04-17-DSCF8532.jpg"
@@ -301,7 +301,7 @@ export const TRAVEL_PORTFOLIO_ALL_IMAGES: TravelPortfolioImage[] = [
     "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760978511/home/camo/new/beloveful.com/public/Website%20beloveful.com/VIET-04-17-DSCF9132.jpg"
   },
   {
-    "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760978839/home/camo/new/beloveful.com/public/Website%20beloveful.com/Erasing%20Borders/Vietnam-DSCF8153%20copy.jpg"
+    "desktop": "https://cdn.beloveful.com/images/Erasing%20Borders/Vietnam-DSCF8153%20copy.jpg"
   },
   {
     "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760978850/home/camo/new/beloveful.com/public/Website%20beloveful.com/Viet-8468.jpg"
@@ -358,13 +358,13 @@ export const TRAVEL_PORTFOLIO_ALL_IMAGES: TravelPortfolioImage[] = [
     "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760975774/home/camo/new/beloveful.com/public/Website%20beloveful.com/NEP-8701.jpg"
   },
   {
-    "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760978196/home/camo/new/beloveful.com/public/Website%20beloveful.com/Erasing%20Borders/NEP-Silent%20Stare%20copy.jpg"
+    "desktop": "https://cdn.beloveful.com/images/Erasing%20Borders/NEP-Silent%20Stare%20copy.jpg"
   },
   {
     "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760978269/home/camo/new/beloveful.com/public/Website%20beloveful.com/NEP-8516.jpg"
   },
   {
-    "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760978308/home/camo/new/beloveful.com/public/Website%20beloveful.com/Erasing%20Borders/NEP-DSCF8737%20copy.jpg"
+    "desktop": "https://cdn.beloveful.com/images/Erasing%20Borders/NEP-DSCF8737%20copy.jpg"
   },
   {
     "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760978366/home/camo/new/beloveful.com/public/Website%20beloveful.com/NEP-8558.jpg"
@@ -403,7 +403,7 @@ export const TRAVEL_PORTFOLIO_ALL_IMAGES: TravelPortfolioImage[] = [
     "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760978136/home/camo/new/beloveful.com/public/Website%20beloveful.com/JAP-4028.jpg"
   },
   {
-    "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760978148/home/camo/new/beloveful.com/public/Website%20beloveful.com/Erasing%20Borders/JAP-3265.jpg"
+    "desktop": "https://cdn.beloveful.com/images/Erasing%20Borders/JAP-3265.jpg"
   },
   {
     "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760978163/home/camo/new/beloveful.com/public/Website%20beloveful.com/JAP-2670.jpg"
@@ -436,7 +436,7 @@ export const TRAVEL_PORTFOLIO_ALL_IMAGES: TravelPortfolioImage[] = [
     "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760977989/home/camo/new/beloveful.com/public/Website%20beloveful.com/THAI-12-19-DSCF2642.jpg"
   },
   {
-    "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760978124/home/camo/new/beloveful.com/public/Website%20beloveful.com/Erasing%20Borders/THAI-DSCF3890%20copy.jpg"
+    "desktop": "https://cdn.beloveful.com/images/Erasing%20Borders/THAI-DSCF3890%20copy.jpg"
   },
   {
     "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760978259/home/camo/new/beloveful.com/public/Website%20beloveful.com/THAI-03-17-_DSF4784.jpg"
@@ -469,7 +469,7 @@ export const TRAVEL_PORTFOLIO_ALL_IMAGES: TravelPortfolioImage[] = [
     "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760978277/home/camo/new/beloveful.com/public/Website%20beloveful.com/MYA-DSCF0783.jpg"
   },
   {
-    "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760978446/home/camo/new/beloveful.com/public/Website%20beloveful.com/Erasing%20Borders/MYA-DSCF9634%20copy.jpg"
+    "desktop": "https://cdn.beloveful.com/images/Erasing%20Borders/MYA-DSCF9634%20copy.jpg"
   },
   {
     "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760978512/home/camo/new/beloveful.com/public/Website%20beloveful.com/MYA-04-17-DSCF0068.jpg"
@@ -490,7 +490,7 @@ export const TRAVEL_PORTFOLIO_ALL_IMAGES: TravelPortfolioImage[] = [
     "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760978872/home/camo/new/beloveful.com/public/Website%20beloveful.com/MYA-0287-04-28-17.jpg"
   },
   {
-    "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760978896/home/camo/new/beloveful.com/public/Website%20beloveful.com/Erasing%20Borders/MYA-DSCF0783%20copy.jpg"
+    "desktop": "https://cdn.beloveful.com/images/Erasing%20Borders/MYA-DSCF0783%20copy.jpg"
   },
   {
     "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760978906/home/camo/new/beloveful.com/public/Website%20beloveful.com/MYA-DSCF0783_copy_du5vhz.jpg"
@@ -499,7 +499,7 @@ export const TRAVEL_PORTFOLIO_ALL_IMAGES: TravelPortfolioImage[] = [
     "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760979183/home/camo/new/beloveful.com/public/Website%20beloveful.com/MYA-9588.jpg"
   },
   {
-    "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760978527/home/camo/new/beloveful.com/public/Website%20beloveful.com/Erasing%20Borders/IND-MeniasTony_16.jpg"
+    "desktop": "https://cdn.beloveful.com/images/Erasing%20Borders/IND-MeniasTony_16.jpg"
   },
   {
     "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760978658/home/camo/new/beloveful.com/public/Website%20beloveful.com/IND-MeniasTony_14_ppvz6y.jpg"
@@ -508,10 +508,10 @@ export const TRAVEL_PORTFOLIO_ALL_IMAGES: TravelPortfolioImage[] = [
     "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760978935/home/camo/new/beloveful.com/public/Website%20beloveful.com/IND-MeniasTony_16_czsgih.jpg"
   },
   {
-    "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760979193/home/camo/new/beloveful.com/public/Website%20beloveful.com/Erasing%20Borders/IND-MeniasTony_8.jpg"
+    "desktop": "https://cdn.beloveful.com/images/Erasing%20Borders/IND-MeniasTony_8.jpg"
   },
   {
-    "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760979207/home/camo/new/beloveful.com/public/Website%20beloveful.com/Erasing%20Borders/IND-MeniasTony_14.jpg"
+    "desktop": "https://cdn.beloveful.com/images/Erasing%20Borders/IND-MeniasTony_14.jpg"
   },
   {
     "desktop": "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760979548/home/camo/new/beloveful.com/public/Website%20beloveful.com/IND-MeniasTony_8_lnvwzr.jpg"

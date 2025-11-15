@@ -1,7 +1,7 @@
 name = "beloveful-r2-cdn"
 main = "r2-cdn-worker.js"
 compatibility_date = "2025-09-01"
-workers_dev = false
+workers_dev = true
 
 # Custom domain routing for CDN
 routes = [
@@ -27,6 +27,10 @@ routes = [
   { pattern = "cdn.beloveful.com/*", zone_name = "beloveful.com" }
 ]
 
+[[env.production.r2_buckets]]
+binding = "BELOVEFUL_BUCKET"
+bucket_name = "beloveful"
+
 [env.production.vars]
 CF_IMAGE_RESIZING = "true"  # Enable in production if you have the service
 CORS_ORIGINS = "https://beloveful.com,https://www.beloveful.com"
@@ -38,6 +42,11 @@ name = "beloveful-r2-cdn-dev"
 routes = [
   { pattern = "cdn-dev.beloveful.com/*", zone_name = "beloveful.com" }
 ]
+
+[[env.development.r2_buckets]]
+binding = "BELOVEFUL_BUCKET"
+bucket_name = "beloveful"
+preview_bucket_name = "beloveful"
 
 [env.development.vars]
 CF_IMAGE_RESIZING = "false"

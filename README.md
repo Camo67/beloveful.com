@@ -310,6 +310,32 @@ const portfolioData = await loadPortfolioAsset('Africa/urls.json');
 
 Example component using these utilities can be found in `src/components/AssetExample.tsx`.
 
+## Syncing cPanel-hosted images
+
+The original WordPress gallery still lives on cPanel under `public_html/images`. You can mirror that folder into the JSON manifests the app expects with:
+
+```bash
+# 1. Set credentials (see .env.example for the full list)
+export CPANEL_FTP_HOST=ftp.theoriawellness.org
+export CPANEL_FTP_USER=you@example.com
+export CPANEL_FTP_PASSWORD=super-secret
+# optional: point at a different source folder/base URL
+# export CPANEL_FTP_ROOT=/public_html/images
+# export CPANEL_IMAGES_BASE_URL=/Website%20beloveful.com   # ships with repo
+
+# 2. Run the sync (if you use the VS Code ftp-simple extension, the script
+#    will auto-read ~/.config/Code/.../ftp-simple-temp.json when env vars
+#    are missing, so you can often skip the exports entirely)
+npm run cpanel:sync
+```
+
+The script connects over FTP, walks every region/country directory, and regenerates:
+
+- `src/lib/cloudinary-assets/index.json`
+- `src/lib/cloudinary-assets/<Region>/<Album>/urls.json`
+
+All URLs now point directly at `https://beloveful.com/images/...`, so components that read from `loadCloudinaryAsset` (Travel Portfolio, Comprehensive Image Demo, etc.) immediately start pulling the fresh cPanel media without any other code changes. Re-run the command whenever you upload new files via cPanel/WordPress.
+
 const cloudinary = require('cloudinary').v2;
 // (Optional) cloudinary.config({ cloud_name: 'your-cloud-name' });
 const url = cloudinary.url('docs/casual', {

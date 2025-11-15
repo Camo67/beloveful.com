@@ -59,13 +59,15 @@ export const useAlbums = () => {
 };
 
 export const useAlbum = (region: string, country: string) => {
+  const normalizeRegion = (value: string) =>
+    value.toLowerCase().replace(/[^a-z]/g, "");
   return useQuery({
     queryKey: ['album', region, country],
     queryFn: async () => {
       // Use static Cloudinary data directly
       console.log(`🌍 Loading album for ${region}/${country} from static data`);
       const album = ALBUMS.find(album => 
-        album.region.toLowerCase().replace(/\s+/g, '-') === region && 
+        normalizeRegion(album.region) === normalizeRegion(region) && 
         album.slug === country
       );
       

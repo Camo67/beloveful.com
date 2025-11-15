@@ -10,7 +10,7 @@ import { CloudImage } from "@/components/CloudImage";
 
 export default function WorkshopChicagoGroup() {
   const heroImage = {
-    src: "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760218570/Website%20beloveful.com/Erasing%20Borders/Tony_Menias_-_Two_Girls_in_Window_rgthwg.jpg",
+    src: "/Website%20beloveful.com/Erasing%20Borders/Tony%20Menias%20-%20Two%20Girls%20in%20Window.jpg",
     alt: "Group Street Photography Workshop Chicago"
   };
 

@@ -7,6 +7,8 @@ import 'leaflet.markercluster/dist/MarkerCluster.Default.css';
 import 'leaflet.markercluster';
 import { useTheme } from 'next-themes';
 import { useNavigate } from 'react-router-dom';
+import type { CountryCode } from '@/types/map';
+import { folderForCountry, centerForCountry, assertMapped } from '@/lib/map-utils';
 
 // Fix default icon paths for Leaflet in bundlers
 // Using CDN fallbacks to prevent 404 errors when local assets aren't found
@@ -23,15 +25,16 @@ export type MapMarker = {
   position: LatLngExpression;
   title?: string;
   imageUrl?: string;
-  albumSlug?: string; // optional slug to navigate to when clicked
-  region?: string;
-  country?: string;
+  regionSlug?: string;
+  countrySlug?: string;
+  countryCode?: CountryCode; // ISO country code for folder mapping
 };
 
 interface LeafletWorldMapProps {
   markers?: MapMarker[];
   center?: LatLngExpression;
   zoom?: number;
+  openFolder?: (folderId: string) => void;
 }
 
 const TileLayerWithFade: React.FC<{ themeMode: 'light' | 'dark'; }> = ({ themeMode }) => {
@@ -129,14 +132,25 @@ const ClusterLayer: React.FC<{ markers: MapMarker[]; }> = ({ markers }) => {
         if (m.title) marker.bindPopup(`<div style="padding:4px 6px;font-weight:600">${m.title}</div>`);
       }
 
-      // If marker has region and country, navigate to the album when clicked
-      if (m.region && m.country) {
-        marker.on('click', () => {
-          // Navigate to the correct route for country galleries
-          const regionSlug = m.region?.toLowerCase().replace(/[^a-z]/g, "");
-          navigate(`/${regionSlug}/${m.country}`);
-        });
-      }
+      // Handle click events
+      marker.on('click', (e: L.LeafletMouseEvent) => {
+        e.originalEvent.stopPropagation();
+        
+        // First try to use the country code if available
+        if (m.countryCode) {
+          const regionSlug = m.regionSlug || 'portfolio';
+          const countrySlug =
+            m.countrySlug ||
+            folderForCountry(m.countryCode).replace('folder-', '');
+          navigate(`/${regionSlug}/${countrySlug}`);
+          return;
+        }
+      
+        // Fallback to albumSlug if no country code
+        if (m.regionSlug && m.countrySlug) {
+          navigate(`/${m.regionSlug}/${m.countrySlug}`);
+        }
+      });
 
       cluster.addLayer(marker);
     });
@@ -151,14 +165,19 @@ const ClusterLayer: React.FC<{ markers: MapMarker[]; }> = ({ markers }) => {
   return null;
 };
 
-const LeafletWorldMap: React.FC<LeafletWorldMapProps> = ({ markers = [], center = [20, 0], zoom = 2 }) => {
+const LeafletWorldMap: React.FC<LeafletWorldMapProps> = ({ 
+  markers = [], 
+  center = [20, 0], 
+  zoom = 2,
+  openFolder
+}) => {
   const { resolvedTheme } = useTheme();
   const themeMode: 'light' | 'dark' = (resolvedTheme === 'dark' ? 'dark' : 'light');
 
   const worldBounds = useMemo(() => L.latLngBounds([-85, -180], [85, 180]), []);
 
   return (
-    <div className="relative h-[60vh] md:h-[calc(100vh-4rem)] max-h-[900px] w-full rounded-lg overflow-hidden border">
+    <div className="relative h-[60vh] md:h-[calc(80vh)] max-h-[800px] w-full rounded-lg overflow-hidden border">
       <MapContainer
         center={center}
         zoom={zoom}

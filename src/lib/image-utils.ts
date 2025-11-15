@@ -1,6 +1,48 @@
 /**
  * Utility functions for handling image URLs and preventing broken images
  */
+import cdnMapping from './cdn-url-mapping.json';
+import { getSecureImageUrlByFilename } from './secure-images';
+
+const CDN_LOOKUP: Record<string, string> = cdnMapping as Record<string, string>;
+const LOCAL_LIBRARY_PREFIX = '/Website beloveful.com/';
+const DEFAULT_CDN_FALLBACK = 'https://mixing-additionally-institutions-divided.trycloudflare.com';
+
+const runtimeEnv = (() => {
+  try {
+    // Vite during build/runtime exposes import.meta.env
+    if (typeof import.meta !== 'undefined' && (import.meta as any)?.env) {
+      return (import.meta as any).env as Record<string, string>;
+    }
+  } catch {
+    // ignore when import.meta is unavailable (CommonJS)
+  }
+  if (typeof process !== 'undefined' && process.env) {
+    return process.env as Record<string, string>;
+  }
+  return {};
+})();
+
+export const CDN_BASE_URL = (() => {
+  const envOverride =
+    runtimeEnv.VITE_SECURE_CDN_BASE_URL ||
+    runtimeEnv.VITE_CDN_BASE_URL ||
+    runtimeEnv.VITE_APP_CDN_BASE;
+  if (envOverride && typeof envOverride === 'string') {
+    return envOverride.replace(/\/+$/, '');
+  }
+  const mappedUrl = Object.values(CDN_LOOKUP).find((value) => typeof value === 'string');
+  if (mappedUrl) {
+    try {
+      return new URL(mappedUrl).origin;
+    } catch {
+      // fall through to default
+    }
+  }
+  return DEFAULT_CDN_FALLBACK;
+})();
+
+const CDN_PATH_PREFIX = '/images/';
 
 /**
  * Validates if a URL is accessible with a timeout
@@ -74,6 +116,12 @@ export function createFallbackImageUrl(placeholderUrl: string = 'https://placeho
   return placeholderUrl;
 }
 
+const RELATIVE_URL_REGEX = /^\/(?!\/)/;
+
+function encodeSpaces(input: string): string {
+  return input.replace(/ /g, '%20');
+}
+
 /**
  * Validates image URL and provides a fallback if invalid
  * @param url - The URL to validate
@@ -93,6 +141,10 @@ export function validateAndFixImageUrl(url?: string | null, fallbackUrl?: string
   if (!trimmedUrl) {
     console.warn('Empty URL provided to validateAndFixImageUrl');
     return fallbackUrl || createFallbackImageUrl();
+  }
+
+  if (RELATIVE_URL_REGEX.test(trimmedUrl)) {
+    return encodeSpaces(trimmedUrl);
   }
 
   try {
@@ -128,6 +180,10 @@ export async function getWorkingImageUrl(url?: string | null, fallbackUrl?: stri
   if (!trimmedUrl) {
     console.warn('Empty URL provided to getWorkingImageUrl');
     return fallbackUrl || createFallbackImageUrl();
+  }
+
+  if (RELATIVE_URL_REGEX.test(trimmedUrl)) {
+    return encodeSpaces(trimmedUrl);
   }
 
   try {
@@ -201,11 +257,119 @@ export function debugImageUrl(url: string): {
   return result;
 }
 
+function normalizeRelativePath(relative: string): string {
+  return relative.replace(/^[\\/]+/, '').replace(/\\/g, '/');
+}
+
+function buildCdnFallbackUrl(relative: string): string {
+  const normalized = normalizeRelativePath(relative);
+  const withoutImagesPrefix = normalized.replace(/^images[\\/]+/i, '');
+  const encodedPath = withoutImagesPrefix
+    .split('/')
+    .map(segment => encodeURIComponent(segment))
+    .join('/');
+  return `${CDN_BASE_URL}${CDN_PATH_PREFIX}${encodedPath}`;
+}
+
+function buildLocalLibraryUrl(relative: string): string {
+  const normalized = normalizeRelativePath(relative);
+  const localPath = `${LOCAL_LIBRARY_PREFIX}${normalized}`;
+  return encodeSpaces(localPath);
+}
+
+function lookupCdnUrl(relative: string): string | undefined {
+  const normalized = normalizeRelativePath(relative);
+  const key = normalized.startsWith(LOCAL_LIBRARY_PREFIX.slice(1))
+    ? `/${normalized}`
+    : `${LOCAL_LIBRARY_PREFIX}${normalized}`;
+  const spaceKey = key;
+  const encodedKey = key.replace(/ /g, '%20');
+  return CDN_LOOKUP[spaceKey] || CDN_LOOKUP[encodedKey];
+}
+
+function deriveRelativeFromUrl(url: string): string | null {
+  if (!url) return null;
+
+  try {
+    const parsed = new URL(url);
+    const pathname = decodeURIComponent(parsed.pathname);
+
+    if (parsed.origin === CDN_BASE_URL && pathname.startsWith(CDN_PATH_PREFIX)) {
+      return pathname.slice(CDN_PATH_PREFIX.length);
+    }
+
+    const marker = LOCAL_LIBRARY_PREFIX;
+    const idx = pathname.indexOf(marker);
+    if (idx !== -1) {
+      return pathname.slice(idx + marker.length);
+    }
+  } catch {
+    if (url.startsWith(CDN_PATH_PREFIX)) {
+      return decodeURIComponent(url.slice(CDN_PATH_PREFIX.length));
+    }
+    if (url.startsWith(LOCAL_LIBRARY_PREFIX) || url.startsWith(LOCAL_LIBRARY_PREFIX.replace(/ /g, '%20'))) {
+      const cleaned = url.replace(/^\/+/, '');
+      const decoded = decodeURIComponent(cleaned);
+      return decoded.slice(LOCAL_LIBRARY_PREFIX.length);
+    }
+  }
+
+  return null;
+}
+
+export function mapToCdnUrl(originalUrl?: string | null): string | null {
+  if (!originalUrl || typeof originalUrl !== 'string') {
+    return null;
+  }
+
+  const trimmed = originalUrl.trim();
+  if (RELATIVE_URL_REGEX.test(trimmed)) {
+    return encodeSpaces(trimmed);
+  }
+
+  const filename = (() => {
+    try {
+      const parsed = new URL(trimmed);
+      return parsed.pathname.split('/').pop() ?? '';
+    } catch {
+      const parts = trimmed.split('/');
+      return parts[parts.length - 1] ?? '';
+    }
+  })();
+
+  const secureUrl = getSecureImageUrlByFilename(filename);
+  if (secureUrl) {
+    return secureUrl;
+  }
+
+  if (originalUrl.startsWith(CDN_BASE_URL)) {
+    return originalUrl;
+  }
+
+  const relative = deriveRelativeFromUrl(originalUrl);
+  if (!relative) {
+    return null;
+  }
+
+  const mappedUrl = lookupCdnUrl(relative);
+  if (mappedUrl) {
+    return mappedUrl;
+  }
+
+  const hasExplicitCdn = !!(runtimeEnv.VITE_CDN_BASE_URL || runtimeEnv.VITE_APP_CDN_BASE);
+  if (hasExplicitCdn) {
+    return buildCdnFallbackUrl(relative);
+  }
+
+  return buildLocalLibraryUrl(relative);
+}
+
 export default {
   isUrlAccessible,
   fixImageUrl,
   createFallbackImageUrl,
   validateAndFixImageUrl,
   getWorkingImageUrl,
-  debugImageUrl
+  debugImageUrl,
+  mapToCdnUrl
 };

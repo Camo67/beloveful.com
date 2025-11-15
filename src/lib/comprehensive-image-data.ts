@@ -67,7 +67,8 @@ export function processAllImageData(): OrganizedImageData {
   // Process country folders (organized by region)
   const countryFolders = folders.filter(folder => folder.type === 'country');
   console.log(`📂 Found ${countryFolders.length} country folders`);
-  
+  const countryLookup: Record<string, Set<string>> = {};
+
   countryFolders.forEach(folder => {
     if (folder.region && folder.country) {
       // Initialize region if not exists
@@ -85,6 +86,10 @@ export function processAllImageData(): OrganizedImageData {
         region: folder.region,
         images: []
       };
+      if (!countryLookup[folder.region]) {
+        countryLookup[folder.region] = new Set();
+      }
+      countryLookup[folder.region].add(folder.country);
     }
   });
   
@@ -111,7 +116,7 @@ export function processAllImageData(): OrganizedImageData {
   // Match images to their appropriate regions/countries/categories
   (allUrls as ImageAsset[]).forEach(image => {
     // Try to match image to a country based on filename patterns
-    const countryMatch = matchImageToCountry(image);
+    const countryMatch = matchImageToCountry(image, countryLookup);
     if (countryMatch) {
       const { region, country } = countryMatch;
       
@@ -140,7 +145,9 @@ export function processAllImageData(): OrganizedImageData {
 /**
  * Match an image to a country based on filename patterns
  */
-function matchImageToCountry(image: ImageAsset): { region: string; country: string } | null {
+function matchImageToCountry(image: ImageAsset, countryLookup: Record<string, Set<string>>): { region: string; country: string } | null {
+  const derived = deriveRegionCountryFromUrl(image, countryLookup);
+  if (derived) return derived;
   const filename = image.filename;
   
   // Regional patterns
@@ -223,6 +230,25 @@ function matchImageToCountry(image: ImageAsset): { region: string; country: stri
     return { region: 'Erasing Borders', country: 'International' };
   }
   
+  return null;
+}
+
+function deriveRegionCountryFromUrl(image: ImageAsset, countryLookup: Record<string, Set<string>>): { region: string; country: string } | null {
+  if (!image.url) return null;
+  try {
+    const parsed = new URL(image.url);
+    const segments = parsed.pathname.split('/').filter(Boolean);
+    const imagesIndex = segments.findIndex((segment) => segment.toLowerCase() === 'images');
+    if (imagesIndex !== -1 && segments.length > imagesIndex + 2) {
+      const region = decodeURIComponent(segments[imagesIndex + 1]);
+      const country = decodeURIComponent(segments[imagesIndex + 2]);
+      if (countryLookup[region] && countryLookup[region].has(country)) {
+        return { region, country };
+      }
+    }
+  } catch (error) {
+    console.warn('Failed to derive region from URL:', image.url, error);
+  }
   return null;
 }
 

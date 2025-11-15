@@ -5,14 +5,16 @@ import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useWorkshopImages } from "@/hooks/use-workshop-images";
+import { CloudImage } from "@/components/CloudImage";
 
 export default function Mentorship() {
-  const heroImage = {
-    src: "https://res.cloudinary.com/dvwdoezk1/image/upload/v1760979008/home/camo/new/beloveful.com/public/Website%20beloveful.com/Workshop%20Photos/Copy%20of%20CHI-359.jpg",
-    alt: "Photography Mentorship"
-  };
-
   const { data } = useWorkshopImages();
+  const heroImage = data?.mentorship?.[0] ?? {
+    src: "/Website beloveful.com/Workshop Photos/Copy of CHI-359.jpg",
+    alt: "Photography Mentorship",
+    desktop: "/Website beloveful.com/Workshop Photos/Copy of CHI-359.jpg",
+    mobile: "/Website beloveful.com/Workshop Photos/Copy of CHI-359.jpg",
+  };
 
   return (
     <div className="min-h-screen">
@@ -29,8 +31,8 @@ export default function Mentorship() {
 
       {/* Hero Section */}
       <section className="relative h-96 md:h-[500px] overflow-hidden">
-        <img
-          src={heroImage.src}
+        <CloudImage
+          url={heroImage.src}
           alt={heroImage.alt}
           className="w-full h-full object-cover"
           draggable={false}
@@ -86,8 +88,8 @@ export default function Mentorship() {
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
                   {data.mentorship.slice(1, 5).map((img, idx) => (
                     <div key={idx} className="aspect-[4/3] overflow-hidden rounded-lg">
-                      <img
-                        src={img.src}
+                      <CloudImage
+                        url={img.src}
                         alt={img.alt}
                         className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                         draggable={false}

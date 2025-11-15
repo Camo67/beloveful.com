@@ -1,6 +1,9 @@
 import { validateAndFixImageUrl, fixImageUrl } from './image-utils';
 
-const BASE_ASSET_URL = (import.meta as any)?.env?.VITE_ASSET_BASE_URL?.replace(/\/$/, "") || "";
+const SECURE_ROOT_BASE =
+  (import.meta as any)?.env?.VITE_SECURE_CDN_BASE_URL?.replace(/\/+$/, "") || "";
+const BASE_ASSET_URL =
+  (import.meta as any)?.env?.VITE_ASSET_BASE_URL?.replace(/\/$/, "") || "";
 const ENABLE_IMAGE_PROXY = String((import.meta as any)?.env?.VITE_ENABLE_IMAGE_PROXY ?? "false").toLowerCase() === "true";
 
 // Domains we consider as Cloudinary
@@ -54,6 +57,19 @@ export function createProxiedImageUrl(originalUrl: string): string {
 
   // If it's root-relative, optionally prefix with CDN base
   if (trimmedUrl.startsWith("/")) {
+    const decoded = (() => {
+      try {
+        return decodeURIComponent(trimmedUrl);
+      } catch {
+        return trimmedUrl;
+      }
+    })();
+    if (decoded.startsWith('/Website beloveful.com/')) {
+      return decoded.replace(/ /g, '%20');
+    }
+    if (SECURE_ROOT_BASE) {
+      return `${SECURE_ROOT_BASE}${trimmedUrl}`;
+    }
     const combined = BASE_ASSET_URL ? `${BASE_ASSET_URL}${trimmedUrl}` : trimmedUrl;
     console.debug('Creating root-relative URL:', { original: trimmedUrl, base: BASE_ASSET_URL, combined });
     return combined;

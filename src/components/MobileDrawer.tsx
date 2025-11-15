@@ -1,6 +1,5 @@
-import { X, ChevronDown, ShoppingCart } from "lucide-react";
+import { X, ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
-import { SocialIcons } from "./SocialIcons";
 import { useState } from "react";
 
 interface MobileDrawerProps {
@@ -169,26 +168,6 @@ export function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
                 </Link>
               </li>
               
-              {/* Basket and Checkout */}
-              <li>
-                <Link
-                  to="/cart"
-                  className="flex items-center gap-2 text-xl text-black dark:text-white hover:underline hover:underline-offset-4 hover:decoration-white transition-opacity duration-300"
-                  onClick={onClose}
-                >
-                  <ShoppingCart size={20} />
-                  Cart
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/checkout"
-                  className="flex items-center gap-2 text-xl text-black dark:text-white hover:underline hover:underline-offset-4 hover:decoration-white transition-opacity duration-300"
-                  onClick={onClose}
-                >
-                  Checkout
-                </Link>
-              </li>
             </ul>
           </nav>
 

@@ -620,3 +620,47 @@
   }
 }
 
+/* globals.css */
+.app-header { 
+  position: sticky; 
+  top: 0; 
+  z-index: 1000; 
+}
+
+.drawer-backdrop { 
+  z-index: 40; 
+}
+
+.drawer-panel { 
+  z-index: 50; 
+}
+
+.mobile-map { 
+  z-index: 30; 
+}
+
+/* Map container styles */
+#world-map {
+  height: 100%;
+  width: 100%;
+}
+
+.marker-numbered {
+  /* Styles for numbered markers */
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  z-index: 100;
+}
+
+.marker-numbered:hover {
+  background: #f0f0f0;
+}

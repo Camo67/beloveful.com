@@ -20,6 +20,89 @@ const COUNTRY_MAP = {
   // Add more countries as needed
 };
 
+async function handleCheckoutSession(request, env, origin) {
+  const headers = {
+    'Content-Type': 'application/json',
+    'Access-Control-Allow-Origin': '*',
+  };
+
+  if (request.method === 'OPTIONS') {
+    return new Response(null, {
+      headers: {
+        ...headers,
+        'Access-Control-Allow-Methods': 'POST, OPTIONS',
+        'Access-Control-Allow-Headers': 'Content-Type',
+      },
+    });
+  }
+
+  if (!env.STRIPE_SECRET_KEY) {
+    return new Response(
+      JSON.stringify({ error: 'Stripe is not configured' }),
+      { status: 500, headers }
+    );
+  }
+
+  let body;
+  try {
+    body = await request.json();
+  } catch (error) {
+    return new Response(
+      JSON.stringify({ error: 'Invalid JSON payload' }),
+      { status: 400, headers }
+    );
+  }
+
+  const priceId = typeof body.priceId === 'string' ? body.priceId.trim() : '';
+  const quantity = Number(body.quantity);
+
+  if (!priceId || !Number.isFinite(quantity) || quantity < 1) {
+    return new Response(
+      JSON.stringify({ error: 'Invalid price or quantity' }),
+      { status: 400, headers }
+    );
+  }
+
+  const params = new URLSearchParams();
+  params.append('mode', 'payment');
+  params.append('success_url', `${origin}/print-shop?success=true`);
+  params.append('cancel_url', `${origin}/print-shop?canceled=true`);
+  params.append('line_items[0][price]', priceId);
+  params.append('line_items[0][quantity]', Math.floor(quantity).toString());
+
+  try {
+    const stripeResponse = await fetch('https://api.stripe.com/v1/checkout/sessions', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${env.STRIPE_SECRET_KEY}`,
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: params,
+    });
+
+    const data = await stripeResponse.json();
+
+    if (!stripeResponse.ok || !data?.url) {
+      console.error('Stripe checkout creation failed', data);
+      return new Response(
+        JSON.stringify({ error: data?.error?.message || 'Unable to create checkout session' }),
+        { status: 502, headers }
+      );
+    }
+
+    return new Response(
+      JSON.stringify({ url: data.url }),
+      { headers }
+    );
+  } catch (error) {
+    console.error('Stripe API error', error);
+    return new Response(
+      JSON.stringify({ error: 'Stripe request failed' }),
+      { status: 502, headers }
+    );
+  }
+}
+
 async function handleMetadataSync(request, env) {
   // CORS headers
   const headers = {
@@ -146,6 +229,13 @@ export default {
 
     if (pathname === '/api/sync-metadata' && request.method === 'POST') {
       return handleMetadataSync(request, env);
+    }
+
+    if (pathname === '/api/create-checkout-session') {
+      if (request.method === 'POST' || request.method === 'OPTIONS') {
+        return handleCheckoutSession(request, env, url.origin);
+      }
+      return new Response('Method Not Allowed', { status: 405 });
     }
 
     // Serve images from R2

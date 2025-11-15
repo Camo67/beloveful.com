@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import { workshopImages as rawWorkshopImages, WorkshopImage as RawWorkshopImage } from '@/lib/workshopImages';
+import { workshopImages as localWorkshopImages } from '@/lib/workshop-data';
 import { getWorkingImageUrl } from '@/lib/image-utils';
 
 export interface WorkshopImage {
@@ -17,36 +17,32 @@ export interface WorkshopImagesResponse {
   mentorship: WorkshopImage[];
 }
 
-// Helper function to transform RawWorkshopImage to WorkshopImage
-const transformRawWorkshopImage = async (rawImage: RawWorkshopImage): Promise<WorkshopImage> => {
-  // Ensure the image URL is accessible, if not use a fallback
-  const workingUrl = await getWorkingImageUrl(rawImage.url);
-  
-  return {
-    src: workingUrl,
-    alt: rawImage.filename, // Assuming filename can be used as alt text
-    desktop: workingUrl, // Assuming desktop uses the same URL for now
-    mobile: workingUrl, // Assuming mobile uses the same URL for now
-  };
-};
-
 export function useWorkshopImages() {
   return useQuery<WorkshopImagesResponse>({
     queryKey: ['workshop-images'],
     queryFn: async () => {
-      // Transform the raw workshop images data into the desired format
-      const transformedImagePromises = rawWorkshopImages.map(transformRawWorkshopImage);
-      const transformedImages = await Promise.all(transformedImagePromises);
-
-      // For now, we'll just return all images in each category.
-      // In a real scenario, you would filter these based on actual categories.
-      return {
-        success: true,
-        chicagoPrivate: transformedImages,
-        chicagoGroup: transformedImages,
-        online: transformedImages,
-        mentorship: transformedImages,
+      const transformGroup = async (group: { src: string; alt: string }[]) => {
+        return Promise.all(
+          group.map(async (image) => {
+            const workingUrl = await getWorkingImageUrl(image.src, image.src);
+            return {
+              src: workingUrl,
+              alt: image.alt,
+              desktop: workingUrl,
+              mobile: workingUrl,
+            };
+          }),
+        );
       };
+
+      const [chicagoPrivate, chicagoGroup, online, mentorship] = await Promise.all([
+        transformGroup(localWorkshopImages.chicagoPrivate),
+        transformGroup(localWorkshopImages.chicagoGroup),
+        transformGroup(localWorkshopImages.online),
+        transformGroup(localWorkshopImages.mentorship),
+      ]);
+
+      return { success: true, chicagoPrivate, chicagoGroup, online, mentorship };
     },
     staleTime: Infinity, // Data is static
     retry: 0,
