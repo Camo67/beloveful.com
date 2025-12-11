@@ -375,7 +375,7 @@ export default function Portfolio() {
                     aria-label={`View ${album.country} photography collection with ${album.images.length} photographs`}
                   >
                     <article className="content-card">
-                      <div className="relative overflow-hidden bg-muted aspect-[4/3]">
+                      <div className="relative overflow-hidden bg-transparent aspect-[4/3]">
                         <CloudImage
                           url={album.images[0]?.desktop}
                           alt={`Representative image from ${album.country} collection`}

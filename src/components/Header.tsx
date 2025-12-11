@@ -112,7 +112,7 @@ export function Header({ variant, fullWidth = false, navStyle = "standard" }: He
         </header>
 
         {/* Mobile Home Header */}
-        <header className="md:hidden fixed z-50 bg-transparent backdrop-blur-md inset-x-0 top-0">
+        <header className="md:hidden fixed z-50 bg-transparent inset-x-0 top-0">
           <div className="flex items-center justify-between h-16 px-4">
             <div className="flex items-center">
               <Link to="/" className="text-white">
@@ -152,7 +152,7 @@ export function Header({ variant, fullWidth = false, navStyle = "standard" }: He
   };
   return (
     <>
-      <header className="sticky top-0 z-50 bg-transparent backdrop-blur-md border-b-0">
+      <header className="sticky top-0 z-50 bg-transparent border-b-0 backdrop-blur-0 md:backdrop-blur-md">
         {/* Desktop Navigation */}
         <div className="hidden md:block px-4">
           {/* Centered logo */}

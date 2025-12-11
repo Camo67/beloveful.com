@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import { createProxiedImageUrl } from '@/lib/images';
-import { getWorkingImageUrl } from '@/lib/image-utils';
+import React, { useState, useEffect, useRef } from 'react';
+import { mapToCdnUrl, validateAndFixImageUrl } from '@/lib/image-utils';
+
+const FALLBACK_SRC = '/images/Logo/IMG_0007%20copy.JPG';
 
 interface CloudImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
   url: string;
@@ -12,11 +13,42 @@ interface CloudImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
  * Provides fallback handling for broken images.
  */
 export const CloudImage: React.FC<CloudImageProps> = ({ url, alt = '', className, loading, decoding = 'async', ...rest }) => {
-  const [imageSrc, setImageSrc] = useState<string>('');
+  function getFallbackImage(): string {
+    return FALLBACK_SRC;
+  }
+
+  const [imageSrc, setImageSrc] = useState<string>(getFallbackImage());
   const [hasError, setHasError] = useState<boolean>(false);
+  const [isInView, setIsInView] = useState<boolean>(false);
+  const imgRef = useRef<HTMLImageElement | null>(null);
+
+  useEffect(() => {
+    if (typeof IntersectionObserver === 'undefined') {
+      setIsInView(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsInView(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: '150px' }
+    );
+
+    if (imgRef.current) {
+      observer.observe(imgRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
 
   // Initialize and update image source when URL changes
   useEffect(() => {
+    if (!isInView) return;
+
     // Handle empty or invalid URLs
     if (!url || typeof url !== 'string' || url.trim() === '') {
       setImageSrc(getFallbackImage());
@@ -24,45 +56,18 @@ export const CloudImage: React.FC<CloudImageProps> = ({ url, alt = '', className
       return;
     }
 
-    const updateImageSrc = async () => {
-      try {
-        const trimmedUrl = url.trim();
-        
-        // For Shopify CDN URLs, use them directly without proxy
-        if (trimmedUrl.includes('cdn.shopify.com')) {
-          // Check if URL is accessible
-          const workingUrl = await getWorkingImageUrl(trimmedUrl);
-          setImageSrc(workingUrl);
-        } else {
-          // Create proxied URL immediately for faster initial display
-          const proxiedUrl = createProxiedImageUrl(trimmedUrl);
-          setImageSrc(proxiedUrl);
-          
-          // Check if URL is accessible and get a working URL or fallback
-          // But don't block the initial image display
-          const workingUrl = await getWorkingImageUrl(trimmedUrl);
-          if (workingUrl !== trimmedUrl) {
-            // Only update if we got a different URL (fallback)
-            const newProxiedUrl = createProxiedImageUrl(workingUrl);
-            setImageSrc(newProxiedUrl);
-          }
-        }
-      } catch (error) {
-        console.error('Error processing image URL in CloudImage:', url, error);
-        // Keep the original URL, but mark as error for tracking
-        setHasError(true);
-      }
-    };
-
-    updateImageSrc();
-    
-    // Reset error state when URL changes
-    setHasError(false);
-  }, [url]);
-
-  const getFallbackImage = (): string => {
-    return 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIwIiBoZWlnaHQ9IjMyMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZGRkIi8+CiAgPHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzk5OSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkltYWdlIG5vdCBhdmFpbGFibGU8L3RleHQ+Cjwvc3ZnPg==';
-  };
+    try {
+      const trimmedUrl = url.trim();
+      const cleaned = validateAndFixImageUrl(trimmedUrl);
+      const cdnUrl = mapToCdnUrl(cleaned) ?? cleaned;
+      setImageSrc(cdnUrl);
+      setHasError(false);
+    } catch (error) {
+      console.error('Error processing image URL in CloudImage:', url, error);
+      setHasError(true);
+      setImageSrc(getFallbackImage());
+    }
+  }, [url, isInView]);
 
   const handleError = () => {
     // If we haven't already tried the fallback, try it now
@@ -80,10 +85,11 @@ export const CloudImage: React.FC<CloudImageProps> = ({ url, alt = '', className
 
   return (
     <img
+      ref={imgRef}
       src={imageSrc}
       alt={alt}
       className={className}
-      loading={loading}
+      loading={loading ?? 'lazy'}
       decoding={decoding}
       onError={handleError}
       onLoad={handleLoad}
