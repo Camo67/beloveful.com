@@ -2,6 +2,7 @@ import prefixMappedData from './cloudinary-assets/prefix-mapped.json';
 import homepageDesktopData from './cloudinary-assets/Homepage/Desktop Landscape/urls.json';
 import homepageMobileData from './cloudinary-assets/Homepage/Mobile Portrait/urls.json';
 import localAlbums from './local-albums.json';
+import { GENERATED_ALBUMS, GENERATED_HOME_SLIDESHOW } from './generatedAlbums';
 import { validateAndFixImageUrl, mapToCdnUrl } from './image-utils';
 
 console.log('📦 Loading prefix-mapped data:', prefixMappedData);
@@ -76,6 +77,48 @@ interface HomepageAsset {
   height?: string;
   bytes?: string;
 }
+
+// Local-only fallback for Erasing Borders (ensures live mirrors dev by using bundled images)
+const ERASING_BORDERS_LOCAL_IMAGES = [
+  "/images/Erasing Borders/CHI-Beloveful6.jpg",
+  "/images/Erasing Borders/CHI-DSCF9471.jpg",
+  "/images/Erasing Borders/CHI-MeniasTony_12.jpg",
+  "/images/Erasing Borders/DSCF3088 copy.jpg",
+  "/images/Erasing Borders/FRA-DSCF0103 copy.jpg",
+  "/images/Erasing Borders/Greece-DSCF3935 copy 3.jpg",
+  "/images/Erasing Borders/IND-MeniasTony_14.jpg",
+  "/images/Erasing Borders/IND-MeniasTony_16.jpg",
+  "/images/Erasing Borders/IND-MeniasTony_8.jpg",
+  "/images/Erasing Borders/JAP-3265.jpg",
+  "/images/Erasing Borders/JOR-4461.jpg",
+  "/images/Erasing Borders/MOR-IMG_5248 copy.jpg",
+  "/images/Erasing Borders/MOR-IMG_5277.jpg",
+  "/images/Erasing Borders/MYA-DSCF0783 copy.jpg",
+  "/images/Erasing Borders/MYA-DSCF9634 copy.jpg",
+  "/images/Erasing Borders/NEP-DSCF8737 copy.jpg",
+  "/images/Erasing Borders/NEP-Silent Stare copy.jpg",
+  "/images/Erasing Borders/NatureVSNurture copy.jpg",
+  "/images/Erasing Borders/NyC-DSCF8922 copy 2.jpg",
+  "/images/Erasing Borders/PAL-DSCF3675 copy.jpg",
+  "/images/Erasing Borders/PAL-MeniasTony_13.jpg",
+  "/images/Erasing Borders/PHI-1662 copy.jpg",
+  "/images/Erasing Borders/THAI-DSCF3890 copy.jpg",
+  "/images/Erasing Borders/Tony Menias - Two Girls in Window.jpg",
+  "/images/Erasing Borders/TonyMeniasAMansLegacy.jpg",
+  "/images/Erasing Borders/Vietnam-DSCF8153 copy.jpg",
+];
+
+const ERASING_BORDERS_LOCAL_PROJECT: Work = {
+  title: "Erasing Borders",
+  slug: "erasing-borders",
+  description: "A humanist photography project connecting experiences across borders.",
+  region: "Erasing Borders" as Region,
+  featured: true,
+  images: ERASING_BORDERS_LOCAL_IMAGES.map((url) => ({
+    desktop: validateAndFixImageUrl(url),
+    mobile: validateAndFixImageUrl(url),
+  })),
+};
 
 // Function to group prefix-mapped data by region and country
 function groupPrefixMappedData(): CountryAlbum[] {
@@ -171,6 +214,11 @@ function normalizeLocalAlbums(): CountryAlbum[] {
   try {
     const parsed = (localAlbums as any[]) ?? [];
     const regionSet = new Set<Region>(REGIONS);
+    const cleanUrl = (url: string) => {
+      const fixed = validateAndFixImageUrl(url);
+      return mapToCdnUrl(fixed) ?? fixed;
+    };
+
     return parsed
       .map((album) => {
         const regionName = album.region as Region;
@@ -180,8 +228,8 @@ function normalizeLocalAlbums(): CountryAlbum[] {
         const images = Array.isArray(album.images)
           ? album.images
               .map((img: any) => ({
-                desktop: validateAndFixImageUrl(img.desktop),
-                mobile: validateAndFixImageUrl(img.mobile),
+                desktop: cleanUrl(img.desktop),
+                mobile: cleanUrl(img.mobile),
               }))
               .filter((img) => !!img.desktop)
           : [];
@@ -201,9 +249,34 @@ function normalizeLocalAlbums(): CountryAlbum[] {
 }
 
 const LOCAL_ALBUMS = normalizeLocalAlbums();
+const PREFIX_ALBUMS = groupPrefixMappedData();
 
-export const ALBUMS: CountryAlbum[] =
-  LOCAL_ALBUMS.length > 0 ? LOCAL_ALBUMS : groupPrefixMappedData();
+function mergeAlbums(...albumLists: CountryAlbum[][]): CountryAlbum[] {
+  const albumMap = new Map<string, CountryAlbum>();
+  const slugify = (album: CountryAlbum) =>
+    album.slug?.trim() ||
+    album.country.toLowerCase().replace(/\s+/g, "-").replace(/[^\w-]+/g, "");
+
+  for (const list of albumLists) {
+    for (const album of list) {
+      const key = slugify(album);
+      if (!key) continue;
+      const existing = albumMap.get(key);
+      // Prefer earlier lists (local > generated > prefix) or ones with images
+      if (!existing || existing.images.length === 0) {
+        albumMap.set(key, { ...album, slug: key });
+      }
+    }
+  }
+
+  return Array.from(albumMap.values());
+}
+
+export const ALBUMS: CountryAlbum[] = mergeAlbums(
+  LOCAL_ALBUMS,
+  GENERATED_ALBUMS,
+  PREFIX_ALBUMS
+).filter(album => album.slug !== "st-martin" && album.country !== "St. Martin");
 
 // Projects from prefix-mapped data
 function createLocalProjects(): Work[] {
@@ -223,8 +296,17 @@ function createLocalProjects(): Work[] {
 
 const LOCAL_PROJECTS = createLocalProjects();
 
-export const PROJECTS: Work[] =
+const PROJECTS_BASE: Work[] =
   LOCAL_PROJECTS.length > 0 ? LOCAL_PROJECTS : createProjectsFromPrefixMapped();
+
+export const PROJECTS: Work[] = (() => {
+  const list = PROJECTS_BASE.filter((p) => p.slug !== "erasing-borders");
+  // Always prefer the bundled Erasing Borders set to avoid bad remote mappings.
+  if (ERASING_BORDERS_LOCAL_PROJECT.images.length > 0) {
+    list.unshift(ERASING_BORDERS_LOCAL_PROJECT);
+  }
+  return list;
+})();
 
 export const getProjectBySlug = (slug: string): Work | undefined => {
   return PROJECTS.find(p => p.slug === slug);
@@ -336,9 +418,13 @@ function buildHomepageSlideshowFromCuratedAssets(): SlideshowImage[] {
 
 const curatedHomepageSlideshow = buildHomepageSlideshowFromCuratedAssets();
 
-// Slideshow images from curated homepage assets with fallback to prefix-mapped data
+// Slideshow images from curated homepage assets with fallback to generated/prefix data
 export const HOME_SLIDESHOW: SlideshowImage[] =
-  curatedHomepageSlideshow.length > 0 ? curatedHomepageSlideshow : transformPrefixMappedToSlideshow();
+  curatedHomepageSlideshow.length > 0
+    ? curatedHomepageSlideshow
+    : (GENERATED_HOME_SLIDESHOW.length > 0
+        ? GENERATED_HOME_SLIDESHOW
+        : transformPrefixMappedToSlideshow());
 
 // Simple data structures for when we want to use a simpler system
 export { 

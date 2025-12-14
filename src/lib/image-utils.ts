@@ -276,6 +276,11 @@ function buildCdnFallbackUrl(relative: string): string {
 
 function buildLocalLibraryUrl(relative: string): string {
   const normalized = normalizeRelativePath(relative);
+  const libPrefix = LOCAL_LIBRARY_PREFIX.replace(/^\/+/, '');
+  // Avoid double-prefixing when the path already starts with the library prefix
+  if (normalized.startsWith(libPrefix)) {
+    return encodeSpaces(`/${normalized}`);
+  }
   const localPath = `${LOCAL_LIBRARY_PREFIX}${normalized}`;
   return encodeSpaces(localPath);
 }
@@ -298,6 +303,29 @@ function lookupCdnUrl(relative: string): string | undefined {
   const spaceKey = key;
   const encodedKey = key.replace(/ /g, '%20');
   return CDN_LOOKUP[spaceKey] || CDN_LOOKUP[encodedKey];
+}
+
+// Normalize legacy India filenames with "-nggid..." suffixes to point at the real indiaImages assets
+function normalizeIndiaNggidPath(relative: string): string {
+  const normalized = normalizeRelativePath(relative);
+  const lower = normalized.toLowerCase();
+  if (!lower.includes('/asia/india/') || !normalized.includes('-nggid')) {
+    return normalized;
+  }
+
+  const segments = normalized.split('/');
+  const filename = segments.pop() ?? '';
+  const match = filename.match(/^(.+?)(\.[^.]+)$/);
+  if (!match) return normalized;
+
+  let base = match[1];
+  const ext = match[2];
+
+  // Strip the nggid suffix and duplicate markers, and avoid double extensions
+  base = base.replace(/-nggid.*$/i, '').replace(/\s*\(1\)\s*$/i, '');
+  base = base.replace(/\.(jpe?g|png|webp|gif)$/i, '');
+
+  return [...segments, 'indiaImages', `${base}${ext}`].join('/');
 }
 
 function deriveRelativeFromUrl(url: string): string | null {
@@ -335,6 +363,33 @@ export function mapToCdnUrl(originalUrl?: string | null): string | null {
     return null;
   }
 
+  // Hard fix for legacy India images that include "-nggid..." and live under indiaImages/
+  const fixIndiaNggid = (input: string): string | null => {
+    let decoded = input;
+    try {
+      decoded = decodeURIComponent(input);
+    } catch {
+      // ignore
+    }
+    const lower = decoded.toLowerCase();
+    if (!lower.includes('/asia/india/') || !lower.includes('-nggid')) return null;
+
+    const withoutQuery = decoded.split(/[?#]/)[0];
+    const parts = withoutQuery.split('/');
+    const filename = parts.pop() ?? '';
+    const match = filename.match(/^(.+?)(\.[^.]+)$/);
+    if (!match) return null;
+    let base = match[1];
+    const ext = match[2];
+    base = base.replace(/-nggid.*$/i, '').replace(/\s*\(1\)\s*$/i, '');
+    base = base.replace(/\.(jpe?g|png|webp|gif)$/i, '');
+    const cleanedPath = `/Website beloveful.com/Asia/india/indiaImages/${base}${ext}`;
+    return encodeSpaces(cleanedPath);
+  };
+
+  const indiaFixed = fixIndiaNggid(originalUrl);
+  if (indiaFixed) return indiaFixed;
+
   const hasExplicitCdn = !!(
     runtimeEnv.VITE_SECURE_CDN_BASE_URL ||
     runtimeEnv.VITE_CDN_BASE_URL ||
@@ -343,7 +398,18 @@ export function mapToCdnUrl(originalUrl?: string | null): string | null {
 
   const trimmed = originalUrl.trim();
   if (RELATIVE_URL_REGEX.test(trimmed)) {
-    return encodeSpaces(trimmed);
+    const relativePath = normalizeIndiaNggidPath(trimmed.replace(/^\/+/, ''));
+    // Always prefer bundled assets for library + /images paths (avoid CDN)
+    if (
+      relativePath.startsWith(LOCAL_LIBRARY_PREFIX.replace(/^\/+/, '')) ||
+      relativePath.startsWith('images/')
+    ) {
+      return encodeSpaces(relativePath.startsWith('/') ? relativePath : `/${relativePath}`);
+    }
+    const mapped = lookupCdnUrl(relativePath);
+    if (mapped) return mapped;
+    if (hasExplicitCdn) return buildCdnFallbackUrl(relativePath);
+    return encodeSpaces(relativePath.startsWith('/') ? relativePath : `/${relativePath}`);
   }
 
   const filename = (() => {
@@ -365,16 +431,31 @@ export function mapToCdnUrl(originalUrl?: string | null): string | null {
   if (!relative) {
     return validateAndFixImageUrl(trimmed);
   }
-  const mappedUrl = lookupCdnUrl(relative);
+  const normalizedRelative = normalizeIndiaNggidPath(relative);
+  // Prefer local library/assets for production and dev parity
+  if (
+    normalizedRelative.startsWith(LOCAL_LIBRARY_PREFIX.replace(/^\/+/, '')) ||
+    normalizedRelative.startsWith('images/')
+  ) {
+    const localPath = normalizedRelative.startsWith('/')
+      ? normalizedRelative
+      : `/${normalizedRelative}`;
+    return encodeSpaces(localPath);
+  }
+  const mappedUrl = lookupCdnUrl(normalizedRelative);
   if (mappedUrl) {
     return mappedUrl;
   }
 
   if (hasExplicitCdn) {
-    return buildCdnFallbackUrl(relative);
+    return buildCdnFallbackUrl(normalizedRelative);
   }
 
-  return buildLocalLibraryUrl(relative);
+  // Final fallback to site images (prefers /images/... and avoids double prefixes)
+  const candidate = normalizedRelative.startsWith('images/')
+    ? `/${normalizedRelative}`
+    : buildLocalLibraryUrl(normalizedRelative);
+  return encodeSpaces(candidate);
 }
 
 export default {
