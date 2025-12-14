@@ -4,10 +4,6 @@
 import cdnMapping from './cdn-url-mapping.json';
 import { getSecureImageUrlByFilename } from './secure-images';
 
-const CDN_LOOKUP: Record<string, string> = cdnMapping as Record<string, string>;
-const LOCAL_LIBRARY_PREFIX = '/Website beloveful.com/';
-const DEFAULT_CDN_FALLBACK = 'https://mixing-additionally-institutions-divided.trycloudflare.com';
-
 const runtimeEnv = (() => {
   try {
     // Vite during build/runtime exposes import.meta.env
@@ -22,6 +18,13 @@ const runtimeEnv = (() => {
   }
   return {};
 })();
+
+const CDN_LOOKUP: Record<string, string> = cdnMapping as Record<string, string>;
+const LOCAL_LIBRARY_PREFIX = '/Website beloveful.com/';
+const DEFAULT_SITE_ORIGIN =
+  runtimeEnv.VITE_PUBLIC_SITE_URL ||
+  'https://beloveful.com';
+const DEFAULT_CDN_FALLBACK = DEFAULT_SITE_ORIGIN;
 
 export const CDN_BASE_URL = (() => {
   const envOverride =
@@ -39,7 +42,7 @@ export const CDN_BASE_URL = (() => {
       // fall through to default
     }
   }
-  return DEFAULT_CDN_FALLBACK;
+  return DEFAULT_CDN_FALLBACK.replace(/\/+$/, '');
 })();
 
 const CDN_PATH_PREFIX = '/images/';
@@ -277,6 +280,16 @@ function buildLocalLibraryUrl(relative: string): string {
   return encodeSpaces(localPath);
 }
 
+function buildSiteImagesUrl(relative: string): string {
+  const normalized = normalizeRelativePath(relative);
+  const prefixed = normalized.startsWith('images/') ? normalized : `images/${normalized}`;
+  const encodedPath = prefixed
+    .split('/')
+    .map(segment => encodeURIComponent(segment))
+    .join('/');
+  return `/${encodedPath}`;
+}
+
 function lookupCdnUrl(relative: string): string | undefined {
   const normalized = normalizeRelativePath(relative);
   const key = normalized.startsWith(LOCAL_LIBRARY_PREFIX.slice(1))
@@ -294,7 +307,7 @@ function deriveRelativeFromUrl(url: string): string | null {
     const parsed = new URL(url);
     const pathname = decodeURIComponent(parsed.pathname);
 
-    if (parsed.origin === CDN_BASE_URL && pathname.startsWith(CDN_PATH_PREFIX)) {
+    if (pathname.startsWith(CDN_PATH_PREFIX)) {
       return pathname.slice(CDN_PATH_PREFIX.length);
     }
 
@@ -322,6 +335,12 @@ export function mapToCdnUrl(originalUrl?: string | null): string | null {
     return null;
   }
 
+  const hasExplicitCdn = !!(
+    runtimeEnv.VITE_SECURE_CDN_BASE_URL ||
+    runtimeEnv.VITE_CDN_BASE_URL ||
+    runtimeEnv.VITE_APP_CDN_BASE
+  );
+
   const trimmed = originalUrl.trim();
   if (RELATIVE_URL_REGEX.test(trimmed)) {
     return encodeSpaces(trimmed);
@@ -342,21 +361,15 @@ export function mapToCdnUrl(originalUrl?: string | null): string | null {
     return secureUrl;
   }
 
-  if (originalUrl.startsWith(CDN_BASE_URL)) {
-    return originalUrl;
-  }
-
   const relative = deriveRelativeFromUrl(originalUrl);
   if (!relative) {
-    return null;
+    return validateAndFixImageUrl(trimmed);
   }
-
   const mappedUrl = lookupCdnUrl(relative);
   if (mappedUrl) {
     return mappedUrl;
   }
 
-  const hasExplicitCdn = !!(runtimeEnv.VITE_CDN_BASE_URL || runtimeEnv.VITE_APP_CDN_BASE);
   if (hasExplicitCdn) {
     return buildCdnFallbackUrl(relative);
   }

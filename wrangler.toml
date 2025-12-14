@@ -5,8 +5,8 @@ workers_dev = false
 
 # Custom domain routes must be defined at the top-level
 routes = [
-  { pattern = "*beloveful.com", zone_name = "beloveful.com" },
-  { pattern = "www.beloveful.com*", zone_name = "be" }
+  # Match both apex and any subdomain paths for SPA routing
+  { pattern = "*beloveful.com/*", zone_name = "beloveful.com" }
 ]
 
 [assets]
