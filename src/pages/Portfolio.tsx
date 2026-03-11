@@ -3,7 +3,7 @@ import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { Header } from "@/components/Header";
 import FooterStrip from "@/components/FooterStrip";
 import PageContainer from "@/components/PageContainer";
-import { getAllAlbumsSorted, REGIONS, type Region } from "@/lib/data";
+import { REGIONS, type Region } from "@/lib/data";
 import { useAlbums } from "@/hooks/use-albums";
 import { Gallery } from "@/components/Gallery";
 import { CloudImage } from "@/components/CloudImage";
@@ -46,7 +46,10 @@ export default function Portfolio() {
   }, [activeRegion]);
 
   const allSortedAlbums = useMemo(() => {
-    return allAlbums ? getAllAlbumsSorted().filter((a) => a.region !== "Logo") : [];
+    if (!allAlbums) return [];
+    return [...allAlbums]
+      .filter((a) => a.region !== "Logo")
+      .sort((a, b) => a.country.localeCompare(b.country));
   }, [allAlbums]);
 
   const filteredAlbums = useMemo(() => {

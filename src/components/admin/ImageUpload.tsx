@@ -146,13 +146,9 @@ export const ImageUpload = ({ albums, onUploadComplete }: ImageUploadProps) => {
       await uploadFile(file);
     }
     
-    // Call completion callback if all uploads finished
-    if (onUploadComplete) {
-      const allComplete = files.every(f => f.status === 'success' || f.status === 'error');
-      if (allComplete) {
-        setTimeout(onUploadComplete, 1000); // Small delay to show final state
-      }
-    }
+    // Call completion callback after processing the queue.
+    // Note: state updates are async, so we don't derive completion from `files` here.
+    if (onUploadComplete) setTimeout(onUploadComplete, 1000);
   };
 
   const clearCompletedFiles = () => {

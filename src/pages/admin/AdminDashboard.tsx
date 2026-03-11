@@ -3,6 +3,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
+import { toast } from 'sonner';
 import { 
   Camera, 
   Image, 
@@ -33,6 +34,7 @@ export const AdminDashboard = () => {
     publishedImages: 0,
   });
   const [loading, setLoading] = useState(true);
+  const [isSeeding, setIsSeeding] = useState(false);
 
   useEffect(() => {
     fetchDashboardData();
@@ -74,6 +76,36 @@ export const AdminDashboard = () => {
       console.error('Failed to fetch dashboard data:', error);
     } finally {
       setLoading(false);
+    }
+  };
+
+  const seedDefaultAlbums = async () => {
+    try {
+      setIsSeeding(true);
+      const token = localStorage.getItem('admin_token');
+      if (!token) {
+        toast.error('Not authenticated');
+        return;
+      }
+
+      const response = await fetch('/api/albums/admin/seed', {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      const data = await response.json();
+      if (!response.ok || !data?.success) {
+        throw new Error(data?.error || 'Failed to seed albums');
+      }
+
+      toast.success(`Seeded albums (inserted ${data.inserted})`);
+      await fetchDashboardData();
+    } catch (error: any) {
+      toast.error(error?.message || 'Failed to seed albums');
+    } finally {
+      setIsSeeding(false);
     }
   };
 
@@ -285,9 +317,9 @@ export const AdminDashboard = () => {
                 This will create database entries for all your existing content.
               </p>
             </div>
-            <Button>
+            <Button onClick={seedDefaultAlbums} disabled={isSeeding}>
               <Plus className="mr-2 h-4 w-4" />
-              Import Data
+              {isSeeding ? 'Seeding...' : 'Create Albums'}
             </Button>
           </div>
         </CardContent>

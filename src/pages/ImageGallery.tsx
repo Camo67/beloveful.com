@@ -1,7 +1,7 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { ORGANIZED_IMAGE_DATA } from '@/lib/comprehensive-image-data';
-import SimpleImageGrid from '@/components/SimpleImageGrid';
+import { Gallery } from '@/components/Gallery';
 
 const ImageGallery = () => {
   const { region, country } = useParams<{ region: string; country: string }>();
@@ -37,10 +37,10 @@ const ImageGallery = () => {
       <h1 className="text-3xl font-bold mb-6">{title}</h1>
       
       {imagesToDisplay.length > 0 ? (
-        <SimpleImageGrid 
+        <Gallery
           images={imagesToDisplay.map(img => ({ desktop: img.url, mobile: img.url }))}
-          maxColumns={3}
-          gap={16}
+          country={countryData?.name || country || "Gallery"}
+          region={regionData?.name}
         />
       ) : (
         <div className="text-center py-12">

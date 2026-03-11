@@ -20,6 +20,65 @@ const COUNTRY_MAP = {
   // Add more countries as needed
 };
 
+function renderMissingFrontendHint() {
+  const html = `<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Beloveful Local Dev</title>
+    <style>
+      :root {
+        color-scheme: light;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        background: linear-gradient(135deg, #f7f5ef, #ece6d7);
+        color: #1d1d1d;
+      }
+      main {
+        width: min(40rem, calc(100vw - 2rem));
+        padding: 2rem;
+        border-radius: 1rem;
+        background: rgba(255, 255, 255, 0.9);
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+      }
+      h1 {
+        margin-top: 0;
+      }
+      code {
+        padding: 0.15rem 0.35rem;
+        border-radius: 0.35rem;
+        background: #f3eee4;
+      }
+      p:last-child {
+        margin-bottom: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Frontend assets are not available on this port</h1>
+      <p>This port serves the Cloudflare Worker and API routes.</p>
+      <p>If you are developing locally, open the Vite dev server URL printed by <code>npm run dev</code> in your terminal. It is usually <code>http://localhost:8080/</code>.</p>
+      <p>If you expect the worker to serve the site directly, build the frontend first so <code>dist/index.html</code> exists.</p>
+      <p>API check: <code>/api/health</code></p>
+    </main>
+  </body>
+</html>`;
+
+  return new Response(html, {
+    headers: {
+      'Content-Type': 'text/html; charset=utf-8',
+      'Cache-Control': 'no-store',
+    },
+  });
+}
+
 async function handleCheckoutSession(request, env, origin) {
   const headers = {
     'Content-Type': 'application/json',
@@ -218,6 +277,10 @@ export default {
   async fetch(request, env) {
     const url = new URL(request.url);
     const pathname = url.pathname;
+    const acceptHeader = request.headers.get('Accept') || '';
+    const isHtmlNavigation =
+      (request.method === 'GET' || request.method === 'HEAD') &&
+      acceptHeader.includes('text/html');
 
     // Handle API routes first
     if (pathname === '/api/health') {
@@ -284,6 +347,14 @@ export default {
       const indexRequest = new Request(`${url.origin}/index.html`, request);
       const indexResponse = await env.ASSETS.fetch(indexRequest);
       if (indexResponse.status !== 404) return indexResponse;
+    }
+
+    if (
+      isHtmlNavigation &&
+      !pathname.startsWith('/api/') &&
+      !pathname.startsWith('/r2/')
+    ) {
+      return renderMissingFrontendHint();
     }
 
     return new Response('Not Found', { status: 404 });
