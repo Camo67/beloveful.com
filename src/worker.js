@@ -1,3 +1,43 @@
+import { onRequestPost as authLoginPost } from '../functions/api/auth/login.ts';
+import { onRequestPost as authVerifyPost } from '../functions/api/auth/verify.ts';
+import { onRequestPost as authChangePasswordPost } from '../functions/api/auth/change-password.ts';
+import { onRequestGet as albumsGet } from '../functions/api/albums/index.ts';
+import { onRequestGet as albumBySlugGet } from '../functions/api/albums/[slug].ts';
+import {
+  onRequestGet as albumsAdminAllGet,
+  onRequestPost as albumsAdminAllPost,
+} from '../functions/api/albums/admin/all.ts';
+import { onRequestPost as albumsAdminSeedPost } from '../functions/api/albums/admin/seed.ts';
+import {
+  onRequestPut as albumsAdminIdPut,
+  onRequestDelete as albumsAdminIdDelete,
+} from '../functions/api/albums/admin/[id].ts';
+import {
+  onRequestGet as imagesAdminAllGet,
+  onRequestPost as imagesAdminAllPost,
+} from '../functions/api/images/admin/all.ts';
+import {
+  onRequestPut as imagesAdminIdPut,
+  onRequestDelete as imagesAdminIdDelete,
+} from '../functions/api/images/admin/[id].ts';
+import {
+  onRequestGet as slideshowAdminAllGet,
+  onRequestPost as slideshowAdminAllPost,
+} from '../functions/api/images/admin/slideshow/all.ts';
+import {
+  onRequestPut as slideshowAdminIdPut,
+  onRequestDelete as slideshowAdminIdDelete,
+} from '../functions/api/images/admin/slideshow/[id].ts';
+import { onRequestPost as imagesUploadPost } from '../functions/api/images/upload.ts';
+import { onRequestPost as imagesUploadCpanelPost } from '../functions/api/images/upload-cpanel.ts';
+import { onRequestGet as publicAlbumsGet } from '../functions/api/public/albums.ts';
+import { onRequestGet as publicAlbumBySlugGet } from '../functions/api/public/albums/[slug].ts';
+import { onRequestGet as publicSlideshowGet } from '../functions/api/public/slideshow.ts';
+import { onRequestGet as publicWorkshopsGet } from '../functions/api/public/workshops.ts';
+import { onRequestGet as travelImagesGet } from '../functions/api/travel-images.ts';
+import { onRequestGet as projectImagesGet } from '../functions/api/project-images.ts';
+import { onRequestGet as logosGet } from '../functions/api/logos.ts';
+
 // Continent & Country mapping
 const CONTINENT_MAP = {
   'Africa': 'africa_id',
@@ -77,6 +117,148 @@ function renderMissingFrontendHint() {
       'Cache-Control': 'no-store',
     },
   });
+}
+
+function methodNotAllowed(allowedMethods) {
+  return new Response('Method Not Allowed', {
+    status: 405,
+    headers: {
+      Allow: allowedMethods.join(', '),
+    },
+  });
+}
+
+function createFunctionContext(request, env, params = {}) {
+  return { request, env, params };
+}
+
+async function dispatchFunctionRoute(request, env) {
+  const url = new URL(request.url);
+  const { pathname } = url;
+  const method = request.method.toUpperCase();
+
+  if (pathname === '/api/auth/login') {
+    if (method === 'POST') return authLoginPost(createFunctionContext(request, env));
+    return methodNotAllowed(['POST']);
+  }
+
+  if (pathname === '/api/auth/verify') {
+    if (method === 'POST') return authVerifyPost(createFunctionContext(request, env));
+    return methodNotAllowed(['POST']);
+  }
+
+  if (pathname === '/api/auth/change-password') {
+    if (method === 'POST') return authChangePasswordPost(createFunctionContext(request, env));
+    return methodNotAllowed(['POST']);
+  }
+
+  if (pathname === '/api/albums') {
+    if (method === 'GET') return albumsGet(createFunctionContext(request, env));
+    return methodNotAllowed(['GET']);
+  }
+
+  if (pathname === '/api/albums/admin/all') {
+    if (method === 'GET') return albumsAdminAllGet(createFunctionContext(request, env));
+    if (method === 'POST') return albumsAdminAllPost(createFunctionContext(request, env));
+    return methodNotAllowed(['GET', 'POST']);
+  }
+
+  if (pathname === '/api/albums/admin/seed') {
+    if (method === 'POST') return albumsAdminSeedPost(createFunctionContext(request, env));
+    return methodNotAllowed(['POST']);
+  }
+
+  const albumAdminIdMatch = pathname.match(/^\/api\/albums\/admin\/([^/]+)$/);
+  if (albumAdminIdMatch) {
+    const params = { id: decodeURIComponent(albumAdminIdMatch[1]) };
+    if (method === 'PUT') return albumsAdminIdPut(createFunctionContext(request, env, params));
+    if (method === 'DELETE') return albumsAdminIdDelete(createFunctionContext(request, env, params));
+    return methodNotAllowed(['PUT', 'DELETE']);
+  }
+
+  if (pathname === '/api/images/admin/all') {
+    if (method === 'GET') return imagesAdminAllGet(createFunctionContext(request, env));
+    if (method === 'POST') return imagesAdminAllPost(createFunctionContext(request, env));
+    return methodNotAllowed(['GET', 'POST']);
+  }
+
+  const slideshowAdminIdMatch = pathname.match(/^\/api\/images\/admin\/slideshow\/([^/]+)$/);
+  if (slideshowAdminIdMatch) {
+    const params = { id: decodeURIComponent(slideshowAdminIdMatch[1]) };
+    if (method === 'PUT') return slideshowAdminIdPut(createFunctionContext(request, env, params));
+    if (method === 'DELETE') return slideshowAdminIdDelete(createFunctionContext(request, env, params));
+    return methodNotAllowed(['PUT', 'DELETE']);
+  }
+
+  if (pathname === '/api/images/admin/slideshow/all') {
+    if (method === 'GET') return slideshowAdminAllGet(createFunctionContext(request, env));
+    if (method === 'POST') return slideshowAdminAllPost(createFunctionContext(request, env));
+    return methodNotAllowed(['GET', 'POST']);
+  }
+
+  const imageAdminIdMatch = pathname.match(/^\/api\/images\/admin\/([^/]+)$/);
+  if (imageAdminIdMatch) {
+    const params = { id: decodeURIComponent(imageAdminIdMatch[1]) };
+    if (method === 'PUT') return imagesAdminIdPut(createFunctionContext(request, env, params));
+    if (method === 'DELETE') return imagesAdminIdDelete(createFunctionContext(request, env, params));
+    return methodNotAllowed(['PUT', 'DELETE']);
+  }
+
+  if (pathname === '/api/images/upload') {
+    if (method === 'POST') return imagesUploadPost(createFunctionContext(request, env));
+    return methodNotAllowed(['POST']);
+  }
+
+  if (pathname === '/api/images/upload-cpanel') {
+    if (method === 'POST') return imagesUploadCpanelPost(createFunctionContext(request, env));
+    return methodNotAllowed(['POST']);
+  }
+
+  if (pathname === '/api/public/albums') {
+    if (method === 'GET') return publicAlbumsGet(createFunctionContext(request, env));
+    return methodNotAllowed(['GET']);
+  }
+
+  const publicAlbumBySlugMatch = pathname.match(/^\/api\/public\/albums\/([^/]+)$/);
+  if (publicAlbumBySlugMatch) {
+    const params = { slug: decodeURIComponent(publicAlbumBySlugMatch[1]) };
+    if (method === 'GET') return publicAlbumBySlugGet(createFunctionContext(request, env, params));
+    return methodNotAllowed(['GET']);
+  }
+
+  if (pathname === '/api/public/slideshow') {
+    if (method === 'GET') return publicSlideshowGet(createFunctionContext(request, env));
+    return methodNotAllowed(['GET']);
+  }
+
+  if (pathname === '/api/public/workshops') {
+    if (method === 'GET') return publicWorkshopsGet(createFunctionContext(request, env));
+    return methodNotAllowed(['GET']);
+  }
+
+  if (pathname === '/api/travel-images') {
+    if (method === 'GET') return travelImagesGet(createFunctionContext(request, env));
+    return methodNotAllowed(['GET']);
+  }
+
+  if (pathname === '/api/project-images') {
+    if (method === 'GET') return projectImagesGet(createFunctionContext(request, env));
+    return methodNotAllowed(['GET']);
+  }
+
+  if (pathname === '/api/logos') {
+    if (method === 'GET') return logosGet(createFunctionContext(request, env));
+    return methodNotAllowed(['GET']);
+  }
+
+  const albumBySlugMatch = pathname.match(/^\/api\/albums\/([^/]+)$/);
+  if (albumBySlugMatch) {
+    const params = { slug: decodeURIComponent(albumBySlugMatch[1]) };
+    if (method === 'GET') return albumBySlugGet(createFunctionContext(request, env, params));
+    return methodNotAllowed(['GET']);
+  }
+
+  return null;
 }
 
 async function handleCheckoutSession(request, env, origin) {
@@ -299,6 +481,11 @@ export default {
         return handleCheckoutSession(request, env, url.origin);
       }
       return new Response('Method Not Allowed', { status: 405 });
+    }
+
+    const functionRouteResponse = await dispatchFunctionRoute(request, env);
+    if (functionRouteResponse) {
+      return functionRouteResponse;
     }
 
     // Serve images from R2
