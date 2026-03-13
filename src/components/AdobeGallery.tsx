@@ -86,7 +86,7 @@ function ImageGrid({ images }: { images: AdobeImage[] }) {
             decoding="async"
             className="h-32 w-full object-contain mix-blend-normal"
           />
-          <figcaption className="mt-2 text-xs font-medium text-muted-foreground line-clamp-2">
+          <figcaption className="hidden mt-2 text-xs font-medium text-muted-foreground line-clamp-2 sm:block">
             {img.alt}
           </figcaption>
           {img.category && (

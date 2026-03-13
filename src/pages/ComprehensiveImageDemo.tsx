@@ -135,7 +135,7 @@ const ComprehensiveImageDemo = () => {
                       alt={image.filename} 
                       className="w-full h-40 object-cover"
                     />
-                    <div className="p-2 text-sm truncate">{image.filename}</div>
+                    <div className="hidden p-2 text-sm truncate sm:block">{image.filename}</div>
                   </div>
                 ))}
               </div>
@@ -161,7 +161,7 @@ const ComprehensiveImageDemo = () => {
                       alt={image.filename} 
                       className="w-full h-40 object-cover"
                     />
-                    <div className="p-2 text-sm truncate">{image.filename}</div>
+                    <div className="hidden p-2 text-sm truncate sm:block">{image.filename}</div>
                   </div>
                 ))}
               </div>
@@ -209,7 +209,7 @@ const ComprehensiveImageDemo = () => {
                       alt={image.filename} 
                       className="w-full h-40 object-cover"
                     />
-                    <div className="p-2 text-sm truncate">{image.filename}</div>
+                    <div className="hidden p-2 text-sm truncate sm:block">{image.filename}</div>
                   </div>
                 ))}
               </div>
@@ -252,7 +252,7 @@ const ComprehensiveImageDemo = () => {
                         alt={image.filename} 
                         className="w-full h-40 object-cover"
                       />
-                      <div className="p-2 text-sm truncate">{image.filename}</div>
+                      <div className="hidden p-2 text-sm truncate sm:block">{image.filename}</div>
                     </div>
                   ))}
                 </div>
@@ -280,7 +280,7 @@ const ComprehensiveImageDemo = () => {
                       alt={image.filename} 
                       className="w-full h-40 object-cover"
                     />
-                    <div className="p-2 text-sm truncate">{image.filename}</div>
+                    <div className="hidden p-2 text-sm truncate sm:block">{image.filename}</div>
                   </div>
                 ))}
               </div>

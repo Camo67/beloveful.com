@@ -375,7 +375,7 @@ const TravelPortfolio = () => {
                         loading="lazy"
                       />
                       {asset.filename && (
-                        <div className="px-3 py-2 text-xs text-gray-600 truncate">
+                        <div className="hidden px-3 py-2 text-xs text-gray-600 truncate sm:block">
                           {asset.filename}
                         </div>
                       )}
