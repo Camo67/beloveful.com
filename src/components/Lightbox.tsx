@@ -25,6 +25,7 @@ interface LightboxProps {
 
 export function Lightbox({ images, currentIndex, onClose, onNavigate, country, getCtaHref, ctaLabel = "Would you like this as a print?" }: LightboxProps) {
   const currentImage = images[currentIndex];
+  const currentCtaHref = getCtaHref?.(currentImage);
   
   // Enable comprehensive image protection
   const { protectElement } = useImageProtection();
@@ -57,12 +58,6 @@ export function Lightbox({ images, currentIndex, onClose, onNavigate, country, g
     };
   }, [currentIndex, images.length, onClose, onNavigate]);
 
-  const extractFilename = (url: string) => {
-    const parts = url.split('/');
-    const filename = parts[parts.length - 1];
-    return filename.split('.')[0];
-  };
-
   return (
     <div 
       className="lightbox-overlay no-screenshot" 
@@ -94,39 +89,39 @@ export function Lightbox({ images, currentIndex, onClose, onNavigate, country, g
           <X size={24} />
         </button>
 
-        {/* Navigation arrows */}
-        {currentIndex > 0 && (
-          <button
-            onClick={(e) => {
-              e.stopPropagation();
-              onNavigate(currentIndex - 1);
-            }}
-            className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10 p-2 text-white bg-black bg-opacity-50 rounded-full transition-opacity duration-300 hover:bg-opacity-70"
-            aria-label="Previous image"
-          >
-            <ChevronLeft size={24} />
-          </button>
-        )}
-
-        {currentIndex < images.length - 1 && (
-          <button
-            onClick={(e) => {
-              e.stopPropagation();
-              onNavigate(currentIndex + 1);
-            }}
-            className="absolute right-4 top-1/2 transform -translate-y-1/2 z-10 p-2 text-white bg-black bg-opacity-50 rounded-full transition-opacity duration-300 hover:bg-opacity-70"
-            aria-label="Next image"
-          >
-            <ChevronRight size={24} />
-          </button>
-        )}
-
         {/* Image */}
-        <div className="relative max-w-full max-h-full protected-container">
+        <div className="relative flex max-w-full items-center justify-center protected-container">
+          {/* Navigation arrows */}
+          {currentIndex > 0 && (
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                onNavigate(currentIndex - 1);
+              }}
+              className="absolute left-4 top-1/2 transform -translate-y-1/2 z-20 p-2 text-white bg-black bg-opacity-50 rounded-full transition-opacity duration-300 hover:bg-opacity-70"
+              aria-label="Previous image"
+            >
+              <ChevronLeft size={24} />
+            </button>
+          )}
+
+          {currentIndex < images.length - 1 && (
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                onNavigate(currentIndex + 1);
+              }}
+              className="absolute right-4 top-1/2 transform -translate-y-1/2 z-20 p-2 text-white bg-black bg-opacity-50 rounded-full transition-opacity duration-300 hover:bg-opacity-70"
+              aria-label="Next image"
+            >
+              <ChevronRight size={24} />
+            </button>
+          )}
+
           <CloudImage
             url={currentImage.desktop}
             alt={getImageAltText(currentImage.desktop, country)}
-            className="max-w-full max-h-screen object-contain image-protected"
+            className="max-w-full object-contain image-protected"
             draggable={false}
             decoding="async"
             sizes="100vw"
@@ -155,6 +150,7 @@ export function Lightbox({ images, currentIndex, onClose, onNavigate, country, g
               e.preventDefault();
             }}
             style={{
+              maxHeight: currentCtaHref ? "calc(100vh - 10rem)" : "calc(100vh - 6rem)",
               WebkitUserSelect: 'none',
               WebkitTouchCallout: 'none',
               WebkitUserDrag: 'none',
@@ -177,22 +173,19 @@ export function Lightbox({ images, currentIndex, onClose, onNavigate, country, g
               userSelect: 'none'
             }}
           />
-          
-          {/* Caption / CTA only */}
-          {getCtaHref && (
-            <div className="absolute bottom-0 left-0 right-0 p-4 bg-black bg-opacity-70 text-white z-20">
-              <div className="text-center md:text-right">
-                <Link
-                  to={getCtaHref(currentImage)}
-                  className="inline-block text-sm underline underline-offset-2 hover:no-underline"
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  {ctaLabel}
-                </Link>
-              </div>
-            </div>
-          )}
         </div>
+
+        {currentCtaHref && (
+          <div className="mt-4 text-center text-white">
+            <Link
+              to={currentCtaHref}
+              className="inline-block text-sm underline underline-offset-2 hover:no-underline"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {ctaLabel}
+            </Link>
+          </div>
+        )}
       </div>
     </div>
   );
