@@ -28,6 +28,14 @@ import {
   onRequestPut as slideshowAdminIdPut,
   onRequestDelete as slideshowAdminIdDelete,
 } from '../functions/api/images/admin/slideshow/[id].ts';
+import {
+  onRequestGet as contentAdminAllGet,
+  onRequestPost as contentAdminAllPost,
+} from '../functions/api/content/admin/all.ts';
+import {
+  onRequestPut as contentAdminIdPut,
+  onRequestDelete as contentAdminIdDelete,
+} from '../functions/api/content/admin/[id].ts';
 import { onRequestPost as imagesUploadPost } from '../functions/api/images/upload.ts';
 import { onRequestPost as imagesUploadCpanelPost } from '../functions/api/images/upload-cpanel.ts';
 import { onRequestGet as publicAlbumsGet } from '../functions/api/public/albums.ts';
@@ -196,11 +204,25 @@ async function dispatchFunctionRoute(request, env) {
     return methodNotAllowed(['GET', 'POST']);
   }
 
+  if (pathname === '/api/content/admin/all') {
+    if (method === 'GET') return contentAdminAllGet(createFunctionContext(request, env));
+    if (method === 'POST') return contentAdminAllPost(createFunctionContext(request, env));
+    return methodNotAllowed(['GET', 'POST']);
+  }
+
   const imageAdminIdMatch = pathname.match(/^\/api\/images\/admin\/([^/]+)$/);
   if (imageAdminIdMatch) {
     const params = { id: decodeURIComponent(imageAdminIdMatch[1]) };
     if (method === 'PUT') return imagesAdminIdPut(createFunctionContext(request, env, params));
     if (method === 'DELETE') return imagesAdminIdDelete(createFunctionContext(request, env, params));
+    return methodNotAllowed(['PUT', 'DELETE']);
+  }
+
+  const contentAdminIdMatch = pathname.match(/^\/api\/content\/admin\/([^/]+)$/);
+  if (contentAdminIdMatch) {
+    const params = { id: decodeURIComponent(contentAdminIdMatch[1]) };
+    if (method === 'PUT') return contentAdminIdPut(createFunctionContext(request, env, params));
+    if (method === 'DELETE') return contentAdminIdDelete(createFunctionContext(request, env, params));
     return methodNotAllowed(['PUT', 'DELETE']);
   }
 
