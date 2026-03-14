@@ -4,9 +4,11 @@ import { AdminLogin } from '@/components/admin/AdminLogin';
 import { AdminLayout } from '@/components/admin/AdminLayout';
 import { AdminDashboard } from '@/pages/admin/AdminDashboard';
 import { AlbumsPage } from '@/pages/admin/AlbumsPage';
+import { ContentPage } from '@/pages/admin/ContentPage';
 import { ImagesPage } from '@/pages/admin/ImagesPage';
 import { ImageUploadPage } from '@/pages/admin/ImageUploadPage';
 import { SettingsPage } from '@/pages/admin/SettingsPage';
+import { SlideshowPage } from '@/pages/admin/SlideshowPage';
 
 interface User {
   id: number;
@@ -107,8 +109,8 @@ export const Admin = () => {
         <Route path="/albums/new" element={<AlbumsPage />} />
         <Route path="/images" element={<ImagesPage />} />
         <Route path="/images/upload" element={<ImageUploadPage />} />
-        <Route path="/slideshow" element={<div>Slideshow Management (Coming Soon)</div>} />
-        <Route path="/content" element={<div>Content Management (Coming Soon)</div>} />
+        <Route path="/slideshow" element={<SlideshowPage />} />
+        <Route path="/content" element={<ContentPage />} />
         <Route path="/settings" element={<SettingsPage />} />
         
         {/* Catch-all redirect to dashboard */}

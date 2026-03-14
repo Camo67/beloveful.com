@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { toast } from 'sonner';
@@ -9,10 +8,7 @@ import {
   Image, 
   FileText, 
   Palette, 
-  Activity,
   TrendingUp,
-  Users,
-  Plus
 } from 'lucide-react';
 
 interface DashboardStats {
@@ -46,7 +42,7 @@ export const AdminDashboard = () => {
       if (!token) return;
 
       // Fetch stats from various endpoints
-      const [albumsRes, imagesRes, slideshowRes] = await Promise.all([
+      const [albumsRes, imagesRes, slideshowRes, contentRes] = await Promise.all([
         fetch('/api/albums/admin/all', {
           headers: { 'Authorization': `Bearer ${token}` }
         }),
@@ -55,21 +51,25 @@ export const AdminDashboard = () => {
         }),
         fetch('/api/images/admin/slideshow/all', {
           headers: { 'Authorization': `Bearer ${token}` }
+        }),
+        fetch('/api/content/admin/all', {
+          headers: { 'Authorization': `Bearer ${token}` }
         })
       ]);
 
       const albumsData = await albumsRes.json();
       const imagesData = await imagesRes.json();
       const slideshowData = await slideshowRes.json();
+      const contentData = await contentRes.json();
 
-      if (albumsData.success && imagesData.success && slideshowData.success) {
+      if (albumsData.success && imagesData.success && slideshowData.success && contentData.success) {
         setStats({
           albums: albumsData.albums.length,
           publishedAlbums: albumsData.albums.filter((a: any) => a.is_published).length,
           images: imagesData.images.length,
           publishedImages: imagesData.images.filter((i: any) => i.is_published).length,
           slideshowImages: slideshowData.images.length,
-          contentBlocks: 0, // Would fetch from content API
+          contentBlocks: contentData.blocks.length,
         });
       }
     } catch (error) {
