@@ -2,13 +2,13 @@ import { Header } from "@/components/Header";
 import FooterStrip from "@/components/FooterStrip";
 import PageContainer from "@/components/PageContainer";
 import { useSearchParams } from "react-router-dom";
-import { useState } from "react";
 import { SocialIcons } from "@/components/SocialIcons";
 import { CloudImage } from "@/components/CloudImage";
 
+const CONTACT_EMAIL = "tony@beloveful.com";
+
 export default function Contact() {
   const [searchParams] = useSearchParams();
-  const [submitted, setSubmitted] = useState(false);
   const calendlyLink = import.meta.env.VITE_CALENDLY_LINK ?? "";
   
   const image = searchParams.get("image");
@@ -27,10 +27,30 @@ export default function Contact() {
       return;
     }
 
-    // TODO: Implement actual contact form submission
-    // For now, just show success message
-    console.log("Form submitted:", Object.fromEntries(formData.entries()));
-    setSubmitted(true);
+    const name = String(formData.get("name") || "").trim();
+    const email = String(formData.get("email") || "").trim();
+    const message = String(formData.get("message") || "").trim();
+
+    const mailSubject = image
+      ? `Print Inquiry${subject ? `: ${subject}` : ""}`
+      : `Website Inquiry from ${name || "Visitor"}`;
+
+    const mailBody = [
+      `Name: ${name}`,
+      `Email: ${email}`,
+      source ? `Source: ${source}` : "",
+      region ? `Region: ${region}` : "",
+      country ? `Country: ${country}` : "",
+      variant ? `Variant: ${variant}` : "",
+      image ? `Image: ${decodeURIComponent(image)}` : "",
+      "",
+      "Message:",
+      message || "(No message provided)",
+    ]
+      .filter(Boolean)
+      .join("\n");
+
+    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(mailSubject)}&body=${encodeURIComponent(mailBody)}`;
   };
 
   return (
@@ -39,12 +59,6 @@ export default function Contact() {
       
       <PageContainer className="min-h-[70vh] space-y-10">
         <h1 className="text-3xl md:text-4xl font-light mb-8 text-black dark:text-white text-center">Contact</h1>
-
-        {submitted && (
-          <div className="mb-6 rounded-md border border-emerald-300/40 bg-emerald-50 dark:bg-emerald-950/30 px-4 py-3 text-sm text-emerald-800 dark:text-emerald-200">
-            Thanks! We've received your message and will follow up shortly.
-          </div>
-        )}
 
         {calendlyLink && (
           <div className="rounded-2xl border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900 p-6 text-center space-y-3">
@@ -147,12 +161,22 @@ export default function Contact() {
                 type="submit"
                 className="px-6 py-2 rounded-md border border-neutral-900 dark:border-neutral-200 bg-transparent text-black dark:text-white hover:bg-neutral-900 hover:text-white dark:hover:bg-white dark:hover:text-black transition-all duration-200"
               >
-                Send Message
+                Email Tony
               </button>
               <p className="text-xs text-gray-600 dark:text-gray-400">
-                We reply within 1–2 business days.
+                Opens your email app with the message prefilled.
               </p>
             </div>
+
+            <p className="text-sm text-gray-600 dark:text-gray-400">
+              Prefer to email directly?{" "}
+              <a
+                href={`mailto:${CONTACT_EMAIL}`}
+                className="underline underline-offset-2 hover:text-black dark:hover:text-white"
+              >
+                {CONTACT_EMAIL}
+              </a>
+            </p>
           </form>
         </div>
 

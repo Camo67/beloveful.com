@@ -142,7 +142,7 @@ export default function PrintShop() {
                         <div className="flex justify-between items-center">
                           <span className="font-medium">From $10</span>
                           <a
-                            href={`mailto:prints@beloveful.com?subject=Open Edition Request: ${product.title}&body=I would like to request an open edition 5x7 print of ${product.title}.`}
+                            href={`mailto:tony@beloveful.com?subject=Open Edition Request: ${product.title}&body=I would like to request an open edition 5x7 print of ${product.title}.`}
                             className="text-sm px-3 py-1.5 rounded-md bg-black text-white dark:bg-white dark:text-black hover:opacity-80 transition"
                           >
                             Request Print

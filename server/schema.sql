@@ -105,7 +105,7 @@ INSERT OR IGNORE INTO site_settings (key, value, description) VALUES
 ('site_title', 'Beloveful Visions', 'Main site title'),
 ('site_description', 'Travel Photography Portfolio', 'Site description'),
 ('photographer_name', 'Your Name', 'Photographer name'),
-('contact_email', 'contact@beloveful.com', 'Contact email'),
+('contact_email', 'tony@beloveful.com', 'Contact email'),
 ('instagram_url', '', 'Instagram profile URL'),
 ('cloudinary_cloud_name', 'dvwdoezk1', 'Cloudinary cloud name');
 

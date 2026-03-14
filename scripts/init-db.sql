@@ -129,7 +129,7 @@ INSERT OR IGNORE INTO page_content (page_key, content_key, content_value, conten
 VALUES 
   ('about', 'hero_title', 'About Beloveful Visions', 'text'),
   ('about', 'hero_description', 'Capturing moments that matter, creating memories that last.', 'text'),
-  ('contact', 'email', 'hello@beloveful.com', 'text'),
+  ('contact', 'email', 'tony@beloveful.com', 'text'),
   ('contact', 'message', 'Get in touch to discuss your photography needs.', 'text'),
   ('workshops', 'title', 'Photography Workshops', 'text'),
   ('workshops', 'description', 'Join our workshops to improve your photography skills.', 'text');
@@ -139,6 +139,6 @@ INSERT OR IGNORE INTO settings (key, value, description)
 VALUES 
   ('site_title', 'Beloveful Visions', 'Main site title'),
   ('site_description', 'Professional Travel Photography', 'Site description for SEO'),
-  ('contact_email', 'hello@beloveful.com', 'Main contact email'),
+  ('contact_email', 'tony@beloveful.com', 'Main contact email'),
   ('social_instagram', '@belovefulvisions', 'Instagram handle'),
   ('cloudinary_folder', 'portfolio', 'Default Cloudinary folder for uploads');
