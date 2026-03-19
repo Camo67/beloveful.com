@@ -81,7 +81,7 @@ export async function validateAndFixImageUrls(
  * @param placeholderUrl - URL to use as fallback
  * @returns Image object with fallback URLs
  */
-export function createFallbackImage(placeholderUrl: string = 'https://placehold.co/600x400?text=Image+Not+Found'): { 
+export function createFallbackImage(placeholderUrl: string = '/Website%20beloveful.com/Logo/IMG_1052.JPG'): { 
   desktop: string; 
   mobile: string 
 } {

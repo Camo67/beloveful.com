@@ -115,7 +115,7 @@ export function fixImageUrl(url: string): string {
  * @param placeholderUrl - URL to use as fallback
  * @returns Image URL string
  */
-export function createFallbackImageUrl(placeholderUrl: string = 'https://placehold.co/600x400?text=Image+Not+Found'): string {
+export function createFallbackImageUrl(placeholderUrl: string = '/Website%20beloveful.com/Logo/IMG_1052.JPG'): string {
   return placeholderUrl;
 }
 
