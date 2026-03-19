@@ -3,11 +3,15 @@ main = "src/worker.js"
 compatibility_date = "2025-09-01"
 workers_dev = false
 
-# Custom domain routes must be defined at the top-level
-routes = [
-  # Match both apex and any subdomain paths for SPA routing
-  { pattern = "*beloveful.com/*", zone_name = "beloveful.com" }
-]
+# Cloudflare's route matcher is more reliable with explicit host routes.
+# Use separate entries for the apex and www hostnames.
+[[routes]]
+pattern = "beloveful.com/*"
+zone_name = "beloveful.com"
+
+[[routes]]
+pattern = "www.beloveful.com/*"
+zone_name = "beloveful.com"
 
 [assets]
 directory = "dist"
