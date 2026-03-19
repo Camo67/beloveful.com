@@ -133,7 +133,7 @@ const SimpleCloudinaryDemo = () => {
                       className="w-full h-48 object-cover rounded"
                       onError={(e) => {
                         const target = e.target as HTMLImageElement;
-                        target.src = 'https://placehold.co/600x400?text=Image+Not+Found';
+                        target.src = '/Website%20beloveful.com/Logo/IMG_1052.JPG';
                       }}
                     />
                   )}

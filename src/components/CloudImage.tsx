@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { mapToCdnUrl, validateAndFixImageUrl } from '@/lib/image-utils';
 
-const FALLBACK_SRC = '/images/Logo/IMG_0007%20copy.JPG';
+const FALLBACK_SRC = '/Website%20beloveful.com/Logo/IMG_1052.JPG';
 
 interface CloudImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
   url: string;
