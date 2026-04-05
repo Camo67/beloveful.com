@@ -4,13 +4,30 @@ import PageContainer from "@/components/PageContainer";
 import { createProxiedImageUrl, debugImageProcessing } from "@/lib/images";
 import printlabData from "@/lib/printlab.json";
 import { CloudImage } from "@/components/CloudImage";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import StripeCheckout from "@/components/StripeCheckout";
+import { useSiteSettings } from "@/hooks/use-site-settings";
+import { trackEvent } from "@/lib/privacy/tracking";
+import { useSearchParams } from "react-router-dom";
 
 export default function PrintShop() {
+  const { data: siteSettings } = useSiteSettings();
   const products = printlabData.products || [];
   const [activeTab, setActiveTab] = useState<'open' | 'limited'>('open');
+  const [searchParams] = useSearchParams();
+
+  useEffect(() => {
+    if (searchParams.get("success") !== "true") return;
+
+    void trackEvent(
+      "purchase_completed",
+      {
+        checkoutType: "print_shop",
+      },
+      "analytics",
+    );
+  }, [searchParams]);
 
   // Function to extract key details from product description
   const extractProductDetails = (description: string) => {
@@ -142,7 +159,7 @@ export default function PrintShop() {
                         <div className="flex justify-between items-center">
                           <span className="font-medium">From $10</span>
                           <a
-                            href={`mailto:tony@beloveful.com?subject=Open Edition Request: ${product.title}&body=I would like to request an open edition 5x7 print of ${product.title}.`}
+                            href={`mailto:${siteSettings.print_email}?subject=${encodeURIComponent(`Open Edition Request: ${product.title}`)}&body=${encodeURIComponent(`I would like to request an open edition 5x7 print of ${product.title}.`)}`}
                             className="text-sm px-3 py-1.5 rounded-md bg-black text-white dark:bg-white dark:text-black hover:opacity-80 transition"
                           >
                             Request Print

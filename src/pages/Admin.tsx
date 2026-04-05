@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { AdminLogin } from '@/components/admin/AdminLogin';
 import { AdminLayout } from '@/components/admin/AdminLayout';
 import { AdminDashboard } from '@/pages/admin/AdminDashboard';
@@ -21,6 +22,7 @@ export const Admin = () => {
   const [user, setUser] = useState<User | null>(null);
   const [token, setToken] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
+  const location = useLocation();
 
   useEffect(() => {
     // Check if user is already logged in
@@ -97,21 +99,25 @@ export const Admin = () => {
     return <AdminLogin onLogin={handleLogin} />;
   }
 
+  if (location.pathname === '/adminlogin') {
+    return <Navigate to="/admin" replace />;
+  }
+
   // Show admin interface if authenticated
   return (
     <AdminLayout user={user} onLogout={handleLogout}>
       <Routes>
-        <Route path="/" element={<AdminDashboard />} />
-        <Route path="/dashboard" element={<Navigate to="/admin" replace />} />
+        <Route index element={<AdminDashboard />} />
+        <Route path="dashboard" element={<Navigate to="/admin" replace />} />
         
         {/* Album and Image Management Routes */}
-        <Route path="/albums" element={<AlbumsPage />} />
-        <Route path="/albums/new" element={<AlbumsPage />} />
-        <Route path="/images" element={<ImagesPage />} />
-        <Route path="/images/upload" element={<ImageUploadPage />} />
-        <Route path="/slideshow" element={<SlideshowPage />} />
-        <Route path="/content" element={<ContentPage />} />
-        <Route path="/settings" element={<SettingsPage />} />
+        <Route path="albums" element={<AlbumsPage />} />
+        <Route path="albums/new" element={<AlbumsPage />} />
+        <Route path="images" element={<ImagesPage />} />
+        <Route path="images/upload" element={<ImageUploadPage />} />
+        <Route path="slideshow" element={<SlideshowPage />} />
+        <Route path="content" element={<ContentPage />} />
+        <Route path="settings" element={<SettingsPage />} />
         
         {/* Catch-all redirect to dashboard */}
         <Route path="*" element={<Navigate to="/admin" replace />} />

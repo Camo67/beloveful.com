@@ -6,8 +6,10 @@ import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useWorkshopImages } from "@/hooks/use-workshop-images";
 import { CloudImage } from "@/components/CloudImage";
+import { buildWorkshopInquiryHref } from "@/lib/workshop-inquiry";
 
 export default function Mentorship() {
+  const inquiryHref = buildWorkshopInquiryHref("Photography Mentorship");
   const { data } = useWorkshopImages();
   const heroImage = data?.mentorship?.[0] ?? {
     src: "/Website beloveful.com/Workshop Photos/Copy of CHI-359.jpg",
@@ -131,12 +133,8 @@ export default function Mentorship() {
 
           <div className="text-center pt-6">
             <Button asChild size="lg" className="text-lg px-12 py-6">
-              <a
-                href="https://lb.benchmarkemail.com//listbuilder/signupnew?IkfHTmyPVq92wBnn4lX%252FTf5pwVnAjsSIeL8KRSOgMpXtO5iNRn8gS049TyW7spdJ"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Book Your Mentorship Session
+              <a href={inquiryHref}>
+                Email Tony to Book Your Mentorship
               </a>
             </Button>
           </div>

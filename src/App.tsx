@@ -1,11 +1,11 @@
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { PrivacyProvider } from "@/components/privacy/PrivacyProvider";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { ThemeProvider } from "next-themes";
 import { Suspense, lazy } from "react";
-import CookieBanner from "./components/CookieBanner";
 import RegionLanding from "./pages/RegionLanding";
 
 // Lazy load all page components
@@ -35,6 +35,14 @@ const ComprehensiveImageDemo = lazy(() => import("./pages/ComprehensiveImageDemo
 const ImageGallery = lazy(() => import("./pages/ImageGallery"));
 const RegionPage = lazy(() => import("./pages/RegionPage"));
 const GalleryPage = lazy(() => import("./pages/GalleryPage"));
+const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
+const CookiePolicy = lazy(() => import("./pages/CookiePolicy"));
+const CaliforniaPrivacyNotice = lazy(
+  () => import("./pages/CaliforniaPrivacyNotice"),
+);
+const DoNotSellOrShare = lazy(() => import("./pages/DoNotSellOrShare"));
+const DataRequest = lazy(() => import("./pages/DataRequest"));
+const ContactPrivacy = lazy(() => import("./pages/ContactPrivacy"));
 
 const queryClient = new QueryClient();
 
@@ -48,60 +56,73 @@ const LoadingSpinner = () => (
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <CookieBanner />
-        <BrowserRouter
-          future={{
-            v7_relativeSplatPath: true,
-            v7_startTransition: true
-          }}
-        >
-          <Suspense fallback={<LoadingSpinner />}>
-            <Routes>
-              <Route path="/" element={<Index />} />
-              <Route path="/test-data" element={<TestData />} />
-              <Route path="/test-simple-images" element={<TestSimpleImages />} />
-              <Route path="/simple-cloudinary-demo" element={<SimpleCloudinaryDemo />} />
-              <Route path="/comprehensive-image-demo" element={<ComprehensiveImageDemo />} />
-              <Route path="/gallery" element={<GalleryPage />} />
-              <Route path="/gallery/:region" element={<RegionPage />} />
-              <Route path="/gallery/:region/:country" element={<ImageGallery />} />
-              <Route path="/projects" element={<Projects />} />
-              <Route path="/projects/:project" element={<ProjectGallery />} />
-              <Route path="/portfolio" element={<Portfolio />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/events" element={<Events />} />
-              <Route path="/workshops" element={<Workshops />} />
-              <Route path="/workshops/private-chicago" element={<WorkshopChicagoPrivate />} />
-              <Route path="/workshops/group-chicago" element={<WorkshopChicagoGroup />} />
-              <Route path="/workshops/online-group" element={<WorkshopOnline />} />
-              <Route path="/workshops/mentorship" element={<Mentorship />} />
+      <BrowserRouter
+        future={{
+          v7_relativeSplatPath: true,
+          v7_startTransition: true
+        }}
+      >
+        <PrivacyProvider>
+          <TooltipProvider>
+            <Toaster />
+            <Sonner />
+            <Suspense fallback={<LoadingSpinner />}>
+              <Routes>
+                <Route path="/" element={<Index />} />
+                <Route path="/test-data" element={<TestData />} />
+                <Route path="/test-simple-images" element={<TestSimpleImages />} />
+                <Route path="/simple-cloudinary-demo" element={<SimpleCloudinaryDemo />} />
+                <Route path="/comprehensive-image-demo" element={<ComprehensiveImageDemo />} />
+                <Route path="/gallery" element={<GalleryPage />} />
+                <Route path="/gallery/:region" element={<RegionPage />} />
+                <Route path="/gallery/:region/:country" element={<ImageGallery />} />
+                <Route path="/projects" element={<Projects />} />
+                <Route path="/projects/:project" element={<ProjectGallery />} />
+                <Route path="/portfolio" element={<Portfolio />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/events" element={<Events />} />
+                <Route path="/workshops" element={<Workshops />} />
+                <Route path="/workshops/private-chicago" element={<WorkshopChicagoPrivate />} />
+                <Route path="/workshops/group-chicago" element={<WorkshopChicagoGroup />} />
+                <Route path="/workshops/online-group" element={<WorkshopOnline />} />
+                <Route path="/workshops/mentorship" element={<Mentorship />} />
+                <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+                <Route path="/cookie-policy" element={<CookiePolicy />} />
+                <Route
+                  path="/california-privacy-notice"
+                  element={<CaliforniaPrivacyNotice />}
+                />
+                <Route
+                  path="/do-not-sell-or-share"
+                  element={<DoNotSellOrShare />}
+                />
+                <Route path="/data-request" element={<DataRequest />} />
+                <Route path="/contact-privacy" element={<ContactPrivacy />} />
 
-              {/* Legacy routes */}
-              <Route path="/mentorship" element={<Navigate to="/workshops/mentorship" replace />} />
-              <Route path="/workshop-chicago-private" element={<Navigate to="/workshops/private-chicago" replace />} />
-              <Route path="/workshop-chicago-group" element={<Navigate to="/workshops/group-chicago" replace />} />
-              <Route path="/workshop-online" element={<Navigate to="/workshops/online-group" replace />} />
-              <Route path="/faq" element={<FAQ />} />
-              <Route path="/print-shop" element={<PrintShop />} />
-              <Route path="/open-edition" element={<OpenEdition />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/adminlogin" element={<Admin />} />
-              <Route path="/admin/*" element={<Admin />} />
-              <Route path="/debug" element={<Debug />} />
+                {/* Legacy routes */}
+                <Route path="/mentorship" element={<Navigate to="/workshops/mentorship" replace />} />
+                <Route path="/workshop-chicago-private" element={<Navigate to="/workshops/private-chicago" replace />} />
+                <Route path="/workshop-chicago-group" element={<Navigate to="/workshops/group-chicago" replace />} />
+                <Route path="/workshop-online" element={<Navigate to="/workshops/online-group" replace />} />
+                <Route path="/faq" element={<FAQ />} />
+                <Route path="/print-shop" element={<PrintShop />} />
+                <Route path="/open-edition" element={<OpenEdition />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="/adminlogin" element={<Admin />} />
+                <Route path="/admin/*" element={<Admin />} />
+                <Route path="/debug" element={<Debug />} />
 
-              {/* Pretty region and country URLs */}
-              <Route path=":region" element={<RegionLanding />} />
-              <Route path=":region/:country" element={<CountryGallery />} />
+                {/* Pretty region and country URLs */}
+                <Route path=":region" element={<RegionLanding />} />
+                <Route path=":region/:country" element={<CountryGallery />} />
 
-              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </Suspense>
-        </BrowserRouter>
-      </TooltipProvider>
+                {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </Suspense>
+          </TooltipProvider>
+        </PrivacyProvider>
+      </BrowserRouter>
     </ThemeProvider>
   </QueryClientProvider>
 );

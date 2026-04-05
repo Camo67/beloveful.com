@@ -66,6 +66,48 @@ export interface Settings {
   updated_at: string;
 }
 
+export interface PrivacyConsentLog {
+  id: number;
+  anonymous_consent_id: string;
+  status: string;
+  action: string;
+  consent_version: string;
+  policy_version: string;
+  region_mode: string;
+  categories_json: string;
+  sale_sharing_opt_out: boolean;
+  gpc_signal: boolean;
+  ip_prefix?: string;
+  user_agent_summary?: string;
+  created_at: string;
+}
+
+export interface PrivacyEvent {
+  id: number;
+  anonymous_consent_id?: string;
+  session_id?: string;
+  pseudonymous_user_id?: string;
+  event_name: string;
+  event_category: string;
+  path?: string;
+  referrer_path?: string;
+  payload_json?: string;
+  created_at: string;
+}
+
+export interface PrivacyRequest {
+  id: number;
+  request_type: string;
+  identifier_type: string;
+  identifier_value: string;
+  identifier_hash: string;
+  contact_email?: string;
+  details?: string;
+  status: string;
+  created_at: string;
+  updated_at: string;
+}
+
 // SQL Schema for database initialization
 export const DB_SCHEMA = `
 -- Users table
@@ -141,6 +183,48 @@ CREATE TABLE IF NOT EXISTS settings (
   updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
+CREATE TABLE IF NOT EXISTS privacy_consent_log (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  anonymous_consent_id TEXT NOT NULL,
+  status TEXT NOT NULL CHECK (status IN ('accepted', 'rejected', 'customized', 'withdrawn', 'unknown')),
+  action TEXT NOT NULL CHECK (action IN ('accept_all', 'reject_non_essential', 'customize', 'withdraw', 'opt_out_sale_sharing', 'gpc_signal')),
+  consent_version TEXT NOT NULL,
+  policy_version TEXT NOT NULL,
+  region_mode TEXT NOT NULL CHECK (region_mode IN ('opt_in', 'california', 'conservative')),
+  categories_json TEXT NOT NULL,
+  sale_sharing_opt_out BOOLEAN NOT NULL DEFAULT 0,
+  gpc_signal BOOLEAN NOT NULL DEFAULT 0,
+  ip_prefix TEXT,
+  user_agent_summary TEXT,
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS privacy_events (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  anonymous_consent_id TEXT,
+  session_id TEXT,
+  pseudonymous_user_id TEXT,
+  event_name TEXT NOT NULL,
+  event_category TEXT NOT NULL CHECK (event_category IN ('necessary', 'analytics', 'personalization', 'advertising')),
+  path TEXT,
+  referrer_path TEXT,
+  payload_json TEXT,
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS privacy_requests (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  request_type TEXT NOT NULL,
+  identifier_type TEXT NOT NULL,
+  identifier_value TEXT NOT NULL,
+  identifier_hash TEXT NOT NULL,
+  contact_email TEXT,
+  details TEXT,
+  status TEXT NOT NULL DEFAULT 'submitted',
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+  updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
 -- Indexes for better performance
 CREATE INDEX IF NOT EXISTS idx_albums_region ON albums(region);
 CREATE INDEX IF NOT EXISTS idx_albums_slug ON albums(slug);
@@ -148,6 +232,13 @@ CREATE INDEX IF NOT EXISTS idx_images_album_id ON images(album_id);
 CREATE INDEX IF NOT EXISTS idx_images_published ON images(is_published);
 CREATE INDEX IF NOT EXISTS idx_slideshow_order ON slideshow_images(sort_order);
 CREATE INDEX IF NOT EXISTS idx_page_content_page ON page_content(page_key);
+CREATE INDEX IF NOT EXISTS idx_privacy_consent_log_consent_id ON privacy_consent_log(anonymous_consent_id);
+CREATE INDEX IF NOT EXISTS idx_privacy_consent_log_created_at ON privacy_consent_log(created_at);
+CREATE INDEX IF NOT EXISTS idx_privacy_events_consent_id ON privacy_events(anonymous_consent_id);
+CREATE INDEX IF NOT EXISTS idx_privacy_events_created_at ON privacy_events(created_at);
+CREATE INDEX IF NOT EXISTS idx_privacy_requests_identifier_hash ON privacy_requests(identifier_hash);
+CREATE INDEX IF NOT EXISTS idx_privacy_requests_contact_email ON privacy_requests(contact_email);
+CREATE INDEX IF NOT EXISTS idx_privacy_requests_created_at ON privacy_requests(created_at);
 
 -- Triggers to update timestamps
 CREATE TRIGGER IF NOT EXISTS users_updated_at 
@@ -184,6 +275,12 @@ CREATE TRIGGER IF NOT EXISTS settings_updated_at
   AFTER UPDATE ON settings 
   BEGIN 
     UPDATE settings SET updated_at = CURRENT_TIMESTAMP WHERE id = NEW.id; 
+  END;
+
+CREATE TRIGGER IF NOT EXISTS privacy_requests_updated_at
+  AFTER UPDATE ON privacy_requests
+  BEGIN
+    UPDATE privacy_requests SET updated_at = CURRENT_TIMESTAMP WHERE id = NEW.id;
   END;
 `;
 

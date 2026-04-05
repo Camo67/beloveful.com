@@ -4,12 +4,22 @@ import PageContainer from "@/components/PageContainer";
 import { useSearchParams } from "react-router-dom";
 import { SocialIcons } from "@/components/SocialIcons";
 import { CloudImage } from "@/components/CloudImage";
-
-const CONTACT_EMAIL = "tony@beloveful.com";
+import { usePageContent } from "@/hooks/use-page-content";
+import { useSiteSettings } from "@/hooks/use-site-settings";
 
 export default function Contact() {
   const [searchParams] = useSearchParams();
-  const calendlyLink = import.meta.env.VITE_CALENDLY_LINK ?? "";
+  const { data: siteSettings } = useSiteSettings();
+  const { data: content } = usePageContent('contact', {
+    title: 'Contact',
+    intro: 'Reach out about prints, collaborations, workshops, or anything else you would like to discuss.',
+    calendly_heading: 'Need to talk live? Grab a time that works for you.',
+    calendly_button: 'Schedule via Calendly',
+    submit_button: 'Email Tony',
+    direct_email_label: 'Prefer to email directly?',
+  });
+  const contactEmail = siteSettings.contact_email;
+  const calendlyLink = siteSettings.calendly_url;
   
   const image = searchParams.get("image");
   const source = searchParams.get("source");
@@ -50,7 +60,7 @@ export default function Contact() {
       .filter(Boolean)
       .join("\n");
 
-    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(mailSubject)}&body=${encodeURIComponent(mailBody)}`;
+    window.location.href = `mailto:${contactEmail}?subject=${encodeURIComponent(mailSubject)}&body=${encodeURIComponent(mailBody)}`;
   };
 
   return (
@@ -58,19 +68,24 @@ export default function Contact() {
       <Header variant="default" />
       
       <PageContainer className="min-h-[70vh] space-y-10">
-        <h1 className="text-3xl md:text-4xl font-light mb-8 text-black dark:text-white text-center">Contact</h1>
+        <div className="space-y-3 text-center">
+          <h1 className="text-3xl md:text-4xl font-light text-black dark:text-white">{content.title}</h1>
+          <p className="mx-auto max-w-2xl text-sm md:text-base text-gray-600 dark:text-gray-400">
+            {content.intro}
+          </p>
+        </div>
 
         {calendlyLink && (
           <div className="rounded-2xl border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900 p-6 text-center space-y-3">
             <p className="text-sm uppercase tracking-[0.35em] text-muted-foreground">Calendly</p>
-            <p className="text-lg text-black dark:text-white">Need to talk live? Grab a time that works for you.</p>
+            <p className="text-lg text-black dark:text-white">{content.calendly_heading}</p>
             <a
               href={calendlyLink}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center px-5 py-2 rounded-md bg-black text-white dark:bg-white dark:text-black text-sm font-medium hover:opacity-80 transition"
             >
-              Schedule via Calendly
+              {content.calendly_button}
             </a>
           </div>
         )}
@@ -161,7 +176,7 @@ export default function Contact() {
                 type="submit"
                 className="px-6 py-2 rounded-md border border-neutral-900 dark:border-neutral-200 bg-transparent text-black dark:text-white hover:bg-neutral-900 hover:text-white dark:hover:bg-white dark:hover:text-black transition-all duration-200"
               >
-                Email Tony
+                {content.submit_button}
               </button>
               <p className="text-xs text-gray-600 dark:text-gray-400">
                 Opens your email app with the message prefilled.
@@ -169,12 +184,12 @@ export default function Contact() {
             </div>
 
             <p className="text-sm text-gray-600 dark:text-gray-400">
-              Prefer to email directly?{" "}
+              {content.direct_email_label}{" "}
               <a
-                href={`mailto:${CONTACT_EMAIL}`}
+                href={`mailto:${contactEmail}`}
                 className="underline underline-offset-2 hover:text-black dark:hover:text-white"
               >
-                {CONTACT_EMAIL}
+                {contactEmail}
               </a>
             </p>
           </form>

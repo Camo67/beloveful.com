@@ -167,6 +167,27 @@
   ::selection {
     @apply bg-black text-white;
   }
+
+  .admin-login-input {
+    color: #1c1917;
+    caret-color: #1c1917;
+  }
+
+  .admin-login-input::placeholder {
+    color: #78716c;
+    opacity: 1;
+  }
+
+  .admin-login-input:-webkit-autofill,
+  .admin-login-input:-webkit-autofill:hover,
+  .admin-login-input:-webkit-autofill:focus,
+  .admin-login-input:-webkit-autofill:active {
+    -webkit-text-fill-color: #1c1917;
+    caret-color: #1c1917;
+    box-shadow: 0 0 0 1000px #ffffff inset;
+    -webkit-box-shadow: 0 0 0 1000px #ffffff inset;
+    transition: background-color 9999s ease-out 0s;
+  }
 }
 
 @layer components {

@@ -1,4 +1,5 @@
 import { PasswordChange } from '@/components/admin/PasswordChange';
+import { SiteSettingsManager } from '@/components/admin/SiteSettingsManager';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { User, Shield, Clock } from 'lucide-react';
@@ -16,46 +17,49 @@ export const SettingsPage = () => {
         </p>
       </div>
 
-      <div className="grid gap-6 md:grid-cols-2">
+      <div className="grid gap-6 xl:grid-cols-[1.05fr_1fr]">
         {/* User Information */}
-        <Card>
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              <User className="h-5 w-5" />
-              Account Information
-            </CardTitle>
-            <CardDescription>
-              Your current account details
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            <div className="flex justify-between items-center">
-              <span className="text-sm font-medium">Username:</span>
-              <span className="text-sm">{user.username || 'admin'}</span>
-            </div>
-            <div className="flex justify-between items-center">
-              <span className="text-sm font-medium">Email:</span>
-              <span className="text-sm">{user.email || 'admin@beloveful.com'}</span>
-            </div>
-            <div className="flex justify-between items-center">
-              <span className="text-sm font-medium">Role:</span>
-              <Badge variant="default" className="flex items-center gap-1">
-                <Shield className="h-3 w-3" />
-                {user.role || 'admin'}
-              </Badge>
-            </div>
-            <div className="flex justify-between items-center">
-              <span className="text-sm font-medium">Member since:</span>
-              <span className="text-sm flex items-center gap-1">
-                <Clock className="h-3 w-3" />
-                {user.created_at ? new Date(user.created_at).toLocaleDateString() : 'Unknown'}
-              </span>
-            </div>
-          </CardContent>
-        </Card>
+        <div className="space-y-6">
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <User className="h-5 w-5" />
+                Account Information
+              </CardTitle>
+              <CardDescription>
+                Your current account details
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div className="flex justify-between items-center">
+                <span className="text-sm font-medium">Username:</span>
+                <span className="text-sm">{user.username || 'admin'}</span>
+              </div>
+              <div className="flex justify-between items-center">
+                <span className="text-sm font-medium">Email:</span>
+                <span className="text-sm">{user.email || 'admin@beloveful.com'}</span>
+              </div>
+              <div className="flex justify-between items-center">
+                <span className="text-sm font-medium">Role:</span>
+                <Badge variant="default" className="flex items-center gap-1">
+                  <Shield className="h-3 w-3" />
+                  {user.role || 'admin'}
+                </Badge>
+              </div>
+              <div className="flex justify-between items-center">
+                <span className="text-sm font-medium">Member since:</span>
+                <span className="text-sm flex items-center gap-1">
+                  <Clock className="h-3 w-3" />
+                  {user.created_at ? new Date(user.created_at).toLocaleDateString() : 'Unknown'}
+                </span>
+              </div>
+            </CardContent>
+          </Card>
 
-        {/* Password Change */}
-        <PasswordChange />
+          <PasswordChange />
+        </div>
+
+        <SiteSettingsManager />
       </div>
 
       {/* Security Notice */}

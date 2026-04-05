@@ -2,6 +2,8 @@
 import { useState } from "react";
 import { useLocation, Link } from "react-router-dom";
 import { Instagram, Facebook, ExternalLink } from "lucide-react";
+import { PrivacySettingsLink } from "@/components/privacy/PrivacySettingsLink";
+import { trackEvent } from "@/lib/privacy/tracking";
 import ThemeToggle from "./ThemeToggle";
 
 const NEWSLETTER_URL =
@@ -22,6 +24,16 @@ export default function FooterStrip() {
           action={NEWSLETTER_URL} 
           method="GET" 
           target="_blank"
+          onSubmit={() => {
+            void trackEvent(
+              "signup_started",
+              {
+                source: "footer_newsletter",
+                destination: "newsletter_signup",
+              },
+              "analytics",
+            );
+          }}
           className="flex items-center gap-2"
         >
           <input
@@ -45,7 +57,7 @@ export default function FooterStrip() {
         <ThemeToggle />
 
         {/* Contact & Privacy - Left aligned */}
-        <div className="flex-1 flex justify-start items-center gap-4">
+        <div className="flex-1 flex flex-wrap justify-start items-center gap-4">
           <Link 
             to="/contact" 
             className="text-xs text-neutral-500 dark:text-neutral-400 hover:text-neutral-700 dark:hover:text-neutral-200 transition-colors underline-offset-2 hover:underline"
@@ -61,11 +73,34 @@ export default function FooterStrip() {
           </Link>
           <span className="text-xs text-neutral-400">•</span>
           <Link 
-            to={{ pathname: "/faq", hash: "#privacy" }} 
+            to="/privacy-policy" 
             className="text-xs text-neutral-500 dark:text-neutral-400 hover:text-neutral-700 dark:hover:text-neutral-200 transition-colors underline-offset-2 hover:underline"
           >
-            Privacy
+            Privacy Policy
           </Link>
+          <span className="text-xs text-neutral-400">•</span>
+          <Link 
+            to="/cookie-policy" 
+            className="text-xs text-neutral-500 dark:text-neutral-400 hover:text-neutral-700 dark:hover:text-neutral-200 transition-colors underline-offset-2 hover:underline"
+          >
+            Cookie Policy
+          </Link>
+          <span className="text-xs text-neutral-400">•</span>
+          <Link 
+            to="/do-not-sell-or-share" 
+            className="text-xs text-neutral-500 dark:text-neutral-400 hover:text-neutral-700 dark:hover:text-neutral-200 transition-colors underline-offset-2 hover:underline"
+          >
+            Do Not Sell or Share
+          </Link>
+          <span className="text-xs text-neutral-400">•</span>
+          <Link 
+            to="/data-request" 
+            className="text-xs text-neutral-500 dark:text-neutral-400 hover:text-neutral-700 dark:hover:text-neutral-200 transition-colors underline-offset-2 hover:underline"
+          >
+            Data Request
+          </Link>
+          <span className="text-xs text-neutral-400">•</span>
+          <PrivacySettingsLink />
         </div>
 
         <div className="flex items-center gap-3">

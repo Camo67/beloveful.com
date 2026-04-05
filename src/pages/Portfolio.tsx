@@ -121,7 +121,7 @@ export default function Portfolio() {
   }
 
   const totalCountries = filteredAlbums.length;
-  const totalImages = filteredAlbums.reduce((sum, album) => sum + album.images.length, 0);
+  const totalImages = filteredAlbums.reduce((sum, album) => sum + (album.imageCount ?? album.images.length), 0);
 
   return (
     <div className="min-h-screen">
@@ -375,7 +375,7 @@ export default function Portfolio() {
                     key={album.slug}
                     to={`/${normalizeRegion(album.region)}/${album.slug}`}
                     className="group clickable-area"
-                    aria-label={`View ${album.country} photography collection with ${album.images.length} photographs`}
+                    aria-label={`View ${album.country} photography collection with ${album.imageCount ?? album.images.length} photographs`}
                   >
                     <article className="content-card">
                       <div className="relative overflow-hidden bg-transparent aspect-[4/3]">
@@ -389,7 +389,7 @@ export default function Portfolio() {
                       <div className="p-4">
                         <h3 className="heading-3 mb-2">{album.country}</h3>
                         <p className="text-caption text-text-tertiary">
-                          {album.region} • {album.images.length} photograph{album.images.length !== 1 ? "s" : ""}
+                          {album.region} • {album.imageCount ?? album.images.length} photograph{(album.imageCount ?? album.images.length) !== 1 ? "s" : ""}
                         </p>
                       </div>
                     </article>

@@ -4,6 +4,8 @@ import { CLIENT_LOGOS_SOURCE, CLIENT_NAMES, getClientLinkForIndex } from "@/lib/
 import { Button } from "@/components/ui/button";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { usePageContent } from "@/hooks/use-page-content";
+import { BELOVEFUL_SPOTIFY_PLAYLIST_EMBED_URL } from "@/lib/spotify";
 
 const BIO_PARAGRAPHS = [
   "Motivated by curiosity and forever fascinated by what this world has to offer, Tony's love of capturing life around him began the day his father handed him his first camera at the age seven.",
@@ -29,13 +31,34 @@ const PUBLICATIONS_AND_AWARDS = [
   { title: "'Capturing Japan'", context: "ANNE Magazine", year: "2018" }
 ];
 
+const ABOUT_CONTENT_DEFAULTS = {
+  eyebrow: 'About Tony Menias',
+  title: 'Bio',
+  bio_paragraph_1: BIO_PARAGRAPHS[0],
+  bio_paragraph_2: BIO_PARAGRAPHS[1],
+  bio_paragraph_3: BIO_PARAGRAPHS[2],
+  bio_paragraph_4: BIO_PARAGRAPHS[3],
+  bio_paragraph_5: BIO_PARAGRAPHS[4],
+  bio_paragraph_6: BIO_PARAGRAPHS[5],
+  bio_paragraph_7: BIO_PARAGRAPHS[6],
+  quote: '"For in embracing our differences, we find our commonality; in understanding one another, we find our unity."',
+  listen_heading: 'Listen & Learn',
+  listen_intro: 'A curated playlist of conversations about process, purpose, and street photography.',
+  highlights_heading: 'Selected Highlights',
+  journey_body: 'Today, my work is as much about teaching and community as it is about making images. Workshops, mentorships, and collaborative projects keep the conversation alive.',
+  journey_button: 'Join the Journey',
+};
+
 export default function About() {
   useEffect(() => {
     document.title = "Bio";
   }, []);
 
-  const spotifyEmbedUrl =
-    "https://open.spotify.com/embed/playlist/6Gy5nsKnrYir1tOx9pBuxW?utm_source=generator&theme=0";
+  const { data: content } = usePageContent('about', ABOUT_CONTENT_DEFAULTS);
+  const bioParagraphs = BIO_PARAGRAPHS.map((paragraph, index) => {
+    const key = `bio_paragraph_${index + 1}` as keyof typeof ABOUT_CONTENT_DEFAULTS;
+    return content[key] || paragraph;
+  });
 
   return (
     <div className="min-h-screen">
@@ -43,8 +66,8 @@ export default function About() {
 
       <div className="w-full px-6 md:px-12 lg:px-20 py-12 space-y-16">
         <header className="text-center space-y-4">
-          <p className="text-sm uppercase tracking-[0.35em] text-muted-foreground">About Tony Menias</p>
-          <h1 className="text-4xl md:text-5xl font-light text-black dark:text-white">Bio</h1>
+          <p className="text-sm uppercase tracking-[0.35em] text-muted-foreground">{content.eyebrow}</p>
+          <h1 className="text-4xl md:text-5xl font-light text-black dark:text-white">{content.title}</h1>
         </header>
 
         <section className="max-w-4xl mx-auto">
@@ -63,7 +86,7 @@ export default function About() {
         </section>
 
         <section className="max-w-4xl mx-auto space-y-6">
-          {BIO_PARAGRAPHS.map((paragraph, index) => (
+          {bioParagraphs.map((paragraph, index) => (
             <p key={index} className="text-lg leading-relaxed text-black dark:text-white">
               {paragraph}
             </p>
@@ -82,7 +105,7 @@ export default function About() {
         <section className="max-w-4xl mx-auto py-8">
           <div className="bg-gray-50 dark:bg-gray-900 rounded-2xl p-8 text-center">
             <p className="text-xl md:text-2xl font-light italic text-black dark:text-white">
-              "For in embracing our differences, we find our commonality; in understanding one another, we find our unity."
+              {content.quote}
             </p>
           </div>
         </section>
@@ -90,17 +113,20 @@ export default function About() {
         <section className="max-w-5xl mx-auto space-y-6">
           <div className="text-center space-y-2">
             <p className="text-sm uppercase tracking-[0.35em] text-muted-foreground">Interviews</p>
-            <h2 className="text-3xl font-light text-black dark:text-white">Listen & Learn</h2>
+            <h2 className="text-3xl font-light text-black dark:text-white">{content.listen_heading}</h2>
             <p className="text-base text-muted-foreground max-w-3xl mx-auto">
-              A curated playlist of conversations about process, purpose, and street photography.
+              {content.listen_intro}
             </p>
           </div>
           <div className="relative w-full overflow-hidden rounded-2xl shadow-lg">
             <iframe
-              src={spotifyEmbedUrl}
+              data-testid="embed-iframe"
+              style={{ borderRadius: '12px' }}
+              src={BELOVEFUL_SPOTIFY_PLAYLIST_EMBED_URL}
               width="100%"
               height="352"
               frameBorder="0"
+              allowFullScreen
               allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
               loading="lazy"
               title="Spotify interviews playlist"
@@ -111,7 +137,7 @@ export default function About() {
         <section className="max-w-5xl mx-auto">
           <div className="text-center space-y-2 mb-8">
             <p className="text-sm uppercase tracking-[0.35em] text-muted-foreground">Publications & Awards</p>
-            <h2 className="text-3xl font-light text-black dark:text-white">Selected Highlights</h2>
+            <h2 className="text-3xl font-light text-black dark:text-white">{content.highlights_heading}</h2>
           </div>
           <div className="grid gap-6 md:grid-cols-2">
             {PUBLICATIONS_AND_AWARDS.map((item) => (
@@ -152,12 +178,12 @@ export default function About() {
         <section className="text-center max-w-4xl mx-auto space-y-6">
           <p className="text-sm uppercase tracking-[0.35em] text-muted-foreground">Final Journey</p>
           <p className="text-lg leading-relaxed text-black dark:text-white">
-            Today, my work is as much about teaching and community as it is about making images. Workshops, mentorships, and collaborative projects keep the conversation alive.
+            {content.journey_body}
           </p>
           <div className="pt-2">
             <Button asChild size="lg">
               <Link to="/workshops" aria-label="Explore workshops and mentorship">
-                Join the Journey
+                {content.journey_button}
               </Link>
             </Button>
           </div>

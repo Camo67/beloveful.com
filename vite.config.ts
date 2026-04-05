@@ -3,6 +3,9 @@ import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import { componentTagger } from "lovable-tagger";
 
+process.env.BROWSERSLIST_IGNORE_OLD_DATA ??= "true";
+process.env.BASELINE_BROWSER_MAPPING_IGNORE_OLD_DATA ??= "true";
+
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
   const parsedApiPort = Number.parseInt(process.env.DEV_API_PORT ?? "8787", 10);
@@ -60,6 +63,8 @@ export default defineConfig(({ mode }) => {
       },
     },
     build: {
+      copyPublicDir:
+        process.env.VITE_COPY_PUBLIC_DIR !== "false" && mode !== "bluehost",
       rollupOptions: {
         output: {
           // Ensure assets have proper names to prevent caching issues

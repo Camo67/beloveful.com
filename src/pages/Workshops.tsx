@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { workshopImages } from "@/lib/workshop-data";
 import { CloudImage } from "@/components/CloudImage";
+import { usePageContent } from "@/hooks/use-page-content";
 
 export default function Workshops() {
   const workshopData = [
@@ -51,6 +52,36 @@ export default function Workshops() {
     },
   ];
 
+  const workshopContentDefaults = {
+    title: 'Workshops & Mentorship',
+    intro: "Whether you're starting out or evolving your craft, these workshops and mentorship opportunities are designed to meet you where you are and help you grow.",
+    mentorship_summary: workshopData[0].summary,
+    mentorship_description: workshopData[0].description,
+    mentorship_button: workshopData[0].buttonText,
+    private_chicago_summary: workshopData[1].summary,
+    private_chicago_description: workshopData[1].description,
+    private_chicago_button: workshopData[1].buttonText,
+    group_chicago_summary: workshopData[2].summary,
+    group_chicago_description: workshopData[2].description,
+    group_chicago_button: workshopData[2].buttonText,
+    online_group_summary: workshopData[3].summary,
+    online_group_description: workshopData[3].description,
+    online_group_button: workshopData[3].buttonText,
+  };
+
+  const { data: content } = usePageContent('workshops', workshopContentDefaults);
+  const workshopCards = workshopData.map((workshop) => {
+    const keyPrefix = workshop.id.replace(/-/g, '_');
+    return {
+      ...workshop,
+      summary: content[`${keyPrefix}_summary` as keyof typeof workshopContentDefaults] || workshop.summary,
+      description:
+        content[`${keyPrefix}_description` as keyof typeof workshopContentDefaults] || workshop.description,
+      buttonText:
+        content[`${keyPrefix}_button` as keyof typeof workshopContentDefaults] || workshop.buttonText,
+    };
+  });
+
   return (
     <div className="min-h-screen">
       <Header variant="default" />
@@ -59,16 +90,15 @@ export default function Workshops() {
       <PageContainer>
         <main id="main-content" role="main">
           <section className="text-center py-16 md:py-20">
-            <h1 className="heading-1 mb-6">Workshops & Mentorship</h1>
+            <h1 className="heading-1 mb-6">{content.title}</h1>
             <p className="max-w-3xl mx-auto text-lg text-gray-700">
-              Whether you're starting out or evolving your craft, these workshops and mentorship 
-              opportunities are designed to meet you where you are and help you grow.
+              {content.intro}
             </p>
           </section>
 
           <section className="py-12 md:py-16">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {workshopData.map((workshop) => (
+              {workshopCards.map((workshop) => (
                 <Card key={workshop.id} className="overflow-hidden">
                   <div className="relative h-64">
                     {workshop.image && (

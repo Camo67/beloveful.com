@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { cn } from '@/lib/utils';
 import { DynamicImage } from '@/lib/dynamic-data';
 
@@ -48,13 +48,16 @@ export const LazyImage: React.FC<LazyImageProps> = ({
   
   const imgRef = useRef<HTMLImageElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
-
-  // Get the appropriate image URL
-  const getImageUrl = useCallback(() => {
-    const primaryUrl = image.variants?.[variant];
-    const fallbackUrl = image.variants?.[fallbackVariant];
-    return primaryUrl || fallbackUrl || image.url;
-  }, [image, variant, fallbackVariant]);
+  const imageVariants = image.variants;
+  const srcSet = imageVariants
+    ? [
+        imageVariants.small ? `${imageVariants.small} 600w` : null,
+        imageVariants.medium ? `${imageVariants.medium} 1200w` : null,
+        imageVariants.large ? `${imageVariants.large} 1920w` : null,
+      ]
+        .filter((value): value is string => Boolean(value))
+        .join(', ') || undefined
+    : undefined;
 
   // Intersection Observer for lazy loading
   useEffect(() => {
@@ -89,7 +92,7 @@ export const LazyImage: React.FC<LazyImageProps> = ({
       setError(null);
 
       try {
-        const imageUrl = getImageUrl();
+        const imageUrl = imageVariants?.[variant] || imageVariants?.[fallbackVariant] || image.url;
         
         // Create a new image to preload
         const img = new Image();
@@ -115,7 +118,7 @@ export const LazyImage: React.FC<LazyImageProps> = ({
         // Try fallback variant if primary failed
         if (variant !== fallbackVariant) {
           try {
-            const fallbackUrl = image.variants?.[fallbackVariant] || image.url;
+            const fallbackUrl = imageVariants?.[fallbackVariant] || image.url;
             if (imgRef.current) {
               imgRef.current.src = fallbackUrl;
               setIsLoaded(true);
@@ -130,21 +133,17 @@ export const LazyImage: React.FC<LazyImageProps> = ({
     };
 
     loadImage();
-  }, [isIntersecting, isLoaded, isLoading, getImageUrl, variant, fallbackVariant, image.url, onLoad, onError]);
-
-  // Generate responsive srcSet for better quality
-  const generateSrcSet = useCallback(() => {
-    const variants = image.variants;
-    if (!variants) return undefined;
-
-    const srcSet: string[] = [];
-    
-    if (variants.small) srcSet.push(`${variants.small} 600w`);
-    if (variants.medium) srcSet.push(`${variants.medium} 1200w`);
-    if (variants.large) srcSet.push(`${variants.large} 1920w`);
-    
-    return srcSet.length > 0 ? srcSet.join(', ') : undefined;
-  }, [image.variants]);
+  }, [
+    isIntersecting,
+    isLoaded,
+    isLoading,
+    variant,
+    fallbackVariant,
+    image.url,
+    imageVariants,
+    onLoad,
+    onError,
+  ]);
 
   const imageAlt = alt || image.alt || 'Photography by Beloveful Visions';
 
@@ -205,12 +204,12 @@ export const LazyImage: React.FC<LazyImageProps> = ({
           'transition-opacity duration-300 w-full h-full object-cover',
           isLoaded ? 'opacity-100' : 'opacity-0'
         )}
-        srcSet={generateSrcSet()}
+        srcSet={srcSet}
         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         loading={eager ? 'eager' : 'lazy'}
         decoding="async"
         onLoad={() => setIsLoaded(true)}
-        onError={(e) => {
+        onError={() => {
           const error = new Error(`Failed to load image: ${image.filename}`);
           setError(error);
           onError?.(error);
@@ -227,25 +226,6 @@ export const LazyImage: React.FC<LazyImageProps> = ({
       />
     </div>
   );
-};
-
-// Higher-order component for easy integration with existing components
-export const withLazyLoading = <P extends object>(
-  WrappedComponent: React.ComponentType<P>
-) => {
-  return React.forwardRef<HTMLDivElement, P & { lazy?: boolean }>((props, ref) => {
-    const { lazy = true, ...restProps } = props;
-    
-    if (!lazy) {
-      return <WrappedComponent {...restProps as P} />;
-    }
-    
-    return (
-      <div ref={ref}>
-        <WrappedComponent {...restProps as P} />
-      </div>
-    );
-  });
 };
 
 // Utility component for image grids with masonry layout

@@ -8,6 +8,7 @@ import {
   onRequestPost as albumsAdminAllPost,
 } from '../functions/api/albums/admin/all.ts';
 import { onRequestPost as albumsAdminSeedPost } from '../functions/api/albums/admin/seed.ts';
+import { onRequestPost as albumsAdminImportStaticPost } from '../functions/api/albums/admin/import-static.ts';
 import {
   onRequestPut as albumsAdminIdPut,
   onRequestDelete as albumsAdminIdDelete,
@@ -36,15 +37,23 @@ import {
   onRequestPut as contentAdminIdPut,
   onRequestDelete as contentAdminIdDelete,
 } from '../functions/api/content/admin/[id].ts';
+import { onRequestGet as contentPublicGet } from '../functions/api/content/public.ts';
 import { onRequestPost as imagesUploadPost } from '../functions/api/images/upload.ts';
 import { onRequestPost as imagesUploadCpanelPost } from '../functions/api/images/upload-cpanel.ts';
 import { onRequestGet as publicAlbumsGet } from '../functions/api/public/albums.ts';
 import { onRequestGet as publicAlbumBySlugGet } from '../functions/api/public/albums/[slug].ts';
 import { onRequestGet as publicSlideshowGet } from '../functions/api/public/slideshow.ts';
 import { onRequestGet as publicWorkshopsGet } from '../functions/api/public/workshops.ts';
+import {
+  onRequestGet as settingsAdminGet,
+  onRequestPost as settingsAdminPost,
+} from '../functions/api/settings/admin.ts';
+import { onRequestGet as settingsPublicGet } from '../functions/api/settings/public.ts';
 import { onRequestGet as travelImagesGet } from '../functions/api/travel-images.ts';
 import { onRequestGet as projectImagesGet } from '../functions/api/project-images.ts';
 import { onRequestGet as logosGet } from '../functions/api/logos.ts';
+import privacyApp from '../functions/api/privacy/[[route]].ts';
+import { runPrivacyRetentionCleanup } from '../functions/api/privacy/_utils.ts';
 
 // Continent & Country mapping
 const CONTINENT_MAP = {
@@ -176,6 +185,11 @@ async function dispatchFunctionRoute(request, env) {
     return methodNotAllowed(['POST']);
   }
 
+  if (pathname === '/api/albums/admin/import-static') {
+    if (method === 'POST') return albumsAdminImportStaticPost(createFunctionContext(request, env));
+    return methodNotAllowed(['POST']);
+  }
+
   const albumAdminIdMatch = pathname.match(/^\/api\/albums\/admin\/([^/]+)$/);
   if (albumAdminIdMatch) {
     const params = { id: decodeURIComponent(albumAdminIdMatch[1]) };
@@ -190,6 +204,12 @@ async function dispatchFunctionRoute(request, env) {
     return methodNotAllowed(['GET', 'POST']);
   }
 
+  if (pathname === '/api/images/admin/slideshow/all') {
+    if (method === 'GET') return slideshowAdminAllGet(createFunctionContext(request, env));
+    if (method === 'POST') return slideshowAdminAllPost(createFunctionContext(request, env));
+    return methodNotAllowed(['GET', 'POST']);
+  }
+
   const slideshowAdminIdMatch = pathname.match(/^\/api\/images\/admin\/slideshow\/([^/]+)$/);
   if (slideshowAdminIdMatch) {
     const params = { id: decodeURIComponent(slideshowAdminIdMatch[1]) };
@@ -198,16 +218,26 @@ async function dispatchFunctionRoute(request, env) {
     return methodNotAllowed(['PUT', 'DELETE']);
   }
 
-  if (pathname === '/api/images/admin/slideshow/all') {
-    if (method === 'GET') return slideshowAdminAllGet(createFunctionContext(request, env));
-    if (method === 'POST') return slideshowAdminAllPost(createFunctionContext(request, env));
-    return methodNotAllowed(['GET', 'POST']);
-  }
-
   if (pathname === '/api/content/admin/all') {
     if (method === 'GET') return contentAdminAllGet(createFunctionContext(request, env));
     if (method === 'POST') return contentAdminAllPost(createFunctionContext(request, env));
     return methodNotAllowed(['GET', 'POST']);
+  }
+
+  if (pathname === '/api/content/public') {
+    if (method === 'GET') return contentPublicGet(createFunctionContext(request, env));
+    return methodNotAllowed(['GET']);
+  }
+
+  if (pathname === '/api/settings/admin') {
+    if (method === 'GET') return settingsAdminGet(createFunctionContext(request, env));
+    if (method === 'POST') return settingsAdminPost(createFunctionContext(request, env));
+    return methodNotAllowed(['GET', 'POST']);
+  }
+
+  if (pathname === '/api/settings/public') {
+    if (method === 'GET') return settingsPublicGet(createFunctionContext(request, env));
+    return methodNotAllowed(['GET']);
   }
 
   const imageAdminIdMatch = pathname.match(/^\/api\/images\/admin\/([^/]+)$/);
@@ -487,6 +517,10 @@ export default {
       acceptHeader.includes('text/html');
 
     // Handle API routes first
+    if (pathname.startsWith('/api/privacy')) {
+      return privacyApp.fetch(request, env);
+    }
+
     if (pathname === '/api/health') {
       return new Response(
         JSON.stringify({ status: 'ok', timestamp: new Date().toISOString() }),
@@ -545,27 +579,36 @@ export default {
       });
     }
 
-    // Static asset handling via Wrangler [assets] binding
+    const isSpaNavigation =
+      isHtmlNavigation &&
+      !pathname.startsWith('/api/') &&
+      !pathname.startsWith('/r2/') &&
+      (!pathname.includes('.') || pathname.endsWith('/'));
+
+    // Static asset handling via Wrangler [assets] binding.
+    // Ignore redirect responses for SPA routes so client-side paths like
+    // /admin and /adminlogin receive index.html instead of a 307 to "/".
     const assetResponse = await env.ASSETS.fetch(request);
-    if (assetResponse.status !== 404) {
+    const isAssetRedirect = [301, 302, 307, 308].includes(assetResponse.status);
+    if (assetResponse.status !== 404 && !(isSpaNavigation && isAssetRedirect)) {
       return assetResponse;
     }
 
-    // SPA fallback: serve index.html when path has no extension
-    if (!pathname.includes('.') || pathname.endsWith('/')) {
-      const indexRequest = new Request(`${url.origin}/index.html`, request);
+    // SPA fallback: request "/" instead of "/index.html" because the
+    // Cloudflare assets binding redirects /index.html back to /.
+    if (isSpaNavigation) {
+      const indexRequest = new Request(`${url.origin}/`, request);
       const indexResponse = await env.ASSETS.fetch(indexRequest);
       if (indexResponse.status !== 404) return indexResponse;
     }
 
-    if (
-      isHtmlNavigation &&
-      !pathname.startsWith('/api/') &&
-      !pathname.startsWith('/r2/')
-    ) {
+    if (isHtmlNavigation && !pathname.startsWith('/api/') && !pathname.startsWith('/r2/')) {
       return renderMissingFrontendHint();
     }
 
     return new Response('Not Found', { status: 404 });
+  },
+  async scheduled(_controller, env, ctx) {
+    ctx.waitUntil(runPrivacyRetentionCleanup(env));
   },
 };

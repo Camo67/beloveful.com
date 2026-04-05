@@ -26,7 +26,7 @@ export default function FAQ() {
       q: "Where are you based?",
       a: (
         <>
-          I’m based in Cape Town, South Africa, but my work spans cities, countries, and cultures. The portfolio begins in Chicago and moves outward—erasing borders through visual storytelling.
+          Chicago is home base, and my work spans cities, countries, and cultures. The portfolio begins there and moves outward through visual storytelling.
         </>
       ),
     },
@@ -171,7 +171,7 @@ export default function FAQ() {
 
             <h3 className="heading-3 mt-8 mb-4">Cookies</h3>
             <p className="text-body mb-6">
-              We use a simple cookie to remember your consent choice from the cookie banner. No tracking cookies are required to view the site.
+              We use a privacy settings system that separates strictly necessary storage from optional analytics, personalization, and advertising / sale-sharing categories. Review the dedicated Cookie Policy for the current template language and controls.
             </p>
 
             <h3 className="heading-3 mt-8 mb-4">Third‑party services</h3>
@@ -182,12 +182,13 @@ export default function FAQ() {
 
             <h3 className="heading-3 mt-8 mb-4">Analytics</h3>
             <p className="text-body mb-6">
-              We do not currently use analytics that track individuals across pages or sessions. If we enable privacy‑respecting analytics in the future, we will update this policy and describe what is collected and why.
+              Optional first-party analytics are gated behind consent controls in this implementation. Final legal disclosures, jurisdictions, and tracker configuration still require counsel review before production launch.
             </p>
 
             <h3 className="heading-3 mt-8 mb-4">Your choices</h3>
             <ul className="text-body space-y-3 ml-6 list-disc">
-              <li>You can accept or decline cookies in the banner; your choice is stored in your browser.</li>
+              <li>You can accept, reject, or customize optional categories in Privacy Settings, and you can reopen those settings at any time.</li>
+              <li>You can use the dedicated Do Not Sell or Share page and Data Request page for privacy rights workflows.</li>
               <li>You can contact us to update or delete information you've shared.</li>
               <li>You can unsubscribe from emails at any time using the link provided by the email service.</li>
             </ul>
@@ -209,7 +210,7 @@ export default function FAQ() {
 
             <h3 className="heading-3 mt-8 mb-4">Contact</h3>
             <p className="text-body">
-              Questions about privacy? <Link to="/contact" className="underline underline-offset-4 text-accent-neutral hover:text-accent-warm transition-colors focus-enhanced">Contact us</Link> and we'll be happy to help.
+              Questions about privacy? Start with the <Link to="/privacy-policy" className="underline underline-offset-4 text-accent-neutral hover:text-accent-warm transition-colors focus-enhanced">Privacy Policy</Link>, the <Link to="/contact-privacy" className="underline underline-offset-4 text-accent-neutral hover:text-accent-warm transition-colors focus-enhanced">Contact Privacy</Link> page, or <Link to="/contact" className="underline underline-offset-4 text-accent-neutral hover:text-accent-warm transition-colors focus-enhanced">contact us</Link>.
             </p>
           </div>
         </section>

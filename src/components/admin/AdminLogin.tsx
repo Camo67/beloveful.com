@@ -44,6 +44,7 @@ export const AdminLogin = ({ onLogin }: AdminLoginProps) => {
         localStorage.setItem('admin_token', data.token);
         localStorage.setItem('admin_user', JSON.stringify(data.user));
         onLogin(data.token, data.user);
+        window.location.replace('/admin');
       } else {
         throw new Error('Invalid response from server');
       }
@@ -113,7 +114,7 @@ export const AdminLogin = ({ onLogin }: AdminLoginProps) => {
           </div>
         </section>
 
-        <section className="flex items-center justify-center bg-[linear-gradient(180deg,#f7f3eb,#efe5d3)] px-4 py-12 sm:px-6 lg:px-8">
+        <section className="flex items-center justify-center bg-[linear-gradient(180deg,#f7f3eb,#efe5d3)] px-4 py-12 text-stone-900 sm:px-6 lg:px-8">
           <div className="w-full max-w-md space-y-8">
             <div className="text-center lg:hidden">
               <div className="mx-auto mb-4 flex justify-center">
@@ -126,7 +127,7 @@ export const AdminLogin = ({ onLogin }: AdminLoginProps) => {
               <p className="text-sm uppercase tracking-[0.3em] text-stone-500">Beloveful Control Room</p>
             </div>
 
-            <Card className="w-full border-stone-200/80 bg-white/90 shadow-2xl shadow-stone-900/10">
+            <Card className="w-full border-stone-200/80 bg-white/90 text-stone-900 shadow-2xl shadow-stone-900/10">
               <CardHeader className="space-y-3">
                 <CardTitle className="text-2xl text-stone-900">Sign In</CardTitle>
                 <CardDescription className="text-stone-600">
@@ -143,39 +144,43 @@ export const AdminLogin = ({ onLogin }: AdminLoginProps) => {
                   )}
 
                   <div className="space-y-2">
-                    <Label htmlFor="username">Username</Label>
+                    <Label htmlFor="username" className="text-stone-900">Username</Label>
                     <Input
                       id="username"
                       name="username"
                       type="text"
+                      autoComplete="username"
                       required
                       value={formData.username}
                       onChange={handleInputChange}
                       placeholder="Enter your username"
                       disabled={loading}
-                      className="border-stone-300 bg-white"
+                      className="admin-login-input border-stone-300 bg-white !text-stone-900 caret-stone-900 placeholder:text-stone-500"
+                      style={{ color: '#1c1917', WebkitTextFillColor: '#1c1917' }}
                     />
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="password">Password</Label>
+                    <Label htmlFor="password" className="text-stone-900">Password</Label>
                     <div className="relative">
                       <Input
                         id="password"
                         name="password"
                         type={showPassword ? 'text' : 'password'}
+                        autoComplete="current-password"
                         required
                         value={formData.password}
                         onChange={handleInputChange}
                         placeholder="Enter your password"
                         disabled={loading}
-                        className="border-stone-300 bg-white pr-12"
+                        className="admin-login-input border-stone-300 bg-white pr-12 !text-stone-900 caret-stone-900 placeholder:text-stone-500"
+                        style={{ color: '#1c1917', WebkitTextFillColor: '#1c1917' }}
                       />
                       <Button
                         type="button"
                         variant="ghost"
                         size="sm"
-                        className="absolute right-0 top-0 h-full px-3 py-2 hover:bg-transparent"
+                        className="absolute right-0 top-0 h-full px-3 py-2 text-stone-500 hover:bg-transparent hover:text-stone-900"
                         onClick={() => setShowPassword(!showPassword)}
                         disabled={loading}
                       >

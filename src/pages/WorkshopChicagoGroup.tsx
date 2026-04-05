@@ -7,8 +7,10 @@ import { Link } from "react-router-dom";
 import { useWorkshopImages } from "@/hooks/use-workshop-images";
 import { CORE_WORKSHOP_TOPICS } from "@/lib/workshop-content";
 import { CloudImage } from "@/components/CloudImage";
+import { buildWorkshopInquiryHref } from "@/lib/workshop-inquiry";
 
 export default function WorkshopChicagoGroup() {
+  const inquiryHref = buildWorkshopInquiryHref("Group Chicago Workshop");
   const heroImage = {
     src: "/Website%20beloveful.com/Erasing%20Borders/Tony%20Menias%20-%20Two%20Girls%20in%20Window.jpg",
     alt: "Group Street Photography Workshop Chicago"
@@ -112,12 +114,8 @@ export default function WorkshopChicagoGroup() {
 
             <div className="text-center">
               <Button asChild size="lg" className="text-lg px-12 py-6">
-                <a
-                  href="https://lb.benchmarkemail.com//listbuilder/signupnew?IkfHTmyPVq92wBnn4lX%252FTf5pwVnAjsSIeL8KRSOgMpXtO5iNRn8gS049TyW7spdJ"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Enroll in Group Workshop
+                <a href={inquiryHref}>
+                  Email Tony to Reserve Your Spot
                 </a>
               </Button>
             </div>

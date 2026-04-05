@@ -61,7 +61,6 @@ app.get('/', async (c) => {
     const cached = cache ? await cache.match(c.req.raw) : null;
     if (cached) return cached;
   } catch (e) {
-    // eslint-disable-next-line no-console
     console.warn('Cache lookup failed (non-fatal)', e);
   }
 
@@ -87,7 +86,6 @@ app.get('/', async (c) => {
       }
     }
   } catch (e) {
-    // eslint-disable-next-line no-console
     console.warn('Public tag listing failed, will try API', e);
   }
 
@@ -175,7 +173,6 @@ app.get('/', async (c) => {
     // @ts-expect-error Workers runtime provides `caches`
     const cache = caches?.default; if (cache) await cache.put(c.req.raw, resp.clone());
   } catch (e) {
-    // eslint-disable-next-line no-console
     console.warn('Cache write failed (non-fatal)', e);
   }
   return resp;
