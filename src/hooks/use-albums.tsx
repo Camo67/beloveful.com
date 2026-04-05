@@ -146,14 +146,21 @@ export const useAlbums = () => {
 export const useAlbum = (region: string, country: string) => {
   const normalizeRegion = (value: string) =>
     value.toLowerCase().replace(/[^a-z]/g, "");
+  const normalizeSlug = (value: string) =>
+    value.toLowerCase().trim();
   return useQuery({
     queryKey: ['album', region, country],
     queryFn: async () => {
       console.log(`🌍 Loading album for ${region}/${country} (static + DB)`);
 
+      const regionKey = normalizeRegion(region);
+      const slugKey = normalizeSlug(country);
       const staticAlbum = ALBUMS.find(album => 
-        normalizeRegion(album.region) === normalizeRegion(region) && 
-        album.slug === country
+        normalizeRegion(album.region) === regionKey && 
+        normalizeSlug(album.slug) === slugKey
+      );
+      const fallbackAlbum = staticAlbum || ALBUMS.find(album =>
+        normalizeSlug(album.slug) === slugKey
       );
 
       // Try DB album (may include new uploads).
@@ -170,7 +177,7 @@ export const useAlbum = (region: string, country: string) => {
         // ignore; keep fallback behavior
       }
       
-      const album = staticAlbum || dbAlbum;
+      const album = fallbackAlbum || dbAlbum;
       if (!album) {
         return undefined;
       }

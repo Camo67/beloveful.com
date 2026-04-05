@@ -305,27 +305,9 @@ function lookupCdnUrl(relative: string): string | undefined {
   return CDN_LOOKUP[spaceKey] || CDN_LOOKUP[encodedKey];
 }
 
-// Normalize legacy India filenames with "-nggid..." suffixes to point at the real indiaImages assets
 function normalizeIndiaNggidPath(relative: string): string {
-  const normalized = normalizeRelativePath(relative);
-  const lower = normalized.toLowerCase();
-  if (!lower.includes('/asia/india/') || !normalized.includes('-nggid')) {
-    return normalized;
-  }
-
-  const segments = normalized.split('/');
-  const filename = segments.pop() ?? '';
-  const match = filename.match(/^(.+?)(\.[^.]+)$/);
-  if (!match) return normalized;
-
-  let base = match[1];
-  const ext = match[2];
-
-  // Strip the nggid suffix and duplicate markers, and avoid double extensions
-  base = base.replace(/-nggid.*$/i, '').replace(/\s*\(1\)\s*$/i, '');
-  base = base.replace(/\.(jpe?g|png|webp|gif)$/i, '');
-
-  return [...segments, 'indiaImages', `${base}${ext}`].join('/');
+  // Keep legacy India filenames as-is; the assets live alongside the nggid suffixes.
+  return normalizeRelativePath(relative);
 }
 
 function deriveRelativeFromUrl(url: string): string | null {
@@ -363,32 +345,7 @@ export function mapToCdnUrl(originalUrl?: string | null): string | null {
     return null;
   }
 
-  // Hard fix for legacy India images that include "-nggid..." and live under indiaImages/
-  const fixIndiaNggid = (input: string): string | null => {
-    let decoded = input;
-    try {
-      decoded = decodeURIComponent(input);
-    } catch {
-      // ignore
-    }
-    const lower = decoded.toLowerCase();
-    if (!lower.includes('/asia/india/') || !lower.includes('-nggid')) return null;
-
-    const withoutQuery = decoded.split(/[?#]/)[0];
-    const parts = withoutQuery.split('/');
-    const filename = parts.pop() ?? '';
-    const match = filename.match(/^(.+?)(\.[^.]+)$/);
-    if (!match) return null;
-    let base = match[1];
-    const ext = match[2];
-    base = base.replace(/-nggid.*$/i, '').replace(/\s*\(1\)\s*$/i, '');
-    base = base.replace(/\.(jpe?g|png|webp|gif)$/i, '');
-    const cleanedPath = `/Website beloveful.com/Asia/india/indiaImages/${base}${ext}`;
-    return encodeSpaces(cleanedPath);
-  };
-
-  const indiaFixed = fixIndiaNggid(originalUrl);
-  if (indiaFixed) return indiaFixed;
+  // Do not remap India nggid filenames; the originals are valid in the local library.
 
   const hasExplicitCdn = !!(
     runtimeEnv.VITE_SECURE_CDN_BASE_URL ||
