@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import { ALBUMS } from '@/lib/data'; // Data from prefix-mapped.json
-import { getWorkingImageUrl } from '@/lib/image-utils';
+import { getWorkingImageUrl, mapToCdnUrl, validateAndFixImageUrl } from '@/lib/image-utils';
 
 type ApiAlbumSummary = {
   id: number;
@@ -21,6 +21,56 @@ async function fetchDbAlbumSummaries(): Promise<ApiAlbumSummary[]> {
   return data.albums as ApiAlbumSummary[];
 }
 
+const LEGACY_COUNTRY_DISPLAY_BY_SLUG: Record<string, string> = {
+  india: 'India',
+  phillipines: 'Philippines',
+};
+
+function toTitleCase(value: string): string {
+  return String(value || '')
+    .split(/\s+/)
+    .filter(Boolean)
+    .map((part) => part.charAt(0).toUpperCase() + part.slice(1).toLowerCase())
+    .join(' ');
+}
+
+function normalizeAlbumCountry(country: string | undefined, slug?: string, fallback?: string): string {
+  const trimmed = String(country || '').trim();
+
+  if (slug && LEGACY_COUNTRY_DISPLAY_BY_SLUG[slug]) {
+    return LEGACY_COUNTRY_DISPLAY_BY_SLUG[slug];
+  }
+
+  if (!trimmed) {
+    return String(fallback || '').trim();
+  }
+
+  if (trimmed === trimmed.toLowerCase()) {
+    return String(fallback || toTitleCase(trimmed.replace(/-/g, ' '))).trim();
+  }
+
+  return trimmed;
+}
+
+function normalizeImagePair(image: any): { desktop: string; mobile: string } | null {
+  if (!image) return null;
+
+  const rawDesktop = String(image.desktop ?? image.desktop_url ?? '').trim();
+  const rawMobile = String(image.mobile ?? image.mobile_url ?? '').trim();
+
+  if (!rawDesktop && !rawMobile) return null;
+
+  const normalizedDesktop = rawDesktop ? (mapToCdnUrl(validateAndFixImageUrl(rawDesktop)) ?? validateAndFixImageUrl(rawDesktop)) : '';
+  const normalizedMobile = rawMobile ? (mapToCdnUrl(validateAndFixImageUrl(rawMobile)) ?? validateAndFixImageUrl(rawMobile)) : '';
+
+  if (!normalizedDesktop && !normalizedMobile) return null;
+
+  return {
+    desktop: normalizedDesktop || normalizedMobile,
+    mobile: normalizedMobile || normalizedDesktop,
+  };
+}
+
 export const useAlbums = () => {
   return useQuery({
     queryKey: ['albums'],
@@ -33,21 +83,24 @@ export const useAlbums = () => {
         try {
           const summaries = await fetchDbAlbumSummaries();
           dbAlbums = summaries
-            .filter((a) => a && a.slug && a.image_count > 0)
-            .map((a) => ({
-              region: a.region,
-              country: a.country,
-              slug: a.slug,
-              title: a.country,
-              description: a.description || undefined,
-              images: [
-                {
-                  desktop: a.cover_desktop_url || a.cover_mobile_url || '',
-                  mobile: a.cover_mobile_url || a.cover_desktop_url || '',
-                },
-              ].filter((img) => !!img.desktop || !!img.mobile),
-            }))
-            .filter((a) => a.images.length > 0);
+            .filter((a) => a && a.slug)
+            .map((a) => {
+              const country = normalizeAlbumCountry(a.country, a.slug);
+              return {
+                region: a.region,
+                country,
+                slug: a.slug,
+                title: country,
+                description: a.description || undefined,
+                imageCount: Number(a.image_count) || 0,
+                images: [
+                  {
+                    desktop: a.cover_desktop_url || a.cover_mobile_url || '',
+                    mobile: a.cover_mobile_url || a.cover_desktop_url || '',
+                  },
+                ].filter((img) => !!img.desktop || !!img.mobile),
+              };
+            });
         } catch {
           // ignore DB failures and fall back to static only
         }
@@ -63,32 +116,23 @@ export const useAlbums = () => {
         const mergedAlbums = ALBUMS.map((staticAlbum) => {
           const dbAlbum = dbBySlug.get(staticAlbum.slug);
           if (!dbAlbum) return staticAlbum;
-
-          const mergedImages: Array<{ desktop: string; mobile: string }> = [];
-          const seen = new Set<string>();
-          const addUnique = (img: any) => {
-            if (!img) return;
-            const desktop = String(img.desktop || '').trim();
-            const mobile = String(img.mobile || '').trim();
-            if (!desktop && !mobile) return;
-            const key = `${desktop}|${mobile}`;
-            if (seen.has(key)) return;
-            seen.add(key);
-            mergedImages.push({ desktop: desktop || mobile, mobile: mobile || desktop });
-          };
-
-          for (const image of dbAlbum.images || []) addUnique(image);
-          for (const image of staticAlbum.images || []) addUnique(image);
+          const dbHasImages = (dbAlbum.imageCount || 0) > 0 && dbAlbum.images.length > 0;
 
           return {
             ...staticAlbum,
+            region: dbAlbum.region || staticAlbum.region,
+            country: dbAlbum.country || staticAlbum.country,
+            title: dbAlbum.country || staticAlbum.title,
             description: dbAlbum.description || staticAlbum.description,
-            images: mergedImages.length ? mergedImages : staticAlbum.images,
+            imageCount: dbHasImages
+              ? dbAlbum.imageCount
+              : (staticAlbum.imageCount ?? staticAlbum.images.length),
+            images: dbHasImages ? dbAlbum.images : staticAlbum.images,
           };
-        });
+        }) as typeof ALBUMS;
 
         for (const dbAlbum of dbBySlug.values()) {
-          if (!ALBUMS.find((album) => album.slug === dbAlbum.slug)) {
+          if ((dbAlbum.imageCount || 0) > 0 && !ALBUMS.find((album) => album.slug === dbAlbum.slug)) {
             mergedAlbums.push(dbAlbum);
           }
         }
@@ -146,14 +190,21 @@ export const useAlbums = () => {
 export const useAlbum = (region: string, country: string) => {
   const normalizeRegion = (value: string) =>
     value.toLowerCase().replace(/[^a-z]/g, "");
+  const normalizeSlug = (value: string) =>
+    value.toLowerCase().trim();
   return useQuery({
     queryKey: ['album', region, country],
     queryFn: async () => {
       console.log(`🌍 Loading album for ${region}/${country} (static + DB)`);
 
+      const regionKey = normalizeRegion(region);
+      const slugKey = normalizeSlug(country);
       const staticAlbum = ALBUMS.find(album => 
-        normalizeRegion(album.region) === normalizeRegion(region) && 
-        album.slug === country
+        normalizeRegion(album.region) === regionKey && 
+        normalizeSlug(album.slug) === slugKey
+      );
+      const fallbackAlbum = staticAlbum || ALBUMS.find(album =>
+        normalizeSlug(album.slug) === slugKey
       );
 
       // Try DB album (may include new uploads).
@@ -169,8 +220,8 @@ export const useAlbum = (region: string, country: string) => {
       } catch {
         // ignore; keep fallback behavior
       }
-      
-      const album = staticAlbum || dbAlbum;
+
+      const album = fallbackAlbum || dbAlbum;
       if (!album) {
         return undefined;
       }
@@ -178,18 +229,16 @@ export const useAlbum = (region: string, country: string) => {
       const mergedImages: Array<{ desktop: string; mobile: string }> = [];
       const seen = new Set<string>();
       const addUnique = (img: any) => {
-        if (!img) return;
-        const desktop = String(img.desktop || '').trim();
-        const mobile = String(img.mobile || '').trim();
-        if (!desktop && !mobile) return;
-        const key = `${desktop}|${mobile}`;
+        const normalized = normalizeImagePair(img);
+        if (!normalized) return;
+        const key = `${normalized.desktop}|${normalized.mobile}`;
         if (seen.has(key)) return;
         seen.add(key);
-        mergedImages.push({ desktop: desktop || mobile, mobile: mobile || desktop });
+        mergedImages.push(normalized);
       };
 
-      for (const image of (staticAlbum?.images || [])) addUnique(image);
-      for (const image of (dbAlbum?.images || [])) addUnique(image);
+      for (const image of staticAlbum?.images || []) addUnique(image);
+      for (const image of dbAlbum?.images || []) addUnique(image);
       
       // Verify image URLs (skip broken ones)
       const verifiedImages: Array<{ desktop: string; mobile: string }> = [];
@@ -209,6 +258,11 @@ export const useAlbum = (region: string, country: string) => {
       
       return {
         ...album,
+        region: dbAlbum?.region || staticAlbum?.region || album.region,
+        country: normalizeAlbumCountry(dbAlbum?.country, dbAlbum?.slug, staticAlbum?.country || album.country),
+        title: normalizeAlbumCountry(dbAlbum?.country, dbAlbum?.slug, staticAlbum?.title || album.title),
+        description: dbAlbum?.description || staticAlbum?.description || album.description,
+        imageCount: verifiedImages.length,
         images: verifiedImages
       };
     },

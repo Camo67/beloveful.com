@@ -45,6 +45,7 @@ export interface CountryAlbum {
   description?: string
   price?: number
   featured?: boolean
+  imageCount?: number
   images: {
     desktop: string // URL for landscape image
     mobile: string // URL for portrait image
@@ -77,6 +78,54 @@ interface HomepageAsset {
   height?: string;
   bytes?: string;
 }
+
+const LEGACY_COUNTRY_DISPLAY_BY_SLUG: Record<string, string> = {
+  india: 'India',
+  phillipines: 'Philippines',
+};
+
+function toTitleCase(value: string): string {
+  return String(value || '')
+    .split(/\s+/)
+    .filter(Boolean)
+    .map((part) => part.charAt(0).toUpperCase() + part.slice(1).toLowerCase())
+    .join(' ');
+}
+
+function normalizeCountryDisplay(value: string, slug?: string): string {
+  const trimmed = String(value || '').trim();
+  if (!trimmed) return trimmed;
+
+  const legacyDisplay = slug ? LEGACY_COUNTRY_DISPLAY_BY_SLUG[slug] : undefined;
+  if (legacyDisplay) return legacyDisplay;
+
+  if (trimmed === trimmed.toLowerCase()) {
+    return toTitleCase(trimmed.replace(/-/g, ' '));
+  }
+
+  return trimmed;
+}
+
+const normalizeImageUrl = (url: string): string => {
+  const fixed = validateAndFixImageUrl(url);
+  return mapToCdnUrl(fixed) ?? fixed;
+};
+
+const dedupeImages = (images: { desktop: string; mobile: string }[]) => {
+  const seen = new Set<string>();
+  const unique: { desktop: string; mobile: string }[] = [];
+
+  for (const image of images) {
+    const desktop = normalizeImageUrl(image.desktop);
+    const mobile = normalizeImageUrl(image.mobile || image.desktop);
+    const key = `${desktop}|${mobile}`;
+    if (seen.has(key)) continue;
+    seen.add(key);
+    unique.push({ desktop, mobile });
+  }
+
+  return unique;
+};
 
 // Local-only fallback for Erasing Borders (ensures live mirrors dev by using bundled images)
 const ERASING_BORDERS_LOCAL_IMAGES = [
@@ -152,7 +201,7 @@ function groupPrefixMappedData(): CountryAlbum[] {
           country: countryName,
           slug,
           title: countryName,
-          images: processedImages
+          images: dedupeImages(processedImages)
         };
         
         albums.push(album);
@@ -214,10 +263,6 @@ function normalizeLocalAlbums(): CountryAlbum[] {
   try {
     const parsed = (localAlbums as any[]) ?? [];
     const regionSet = new Set<Region>(REGIONS);
-    const cleanUrl = (url: string) => {
-      const fixed = validateAndFixImageUrl(url);
-      return mapToCdnUrl(fixed) ?? fixed;
-    };
 
     return parsed
       .map((album) => {
@@ -225,20 +270,27 @@ function normalizeLocalAlbums(): CountryAlbum[] {
         if (!regionSet.has(regionName)) {
           return null;
         }
+        const country = normalizeCountryDisplay(album.country as string, album.slug as string);
+        const title = normalizeCountryDisplay(
+          (album.title as string) || (album.country as string),
+          album.slug as string,
+        );
         const images = Array.isArray(album.images)
-          ? album.images
-              .map((img: any) => ({
-                desktop: cleanUrl(img.desktop),
-                mobile: cleanUrl(img.mobile),
-              }))
-              .filter((img) => !!img.desktop)
+          ? dedupeImages(
+              album.images
+                .map((img: any) => ({
+                  desktop: normalizeImageUrl(img.desktop),
+                  mobile: normalizeImageUrl(img.mobile ?? img.desktop),
+                }))
+                .filter((img) => !!img.desktop),
+            )
           : [];
         if (!images.length) return null;
         return {
           region: album.region as Region,
-          country: album.country as string,
+          country,
           slug: album.slug as string,
-          title: album.title ?? album.country,
+          title,
           images,
         } satisfies CountryAlbum;
       })
