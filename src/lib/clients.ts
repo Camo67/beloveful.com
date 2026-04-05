@@ -9,6 +9,7 @@ const RAW_CLIENT_LOGOS = [
   "/images/clients/Time_Magazine_logo.svg.png",
   "/images/clients/benq.png",
   "/images/clients/breaks-chicago.jpg",
+  "/Website beloveful.com/Clients & Partners/logocamodevop.png",
   "/images/clients/egypt.png",
   "/images/clients/kissclipart-navy-pier-logo-clipart-chicago-shakespeare-theater-e550ac399dac0a24.jpg",
   "/images/clients/logo.png",
