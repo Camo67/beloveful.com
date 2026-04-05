@@ -7,26 +7,6 @@
 
 // Utility functions to load JSON assets from cloudinary-assets and portolio directories
 
-async function fetchJsonWithFallback(primaryUrl: string, fallbackUrl?: string): Promise<any> {
-  try {
-    const response = await fetch(primaryUrl);
-    if (response.ok) {
-      return await response.json();
-    }
-  } catch {
-    // fall through to fallback
-  }
-
-  if (fallbackUrl) {
-    const response = await fetch(fallbackUrl);
-    if (response.ok) {
-      return await response.json();
-    }
-  }
-
-  throw new Error(`Failed to load asset: ${primaryUrl}`);
-}
-
 /**
  * Load a JSON file from the cloudinary-assets directory
  * @param path - Path to the JSON file relative to cloudinary-assets directory
@@ -34,10 +14,13 @@ async function fetchJsonWithFallback(primaryUrl: string, fallbackUrl?: string): 
  */
 export async function loadCloudinaryAsset(path: string): Promise<any> {
   try {
-    return await fetchJsonWithFallback(
-      `/content-assets/cloudinary-assets/${path}`,
-      `/api/content/assets/cloudinary-assets/${path}`,
-    );
+    const response = await fetch(`/api/content/assets/cloudinary-assets/${path}`);
+    
+    if (!response.ok) {
+      throw new Error(`Failed to load cloudinary asset: ${response.status} ${response.statusText}`);
+    }
+    
+    return await response.json();
   } catch (error) {
     console.error(`Error loading cloudinary asset at ${path}:`, error);
     throw error;
@@ -51,10 +34,13 @@ export async function loadCloudinaryAsset(path: string): Promise<any> {
  */
 export async function loadPortfolioAsset(path: string): Promise<any> {
   try {
-    return await fetchJsonWithFallback(
-      `/content-assets/portolio/${path}`,
-      `/api/content/assets/portolio/${path}`,
-    );
+    const response = await fetch(`/api/content/assets/portolio/${path}`);
+    
+    if (!response.ok) {
+      throw new Error(`Failed to load portfolio asset: ${response.status} ${response.statusText}`);
+    }
+    
+    return await response.json();
   } catch (error) {
     console.error(`Error loading portfolio asset at ${path}:`, error);
     throw error;
@@ -67,10 +53,13 @@ export async function loadPortfolioAsset(path: string): Promise<any> {
  */
 export async function loadCloudinaryIndex(): Promise<any> {
   try {
-    return await fetchJsonWithFallback(
-      '/content-assets/cloudinary-assets/index.json',
-      '/api/content/assets/cloudinary-assets.json',
-    );
+    const response = await fetch('/api/content/assets/cloudinary-assets.json');
+    
+    if (!response.ok) {
+      throw new Error(`Failed to load cloudinary index: ${response.status} ${response.statusText}`);
+    }
+    
+    return await response.json();
   } catch (error) {
     console.error('Error loading cloudinary index:', error);
     throw error;

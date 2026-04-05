@@ -1,6 +1,5 @@
 // Public albums API (no auth).
-// Returns all published albums so the frontend can treat DB-backed albums
-// as the source of truth, including empty albums that should hide static fallbacks.
+// Returns only published albums that have at least one published image.
 
 interface Env {
   DB: D1Database;
@@ -53,6 +52,11 @@ export async function onRequestGet(context: any): Promise<Response> {
           ) AS cover_mobile_url
         FROM albums a
         WHERE a.is_published = 1
+          AND EXISTS (
+            SELECT 1
+            FROM images i
+            WHERE i.album_id = a.id AND i.is_published = 1
+          )
         ORDER BY a.region, a.sort_order, a.country
         `,
       )
@@ -70,3 +74,4 @@ export async function onRequestGet(context: any): Promise<Response> {
     return jsonResponse({ success: false, error: 'Failed to fetch albums' }, { status: 500 });
   }
 }
+

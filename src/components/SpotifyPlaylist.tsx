@@ -6,15 +6,13 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { useSpotifyPlayer } from '@/hooks/use-spotify-player';
 import { useToast } from '@/hooks/use-toast';
-import {
-  BELOVEFUL_SPOTIFY_PLAYLIST_API_URL,
-  BELOVEFUL_SPOTIFY_PLAYLIST_EMBED_URL,
-  BELOVEFUL_SPOTIFY_PLAYLIST_URI,
-} from '@/lib/spotify';
 
 // You'll need to get these from your Spotify App settings
 const SPOTIFY_CLIENT_ID = import.meta.env.VITE_SPOTIFY_CLIENT_ID || '';
 const REDIRECT_URI = typeof window !== 'undefined' ? window.location.origin : '';
+
+// Playlist URI - you can change this to any Spotify playlist URI
+const PLAYLIST_URI = 'spotify:playlist:6Gy5nsKnrYir1tOx9pBuxW';
 
 interface SpotifyTrack {
   id: string;
@@ -71,7 +69,7 @@ export default function SpotifyPlaylist() {
         if (!tokenRes.ok) return;
         const { access_token } = await tokenRes.json();
         if (!access_token) return;
-        const response = await fetch(BELOVEFUL_SPOTIFY_PLAYLIST_API_URL, {
+        const response = await fetch(`https://api.spotify.com/v1/playlists/6Gy5nsKnrYir1tOx9pBuxW`, {
           headers: {
             'Authorization': `Bearer ${access_token}`,
           },
@@ -99,7 +97,7 @@ export default function SpotifyPlaylist() {
   // Handle play/pause toggle
   const handlePlayPause = () => {
     if (!playerState) {
-      play(BELOVEFUL_SPOTIFY_PLAYLIST_URI);
+      play(PLAYLIST_URI);
       toast({
         title: "Starting playback",
         description: "Playing the Beloveful Visions playlist",
@@ -354,7 +352,7 @@ export default function SpotifyPlaylist() {
           <iframe 
             data-testid="embed-iframe" 
             style={{ borderRadius: '12px' }} 
-            src={BELOVEFUL_SPOTIFY_PLAYLIST_EMBED_URL}
+            src="https://open.spotify.com/embed/playlist/6Gy5nsKnrYir1tOx9pBuxW?utm_source=generator&theme=0" 
             width="100%" 
             height="352" 
             frameBorder="0" 

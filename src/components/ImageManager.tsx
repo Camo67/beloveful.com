@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useCallback, useRef } from 'react';
 import { Upload, X, Eye, Trash2, FolderOpen, Image as ImageIcon } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
@@ -38,6 +38,32 @@ export const ImageManager: React.FC = () => {
   const [dragActive, setDragActive] = useState(false);
 
   const fileInputRef = useRef<HTMLInputElement>(null);
+
+  // Handle file selection
+  const handleFileSelect = useCallback((files: FileList | null) => {
+    if (!files) return;
+
+    const fileArray = Array.from(files);
+    const validFiles = fileArray.filter(file => 
+      file.type.startsWith('image/') && file.size <= 50 * 1024 * 1024 // 50MB limit
+    );
+
+    if (validFiles.length !== fileArray.length) {
+      toast.error(`${fileArray.length - validFiles.length} files were invalid or too large`);
+    }
+
+    if (validFiles.length === 0) return;
+
+    // Initialize upload progress tracking
+    const newUploads: UploadProgress[] = validFiles.map(file => ({
+      file,
+      progress: 0,
+      status: 'uploading'
+    }));
+
+    setUploads(prev => [...prev, ...newUploads]);
+    startUploads(validFiles, newUploads);
+  }, []);
 
   // Start upload process
   const startUploads = async (files: File[], uploadProgress: UploadProgress[]) => {
@@ -90,34 +116,8 @@ export const ImageManager: React.FC = () => {
     }
   };
 
-  // Handle file selection
-  const handleFileSelect = (files: FileList | null) => {
-    if (!files) return;
-
-    const fileArray = Array.from(files);
-    const validFiles = fileArray.filter(file => 
-      file.type.startsWith('image/') && file.size <= 50 * 1024 * 1024 // 50MB limit
-    );
-
-    if (validFiles.length !== fileArray.length) {
-      toast.error(`${fileArray.length - validFiles.length} files were invalid or too large`);
-    }
-
-    if (validFiles.length === 0) return;
-
-    // Initialize upload progress tracking
-    const newUploads: UploadProgress[] = validFiles.map(file => ({
-      file,
-      progress: 0,
-      status: 'uploading'
-    }));
-
-    setUploads(prev => [...prev, ...newUploads]);
-    void startUploads(validFiles, newUploads);
-  };
-
   // Drag and drop handlers
-  const handleDrag = (e: React.DragEvent) => {
+  const handleDrag = useCallback((e: React.DragEvent) => {
     e.preventDefault();
     e.stopPropagation();
     if (e.type === 'dragenter' || e.type === 'dragover') {
@@ -125,9 +125,9 @@ export const ImageManager: React.FC = () => {
     } else if (e.type === 'dragleave') {
       setDragActive(false);
     }
-  };
+  }, []);
 
-  const handleDrop = (e: React.DragEvent) => {
+  const handleDrop = useCallback((e: React.DragEvent) => {
     e.preventDefault();
     e.stopPropagation();
     setDragActive(false);
@@ -135,7 +135,7 @@ export const ImageManager: React.FC = () => {
     if (e.dataTransfer.files && e.dataTransfer.files[0]) {
       handleFileSelect(e.dataTransfer.files);
     }
-  };
+  }, [handleFileSelect]);
 
   // Load existing images
   const loadExistingImages = async () => {

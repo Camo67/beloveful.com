@@ -32,12 +32,12 @@ export const AdminLayout = ({ children, user, onLogout }: AdminLayoutProps) => {
       icon: LayoutDashboard,
     },
     {
-      name: 'Portfolio Albums',
+      name: 'Albums',
       href: '/admin/albums',
       icon: Camera,
     },
     {
-      name: 'Portfolio Images',
+      name: 'Images',
       href: '/admin/images',
       icon: Image,
     },
@@ -47,12 +47,12 @@ export const AdminLayout = ({ children, user, onLogout }: AdminLayoutProps) => {
       icon: Palette,
     },
     {
-      name: 'Website Content',
+      name: 'Content',
       href: '/admin/content',
       icon: FileText,
     },
     {
-      name: 'Site Settings',
+      name: 'Settings',
       href: '/admin/settings',
       icon: Settings,
     },

@@ -7,10 +7,8 @@ import { Link } from "react-router-dom";
 import { useWorkshopImages } from "@/hooks/use-workshop-images";
 import { CORE_WORKSHOP_TOPICS } from "@/lib/workshop-content";
 import { CloudImage } from "@/components/CloudImage";
-import { buildWorkshopInquiryHref } from "@/lib/workshop-inquiry";
 
 export default function WorkshopChicagoPrivate() {
-  const inquiryHref = buildWorkshopInquiryHref("Private Chicago Workshop");
   const heroImage = {
     src: "/Website%20beloveful.com/Workshop%20Photos/Copy%20of%20CHI-359.jpg",
     alt: "1:1 Street Photography Workshop Chicago"
@@ -108,8 +106,12 @@ export default function WorkshopChicagoPrivate() {
 
             <div className="text-center">
               <Button asChild size="lg" className="text-lg px-12 py-6">
-                <a href={inquiryHref}>
-                  Email Tony to Enroll
+                <a
+                  href="https://lb.benchmarkemail.com//listbuilder/signupnew?IkfHTmyPVq92wBnn4lX%252FTf5pwVnAjsSIeL8KRSOgMpXtO5iNRn8gS049TyW7spdJ"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Enroll Now
                 </a>
               </Button>
             </div>

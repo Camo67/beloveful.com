@@ -27,13 +27,6 @@ interface ContentBlock {
   updated_at: string;
 }
 
-interface ContentBlocksManagerProps {
-  forcedPageKey?: string;
-  hidePageSelector?: boolean;
-  title?: string;
-  description?: string;
-}
-
 const COMMON_PAGES = [
   'home',
   'about',
@@ -60,52 +53,28 @@ const DEFAULT_FORM = {
   content_type: 'text',
 };
 
-function createDefaultForm(pageKey = 'about') {
-  return {
-    ...DEFAULT_FORM,
-    page_key: pageKey,
-  };
-}
-
-export const ContentBlocksManager = ({
-  forcedPageKey,
-  hidePageSelector = false,
-  title = 'Content Blocks',
-  description = 'Create, edit, and delete the text blocks used across the site.',
-}: ContentBlocksManagerProps) => {
+export const ContentBlocksManager = () => {
   const [blocks, setBlocks] = useState<ContentBlock[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
-  const [selectedPage, setSelectedPage] = useState(forcedPageKey || 'all-pages');
+  const [selectedPage, setSelectedPage] = useState('all-pages');
   const [editingBlock, setEditingBlock] = useState<ContentBlock | null>(null);
-  const [formData, setFormData] = useState(createDefaultForm(forcedPageKey || 'about'));
-
-  const activePage = forcedPageKey || selectedPage;
+  const [formData, setFormData] = useState(DEFAULT_FORM);
 
   const availablePages = useMemo(() => {
     const pageSet = new Set(COMMON_PAGES);
     blocks.forEach((block) => pageSet.add(block.page_key));
-    if (forcedPageKey) {
-      pageSet.add(forcedPageKey);
-    }
     return Array.from(pageSet).sort((a, b) => a.localeCompare(b));
-  }, [blocks, forcedPageKey]);
-
-  useEffect(() => {
-    if (forcedPageKey) {
-      setSelectedPage(forcedPageKey);
-      setFormData((current) => ({ ...current, page_key: forcedPageKey }));
-    }
-  }, [forcedPageKey]);
+  }, [blocks]);
 
   const fetchBlocks = useCallback(async () => {
     try {
       setLoading(true);
       const token = localStorage.getItem('admin_token');
       const query =
-        activePage !== 'all-pages' ? `?page_key=${encodeURIComponent(activePage)}` : '';
+        selectedPage !== 'all-pages' ? `?page_key=${encodeURIComponent(selectedPage)}` : '';
 
       const response = await fetch(`/api/content/admin/all${query}`, {
         headers: { Authorization: `Bearer ${token}` },
@@ -123,14 +92,14 @@ export const ContentBlocksManager = ({
     } finally {
       setLoading(false);
     }
-  }, [activePage]);
+  }, [selectedPage]);
 
   useEffect(() => {
     fetchBlocks();
   }, [fetchBlocks]);
 
   const resetForm = () => {
-    setFormData(createDefaultForm(forcedPageKey || 'about'));
+    setFormData(DEFAULT_FORM);
     setEditingBlock(null);
   };
 
@@ -141,7 +110,7 @@ export const ContentBlocksManager = ({
 
   const openEditDialog = (block: ContentBlock) => {
     setFormData({
-      page_key: forcedPageKey || block.page_key,
+      page_key: block.page_key,
       content_key: block.content_key,
       content_value: block.content_value,
       content_type: block.content_type,
@@ -214,26 +183,26 @@ export const ContentBlocksManager = ({
     <div className="space-y-6">
       <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
         <div>
-          <h2 className="text-2xl font-bold">{title}</h2>
-          <p className="text-muted-foreground">{description}</p>
+          <h2 className="text-2xl font-bold">Content Blocks</h2>
+          <p className="text-muted-foreground">
+            Create, edit, and delete the text blocks used across the site.
+          </p>
         </div>
 
         <div className="flex gap-3">
-          {!hidePageSelector && !forcedPageKey ? (
-            <Select value={selectedPage} onValueChange={setSelectedPage}>
-              <SelectTrigger className="w-[180px]">
-                <SelectValue placeholder="Filter by page" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="all-pages">All Pages</SelectItem>
-                {availablePages.map((page) => (
-                  <SelectItem key={page} value={page}>
-                    {page}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-          ) : null}
+          <Select value={selectedPage} onValueChange={setSelectedPage}>
+            <SelectTrigger className="w-[180px]">
+              <SelectValue placeholder="Filter by page" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="all-pages">All Pages</SelectItem>
+              {availablePages.map((page) => (
+                <SelectItem key={page} value={page}>
+                  {page}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
 
           <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
             <DialogTrigger asChild>
@@ -252,35 +221,26 @@ export const ContentBlocksManager = ({
 
               <form className="space-y-4" onSubmit={handleSubmit}>
                 <div className="grid gap-4 md:grid-cols-2">
-                  {!forcedPageKey ? (
-                    <div className="space-y-2">
-                      <Label htmlFor="page_key">Page</Label>
-                      <Select
-                        value={formData.page_key}
-                        onValueChange={(value) =>
-                          setFormData((current) => ({ ...current, page_key: value }))
-                        }
-                      >
-                        <SelectTrigger id="page_key">
-                          <SelectValue placeholder="Select page" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          {availablePages.map((page) => (
-                            <SelectItem key={page} value={page}>
-                              {page}
-                            </SelectItem>
-                          ))}
-                        </SelectContent>
-                      </Select>
-                    </div>
-                  ) : (
-                    <div className="space-y-2">
-                      <Label>Page</Label>
-                      <div className="flex h-10 items-center rounded-md border bg-muted px-3 text-sm capitalize">
-                        {forcedPageKey}
-                      </div>
-                    </div>
-                  )}
+                  <div className="space-y-2">
+                    <Label htmlFor="page_key">Page</Label>
+                    <Select
+                      value={formData.page_key}
+                      onValueChange={(value) =>
+                        setFormData((current) => ({ ...current, page_key: value }))
+                      }
+                    >
+                      <SelectTrigger id="page_key">
+                        <SelectValue placeholder="Select page" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {availablePages.map((page) => (
+                          <SelectItem key={page} value={page}>
+                            {page}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </div>
 
                   <div className="space-y-2">
                     <Label htmlFor="content_type">Content Type</Label>
@@ -366,7 +326,7 @@ export const ContentBlocksManager = ({
           <CardTitle>Saved Blocks</CardTitle>
           <CardDescription>
             {blocks.length} block{blocks.length === 1 ? '' : 's'}
-            {activePage !== 'all-pages' ? ` on ${activePage}` : ' across all pages'}
+            {selectedPage !== 'all-pages' ? ` on ${selectedPage}` : ' across all pages'}
           </CardDescription>
         </CardHeader>
         <CardContent>

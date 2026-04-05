@@ -1,8 +1,6 @@
 # Beloveful Visions CMS Backend
 
-Note: this document describes the alternate Cloudflare Worker/D1 CMS path that remains in the repo. The current default production path for the site is the Bluehost/cPanel package with a PHP API overlay. Use this document for Worker-based development, migration work, and optional Cloudflare deployments, not as the primary production deploy guide.
-
-This document outlines the Cloudflare-based CMS backend that is still available for the Beloveful Visions photography portfolio website.
+This document outlines the new content management system (CMS) backend for the Beloveful Visions photography portfolio website.
 
 ## Overview
 
@@ -48,8 +46,6 @@ The CMS backend provides:
 - **Flexible Content**: JSON settings for advanced block configurations
 
 ## Setup Instructions
-
-These setup steps are for the Cloudflare Worker/D1 runtime. If you are deploying the current default Bluehost production path, use [README.md](README.md) and [docs/bluehost-migration.md](docs/bluehost-migration.md) instead.
 
 ### 1. Install Dependencies
 
@@ -103,7 +99,7 @@ npm run db:migrate:local
 npm run db:migrate
 ```
 
-### 5. Create Admin User (Cloudflare runtime only)
+### 5. Create Admin User
 
 Navigate to `/admin` in your browser and you'll see a setup page to create the initial admin user.
 
@@ -119,7 +115,7 @@ curl -X POST https://your-domain.com/api/auth/setup \
   }'
 ```
 
-### 6. Migrate Existing Data (Cloudflare runtime only)
+### 6. Migrate Existing Data
 
 Import your current static album and slideshow data:
 
@@ -142,28 +138,16 @@ npm run dev:worker
 
 The frontend will proxy API requests to the Workers dev server.
 
-If you want local behavior that is closer to the default Bluehost production runtime, use `npm run dev:vite` together with `npm run dev:api:php` as described in the main README.
-
 ### Building and Deployment
 
-Current default production path:
-
 ```bash
-# Build and deploy to Bluehost/cPanel
+# Build and deploy to Cloudflare
 npm run deploy
-```
-
-Alternate Cloudflare path:
-
-```bash
-npm run deploy:cloudflare
 ```
 
 This runs `vite build` and `wrangler deploy`.
 
 ## API Endpoints
-
-The endpoint list below reflects the Cloudflare Worker/D1 implementation. The default Bluehost runtime ships a compatible PHP API surface for the production path, but setup/bootstrap details differ.
 
 ### Authentication
 - `POST /api/auth/login` - Admin login
@@ -297,4 +281,4 @@ The system maintains compatibility with your existing static data structure whil
 - **CDN Integration**: Automatic image optimization
 - **Mobile App**: React Native app for mobile content management
 
-This CMS backend remains a solid alternate runtime for managing the photography portfolio, especially for local Worker-based development and Cloudflare-hosted deployments.
+This CMS backend provides a solid foundation for managing your photography portfolio while maintaining the performance and security of your existing Cloudflare Workers deployment.

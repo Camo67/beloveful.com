@@ -1,295 +1,398 @@
-import { useMemo } from "react";
 import { Header } from "@/components/Header";
 import FooterStrip from "@/components/FooterStrip";
 import PageContainer from "@/components/PageContainer";
-import { usePageContent } from "@/hooks/use-page-content";
-import { useSiteSettings } from "@/hooks/use-site-settings";
-import { CalendarDays, ExternalLink, MapPin } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
-interface UpcomingEvent {
+interface Exhibition {
   title: string;
-  start_date: string;
-  end_date?: string;
-  venue?: string;
-  location?: string;
-  description?: string;
-  image_url?: string;
-  image_alt?: string;
-  event_url?: string;
-  cta_label?: string;
+  location: string;
+  year: number;
+  type: 'Solo' | 'Group' | 'Invitational';
 }
 
-const SHORT_DATE_FORMATTER = new Intl.DateTimeFormat("en-US", {
-  month: "short",
-  day: "numeric",
-});
+const EXHIBITIONS: Exhibition[] = [
+  {
+    title: 'Wilmette Art Fair',
+    location: 'Wilmette IL',
+    year: 2025,
+    type: 'Invitational'
+  },
+  {
+    title: 'Old Town Art Fair',
+    location: 'Chicago IL',
+    year: 2025,
+    type: 'Invitational'
+  },
+  {
+    title: 'Old Town Art Fair',
+    location: 'Chicago IL',
+    year: 2024,
+    type: 'Invitational'
+  },
+  {
+    title: 'Saatchi The Other Art Fair',
+    location: 'Brooklyn, NY',
+    year: 2024,
+    type: 'Invitational'
+  },
+  {
+    title: 'Titan Walls',
+    location: 'Chicago IL',
+    year: 2023,
+    type: 'Group'
+  },
+  {
+    title: 'Moments that we Missed',
+    location: 'Compstomp Studios',
+    year: 2023,
+    type: 'Invitational'
+  },
+  {
+    title: 'Saatchi The Other Art Fair',
+    location: 'Chicago, IL',
+    year: 2023,
+    type: 'Invitational'
+  },
+  {
+    title: 'TIME Magazine pieces Gallery',
+    location: 'Black Dove Gallery Miami, FL',
+    year: 2022,
+    type: 'Invitational'
+  },
+  {
+    title: 'The Photography Show, Fujifilm Printlife Exhibition',
+    location: 'Birmingham, UK',
+    year: 2022,
+    type: 'Group'
+  },
+  {
+    title: 'SuperChief Gallery',
+    location: 'Los Angeles, CA',
+    year: 2022,
+    type: 'Group'
+  },
+  {
+    title: 'Coinbase NFT Gallery',
+    location: '',
+    year: 2022,
+    type: 'Invitational'
+  },
+  {
+    title: 'Saatchi The Other Art Fair',
+    location: 'Chicago, IL',
+    year: 2022,
+    type: 'Invitational'
+  },
+  {
+    title: 'Superchief Gallery Art Basel',
+    location: 'Miami, FL',
+    year: 2021,
+    type: 'Invitational'
+  },
+  {
+    title: 'Saatchi The Other Art Fair',
+    location: 'Brooklyn, NY',
+    year: 2021,
+    type: 'Invitational'
+  },
+  {
+    title: 'Saatchi The Other Art Fair',
+    location: 'Chicago, IL',
+    year: 2021,
+    type: 'Invitational'
+  },
+  {
+    title: 'HUMANITY',
+    location: 'J07 Gallery Metaverse',
+    year: 2021,
+    type: 'Invitational'
+  },
+  {
+    title: 'In the Shadows',
+    location: 'ImnotArt Gallery, Chicago, IL',
+    year: 2021,
+    type: 'Solo'
+  },
+  {
+    title: 'Erasing Borders',
+    location: 'Gallery Cafe. Chicago, IL',
+    year: 2019,
+    type: 'Solo'
+  },
+  {
+    title: 'Conception Global Art Collective',
+    location: 'Chicago, IL',
+    year: 2018,
+    type: 'Group'
+  },
+  {
+    title: 'P&B Art Show',
+    location: 'Chicago, IL',
+    year: 2018,
+    type: 'Group'
+  },
+  {
+    title: 'RAW Artists',
+    location: 'Chicago, IL',
+    year: 2018,
+    type: 'Group'
+  }
+];
 
-const FULL_DATE_FORMATTER = new Intl.DateTimeFormat("en-US", {
-  weekday: "short",
-  month: "short",
-  day: "numeric",
-  year: "numeric",
-});
-
-const EVENTS_CONTENT_DEFAULTS = {
-  eyebrow: "Events",
-  title: "Events & Schedule",
-  intro:
-    "Use the live calendar below for current availability, confirmed viewings, and scheduling updates.",
-  schedule_heading: "Upcoming Schedule",
-  schedule_intro:
-    "Confirmed events can be featured here with poster-style imagery, dates, locations, and direct links.",
-  schedule_empty:
-    "Confirmed upcoming events will appear here soon. Until then, use the live calendar below or reach out directly for a verified schedule update.",
-  upcoming_events_json: "[]",
-  calendar_heading: "Schedule a Viewing",
-  calendar_body:
-    "This live calendar is the only published source of current availability and upcoming event timing.",
-  calendar_note:
-    "If you need something that is not reflected on the calendar, reach out directly for a verified update.",
-  archive_heading: "Exhibition Archive",
-  archive_body:
-    "Past exhibition listings are temporarily offline while they are being reviewed for accuracy. For verified exhibition history or event questions, please contact Tony directly.",
-  archive_button: "Email Tony",
-};
-
-function parseDate(value?: string) {
-  if (!value) return null;
-  const parsed = new Date(value);
-  return Number.isNaN(parsed.getTime()) ? null : parsed;
+interface Event {
+  title: string;
+  location: string;
+  date: string;
+  description: string;
 }
 
-function formatEventDateRange(startRaw?: string, endRaw?: string) {
-  const start = parseDate(startRaw);
-  const end = parseDate(endRaw) ?? start;
-
-  if (!start || !end) {
-    return "";
+const UPCOMING_EVENTS: Event[] = [
+  {
+    title: 'Beloveful Art Fair',
+    location: 'Chicago, IL',
+    date: '2023-10-15',
+    description: 'Join us for an exclusive art fair featuring Beloveful\'s latest works.'
+  },
+  {
+    title: 'Photography Workshop',
+    location: 'Los Angeles, CA',
+    date: '2023-11-20',
+    description: 'Learn the art of photography with Beloveful in a hands-on workshop.'
+  },
+  {
+    title: 'Art Exhibition',
+    location: 'New York, NY',
+    date: '2023-12-10',
+    description: 'Experience Beloveful\'s art in a stunning exhibition at the Met.'
   }
-
-  if (start.toDateString() === end.toDateString()) {
-    return FULL_DATE_FORMATTER.format(start);
-  }
-
-  return `${SHORT_DATE_FORMATTER.format(start)} - ${FULL_DATE_FORMATTER.format(end)}`;
-}
-
-function formatEventBadge(startRaw?: string, endRaw?: string) {
-  const start = parseDate(startRaw);
-  const end = parseDate(endRaw) ?? start;
-
-  if (!start || !end) {
-    return "Confirmed Event";
-  }
-
-  if (start.toDateString() === end.toDateString()) {
-    return SHORT_DATE_FORMATTER.format(start);
-  }
-
-  return `${SHORT_DATE_FORMATTER.format(start)} to ${SHORT_DATE_FORMATTER.format(end)}`;
-}
-
-function parseUpcomingEvents(raw: string): UpcomingEvent[] {
-  try {
-    const parsed = JSON.parse(raw);
-    if (!Array.isArray(parsed)) {
-      return [];
-    }
-
-    return parsed
-      .filter((item): item is Record<string, unknown> => Boolean(item) && typeof item === "object")
-      .map((item) => ({
-        title: String(item.title || "").trim(),
-        start_date: String(item.start_date || "").trim(),
-        end_date: String(item.end_date || "").trim() || undefined,
-        venue: String(item.venue || "").trim() || undefined,
-        location: String(item.location || "").trim() || undefined,
-        description: String(item.description || "").trim() || undefined,
-        image_url: String(item.image_url || "").trim() || undefined,
-        image_alt: String(item.image_alt || "").trim() || undefined,
-        event_url: String(item.event_url || "").trim() || undefined,
-        cta_label: String(item.cta_label || "").trim() || undefined,
-      }))
-      .filter((item) => item.title && item.start_date);
-  } catch {
-    return [];
-  }
-}
+];
 
 export default function Events() {
-  const { data: content } = usePageContent("events", EVENTS_CONTENT_DEFAULTS);
-  const { data: siteSettings } = useSiteSettings();
-  const upcomingEvents = useMemo(() => {
-    const today = new Date();
-    const startOfToday = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+  // Group exhibitions by year
+  const exhibitionsByYear = EXHIBITIONS.reduce((acc, exhibition) => {
+    if (!acc[exhibition.year]) {
+      acc[exhibition.year] = [];
+    }
+    acc[exhibition.year].push(exhibition);
+    return acc;
+  }, {} as Record<number, Exhibition[]>);
 
-    return parseUpcomingEvents(content.upcoming_events_json)
-      .filter((event) => {
-        const endDate = parseDate(event.end_date) ?? parseDate(event.start_date);
-        return !endDate || endDate >= startOfToday;
-      })
-      .sort((left, right) => {
-        const leftDate = parseDate(left.start_date);
-        const rightDate = parseDate(right.start_date);
+  // Sort years in descending order
+  const sortedYears = Object.keys(exhibitionsByYear)
+    .map(Number)
+    .sort((a, b) => b - a);
 
-        if (!leftDate && !rightDate) return 0;
-        if (!leftDate) return 1;
-        if (!rightDate) return -1;
-        return leftDate.getTime() - rightDate.getTime();
-      });
-  }, [content.upcoming_events_json]);
+  // Get upcoming exhibitions (2025 and later)
+  const upcomingExhibitions = EXHIBITIONS.filter(ex => ex.year >= 2025);
+
+  const getTypeColor = (type: Exhibition['type']) => {
+    switch (type) {
+      case 'Solo':
+        return 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200';
+      case 'Group':
+        return 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200';
+      case 'Invitational':
+        return 'bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200';
+      default:
+        return 'bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-200';
+    }
+  };
+
+  const heroImage = {
+    src: "/Website%20beloveful.com/Erasing%20Borders/Tony%20Menias%20-%20Two%20Girls%20in%20Window.jpg",
+    alt: "Photography Events and Exhibitions"
+  };
 
   const calendarEmbedUrl =
     import.meta.env.VITE_EVENTS_CALENDAR_EMBED ??
-    "https://calendar.zoho.com/zc/ui/embed/#calendar=zz08011230de9f7af37169de9dbf574e3b7645706b02352eb08a17c13b60aab14fa1ecb5cda8c6b0b8df5e7960b4b7ff3d69be4a81&title=workshop%40beloveful.com&type=1&language=en&timezone=America%2FNew_York&showTitle=1&showTimezone=1&view=month&showDetail=0&theme=1&eventColorType=light&calendarColor=%23bfbf4d";
+    "https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%23ffffff&ctz=America%2FChicago&src=YmVsb3ZlZnVsLmV2ZW50c0BleGFtcGxlLmNvbQ";
 
-  const archiveEmailHref = `mailto:${siteSettings.contact_email}?subject=${encodeURIComponent(
-    "Beloveful events inquiry",
-  )}`;
+  const scrollToEvents = () => {
+    const element = document.getElementById('events-section');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <div className="min-h-screen">
       <Header variant="default" />
 
-      <PageContainer className="space-y-10 md:space-y-16">
-        <div className="space-y-3 text-center">
-          <p className="text-sm uppercase tracking-[0.35em] text-muted-foreground">{content.eyebrow}</p>
-          <h1 className="text-3xl font-light text-black dark:text-white md:text-4xl">{content.title}</h1>
-          <p className="mx-auto max-w-2xl text-sm text-gray-600 dark:text-gray-400 md:text-base">
-            {content.intro}
-          </p>
+      <PageContainer className="space-y-16">
+        <div className="text-center space-y-3">
+          <p className="text-sm uppercase tracking-[0.35em] text-muted-foreground">Events</p>
         </div>
 
-        <div className="space-y-6">
-          <div className="space-y-2">
-            <h2 className="text-2xl font-light text-black dark:text-white">{content.schedule_heading}</h2>
-            <p className="max-w-3xl text-sm text-gray-600 dark:text-gray-400 md:text-base">
-              {content.schedule_intro}
+          {/* Header */}
+          <div className="text-center space-y-4">
+            <h1 className="text-3xl md:text-4xl font-light text-black dark:text-white">
+              Events & Exhibitions
+            </h1>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Upcoming events, past exhibitions, and opportunities to experience Beloveful's work in person.
             </p>
           </div>
 
-          {upcomingEvents.length > 0 ? (
-            <div className="grid gap-6">
-              {upcomingEvents.map((event) => {
-                const locationLine = [event.venue, event.location].filter(Boolean).join(" • ");
 
-                return (
-                  <article
-                    key={`${event.title}-${event.start_date}`}
-                    className="overflow-hidden rounded-[28px] border border-gray-200 bg-white shadow-sm transition hover:shadow-md dark:border-gray-800 dark:bg-gray-950"
-                  >
-                    <div className="grid md:grid-cols-[280px_1fr]">
-                      <div className="relative min-h-[220px] overflow-hidden bg-stone-100 dark:bg-stone-900">
-                        {event.image_url ? (
-                          <img
-                            src={event.image_url}
-                            alt={event.image_alt || event.title}
-                            className="h-full w-full object-cover"
-                            loading="lazy"
-                            referrerPolicy="no-referrer"
-                          />
-                        ) : (
-                          <div className="flex h-full items-center justify-center bg-[radial-gradient(circle_at_top,_#f5f5f4,_#d6d3d1_58%,_#a8a29e)] px-6 text-center text-2xl font-light tracking-[0.2em] text-stone-800 dark:bg-[radial-gradient(circle_at_top,_#292524,_#1c1917_58%,_#0c0a09)] dark:text-stone-100">
-                            {event.title}
-                          </div>
-                        )}
-
-                        <div className="absolute left-4 top-4 inline-flex rounded-full bg-black/80 px-3 py-1 text-xs font-medium uppercase tracking-[0.18em] text-white backdrop-blur dark:bg-white/85 dark:text-black">
-                          {formatEventBadge(event.start_date, event.end_date)}
-                        </div>
-                      </div>
-
-                      <div className="flex flex-col justify-between gap-6 p-6 md:p-8">
-                        <div className="space-y-4">
-                          <div className="space-y-2">
-                            <h3 className="text-2xl font-light text-black dark:text-white">{event.title}</h3>
-
-                            <div className="flex flex-col gap-2 text-sm text-gray-600 dark:text-gray-400">
-                              <div className="flex items-start gap-2">
-                                <CalendarDays className="mt-0.5 h-4 w-4 shrink-0" />
-                                <span>{formatEventDateRange(event.start_date, event.end_date)}</span>
-                              </div>
-
-                              {locationLine ? (
-                                <div className="flex items-start gap-2">
-                                  <MapPin className="mt-0.5 h-4 w-4 shrink-0" />
-                                  <span>{locationLine}</span>
-                                </div>
-                              ) : null}
-                            </div>
-                          </div>
-
-                          {event.description ? (
-                            <p className="max-w-3xl text-sm leading-7 text-gray-700 dark:text-gray-300 md:text-base">
-                              {event.description}
-                            </p>
-                          ) : null}
-                        </div>
-
-                        {event.event_url ? (
-                          <div>
-                            <a
-                              href={event.event_url}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="inline-flex items-center gap-2 text-sm font-medium text-black transition hover:opacity-70 dark:text-white"
-                            >
-                              {event.cta_label || "View Event"}
-                              <ExternalLink className="h-4 w-4" />
-                            </a>
-                          </div>
-                        ) : null}
-                      </div>
-                    </div>
-                  </article>
-                );
-              })}
+          {/* Upcoming Events */}
+          <div>
+            <h2 className="text-2xl font-light mb-6 text-black dark:text-white">Upcoming Events</h2>
+            <div className="space-y-4">
+              {UPCOMING_EVENTS.map((event, index) => (
+                <div key={index} className="flex flex-col sm:flex-row sm:items-center gap-4 p-4 rounded-lg border border-gray-200 dark:border-gray-800">
+                  <div className="flex-shrink-0 w-16 h-16 rounded-lg bg-black dark:bg-white flex items-center justify-center text-white dark:text-black font-bold">
+                    {new Date(event.date).toLocaleDateString('en-US', { month: 'short' })}
+                    <br />
+                    {new Date(event.date).getDate()}
+                  </div>
+                  <div className="flex-grow">
+                    <h3 className="font-medium text-lg text-black dark:text-white">{event.title}</h3>
+                    <p className="text-muted-foreground">{event.location}</p>
+                    <p className="text-sm text-muted-foreground mt-1">{event.description}</p>
+                  </div>
+                  <Button variant="outline" className="flex-shrink-0">
+                    Details
+                  </Button>
+                </div>
+              ))}
             </div>
-          ) : (
-            <div className="rounded-[28px] border border-dashed border-gray-300 bg-stone-50 px-6 py-10 text-center dark:border-gray-700 dark:bg-stone-950">
-              <p className="mx-auto max-w-3xl text-sm text-gray-600 dark:text-gray-400 md:text-base">
-                {content.schedule_empty}
+          </div>
+
+          {/* Zoho Calendar Embed */}
+          <div className="rounded-2xl border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900 p-6">
+            <div className="text-center space-y-3">
+              <h2 className="text-xl font-semibold text-black dark:text-white">Schedule a Viewing</h2>
+              <p className="text-muted-foreground">
+                View my availability and schedule a private viewing or upcoming event
+              </p>
+              
+              {/* Zoho Calendar Embed */}
+              <div className="max-w-5xl mx-auto">
+                <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-4">
+                  <iframe 
+                    src="https://calendar.zoho.com/zc/ui/embed/#calendar=zz08011230de9f7af37169de9dbf574e3b7645706b02352eb08a17c13b60aab14fa1ecb5cda8c6b0b8df5e7960b4b7ff3d69be4a81&title=workshop%40beloveful.com&type=1&language=en&timezone=America%2FNew_York&showTitle=1&showTimezone=1&view=month&showDetail=0&theme=1&eventColorType=light&calendarColor=%23bfbf4d" 
+                    width="100%" 
+                    height="600" 
+                    frameBorder="0" 
+                    scrolling="no"
+                    title="workshop@beloveful.com">
+                  </iframe>
+                </div>
+              </div>
+              
+              <p className="text-sm text-muted-foreground">
+                After selecting a date, you'll be able to book your preferred time slot
               </p>
             </div>
-          )}
-        </div>
+          </div>
 
-        <div className="rounded-2xl border border-gray-200 bg-gray-50 p-6 dark:border-gray-800 dark:bg-gray-900">
-          <div className="space-y-4 text-center">
-            <div className="space-y-3">
-              <h2 className="text-xl font-semibold text-black dark:text-white">{content.calendar_heading}</h2>
-              <p className="mx-auto max-w-3xl text-muted-foreground">{content.calendar_body}</p>
+
+          {/* Past Exhibitions */}
+          <div>
+            <div className="space-y-1">
+              <h2 className="text-2xl font-light text-black dark:text-white">Past Exhibitions</h2>
+              <p className="text-sm text-neutral-500 dark:text-neutral-400">
+                A selection of exhibitions and shows from recent years.
+              </p>
             </div>
-
-            <div className="mx-auto max-w-5xl">
-              <div className="rounded-lg border border-gray-200 bg-white p-4 shadow-sm dark:border-gray-700 dark:bg-gray-800">
-                <iframe
-                  src={calendarEmbedUrl}
-                  width="100%"
-                  height="600"
-                  frameBorder="0"
-                  scrolling="no"
-                  title="Beloveful events calendar"
-                />
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
+              {EXHIBITIONS.map((exhibition, index) => (
+                <div key={index} className="rounded-2xl border border-gray-200 dark:border-gray-800 p-6 space-y-3">
+                  <div className="flex justify-between items-start">
+                    <h3 className="text-xl font-medium text-black dark:text-white">{exhibition.title}</h3>
+                    <span className="text-xs px-2 py-1 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200">
+                      {exhibition.year}
+                    </span>
+                  </div>
+                  <p className="text-neutral-600 dark:text-neutral-400">
+                    {exhibition.location}
+                  </p>
+                  <div className="text-sm">
+                    <span className={`px-2 py-1 rounded-full ${
+                      exhibition.type === 'Solo' 
+                        ? 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200' 
+                        : exhibition.type === 'Group' 
+                          ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200' 
+                          : 'bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200'
+                    }`}>
+                      {exhibition.type}
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
+            
+            <div className="mt-8 rounded-2xl border border-gray-200 dark:border-gray-800 p-6">
+              <div className="grid grid-cols-3 gap-4 text-center">
+                <div>
+                  <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">
+                    {EXHIBITIONS.filter(ex => ex.type === 'Solo').length}
+                  </div>
+                  <div className="text-sm text-gray-600 dark:text-gray-400">
+                    Solo Exhibitions
+                  </div>
+                </div>
+                <div>
+                  <div className="text-2xl font-bold text-purple-600 dark:text-purple-400">
+                    {EXHIBITIONS.filter(ex => ex.type === 'Invitational').length}
+                  </div>
+                  <div className="text-sm text-gray-600 dark:text-gray-400">
+                    Invitational
+                  </div>
+                </div>
+                <div>
+                  <div className="text-2xl font-bold text-green-600 dark:text-green-400">
+                    {EXHIBITIONS.filter(ex => ex.type === 'Group').length}
+                  </div>
+                  <div className="text-sm text-gray-600 dark:text-gray-400">
+                    Group Shows
+                  </div>
+                </div>
               </div>
             </div>
-
-            <p className="mx-auto max-w-3xl text-sm text-muted-foreground">{content.calendar_note}</p>
           </div>
-        </div>
 
-        <div className="rounded-2xl border border-dashed border-gray-300 p-6 dark:border-gray-700">
-          <div className="mx-auto flex max-w-3xl flex-col items-center gap-4 text-center">
-            <h2 className="text-2xl font-light text-black dark:text-white">{content.archive_heading}</h2>
-            <p className="text-sm text-gray-600 dark:text-gray-400 md:text-base">{content.archive_body}</p>
-            <a
-              href={archiveEmailHref}
-              className="inline-flex items-center justify-center rounded-md bg-black px-5 py-2 text-sm font-medium text-white transition hover:opacity-85 dark:bg-white dark:text-black"
-            >
-              {content.archive_button}
-            </a>
+          {/* Statistics */}
+          <div className="mt-16 bg-gray-50 dark:bg-gray-900 rounded-lg p-8">
+            <h3 className="text-xl font-semibold mb-6 text-center text-black dark:text-white">
+              Exhibition Statistics
+            </h3>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+              <div>
+                <div className="text-2xl font-bold text-black dark:text-white">
+                  {EXHIBITIONS.length}
+                </div>
+                <div className="text-sm text-gray-600 dark:text-gray-400">
+                  Total Exhibitions
+                </div>
+              </div>
+              <div>
+                <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">
+                  {EXHIBITIONS.filter(ex => ex.type === 'Solo').length}
+                </div>
+                <div className="text-sm text-gray-600 dark:text-gray-400">
+                  Solo Shows
+                </div>
+              </div>
+              <div>
+                <div className="text-2xl font-bold text-purple-600 dark:text-purple-400">
+                  {EXHIBITIONS.filter(ex => ex.type === 'Invitational').length}
+                </div>
+                <div className="text-sm text-gray-600 dark:text-gray-400">
+                  Invitational
+                </div>
+              </div>
+              <div>
+                <div className="text-2xl font-bold text-green-600 dark:text-green-400">
+                  {EXHIBITIONS.filter(ex => ex.type === 'Group').length}
+                </div>
+                <div className="text-sm text-gray-600 dark:text-gray-400">
+                  Group Shows
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
       </PageContainer>
 
       <FooterStrip />

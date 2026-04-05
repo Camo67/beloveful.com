@@ -10,7 +10,6 @@ lerna-debug.log*
 node_modules
 dist
 dist-ssr
-build
 *.local
 
 # Editor directories and files
@@ -27,12 +26,6 @@ build
 # Environment files
 .env
 .env.local
-.dev.vars
-
-# Wrangler local state and generated output
-.wrangler/
-.deploy-clean/
-.playwright-cli/
 
 # Ignore podcast media in public
 /public/*.mp3

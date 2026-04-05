@@ -1,389 +1,343 @@
-# beloveful.com
+# Welcome to beloveful.com
 
-Beloveful is a content-rich React site for Tony Menias / Beloveful that combines a travel photography portfolio, print shop, workshops, editorial pages, and an admin CMS. The frontend is built with Vite + React. The current default production path is a Bluehost/cPanel package with a PHP API overlay, while the Cloudflare Worker/D1/R2 runtime remains in the repo for local development, migration support, and alternate deployment needs.
+## Project info
 
-## What this repo contains
+**URL**: www.beloveful.com
 
-- A public-facing SPA with routes for home, portfolio, country galleries, workshops, events, about, FAQ, contact, and print sales
-- A password-protected admin area at `/admin` / `/adminlogin`
-- Cloudflare Worker-style API functions under `functions/api`
-- A Bluehost-compatible PHP API overlay under `bluehost/public_html/api`
-- A custom Worker entrypoint in `src/worker.js` for the alternate Cloudflare runtime
-- Static and generated image libraries sourced from `public/Website beloveful.com`, Cloudinary exports, and generated JSON data
-- Deployment tooling for both Bluehost/cPanel and Cloudflare
-- A privacy controls system with region-aware consent UI, first-party event gating, and D1-backed consent / rights-request logging
+## Project Structure
 
-## Tech stack
-
-- React 18
-- TypeScript
-- Vite
-- React Router
-- TanStack Query
-- Tailwind CSS + shadcn/ui components
-- PHP runtime for the Bluehost/cPanel deployment path
-- Cloudflare Workers
-- Cloudflare D1
-- Cloudflare R2
-- Stripe Checkout
-- Cloudinary-based asset workflows
-
-## Main features
-
-- Travel portfolio with region and country galleries
-- Homepage slideshow and curated content blocks
-- Workshops and mentorship landing pages
-- Print shop with open-edition checkout and limited-edition catalog content
-- Editable site copy via D1-backed `page_content`
-- Editable contact/print/calendly settings via D1-backed `settings`
-- Admin-managed albums, images, slideshow entries, and page content
-- Upload pipeline that prefers WordPress media uploads when configured and falls back to R2
-- Bluehost-first build/export pipeline for static hosting + CMS bootstrap data
-
-## Getting started
-
-### Prerequisites
-
-- Node.js 20+ recommended
-- npm
-- Wrangler CLI access through the project dependencies
-
-### Install
-
-```bash
-npm install
+```
+beloveful.com/
+├── src/
+│   ├── components/     # React components
+│   ├── hooks/          # Custom React hooks
+│   ├── lib/            # Utility functions and data
+│   │   ├── cloudinary-assets/  # Cloudinary asset data and JSON files
+│   │   ├── portolio/   # Portfolio data (note: typo in directory name)
+│   │   └── generated/  # Generated data files
+│   └── pages/          # Page components
+├── functions/          # Cloudflare Workers functions
+└── server/             # Server routes
 ```
 
-### Environment files
+## How can I edit this code?
+vscode Next.js
 
-Use `.env.local` for client/build-time variables and `.dev.vars` for local Worker secrets.
+Changes made via Lovable will be committed automatically to this repo.
 
-Start with:
+**Use your preferred IDE**
 
-```bash
-cp .env.example .env.local
-```
+If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
 
-Common variables used in this repo:
+The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
 
-- Client/build-time:
-  - `VITE_CLOUDINARY_CLOUD_NAME`
-  - `VITE_CALENDLY_LINK`
-  - `VITE_SPOTIFY_CLIENT_ID`
-  - `VITE_B2_*`
-  - `VITE_IMAGE_CDN_URL`
-- Worker/runtime secrets:
-  - `JWT_SECRET`
-  - `STRIPE_SECRET_KEY`
-  - `CLOUDINARY_CLOUD_NAME`
-  - `CLOUDINARY_API_KEY`
-  - `CLOUDINARY_API_SECRET`
-  - `WP_BASE_URL`
-  - `WP_USERNAME`
-  - `WP_APP_PASSWORD`
-  - `CPANEL_IMAGES_BASE_URL`
-- Bluehost/cPanel deploy variables:
-  - `BLUEHOST_FTP_*` or `CPANEL_FTP_*`
-- Privacy template and client-side privacy controls:
-  - `VITE_PRIVACY_CONSENT_VERSION`
-  - `VITE_PRIVACY_POLICY_VERSION`
-  - `VITE_PRIVACY_LAST_UPDATED`
-  - `VITE_PRIVACY_DISABLE_OPTIONAL_TRACKING`
-  - `VITE_COMPANY_NAME`
-  - `VITE_LEGAL_ENTITY`
-  - `VITE_CONTACT_EMAIL`
-  - `VITE_DPO_EMAIL`
-  - `VITE_JURISDICTIONS`
-  - `VITE_TRACKING_TOOLS`
-  - `VITE_RETENTION_SCHEDULE`
-  - `VITE_THIRD_PARTIES`
-  - `VITE_LAWFUL_BASES`
+Follow these steps:
 
-Use `.dev.vars.example` as the template for runtime privacy secrets and retention settings:
+```sh
+# Step 1: Clone the repository using the project's Git URL.
+git clone <YOUR_GIT_bash: /home/camo/snap/code-insiders/2129/.local/share/../bin/env: No such file or directory
+camo@camo-HP-ProDesk-600-G3-MT:~/new/beloveful.com$ npm run images:serve
 
-- `PRIVACY_ADMIN_TOKEN`
-- `PRIVACY_CONSENT_VERSION`
-- `PRIVACY_POLICY_VERSION`
-- `PRIVACY_DISABLE_OPTIONAL_TRACKING`
-- `PRIVACY_REGION_FORCE_MODE`
-- `PRIVACY_CONSENT_RETENTION_DAYS`
-- `PRIVACY_EVENT_RETENTION_DAYS`
-- `PRIVACY_REQUEST_RETENTION_DAYS`
+> vite_react_shadcn_ts@0.0.0 images:serve
+> node server/images.cjs
 
-### Local database setup
+Could not load project data modules, falling back to sample image lists: Must use import to load ES Module: /home/camo/new/beloveful.com/src/lib/data.ts
+require() of ES modules is not supported.
+require() of /home/camo/new/beloveful.com/src/lib/data.ts from /home/camo/new/beloveful.com/server/images.cjs is an ES module file as it is a .ts file whose nearest parent package.json contains "type": "module" which defines all .ts files in that package scope as ES modules.
+Instead change the requiring code to use import(), or remove "type": "module" from /home/camo/new/beloveful.com/package.json.
 
-The admin/CMS flow depends on the local D1 schema.
+Images API running on http://localhost:4001
+^C
+camo@camo-HP-ProDesk-600-G3-MT:~/new/beloveful.com$ curl -sS http://localhost:4001/api/travel-images | jq -r '. | length, .[0] // "(none)"'
+curl: (7) Failed to connect to localhost port 4001 after 0 ms: Could not connect to server
+camo@camo-HP-ProDesk-600-G3-MT:~/new/beloveful.com$ printf '--- /api/travel-images ---\n'; curl -sS http://localhost:4001/api/travel-images || true; printf '\n--- /api/project-images ---\n'; curl -sS http://localhost:4001/api/project-images || true; printf '\n--- /api/logos ---\n'; curl -sS http://localhost:4001/api/logos || true;
+bash: printf: --: invalid option
+printf: usage: printf [-v var] format [arguments]
+curl: (7) Failed to connect to localhost port 4001 after 0 ms: Could not connect to server
 
-```bash
-npm run db:init:local
-```
+--- /api/project-images ---
+curl: (7) Failed to connect to localhost port 4001 after 0 ms: Could not connect to server
 
-This seeds the tables used by the Worker, including albums, images, slideshow images, page content, settings, and a default admin user from `scripts/init-db.sql`.
+--- /api/logos ---
+curl: (7) Failed to connect to localhost port 4001 after 0 ms: Could not connect to server
+camo@camo-HP-ProDesk-600-G3-MT:~/new/beloveful.com$ nohup node server/images.cjs > /tmp/images-server.log 2>&1 & echo $!
+[1] 600094
+600094
+camo@camo-HP-ProDesk-600-G3-MT:~/new/beloveful.com$ ls -la /tmp | sed -n '1,120p'
+total 48
+drwxrwxrwt 53 root root 2200 Oct 21 07:43 .
+drwxr-xr-x 20 root root 4096 Oct 19 00:22 ..
+-rw-------  1 root root  134 Oct 21 07:38 anacron-XgviEk
+-rw-rw-r--  1 camo camo    2 Oct 21 01:28 \auto.json
+drwxrwxr-x  2 camo camo   40 Oct 21 01:05 aws-toolkit-vscode
+drwx------  2 camo camo   60 Oct 21 07:07 azcp-8863f983fdab
+drwx------  2 camo camo   60 Oct 20 16:37 c3-wrangler-deploy-8s2kxZ
+drwx------  2 camo camo   60 Oct 20 16:49 c3-wrangler-deploy-vCH00w
+drwx------  2 camo camo   60 Oct 20 20:36 c3-wrangler-init--from-dash-BtBNmQ
+drwx------  2 camo camo   60 Oct 21 00:59 cloudcode-tempkZkQbZ
+drwx------  2 camo camo   60 Oct 21 00:59 cloudcode-tempLg5oi1
+drwx------  2 camo camo   60 Oct 21 00:59 cloudcode-tempoGlCb1
+drwx------  2 camo camo   60 Oct 21 00:59 cloudcode-tempW2y4M1
+prwx------  1 camo camo    0 Oct 21 07:07 clr-debug-pipe-594380-6855696-in
+prwx------  1 camo camo    0 Oct 21 07:07 clr-debug-pipe-594380-6855696-out
+prwx------  1 camo camo    0 Oct 21 07:07 clr-debug-pipe-594382-6855699-in
+prwx------  1 camo camo    0 Oct 21 07:07 clr-debug-pipe-594382-6855699-out
+srwxrwxr-x  1 camo camo    0 Oct 20 12:04 code-417755f2-f362-46f7-be87-65c956a2f7d4
+srwxrwxr-x  1 camo camo    0 Oct 20 12:04 code-542627e1-5404-46ce-b619-e68c69b16758
+drwx------  2 camo camo   40 Oct 21 03:07 .com.google.Chrome.01iCvu
+drwx------  2 camo camo   40 Oct 20 22:07 .com.google.Chrome.9C2ddR
+drwx------  2 camo camo   40 Oct 20 16:53 .com.google.Chrome.bmY8iV
+drwx------  2 camo camo   40 Oct 21 01:05 .com.google.Chrome.DHErE2
+drwx------  2 camo camo   60 Oct 20 12:06 .com.google.Chrome.gqzDKt
+drwx------  2 camo camo   40 Oct 20 22:07 .com.google.Chrome.Kklc7u
+drwx------  2 camo camo   40 Oct 21 01:06 .com.google.Chrome.MdIlWP
+drwx------  2 camo camo   80 Oct 20 12:05 .com.google.Chrome.SVlR99
+drwx------  2 camo camo   40 Oct 21 03:07 .com.google.Chrome.tRzu8K
+drwxrwxr-x  2 camo camo   80 Oct 21 01:20 dedwewfweft32fsdaaaaaafaaaawfewfe
+srw-------  1 camo camo    0 Oct 21 07:07 dotnet-diagnostic-594380-6855696-socket
+srw-------  1 camo camo    0 Oct 21 07:07 dotnet-diagnostic-594382-6855699-socket
+drwxrwxr-x  2 camo camo  100 Oct 21 01:20 EXP-140880SDCEFEF-YURI-SDD-DALVA-EXFOLDERSAS-EDSDS
+drwxrwxrwt  2 root root   40 Oct 20 12:04 .font-unix
+drwx------  2 camo camo   60 Oct 21 00:58 gkinstall386605984
+drwxrwxrwt  2 root root   60 Oct 20 12:04 .ICE-unix
+-rw-rw-r--  1 camo camo  664 Oct 21 07:42 images-server.log
+drwxrwxr-x  5 camo camo  100 Oct 21 00:58 node-compile-cache
+-rw-rw-r--  1 camo camo 3182 Oct 21 00:58 postman-collections-post-response.instructions.md
+-rw-rw-r--  1 camo camo 3029 Oct 21 00:58 postman-collections-pre-request.instructions.md
+-rw-rw-r--  1 camo camo 3182 Oct 21 00:58 postman-folder-post-response.instructions.md
+-rw-rw-r--  1 camo camo 3029 Oct 21 00:58 postman-folder-pre-request.instructions.md
+-rw-rw-r--  1 camo camo 3512 Oct 21 00:58 postman-http-request-post-response.instructions.md
+-rw-rw-r--  1 camo camo 3530 Oct 21 00:58 postman-http-request-pre-request.instructions.md
+drwxrwxr-x  2 camo camo   40 Oct 21 01:16 python-languageserver-cancellation
+drwxrwxr-x  3 camo camo   60 Oct 21 00:58 remote-file-71752ccfe2464e99
+drwx------  9 root root  180 Oct 20 15:00 snap-private-tmp
+drwx------  3 root root   60 Oct 20 12:04 systemd-private-702b1eb6f4b647629a0cce0d338b6117-bluetooth.service-qHbzct
+drwx------  3 root root   60 Oct 20 12:04 systemd-private-702b1eb6f4b647629a0cce0d338b6117-colord.service-exnNtC
+drwx------  3 root root   60 Oct 20 12:23 systemd-private-702b1eb6f4b647629a0cce0d338b6117-fwupd.service-iTVVKU
+drwx------  3 root root   60 Oct 20 12:04 systemd-private-702b1eb6f4b647629a0cce0d338b6117-ModemManager.service-uR5gvu
+drwx------  3 root root   60 Oct 20 12:04 systemd-private-702b1eb6f4b647629a0cce0d338b6117-polkit.service-Ymklxy
+drwx------  3 root root   60 Oct 20 12:04 systemd-private-702b1eb6f4b647629a0cce0d338b6117-power-profiles-daemon.service-RZUIa5
+drwx------  3 root root   60 Oct 20 12:04 systemd-private-702b1eb6f4b647629a0cce0d338b6117-switcheroo-control.service-ZsxT0L
+drwx------  3 root root   60 Oct 20 12:04 systemd-private-702b1eb6f4b647629a0cce0d338b6117-systemd-logind.service-A6NaNr
+drwx------  3 root root   60 Oct 20 12:04 systemd-private-702b1eb6f4b647629a0cce0d338b6117-upower.service-5RDPhO
+drwxrwxr-x  2 camo camo   60 Oct 21 00:59 tmp
+-rw-------  1 camo camo    0 Oct 20 21:10 tmp.4gYJlkByVo
+-rw-------  1 camo camo    0 Oct 21 01:27 tmp.52KUZmOMnt
+-rw-------  1 camo camo    0 Oct 20 22:06 tmp.68lDtYsj5o
+-rw-------  1 camo camo    0 Oct 20 18:38 tmp.6fcEbpQHfr
+drwx------  2 camo camo   40 Oct 21 05:22 tmp.7rZCCmtAdI
+-rw-------  1 camo camo    0 Oct 20 22:06 tmp.9b105vrgAx
+-rw-------  1 camo camo    0 Oct 21 01:27 tmp.9uaPIYcHME
+-rw-------  1 camo camo    0 Oct 20 23:33 tmp.9WXryHf9sp
+-rw-------  1 camo camo    0 Oct 20 17:47 tmp.ADX8oBacH3
+drwxrwxr-x  2 camo camo   80 Oct 21 06:37 .tmpBiE8eH
+-rw-------  1 camo camo    0 Oct 20 22:52 tmp.ejwNFpBz2h
+drwxrwxr-x  2 camo camo   80 Oct 21 00:58 .tmpFBdTLV
+-rw-------  1 camo camo    0 Oct 20 23:31 tmp.FYcaN6RBSC
+-rw-------  1 camo camo    0 Oct 21 00:42 tmp.gpf3fdlSBu
+-rw-------  1 camo camo    0 Oct 21 01:27 tmp.hHTpjxHgxA
+-rw-------  1 camo camo    0 Oct 20 18:38 tmp.HnBf1viBrs
+-rw-------  1 camo camo    0 Oct 20 21:02 tmp.JL1IXzVq6b
+-rw-------  1 camo camo    0 Oct 21 00:42 tmp.kL1qyQ2uOy
+-rw-------  1 camo camo    0 Oct 21 01:27 tmp.KtUuTIFhPF
+-rw-------  1 camo camo    0 Oct 20 20:47 tmp.kX1CJdPq8w
+-rw-------  1 camo camo    0 Oct 21 01:27 tmp.L9hrtvCKKK
+-rw-------  1 camo camo    0 Oct 20 23:33 tmp.mE5iaMvRxv
+-rw-------  1 camo camo    0 Oct 20 16:57 tmp.mH4vyaYPPu
+-rw-------  1 camo camo    0 Oct 21 00:12 tmp.odfzwlEkSr
+-rw-------  1 camo camo    0 Oct 21 01:27 tmp.Om1yJKsaq7
+-rw-------  1 camo camo    0 Oct 20 12:48 tmp.PBedPqMWk9
+-rw-------  1 camo camo    0 Oct 21 00:17 tmp.QG2aZPBKso
+-rw-------  1 camo camo    0 Oct 21 01:27 tmp.QijTLESL1T
+-rw-------  1 camo camo    0 Oct 20 16:57 tmp.QylTJunRBA
+-rw-------  1 camo camo    0 Oct 21 00:12 tmp.R2Y9Qa0I9h
+-rw-------  1 camo camo    0 Oct 20 21:10 tmp.TgdGwbqiyd
+-rw-------  1 camo camo    0 Oct 21 00:17 tmp.Tleowgwdt1
+-rw-------  1 camo camo    0 Oct 20 20:47 tmp.U5zzwMTzkB
+-rw-------  1 camo camo    0 Oct 20 22:52 tmp.V6paVHV8qU
+-rw-------  1 camo camo    0 Oct 20 21:08 tmp.WL1xgPjzrU
+-rw-------  1 camo camo    0 Oct 20 23:31 tmp.y8LfFEpG9z
+-rw-------  1 camo camo    0 Oct 21 01:27 tmp.y9SPRDX1sw
+-rw-------  1 camo camo    0 Oct 20 17:47 tmp.Yfoqdzw1xn
+-rw-------  1 camo camo    0 Oct 21 01:27 tmp.YGGmP2zNmy
+-rw-------  1 camo camo    0 Oct 20 12:48 tmp.z2DqYZtjfb
+-rw-------  1 camo camo    0 Oct 20 21:02 tmp.ZnmBeaCu7j
+drwxrwxr-x  2 camo camo   60 Oct 20 16:28 update-check
+drwxrwxr-x  4 camo camo   80 Oct 21 07:40 v8-compile-cache-1000
+drwxrwxr-x  2 camo camo   60 Oct 21 07:07 vscode-azure-github-copilot
+drwxrwxr-x  2 camo camo   80 Oct 21 00:58 vscode-skaffold-events-logs
+drwxrwxr-x  3 camo camo   60 Oct 21 01:39 vscode-typescript1000
+drwxrwxr-x  2 camo camo   80 Oct 21 01:16 VSLiveshareLogs
+-r--r--r--  1 camo camo   11 Oct 20 12:04 .X0-lock
+drwxrwxrwt  2 root root   80 Oct 20 12:04 .X11-unix
+-r--r--r--  1 camo camo   11 Oct 20 12:04 .X1-lock
+drwxrwxrwt  2 root root   40 Oct 20 12:04 .XIM-unix
+drwxrwxr-x  2 camo camo   40 Oct 21 01:20 xvba_code_debug_parsed
+drwxrwxr-x  2 camo camo   40 Oct 21 01:20 xvba_immediate
+drwxrwxr-x  2 camo camo   60 Oct 21 01:20 xvba_log
+camo@camo-HP-ProDesk-600-G3-MT:~/new/beloveful.com$ tail -n 200 /tmp/images-server.log || true
+nohup: ignoring input
+Could not load project data modules, falling back to sample image lists: Must use import to load ES Module: /home/camo/new/beloveful.com/src/lib/data.ts
+require() of ES modules is not supported.
+require() of /home/camo/new/beloveful.com/src/lib/data.ts from /home/camo/new/beloveful.com/server/images.cjs is an ES module file as it is a .ts file whose nearest parent package.json contains "type": "module" which defines all .ts files in that package scope as ES modules.
+Instead change the requiring code to use import(), or remove "type": "module" from /home/camo/new/beloveful.com/package.json.
 
-If you are updating the schema from `server/schema.sql`, use:
+Images API running on http://localhost:4001
+camo@camo-HP-ProDesk-600-G3-MT:~/new/beloveful.com$ curl -sS http://localhost:4001/api/travel-images | jq -r '. | length, .[0] // "(none)"'
+3
+https://picsum.photos/id/1018/1200/800
+camo@camo-HP-ProDesk-600-G3-MT:~/new/beloveful.com$ curl -sS http://localhost:4001/api/project-images | jq -r '. | length, .[0] // "(none)"'
+2
+https://picsum.photos/id/1050/1200/800
+camo@camo-HP-ProDesk-600-G3-MT:~/new/beloveful.com$ curl -sS http://localhost:4001/api/logos | jq -r '. | length, .[0] // "(none)"'
+2
+https://picsum.photos/id/237/400/400
+camo@camo-HP-ProDesk-600-G3-MT:~/new/beloveful.com$ echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf
+sudo sysctl -p
+npm run dev
+[sudo] password for camo: 
+fs.inotify.max_user_watches=524288
+fs.inotify.max_user_watches = 524288
 
-```bash
-npm run db:migrate:local
-```
+> vite_react_shadcn_ts@0.0.0 dev
+> vite
 
-To apply the privacy controls migration independently:
 
-```bash
-npm run db:migrate:privacy:local
-```
+  VITE v6.4.1  ready in 249 ms
 
-### Run the app
+  ➜  Local:   http://localhost:8080/
+  ➜  Network: http://192.168.18.3:8080/
+  ➜  Network: http://172.17.0.1:8080/
+  ➜  press h + enter to show help
+Error:   Failed to scan for dependencies from entries:
+  /home/camo/new/beloveful.com/debug-icons.html
+/home/camo/new/beloveful.com/index.html
 
-```bash
+  ✘ [ERROR] No matching export in "src/components/Slideshow.tsx" for import "Slideshow"
+
+    src/pages/Index.tsx:2:9:
+      2 │ import { Slideshow } from "@/components/Slideshow";
+        ╵          ~~~~~~~~~
+
+
+    at failureErrorWithLog (/home/camo/new/beloveful.com/node_modules/esbuild/lib/main.js:1467:15)
+    at /home/camo/new/beloveful.com/node_modules/esbuild/lib/main.js:926:25
+    at runOnEndCallbacks (/home/camo/new/beloveful.com/node_modules/esbuild/lib/main.js:1307:45)
+    at buildResponseToResult (/home/camo/new/beloveful.com/node_modules/esbuild/lib/main.js:924:7)
+    at /home/camo/new/beloveful.com/node_modules/esbuild/lib/main.js:936:9
+    at new Promise (<anonymous>)
+    at requestCallbacks.on-end (/home/camo/new/beloveful.com/node_modules/esbuild/lib/main.js:935:54)
+    at handleRequest (/home/camo/new/beloveful.com/node_modules/esbuild/lib/main.js:628:17)
+    at handleIncomingPacket (/home/camo/new/beloveful.com/node_modules/esbuild/lib/main.js:653:7)
+    at Socket.readFromStdout (/home/camo/new/beloveful.com/node_modules/esbuild/lib/main.js:581:7)
+    URL>
+
+# Step 2: Navigate to the project directory.
+cd <YOUR_PROJECT_NAME>
+
+# Step 3: Install the necessary dependencies.
+npm i
+
+# Step 4: Start the development server with auto-reloading and an instant preview.
 npm run dev
 ```
 
-This is the Worker-backed local development flow. It starts:
+**Edit a file directly in GitHub**
 
-- Vite on `http://localhost:8080`
-- Wrangler local dev for `/api/*` on port `8787` by default
+- Navigate to the desired file(s).
+- Click the "Edit" button (pencil icon) at the top right of the file view.
+- Make your changes and commit the changes.
 
-The dev launcher auto-selects another API port if `8787` is already in use and updates the Vite proxy automatically.
+**Use GitHub Codespaces**
 
-If you only want one side of the stack:
+- Navigate to the main page of your repository.
+- Click on the "Code" button (green button) near the top right.
+- Select the "Codespaces" tab.
+- Click on "New codespace" to launch a new Codespace environment.
+- Edit files directly within the Codespace and commit and push your changes once you're done.
+
+## What technologies are used for this project?
+
+This project is built with:
+
+- Vite
+- TypeScript
+- React
+- shadcn-ui
+- Tailwind CSS
+
+
+
+Simply open (https://beloveful.com) and click on Share -> Publish.
+
+
+
+## Accessing JSON Assets
+
+This project includes JSON asset files in two main directories:
+1. `src/lib/cloudinary-assets/` - Contains Cloudinary asset data
+2. `src/lib/portolio/` - Contains portfolio data (note the typo in the directory name)
+
+### API Routes
+
+JSON assets can be accessed through the following API routes:
+
+1. Cloudinary assets: `/api/content/assets/cloudinary-assets/*`
+   - Example: `/api/content/assets/cloudinary-assets/index.json`
+   - Example: `/api/content/assets/cloudinary-assets/Africa/Egypt/urls.json`
+
+2. Portfolio assets: `/api/content/assets/portolio/*`
+   - Example: `/api/content/assets/portolio/Africa/urls.json`
+
+3. Main Cloudinary index: `/api/content/assets/cloudinary-assets.json`
+
+### Frontend Usage
+
+To access these assets from the frontend, you can use the utility functions in `src/lib/assetLoader.ts`:
+
+```typescript
+import { loadCloudinaryIndex, loadCloudinaryAsset, loadPortfolioAsset } from '@/lib/assetLoader';
+
+// Load the main cloudinary index
+const index = await loadCloudinaryIndex();
+
+// Load a specific cloudinary asset
+const assetData = await loadCloudinaryAsset('Africa/Egypt/urls.json');
+
+// Load a specific portfolio asset
+const portfolioData = await loadPortfolioAsset('Africa/urls.json');
+```
+
+Example component using these utilities can be found in `src/components/AssetExample.tsx`.
+
+## Syncing cPanel-hosted images
+
+The original WordPress gallery still lives on cPanel under `public_html/images`. You can mirror that folder into the JSON manifests the app expects with:
 
 ```bash
-npm run dev:vite
-npm run dev:api
+# 1. Set credentials (see .env.example for the full list)
+export CPANEL_FTP_HOST=ftp.theoriawellness.org
+export CPANEL_FTP_USER=you@example.com
+export CPANEL_FTP_PASSWORD=super-secret
+# optional: point at a different source folder/base URL
+# export CPANEL_FTP_ROOT=/public_html/images
+# export CPANEL_IMAGES_BASE_URL=/Website%20beloveful.com   # ships with repo
+
+# 2. Run the sync (if you use the VS Code ftp-simple extension, the script
+#    will auto-read ~/.config/Code/.../ftp-simple-temp.json when env vars
+#    are missing, so you can often skip the exports entirely)
+npm run cpanel:sync
 ```
 
-If you want the local API path that is closest to the default Bluehost production runtime, run the frontend and PHP API helper separately:
+The script connects over FTP, walks every region/country directory, and regenerates:
 
-```bash
-npm run dev:vite
-npm run dev:api:php
-```
+- `src/lib/cloudinary-assets/index.json`
+- `src/lib/cloudinary-assets/<Region>/<Album>/urls.json`
 
-This requires `php` to be installed locally.
+All URLs now point directly at `https://beloveful.com/images/...`, so components that read from `loadCloudinaryAsset` (Travel Portfolio, Comprehensive Image Demo, etc.) immediately start pulling the fresh cPanel media without any other code changes. Re-run the command whenever you upload new files via cPanel/WordPress.
 
-### Admin login
-
-- Public admin routes: `/adminlogin` and `/admin`
-- Local auth is backed by D1 + JWT
-- A default admin user is inserted by `scripts/init-db.sql`; replace it before using this outside local development
-
-## Useful scripts
-
-| Command | Purpose |
-| --- | --- |
-| `npm run dev` | Run Vite and local Worker together |
-| `npm run dev:vite` | Run only the frontend dev server |
-| `npm run dev:api` | Run only the local Worker/API server |
-| `npm run dev:api:php` | Run the local PHP API helper for Bluehost parity |
-| `npm run build` | Create the production build in `dist/` |
-| `npm run preview` | Preview the Vite build locally |
-| `npm run lint` | Run ESLint |
-| `npm run test` | Run the privacy/UI test suite with Vitest |
-| `npm run db:init:local` | Initialize the local D1 database from `scripts/init-db.sql` |
-| `npm run db:migrate:local` | Apply `server/schema.sql` to the local D1 database |
-| `npm run db:migrate:privacy:local` | Apply only the privacy migration to local D1 |
-| `npm run deploy:cloudflare` | Build and deploy to Cloudflare Workers |
-| `npm run build:bluehost` | Build the static Bluehost package in `build/bluehost/` |
-| `npm run deploy:bluehost` | Build and upload the Bluehost package via FTP |
-| `npm run portfolio:fetch` | Pull portfolio data from Cloudinary |
-| `npm run portfolio:build` | Build album data from Cloudinary exports |
-| `npm run images:secure` | Run the secure image pipeline |
-| `npm run workshop:generate` | Generate workshop image JSON |
-
-## Project structure
-
-```text
-beloveful.com/
-├── src/
-│   ├── components/          React UI and admin components
-│   ├── hooks/               Data hooks for albums, content, settings, slideshow
-│   ├── lib/                 Static data, generated assets, utilities, image helpers
-│   ├── pages/               Route components for public pages and admin shell
-│   ├── types/               Shared frontend types
-│   ├── App.tsx              Client route map
-│   └── worker.js            Cloudflare Worker entrypoint
-├── functions/api/           API handlers used by the Worker
-├── functions/api/privacy/   Privacy consent, event, and rights-request API routes
-├── public/                  Static public assets and large image library
-├── scripts/                 Data generation, sync, build, and deployment scripts
-├── server/                  Legacy/local server helpers and SQL schema
-├── docs/                    Deployment, asset, R2, and workflow notes
-├── bluehost/                Bluehost overlay files
-├── build/bluehost/          Generated Bluehost deploy package
-└── wrangler.toml            Worker, route, R2, D1, and asset binding config
-```
-
-## How data flows through the site
-
-### Public content
-
-- Static gallery/image data is bundled from `src/lib/data.ts`, generated files in `src/lib/generated/`, and image libraries in `public/` and `src/lib/cloudinary-assets/`
-- Dynamic page copy comes from `page_content` through `/api/content/public`
-- Dynamic contact and booking settings come from `settings` through `/api/settings/public`
-- Portfolio hooks merge bundled fallback data with D1-backed albums/images so the site can still render even if dynamic data is incomplete
-
-### Admin content
-
-The admin UI manages:
-
-- Albums
-- Images
-- Slideshow images
-- Editable page content
-- Site settings
-
-Authentication is JWT-based and verified in `functions/api/_utils/auth.ts`.
-
-### Media storage
-
-Image uploads can flow through:
-
-- WordPress media uploads when `WP_*` credentials are configured
-- Cloudflare R2 as a fallback
-- Legacy cPanel path import helpers for bringing existing hosted files into the CMS
-
-## Worker and API responsibilities
-
-This section applies to the alternate Cloudflare runtime that remains in the repo for local Worker-based development, migration work, and optional Cloudflare deployments.
-
-`src/worker.js` is responsible for:
-
-- Routing all `/api/*` requests
-- Serving the built SPA from the Wrangler assets binding
-- Handling SPA fallback for client-side routes
-- Serving R2-backed objects under `/r2/*`
-- Creating Stripe checkout sessions at `/api/create-checkout-session`
-- Exposing health and metadata sync endpoints
-
-Representative API groups:
-
-- `functions/api/auth/*` for admin auth
-- `functions/api/albums/*` and `functions/api/images/*` for CMS data
-- `functions/api/content/*` and `functions/api/settings/*` for editable page copy/settings
-- `functions/api/public/*` for public-facing CMS reads
-- `functions/api/privacy/*` for consent logging, event logging, rights requests, exports, deletions, and sale/sharing opt-out
-- `functions/api/rss/*`, `functions/api/spotify/*`, and `functions/api/ai/*` for integrations
-
-## Deployment
-
-### Bluehost / cPanel
-
-This is the current default production deployment path. `npm run deploy` maps to the Bluehost deploy flow.
-
-```bash
-npm run build:bluehost
-```
-
-That process:
-
-- builds the app
-- copies `dist/` into `build/bluehost/public_html`
-- layers in files from `bluehost/public_html`
-- packages bootstrap CMS data under `_cms_data/bootstrap`
-
-To upload via FTP:
-
-```bash
-BLUEHOST_FTP_HOST=...
-BLUEHOST_FTP_USER=...
-BLUEHOST_FTP_PASSWORD=...
-npm run deploy
-```
-
-The deploy script reads FTP credentials from environment files such as `.env.local` or from your shell environment. It no longer falls back to editor-local credential storage.
-
-Do not overwrite these runtime directories on the server during later deploys:
-
-- `public_html/_cms_data/runtime`
-- `public_html/uploads`
-
-### Cloudflare
-
-The Cloudflare runtime is still available for local development, migration work, and alternate deployments. It is not the default production path for this repo. Configuration for that path lives in `wrangler.toml`.
-
-```bash
-npm run deploy:cloudflare
-```
-
-This:
-
-1. builds the frontend into `dist/`
-2. deploys the Worker
-3. binds static assets, D1, and R2 through Wrangler
-
-Before deploying that path, make sure production secrets are configured with `wrangler secret put`.
-
-## Privacy controls
-
-This repo now includes a privacy-first consent management implementation for:
-
-- Cookie/storage consent
-- Granular optional tracking consent
-- California sale/sharing opt-out handling
-- D1-backed consent and privacy request logging
-- First-party event tracking that is gated before optional categories are allowed
-
-Important: this is a technical implementation scaffold, not a legal sign-off. Review by counsel is required before production use.
-
-### Privacy setup
-
-1. Copy `.env.example` to `.env.local` and fill in the privacy/legal placeholders.
-2. Copy `.dev.vars.example` to `.dev.vars` and set runtime privacy secrets.
-3. Run `npm run db:migrate:privacy:local` or `npm run db:init:local`.
-4. Start the app with `npm run dev`.
-
-### Region logic
-
-- `opt_in` mode is used for EU/EEA/UK country codes detected from Cloudflare request metadata.
-- `california` mode is used when Cloudflare request metadata reports `US-CA`.
-- `conservative` mode is the fallback when the region cannot be determined.
-- `PRIVACY_REGION_FORCE_MODE` can override detection for testing or controlled deployments.
-- Browser Global Privacy Control signals are honored for sale/sharing-related uses where feasible.
-
-### How consent gating works
-
-- Strictly necessary storage is separate from optional tracking storage.
-- The consent record is stored in first-party local storage and mirrored to the D1 `privacy_consent_log` table.
-- Optional categories remain off until the user chooses otherwise.
-- The tracking wrapper in `src/lib/privacy/tracking.ts` refuses to send optional events when valid consent is missing, withdrawn, stale, or globally disabled.
-- The backend `/api/privacy/events` endpoint performs a second consent check against the latest D1 consent log before storing an optional event.
-
-### How to add a new tracker
-
-1. Add the placeholder config to `src/config/privacy-integrations.ts`.
-2. Keep the integration disabled by default.
-3. Gate all initialization behind `hasConsentFor(category)` or `trackEvent(..., category)`.
-4. Do not load third-party scripts until counsel approves the disclosure text and the corresponding category behavior.
-5. Update the legal template placeholders for `{{TRACKING_TOOLS}}` and `{{THIRD_PARTIES}}`.
-
-### How to disable all optional tracking
-
-- Set `VITE_PRIVACY_DISABLE_OPTIONAL_TRACKING=true` for the frontend.
-- Set `PRIVACY_DISABLE_OPTIONAL_TRACKING=true` for the Worker/runtime.
-- With both flags enabled, analytics, personalization, and advertising / sale-sharing stay off even if the UI is present.
-
-### Legal review checklist
-
-- Replace all template placeholders such as `{{COMPANY_NAME}}`, `{{LEGAL_ENTITY}}`, `{{CONTACT_EMAIL}}`, and `{{LAST_UPDATED}}`.
-- Confirm whether any enabled analytics or ad-tech amounts to selling or sharing under California law.
-- Confirm the lawful bases, retention schedule, and third-party disclosures for each region.
-- Review the Global Privacy Control behavior and the Do Not Sell or Share workflow.
-- Review the Data Request page, identity verification process, and export/delete operational handling.
-- Approve the final wording on the Privacy Policy, Cookie Policy, California notice, Contact Privacy page, and footer links.
-
-## Documentation
-
-Additional notes live in `docs/`, including:
-
-- `docs/DEPLOYMENT_SUMMARY.md`
-- `docs/R2-CDN-SETUP.md`
-- `docs/R2_UPLOAD_GUIDE.md`
-- `docs/SECURE_IMAGE_PIPELINE.md`
-- `docs/WORKSHOP_IMAGES.md`
-- `docs/bluehost-migration.md`
-
-## Notes for contributors
-
-- This repo includes a very large image library, generated data, and legacy deployment artifacts, so file watching and builds can be heavier than a typical Vite app
-- `npm run dev` already excludes the biggest asset folders from Vite watch to avoid file watcher limits
-- The current worktree may include in-progress content and admin changes; read before refactoring shared data or deployment code
+const cloudinary = require('cloudinary').v2;
+// (Optional) cloudinary.config({ cloud_name: 'your-cloud-name' });
+const url = cloudinary.url('docs/casual', {
+  transformation: { width: 500, height: 500, crop: 'fill', fetch_format: 'auto', quality: 'auto' }
+});

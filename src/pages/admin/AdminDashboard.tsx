@@ -4,12 +4,10 @@ import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { toast } from 'sonner';
 import { 
-  Activity,
   Camera, 
   Image, 
   FileText, 
   Palette, 
-  Plus,
   TrendingUp,
 } from 'lucide-react';
 
@@ -33,7 +31,6 @@ export const AdminDashboard = () => {
   });
   const [loading, setLoading] = useState(true);
   const [isSeeding, setIsSeeding] = useState(false);
-  const [isImportingPortfolio, setIsImportingPortfolio] = useState(false);
 
   useEffect(() => {
     fetchDashboardData();
@@ -109,38 +106,6 @@ export const AdminDashboard = () => {
       toast.error(error?.message || 'Failed to seed albums');
     } finally {
       setIsSeeding(false);
-    }
-  };
-
-  const importStaticPortfolio = async () => {
-    try {
-      setIsImportingPortfolio(true);
-      const token = localStorage.getItem('admin_token');
-      if (!token) {
-        toast.error('Not authenticated');
-        return;
-      }
-
-      const response = await fetch('/api/albums/admin/import-static', {
-        method: 'POST',
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
-
-      const data = await response.json();
-      if (!response.ok || !data?.success) {
-        throw new Error(data?.error || 'Failed to import current portfolio');
-      }
-
-      toast.success(
-        `Imported ${data.insertedAlbums} albums and ${data.insertedImages} images into the admin backend.`,
-      );
-      await fetchDashboardData();
-    } catch (error: any) {
-      toast.error(error?.message || 'Failed to import current portfolio');
-    } finally {
-      setIsImportingPortfolio(false);
     }
   };
 
@@ -339,29 +304,23 @@ export const AdminDashboard = () => {
         <CardHeader>
           <CardTitle>Migration from Static Data</CardTitle>
           <CardDescription>
-            Bring the live portfolio into the backend so you can edit albums, remove images, and manage what appears on the website from admin.
+            Import your existing albums and images into the database
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+          <div className="flex items-center justify-between">
             <div>
               <p className="text-sm">
-                Import the current website portfolio into the database so the admin panel shows the same albums and images visitors see.
+                Import your current album data from the static files to get started with the CMS.
               </p>
               <p className="text-xs text-muted-foreground mt-1">
-                Safe to run more than once. Existing imported images are skipped, and new website images are added.
+                This will create database entries for all your existing content.
               </p>
             </div>
-            <div className="flex flex-wrap gap-3">
-              <Button variant="outline" onClick={seedDefaultAlbums} disabled={isSeeding}>
-                <Plus className="mr-2 h-4 w-4" />
-                {isSeeding ? 'Seeding...' : 'Create Albums'}
-              </Button>
-              <Button onClick={importStaticPortfolio} disabled={isImportingPortfolio}>
-                <Image className="mr-2 h-4 w-4" />
-                {isImportingPortfolio ? 'Importing Portfolio...' : 'Import Website Portfolio'}
-              </Button>
-            </div>
+            <Button onClick={seedDefaultAlbums} disabled={isSeeding}>
+              <Plus className="mr-2 h-4 w-4" />
+              {isSeeding ? 'Seeding...' : 'Create Albums'}
+            </Button>
           </div>
         </CardContent>
       </Card>

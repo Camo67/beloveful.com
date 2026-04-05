@@ -6,10 +6,8 @@ import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useWorkshopImages } from "@/hooks/use-workshop-images";
 import { CORE_WORKSHOP_TOPICS } from "@/lib/workshop-content";
-import { buildWorkshopInquiryHref } from "@/lib/workshop-inquiry";
 
 export default function WorkshopOnline() {
-  const inquiryHref = buildWorkshopInquiryHref("Online Group Workshop");
   const heroImage = {
     src: "/Website%20beloveful.com/Erasing%20Borders/NyC-DSCF8922%20copy%202.jpg",
     alt: "Online Street Photography Workshop"
@@ -116,8 +114,12 @@ export default function WorkshopOnline() {
 
             <div className="text-center">
               <Button asChild size="lg" className="text-lg px-12 py-6">
-                <a href={inquiryHref}>
-                  Email Tony to Join
+                <a
+                  href="https://lb.benchmarkemail.com//listbuilder/signupnew?IkfHTmyPVq92wBnn4lX%252FTf5pwVnAjsSIeL8KRSOgMpXtO5iNRn8gS049TyW7spdJ"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Join Now
                 </a>
               </Button>
             </div>
