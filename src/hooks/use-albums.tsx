@@ -71,6 +71,18 @@ function normalizeImagePair(image: any): { desktop: string; mobile: string } | n
   };
 }
 
+function dedupeKey(url: string): string {
+  if (!url) return '';
+  try {
+    const parsed = new URL(url, 'https://beloveful.com');
+    const decodedPath = decodeURIComponent(parsed.pathname);
+    const cleanedPath = decodedPath.replace(/\s*\(\d+\)(?=\.[^./]+$)/, '');
+    return `${parsed.origin}${cleanedPath}${parsed.search}`;
+  } catch {
+    return decodeURIComponent(url).replace(/\s*\(\d+\)(?=\.[^./]+$)/, '');
+  }
+}
+
 export const useAlbums = () => {
   return useQuery({
     queryKey: ['albums'],
@@ -231,7 +243,7 @@ export const useAlbum = (region: string, country: string) => {
       const addUnique = (img: any) => {
         const normalized = normalizeImagePair(img);
         if (!normalized) return;
-        const key = `${normalized.desktop}|${normalized.mobile}`;
+        const key = `${dedupeKey(normalized.desktop)}|${dedupeKey(normalized.mobile)}`;
         if (seen.has(key)) return;
         seen.add(key);
         mergedImages.push(normalized);

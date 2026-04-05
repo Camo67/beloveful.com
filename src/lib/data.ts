@@ -111,6 +111,20 @@ const normalizeImageUrl = (url: string): string => {
   return mapToCdnUrl(fixed) ?? fixed;
 };
 
+const normalizeForDedupe = (url: string): string => {
+  const normalized = normalizeImageUrl(url);
+  try {
+    const parsed = new URL(normalized, 'https://beloveful.com');
+    const decodedPath = decodeURIComponent(parsed.pathname);
+    const cleanedPath = decodedPath.replace(/\s*\(\d+\)(?=\.[^./]+$)/, '');
+    return `${parsed.origin}${cleanedPath}${parsed.search}`;
+  } catch {
+    return normalizeImageUrl(
+      decodeURIComponent(normalized).replace(/\s*\(\d+\)(?=\.[^./]+$)/, '')
+    );
+  }
+};
+
 const dedupeImages = (images: { desktop: string; mobile: string }[]) => {
   const seen = new Set<string>();
   const unique: { desktop: string; mobile: string }[] = [];
@@ -118,7 +132,7 @@ const dedupeImages = (images: { desktop: string; mobile: string }[]) => {
   for (const image of images) {
     const desktop = normalizeImageUrl(image.desktop);
     const mobile = normalizeImageUrl(image.mobile || image.desktop);
-    const key = `${desktop}|${mobile}`;
+    const key = `${normalizeForDedupe(desktop)}|${normalizeForDedupe(mobile)}`;
     if (seen.has(key)) continue;
     seen.add(key);
     unique.push({ desktop, mobile });
