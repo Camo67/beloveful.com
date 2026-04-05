@@ -205,8 +205,7 @@ export default function Events() {
 
   const calendarEmbedUrl =
     import.meta.env.VITE_EVENTS_CALENDAR_EMBED ??
-    "https://calendar.zoho.com/zc/ui/embed/#calendar=zz08011230de9f7af37169de9dbf574e3b7645706b02352eb08a17c13b60aab14fa1ecb5cda8c6b0b8df5e7960b4b7ff3d69be4a81&title=workshop%40beloveful.com&type=1&language=en&timezone=America%2FNew_York&showTitle=1&showTimezone=1&view=month&showDetail=0&theme=1&eventColorType=light&calendarColor=%23bfbf4d";
-  const calendarDetailsUrl = calendarEmbedUrl.replace("showDetail=0", "showDetail=1");
+    "https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%23ffffff&ctz=America%2FChicago&src=YmVsb3ZlZnVsLmV2ZW50c0BleGFtcGxlLmNvbQ";
 
   const scrollToEvents = () => {
     const element = document.getElementById('events-section');
@@ -251,10 +250,8 @@ export default function Events() {
                     <p className="text-muted-foreground">{event.location}</p>
                     <p className="text-sm text-muted-foreground mt-1">{event.description}</p>
                   </div>
-                  <Button variant="outline" className="flex-shrink-0" asChild>
-                    <a href={calendarDetailsUrl} target="_blank" rel="noreferrer">
-                      Details
-                    </a>
+                  <Button variant="outline" className="flex-shrink-0">
+                    Details
                   </Button>
                 </div>
               ))}
@@ -273,7 +270,7 @@ export default function Events() {
               <div className="max-w-5xl mx-auto">
                 <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-4">
                   <iframe 
-                    src={calendarEmbedUrl}
+                    src="https://calendar.zoho.com/zc/ui/embed/#calendar=zz08011230de9f7af37169de9dbf574e3b7645706b02352eb08a17c13b60aab14fa1ecb5cda8c6b0b8df5e7960b4b7ff3d69be4a81&title=workshop%40beloveful.com&type=1&language=en&timezone=America%2FNew_York&showTitle=1&showTimezone=1&view=month&showDetail=0&theme=1&eventColorType=light&calendarColor=%23bfbf4d" 
                     width="100%" 
                     height="600" 
                     frameBorder="0" 

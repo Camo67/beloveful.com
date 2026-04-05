@@ -27,14 +27,6 @@ dist-ssr
 .env
 .env.local
 
-# Local tooling state
-.deploy-clean/
-.playwright-cli/
-.wrangler/state/
-.wrangler/tmp/
-*.pid
-upload_log_*.txt
-
 # Ignore podcast media in public
 /public/*.mp3
 /public/**/*.mp3

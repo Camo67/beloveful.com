@@ -1,343 +1,272 @@
-# Welcome to beloveful.com
+ beloveful.com
 
-## Project info
+Beloveful is a content-rich React site for Tony Menias / Beloveful that combines a travel photography portfolio, print shop, workshops, editorial pages, and an admin CMS. The frontend is built with Vite + React, while a Cloudflare Worker handles API routes, D1-backed content, Stripe checkout session creation, and R2 asset delivery.
 
-**URL**: www.beloveful.com
+## What this repo contains
 
-## Project Structure
+- A public-facing SPA with routes for home, portfolio, country galleries, workshops, events, about, FAQ, contact, and print sales
+- A password-protected admin area at `/admin` / `/adminlogin`
+- Cloudflare Pages/Workers-style API functions under `functions/api`
+- A custom Worker entrypoint in `src/worker.js` that serves both API routes and built frontend assets
+- Static and generated image libraries sourced from `public/Website beloveful.com`, Cloudinary exports, and generated JSON data
+- Deployment tooling for both Cloudflare and Bluehost/cPanel
 
-```
-beloveful.com/
-├── src/
-│   ├── components/     # React components
-│   ├── hooks/          # Custom React hooks
-│   ├── lib/            # Utility functions and data
-│   │   ├── cloudinary-assets/  # Cloudinary asset data and JSON files
-│   │   ├── portolio/   # Portfolio data (note: typo in directory name)
-│   │   └── generated/  # Generated data files
-│   └── pages/          # Page components
-├── functions/          # Cloudflare Workers functions
-└── server/             # Server routes
-```
+## Tech stack
 
-## How can I edit this code?
-vscode Next.js
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_bash: /home/camo/snap/code-insiders/2129/.local/share/../bin/env: No such file or directory
-camo@camo-HP-ProDesk-600-G3-MT:~/new/beloveful.com$ npm run images:serve
-
-> vite_react_shadcn_ts@0.0.0 images:serve
-> node server/images.cjs
-
-Could not load project data modules, falling back to sample image lists: Must use import to load ES Module: /home/camo/new/beloveful.com/src/lib/data.ts
-require() of ES modules is not supported.
-require() of /home/camo/new/beloveful.com/src/lib/data.ts from /home/camo/new/beloveful.com/server/images.cjs is an ES module file as it is a .ts file whose nearest parent package.json contains "type": "module" which defines all .ts files in that package scope as ES modules.
-Instead change the requiring code to use import(), or remove "type": "module" from /home/camo/new/beloveful.com/package.json.
-
-Images API running on http://localhost:4001
-^C
-camo@camo-HP-ProDesk-600-G3-MT:~/new/beloveful.com$ curl -sS http://localhost:4001/api/travel-images | jq -r '. | length, .[0] // "(none)"'
-curl: (7) Failed to connect to localhost port 4001 after 0 ms: Could not connect to server
-camo@camo-HP-ProDesk-600-G3-MT:~/new/beloveful.com$ printf '--- /api/travel-images ---\n'; curl -sS http://localhost:4001/api/travel-images || true; printf '\n--- /api/project-images ---\n'; curl -sS http://localhost:4001/api/project-images || true; printf '\n--- /api/logos ---\n'; curl -sS http://localhost:4001/api/logos || true;
-bash: printf: --: invalid option
-printf: usage: printf [-v var] format [arguments]
-curl: (7) Failed to connect to localhost port 4001 after 0 ms: Could not connect to server
-
---- /api/project-images ---
-curl: (7) Failed to connect to localhost port 4001 after 0 ms: Could not connect to server
-
---- /api/logos ---
-curl: (7) Failed to connect to localhost port 4001 after 0 ms: Could not connect to server
-camo@camo-HP-ProDesk-600-G3-MT:~/new/beloveful.com$ nohup node server/images.cjs > /tmp/images-server.log 2>&1 & echo $!
-[1] 600094
-600094
-camo@camo-HP-ProDesk-600-G3-MT:~/new/beloveful.com$ ls -la /tmp | sed -n '1,120p'
-total 48
-drwxrwxrwt 53 root root 2200 Oct 21 07:43 .
-drwxr-xr-x 20 root root 4096 Oct 19 00:22 ..
--rw-------  1 root root  134 Oct 21 07:38 anacron-XgviEk
--rw-rw-r--  1 camo camo    2 Oct 21 01:28 \auto.json
-drwxrwxr-x  2 camo camo   40 Oct 21 01:05 aws-toolkit-vscode
-drwx------  2 camo camo   60 Oct 21 07:07 azcp-8863f983fdab
-drwx------  2 camo camo   60 Oct 20 16:37 c3-wrangler-deploy-8s2kxZ
-drwx------  2 camo camo   60 Oct 20 16:49 c3-wrangler-deploy-vCH00w
-drwx------  2 camo camo   60 Oct 20 20:36 c3-wrangler-init--from-dash-BtBNmQ
-drwx------  2 camo camo   60 Oct 21 00:59 cloudcode-tempkZkQbZ
-drwx------  2 camo camo   60 Oct 21 00:59 cloudcode-tempLg5oi1
-drwx------  2 camo camo   60 Oct 21 00:59 cloudcode-tempoGlCb1
-drwx------  2 camo camo   60 Oct 21 00:59 cloudcode-tempW2y4M1
-prwx------  1 camo camo    0 Oct 21 07:07 clr-debug-pipe-594380-6855696-in
-prwx------  1 camo camo    0 Oct 21 07:07 clr-debug-pipe-594380-6855696-out
-prwx------  1 camo camo    0 Oct 21 07:07 clr-debug-pipe-594382-6855699-in
-prwx------  1 camo camo    0 Oct 21 07:07 clr-debug-pipe-594382-6855699-out
-srwxrwxr-x  1 camo camo    0 Oct 20 12:04 code-417755f2-f362-46f7-be87-65c956a2f7d4
-srwxrwxr-x  1 camo camo    0 Oct 20 12:04 code-542627e1-5404-46ce-b619-e68c69b16758
-drwx------  2 camo camo   40 Oct 21 03:07 .com.google.Chrome.01iCvu
-drwx------  2 camo camo   40 Oct 20 22:07 .com.google.Chrome.9C2ddR
-drwx------  2 camo camo   40 Oct 20 16:53 .com.google.Chrome.bmY8iV
-drwx------  2 camo camo   40 Oct 21 01:05 .com.google.Chrome.DHErE2
-drwx------  2 camo camo   60 Oct 20 12:06 .com.google.Chrome.gqzDKt
-drwx------  2 camo camo   40 Oct 20 22:07 .com.google.Chrome.Kklc7u
-drwx------  2 camo camo   40 Oct 21 01:06 .com.google.Chrome.MdIlWP
-drwx------  2 camo camo   80 Oct 20 12:05 .com.google.Chrome.SVlR99
-drwx------  2 camo camo   40 Oct 21 03:07 .com.google.Chrome.tRzu8K
-drwxrwxr-x  2 camo camo   80 Oct 21 01:20 dedwewfweft32fsdaaaaaafaaaawfewfe
-srw-------  1 camo camo    0 Oct 21 07:07 dotnet-diagnostic-594380-6855696-socket
-srw-------  1 camo camo    0 Oct 21 07:07 dotnet-diagnostic-594382-6855699-socket
-drwxrwxr-x  2 camo camo  100 Oct 21 01:20 EXP-140880SDCEFEF-YURI-SDD-DALVA-EXFOLDERSAS-EDSDS
-drwxrwxrwt  2 root root   40 Oct 20 12:04 .font-unix
-drwx------  2 camo camo   60 Oct 21 00:58 gkinstall386605984
-drwxrwxrwt  2 root root   60 Oct 20 12:04 .ICE-unix
--rw-rw-r--  1 camo camo  664 Oct 21 07:42 images-server.log
-drwxrwxr-x  5 camo camo  100 Oct 21 00:58 node-compile-cache
--rw-rw-r--  1 camo camo 3182 Oct 21 00:58 postman-collections-post-response.instructions.md
--rw-rw-r--  1 camo camo 3029 Oct 21 00:58 postman-collections-pre-request.instructions.md
--rw-rw-r--  1 camo camo 3182 Oct 21 00:58 postman-folder-post-response.instructions.md
--rw-rw-r--  1 camo camo 3029 Oct 21 00:58 postman-folder-pre-request.instructions.md
--rw-rw-r--  1 camo camo 3512 Oct 21 00:58 postman-http-request-post-response.instructions.md
--rw-rw-r--  1 camo camo 3530 Oct 21 00:58 postman-http-request-pre-request.instructions.md
-drwxrwxr-x  2 camo camo   40 Oct 21 01:16 python-languageserver-cancellation
-drwxrwxr-x  3 camo camo   60 Oct 21 00:58 remote-file-71752ccfe2464e99
-drwx------  9 root root  180 Oct 20 15:00 snap-private-tmp
-drwx------  3 root root   60 Oct 20 12:04 systemd-private-702b1eb6f4b647629a0cce0d338b6117-bluetooth.service-qHbzct
-drwx------  3 root root   60 Oct 20 12:04 systemd-private-702b1eb6f4b647629a0cce0d338b6117-colord.service-exnNtC
-drwx------  3 root root   60 Oct 20 12:23 systemd-private-702b1eb6f4b647629a0cce0d338b6117-fwupd.service-iTVVKU
-drwx------  3 root root   60 Oct 20 12:04 systemd-private-702b1eb6f4b647629a0cce0d338b6117-ModemManager.service-uR5gvu
-drwx------  3 root root   60 Oct 20 12:04 systemd-private-702b1eb6f4b647629a0cce0d338b6117-polkit.service-Ymklxy
-drwx------  3 root root   60 Oct 20 12:04 systemd-private-702b1eb6f4b647629a0cce0d338b6117-power-profiles-daemon.service-RZUIa5
-drwx------  3 root root   60 Oct 20 12:04 systemd-private-702b1eb6f4b647629a0cce0d338b6117-switcheroo-control.service-ZsxT0L
-drwx------  3 root root   60 Oct 20 12:04 systemd-private-702b1eb6f4b647629a0cce0d338b6117-systemd-logind.service-A6NaNr
-drwx------  3 root root   60 Oct 20 12:04 systemd-private-702b1eb6f4b647629a0cce0d338b6117-upower.service-5RDPhO
-drwxrwxr-x  2 camo camo   60 Oct 21 00:59 tmp
--rw-------  1 camo camo    0 Oct 20 21:10 tmp.4gYJlkByVo
--rw-------  1 camo camo    0 Oct 21 01:27 tmp.52KUZmOMnt
--rw-------  1 camo camo    0 Oct 20 22:06 tmp.68lDtYsj5o
--rw-------  1 camo camo    0 Oct 20 18:38 tmp.6fcEbpQHfr
-drwx------  2 camo camo   40 Oct 21 05:22 tmp.7rZCCmtAdI
--rw-------  1 camo camo    0 Oct 20 22:06 tmp.9b105vrgAx
--rw-------  1 camo camo    0 Oct 21 01:27 tmp.9uaPIYcHME
--rw-------  1 camo camo    0 Oct 20 23:33 tmp.9WXryHf9sp
--rw-------  1 camo camo    0 Oct 20 17:47 tmp.ADX8oBacH3
-drwxrwxr-x  2 camo camo   80 Oct 21 06:37 .tmpBiE8eH
--rw-------  1 camo camo    0 Oct 20 22:52 tmp.ejwNFpBz2h
-drwxrwxr-x  2 camo camo   80 Oct 21 00:58 .tmpFBdTLV
--rw-------  1 camo camo    0 Oct 20 23:31 tmp.FYcaN6RBSC
--rw-------  1 camo camo    0 Oct 21 00:42 tmp.gpf3fdlSBu
--rw-------  1 camo camo    0 Oct 21 01:27 tmp.hHTpjxHgxA
--rw-------  1 camo camo    0 Oct 20 18:38 tmp.HnBf1viBrs
--rw-------  1 camo camo    0 Oct 20 21:02 tmp.JL1IXzVq6b
--rw-------  1 camo camo    0 Oct 21 00:42 tmp.kL1qyQ2uOy
--rw-------  1 camo camo    0 Oct 21 01:27 tmp.KtUuTIFhPF
--rw-------  1 camo camo    0 Oct 20 20:47 tmp.kX1CJdPq8w
--rw-------  1 camo camo    0 Oct 21 01:27 tmp.L9hrtvCKKK
--rw-------  1 camo camo    0 Oct 20 23:33 tmp.mE5iaMvRxv
--rw-------  1 camo camo    0 Oct 20 16:57 tmp.mH4vyaYPPu
--rw-------  1 camo camo    0 Oct 21 00:12 tmp.odfzwlEkSr
--rw-------  1 camo camo    0 Oct 21 01:27 tmp.Om1yJKsaq7
--rw-------  1 camo camo    0 Oct 20 12:48 tmp.PBedPqMWk9
--rw-------  1 camo camo    0 Oct 21 00:17 tmp.QG2aZPBKso
--rw-------  1 camo camo    0 Oct 21 01:27 tmp.QijTLESL1T
--rw-------  1 camo camo    0 Oct 20 16:57 tmp.QylTJunRBA
--rw-------  1 camo camo    0 Oct 21 00:12 tmp.R2Y9Qa0I9h
--rw-------  1 camo camo    0 Oct 20 21:10 tmp.TgdGwbqiyd
--rw-------  1 camo camo    0 Oct 21 00:17 tmp.Tleowgwdt1
--rw-------  1 camo camo    0 Oct 20 20:47 tmp.U5zzwMTzkB
--rw-------  1 camo camo    0 Oct 20 22:52 tmp.V6paVHV8qU
--rw-------  1 camo camo    0 Oct 20 21:08 tmp.WL1xgPjzrU
--rw-------  1 camo camo    0 Oct 20 23:31 tmp.y8LfFEpG9z
--rw-------  1 camo camo    0 Oct 21 01:27 tmp.y9SPRDX1sw
--rw-------  1 camo camo    0 Oct 20 17:47 tmp.Yfoqdzw1xn
--rw-------  1 camo camo    0 Oct 21 01:27 tmp.YGGmP2zNmy
--rw-------  1 camo camo    0 Oct 20 12:48 tmp.z2DqYZtjfb
--rw-------  1 camo camo    0 Oct 20 21:02 tmp.ZnmBeaCu7j
-drwxrwxr-x  2 camo camo   60 Oct 20 16:28 update-check
-drwxrwxr-x  4 camo camo   80 Oct 21 07:40 v8-compile-cache-1000
-drwxrwxr-x  2 camo camo   60 Oct 21 07:07 vscode-azure-github-copilot
-drwxrwxr-x  2 camo camo   80 Oct 21 00:58 vscode-skaffold-events-logs
-drwxrwxr-x  3 camo camo   60 Oct 21 01:39 vscode-typescript1000
-drwxrwxr-x  2 camo camo   80 Oct 21 01:16 VSLiveshareLogs
--r--r--r--  1 camo camo   11 Oct 20 12:04 .X0-lock
-drwxrwxrwt  2 root root   80 Oct 20 12:04 .X11-unix
--r--r--r--  1 camo camo   11 Oct 20 12:04 .X1-lock
-drwxrwxrwt  2 root root   40 Oct 20 12:04 .XIM-unix
-drwxrwxr-x  2 camo camo   40 Oct 21 01:20 xvba_code_debug_parsed
-drwxrwxr-x  2 camo camo   40 Oct 21 01:20 xvba_immediate
-drwxrwxr-x  2 camo camo   60 Oct 21 01:20 xvba_log
-camo@camo-HP-ProDesk-600-G3-MT:~/new/beloveful.com$ tail -n 200 /tmp/images-server.log || true
-nohup: ignoring input
-Could not load project data modules, falling back to sample image lists: Must use import to load ES Module: /home/camo/new/beloveful.com/src/lib/data.ts
-require() of ES modules is not supported.
-require() of /home/camo/new/beloveful.com/src/lib/data.ts from /home/camo/new/beloveful.com/server/images.cjs is an ES module file as it is a .ts file whose nearest parent package.json contains "type": "module" which defines all .ts files in that package scope as ES modules.
-Instead change the requiring code to use import(), or remove "type": "module" from /home/camo/new/beloveful.com/package.json.
-
-Images API running on http://localhost:4001
-camo@camo-HP-ProDesk-600-G3-MT:~/new/beloveful.com$ curl -sS http://localhost:4001/api/travel-images | jq -r '. | length, .[0] // "(none)"'
-3
-https://picsum.photos/id/1018/1200/800
-camo@camo-HP-ProDesk-600-G3-MT:~/new/beloveful.com$ curl -sS http://localhost:4001/api/project-images | jq -r '. | length, .[0] // "(none)"'
-2
-https://picsum.photos/id/1050/1200/800
-camo@camo-HP-ProDesk-600-G3-MT:~/new/beloveful.com$ curl -sS http://localhost:4001/api/logos | jq -r '. | length, .[0] // "(none)"'
-2
-https://picsum.photos/id/237/400/400
-camo@camo-HP-ProDesk-600-G3-MT:~/new/beloveful.com$ echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf
-sudo sysctl -p
-npm run dev
-[sudo] password for camo: 
-fs.inotify.max_user_watches=524288
-fs.inotify.max_user_watches = 524288
-
-> vite_react_shadcn_ts@0.0.0 dev
-> vite
-
-
-  VITE v6.4.1  ready in 249 ms
-
-  ➜  Local:   http://localhost:8080/
-  ➜  Network: http://192.168.18.3:8080/
-  ➜  Network: http://172.17.0.1:8080/
-  ➜  press h + enter to show help
-Error:   Failed to scan for dependencies from entries:
-  /home/camo/new/beloveful.com/debug-icons.html
-/home/camo/new/beloveful.com/index.html
-
-  ✘ [ERROR] No matching export in "src/components/Slideshow.tsx" for import "Slideshow"
-
-    src/pages/Index.tsx:2:9:
-      2 │ import { Slideshow } from "@/components/Slideshow";
-        ╵          ~~~~~~~~~
-
-
-    at failureErrorWithLog (/home/camo/new/beloveful.com/node_modules/esbuild/lib/main.js:1467:15)
-    at /home/camo/new/beloveful.com/node_modules/esbuild/lib/main.js:926:25
-    at runOnEndCallbacks (/home/camo/new/beloveful.com/node_modules/esbuild/lib/main.js:1307:45)
-    at buildResponseToResult (/home/camo/new/beloveful.com/node_modules/esbuild/lib/main.js:924:7)
-    at /home/camo/new/beloveful.com/node_modules/esbuild/lib/main.js:936:9
-    at new Promise (<anonymous>)
-    at requestCallbacks.on-end (/home/camo/new/beloveful.com/node_modules/esbuild/lib/main.js:935:54)
-    at handleRequest (/home/camo/new/beloveful.com/node_modules/esbuild/lib/main.js:628:17)
-    at handleIncomingPacket (/home/camo/new/beloveful.com/node_modules/esbuild/lib/main.js:653:7)
-    at Socket.readFromStdout (/home/camo/new/beloveful.com/node_modules/esbuild/lib/main.js:581:7)
-    URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
+- React 18
 - TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+- Vite
+- React Router
+- TanStack Query
+- Tailwind CSS + shadcn/ui components
+- Cloudflare Workers
+- Cloudflare D1
+- Cloudflare R2
+- Stripe Checkout
+- Cloudinary-based asset workflows
 
+## Main features
 
+- Travel portfolio with region and country galleries
+- Homepage slideshow and curated content blocks
+- Workshops and mentorship landing pages
+- Print shop with open-edition checkout and limited-edition catalog content
+- Editable site copy via D1-backed `page_content`
+- Editable contact/print/calendly settings via D1-backed `settings`
+- Admin-managed albums, images, slideshow entries, and page content
+- Upload pipeline that prefers WordPress media uploads when configured and falls back to R2
+- Optional Bluehost build/export pipeline for static hosting + CMS bootstrap data
 
-Simply open (https://beloveful.com) and click on Share -> Publish.
+## Getting started
 
+### Prerequisites
 
+- Node.js 20+ recommended
+- npm
+- Wrangler CLI access through the project dependencies
 
-## Accessing JSON Assets
-
-This project includes JSON asset files in two main directories:
-1. `src/lib/cloudinary-assets/` - Contains Cloudinary asset data
-2. `src/lib/portolio/` - Contains portfolio data (note the typo in the directory name)
-
-### API Routes
-
-JSON assets can be accessed through the following API routes:
-
-1. Cloudinary assets: `/api/content/assets/cloudinary-assets/*`
-   - Example: `/api/content/assets/cloudinary-assets/index.json`
-   - Example: `/api/content/assets/cloudinary-assets/Africa/Egypt/urls.json`
-
-2. Portfolio assets: `/api/content/assets/portolio/*`
-   - Example: `/api/content/assets/portolio/Africa/urls.json`
-
-3. Main Cloudinary index: `/api/content/assets/cloudinary-assets.json`
-
-### Frontend Usage
-
-To access these assets from the frontend, you can use the utility functions in `src/lib/assetLoader.ts`:
-
-```typescript
-import { loadCloudinaryIndex, loadCloudinaryAsset, loadPortfolioAsset } from '@/lib/assetLoader';
-
-// Load the main cloudinary index
-const index = await loadCloudinaryIndex();
-
-// Load a specific cloudinary asset
-const assetData = await loadCloudinaryAsset('Africa/Egypt/urls.json');
-
-// Load a specific portfolio asset
-const portfolioData = await loadPortfolioAsset('Africa/urls.json');
-```
-
-Example component using these utilities can be found in `src/components/AssetExample.tsx`.
-
-## Syncing cPanel-hosted images
-
-The original WordPress gallery still lives on cPanel under `public_html/images`. You can mirror that folder into the JSON manifests the app expects with:
+### Install
 
 ```bash
-# 1. Set credentials (see .env.example for the full list)
-export CPANEL_FTP_HOST=ftp.theoriawellness.org
-export CPANEL_FTP_USER=you@example.com
-export CPANEL_FTP_PASSWORD=super-secret
-# optional: point at a different source folder/base URL
-# export CPANEL_FTP_ROOT=/public_html/images
-# export CPANEL_IMAGES_BASE_URL=/Website%20beloveful.com   # ships with repo
-
-# 2. Run the sync (if you use the VS Code ftp-simple extension, the script
-#    will auto-read ~/.config/Code/.../ftp-simple-temp.json when env vars
-#    are missing, so you can often skip the exports entirely)
-npm run cpanel:sync
+npm install
 ```
 
-The script connects over FTP, walks every region/country directory, and regenerates:
+### Environment files
 
-- `src/lib/cloudinary-assets/index.json`
-- `src/lib/cloudinary-assets/<Region>/<Album>/urls.json`
+Use `.env.local` for client/build-time variables and `.dev.vars` for local Worker secrets.
 
-All URLs now point directly at `https://beloveful.com/images/...`, so components that read from `loadCloudinaryAsset` (Travel Portfolio, Comprehensive Image Demo, etc.) immediately start pulling the fresh cPanel media without any other code changes. Re-run the command whenever you upload new files via cPanel/WordPress.
+Start with:
 
-const cloudinary = require('cloudinary').v2;
-// (Optional) cloudinary.config({ cloud_name: 'your-cloud-name' });
-const url = cloudinary.url('docs/casual', {
-  transformation: { width: 500, height: 500, crop: 'fill', fetch_format: 'auto', quality: 'auto' }
-});
+```bash
+cp .env.example .env.local
+```
+
+Common variables used in this repo:
+
+- Client/build-time:
+  - `VITE_CLOUDINARY_CLOUD_NAME`
+  - `VITE_CALENDLY_LINK`
+  - `VITE_SPOTIFY_CLIENT_ID`
+  - `VITE_B2_*`
+  - `VITE_IMAGE_CDN_URL`
+- Worker/runtime secrets:
+  - `JWT_SECRET`
+  - `STRIPE_SECRET_KEY`
+  - `CLOUDINARY_CLOUD_NAME`
+  - `CLOUDINARY_API_KEY`
+  - `CLOUDINARY_API_SECRET`
+  - `WP_BASE_URL`
+  - `WP_USERNAME`
+  - `WP_APP_PASSWORD`
+  - `CPANEL_IMAGES_BASE_URL`
+- Bluehost/cPanel deploy variables:
+  - `BLUEHOST_FTP_*` or `CPANEL_FTP_*`
+
+### Local database setup
+
+The admin/CMS flow depends on the local D1 schema.
+
+```bash
+npm run db:init:local
+```
+
+This seeds the tables used by the Worker, including albums, images, slideshow images, page content, settings, and a default admin user from `scripts/init-db.sql`.
+
+If you are updating the schema from `server/schema.sql`, use:
+
+```bash
+npm run db:migrate:local
+```
+
+### Run the app
+
+```bash
+npm run dev
+```
+
+That starts:
+
+- Vite on `http://localhost:8080`
+- Wrangler local dev for `/api/*` on port `8787` by default
+
+The dev launcher auto-selects another API port if `8787` is already in use and updates the Vite proxy automatically.
+
+If you only want one side of the stack:
+
+```bash
+npm run dev:vite
+npm run dev:api
+```
+
+### Admin login
+
+- Public admin routes: `/adminlogin` and `/admin`
+- Local auth is backed by D1 + JWT
+- A default admin user is inserted by `scripts/init-db.sql`; replace it before using this outside local development
+
+## Useful scripts
+
+| Command | Purpose |
+| --- | --- |
+| `npm run dev` | Run Vite and local Worker together |
+| `npm run dev:vite` | Run only the frontend dev server |
+| `npm run dev:api` | Run only the local Worker/API server |
+| `npm run build` | Create the production build in `dist/` |
+| `npm run preview` | Preview the Vite build locally |
+| `npm run lint` | Run ESLint |
+| `npm run db:init:local` | Initialize the local D1 database from `scripts/init-db.sql` |
+| `npm run db:migrate:local` | Apply `server/schema.sql` to the local D1 database |
+| `npm run deploy:cloudflare` | Build and deploy to Cloudflare Workers |
+| `npm run build:bluehost` | Build the static Bluehost package in `build/bluehost/` |
+| `npm run deploy:bluehost` | Build and upload the Bluehost package via FTP |
+| `npm run portfolio:fetch` | Pull portfolio data from Cloudinary |
+| `npm run portfolio:build` | Build album data from Cloudinary exports |
+| `npm run images:secure` | Run the secure image pipeline |
+| `npm run workshop:generate` | Generate workshop image JSON |
+
+## Project structure
+
+```text
+beloveful.com/
+├── src/
+│   ├── components/          React UI and admin components
+│   ├── hooks/               Data hooks for albums, content, settings, slideshow
+│   ├── lib/                 Static data, generated assets, utilities, image helpers
+│   ├── pages/               Route components for public pages and admin shell
+│   ├── types/               Shared frontend types
+│   ├── App.tsx              Client route map
+│   └── worker.js            Cloudflare Worker entrypoint
+├── functions/api/           API handlers used by the Worker
+├── public/                  Static public assets and large image library
+├── scripts/                 Data generation, sync, build, and deployment scripts
+├── server/                  Legacy/local server helpers and SQL schema
+├── docs/                    Deployment, asset, R2, and workflow notes
+├── bluehost/                Bluehost overlay files
+├── build/bluehost/          Generated Bluehost deploy package
+└── wrangler.toml            Worker, route, R2, D1, and asset binding config
+```
+
+## How data flows through the site
+
+### Public content
+
+- Static gallery/image data is bundled from `src/lib/data.ts`, generated files in `src/lib/generated/`, and image libraries in `public/` and `src/lib/cloudinary-assets/`
+- Dynamic page copy comes from `page_content` through `/api/content/public`
+- Dynamic contact and booking settings come from `settings` through `/api/settings/public`
+- Portfolio hooks merge bundled fallback data with D1-backed albums/images so the site can still render even if dynamic data is incomplete
+
+### Admin content
+
+The admin UI manages:
+
+- Albums
+- Images
+- Slideshow images
+- Editable page content
+- Site settings
+
+Authentication is JWT-based and verified in `functions/api/_utils/auth.ts`.
+
+### Media storage
+
+Image uploads can flow through:
+
+- WordPress media uploads when `WP_*` credentials are configured
+- Cloudflare R2 as a fallback
+- Legacy cPanel path import helpers for bringing existing hosted files into the CMS
+
+## Worker and API responsibilities
+
+`src/worker.js` is responsible for:
+
+- Routing all `/api/*` requests
+- Serving the built SPA from the Wrangler assets binding
+- Handling SPA fallback for client-side routes
+- Serving R2-backed objects under `/r2/*`
+- Creating Stripe checkout sessions at `/api/create-checkout-session`
+- Exposing health and metadata sync endpoints
+
+Representative API groups:
+
+- `functions/api/auth/*` for admin auth
+- `functions/api/albums/*` and `functions/api/images/*` for CMS data
+- `functions/api/content/*` and `functions/api/settings/*` for editable page copy/settings
+- `functions/api/public/*` for public-facing CMS reads
+- `functions/api/rss/*`, `functions/api/spotify/*`, and `functions/api/ai/*` for integrations
+
+## Deployment
+
+### Cloudflare
+
+Production Cloudflare configuration lives in `wrangler.toml`.
+
+```bash
+npm run deploy:cloudflare
+```
+
+This:
+
+1. builds the frontend into `dist/`
+2. deploys the Worker
+3. binds static assets, D1, and R2 through Wrangler
+
+Before deploying, make sure production secrets are configured with `wrangler secret put`.
+
+### Bluehost / cPanel
+
+This repo also supports a static export workflow for Bluehost.
+
+```bash
+npm run build:bluehost
+```
+
+That process:
+
+- builds the app
+- copies `dist/` into `build/bluehost/public_html`
+- layers in files from `bluehost/public_html`
+- packages bootstrap CMS data under `_cms_data/bootstrap`
+
+To upload via FTP:
+
+```bash
+npm run deploy:bluehost
+```
+
+## Documentation
+
+Additional notes live in `docs/`, including:
+
+- `docs/DEPLOYMENT_SUMMARY.md`
+- `docs/R2-CDN-SETUP.md`
+- `docs/R2_UPLOAD_GUIDE.md`
+- `docs/SECURE_IMAGE_PIPELINE.md`
+- `docs/WORKSHOP_IMAGES.md`
+- `docs/bluehost-migration.md`
+
+## Notes for contributors
+
+- This repo includes a very large image library, generated data, and legacy deployment artifacts, so file watching and builds can be heavier than a typical Vite app
+- `npm run dev` already excludes the biggest asset folders from Vite watch to avoid file watcher limits
+- The current worktree may include in-progress content and admin changes; read before refactoring shared data or deployment code
+
