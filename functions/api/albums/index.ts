@@ -1,6 +1,8 @@
 // Public albums API (no auth).
 // Returns only published albums that have at least one published image.
 
+import { normalizeAlbumSlug } from '../../../src/lib/album-slugs';
+
 interface Env {
   DB: D1Database;
 }
@@ -65,7 +67,10 @@ export async function onRequestGet(context: any): Promise<Response> {
     return jsonResponse(
       {
         success: true,
-        albums: result.results || [],
+        albums: (result.results || []).map((album: any) => ({
+          ...album,
+          slug: normalizeAlbumSlug(album.slug || album.country),
+        })),
       },
       { status: 200 },
     );
@@ -74,4 +79,3 @@ export async function onRequestGet(context: any): Promise<Response> {
     return jsonResponse({ success: false, error: 'Failed to fetch albums' }, { status: 500 });
   }
 }
-

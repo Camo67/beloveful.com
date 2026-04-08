@@ -1,4 +1,5 @@
 // Data service that fetches from API with static fallback
+import { normalizeAlbumSlug, sameAlbumSlug } from './album-slugs';
 import { ALBUMS, HOME_SLIDESHOW, type CountryAlbum, type SlideshowImage, type Region } from './data';
 
 interface ApiAlbum {
@@ -63,7 +64,7 @@ class DataService {
   async getAlbumBySlug(slug: string): Promise<CountryAlbum | undefined> {
     // Use static Cloudinary data directly
     console.log(`🗾 DataService: Getting album ${slug} from static data`);
-    return ALBUMS.find(album => album.slug === slug);
+    return ALBUMS.find(album => sameAlbumSlug(album.slug, normalizeAlbumSlug(slug)));
   }
 
   async getSlideshow(): Promise<SlideshowImage[]> {

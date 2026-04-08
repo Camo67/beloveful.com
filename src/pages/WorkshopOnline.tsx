@@ -6,6 +6,7 @@ import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useWorkshopImages } from "@/hooks/use-workshop-images";
 import { CORE_WORKSHOP_TOPICS } from "@/lib/workshop-content";
+import WorkshopPageCta from "@/components/WorkshopPageCta";
 
 export default function WorkshopOnline() {
   const heroImage = {
@@ -51,6 +52,12 @@ export default function WorkshopOnline() {
       </section>
 
       <PageContainer className="max-w-4xl">
+        <WorkshopPageCta
+          workshopName="Online Group Workshops"
+          buttonLabel="Join Online Workshop"
+          position="top"
+        />
+
         <section className="py-20">
           <div className="prose prose-lg max-w-none dark:prose-invert">
             <p className="text-lg leading-relaxed mb-6">
@@ -111,20 +118,14 @@ export default function WorkshopOnline() {
                 </div>
               </div>
             )}
-
-            <div className="text-center">
-              <Button asChild size="lg" className="text-lg px-12 py-6">
-                <a
-                  href="https://lb.benchmarkemail.com//listbuilder/signupnew?IkfHTmyPVq92wBnn4lX%252FTf5pwVnAjsSIeL8KRSOgMpXtO5iNRn8gS049TyW7spdJ"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Join Now
-                </a>
-              </Button>
-            </div>
           </div>
         </section>
+
+        <WorkshopPageCta
+          workshopName="Online Group Workshops"
+          buttonLabel="Join Online Workshop"
+          position="bottom"
+        />
       </PageContainer>
 
       <FooterStrip />

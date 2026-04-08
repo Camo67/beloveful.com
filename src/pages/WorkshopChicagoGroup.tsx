@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import { useWorkshopImages } from "@/hooks/use-workshop-images";
 import { CORE_WORKSHOP_TOPICS } from "@/lib/workshop-content";
 import { CloudImage } from "@/components/CloudImage";
+import WorkshopPageCta from "@/components/WorkshopPageCta";
 
 export default function WorkshopChicagoGroup() {
   const heroImage = {
@@ -50,6 +51,12 @@ export default function WorkshopChicagoGroup() {
       </section>
 
       <PageContainer className="max-w-4xl">
+        <WorkshopPageCta
+          workshopName="Group Chicago Workshop"
+          buttonLabel="Join Group Workshop"
+          position="top"
+        />
+
         <section className="py-20">
           <div className="prose prose-lg max-w-none dark:prose-invert">
             <p className="text-lg leading-relaxed mb-8">
@@ -109,20 +116,14 @@ export default function WorkshopChicagoGroup() {
                 In a small group, you'll not only receive direct feedback but also learn from how others approach the same scenes. This collaborative environment often leads to breakthrough moments that wouldn't happen in isolation.
               </p>
             </div>
-
-            <div className="text-center">
-              <Button asChild size="lg" className="text-lg px-12 py-6">
-                <a
-                  href="https://lb.benchmarkemail.com//listbuilder/signupnew?IkfHTmyPVq92wBnn4lX%252FTf5pwVnAjsSIeL8KRSOgMpXtO5iNRn8gS049TyW7spdJ"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Enroll in Group Workshop
-                </a>
-              </Button>
-            </div>
           </div>
         </section>
+
+        <WorkshopPageCta
+          workshopName="Group Chicago Workshop"
+          buttonLabel="Join Group Workshop"
+          position="bottom"
+        />
       </PageContainer>
 
       <FooterStrip />

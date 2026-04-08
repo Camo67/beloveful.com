@@ -1,4 +1,6 @@
 // Public API to fetch published albums for the frontend
+import { normalizeAlbumSlug } from '../../../src/lib/album-slugs';
+
 interface Env {
   DB: D1Database;
 }
@@ -22,7 +24,10 @@ export async function onRequestGet(context: any): Promise<Response> {
     
     return new Response(JSON.stringify({
       success: true,
-      albums: albums.results || []
+      albums: (albums.results || []).map((album: any) => ({
+        ...album,
+        slug: normalizeAlbumSlug(album.slug || album.country),
+      }))
     }), {
       status: 200,
       headers: { 

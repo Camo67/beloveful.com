@@ -6,6 +6,7 @@ import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useWorkshopImages } from "@/hooks/use-workshop-images";
 import { CloudImage } from "@/components/CloudImage";
+import WorkshopPageCta from "@/components/WorkshopPageCta";
 
 export default function Mentorship() {
   const { data } = useWorkshopImages();
@@ -52,6 +53,12 @@ export default function Mentorship() {
       </section>
 
       <PageContainer className="max-w-4xl">
+        <WorkshopPageCta
+          workshopName="Photography Mentorship"
+          buttonLabel="Book Mentorship Session"
+          position="top"
+        />
+
         <section className="py-20 space-y-12">
           <article className="bg-gray-50 dark:bg-gray-900 rounded-2xl p-8 shadow-sm border border-gray-100 dark:border-gray-800">
             <p className="text-sm uppercase tracking-[0.25em] text-muted-foreground mb-4">Section 01</p>
@@ -128,19 +135,13 @@ export default function Mentorship() {
               </div>
             </div>
           </article>
-
-          <div className="text-center pt-6">
-            <Button asChild size="lg" className="text-lg px-12 py-6">
-              <a
-                href="https://lb.benchmarkemail.com//listbuilder/signupnew?IkfHTmyPVq92wBnn4lX%252FTf5pwVnAjsSIeL8KRSOgMpXtO5iNRn8gS049TyW7spdJ"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Book Your Mentorship Session
-              </a>
-            </Button>
-          </div>
         </section>
+
+        <WorkshopPageCta
+          workshopName="Photography Mentorship"
+          buttonLabel="Book Mentorship Session"
+          position="bottom"
+        />
       </PageContainer>
 
       <FooterStrip />

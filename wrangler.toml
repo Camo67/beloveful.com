@@ -34,6 +34,13 @@ database_id = "5974f712-89ce-491f-baf7-37b7dcfa91cb"
 # - CLOUDINARY_API_KEY
 # - CLOUDINARY_API_SECRET
 #
+# Optional contact form vars:
+# - CONTACT_FORM_TO_EMAIL
+# - CONTACT_FORM_FROM_EMAIL
+# - CONTACT_FORM_FROM_NAME
+# - CONTACT_FORM_DELIVERY_MODE
+# - MAILCHANNELS_API_URL
+#
 # To set secrets, run:
 # wrangler secret put CLOUDINARY_CLOUD_NAME
 # wrangler secret put CLOUDINARY_API_KEY

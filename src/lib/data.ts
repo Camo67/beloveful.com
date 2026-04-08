@@ -2,6 +2,7 @@ import prefixMappedData from './cloudinary-assets/prefix-mapped.json';
 import homepageDesktopData from './cloudinary-assets/Homepage/Desktop Landscape/urls.json';
 import homepageMobileData from './cloudinary-assets/Homepage/Mobile Portrait/urls.json';
 import localAlbums from './local-albums.json';
+import { normalizeAlbumSlug, sameAlbumSlug } from './album-slugs';
 import { GENERATED_ALBUMS, GENERATED_HOME_SLIDESHOW } from './generatedAlbums';
 import { validateAndFixImageUrl, mapToCdnUrl } from './image-utils';
 
@@ -132,7 +133,7 @@ function groupPrefixMappedData(): CountryAlbum[] {
       console.log('📂 Processing region:', regionName);
       for (const [countryName, countryImages] of Object.entries(regionData as any)) {
         console.log('📂 Processing country:', countryName, 'with', (countryImages as any[]).length, 'images');
-        const slug = countryName.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]+/g, '');
+        const slug = normalizeAlbumSlug(countryName);
         
         // Process images to ensure they are accessible
         const processedImages = [];
@@ -237,7 +238,7 @@ function normalizeLocalAlbums(): CountryAlbum[] {
         return {
           region: album.region as Region,
           country: album.country as string,
-          slug: album.slug as string,
+          slug: normalizeAlbumSlug(album.slug ?? album.country),
           title: album.title ?? album.country,
           images,
         } satisfies CountryAlbum;
@@ -253,9 +254,7 @@ const PREFIX_ALBUMS = groupPrefixMappedData();
 
 function mergeAlbums(...albumLists: CountryAlbum[][]): CountryAlbum[] {
   const albumMap = new Map<string, CountryAlbum>();
-  const slugify = (album: CountryAlbum) =>
-    album.slug?.trim() ||
-    album.country.toLowerCase().replace(/\s+/g, "-").replace(/[^\w-]+/g, "");
+  const slugify = (album: CountryAlbum) => normalizeAlbumSlug(album.slug || album.country);
 
   for (const list of albumLists) {
     for (const album of list) {
@@ -272,10 +271,63 @@ function mergeAlbums(...albumLists: CountryAlbum[][]): CountryAlbum[] {
   return Array.from(albumMap.values());
 }
 
-export const ALBUMS: CountryAlbum[] = mergeAlbums(
+function replaceAlbumBySlug(
+  albums: CountryAlbum[],
+  replacement: CountryAlbum | undefined,
+): CountryAlbum[] {
+  if (!replacement || replacement.images.length === 0) {
+    return albums;
+  }
+
+  let replaced = false;
+  const nextAlbums = albums.map((album) => {
+    if (!sameAlbumSlug(album.slug, replacement.slug)) {
+      return album;
+    }
+
+    replaced = true;
+    return {
+      ...replacement,
+      slug: normalizeAlbumSlug(replacement.slug || replacement.country),
+    };
+  });
+
+  return replaced
+    ? nextAlbums
+    : [
+        {
+          ...replacement,
+          slug: normalizeAlbumSlug(replacement.slug || replacement.country),
+        },
+        ...nextAlbums,
+      ];
+}
+
+function replaceAlbumsBySlug(
+  albums: CountryAlbum[],
+  replacements: Array<CountryAlbum | undefined>,
+): CountryAlbum[] {
+  return replacements.reduce(
+    (currentAlbums, replacement) => replaceAlbumBySlug(currentAlbums, replacement),
+    albums,
+  );
+}
+
+const CANONICAL_PUBLIC_HTML_ALBUM_SLUGS = ["india", "australia"] as const;
+
+const CANONICAL_PUBLIC_HTML_ALBUMS = CANONICAL_PUBLIC_HTML_ALBUM_SLUGS.map((slug) =>
+  GENERATED_ALBUMS.find((album) => sameAlbumSlug(album.slug, slug)),
+);
+
+const BASE_ALBUMS: CountryAlbum[] = mergeAlbums(
   LOCAL_ALBUMS,
   GENERATED_ALBUMS,
   PREFIX_ALBUMS
+);
+
+export const ALBUMS: CountryAlbum[] = replaceAlbumsBySlug(
+  BASE_ALBUMS,
+  CANONICAL_PUBLIC_HTML_ALBUMS,
 ).filter(album => album.slug !== "st-martin" && album.country !== "St. Martin");
 
 // Projects from prefix-mapped data
@@ -323,7 +375,7 @@ export const getAlbumsByRegion = (region: Region): CountryAlbum[] => {
  * Look up a single album by its slug.
  */
 export const getAlbumBySlug = (slug: string): CountryAlbum | undefined => {
-  return ALBUMS.find(album => album.slug === slug);
+  return ALBUMS.find(album => sameAlbumSlug(album.slug, slug));
 };
 
 /**

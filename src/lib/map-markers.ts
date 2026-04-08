@@ -1,3 +1,4 @@
+import { normalizeAlbumSlug } from './album-slugs';
 import { CountryAlbum } from './data';
 import type { LatLngExpression } from 'leaflet';
 
@@ -32,16 +33,11 @@ const COORDS_BY_SLUG: Record<string, LatLngExpression> = {
   myanmar: [19.7633, 96.0785], // Naypyidaw
   'israel-palestine': [31.7683, 35.2137], // Jerusalem (proxy)
   phillipines: [14.5995, 120.9842], // Manila (legacy slug)
+  australia: [-33.8688, 151.2093], // Sydney
 };
 
 function normalizeSlug(input: string): string {
-  return (input || '')
-    .toLowerCase()
-    .trim()
-    .replace(/\s+/g, '-')
-    .replace(/[^a-z0-9-]/g, '')
-    .replace(/-+/g, '-')
-    .replace(/^-|-$/g, '');
+  return normalizeAlbumSlug(input);
 }
 
 // Function to generate map markers from album data

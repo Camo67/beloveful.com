@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import { ALBUMS } from '@/lib/data'; // Data from prefix-mapped.json
-import { getWorkingImageUrl } from '@/lib/image-utils';
+import { normalizeAlbumSlug, sameAlbumSlug } from '@/lib/album-slugs';
+import { mapToCdnUrl, validateAndFixImageUrl } from '@/lib/image-utils';
 
 type ApiAlbumSummary = {
   id: number;
@@ -21,6 +22,11 @@ async function fetchDbAlbumSummaries(): Promise<ApiAlbumSummary[]> {
   return data.albums as ApiAlbumSummary[];
 }
 
+function normalizeImageUrl(url?: string | null): string {
+  const fixedUrl = validateAndFixImageUrl(url);
+  return mapToCdnUrl(fixedUrl) ?? fixedUrl;
+}
+
 export const useAlbums = () => {
   return useQuery({
     queryKey: ['albums'],
@@ -37,7 +43,7 @@ export const useAlbums = () => {
             .map((a) => ({
               region: a.region,
               country: a.country,
-              slug: a.slug,
+              slug: normalizeAlbumSlug(a.slug || a.country),
               title: a.country,
               description: a.description || undefined,
               images: [
@@ -57,11 +63,14 @@ export const useAlbums = () => {
         // automatically reflect the latest admin uploads.
         const dbBySlug = new Map<string, any>();
         for (const album of dbAlbums) {
-          if (album?.slug) dbBySlug.set(album.slug, album);
+          const slug = normalizeAlbumSlug(album?.slug || album?.country);
+          if (slug) {
+            dbBySlug.set(slug, { ...album, slug });
+          }
         }
 
         const mergedAlbums = ALBUMS.map((staticAlbum) => {
-          const dbAlbum = dbBySlug.get(staticAlbum.slug);
+          const dbAlbum = dbBySlug.get(normalizeAlbumSlug(staticAlbum.slug));
           if (!dbAlbum) return staticAlbum;
 
           const mergedImages: Array<{ desktop: string; mobile: string }> = [];
@@ -88,50 +97,24 @@ export const useAlbums = () => {
         });
 
         for (const dbAlbum of dbBySlug.values()) {
-          if (!ALBUMS.find((album) => album.slug === dbAlbum.slug)) {
+          if (!ALBUMS.find((album) => sameAlbumSlug(album.slug, dbAlbum.slug))) {
             mergedAlbums.push(dbAlbum);
           }
         }
 
-        // Create a copy of albums with verified image URLs
-        const verifiedAlbums = [];
-        for (const album of mergedAlbums) {
-          const verifiedImages = [];
-          // Process only the first image for verification to improve performance
-          if (album.images.length > 0) {
-            const firstImage = album.images[0];
-            try {
-              // Add a timeout to prevent hanging
-              const timeoutPromise = new Promise<string>((_, reject) => {
-                setTimeout(() => reject(new Error('Image verification timeout')), 5000); // 5 second timeout
-              });
-              
-              const verifiedUrlPromise = getWorkingImageUrl(firstImage.desktop);
-              const verifiedDesktop = await Promise.race([verifiedUrlPromise, timeoutPromise]);
-              
-              const verifiedMobilePromise = getWorkingImageUrl(firstImage.mobile);
-              const verifiedMobile = await Promise.race([verifiedMobilePromise, timeoutPromise]);
-              
-              verifiedImages.push({
-                desktop: verifiedDesktop as string,
-                mobile: verifiedMobile as string
-              });
-              
-              // Add the rest of the images without verification for performance
-              verifiedImages.push(...album.images.slice(1));
-            } catch (error) {
-              console.warn('Failed to verify first image URL:', firstImage, error);
-              // Use all images as-is if verification fails
-              verifiedImages.push(...album.images);
-            }
-          }
-          
-          verifiedAlbums.push({
+        const normalizedAlbums = mergedAlbums.map((album) => ({
+          ...album,
+          slug: normalizeAlbumSlug(album.slug || album.country),
+          images: (album.images || []).map((image) => ({
+            desktop: normalizeImageUrl(image.desktop),
+            mobile: normalizeImageUrl(image.mobile || image.desktop),
+          })),
+        }));
+
+        return normalizedAlbums.map((album) => ({
             ...album,
-            images: verifiedImages
-          });
-        }
-        return verifiedAlbums;
+            images: album.images.filter((image) => !!image.desktop || !!image.mobile),
+          }));
       } catch (error) {
         console.error('Failed to load albums:', error);
         // Return original albums if verification process fails
@@ -150,27 +133,36 @@ export const useAlbum = (region: string, country: string) => {
     queryKey: ['album', region, country],
     queryFn: async () => {
       console.log(`🌍 Loading album for ${region}/${country} (static + DB)`);
+      const requestedSlug = normalizeAlbumSlug(country);
 
       const staticAlbum = ALBUMS.find(album => 
         normalizeRegion(album.region) === normalizeRegion(region) && 
-        album.slug === country
+        sameAlbumSlug(album.slug, requestedSlug)
       );
 
       // Try DB album (may include new uploads).
       let dbAlbum: any | null = null;
       try {
-        const response = await fetch(`/api/albums/${encodeURIComponent(country)}`, { method: 'GET' });
+        const response = await fetch(`/api/albums/${encodeURIComponent(requestedSlug)}`, { method: 'GET' });
         if (response.ok) {
           const data = await response.json();
           if (data?.success && data?.album) {
-            dbAlbum = data.album;
+            dbAlbum = {
+              ...data.album,
+              slug: normalizeAlbumSlug(data.album.slug || data.album.country),
+            };
           }
         }
       } catch {
         // ignore; keep fallback behavior
       }
       
-      const album = staticAlbum || dbAlbum;
+      const album = dbAlbum
+        ? {
+            ...(staticAlbum || {}),
+            ...dbAlbum,
+          }
+        : staticAlbum;
       if (!album) {
         return undefined;
       }
@@ -188,31 +180,21 @@ export const useAlbum = (region: string, country: string) => {
         mergedImages.push({ desktop: desktop || mobile, mobile: mobile || desktop });
       };
 
-      for (const image of (staticAlbum?.images || [])) addUnique(image);
       for (const image of (dbAlbum?.images || [])) addUnique(image);
+      for (const image of (staticAlbum?.images || [])) addUnique(image);
       
-      // Verify image URLs (skip broken ones)
-      const verifiedImages: Array<{ desktop: string; mobile: string }> = [];
-      for (const image of mergedImages) {
-        try {
-          const verifiedDesktop = await getWorkingImageUrl(image.desktop);
-          const verifiedMobile = await getWorkingImageUrl(image.mobile);
-          verifiedImages.push({
-            desktop: verifiedDesktop,
-            mobile: verifiedMobile
-          });
-        } catch (error) {
-          console.warn('Failed to verify image URL:', image, error);
-          // Skip broken images
-        }
-      }
+      const normalizedImages = mergedImages.map((image) => ({
+        desktop: normalizeImageUrl(image.desktop),
+        mobile: normalizeImageUrl(image.mobile || image.desktop),
+      }));
       
       return {
         ...album,
-        images: verifiedImages
+        slug: normalizeAlbumSlug(album.slug || album.country),
+        images: normalizedImages.filter((image) => !!image.desktop || !!image.mobile),
       };
     },
-    staleTime: Infinity, // Cache forever since static data doesn't change
-    retry: false, // No need to retry static data
+    staleTime: 1000 * 60 * 5, // Refetch periodically so backend image-path fixes propagate
+    retry: 1,
   });
 };

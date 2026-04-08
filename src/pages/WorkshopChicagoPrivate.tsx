@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import { useWorkshopImages } from "@/hooks/use-workshop-images";
 import { CORE_WORKSHOP_TOPICS } from "@/lib/workshop-content";
 import { CloudImage } from "@/components/CloudImage";
+import WorkshopPageCta from "@/components/WorkshopPageCta";
 
 export default function WorkshopChicagoPrivate() {
   const heroImage = {
@@ -50,6 +51,12 @@ export default function WorkshopChicagoPrivate() {
       </section>
 
       <PageContainer className="max-w-4xl">
+        <WorkshopPageCta
+          workshopName="Private Chicago Workshop"
+          buttonLabel="Book Private Workshop"
+          position="top"
+        />
+
         <section className="py-20">
           <div className="prose prose-lg max-w-none dark:prose-invert">
             <p className="text-lg leading-relaxed mb-6">
@@ -103,20 +110,14 @@ export default function WorkshopChicagoPrivate() {
                 This private session adapts to your skill level and interests. Whether you're working on a personal project or want to improve specific techniques, we'll focus on what matters most to your growth as a photographer.
               </p>
             </div>
-
-            <div className="text-center">
-              <Button asChild size="lg" className="text-lg px-12 py-6">
-                <a
-                  href="https://lb.benchmarkemail.com//listbuilder/signupnew?IkfHTmyPVq92wBnn4lX%252FTf5pwVnAjsSIeL8KRSOgMpXtO5iNRn8gS049TyW7spdJ"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Enroll Now
-                </a>
-              </Button>
-            </div>
           </div>
         </section>
+
+        <WorkshopPageCta
+          workshopName="Private Chicago Workshop"
+          buttonLabel="Book Private Workshop"
+          position="bottom"
+        />
       </PageContainer>
 
       <FooterStrip />

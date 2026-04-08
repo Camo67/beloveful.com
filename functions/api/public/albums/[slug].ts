@@ -1,4 +1,6 @@
 // Public API to fetch images for a specific album by slug
+import { normalizeAlbumSlug } from '../../../../src/lib/album-slugs';
+
 interface Env {
   DB: D1Database;
 }
@@ -6,17 +8,32 @@ interface Env {
 export async function onRequestGet(context: any): Promise<Response> {
   const { params, env } = context;
   const db = env.DB as D1Database;
-  const slug = params.slug;
+  const slug = normalizeAlbumSlug(params.slug);
   
   try {
     // Get album and its images
-    const album = await db.prepare(`
+    let album = await db.prepare(`
       SELECT a.*, COUNT(i.id) as image_count
       FROM albums a
       LEFT JOIN images i ON a.id = i.album_id AND i.is_published = 1
       WHERE a.slug = ? AND a.is_published = 1
       GROUP BY a.id
     `).bind(slug).first();
+
+    if (!album) {
+      const fallbackAlbums = await db.prepare(`
+        SELECT a.*, COUNT(i.id) as image_count
+        FROM albums a
+        LEFT JOIN images i ON a.id = i.album_id AND i.is_published = 1
+        WHERE a.is_published = 1
+        GROUP BY a.id
+      `).all();
+
+      album =
+        (fallbackAlbums.results || []).find((candidate: any) =>
+          normalizeAlbumSlug(candidate?.slug || candidate?.country) === slug,
+        ) || null;
+    }
     
     if (!album) {
       return new Response(JSON.stringify({
@@ -40,6 +57,7 @@ export async function onRequestGet(context: any): Promise<Response> {
       success: true,
       album: {
         ...album,
+        slug: normalizeAlbumSlug(album.slug || album.country),
         images: images.results || []
       }
     }), {

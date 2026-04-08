@@ -1,14 +1,19 @@
+import { useState, type FormEvent } from "react";
 import { Header } from "@/components/Header";
 import FooterStrip from "@/components/FooterStrip";
 import PageContainer from "@/components/PageContainer";
 import { useSearchParams } from "react-router-dom";
 import { SocialIcons } from "@/components/SocialIcons";
 import { CloudImage } from "@/components/CloudImage";
-
-const CONTACT_EMAIL = "tony@beloveful.com";
+import { CONTACT_EMAIL, CONTACT_EMAIL_HREF } from "@/lib/contact";
 
 export default function Contact() {
   const [searchParams] = useSearchParams();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitState, setSubmitState] = useState<{
+    type: "success" | "error";
+    message: string;
+  } | null>(null);
   const calendlyLink = import.meta.env.VITE_CALENDLY_LINK ?? "";
   
   const image = searchParams.get("image");
@@ -17,10 +22,13 @@ export default function Contact() {
   const country = searchParams.get("country");
   const variant = searchParams.get("variant");
   const subject = searchParams.get("subject");
+  const workshop = searchParams.get("workshop");
+  const body = searchParams.get("body");
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const formData = new FormData(e.currentTarget);
+    const form = e.currentTarget;
+    const formData = new FormData(form);
     
     // Honeypot check
     if ((formData.get("website") as string)?.length) {
@@ -31,26 +39,51 @@ export default function Contact() {
     const email = String(formData.get("email") || "").trim();
     const message = String(formData.get("message") || "").trim();
 
-    const mailSubject = image
-      ? `Print Inquiry${subject ? `: ${subject}` : ""}`
-      : `Website Inquiry from ${name || "Visitor"}`;
+    setIsSubmitting(true);
+    setSubmitState(null);
 
-    const mailBody = [
-      `Name: ${name}`,
-      `Email: ${email}`,
-      source ? `Source: ${source}` : "",
-      region ? `Region: ${region}` : "",
-      country ? `Country: ${country}` : "",
-      variant ? `Variant: ${variant}` : "",
-      image ? `Image: ${decodeURIComponent(image)}` : "",
-      "",
-      "Message:",
-      message || "(No message provided)",
-    ]
-      .filter(Boolean)
-      .join("\n");
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name,
+          email,
+          message,
+          website: String(formData.get("website") || ""),
+          source,
+          region,
+          country,
+          variant,
+          image,
+          subject,
+          workshop,
+        }),
+      });
 
-    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(mailSubject)}&body=${encodeURIComponent(mailBody)}`;
+      const data = await response.json().catch(() => null);
+      if (!response.ok || !data?.success) {
+        throw new Error(data?.error || "We could not send your message right now.");
+      }
+
+      form.reset();
+      setSubmitState({
+        type: "success",
+        message: "Your message was sent successfully. Tony will follow up by email soon.",
+      });
+    } catch (error) {
+      setSubmitState({
+        type: "error",
+        message:
+          error instanceof Error
+            ? error.message
+            : "We could not send your message right now. Please try again shortly.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -105,6 +138,12 @@ export default function Contact() {
             className="md:col-span-3 space-y-5"
             onSubmit={handleSubmit}
           >
+            {workshop && (
+              <div className="rounded-xl border border-neutral-200 bg-neutral-50 px-4 py-3 text-sm text-neutral-700 dark:border-neutral-800 dark:bg-neutral-900 dark:text-neutral-300">
+                Inquiry topic: <span className="font-medium text-black dark:text-white">{workshop}</span>
+              </div>
+            )}
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <label className="flex flex-col gap-2">
                 <span className="text-sm font-medium text-black dark:text-white">Name</span>
@@ -130,10 +169,13 @@ export default function Contact() {
               <textarea
                 name="message"
                 rows={6}
+                defaultValue={body ?? ""}
                 placeholder={
                   image
                     ? "Tell us preferred size, paper, framing, shipping city, etc."
-                    : "How can we help?"
+                    : workshop
+                      ? "Tell us which workshop you're interested in, your availability, and any questions you have."
+                      : "How can we help?"
                 }
                 className="border border-neutral-300 dark:border-neutral-700 rounded-md px-3 py-2 bg-transparent text-black dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-neutral-400 dark:focus:ring-neutral-500 resize-none"
               />
@@ -155,23 +197,37 @@ export default function Contact() {
             <input type="hidden" name="country" value={country ?? ""} />
             <input type="hidden" name="variant" value={variant ?? ""} />
             <input type="hidden" name="subject" value={subject ?? ""} />
+            <input type="hidden" name="workshop" value={workshop ?? ""} />
 
             <div className="flex items-center gap-3">
               <button
                 type="submit"
+                disabled={isSubmitting}
                 className="px-6 py-2 rounded-md border border-neutral-900 dark:border-neutral-200 bg-transparent text-black dark:text-white hover:bg-neutral-900 hover:text-white dark:hover:bg-white dark:hover:text-black transition-all duration-200"
               >
-                Email Tony
+                {isSubmitting ? "Sending..." : "Send Message"}
               </button>
               <p className="text-xs text-gray-600 dark:text-gray-400">
-                Opens your email app with the message prefilled.
+                Sent directly to Tony from the site.
               </p>
             </div>
+
+            {submitState && (
+              <p
+                className={`text-sm ${
+                  submitState.type === "success"
+                    ? "text-green-700 dark:text-green-300"
+                    : "text-red-700 dark:text-red-300"
+                }`}
+              >
+                {submitState.message}
+              </p>
+            )}
 
             <p className="text-sm text-gray-600 dark:text-gray-400">
               Prefer to email directly?{" "}
               <a
-                href={`mailto:${CONTACT_EMAIL}`}
+                href={CONTACT_EMAIL_HREF}
                 className="underline underline-offset-2 hover:text-black dark:hover:text-white"
               >
                 {CONTACT_EMAIL}

@@ -1,6 +1,11 @@
 import { onRequestPost as authLoginPost } from '../functions/api/auth/login.ts';
+import {
+  onRequestGet as authSetupGet,
+  onRequestPost as authSetupPost,
+} from '../functions/api/auth/setup.ts';
 import { onRequestPost as authVerifyPost } from '../functions/api/auth/verify.ts';
 import { onRequestPost as authChangePasswordPost } from '../functions/api/auth/change-password.ts';
+import { onRequestPost as contactPost } from '../functions/api/contact.ts';
 import { onRequestGet as albumsGet } from '../functions/api/albums/index.ts';
 import { onRequestGet as albumBySlugGet } from '../functions/api/albums/[slug].ts';
 import {
@@ -42,6 +47,7 @@ import { onRequestGet as publicAlbumsGet } from '../functions/api/public/albums.
 import { onRequestGet as publicAlbumBySlugGet } from '../functions/api/public/albums/[slug].ts';
 import { onRequestGet as publicSlideshowGet } from '../functions/api/public/slideshow.ts';
 import { onRequestGet as publicWorkshopsGet } from '../functions/api/public/workshops.ts';
+import { onRequestGet as upcomingEventsGet } from '../functions/api/events/upcoming.ts';
 import { onRequestGet as travelImagesGet } from '../functions/api/travel-images.ts';
 import { onRequestGet as projectImagesGet } from '../functions/api/project-images.ts';
 import { onRequestGet as logosGet } from '../functions/api/logos.ts';
@@ -150,6 +156,12 @@ async function dispatchFunctionRoute(request, env) {
     return methodNotAllowed(['POST']);
   }
 
+  if (pathname === '/api/auth/setup') {
+    if (method === 'GET') return authSetupGet(createFunctionContext(request, env));
+    if (method === 'POST') return authSetupPost(createFunctionContext(request, env));
+    return methodNotAllowed(['GET', 'POST']);
+  }
+
   if (pathname === '/api/auth/verify') {
     if (method === 'POST') return authVerifyPost(createFunctionContext(request, env));
     return methodNotAllowed(['POST']);
@@ -157,6 +169,11 @@ async function dispatchFunctionRoute(request, env) {
 
   if (pathname === '/api/auth/change-password') {
     if (method === 'POST') return authChangePasswordPost(createFunctionContext(request, env));
+    return methodNotAllowed(['POST']);
+  }
+
+  if (pathname === '/api/contact') {
+    if (method === 'POST') return contactPost(createFunctionContext(request, env));
     return methodNotAllowed(['POST']);
   }
 
@@ -255,6 +272,11 @@ async function dispatchFunctionRoute(request, env) {
 
   if (pathname === '/api/public/workshops') {
     if (method === 'GET') return publicWorkshopsGet(createFunctionContext(request, env));
+    return methodNotAllowed(['GET']);
+  }
+
+  if (pathname === '/api/events/upcoming') {
+    if (method === 'GET') return upcomingEventsGet(createFunctionContext(request, env));
     return methodNotAllowed(['GET']);
   }
 

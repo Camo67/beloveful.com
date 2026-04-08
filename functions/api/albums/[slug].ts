@@ -1,6 +1,8 @@
 // Public album detail API (no auth).
 // Returns a single published album + its published images.
 
+import { normalizeAlbumSlug } from '../../../src/lib/album-slugs';
+
 interface Env {
   DB: D1Database;
 }
@@ -20,12 +22,12 @@ export async function onRequestGet(context: any): Promise<Response> {
   const db = env.DB as D1Database;
 
   try {
-    const slug = params?.slug;
+    const slug = normalizeAlbumSlug(params?.slug);
     if (!slug) {
       return jsonResponse({ success: false, error: 'Album slug required' }, { status: 400 });
     }
 
-    const album = await db
+    let album = await db
       .prepare(
         `
         SELECT id, region, country, slug, description
@@ -36,6 +38,23 @@ export async function onRequestGet(context: any): Promise<Response> {
       )
       .bind(slug)
       .first();
+
+    if (!album) {
+      const fallbackResult = await db
+        .prepare(
+          `
+          SELECT id, region, country, slug, description
+          FROM albums
+          WHERE is_published = 1
+          `,
+        )
+        .all();
+
+      album =
+        (fallbackResult.results || []).find((candidate: any) =>
+          normalizeAlbumSlug(candidate?.slug || candidate?.country) === slug,
+        ) || null;
+    }
 
     if (!album) {
       return jsonResponse({ success: false, error: 'Album not found' }, { status: 404 });
@@ -70,7 +89,7 @@ export async function onRequestGet(context: any): Promise<Response> {
           id: album.id,
           region: album.region,
           country: album.country,
-          slug: album.slug,
+          slug: normalizeAlbumSlug(album.slug || album.country),
           title: album.country,
           description: album.description,
           images,
@@ -83,4 +102,3 @@ export async function onRequestGet(context: any): Promise<Response> {
     return jsonResponse({ success: false, error: 'Failed to fetch album' }, { status: 500 });
   }
 }
-
