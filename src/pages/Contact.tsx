@@ -5,14 +5,20 @@ import PageContainer from "@/components/PageContainer";
 import { useSearchParams } from "react-router-dom";
 import { SocialIcons } from "@/components/SocialIcons";
 import { CloudImage } from "@/components/CloudImage";
-import { CONTACT_EMAIL, CONTACT_EMAIL_HREF } from "@/lib/contact";
+import {
+  CONTACT_EMAIL,
+  CONTACT_EMAIL_HREF,
+  createContactSubmissionMailtoHref,
+} from "@/lib/contact";
 
 export default function Contact() {
   const [searchParams] = useSearchParams();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [emailCopyState, setEmailCopyState] = useState<"idle" | "copied" | "failed">("idle");
   const [submitState, setSubmitState] = useState<{
     type: "success" | "error";
     message: string;
+    fallbackHref?: string;
   } | null>(null);
   const calendlyLink = import.meta.env.VITE_CALENDLY_LINK ?? "";
   
@@ -24,6 +30,23 @@ export default function Contact() {
   const subject = searchParams.get("subject");
   const workshop = searchParams.get("workshop");
   const body = searchParams.get("body");
+
+  const handleCopyEmail = async () => {
+    try {
+      if (!navigator.clipboard?.writeText) {
+        throw new Error("Clipboard unavailable");
+      }
+
+      await navigator.clipboard.writeText(CONTACT_EMAIL);
+      setEmailCopyState("copied");
+    } catch {
+      setEmailCopyState("failed");
+    } finally {
+      window.setTimeout(() => {
+        setEmailCopyState("idle");
+      }, 2500);
+    }
+  };
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -38,6 +61,18 @@ export default function Contact() {
     const name = String(formData.get("name") || "").trim();
     const email = String(formData.get("email") || "").trim();
     const message = String(formData.get("message") || "").trim();
+    const fallbackHref = createContactSubmissionMailtoHref({
+      name,
+      email,
+      message,
+      source: source ?? undefined,
+      region: region ?? undefined,
+      country: country ?? undefined,
+      variant: variant ?? undefined,
+      image: image ? decodeURIComponent(image) : undefined,
+      subject: subject ?? undefined,
+      workshop: workshop ?? undefined,
+    });
 
     setIsSubmitting(true);
     setSubmitState(null);
@@ -65,7 +100,12 @@ export default function Contact() {
 
       const data = await response.json().catch(() => null);
       if (!response.ok || !data?.success) {
-        throw new Error(data?.error || "We could not send your message right now.");
+        setSubmitState({
+          type: "error",
+          message: data?.error || "We could not send your message right now.",
+          fallbackHref: response.status >= 500 ? fallbackHref : undefined,
+        });
+        return;
       }
 
       form.reset();
@@ -80,6 +120,7 @@ export default function Contact() {
           error instanceof Error
             ? error.message
             : "We could not send your message right now. Please try again shortly.",
+        fallbackHref,
       });
     } finally {
       setIsSubmitting(false);
@@ -208,31 +249,65 @@ export default function Contact() {
                 {isSubmitting ? "Sending..." : "Send Message"}
               </button>
               <p className="text-xs text-gray-600 dark:text-gray-400">
-                Sent directly to Tony from the site.
+                This form sends through the site. The direct email link below only opens your device's mail app.
               </p>
             </div>
 
             {submitState && (
-              <p
-                className={`text-sm ${
-                  submitState.type === "success"
-                    ? "text-green-700 dark:text-green-300"
-                    : "text-red-700 dark:text-red-300"
-                }`}
-              >
-                {submitState.message}
-              </p>
+              <div className="space-y-2">
+                <p
+                  className={`text-sm ${
+                    submitState.type === "success"
+                      ? "text-green-700 dark:text-green-300"
+                      : "text-red-700 dark:text-red-300"
+                  }`}
+                >
+                  {submitState.message}
+                </p>
+                {submitState.type === "error" && submitState.fallbackHref && (
+                  <a
+                    href={submitState.fallbackHref}
+                    className="inline-flex text-sm underline underline-offset-2 hover:text-black dark:hover:text-white"
+                  >
+                    Open your email app with this message prefilled
+                  </a>
+                )}
+              </div>
             )}
 
-            <p className="text-sm text-gray-600 dark:text-gray-400">
-              Prefer to email directly?{" "}
-              <a
-                href={CONTACT_EMAIL_HREF}
-                className="underline underline-offset-2 hover:text-black dark:hover:text-white"
-              >
-                {CONTACT_EMAIL}
-              </a>
-            </p>
+            <div className="space-y-2 text-sm text-gray-600 dark:text-gray-400">
+              <p>
+                Prefer to email directly?{" "}
+                <a
+                  href={CONTACT_EMAIL_HREF}
+                  className="underline underline-offset-2 hover:text-black dark:hover:text-white"
+                >
+                  {CONTACT_EMAIL}
+                </a>
+              </p>
+              <div className="flex flex-wrap items-center gap-3">
+                <button
+                  type="button"
+                  onClick={handleCopyEmail}
+                  className="text-sm underline underline-offset-2 hover:text-black dark:hover:text-white"
+                >
+                  Copy email address
+                </button>
+                {emailCopyState === "copied" && (
+                  <span className="text-xs text-green-700 dark:text-green-300">
+                    Email address copied.
+                  </span>
+                )}
+                {emailCopyState === "failed" && (
+                  <span className="text-xs text-red-700 dark:text-red-300">
+                    Copy failed. Use the address above or the form.
+                  </span>
+                )}
+              </div>
+              <p className="text-xs">
+                If clicking the email link does nothing, your device may not have a default mail app configured. Use the form here or copy the address instead.
+              </p>
+            </div>
           </form>
         </div>
 

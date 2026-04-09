@@ -1,0 +1,356 @@
+{
+  "summary": {
+    "considered": 1423,
+    "skipped_already_foldered": 0,
+    "matched_regions": 15,
+    "unknown_count": 0
+  },
+  "totals": {
+    "folders": 39,
+    "assets": 1423
+  },
+  "folders": [
+    {
+      "folder": "Africa/Egypt",
+      "path": "public-html-assets/Africa/Egypt",
+      "type": "country",
+      "count": 183,
+      "assetsPath": "public-html-assets/Africa/Egypt/urls.json",
+      "region": "Africa",
+      "country": "Egypt"
+    },
+    {
+      "folder": "Africa/Ethiopia",
+      "path": "public-html-assets/Africa/Ethiopia",
+      "type": "country",
+      "count": 14,
+      "assetsPath": "public-html-assets/Africa/Ethiopia/urls.json",
+      "region": "Africa",
+      "country": "Ethiopia"
+    },
+    {
+      "folder": "Africa/Morocco",
+      "path": "public-html-assets/Africa/Morocco",
+      "type": "country",
+      "count": 11,
+      "assetsPath": "public-html-assets/Africa/Morocco/urls.json",
+      "region": "Africa",
+      "country": "Morocco"
+    },
+    {
+      "folder": "Africa/Namibia",
+      "path": "public-html-assets/Africa/Namibia",
+      "type": "country",
+      "count": 15,
+      "assetsPath": "public-html-assets/Africa/Namibia/urls.json",
+      "region": "Africa",
+      "country": "Namibia"
+    },
+    {
+      "folder": "Africa/South Africa",
+      "path": "public-html-assets/Africa/South Africa",
+      "type": "country",
+      "count": 19,
+      "assetsPath": "public-html-assets/Africa/South Africa/urls.json",
+      "region": "Africa",
+      "country": "South Africa"
+    },
+    {
+      "folder": "Asia/Hong Kong",
+      "path": "public-html-assets/Asia/Hong Kong",
+      "type": "country",
+      "count": 20,
+      "assetsPath": "public-html-assets/Asia/Hong Kong/urls.json",
+      "region": "Asia",
+      "country": "Hong Kong"
+    },
+    {
+      "folder": "Asia/India",
+      "path": "public-html-assets/Asia/India",
+      "type": "country",
+      "count": 111,
+      "assetsPath": "public-html-assets/Asia/India/urls.json",
+      "region": "Asia",
+      "country": "India"
+    },
+    {
+      "folder": "Asia/Japan",
+      "path": "public-html-assets/Asia/Japan",
+      "type": "country",
+      "count": 20,
+      "assetsPath": "public-html-assets/Asia/Japan/urls.json",
+      "region": "Asia",
+      "country": "Japan"
+    },
+    {
+      "folder": "Asia/Myanmar",
+      "path": "public-html-assets/Asia/Myanmar",
+      "type": "country",
+      "count": 33,
+      "assetsPath": "public-html-assets/Asia/Myanmar/urls.json",
+      "region": "Asia",
+      "country": "Myanmar"
+    },
+    {
+      "folder": "Asia/Nepal",
+      "path": "public-html-assets/Asia/Nepal",
+      "type": "country",
+      "count": 12,
+      "assetsPath": "public-html-assets/Asia/Nepal/urls.json",
+      "region": "Asia",
+      "country": "Nepal"
+    },
+    {
+      "folder": "Asia/Phillippines",
+      "path": "public-html-assets/Asia/Phillippines",
+      "type": "country",
+      "count": 31,
+      "assetsPath": "public-html-assets/Asia/Phillippines/urls.json",
+      "region": "Asia",
+      "country": "Phillippines"
+    },
+    {
+      "folder": "Asia/Thailand",
+      "path": "public-html-assets/Asia/Thailand",
+      "type": "country",
+      "count": 36,
+      "assetsPath": "public-html-assets/Asia/Thailand/urls.json",
+      "region": "Asia",
+      "country": "Thailand"
+    },
+    {
+      "folder": "Asia/Vietnam",
+      "path": "public-html-assets/Asia/Vietnam",
+      "type": "country",
+      "count": 31,
+      "assetsPath": "public-html-assets/Asia/Vietnam/urls.json",
+      "region": "Asia",
+      "country": "Vietnam"
+    },
+    {
+      "folder": "Central America & Caribbean/Caribbean",
+      "path": "public-html-assets/Central America & Caribbean/Caribbean",
+      "type": "country",
+      "count": 17,
+      "assetsPath": "public-html-assets/Central America & Caribbean/Caribbean/urls.json",
+      "region": "Central America & Caribbean",
+      "country": "Caribbean"
+    },
+    {
+      "folder": "Central America & Caribbean/Cuba",
+      "path": "public-html-assets/Central America & Caribbean/Cuba",
+      "type": "country",
+      "count": 50,
+      "assetsPath": "public-html-assets/Central America & Caribbean/Cuba/urls.json",
+      "region": "Central America & Caribbean",
+      "country": "Cuba"
+    },
+    {
+      "folder": "Central America & Caribbean/Mexico",
+      "path": "public-html-assets/Central America & Caribbean/Mexico",
+      "type": "country",
+      "count": 111,
+      "assetsPath": "public-html-assets/Central America & Caribbean/Mexico/urls.json",
+      "region": "Central America & Caribbean",
+      "country": "Mexico"
+    },
+    {
+      "folder": "Central America & Caribbean/Puerto Rico",
+      "path": "public-html-assets/Central America & Caribbean/Puerto Rico",
+      "type": "country",
+      "count": 5,
+      "assetsPath": "public-html-assets/Central America & Caribbean/Puerto Rico/urls.json",
+      "region": "Central America & Caribbean",
+      "country": "Puerto Rico"
+    },
+    {
+      "folder": "clients",
+      "path": "public-html-assets/clients",
+      "type": "clients",
+      "count": 16,
+      "assetsPath": "public-html-assets/clients/urls.json",
+      "category": "clients"
+    },
+    {
+      "folder": "Clients & Partners",
+      "path": "public-html-assets/Clients & Partners",
+      "type": "clients",
+      "count": 20,
+      "assetsPath": "public-html-assets/Clients & Partners/urls.json",
+      "category": "Clients & Partners"
+    },
+    {
+      "folder": "Erasing Borders",
+      "path": "public-html-assets/Erasing Borders",
+      "type": "erasing-borders",
+      "count": 26,
+      "assetsPath": "public-html-assets/Erasing Borders/urls.json",
+      "category": "Erasing Borders"
+    },
+    {
+      "folder": "Europe & Scandinavia/France",
+      "path": "public-html-assets/Europe & Scandinavia/France",
+      "type": "country",
+      "count": 26,
+      "assetsPath": "public-html-assets/Europe & Scandinavia/France/urls.json",
+      "region": "Europe & Scandinavia",
+      "country": "France"
+    },
+    {
+      "folder": "Europe & Scandinavia/Greece",
+      "path": "public-html-assets/Europe & Scandinavia/Greece",
+      "type": "country",
+      "count": 20,
+      "assetsPath": "public-html-assets/Europe & Scandinavia/Greece/urls.json",
+      "region": "Europe & Scandinavia",
+      "country": "Greece"
+    },
+    {
+      "folder": "Europe & Scandinavia/Italy",
+      "path": "public-html-assets/Europe & Scandinavia/Italy",
+      "type": "country",
+      "count": 100,
+      "assetsPath": "public-html-assets/Europe & Scandinavia/Italy/urls.json",
+      "region": "Europe & Scandinavia",
+      "country": "Italy"
+    },
+    {
+      "folder": "Europe & Scandinavia/Portugal",
+      "path": "public-html-assets/Europe & Scandinavia/Portugal",
+      "type": "country",
+      "count": 24,
+      "assetsPath": "public-html-assets/Europe & Scandinavia/Portugal/urls.json",
+      "region": "Europe & Scandinavia",
+      "country": "Portugal"
+    },
+    {
+      "folder": "Europe & Scandinavia/Spain",
+      "path": "public-html-assets/Europe & Scandinavia/Spain",
+      "type": "country",
+      "count": 7,
+      "assetsPath": "public-html-assets/Europe & Scandinavia/Spain/urls.json",
+      "region": "Europe & Scandinavia",
+      "country": "Spain"
+    },
+    {
+      "folder": "Europe & Scandinavia/UK & Ireland",
+      "path": "public-html-assets/Europe & Scandinavia/UK & Ireland",
+      "type": "country",
+      "count": 30,
+      "assetsPath": "public-html-assets/Europe & Scandinavia/UK & Ireland/urls.json",
+      "region": "Europe & Scandinavia",
+      "country": "UK & Ireland"
+    },
+    {
+      "folder": "Homepage/Desktop Landscape",
+      "path": "public-html-assets/Homepage/Desktop Landscape",
+      "type": "homepage",
+      "count": 9,
+      "assetsPath": "public-html-assets/Homepage/Desktop Landscape/urls.json",
+      "category": "Homepage"
+    },
+    {
+      "folder": "Homepage/Mobile Portrait",
+      "path": "public-html-assets/Homepage/Mobile Portrait",
+      "type": "homepage",
+      "count": 10,
+      "assetsPath": "public-html-assets/Homepage/Mobile Portrait/urls.json",
+      "category": "Homepage"
+    },
+    {
+      "folder": "Logo",
+      "path": "public-html-assets/Logo",
+      "type": "logo",
+      "count": 14,
+      "assetsPath": "public-html-assets/Logo/urls.json",
+      "category": "Logo"
+    },
+    {
+      "folder": "Logo/White",
+      "path": "public-html-assets/Logo/White",
+      "type": "logo",
+      "count": 6,
+      "assetsPath": "public-html-assets/Logo/White/urls.json",
+      "category": "Logo"
+    },
+    {
+      "folder": "Middle East/Israel | Palestine",
+      "path": "public-html-assets/Middle East/Israel | Palestine",
+      "type": "country",
+      "count": 42,
+      "assetsPath": "public-html-assets/Middle East/Israel | Palestine/urls.json",
+      "region": "Middle East",
+      "country": "Israel | Palestine"
+    },
+    {
+      "folder": "Middle East/Jordan",
+      "path": "public-html-assets/Middle East/Jordan",
+      "type": "country",
+      "count": 44,
+      "assetsPath": "public-html-assets/Middle East/Jordan/urls.json",
+      "region": "Middle East",
+      "country": "Jordan"
+    },
+    {
+      "folder": "North America/California",
+      "path": "public-html-assets/North America/California",
+      "type": "country",
+      "count": 26,
+      "assetsPath": "public-html-assets/North America/California/urls.json",
+      "region": "North America",
+      "country": "California"
+    },
+    {
+      "folder": "North America/Chicago",
+      "path": "public-html-assets/North America/Chicago",
+      "type": "country",
+      "count": 82,
+      "assetsPath": "public-html-assets/North America/Chicago/urls.json",
+      "region": "North America",
+      "country": "Chicago"
+    },
+    {
+      "folder": "North America/New York",
+      "path": "public-html-assets/North America/New York",
+      "type": "country",
+      "count": 117,
+      "assetsPath": "public-html-assets/North America/New York/urls.json",
+      "region": "North America",
+      "country": "New York"
+    },
+    {
+      "folder": "Oceania/Australia",
+      "path": "public-html-assets/Oceania/Australia",
+      "type": "country",
+      "count": 16,
+      "assetsPath": "public-html-assets/Oceania/Australia/urls.json",
+      "region": "Oceania",
+      "country": "Australia"
+    },
+    {
+      "folder": "Open Edition size 5x7/Open Edition 5x7",
+      "path": "public-html-assets/Open Edition size 5x7/Open Edition 5x7",
+      "type": "open-edition",
+      "count": 28,
+      "assetsPath": "public-html-assets/Open Edition size 5x7/Open Edition 5x7/urls.json",
+      "category": "Open Edition size 5x7"
+    },
+    {
+      "folder": "South America/Argentina",
+      "path": "public-html-assets/South America/Argentina",
+      "type": "country",
+      "count": 22,
+      "assetsPath": "public-html-assets/South America/Argentina/urls.json",
+      "region": "South America",
+      "country": "Argentina"
+    },
+    {
+      "folder": "Workshop Photos",
+      "path": "public-html-assets/Workshop Photos",
+      "type": "workshop",
+      "count": 19,
+      "assetsPath": "public-html-assets/Workshop Photos/urls.json",
+      "category": "Workshop Photos"
+    }
+  ]
+}

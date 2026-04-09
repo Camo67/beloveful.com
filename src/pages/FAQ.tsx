@@ -26,7 +26,7 @@ export default function FAQ() {
       q: "Where are you based?",
       a: (
         <>
-          I’m based in Cape Town, South Africa, but my work spans cities, countries, and cultures. The portfolio begins in Chicago and moves outward—erasing borders through visual storytelling.
+          I’m based in Chicago, and the work keeps moving across cities, countries, and cultures. The portfolio begins in Chicago and moves outward, erasing borders through visual storytelling.
         </>
       ),
     },

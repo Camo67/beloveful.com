@@ -46,6 +46,77 @@ export function createWorkshopSignupHref(workshopName: string): string {
   });
 }
 
+type CreateContactSubmissionMailtoHrefOptions = {
+  name?: string;
+  email?: string;
+  message?: string;
+  source?: string;
+  subject?: string;
+  image?: string;
+  region?: string;
+  country?: string;
+  variant?: string;
+  workshop?: string;
+};
+
+function createContactSubmissionSubject({
+  name,
+  subject,
+  image,
+  workshop,
+}: CreateContactSubmissionMailtoHrefOptions): string {
+  if (subject?.trim()) {
+    return subject.trim();
+  }
+
+  if (image?.trim()) {
+    return "Print Inquiry";
+  }
+
+  if (workshop?.trim()) {
+    return `Workshop Inquiry: ${workshop.trim()}`;
+  }
+
+  return `Website Inquiry from ${name?.trim() || "Visitor"}`;
+}
+
+function createContactSubmissionBody({
+  name,
+  email,
+  message,
+  source,
+  image,
+  region,
+  country,
+  variant,
+  workshop,
+}: CreateContactSubmissionMailtoHrefOptions): string {
+  return [
+    `Name: ${name?.trim() || ""}`,
+    `Email: ${email?.trim() || ""}`,
+    source?.trim() ? `Source: ${source.trim()}` : "",
+    workshop?.trim() ? `Workshop: ${workshop.trim()}` : "",
+    region?.trim() ? `Region: ${region.trim()}` : "",
+    country?.trim() ? `Country: ${country.trim()}` : "",
+    variant?.trim() ? `Variant: ${variant.trim()}` : "",
+    image?.trim() ? `Image: ${image.trim()}` : "",
+    "",
+    "Message:",
+    message?.trim() || "(No message provided)",
+  ]
+    .filter(Boolean)
+    .join("\n");
+}
+
+export function createContactSubmissionMailtoHref(
+  options: CreateContactSubmissionMailtoHrefOptions,
+): string {
+  return createMailtoHref({
+    subject: createContactSubmissionSubject(options),
+    body: createContactSubmissionBody(options),
+  });
+}
+
 type CreateContactPageHrefOptions = {
   source?: string;
   subject?: string;

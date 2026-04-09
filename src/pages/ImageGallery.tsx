@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { useParams } from 'react-router-dom';
 import { ORGANIZED_IMAGE_DATA } from '@/lib/comprehensive-image-data';
 import { Gallery } from '@/components/Gallery';
+import { dedupeAlbumImages } from '@/lib/album-image-utils';
 
 const ImageGallery = () => {
   const { region, country } = useParams<{ region: string; country: string }>();
@@ -14,31 +15,42 @@ const ImageGallery = () => {
     ? ORGANIZED_IMAGE_DATA.regions[decodeURIComponent(region)]?.countries[decodeURIComponent(country)] 
     : null;
 
-  // Determine which images to display
-  let imagesToDisplay = [];
-  let title = '';
-  
-  if (countryData) {
-    // Display country-specific images
-    imagesToDisplay = countryData.images;
-    title = `${countryData.name}, ${countryData.region}`;
-  } else if (regionData) {
-    // Display region-specific images
-    imagesToDisplay = regionData.images;
-    title = regionData.name;
-  } else {
-    // Display all images
-    imagesToDisplay = ORGANIZED_IMAGE_DATA.allImages;
-    title = 'All Images';
-  }
+  const { imagesToDisplay, title } = useMemo(() => {
+    if (countryData) {
+      return {
+        imagesToDisplay: countryData.images,
+        title: `${countryData.name}, ${countryData.region}`,
+      };
+    }
+
+    if (regionData) {
+      return {
+        imagesToDisplay: regionData.images,
+        title: regionData.name,
+      };
+    }
+
+    return {
+      imagesToDisplay: ORGANIZED_IMAGE_DATA.allImages,
+      title: 'All Images',
+    };
+  }, [countryData, regionData]);
+
+  const galleryImages = useMemo(
+    () =>
+      dedupeAlbumImages(
+        imagesToDisplay.map((img) => ({ desktop: img.url, mobile: img.url })),
+      ),
+    [imagesToDisplay],
+  );
 
   return (
     <div className="container mx-auto py-8">
       <h1 className="text-3xl font-bold mb-6">{title}</h1>
       
-      {imagesToDisplay.length > 0 ? (
+      {galleryImages.length > 0 ? (
         <Gallery
-          images={imagesToDisplay.map(img => ({ desktop: img.url, mobile: img.url }))}
+          images={galleryImages}
           country={countryData?.name || country || "Gallery"}
           region={regionData?.name}
         />
@@ -49,7 +61,7 @@ const ImageGallery = () => {
       )}
       
       <div className="mt-4 text-sm text-gray-500">
-        Showing {imagesToDisplay.length} images
+        Showing {galleryImages.length} images
       </div>
     </div>
   );

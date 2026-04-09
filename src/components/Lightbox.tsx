@@ -122,6 +122,7 @@ export function Lightbox({ images, currentIndex, onClose, onNavigate, country, g
             url={currentImage.desktop}
             alt={getImageAltText(currentImage.desktop, country)}
             className="max-w-full object-contain image-protected"
+            fallbackSrc={null}
             draggable={false}
             decoding="async"
             sizes="100vw"

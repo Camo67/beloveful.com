@@ -7,10 +7,16 @@
     "dev": "node scripts/dev.mjs",
     "dev:vite": "vite",
     "dev:api": "node scripts/dev-api.mjs",
+    "dev:enhanced": "node scripts/enhanced-dev.mjs",
+    "quick": "node scripts/quick-dev.mjs",
+    "quick:status": "node scripts/quick-dev.mjs status",
+    "quick:clean": "node scripts/quick-dev.mjs clean",
+    "quick:reset-db": "node scripts/quick-dev.mjs reset-db",
     "build": "vite build",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
     "preview": "vite preview",
+    "check:images": "tsx scripts/check-images-and-paths.ts",
     "r2:sync": "bash scripts/r2-sync.sh",
     "r2:prefetch": "node scripts/prefetch-r2.mjs",
     "r2:mirror": "node scripts/mirror-r2-direct.mjs",
@@ -42,8 +48,10 @@
     "cloudinary:generate": "ts-node scripts/generate-cloudinary-albums.ts",
     "cloudinary:urls": "node scripts/export-cloudinary-urls.mjs",
     "portfolio:build": "node scripts/build-albums-from-cloudinary.mjs",
+    "travel:audit": "node scripts/audit-travel-portfolio.mjs",
     "images:serve": "node server/images.cjs",
-    "workshop:generate": "node scripts/generate-workshop-images-json.js"
+    "workshop:generate": "node scripts/generate-workshop-images-json.js",
+    "events:auto-add": "node scripts/auto-add-events.mjs"
   },
   "dependencies": {
     "@cloudflare/kv-asset-handler": "^0.4.0",

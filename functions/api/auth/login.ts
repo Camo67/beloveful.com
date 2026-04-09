@@ -49,6 +49,20 @@ export async function onRequestPost(context: any): Promise<Response> {
     ).bind(username, username).first();
     
     if (!user) {
+      const countResult = await db.prepare(
+        'SELECT COUNT(*) as count FROM users'
+      ).first<{ count: number }>();
+
+      if (Number(countResult?.count ?? 0) === 0) {
+        return new Response(JSON.stringify({
+          success: false,
+          error: 'No admin user exists yet. Create the first admin account to continue.'
+        }), {
+          status: 400,
+          headers: { 'Content-Type': 'application/json' }
+        });
+      }
+
       return new Response(JSON.stringify({
         success: false,
         error: 'Invalid credentials'
@@ -91,6 +105,16 @@ export async function onRequestPost(context: any): Promise<Response> {
     
   } catch (error) {
     console.error('Login error:', error);
+    if (error instanceof Error && error.message.includes('no such table: users')) {
+      return new Response(JSON.stringify({
+        success: false,
+        error: 'Authentication database is not initialized yet'
+      }), {
+        status: 500,
+        headers: { 'Content-Type': 'application/json' }
+      });
+    }
+
     return new Response(JSON.stringify({
       success: false,
       error: 'Internal server error'

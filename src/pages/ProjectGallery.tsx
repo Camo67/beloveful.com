@@ -8,6 +8,7 @@ import { getProjectBySlug } from "@/lib/data";
 import { useErasingBorders } from "@/hooks/use-erasing-borders";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Link } from "react-router-dom";
+import { dedupeAlbumImages } from "@/lib/album-image-utils";
 
 export default function ProjectGallery() {
   const { project: projectSlug } = useParams<{ project: string }>();
@@ -20,10 +21,12 @@ export default function ProjectGallery() {
 
   const galleryImages = useMemo(() => {
     if (projectSlug === "erasing-borders" && erasingImages) {
-      return erasingImages.map(img => ({
-        desktop: img.desktop,
-        mobile: img.mobile
-      }));
+      return dedupeAlbumImages(
+        erasingImages.map((img) => ({
+          desktop: img.desktop,
+          mobile: img.mobile,
+        })),
+      );
     }
     return [];
   }, [projectSlug, erasingImages]);

@@ -1,5 +1,13 @@
-import { useCallback, useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
+import {
+  useEffect,
+  useMemo,
+  useState,
+  type CSSProperties,
+  type FocusEvent,
+  type PointerEvent,
+} from "react";
 import { SlideshowImage } from "@/lib/data";
+import { getAlbumImageStableKey } from "@/lib/album-image-utils";
 import { getImageAltText } from "@/lib/images";
 import { useImageProtection } from "@/hooks/use-image-protection";
 import { Lightbox } from "./Lightbox";
@@ -11,38 +19,33 @@ interface GalleryProps {
   region?: string;
   enablePrintCta?: boolean;
   ctaLabel?: string;
+  galleryId?: string;
+  onVisibleImagesChange?: (images: SlideshowImage[]) => void;
 }
 
 const GRID_GAP = 2;
-const REST_SCALE = 1;
-const HOVER_SCALE = 1.3;
-const SURROUNDING_SCALE = 0.9;
-const SURROUNDING_OVERLAY_OPACITY = 1;
-const MOBILE_BREAKPOINT = 767;
-const MOBILE_GAP = 2;
-const MOBILE_HOVER_SCALE = 1;
-const MOBILE_REST_SCALE = 1;
-const MIN_COMFORT_HOVER_SCALE = 1.08;
-const FLOW_DURATION = "520ms";
-const FLOW_FADE = "320ms";
-const FLOW_EASING = "cubic-bezier(0.22, 0.61, 0.36, 1)";
-const VIEWPORT_EDGE_PADDING = 8;
-const VIEWPORT_TOP_PADDING = 72;
-const CENTER_PULL_STRENGTH = 0.12;
-const MAX_CENTER_PULL = 84;
+const DESKTOP_HOVER_QUERY = "(min-width: 768px) and (hover: hover) and (pointer: fine)";
 
-type ActiveTransform = {
-  x: number;
-  y: number;
-  scale: number;
-};
+function clamp(value: number, min: number, max: number): number {
+  return Math.min(max, Math.max(min, value));
+}
 
-export function Gallery({ images, country, region, enablePrintCta = false, ctaLabel = "Would you like this as a print?" }: GalleryProps) {
+export function Gallery({
+  images,
+  country,
+  region,
+  enablePrintCta = false,
+  ctaLabel = "Would you like this as a print?",
+  galleryId,
+  onVisibleImagesChange,
+}: GalleryProps) {
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
-  const [activeIndex, setActiveIndex] = useState<number | null>(null);
-  const [activeTransform, setActiveTransform] = useState<ActiveTransform>({ x: 0, y: 0, scale: HOVER_SCALE });
-  const [isMobile, setIsMobile] = useState(false);
-  const figureRefs = useRef<Array<HTMLFigureElement | null>>([]);
+  const [failedImageKeys, setFailedImageKeys] = useState<string[]>([]);
+  const [hoveredTile, setHoveredTile] = useState<{
+    key: string;
+    x: number;
+    y: number;
+  } | null>(null);
   const { protectElement } = useImageProtection();
 
   const orderedImages = useMemo(() => {
@@ -61,156 +64,88 @@ export function Gallery({ images, country, region, enablePrintCta = false, ctaLa
     return [...landscapes, ...portraits];
   }, [images]);
 
-  useEffect(() => {
-    if (typeof window === "undefined" || typeof window.matchMedia === "undefined") {
+  const visibleImages = useMemo(() => {
+    if (failedImageKeys.length === 0) {
+      return orderedImages;
+    }
+
+    const failedKeySet = new Set(failedImageKeys);
+    return orderedImages.filter((image) => !failedKeySet.has(getAlbumImageStableKey(image)));
+  }, [failedImageKeys, orderedImages]);
+
+  const updateHoveredTile = (key: string, element: HTMLElement) => {
+    if (
+      typeof window === "undefined" ||
+      typeof window.matchMedia !== "function" ||
+      !window.matchMedia(DESKTOP_HOVER_QUERY).matches
+    ) {
       return;
     }
 
-    const mediaQuery = window.matchMedia(`(max-width: ${MOBILE_BREAKPOINT}px)`);
-    const update = (event?: MediaQueryListEvent) => {
-      setIsMobile(event ? event.matches : mediaQuery.matches);
-    };
+    const rect = element.getBoundingClientRect();
+    const viewportCenterX = window.innerWidth / 2;
+    const viewportCenterY = window.innerHeight / 2;
+    const tileCenterX = rect.left + rect.width / 2;
+    const tileCenterY = rect.top + rect.height / 2;
 
-    update();
-    mediaQuery.addEventListener("change", update);
-    return () => mediaQuery.removeEventListener("change", update);
-  }, []);
+    const x = clamp(((viewportCenterX - tileCenterX) / window.innerWidth) * 72, -48, 48);
+    const y = clamp(((viewportCenterY - tileCenterY) / window.innerHeight) * 56, -32, 32);
 
-  const resolvedGap = isMobile ? MOBILE_GAP : GRID_GAP;
-  const resolvedRestScale = isMobile ? MOBILE_REST_SCALE : REST_SCALE;
-  const resolvedHoverScale = isMobile ? MOBILE_HOVER_SCALE : HOVER_SCALE;
-
-  const masonryStyle: CSSProperties = {
-    columnGap: resolvedGap,
+    setHoveredTile({ key, x, y });
   };
 
-  const clearActive = useCallback(() => {
-    setActiveIndex(null);
-    setActiveTransform({ x: 0, y: 0, scale: resolvedHoverScale });
-  }, [resolvedHoverScale]);
-
-  const computeActiveTransform = useCallback(
-    (index: number) => {
-      if (isMobile || typeof window === "undefined") {
-        return { x: 0, y: 0, scale: resolvedHoverScale };
-      }
-
-      const element = figureRefs.current[index];
-      if (!element) {
-        return { x: 0, y: 0, scale: resolvedHoverScale };
-      }
-
-      const rect = element.getBoundingClientRect();
-      if (rect.width <= 0 || rect.height <= 0) {
-        return { x: 0, y: 0, scale: resolvedHoverScale };
-      }
-      const desktopSelector = document.querySelector<HTMLElement>('[aria-label="Country quick selector"]');
-      const selectorStyles = desktopSelector ? window.getComputedStyle(desktopSelector) : null;
-      const selectorVisible =
-        !!desktopSelector &&
-        !!selectorStyles &&
-        selectorStyles.display !== "none" &&
-        selectorStyles.visibility !== "hidden" &&
-        Number.parseFloat(selectorStyles.opacity) > 0.05;
-      const selectorPanel = selectorVisible
-        ? desktopSelector?.querySelector<HTMLElement>(".fixed")
-        : null;
-      const selectorRect = selectorPanel?.getBoundingClientRect();
-
-      const minX = Math.max(VIEWPORT_EDGE_PADDING, (selectorRect?.right ?? 0) + VIEWPORT_EDGE_PADDING);
-      const maxX = window.innerWidth - VIEWPORT_EDGE_PADDING;
-      const minY = VIEWPORT_TOP_PADDING;
-      const maxY = window.innerHeight - VIEWPORT_EDGE_PADDING;
-
-      const maxScaleX = (maxX - minX) / rect.width;
-      const maxScaleY = (maxY - minY) / rect.height;
-      const fitScale = Math.min(resolvedHoverScale, maxScaleX, maxScaleY);
-      const safeScale = Number.isFinite(fitScale) && fitScale > 0
-        ? fitScale < MIN_COMFORT_HOVER_SCALE
-          ? Math.max(1, fitScale)
-          : fitScale
-        : resolvedHoverScale;
-      const extraX = (rect.width * safeScale - rect.width) / 2;
-      const extraY = (rect.height * safeScale - rect.height) / 2;
-
-      const clamp = (value: number, min: number, max: number) => {
-        if (min > max) {
-          return (min + max) / 2;
-        }
-        return Math.min(max, Math.max(min, value));
-      };
-
-      const viewportCenterX = (minX + maxX) / 2;
-      const viewportCenterY = (minY + maxY) / 2;
-      const imageCenterX = rect.left + rect.width / 2;
-      const imageCenterY = rect.top + rect.height / 2;
-
-      const desiredX = clamp(
-        (viewportCenterX - imageCenterX) * CENTER_PULL_STRENGTH,
-        -MAX_CENTER_PULL,
-        MAX_CENTER_PULL,
-      );
-      const desiredY = clamp(
-        (viewportCenterY - imageCenterY) * CENTER_PULL_STRENGTH,
-        -MAX_CENTER_PULL,
-        MAX_CENTER_PULL,
-      );
-
-      const minShiftX = minX - (rect.left - extraX);
-      const maxShiftX = maxX - (rect.right + extraX);
-      const minShiftY = minY - (rect.top - extraY);
-      const maxShiftY = maxY - (rect.bottom + extraY);
-
-      const shiftX = clamp(desiredX, minShiftX, maxShiftX);
-      const shiftY = clamp(desiredY, minShiftY, maxShiftY);
-
-      return {
-        x: Math.round(shiftX),
-        y: Math.round(shiftY),
-        scale: safeScale,
-      };
-    },
-    [isMobile, resolvedHoverScale],
-  );
-
-  const activateImage = useCallback(
-    (index: number) => {
-      setActiveIndex(index);
-      setActiveTransform(computeActiveTransform(index));
-    },
-    [computeActiveTransform],
-  );
-
-  const deactivateImage = useCallback(
-    (index: number) => {
-      setActiveIndex((current) => {
-        if (current === index) {
-          setActiveTransform({ x: 0, y: 0, scale: resolvedHoverScale });
-          return null;
-        }
-        return current;
-      });
-    },
-    [resolvedHoverScale],
-  );
+  const handleDesktopHoverStart = (
+    imageKey: string,
+    event: PointerEvent<HTMLElement> | FocusEvent<HTMLElement>,
+  ) => {
+    updateHoveredTile(imageKey, event.currentTarget);
+  };
 
   useEffect(() => {
-    if (activeIndex === null || isMobile) {
+    setFailedImageKeys([]);
+  }, [orderedImages]);
+
+  useEffect(() => {
+    setHoveredTile(null);
+  }, [orderedImages]);
+
+  useEffect(() => {
+    if (lightboxIndex === null) {
       return;
     }
 
-    const update = () => {
-      setActiveTransform(computeActiveTransform(activeIndex));
-    };
+    if (visibleImages.length === 0) {
+      setLightboxIndex(null);
+      return;
+    }
 
-    update();
-    window.addEventListener("resize", update, { passive: true });
-    window.addEventListener("scroll", update, { passive: true });
-    return () => {
-      window.removeEventListener("resize", update);
-      window.removeEventListener("scroll", update);
-    };
-  }, [activeIndex, computeActiveTransform, isMobile]);
+    if (lightboxIndex >= visibleImages.length) {
+      setLightboxIndex(visibleImages.length - 1);
+    }
+  }, [lightboxIndex, visibleImages.length]);
+
+  useEffect(() => {
+    onVisibleImagesChange?.(visibleImages);
+  }, [onVisibleImagesChange, visibleImages]);
+
+  useEffect(() => {
+    if (!import.meta.env.DEV) {
+      return;
+    }
+
+    const resolvedGalleryId = galleryId ?? (region ? `${region}/${country}` : country);
+    console.debug("[Gallery] renderable images", {
+      gallery: resolvedGalleryId,
+      input: images.length,
+      ordered: orderedImages.length,
+      visible: visibleImages.length,
+      failed: failedImageKeys.length,
+    });
+  }, [country, failedImageKeys.length, galleryId, images.length, orderedImages.length, region, visibleImages.length]);
+
+  const masonryStyle: CSSProperties = {
+    columnGap: GRID_GAP,
+  };
 
   return (
     <>
@@ -218,88 +153,53 @@ export function Gallery({ images, country, region, enablePrintCta = false, ctaLa
         className="no-screenshot columns-1 min-[540px]:columns-2 lg:columns-3 xl:columns-4"
         aria-live="polite"
         style={masonryStyle}
-        onMouseLeave={clearActive}
       >
-        {orderedImages.map((image, index) => {
-          const isActive = activeIndex === index;
-          const hasActive = activeIndex !== null;
-          const isSurrounding = !isMobile && activeIndex !== null && activeIndex !== index;
-          const baseScale = isSurrounding ? SURROUNDING_SCALE : resolvedRestScale;
-          const overlayScale = isActive ? resolvedHoverScale : isSurrounding ? SURROUNDING_SCALE : resolvedRestScale;
-          const overlayOpacity = isActive ? 1 : isSurrounding ? SURROUNDING_OVERLAY_OPACITY : 0;
+        {visibleImages.map((image, index) => {
+          const imageKey = getAlbumImageStableKey(image);
+          const isHovered = hoveredTile?.key === imageKey;
           const figureStyle: CSSProperties = {
-            margin: `0 0 ${resolvedGap}px 0`,
+            margin: `0 0 ${GRID_GAP}px 0`,
             padding: 0,
             border: "none",
             outline: "none",
             background: "transparent",
             boxShadow: "none",
             borderRadius: 0,
-            position: "relative",
             breakInside: "avoid",
-            zIndex: isActive ? 20 : 1,
-            transition: `transform ${FLOW_DURATION} ${FLOW_EASING}`,
-            willChange: "transform",
+            position: "relative",
+            isolation: "isolate",
+            transform: isHovered
+              ? `translate3d(${hoveredTile.x}px, ${hoveredTile.y}px, 0) scale(1.16)`
+              : "translate3d(0, 0, 0) scale(1)",
+            transformOrigin: "center center",
+            zIndex: isHovered ? 20 : "auto",
+            willChange: isHovered ? "transform" : "auto",
+            transitionTimingFunction: "cubic-bezier(0.22, 1, 0.36, 1)",
           };
-          const baseImageStyle: CSSProperties = {
-            width: "100%",
-            height: "auto",
-            display: "block",
-            objectFit: "contain",
-            objectPosition: "center center",
-            border: "none",
-            outline: "none",
-            background: "transparent",
-            boxShadow: "none",
-            transform: `scale(${hasActive ? resolvedRestScale : baseScale})`,
-            transformOrigin: "center",
-            opacity: 1,
-            filter: "none",
-            transition: `transform ${FLOW_DURATION} ${FLOW_EASING}`,
-            marginInline: "auto",
-            willChange: "transform",
-          };
-          const zoomLayerStyle: CSSProperties = {
-            position: "absolute",
-            inset: 0,
-            width: "100%",
-            height: "100%",
-            display: "block",
-            objectFit: "contain",
-            objectPosition: "center center",
-            pointerEvents: "none",
-            transform: `translate3d(${isActive ? activeTransform.x : 0}px, ${isActive ? activeTransform.y : 0}px, 0) scale(${isActive ? activeTransform.scale : overlayScale})`,
-            transformOrigin: "center",
-            opacity: overlayOpacity,
-            transition: `transform ${FLOW_DURATION} ${FLOW_EASING}, opacity ${FLOW_FADE} ${FLOW_EASING}`,
-            willChange: "transform, opacity",
-            border: "none",
-            outline: "none",
-            background: "transparent",
-            boxShadow: "none",
-          };
+          const altText = getImageAltText(image.desktop, country);
 
           return (
             <figure
-              key={`${index}-${image.desktop}`}
+              key={imageKey}
+              className="relative md:transition-transform md:duration-300 motion-reduce:transform-none motion-reduce:transition-none"
               style={figureStyle}
               ref={(element) => {
-                figureRefs.current[index] = element;
                 if (element) protectElement(element);
+              }}
+              onPointerEnter={(event) => handleDesktopHoverStart(imageKey, event)}
+              onPointerMove={(event) => handleDesktopHoverStart(imageKey, event)}
+              onPointerLeave={() => {
+                setHoveredTile((current) => (current?.key === imageKey ? null : current));
+              }}
+              onFocus={(event) => handleDesktopHoverStart(imageKey, event)}
+              onBlur={() => {
+                setHoveredTile((current) => (current?.key === imageKey ? null : current));
               }}
             >
                 <button
                   type="button"
                   onClick={() => setLightboxIndex(index)}
-                  onMouseEnter={() => activateImage(index)}
-                  onFocus={() => activateImage(index)}
-                  onBlur={() => deactivateImage(index)}
-                  onPointerDown={(event) => {
-                    if (event.pointerType === "touch" && !isMobile) {
-                      activateImage(index);
-                    }
-                  }}
-                className="block w-full border-0 bg-transparent p-0 text-left"
+                className="block w-full cursor-zoom-in border-0 bg-transparent p-0 text-left focus-visible:outline-none"
                 style={{
                   border: "none",
                   outline: "none",
@@ -308,15 +208,30 @@ export function Gallery({ images, country, region, enablePrintCta = false, ctaLa
                   borderRadius: 0,
                   position: "relative",
                 }}
-                aria-label={`View ${getImageAltText(image.desktop, country)} in lightbox`}
+                aria-label={`View ${altText} in lightbox`}
               >
                 <CloudImage
                   url={image.desktop}
-                  alt={getImageAltText(image.desktop, country)}
+                  alt={altText}
                   className="w-full select-none"
+                  fallbackSrc={null}
                   draggable={false}
                   loading="lazy"
                   decoding="async"
+                  onImageError={() => {
+                    setFailedImageKeys((currentKeys) =>
+                      currentKeys.includes(imageKey)
+                        ? currentKeys
+                        : [...currentKeys, imageKey],
+                    );
+                  }}
+                  onImageLoadSuccess={() => {
+                    setFailedImageKeys((currentKeys) =>
+                      currentKeys.includes(imageKey)
+                        ? currentKeys.filter((key) => key !== imageKey)
+                        : currentKeys,
+                    );
+                  }}
                   onContextMenu={(event) => {
                     event.preventDefault();
                     event.stopPropagation();
@@ -326,18 +241,6 @@ export function Gallery({ images, country, region, enablePrintCta = false, ctaLa
                     event.preventDefault();
                     return false;
                   }}
-                  style={baseImageStyle}
-                />
-
-                <CloudImage
-                  url={image.desktop}
-                  alt=""
-                  aria-hidden="true"
-                  className="select-none"
-                  draggable={false}
-                  loading="lazy"
-                  decoding="async"
-                  style={zoomLayerStyle}
                 />
               </button>
             </figure>
@@ -345,9 +248,9 @@ export function Gallery({ images, country, region, enablePrintCta = false, ctaLa
         })}
       </div>
 
-      {lightboxIndex !== null && (
+      {lightboxIndex !== null && visibleImages[lightboxIndex] && (
         <Lightbox
-          images={orderedImages}
+          images={visibleImages}
           currentIndex={lightboxIndex}
           onClose={() => setLightboxIndex(null)}
           onNavigate={setLightboxIndex}

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -12,15 +12,43 @@ interface AdminLoginProps {
 }
 
 export const AdminLogin = ({ onLogin }: AdminLoginProps) => {
-  const [formData, setFormData] = useState({
+  const [loginData, setLoginData] = useState({
     username: '',
     password: '',
   });
+  const [setupData, setSetupData] = useState({
+    username: 'admin',
+    email: 'admin@beloveful.com',
+    password: '',
+    confirmPassword: '',
+  });
   const [loading, setLoading] = useState(false);
+  const [checkingSetup, setCheckingSetup] = useState(true);
+  const [needsSetup, setNeedsSetup] = useState(false);
   const [error, setError] = useState('');
   const [showPassword, setShowPassword] = useState(false);
+  const [showSetupPassword, setShowSetupPassword] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  useEffect(() => {
+    const checkSetupStatus = async () => {
+      try {
+        const response = await fetch('/api/auth/setup');
+        const data = await response.json();
+
+        if (response.ok && data.success) {
+          setNeedsSetup(Boolean(data.needsSetup));
+        }
+      } catch (err) {
+        console.error('Failed to check admin setup status:', err);
+      } finally {
+        setCheckingSetup(false);
+      }
+    };
+
+    checkSetupStatus();
+  }, []);
+
+  const handleLoginSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
     setError('');
@@ -31,7 +59,7 @@ export const AdminLogin = ({ onLogin }: AdminLoginProps) => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(loginData),
       });
 
       const data = await response.json();
@@ -54,12 +82,64 @@ export const AdminLogin = ({ onLogin }: AdminLoginProps) => {
     }
   };
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormData(prev => ({
+  const handleSetupSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (setupData.password !== setupData.confirmPassword) {
+      setError('Passwords do not match');
+      return;
+    }
+
+    setLoading(true);
+    setError('');
+
+    try {
+      const response = await fetch('/api/auth/setup', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          username: setupData.username,
+          email: setupData.email,
+          password: setupData.password,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Admin setup failed');
+      }
+
+      if (data.success && data.token) {
+        localStorage.setItem('admin_token', data.token);
+        localStorage.setItem('admin_user', JSON.stringify(data.user));
+        onLogin(data.token, data.user);
+      } else {
+        throw new Error('Invalid response from server');
+      }
+    } catch (err: any) {
+      setError(err.message || 'An error occurred during setup');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleLoginInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setLoginData(prev => ({
       ...prev,
       [e.target.name]: e.target.value,
     }));
-    setError(''); // Clear error when user starts typing
+    setError('');
+  };
+
+  const handleSetupInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSetupData(prev => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
+    setError('');
   };
 
   return (
@@ -128,13 +208,19 @@ export const AdminLogin = ({ onLogin }: AdminLoginProps) => {
 
             <Card className="w-full border-stone-200/80 bg-white/90 shadow-2xl shadow-stone-900/10">
               <CardHeader className="space-y-3">
-                <CardTitle className="text-2xl text-stone-900">Sign In</CardTitle>
+                <CardTitle className="text-2xl text-stone-900">
+                  {checkingSetup ? 'Checking Access' : needsSetup ? 'Create Admin Account' : 'Sign In'}
+                </CardTitle>
                 <CardDescription className="text-stone-600">
-                  Access the admin dashboard to manage images, slideshow content, and page blocks.
+                  {checkingSetup
+                    ? 'Checking whether the admin workspace is ready.'
+                    : needsSetup
+                      ? 'Create the first admin account for this site. You will be signed in right after setup.'
+                      : 'Access the admin dashboard to manage images, slideshow content, and page blocks.'}
                 </CardDescription>
               </CardHeader>
 
-              <form onSubmit={handleSubmit}>
+              <form onSubmit={needsSetup ? handleSetupSubmit : handleLoginSubmit}>
                 <CardContent className="space-y-4">
                   {error && (
                     <Alert variant="destructive">
@@ -142,61 +228,147 @@ export const AdminLogin = ({ onLogin }: AdminLoginProps) => {
                     </Alert>
                   )}
 
-                  <div className="space-y-2">
-                    <Label htmlFor="username">Username</Label>
-                    <Input
-                      id="username"
-                      name="username"
-                      type="text"
-                      required
-                      value={formData.username}
-                      onChange={handleInputChange}
-                      placeholder="Enter your username"
-                      disabled={loading}
-                      className="border-stone-300 bg-white"
-                    />
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="password">Password</Label>
-                    <div className="relative">
-                      <Input
-                        id="password"
-                        name="password"
-                        type={showPassword ? 'text' : 'password'}
-                        required
-                        value={formData.password}
-                        onChange={handleInputChange}
-                        placeholder="Enter your password"
-                        disabled={loading}
-                        className="border-stone-300 bg-white pr-12"
-                      />
-                      <Button
-                        type="button"
-                        variant="ghost"
-                        size="sm"
-                        className="absolute right-0 top-0 h-full px-3 py-2 hover:bg-transparent"
-                        onClick={() => setShowPassword(!showPassword)}
-                        disabled={loading}
-                      >
-                        {showPassword ? (
-                          <EyeOff className="h-4 w-4" />
-                        ) : (
-                          <Eye className="h-4 w-4" />
-                        )}
-                      </Button>
+                  {checkingSetup ? (
+                    <div className="flex items-center justify-center py-6">
+                      <Loader2 className="h-5 w-5 animate-spin text-stone-500" />
                     </div>
-                  </div>
+                  ) : needsSetup ? (
+                    <>
+                      <div className="space-y-2">
+                        <Label htmlFor="setup-username">Username</Label>
+                        <Input
+                          id="setup-username"
+                          name="username"
+                          type="text"
+                          required
+                          value={setupData.username}
+                          onChange={handleSetupInputChange}
+                          placeholder="Choose an admin username"
+                          disabled={loading}
+                          className="border-stone-300 bg-white"
+                        />
+                      </div>
+
+                      <div className="space-y-2">
+                        <Label htmlFor="setup-email">Email</Label>
+                        <Input
+                          id="setup-email"
+                          name="email"
+                          type="email"
+                          required
+                          value={setupData.email}
+                          onChange={handleSetupInputChange}
+                          placeholder="admin@beloveful.com"
+                          disabled={loading}
+                          className="border-stone-300 bg-white"
+                        />
+                      </div>
+
+                      <div className="space-y-2">
+                        <Label htmlFor="setup-password">Password</Label>
+                        <div className="relative">
+                          <Input
+                            id="setup-password"
+                            name="password"
+                            type={showSetupPassword ? 'text' : 'password'}
+                            required
+                            value={setupData.password}
+                            onChange={handleSetupInputChange}
+                            placeholder="Create a strong password"
+                            disabled={loading}
+                            className="border-stone-300 bg-white pr-12"
+                          />
+                          <Button
+                            type="button"
+                            variant="ghost"
+                            size="sm"
+                            className="absolute right-0 top-0 h-full px-3 py-2 hover:bg-transparent"
+                            onClick={() => setShowSetupPassword(!showSetupPassword)}
+                            disabled={loading}
+                          >
+                            {showSetupPassword ? (
+                              <EyeOff className="h-4 w-4" />
+                            ) : (
+                              <Eye className="h-4 w-4" />
+                            )}
+                          </Button>
+                        </div>
+                      </div>
+
+                      <div className="space-y-2">
+                        <Label htmlFor="setup-confirm-password">Confirm Password</Label>
+                        <Input
+                          id="setup-confirm-password"
+                          name="confirmPassword"
+                          type={showSetupPassword ? 'text' : 'password'}
+                          required
+                          value={setupData.confirmPassword}
+                          onChange={handleSetupInputChange}
+                          placeholder="Re-enter your password"
+                          disabled={loading}
+                          className="border-stone-300 bg-white"
+                        />
+                      </div>
+                    </>
+                  ) : (
+                    <>
+                      <div className="space-y-2">
+                        <Label htmlFor="username">Username</Label>
+                        <Input
+                          id="username"
+                          name="username"
+                          type="text"
+                          required
+                          value={loginData.username}
+                          onChange={handleLoginInputChange}
+                          placeholder="Enter your username"
+                          disabled={loading}
+                          className="border-stone-300 bg-white"
+                        />
+                      </div>
+
+                      <div className="space-y-2">
+                        <Label htmlFor="password">Password</Label>
+                        <div className="relative">
+                          <Input
+                            id="password"
+                            name="password"
+                            type={showPassword ? 'text' : 'password'}
+                            required
+                            value={loginData.password}
+                            onChange={handleLoginInputChange}
+                            placeholder="Enter your password"
+                            disabled={loading}
+                            className="border-stone-300 bg-white pr-12"
+                          />
+                          <Button
+                            type="button"
+                            variant="ghost"
+                            size="sm"
+                            className="absolute right-0 top-0 h-full px-3 py-2 hover:bg-transparent"
+                            onClick={() => setShowPassword(!showPassword)}
+                            disabled={loading}
+                          >
+                            {showPassword ? (
+                              <EyeOff className="h-4 w-4" />
+                            ) : (
+                              <Eye className="h-4 w-4" />
+                            )}
+                          </Button>
+                        </div>
+                      </div>
+                    </>
+                  )}
                 </CardContent>
 
                 <CardFooter>
                   <Button
                     type="submit"
                     className="w-full bg-stone-900 text-stone-50 hover:bg-stone-800"
-                    disabled={loading}
+                    disabled={loading || checkingSetup}
                   >
                     {loading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-                    Sign In
+                    {needsSetup ? 'Create Admin Account' : 'Sign In'}
                   </Button>
                 </CardFooter>
               </form>

@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
-import { ALBUMS } from '@/lib/data'; // Data from prefix-mapped.json
+import { ALBUMS, type CountryAlbum, type Region } from '@/lib/data'; // Data from prefix-mapped.json
 import { normalizeAlbumSlug, sameAlbumSlug } from '@/lib/album-slugs';
-import { mapToCdnUrl, validateAndFixImageUrl } from '@/lib/image-utils';
+import { dedupeAlbumImages, type AlbumImageCandidate } from '@/lib/album-image-utils';
 
 type ApiAlbumSummary = {
   id: number;
@@ -14,6 +14,11 @@ type ApiAlbumSummary = {
   cover_mobile_url?: string | null;
 };
 
+type AlbumCandidate = Omit<CountryAlbum, 'images' | 'region'> & {
+  region: Region;
+  images: AlbumImageCandidate[];
+};
+
 async function fetchDbAlbumSummaries(): Promise<ApiAlbumSummary[]> {
   const response = await fetch('/api/albums', { method: 'GET' });
   if (!response.ok) return [];
@@ -22,9 +27,12 @@ async function fetchDbAlbumSummaries(): Promise<ApiAlbumSummary[]> {
   return data.albums as ApiAlbumSummary[];
 }
 
-function normalizeImageUrl(url?: string | null): string {
-  const fixedUrl = validateAndFixImageUrl(url);
-  return mapToCdnUrl(fixedUrl) ?? fixedUrl;
+function normalizeAlbumRecord(album: AlbumCandidate | CountryAlbum): CountryAlbum {
+  return {
+    ...album,
+    slug: normalizeAlbumSlug(album.slug || album.country),
+    images: dedupeAlbumImages(album.images || []),
+  };
 }
 
 export const useAlbums = () => {
@@ -35,13 +43,13 @@ export const useAlbums = () => {
         console.log('📚 Loading albums (static + DB)');
 
         // Pull DB-provided albums that have images (for new uploads / dynamic additions).
-        let dbAlbums: any[] = [];
+        let dbAlbums: AlbumCandidate[] = [];
         try {
           const summaries = await fetchDbAlbumSummaries();
           dbAlbums = summaries
             .filter((a) => a && a.slug && a.image_count > 0)
             .map((a) => ({
-              region: a.region,
+              region: a.region as Region,
               country: a.country,
               slug: normalizeAlbumSlug(a.slug || a.country),
               title: a.country,
@@ -61,7 +69,7 @@ export const useAlbums = () => {
         // Merge DB albums into static albums by slug.
         // If DB has a cover image for a static album, place it first so map pins and list thumbnails
         // automatically reflect the latest admin uploads.
-        const dbBySlug = new Map<string, any>();
+        const dbBySlug = new Map<string, AlbumCandidate>();
         for (const album of dbAlbums) {
           const slug = normalizeAlbumSlug(album?.slug || album?.country);
           if (slug) {
@@ -71,54 +79,26 @@ export const useAlbums = () => {
 
         const mergedAlbums = ALBUMS.map((staticAlbum) => {
           const dbAlbum = dbBySlug.get(normalizeAlbumSlug(staticAlbum.slug));
-          if (!dbAlbum) return staticAlbum;
+          if (!dbAlbum) return normalizeAlbumRecord(staticAlbum);
 
-          const mergedImages: Array<{ desktop: string; mobile: string }> = [];
-          const seen = new Set<string>();
-          const addUnique = (img: any) => {
-            if (!img) return;
-            const desktop = String(img.desktop || '').trim();
-            const mobile = String(img.mobile || '').trim();
-            if (!desktop && !mobile) return;
-            const key = `${desktop}|${mobile}`;
-            if (seen.has(key)) return;
-            seen.add(key);
-            mergedImages.push({ desktop: desktop || mobile, mobile: mobile || desktop });
-          };
-
-          for (const image of dbAlbum.images || []) addUnique(image);
-          for (const image of staticAlbum.images || []) addUnique(image);
-
-          return {
+          return normalizeAlbumRecord({
             ...staticAlbum,
             description: dbAlbum.description || staticAlbum.description,
-            images: mergedImages.length ? mergedImages : staticAlbum.images,
-          };
+            images: [...(dbAlbum.images || []), ...(staticAlbum.images || [])],
+          });
         });
 
         for (const dbAlbum of dbBySlug.values()) {
           if (!ALBUMS.find((album) => sameAlbumSlug(album.slug, dbAlbum.slug))) {
-            mergedAlbums.push(dbAlbum);
+            mergedAlbums.push(normalizeAlbumRecord(dbAlbum));
           }
         }
 
-        const normalizedAlbums = mergedAlbums.map((album) => ({
-          ...album,
-          slug: normalizeAlbumSlug(album.slug || album.country),
-          images: (album.images || []).map((image) => ({
-            desktop: normalizeImageUrl(image.desktop),
-            mobile: normalizeImageUrl(image.mobile || image.desktop),
-          })),
-        }));
-
-        return normalizedAlbums.map((album) => ({
-            ...album,
-            images: album.images.filter((image) => !!image.desktop || !!image.mobile),
-          }));
+        return mergedAlbums;
       } catch (error) {
         console.error('Failed to load albums:', error);
         // Return original albums if verification process fails
-        return ALBUMS;
+        return ALBUMS.map(normalizeAlbumRecord);
       }
     },
     staleTime: 1000 * 60 * 60, // 1 hour
@@ -166,32 +146,14 @@ export const useAlbum = (region: string, country: string) => {
       if (!album) {
         return undefined;
       }
-
-      const mergedImages: Array<{ desktop: string; mobile: string }> = [];
-      const seen = new Set<string>();
-      const addUnique = (img: any) => {
-        if (!img) return;
-        const desktop = String(img.desktop || '').trim();
-        const mobile = String(img.mobile || '').trim();
-        if (!desktop && !mobile) return;
-        const key = `${desktop}|${mobile}`;
-        if (seen.has(key)) return;
-        seen.add(key);
-        mergedImages.push({ desktop: desktop || mobile, mobile: mobile || desktop });
-      };
-
-      for (const image of (dbAlbum?.images || [])) addUnique(image);
-      for (const image of (staticAlbum?.images || [])) addUnique(image);
-      
-      const normalizedImages = mergedImages.map((image) => ({
-        desktop: normalizeImageUrl(image.desktop),
-        mobile: normalizeImageUrl(image.mobile || image.desktop),
-      }));
       
       return {
         ...album,
         slug: normalizeAlbumSlug(album.slug || album.country),
-        images: normalizedImages.filter((image) => !!image.desktop || !!image.mobile),
+        images: dedupeAlbumImages([
+          ...(dbAlbum?.images || []),
+          ...(staticAlbum?.images || []),
+        ]),
       };
     },
     staleTime: 1000 * 60 * 5, // Refetch periodically so backend image-path fixes propagate

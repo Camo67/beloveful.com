@@ -34,6 +34,19 @@ dist-ssr
 .wrangler/tmp/
 *.pid
 upload_log_*.txt
+/output/
+
+# Local machine credentials and exports
+/.codex
+/*.duck
+/*.coreftp
+/*id_rsa*
+/*ed25519*
+/belovefu-cpanel-*
+
+# Root-level scratch media
+/*.mp4
+/*.mpeg
 
 # Ignore podcast media in public
 /public/*.mp3

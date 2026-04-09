@@ -8,6 +8,7 @@ import { Gallery } from "@/components/Gallery";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useAlbum, useAlbums } from "@/hooks/use-albums";
 import { Skeleton } from "@/components/ui/skeleton";
+import { finalizeTravelPortfolioImages } from "@/lib/album-image-utils";
 
 const COUNTRY_FLAGS: Record<string, string> = {
   Argentina: "🇦🇷",
@@ -50,6 +51,16 @@ export default function CountryGallery() {
       .filter((a) => a.region === region)
       .sort((a, b) => a.country.localeCompare(b.country));
   }, [albums, album?.region]);
+
+  const galleryId = regionSlug && countrySlug ? `${regionSlug}/${countrySlug}` : undefined;
+  const finalizedGalleryImages = useMemo(() => {
+    return finalizeTravelPortfolioImages(album?.images ?? [], { galleryId });
+  }, [album?.images, galleryId]);
+  const [visibleImageCount, setVisibleImageCount] = useState<number | null>(null);
+
+  useEffect(() => {
+    setVisibleImageCount(finalizedGalleryImages.length);
+  }, [finalizedGalleryImages]);
 
   useEffect(() => {
     let lastScrollY = window.scrollY;
@@ -198,15 +209,17 @@ export default function CountryGallery() {
             <div className="text-center mb-10">
               <h1 className="text-4xl md:text-5xl font-light mb-4 text-black dark:text-white">{album.country}</h1>
               <p className="text-lg text-gray-600 dark:text-gray-300">
-                {album.region} • {album.images.length} photographs
+                {album.region} • {visibleImageCount ?? finalizedGalleryImages.length} photographs
               </p>
             </div>
 
             {/* Landscape-first masonry gallery with micro-spacing and subtle hover */}
             <Gallery 
-              images={album.images} 
+              images={finalizedGalleryImages}
               country={album.country} 
               region={album.region}
+              galleryId={galleryId}
+              onVisibleImagesChange={(visibleImages) => setVisibleImageCount(visibleImages.length)}
               enablePrintCta
             />
         </div>
