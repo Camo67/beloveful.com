@@ -1,10 +1,13 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { mapToCdnUrl, validateAndFixImageUrl } from '@/lib/image-utils';
 
 const FALLBACK_SRC = '/Website%20beloveful.com/Logo/IMG_1052.JPG';
 
 interface CloudImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
   url: string;
+  fallbackSrc?: string | null;
+  onImageError?: (url: string) => void;
+  onImageLoadSuccess?: (url: string) => void;
 }
 
 /**
@@ -12,12 +15,33 @@ interface CloudImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
  * Just fetches the original image from Cloudinary (or other sources) via proxy.
  * Provides fallback handling for broken images.
  */
-export const CloudImage: React.FC<CloudImageProps> = ({ url, alt = '', className, loading, decoding = 'async', ...rest }) => {
-  function getFallbackImage(): string {
-    return FALLBACK_SRC;
-  }
+export const CloudImage: React.FC<CloudImageProps> = ({
+  url,
+  alt = '',
+  className,
+  loading,
+  decoding = 'async',
+  fallbackSrc,
+  onImageError,
+  onImageLoadSuccess,
+  onError,
+  onLoad,
+  ...rest
+}) => {
+  const fallbackImage = useMemo(() => {
+    if (fallbackSrc === null) {
+      return null;
+    }
 
-  const [imageSrc, setImageSrc] = useState<string>(getFallbackImage());
+    if (typeof fallbackSrc === 'string') {
+      const trimmed = fallbackSrc.trim();
+      return trimmed || null;
+    }
+
+    return FALLBACK_SRC;
+  }, [fallbackSrc]);
+
+  const [imageSrc, setImageSrc] = useState<string | null>(null);
   const [hasError, setHasError] = useState<boolean>(false);
   const [isInView, setIsInView] = useState<boolean>(false);
   const imgRef = useRef<HTMLImageElement | null>(null);
@@ -51,8 +75,9 @@ export const CloudImage: React.FC<CloudImageProps> = ({ url, alt = '', className
 
     // Handle empty or invalid URLs
     if (!url || typeof url !== 'string' || url.trim() === '') {
-      setImageSrc(getFallbackImage());
+      setImageSrc(fallbackImage);
       setHasError(true);
+      onImageError?.(url);
       return;
     }
 
@@ -65,28 +90,33 @@ export const CloudImage: React.FC<CloudImageProps> = ({ url, alt = '', className
     } catch (error) {
       console.error('Error processing image URL in CloudImage:', url, error);
       setHasError(true);
-      setImageSrc(getFallbackImage());
+      setImageSrc(fallbackImage);
+      onImageError?.(url);
     }
-  }, [url, isInView]);
+  }, [url, isInView, fallbackImage, onImageError]);
 
-  const handleError = () => {
+  const handleError: React.ReactEventHandler<HTMLImageElement> = (event) => {
     // If we haven't already tried the fallback, try it now
     if (!hasError) {
       setHasError(true);
-      // Use a placeholder image as final fallback
-      setImageSrc(getFallbackImage());
+      setImageSrc(fallbackImage);
+      onImageError?.(url);
     }
+
+    onError?.(event);
   };
 
-  const handleLoad = () => {
+  const handleLoad: React.ReactEventHandler<HTMLImageElement> = (event) => {
     // Reset error state if image loads successfully
     setHasError(false);
+    onImageLoadSuccess?.(url);
+    onLoad?.(event);
   };
 
   return (
     <img
       ref={imgRef}
-      src={imageSrc}
+      src={imageSrc ?? undefined}
       alt={alt}
       className={className}
       loading={loading ?? 'lazy'}

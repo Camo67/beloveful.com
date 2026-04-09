@@ -1,6 +1,10 @@
 #!/usr/bin/env node
 import { spawn } from "node:child_process";
 import net from "node:net";
+import path from "node:path";
+import { config as loadEnv } from "dotenv";
+
+loadLocalEnvFiles();
 
 const isWin = process.platform === "win32";
 const npmCmd = isWin ? "npm.cmd" : "npm";
@@ -89,4 +93,10 @@ async function resolveApiPort(startPort) {
     `[dev] Could not find an open API port between ${startPort} and ${maxPort}. Set DEV_API_PORT and retry.`,
   );
   process.exit(1);
+}
+
+function loadLocalEnvFiles() {
+  const cwd = process.cwd();
+  loadEnv({ path: path.join(cwd, ".env"), override: false });
+  loadEnv({ path: path.join(cwd, ".env.local"), override: true });
 }

@@ -3,12 +3,12 @@ import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { Header } from "@/components/Header";
 import FooterStrip from "@/components/FooterStrip";
 import PageContainer from "@/components/PageContainer";
-import { REGIONS, type Region } from "@/lib/data";
+import { REGIONS, type Region, type SlideshowImage } from "@/lib/data";
 import { useAlbums } from "@/hooks/use-albums";
-import { Gallery } from "@/components/Gallery";
 import { CloudImage } from "@/components/CloudImage";
 import LeafletWorldMap from "@/components/LeafletWorldMap";
 import { generateMapMarkers } from "@/lib/map-markers";
+import { finalizeTravelPortfolioImages } from "@/lib/album-image-utils";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -20,6 +20,62 @@ import {
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Button } from "react-day-picker";
+
+const TRAVEL_PORTFOLIO_PREVIEW_PLACEHOLDER = `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(
+  `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900">
+    <rect width="1200" height="900" fill="#e9e3d7"/>
+    <rect x="84" y="84" width="1032" height="732" rx="28" fill="#f7f2e8" stroke="#d2c7b7" stroke-width="6"/>
+    <circle cx="940" cy="250" r="74" fill="#d7c7a4"/>
+    <path d="M180 650L410 430L575 565L735 350L1010 650Z" fill="#c0b197"/>
+    <path d="M180 720H1020" stroke="#8f826d" stroke-width="10" stroke-linecap="round"/>
+    <text x="600" y="760" text-anchor="middle" font-family="Arial, sans-serif" font-size="42" fill="#5f5648">Travel photo unavailable</text>
+  </svg>`,
+)}`;
+
+type TravelAlbumPreview = {
+  finalizedImages: SlideshowImage[];
+  validImageCount: number;
+  country: string;
+  region: Region;
+  slug: string;
+};
+
+function TravelPortfolioPreviewImage({
+  images,
+  alt,
+  loading,
+}: {
+  images: SlideshowImage[];
+  alt: string;
+  loading: "eager" | "lazy";
+}) {
+  const [candidateIndex, setCandidateIndex] = useState(0);
+
+  useEffect(() => {
+    setCandidateIndex(0);
+  }, [images]);
+
+  const currentImage = images[candidateIndex];
+
+  return (
+    <CloudImage
+      url={currentImage?.desktop ?? ""}
+      fallbackSrc={TRAVEL_PORTFOLIO_PREVIEW_PLACEHOLDER}
+      alt={alt}
+      className="img-responsive transition-transform duration-300 group-hover:scale-[1.03]"
+      loading={loading}
+      onImageError={() => {
+        setCandidateIndex((current) => {
+          if (current >= images.length - 1) {
+            return current;
+          }
+
+          return current + 1;
+        });
+      }}
+    />
+  );
+}
 
 export default function Portfolio() {
   const { data: allAlbums, isLoading, isError } = useAlbums();
@@ -63,6 +119,24 @@ export default function Portfolio() {
     return allSortedAlbums.filter(a => a.region === selectedRegion);
   }, [allSortedAlbums, selectedRegion]);
 
+  // Normalize region names for URLs (e.g. "North America" -> "northamerica")
+  const normalizeRegion = (r: string) => r.toLowerCase().replace(/[^a-z]/g, "");
+
+  const previewAlbums = useMemo<TravelAlbumPreview[]>(() => {
+    return filteredAlbums.map((album) => {
+      const galleryId = `${normalizeRegion(album.region)}/${album.slug}`;
+      const finalizedImages = finalizeTravelPortfolioImages(album.images, { galleryId });
+
+      return {
+        country: album.country,
+        region: album.region,
+        slug: album.slug,
+        finalizedImages,
+        validImageCount: finalizedImages.length,
+      };
+    });
+  }, [filteredAlbums]);
+
   const handleTabChange = (region: Region | "All") => {
     setSelectedRegion(region);
     if (region === "All") {
@@ -72,9 +146,6 @@ export default function Portfolio() {
     }
     navigate(`/portfolio${region === "All" ? "" : `?region=${encodeURIComponent(region)}`}`);
   };
-
-  // Normalize region names for URLs (e.g. "North America" -> "northamerica")
-  const normalizeRegion = (r: string) => r.toLowerCase().replace(/[^a-z]/g, "");
 
   if (isLoading) {
     return (
@@ -120,8 +191,8 @@ export default function Portfolio() {
     );
   }
 
-  const totalCountries = filteredAlbums.length;
-  const totalImages = filteredAlbums.reduce((sum, album) => sum + album.images.length, 0);
+  const totalCountries = previewAlbums.length;
+  const totalImages = previewAlbums.reduce((sum, album) => sum + album.validImageCount, 0);
 
   return (
     <div className="min-h-screen">
@@ -370,26 +441,25 @@ export default function Portfolio() {
               </div>
             ) : (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 transition-opacity duration-500">
-                {filteredAlbums.map((album, index) => (
+                {previewAlbums.map((album, index) => (
                   <Link
                     key={album.slug}
                     to={`/${normalizeRegion(album.region)}/${album.slug}`}
                     className="group clickable-area"
-                    aria-label={`View ${album.country} photography collection with ${album.images.length} photographs`}
+                    aria-label={`View ${album.country} photography collection with ${album.validImageCount} photographs`}
                   >
                     <article className="content-card">
                       <div className="relative overflow-hidden bg-transparent aspect-[4/3]">
-                        <CloudImage
-                          url={album.images[0]?.desktop}
+                        <TravelPortfolioPreviewImage
+                          images={album.finalizedImages}
                           alt={`Representative image from ${album.country} collection`}
-                          className="img-responsive transition-transform duration-300 group-hover:scale-[1.03]"
                           loading={index < 6 ? "eager" : "lazy"}
                         />
                       </div>
                       <div className="p-4">
                         <h3 className="heading-3 mb-2">{album.country}</h3>
                         <p className="text-caption text-text-tertiary">
-                          {album.region} • {album.images.length} photograph{album.images.length !== 1 ? "s" : ""}
+                          {album.region} • {album.validImageCount} photograph{album.validImageCount !== 1 ? "s" : ""}
                         </p>
                       </div>
                     </article>

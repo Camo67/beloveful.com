@@ -4,8 +4,11 @@ interface Env {
   CONTACT_FORM_DELIVERY_MODE?: string;
   CONTACT_FORM_FROM_EMAIL?: string;
   CONTACT_FORM_FROM_NAME?: string;
+  CONTACT_FORM_REQUEST_TIMEOUT_MS?: string;
   CONTACT_FORM_TO_EMAIL?: string;
   MAILCHANNELS_API_URL?: string;
+  RESEND_API_KEY?: string;
+  RESEND_API_URL?: string;
 }
 
 type ContactRequestBody = {
@@ -25,6 +28,10 @@ type ContactRequestBody = {
 const DEFAULT_FROM_EMAIL = 'website@beloveful.com';
 const DEFAULT_FROM_NAME = 'Beloveful Contact Form';
 const DEFAULT_MAILCHANNELS_URL = 'https://api.mailchannels.net/tx/v1/send';
+const DEFAULT_RESEND_URL = 'https://api.resend.com/emails';
+const DEFAULT_REQUEST_TIMEOUT_MS = 10000;
+
+type ContactDeliveryMode = 'mailchannels' | 'resend' | 'log';
 
 function jsonResponse(payload: unknown, init: ResponseInit = {}): Response {
   return new Response(JSON.stringify(payload), {
@@ -51,6 +58,43 @@ function escapeHtml(value: string): string {
 
 function isValidEmail(value: string): boolean {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+}
+
+function parseTimeoutMs(value: unknown): number {
+  const parsed = Number.parseInt(String(value ?? '').trim(), 10);
+  if (!Number.isFinite(parsed)) {
+    return DEFAULT_REQUEST_TIMEOUT_MS;
+  }
+
+  return Math.min(Math.max(parsed, 1000), 30000);
+}
+
+function formatMailboxAddress(email: string, name?: string): string {
+  const safeEmail = sanitizeValue(email, 160);
+  const safeName = sanitizeValue(name, 160).replace(/["<>]/g, '');
+  return safeName ? `${safeName} <${safeEmail}>` : safeEmail;
+}
+
+async function fetchWithTimeout(
+  input: RequestInfo | URL,
+  init: RequestInit,
+  timeoutMs: number,
+): Promise<Response> {
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), timeoutMs);
+
+  try {
+    return await fetch(input, {
+      ...init,
+      signal: controller.signal,
+    });
+  } finally {
+    clearTimeout(timeoutId);
+  }
+}
+
+function isAbortError(error: unknown): boolean {
+  return error instanceof Error && error.name === 'AbortError';
 }
 
 function buildSubject(payload: ContactRequestBody, name: string): string {
@@ -140,19 +184,20 @@ function buildHtmlBody(
 }
 
 async function sendViaMailchannels(
-  env: Env,
+  apiUrl: string,
+  fromEmail: string,
+  fromName: string,
   toEmail: string,
   replyToName: string,
   replyToEmail: string,
   subject: string,
   textBody: string,
   htmlBody: string,
+  timeoutMs: number,
 ): Promise<Response> {
-  const apiUrl = sanitizeValue(env.MAILCHANNELS_API_URL, 400) || DEFAULT_MAILCHANNELS_URL;
-  const fromEmail = sanitizeValue(env.CONTACT_FORM_FROM_EMAIL, 160) || DEFAULT_FROM_EMAIL;
-  const fromName = sanitizeValue(env.CONTACT_FORM_FROM_NAME, 160) || DEFAULT_FROM_NAME;
-
-  return fetch(apiUrl, {
+  return fetchWithTimeout(
+    apiUrl,
+    {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -177,7 +222,80 @@ async function sendViaMailchannels(
         { type: 'text/html', value: htmlBody },
       ],
     }),
-  });
+    },
+    timeoutMs,
+  );
+}
+
+async function sendViaResend(
+  apiUrl: string,
+  apiKey: string,
+  fromEmail: string,
+  fromName: string,
+  toEmail: string,
+  replyToName: string,
+  replyToEmail: string,
+  subject: string,
+  textBody: string,
+  htmlBody: string,
+  timeoutMs: number,
+): Promise<Response> {
+  return fetchWithTimeout(
+    apiUrl,
+    {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${apiKey}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        from: formatMailboxAddress(fromEmail, fromName),
+        to: [toEmail],
+        subject,
+        text: textBody,
+        html: htmlBody,
+        reply_to: formatMailboxAddress(replyToEmail, replyToName || replyToEmail),
+      }),
+    },
+    timeoutMs,
+  );
+}
+
+function describeEndpoint(apiUrl: string): string {
+  try {
+    const url = new URL(apiUrl);
+    return `${url.origin}${url.pathname}`;
+  } catch {
+    return apiUrl;
+  }
+}
+
+function getMailchannelsEndpoints(env: Env): string[] {
+  const customUrl = sanitizeValue(env.MAILCHANNELS_API_URL, 400);
+
+  if (!customUrl || customUrl === DEFAULT_MAILCHANNELS_URL) {
+    return [DEFAULT_MAILCHANNELS_URL];
+  }
+
+  return [customUrl, DEFAULT_MAILCHANNELS_URL];
+}
+
+function getResendEndpoint(env: Env): string {
+  return sanitizeValue(env.RESEND_API_URL, 400) || DEFAULT_RESEND_URL;
+}
+
+function resolveDeliveryMode(env: Env): ContactDeliveryMode {
+  const configuredMode = sanitizeValue(env.CONTACT_FORM_DELIVERY_MODE, 40).toLowerCase();
+
+  if (configuredMode === 'log' || configuredMode === 'mailchannels' || configuredMode === 'resend') {
+    return configuredMode;
+  }
+
+  if (sanitizeValue(env.RESEND_API_KEY, 400)) {
+    return 'resend';
+  }
+
+  return 'mailchannels';
 }
 
 export async function onRequestPost(context: any): Promise<Response> {
@@ -207,10 +325,13 @@ export async function onRequestPost(context: any): Promise<Response> {
   }
 
   const toEmail = sanitizeValue(env.CONTACT_FORM_TO_EMAIL, 160) || CONTACT_EMAIL;
+  const fromEmail = sanitizeValue(env.CONTACT_FORM_FROM_EMAIL, 160) || DEFAULT_FROM_EMAIL;
+  const fromName = sanitizeValue(env.CONTACT_FORM_FROM_NAME, 160) || DEFAULT_FROM_NAME;
   const subject = buildSubject(payload, name);
   const textBody = buildTextBody(payload, request, name, email, message);
   const htmlBody = buildHtmlBody(payload, request, name, email, message);
-  const deliveryMode = sanitizeValue(env.CONTACT_FORM_DELIVERY_MODE, 40).toLowerCase() || 'mailchannels';
+  const deliveryMode = resolveDeliveryMode(env);
+  const requestTimeoutMs = parseTimeoutMs(env.CONTACT_FORM_REQUEST_TIMEOUT_MS);
 
   if (deliveryMode === 'log') {
     console.log('Contact form submission', {
@@ -221,32 +342,116 @@ export async function onRequestPost(context: any): Promise<Response> {
     return jsonResponse({ success: true, mode: 'log' });
   }
 
-  try {
-    const response = await sendViaMailchannels(
-      env,
-      toEmail,
-      name,
-      email,
-      subject,
-      textBody,
-      htmlBody,
+  if (deliveryMode === 'resend' && !sanitizeValue(env.RESEND_API_KEY, 400)) {
+    console.error('Contact form delivery misconfigured: RESEND_API_KEY is missing');
+    return jsonResponse(
+      { success: false, error: 'We could not send your message right now. Please try again shortly.' },
+      {
+        status: 500,
+        headers: {
+          'X-Contact-Delivery-Failed': 'resend-misconfigured',
+        },
+      },
     );
+  }
 
-    if (!response.ok) {
+  try {
+    if (deliveryMode === 'resend') {
+      const apiUrl = getResendEndpoint(env);
+      const response = await sendViaResend(
+        apiUrl,
+        sanitizeValue(env.RESEND_API_KEY, 400),
+        fromEmail,
+        fromName,
+        toEmail,
+        name,
+        email,
+        subject,
+        textBody,
+        htmlBody,
+        requestTimeoutMs,
+      );
+
+      if (response.ok) {
+        return jsonResponse({ success: true });
+      }
+
       const errorText = await response.text();
-      console.error('Contact form delivery failed', response.status, errorText);
+      console.error(
+        'Contact form delivery failed',
+        'resend',
+        describeEndpoint(apiUrl),
+        response.status,
+        errorText,
+      );
+
       return jsonResponse(
         { success: false, error: 'We could not send your message right now. Please try again shortly.' },
-        { status: 502 },
+        {
+          status: 502,
+          headers: {
+            'X-Contact-Delivery-Failed': 'resend',
+          },
+        },
       );
     }
 
-    return jsonResponse({ success: true });
-  } catch (error) {
-    console.error('Contact form request failed', error);
+    const endpoints = getMailchannelsEndpoints(env);
+    let lastErrorText = '';
+
+    for (const apiUrl of endpoints) {
+      const response = await sendViaMailchannels(
+        apiUrl,
+        fromEmail,
+        fromName,
+        toEmail,
+        name,
+        email,
+        subject,
+        textBody,
+        htmlBody,
+        requestTimeoutMs,
+      );
+
+      if (response.ok) {
+        return jsonResponse({ success: true });
+      }
+
+      lastErrorText = await response.text();
+      console.error(
+        'Contact form delivery failed',
+        'mailchannels',
+        describeEndpoint(apiUrl),
+        response.status,
+        lastErrorText,
+      );
+    }
+
     return jsonResponse(
       { success: false, error: 'We could not send your message right now. Please try again shortly.' },
-      { status: 500 },
+      {
+        status: 502,
+        headers: lastErrorText
+          ? {
+              'X-Contact-Delivery-Failed': 'mailchannels',
+            }
+          : undefined,
+      },
+    );
+  } catch (error) {
+    console.error(
+      'Contact form request failed',
+      deliveryMode,
+      isAbortError(error) ? `timeout after ${requestTimeoutMs}ms` : error,
+    );
+    return jsonResponse(
+      { success: false, error: 'We could not send your message right now. Please try again shortly.' },
+      {
+        status: 500,
+        headers: {
+          'X-Contact-Delivery-Failed': isAbortError(error) ? `${deliveryMode}-timeout` : deliveryMode,
+        },
+      },
     );
   }
 }
