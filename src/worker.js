@@ -510,6 +510,10 @@ export default {
 
     // Serve images from R2
     if (pathname.startsWith('/r2/')) {
+      if (!env.R2_BUCKET) {
+        return new Response('R2 image binding is not configured for this worker', { status: 503 });
+      }
+
       const key = pathname.slice(4); // Remove '/r2/' prefix
       
       try {
