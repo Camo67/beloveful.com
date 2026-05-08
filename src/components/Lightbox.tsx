@@ -4,7 +4,7 @@ import { SlideshowImage } from "@/lib/data";
 import { getImageAltText } from "@/lib/images";
 import { useImageProtection } from "@/hooks/use-image-protection";
 import { Link } from "react-router-dom";
-import { CmsImage } from "@/components/CmsImage";
+import { CmsImage } from "@/components/CmsImage.tsx";
 
 interface LightboxProps {
   images: SlideshowImage[];

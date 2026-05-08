@@ -3,7 +3,7 @@ import FooterStrip from "@/components/FooterStrip";
 import PageContainer from "@/components/PageContainer";
 import { debugImageProcessing } from "@/lib/images";
 import printlabData from "@/lib/printlab.json";
-import { CmsImage } from "@/components/CmsImage";
+import { CmsImage } from "@/components/CmsImage.tsx";
 import { useEffect, useMemo, useState } from "react";
 import { useLocation } from "react-router-dom";
 import StripeCheckout from "@/components/StripeCheckout";

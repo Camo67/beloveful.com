@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useWorkshopImages } from "@/hooks/use-workshop-images";
-import { CmsImage } from "@/components/CmsImage";
+import { CmsImage } from "@/components/CmsImage.tsx";
 import WorkshopPageCta from "@/components/WorkshopPageCta";
 
 export default function Mentorship() {

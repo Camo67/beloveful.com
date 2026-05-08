@@ -11,7 +11,7 @@ import { getAlbumImageStableKey } from "@/lib/album-image-utils";
 import { getImageAltText } from "@/lib/images";
 import { useImageProtection } from "@/hooks/use-image-protection";
 import { Lightbox } from "./Lightbox";
-import { CmsImage } from "@/components/CmsImage";
+import { CmsImage } from "@/components/CmsImage.tsx";
 
 interface GalleryProps {
   images: SlideshowImage[];

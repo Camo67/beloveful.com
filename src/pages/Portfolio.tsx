@@ -5,7 +5,7 @@ import FooterStrip from "@/components/FooterStrip";
 import PageContainer from "@/components/PageContainer";
 import { REGIONS, type Region, type SlideshowImage } from "@/lib/data";
 import { useAlbums } from "@/hooks/use-albums";
-import { CmsImage } from "@/components/CmsImage";
+import { CmsImage } from "@/components/CmsImage.tsx";
 import LeafletWorldMap from "@/components/LeafletWorldMap";
 import { generateMapMarkers } from "@/lib/map-markers";
 import { finalizeTravelPortfolioImages } from "@/lib/album-image-utils";

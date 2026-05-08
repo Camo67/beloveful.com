@@ -1,6 +1,6 @@
 import React from "react";
 import { useImages } from "@/hooks/useImages";
-import { CmsImage } from "@/components/CmsImage";
+import { CmsImage } from "@/components/CmsImage.tsx";
 
 // Define interface for images
 interface ImageItem {

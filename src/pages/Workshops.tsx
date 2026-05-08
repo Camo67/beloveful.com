@@ -5,7 +5,7 @@ import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { workshopImages } from "@/lib/workshop-data";
-import { CmsImage } from "@/components/CmsImage";
+import { CmsImage } from "@/components/CmsImage.tsx";
 
 export default function Workshops() {
   const workshopData = [

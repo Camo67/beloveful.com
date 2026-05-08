@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import { CmsImage } from '@/components/CmsImage';
+import { CmsImage } from '@/components/CmsImage.tsx';
 
 export type Episode = {
   title: string;

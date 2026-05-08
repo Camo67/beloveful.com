@@ -4,7 +4,7 @@ import FooterStrip from "@/components/FooterStrip";
 import PageContainer from "@/components/PageContainer";
 import { useSearchParams } from "react-router-dom";
 import { SocialIcons } from "@/components/SocialIcons";
-import { CmsImage } from "@/components/CmsImage";
+import { CmsImage } from "@/components/CmsImage.tsx";
 import {
   CONTACT_EMAIL,
   CONTACT_EMAIL_HREF,
