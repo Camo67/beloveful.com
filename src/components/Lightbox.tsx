@@ -4,7 +4,7 @@ import { SlideshowImage } from "@/lib/data";
 import { getImageAltText } from "@/lib/images";
 import { useImageProtection } from "@/hooks/use-image-protection";
 import { Link } from "react-router-dom";
-import { CloudImage } from "@/components/CloudImage";
+import { CmsImage } from "@/components/CmsImage";
 
 interface LightboxProps {
   images: SlideshowImage[];
@@ -26,7 +26,7 @@ interface LightboxProps {
 export function Lightbox({ images, currentIndex, onClose, onNavigate, country, getCtaHref, ctaLabel = "Would you like this as a print?" }: LightboxProps) {
   const currentImage = images[currentIndex];
   const currentCtaHref = getCtaHref?.(currentImage);
-  
+
   // Enable comprehensive image protection
   const { protectElement } = useImageProtection();
 
@@ -59,16 +59,16 @@ export function Lightbox({ images, currentIndex, onClose, onNavigate, country, g
   }, [currentIndex, images.length, onClose, onNavigate]);
 
   return (
-    <div 
-      className="lightbox-overlay no-screenshot" 
+    <div
+      className="lightbox-overlay no-screenshot"
       onClick={onClose}
       onContextMenu={(e) => {
         e.preventDefault();
         return false;
       }}
     >
-      <div 
-        className="lightbox-content protected-container" 
+      <div
+        className="lightbox-content protected-container"
         onClick={(e) => e.stopPropagation()}
         onContextMenu={(e) => {
           e.preventDefault();
@@ -118,7 +118,7 @@ export function Lightbox({ images, currentIndex, onClose, onNavigate, country, g
             </button>
           )}
 
-          <CloudImage
+          <CmsImage
             url={currentImage.desktop}
             alt={getImageAltText(currentImage.desktop, country)}
             className="max-w-full object-contain image-protected"
@@ -163,9 +163,9 @@ export function Lightbox({ images, currentIndex, onClose, onNavigate, country, g
               }
             }}
           />
-          
+
           {/* Invisible overlay to catch any interaction attempts */}
-          <div 
+          <div
             className="absolute inset-0 z-10"
             style={{
               background: 'transparent',

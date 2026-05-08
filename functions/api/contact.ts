@@ -31,7 +31,7 @@ const DEFAULT_MAILCHANNELS_URL = 'https://api.mailchannels.net/tx/v1/send';
 const DEFAULT_RESEND_URL = 'https://api.resend.com/emails';
 const DEFAULT_REQUEST_TIMEOUT_MS = 10000;
 
-type ContactDeliveryMode = 'mailchannels' | 'resend' | 'log';
+type ContactDeliveryMode = 'mailchannels' | 'resend' | 'php_mailer' | 'log';
 
 function jsonResponse(payload: unknown, init: ResponseInit = {}): Response {
   return new Response(JSON.stringify(payload), {
@@ -261,6 +261,25 @@ async function sendViaResend(
   );
 }
 
+async function sendViaPhpMailer(
+  payload: ContactRequestBody,
+  timeoutMs: number,
+): Promise<Response> {
+  const bluehostUrl = 'https://beloveful.com/api/public/contact';
+  
+  return fetchWithTimeout(
+    bluehostUrl,
+    {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(payload),
+    },
+    timeoutMs,
+  );
+}
+
 function describeEndpoint(apiUrl: string): string {
   try {
     const url = new URL(apiUrl);
@@ -287,7 +306,7 @@ function getResendEndpoint(env: Env): string {
 function resolveDeliveryMode(env: Env): ContactDeliveryMode {
   const configuredMode = sanitizeValue(env.CONTACT_FORM_DELIVERY_MODE, 40).toLowerCase();
 
-  if (configuredMode === 'log' || configuredMode === 'mailchannels' || configuredMode === 'resend') {
+  if (configuredMode === 'log' || configuredMode === 'mailchannels' || configuredMode === 'resend' || configuredMode === 'php_mailer') {
     return configuredMode;
   }
 
@@ -295,7 +314,7 @@ function resolveDeliveryMode(env: Env): ContactDeliveryMode {
     return 'resend';
   }
 
-  return 'mailchannels';
+  return 'php_mailer';
 }
 
 export async function onRequestPost(context: any): Promise<Response> {
@@ -356,6 +375,33 @@ export async function onRequestPost(context: any): Promise<Response> {
   }
 
   try {
+    if (deliveryMode === 'php_mailer') {
+      const response = await sendViaPhpMailer(payload, requestTimeoutMs);
+
+      if (response.ok) {
+        return jsonResponse({ success: true, mode: 'php_mailer' });
+      }
+
+      const errorText = await response.text();
+      console.error(
+        'Contact form delivery failed',
+        'php_mailer',
+        'Bluehost API',
+        response.status,
+        errorText,
+      );
+
+      return jsonResponse(
+        { success: false, error: 'We could not send your message right now. Please try again shortly.' },
+        {
+          status: 502,
+          headers: {
+            'X-Contact-Delivery-Failed': 'php_mailer',
+          },
+        },
+      );
+    }
+
     if (deliveryMode === 'resend') {
       const apiUrl = getResendEndpoint(env);
       const response = await sendViaResend(

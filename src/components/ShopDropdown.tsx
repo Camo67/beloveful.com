@@ -40,21 +40,20 @@ export default function ShopDropdown({ variant = "auto" }: ShopDropdownProps) {
         >
           <Link
             role="menuitem"
-            to="/open-edition"
+            to="/print-shop#open"
             className="block px-4 py-3 text-black dark:text-white hover:bg-gray-100 dark:hover:bg-neutral-800 transition-colors"
             onClick={() => setOpen(false)}
           >
             Open Edition
           </Link>
-          <a
+          <Link
             role="menuitem"
-            href="https://www.printinnovationlab.com/collections/beloveful"
-            target="_blank"
-            rel="noopener noreferrer"
+            to="/print-shop#limited"
             className="block px-4 py-3 text-black dark:text-white hover:bg-gray-100 dark:hover:bg-neutral-800 transition-colors"
+            onClick={() => setOpen(false)}
           >
             Limited Edition
-          </a>
+          </Link>
         </div>
       )}
     </div>

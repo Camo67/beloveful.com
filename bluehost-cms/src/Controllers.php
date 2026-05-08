@@ -1605,6 +1605,158 @@ final class PublicController extends BaseController
 
         return $this->ok(['settings' => $mapped]);
     }
+
+    public function contact(HttpRequest $request, array $params = []): array
+    {
+        $payload = $this->body($request);
+        
+        // Honeypot check
+        if (!empty($payload['website'])) {
+            return $this->ok(['success' => true]);
+        }
+
+        $name = trim((string) ($payload['name'] ?? ''));
+        $email = trim((string) ($payload['email'] ?? ''));
+        $message = trim((string) ($payload['message'] ?? ''));
+
+        if ($name === '' || $email === '' || $message === '') {
+            throw new HttpError(422, 'Name, email, and message are required.');
+        }
+
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            throw new HttpError(422, 'Invalid email address.');
+        }
+
+        $to = (string) $this->config->get('contact.to_email', 'tony@beloveful.com');
+        $subject = (string) ($payload['subject'] ?? 'Website Inquiry from ' . $name);
+        
+        $bodyParts = [
+            "Name: " . $name,
+            "Email: " . $email,
+            "Date: " . date('Y-m-d H:i:s'),
+            "Source: " . ($payload['source'] ?? 'General Contact'),
+        ];
+
+        if (!empty($payload['workshop'])) $bodyParts[] = "Workshop: " . $payload['workshop'];
+        if (!empty($payload['image'])) $bodyParts[] = "Image: " . $payload['image'];
+        if (!empty($payload['country'])) $bodyParts[] = "Country: " . $payload['country'];
+        if (!empty($payload['region'])) $bodyParts[] = "Region: " . $payload['region'];
+        
+        $bodyParts[] = "\nMessage:\n" . $message;
+        
+        $fullBody = implode("\n", $bodyParts);
+        
+        $headers = [
+            'From' => 'website@beloveful.com',
+            'Reply-To' => $email,
+            'X-Mailer' => 'PHP/' . phpversion()
+        ];
+
+        $headerString = "";
+        foreach ($headers as $key => $value) {
+            $headerString .= "{$key}: {$value}\r\n";
+        }
+
+        $success = @mail($to, $subject, $fullBody, $headerString);
+
+        if (!$success) {
+            throw new HttpError(500, 'Failed to send email. Please try again later or email ' . $to . ' directly.');
+        }
+
+    public function sync(HttpRequest $request, array $params = []): array
+    {
+        $mediaRoot = (string) $this->config->get('app.media_root');
+        $targetFolder = $mediaRoot . '/Website beloveful.com';
+
+        if (!is_dir($targetFolder)) {
+            return $this->ok(['albums' => [], 'message' => 'Library folder not found at ' . $targetFolder]);
+        }
+
+        $albums = [];
+        $slideshow = ['desktop' => [], 'mobile' => []];
+        $logos = [];
+
+        $regions = array_filter(scandir($targetFolder), fn($item) => $item[0] !== '.' && is_dir($targetFolder . '/' . $item));
+
+        foreach ($regions as $regionName) {
+            $regionPath = $targetFolder . '/' . $regionName;
+            
+            if ($regionName === 'Homepage') {
+                $desktopDir = $regionPath . '/Desktop Landscape';
+                $mobileDir = $regionPath . '/Mobile Portrait';
+                if (is_dir($desktopDir)) {
+                    $slideshow['desktop'] = array_values(array_filter(scandir($desktopDir), fn($f) => preg_match('/\.(jpe?g|png|webp|avif)$/i', $f)));
+                }
+                if (is_dir($mobileDir)) {
+                    $slideshow['mobile'] = array_values(array_filter(scandir($mobileDir), fn($f) => preg_match('/\.(jpe?g|png|webp|avif)$/i', $f)));
+                }
+                continue;
+            }
+
+            if ($regionName === 'Clients & Partners' || $regionName === 'Logo') {
+                $this->collectLogos($regionPath, $logos);
+                continue;
+            }
+
+            $countries = array_filter(scandir($regionPath), fn($item) => $item[0] !== '.' && is_dir($regionPath . '/' . $item));
+            
+            foreach ($countries as $countryName) {
+                $countryPath = $regionPath . '/' . $countryName;
+                $files = array_values(array_filter(scandir($countryPath), fn($f) => preg_match('/\.(jpe?g|png|webp|avif)$/i', $f)));
+                
+                if (empty($files)) continue;
+
+                $slug = normalize_slug($countryName);
+                $images = array_map(function($f) use ($regionName, $countryName) {
+                    $url = "/Website beloveful.com/" . rawurlencode($regionName) . "/" . rawurlencode($countryName) . "/" . rawurlencode($f);
+                    return ['desktop' => $url, 'mobile' => $url];
+                }, $files);
+
+                $albums[] = [
+                    'region' => $regionName,
+                    'country' => $countryName,
+                    'slug' => $slug,
+                    'images' => $images
+                ];
+            }
+            
+            $filesInRegion = array_values(array_filter(scandir($regionPath), fn($f) => preg_match('/\.(jpe?g|png|webp|avif)$/i', $f)));
+            if (!empty($filesInRegion)) {
+                $slug = normalize_slug($regionName);
+                $images = array_map(function($f) use ($regionName) {
+                    $url = "/Website beloveful.com/" . rawurlencode($regionName) . "/" . rawurlencode($f);
+                    return ['desktop' => $url, 'mobile' => $url];
+                }, $filesInRegion);
+
+                $albums[] = [
+                    'region' => $regionName,
+                    'country' => $regionName,
+                    'slug' => $slug,
+                    'images' => $images
+                ];
+            }
+        }
+
+        return $this->ok([
+            'albums' => $albums,
+            'slideshow' => $slideshow,
+            'logos' => $logos
+        ]);
+    }
+
+    private function collectLogos(string $path, array &$logos): void
+    {
+        $items = array_filter(scandir($path), fn($item) => $item[0] !== '.');
+        foreach ($items as $item) {
+            $fullPath = $path . '/' . $item;
+            if (is_dir($fullPath)) {
+                $this->collectLogos($fullPath, $logos);
+            } elseif (preg_match('/\.(jpe?g|png|webp|avif|svg)$/i', $item)) {
+                $relative = str_replace((string) $this->config->get('app.media_root'), '', $fullPath);
+                $logos[] = str_replace('\\', '/', $relative);
+            }
+        }
+    }
 }
 
 final class InternalController extends BaseController
@@ -1885,6 +2037,8 @@ final class CmsApiApplication
             ['GET', '#^/api/public/galleries/(?P<slug>[-a-zA-Z0-9_]+)$#', [$public, 'gallery']],
             ['GET', '#^/api/public/navigation$#', [$public, 'navigation']],
             ['GET', '#^/api/public/settings/site$#', [$public, 'siteSettings']],
+            ['GET', '#^/api/public/sync$#', [$public, 'sync']],
+            ['POST', '#^/api/public/contact$#', [$public, 'contact']],
 
             ['POST', '#^/api/internal/workflow-runs/(?P<id>\d+)/heartbeat$#', [$internal, 'workflowHeartbeat']],
             ['POST', '#^/api/internal/workflow-runs/(?P<id>\d+)/complete$#', [$internal, 'workflowComplete']],

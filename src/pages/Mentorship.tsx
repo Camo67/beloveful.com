@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useWorkshopImages } from "@/hooks/use-workshop-images";
-import { CloudImage } from "@/components/CloudImage";
+import { CmsImage } from "@/components/CmsImage";
 import WorkshopPageCta from "@/components/WorkshopPageCta";
 
 export default function Mentorship() {
@@ -32,7 +32,7 @@ export default function Mentorship() {
 
       {/* Hero Section */}
       <section className="relative h-96 md:h-[500px] overflow-hidden">
-        <CloudImage
+        <CmsImage
           url={heroImage.src}
           alt={heroImage.alt}
           className="w-full h-full object-cover"
@@ -95,7 +95,7 @@ export default function Mentorship() {
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
                   {data.mentorship.slice(1, 5).map((img, idx) => (
                     <div key={idx} className="aspect-[4/3] overflow-hidden rounded-lg">
-                      <CloudImage
+                      <CmsImage
                         url={img.src}
                         alt={img.alt}
                         className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"

@@ -11,58 +11,86 @@
   :root {
     /* Core Colors - Enhanced contrast and accessibility */
     --background: 0 0% 100%;
-    --foreground: 0 0% 5%;        /* Slightly softer than pure black for reading comfort */
-    
+    --foreground: 0 0% 5%;
+    /* Slightly softer than pure black for reading comfort */
+
     /* Neutral tones - Improved contrast ratios */
     --muted: 0 0% 96%;
-    --muted-foreground: 0 0% 35%; /* Darker for better readability (was 45%) */
-    --text-secondary: 0 0% 25%;   /* For secondary text that needs good contrast */
-    --text-tertiary: 0 0% 40%;    /* For captions and less important text */
-    
+    --muted-foreground: 0 0% 35%;
+    /* Darker for better readability (was 45%) */
+    --text-secondary: 0 0% 25%;
+    /* For secondary text that needs good contrast */
+    --text-tertiary: 0 0% 40%;
+    /* For captions and less important text */
+
     /* Overlay and borders - Enhanced visibility */
-    --border: 0 0% 88%;           /* Slightly more visible borders */
-    --border-strong: 0 0% 75%;    /* For separators that need more definition */
+    --border: 0 0% 88%;
+    /* Slightly more visible borders */
+    --border-strong: 0 0% 75%;
+    /* For separators that need more definition */
     --overlay: 0 0% 0%;
     --overlay-light: 0 0% 100%;
-    
+
     /* Focus and interaction states - More pronounced */
-    --ring: 0 0% 15%;             /* Slightly softer focus ring */
-    --hover: 0 0% 8%;             /* More noticeable hover state */
-    --accent-neutral: 222 13% 25%; /* Professional dark blue-gray for accents */
-    --accent-warm: 25 15% 25%;     /* Warm dark brown for variety */
-    
+    --ring: 0 0% 15%;
+    /* Slightly softer focus ring */
+    --hover: 0 0% 8%;
+    /* More noticeable hover state */
+    --accent-neutral: 222 13% 25%;
+    /* Professional dark blue-gray for accents */
+    --accent-warm: 25 15% 25%;
+    /* Warm dark brown for variety */
+
     /* Radius */
     --radius: 0rem;
-    
+
     /* Typography scale - Enhanced for readability */
-    --font-size-xs: 0.875rem;    /* 14px - increased from 12px */
-    --font-size-sm: 1rem;        /* 16px - increased from 14px */
-    --font-size-base: 1.125rem;  /* 18px - increased from 16px */
-    --font-size-lg: 1.25rem;     /* 20px - increased from 18px */
-    --font-size-xl: 1.375rem;    /* 22px - increased from 20px */
-    --font-size-2xl: 1.625rem;   /* 26px - increased from 24px */
-    --font-size-3xl: 2rem;       /* 32px - increased from 30px */
-    --font-size-4xl: 2.5rem;     /* 40px - increased from 36px */
-    --font-size-5xl: 3.25rem;    /* 52px - increased from 48px */
-    
+    --font-size-xs: 0.875rem;
+    /* 14px - increased from 12px */
+    --font-size-sm: 1rem;
+    /* 16px - increased from 14px */
+    --font-size-base: 1.125rem;
+    /* 18px - increased from 16px */
+    --font-size-lg: 1.25rem;
+    /* 20px - increased from 18px */
+    --font-size-xl: 1.375rem;
+    /* 22px - increased from 20px */
+    --font-size-2xl: 1.625rem;
+    /* 26px - increased from 24px */
+    --font-size-3xl: 2rem;
+    /* 32px - increased from 30px */
+    --font-size-4xl: 2.5rem;
+    /* 40px - increased from 36px */
+    --font-size-5xl: 3.25rem;
+    /* 52px - increased from 48px */
+
     /* Semantic typography tokens - Enhanced readability */
-    --fs-title: clamp(2.5rem, 4vw, 3.5rem);        /* 40–56px enhanced range */
-    --fs-body-reading: 1.125rem;                    /* 18px minimum for body text */
-    --fs-body-interactive: 1rem;                    /* 16px minimum for UI elements */
-    --fs-caption: 0.9375rem;                       /* 15px for captions */
-    --fs-faq: 1.1875rem;                          /* 19px for FAQ content */
-    
+    --fs-title: clamp(2.5rem, 4vw, 3.5rem);
+    /* 40–56px enhanced range */
+    --fs-body-reading: 1.125rem;
+    /* 18px minimum for body text */
+    --fs-body-interactive: 1rem;
+    /* 16px minimum for UI elements */
+    --fs-caption: 0.9375rem;
+    /* 15px for captions */
+    --fs-faq: 1.1875rem;
+    /* 19px for FAQ content */
+
     /* Line-height tokens - Enhanced for readability */
-    --lh-title: 1.2;                              /* Tighter for headings */
-    --lh-body: 1.7;                               /* More generous for reading */
-    --lh-caption: 1.5;                            /* Improved caption spacing */
-    --lh-faq: 1.75;                               /* Extra generous for FAQ */
-    
+    --lh-title: 1.2;
+    /* Tighter for headings */
+    --lh-body: 1.7;
+    /* More generous for reading */
+    --lh-caption: 1.5;
+    /* Improved caption spacing */
+    --lh-faq: 1.75;
+    /* Extra generous for FAQ */
+
     /* Animations */
     --transition-fast: 0.15s ease-out;
     --transition-normal: 0.3s ease-out;
     --transition-slow: 0.5s ease-out;
-    
+
     /* Ken Burns animation duration */
     --slideshow-duration: 8s;
     --slideshow-transition: 1.5s;
@@ -70,8 +98,10 @@
 
   /* Dark theme tokens */
   .dark {
-    --background: 0 0% 5%;        /* near-black */
-    --foreground: 0 0% 98%;       /* near-white text */
+    --background: 0 0% 5%;
+    /* near-black */
+    --foreground: 0 0% 98%;
+    /* near-white text */
     --muted: 0 0% 12%;
     --muted-foreground: 0 0% 70%;
     --text-secondary: 0 0% 85%;
@@ -80,29 +110,45 @@
     --border-strong: 0 0% 35%;
     --ring: 0 0% 85%;
     --hover: 0 0% 90%;
-    /* keep accent colors as-is for brand consistency */
+    
+    /* Tactical/Camo Theme Overrides */
+    --camo-bg: #0d0f0a;
+    --camo-accent: #7ec832;
+    --font-tactical: 'Share Tech Mono', monospace;
+    --font-display: 'Barlow Condensed', sans-serif;
   }
-  
+
   /* Mobile typography overrides - Enhanced for small screens */
   @media (max-width: 768px) {
     :root {
-      --fs-title: clamp(2rem, 8vw, 2.5rem);        /* 32–40px for mobile */
-      --fs-body-reading: 1.0625rem;                 /* 17px for mobile reading */
-      --fs-body-interactive: 1rem;                  /* 16px for mobile UI */
-      --fs-caption: 0.9375rem;                      /* 15px for mobile captions */
-      --fs-faq: 1.125rem;                          /* 18px for mobile FAQ */
-      --lh-body: 1.65;                             /* Adjusted for mobile */
-      --lh-faq: 1.7;                               /* Adjusted for mobile FAQ */
+      --fs-title: clamp(2rem, 8vw, 2.5rem);
+      /* 32–40px for mobile */
+      --fs-body-reading: 1.0625rem;
+      /* 17px for mobile reading */
+      --fs-body-interactive: 1rem;
+      /* 16px for mobile UI */
+      --fs-caption: 0.9375rem;
+      /* 15px for mobile captions */
+      --fs-faq: 1.125rem;
+      /* 18px for mobile FAQ */
+      --lh-body: 1.65;
+      /* Adjusted for mobile */
+      --lh-faq: 1.7;
+      /* Adjusted for mobile FAQ */
     }
   }
-  
+
   /* Extra small screens (4-inch phones) */
   @media (max-width: 375px) {
     :root {
-      --fs-title: clamp(1.75rem, 7vw, 2.25rem);    /* 28–36px for very small */
-      --fs-body-reading: 1rem;                      /* 16px minimum */
-      --fs-body-interactive: 0.9375rem;             /* 15px for very small UI */
-      --fs-faq: 1.0625rem;                         /* 17px for very small FAQ */
+      --fs-title: clamp(1.75rem, 7vw, 2.25rem);
+      /* 28–36px for very small */
+      --fs-body-reading: 1rem;
+      /* 16px minimum */
+      --fs-body-interactive: 0.9375rem;
+      /* 15px for very small UI */
+      --fs-faq: 1.0625rem;
+      /* 17px for very small FAQ */
     }
   }
 }
@@ -144,14 +190,14 @@
   *:focus-visible {
     @apply outline-none ring-2 ring-accent-neutral ring-offset-2 ring-offset-background;
   }
-  
+
   /* Skip to main content link for screen readers */
   .skip-link {
     @apply absolute -top-10 left-4 z-50 px-4 py-2 bg-accent-neutral text-white;
     @apply focus:top-4 transition-all duration-200;
     @apply text-ui font-semibold rounded focus-enhanced;
   }
-  
+
   /* High contrast mode support */
   @media (prefers-contrast: high) {
     :root {
@@ -170,45 +216,46 @@
 }
 
 @layer components {
+
   /* Navigation Links - Enhanced with better contrast and accessibility */
   .nav-link {
     @apply relative text-foreground transition-all duration-300 font-medium;
     @apply hover:text-accent-neutral dark:hover:text-white;
     @apply focus-visible:text-accent-neutral focus-visible:underline focus-visible:underline-offset-4;
   }
-  
+
   .nav-link.active {
     @apply text-foreground;
   }
-  
+
   .nav-link.active::after {
     content: '';
     @apply absolute -bottom-1 left-0 h-0.5 w-full bg-accent-neutral dark:bg-white rounded-full;
   }
-  
+
   /* Navigation bar styling with soft tints for visibility */
   .nav-bar {
     @apply border-b-0;
     background-color: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(8px);
   }
-  
+
   .dark .nav-bar {
     background-color: rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(8px);
   }
-  
+
   /* Enhanced dropdown styling */
   .dropdown-content {
     @apply bg-white dark:bg-neutral-900 backdrop-blur-sm;
     @apply border border-border shadow-md rounded-md;
     background-color: rgba(255, 255, 255, 0.96);
   }
-  
+
   .dark .dropdown-content {
     background-color: rgba(23, 23, 23, 0.98);
   }
-  
+
   /* Logo styles */
   .logo {
     @apply block;
@@ -216,21 +263,30 @@
 
   /* Responsive logo size caps (proportions locked via auto height/width) */
   .logo-size {
-    max-width: 180px; /* mobile default 140–180 */
+    max-width: 180px;
+    /* mobile default 140–180 */
     background: transparent;
   }
-  
+
   .logo-size img {
     background: transparent;
     mix-blend-mode: normal;
   }
+
   @media (max-width: 360px) {
-    .logo-size { max-width: 120px; }
+    .logo-size {
+      max-width: 120px;
+    }
   }
+
   @media (min-width: 768px) {
-    .logo-size { max-width: 240px; } /* desktop 220–260 */
+    .logo-size {
+      max-width: 240px;
+    }
+
+    /* desktop 220–260 */
   }
-  
+
   /* Image protection */
   .image-protected {
     @apply select-none;
@@ -239,36 +295,36 @@
     -moz-user-drag: none;
     -o-user-drag: none;
     user-drag: none;
-  /* allow pointer events so taps/clicks can be handled by parent controls */
-  pointer-events: auto;
-    
+    /* allow pointer events so taps/clicks can be handled by parent controls */
+    pointer-events: auto;
+
     /* Prevent text selection */
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    
+
     /* Prevent context menu */
     -webkit-touch-callout: none;
     -webkit-tap-highlight-color: transparent;
-    
+
     /* Prevent drag and drop */
     -webkit-user-drag: none;
     -khtml-user-drag: none;
     -moz-user-drag: none;
     -ms-user-drag: none;
     user-drag: none;
-    
+
     /* Prevent image saving on mobile */
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -khtml-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
-    
+
     /* Avoid disabling native touch behavior which can block clicks on mobile */
   }
-  
+
   .image-overlay {
     @apply absolute inset-0 z-10 cursor-pointer;
     /* Do NOT intercept clicks/taps — allow header/nav to remain interactive */
@@ -279,13 +335,13 @@
     user-select: none;
     -webkit-touch-callout: none;
   }
-  
+
   /* Prevent screenshot and dev tools access */
   .protected-container {
     position: relative;
     overflow: hidden;
   }
-  
+
   .protected-container::before {
     content: '';
     position: absolute;
@@ -297,7 +353,7 @@
     z-index: 1;
     background: transparent;
   }
-  
+
   /* Additional global protection styles */
   .no-screenshot {
     -webkit-user-select: none;
@@ -307,7 +363,7 @@
     -webkit-touch-callout: none;
     -webkit-tap-highlight-color: transparent;
   }
-  
+
   /* Subtle protection indicator */
   .protected-container:hover::after {
     content: attr(data-protection-hint);
@@ -324,14 +380,14 @@
     z-index: 100;
     transition: opacity 0.2s ease;
   }
-  
+
   /* Prevent image outline on focus */
   .image-protected:focus,
   .image-protected:active {
     outline: none !important;
     border: none !important;
   }
-  
+
   /* Additional mobile protection */
   @media (max-width: 768px) {
     .protected-container {
@@ -350,14 +406,14 @@
       /* do not set touch-action here (leave it to browser) */
     }
   }
-  
+
   /* Enhanced Gallery grid with mobile optimization */
   .gallery-grid {
     @apply grid gap-2 md:gap-4;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     align-items: start;
   }
-  
+
   /* Mobile-specific gallery adjustments */
   @media (max-width: 768px) {
     .gallery-grid {
@@ -365,7 +421,7 @@
       @apply gap-3;
     }
   }
-  
+
   /* Extra small mobile screens */
   @media (max-width: 375px) {
     .gallery-grid {
@@ -373,7 +429,7 @@
       @apply gap-4;
     }
   }
-  
+
   /* Homepage body override - black background for seamless transitions */
   body:has(.homepage-slideshow) {
     background-color: #000000 !important;
@@ -385,30 +441,33 @@
     -webkit-backdrop-filter: none !important;
     background-color: transparent !important;
   }
+
   body:has(.homepage-slideshow) .dropdown-content {
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
   }
-  
+
   /* Slideshow */
   .slideshow-container {
     @apply relative w-full h-screen overflow-hidden;
     background: #000000;
   }
-  
+
   .slideshow-slide {
     @apply absolute inset-0 w-full h-full;
     opacity: 0;
     transition: opacity 1500ms ease-in-out;
-    z-index: 0; /* keep slideshow beneath header/nav */
+    z-index: 0;
+    /* keep slideshow beneath header/nav */
   }
-  
+
   .slideshow-slide.active {
     opacity: 1;
-    z-index: 10; /* active slide above other slides but still below header/nav */
+    z-index: 10;
+    /* active slide above other slides but still below header/nav */
     position: relative;
   }
-  
+
   .slideshow-image {
     @apply w-full h-full object-cover;
     animation: kenBurns var(--slideshow-duration, 12s) ease-in-out infinite alternate;
@@ -416,39 +475,41 @@
     transform: translateZ(0);
     will-change: transform;
   }
-  
+
   /* Ken Burns effect */
   @keyframes kenBurns {
     0% {
       transform: scale(1) translateX(0) translateY(0);
     }
+
     100% {
       transform: scale(1.08) translateX(-2%) translateY(-1%);
     }
   }
-  
+
   @keyframes kenBurnsReverse {
     0% {
       transform: scale(1.08) translateX(2%) translateY(1%);
     }
+
     100% {
       transform: scale(1) translateX(0) translateY(0);
     }
   }
-  
+
   .slideshow-slide:nth-child(even) .slideshow-image {
     animation: kenBurnsReverse var(--slideshow-duration) ease-in-out infinite alternate;
   }
-  
+
   /* Lightbox */
   .lightbox-overlay {
     @apply fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-95;
   }
-  
+
   .lightbox-content {
     @apply relative flex max-w-full max-h-full flex-col items-center justify-center px-4 pt-16 pb-6;
   }
-  
+
   /* Enhanced Button styles with better accessibility */
   .btn-primary {
     @apply inline-flex items-center justify-center px-6 py-3.5 font-semibold text-white;
@@ -459,7 +520,7 @@
     font-size: var(--fs-body-interactive);
     line-height: var(--lh-body);
   }
-  
+
   .btn-secondary {
     @apply inline-flex items-center justify-center px-6 py-3.5 font-semibold;
     @apply text-accent-neutral bg-transparent border-2 border-accent-neutral;
@@ -470,43 +531,44 @@
     font-size: var(--fs-body-interactive);
     line-height: var(--lh-body);
   }
-  
+
   /* Card and content styling */
   .content-card {
     @apply bg-transparent dark:bg-transparent rounded-none shadow-none border-0;
     @apply p-4 md:p-5 transition-all duration-300;
   }
-  
+
   /* Enhanced mobile drawer with better accessibility */
   .mobile-drawer {
     @apply fixed inset-y-0 right-0 z-50 w-full max-w-sm bg-white dark:bg-neutral-950;
     @apply shadow-2xl transform transition-transform duration-300 ease-in-out;
     @apply border-l border-border;
   }
-  
+
   .mobile-drawer.closed {
     @apply translate-x-full pointer-events-none;
   }
-  
+
   .mobile-drawer.open {
     @apply translate-x-0;
   }
-  
+
   /* Mobile-specific touch target sizes (minimum 44px) */
   @media (max-width: 768px) {
+
     .mobile-drawer button,
     .mobile-drawer a {
       @apply min-h-11 py-3;
     }
-    
+
     .clickable-area {
       @apply min-h-11;
     }
-    
+
     .nav-link {
       @apply min-h-11 flex items-center;
     }
-    
+
     /* Larger tap targets for small screens */
     .btn-primary,
     .btn-secondary {
@@ -516,103 +578,105 @@
 }
 
 @layer utilities {
+
   /* Enhanced Typography Utilities */
   .text-title {
     font-size: var(--fs-title);
     line-height: var(--lh-title);
     @apply font-light text-foreground;
   }
-  
+
   .text-body {
     font-size: var(--fs-body-reading);
     line-height: var(--lh-body);
     @apply text-foreground;
   }
-  
+
   .text-ui {
     font-size: var(--fs-body-interactive);
     line-height: var(--lh-body);
     @apply text-foreground;
   }
-  
+
   .text-caption {
     font-size: var(--fs-caption);
     line-height: var(--lh-caption);
     @apply text-text-tertiary;
   }
-  
+
   .text-faq {
     font-size: var(--fs-faq);
     line-height: var(--lh-faq);
     @apply text-foreground;
   }
-  
+
   .text-secondary-content {
     @apply text-text-secondary;
   }
-  
+
   .text-tertiary-content {
     @apply text-text-tertiary;
   }
-  
+
   /* Enhanced heading utilities */
   .heading-1 {
     font-size: var(--fs-title);
     line-height: var(--lh-title);
     @apply font-light text-foreground;
   }
-  
+
   .heading-2 {
     font-size: clamp(1.75rem, 3vw, 2.25rem);
     line-height: var(--lh-title);
     @apply font-medium text-foreground;
   }
-  
+
   .heading-3 {
     font-size: clamp(1.375rem, 2.5vw, 1.75rem);
     line-height: var(--lh-title);
     @apply font-semibold text-foreground;
   }
-  
+
   /* Image responsiveness */
   .img-responsive {
     @apply w-full h-auto object-cover max-w-full;
   }
-  
+
   .img-hero {
     @apply w-full h-auto object-cover;
     max-width: 100%;
     height: auto;
   }
-  
+
   /* Focus and accessibility improvements */
   .focus-enhanced {
     @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-neutral/50 focus-visible:ring-offset-2;
   }
-  
+
   .clickable-area {
     @apply cursor-pointer transition-all duration-300;
     @apply hover:scale-[1.02] active:scale-[0.98];
     @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-neutral/50;
   }
-  
+
   /* Reduced motion support */
   @media (prefers-reduced-motion: reduce) {
+
     .slideshow-image,
     .slideshow-slide:nth-child(even) .slideshow-image {
       animation: none !important;
     }
-    
+
     * {
       animation-duration: 0.01ms !important;
       animation-iteration-count: 1 !important;
       transition-duration: 0.01ms !important;
     }
-    
+
     .clickable-area {
       @apply hover:scale-100 active:scale-100;
     }
-    
+
     .btn-primary,
     .btn-secondary {
       @apply hover:scale-100 active:scale-100;
@@ -621,22 +685,22 @@
 }
 
 /* globals.css */
-.app-header { 
-  position: sticky; 
-  top: 0; 
-  z-index: 1000; 
+.app-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
-.drawer-backdrop { 
-  z-index: 40; 
+.drawer-backdrop {
+  z-index: 40;
 }
 
-.drawer-panel { 
-  z-index: 50; 
+.drawer-panel {
+  z-index: 50;
 }
 
-.mobile-map { 
-  z-index: 30; 
+.mobile-map {
+  z-index: 30;
 }
 
 /* Map container styles */
@@ -657,7 +721,7 @@
   justify-content: center;
   font-weight: bold;
   cursor: pointer;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   z-index: 100;
 }
 

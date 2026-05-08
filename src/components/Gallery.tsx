@@ -11,7 +11,7 @@ import { getAlbumImageStableKey } from "@/lib/album-image-utils";
 import { getImageAltText } from "@/lib/images";
 import { useImageProtection } from "@/hooks/use-image-protection";
 import { Lightbox } from "./Lightbox";
-import { CloudImage } from "@/components/CloudImage";
+import { CmsImage } from "@/components/CmsImage";
 
 interface GalleryProps {
   images: SlideshowImage[];
@@ -196,9 +196,9 @@ export function Gallery({
                 setHoveredTile((current) => (current?.key === imageKey ? null : current));
               }}
             >
-                <button
-                  type="button"
-                  onClick={() => setLightboxIndex(index)}
+              <button
+                type="button"
+                onClick={() => setLightboxIndex(index)}
                 className="block w-full cursor-zoom-in border-0 bg-transparent p-0 text-left focus-visible:outline-none"
                 style={{
                   border: "none",
@@ -210,7 +210,7 @@ export function Gallery({
                 }}
                 aria-label={`View ${altText} in lightbox`}
               >
-                <CloudImage
+                <CmsImage
                   url={image.desktop}
                   alt={altText}
                   className="w-full select-none"
@@ -257,31 +257,31 @@ export function Gallery({
           country={country}
           {...(enablePrintCta
             ? {
-                getCtaHref: (image: SlideshowImage) => {
-                  const filename = (() => {
-                    try {
-                      const url = new URL(image.desktop);
-                      const last = url.pathname.split("/").pop() ?? "";
-                      return last.split(".")[0];
-                    } catch {
-                      const parts = image.desktop.split("/");
-                      const last = parts[parts.length - 1] ?? "";
-                      return last.split(".")[0];
-                    }
-                  })();
-                  const subject = `Print inquiry: ${country}${region ? ` (${region})` : ""} - ${filename}`;
-                  const params = new URLSearchParams({
-                    image: image.desktop,
-                    source: "portfolio",
-                    region: region ?? "",
-                    country,
-                    variant: "print",
-                    subject,
-                  });
-                  return `/contact?${params.toString()}`;
-                },
-                ctaLabel,
-              }
+              getCtaHref: (image: SlideshowImage) => {
+                const filename = (() => {
+                  try {
+                    const url = new URL(image.desktop);
+                    const last = url.pathname.split("/").pop() ?? "";
+                    return last.split(".")[0];
+                  } catch {
+                    const parts = image.desktop.split("/");
+                    const last = parts[parts.length - 1] ?? "";
+                    return last.split(".")[0];
+                  }
+                })();
+                const subject = `Print inquiry: ${country}${region ? ` (${region})` : ""} - ${filename}`;
+                const params = new URLSearchParams({
+                  image: image.desktop,
+                  source: "portfolio",
+                  region: region ?? "",
+                  country,
+                  variant: "print",
+                  subject,
+                });
+                return `/contact?${params.toString()}`;
+              },
+              ctaLabel,
+            }
             : {})}
         />
       )}

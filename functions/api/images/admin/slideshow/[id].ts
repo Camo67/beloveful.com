@@ -38,7 +38,7 @@ export async function onRequestPut(context: any): Promise<Response> {
       return jsonResponse({ success: false, error: 'Invalid JSON body' }, { status: 400 });
     }
 
-    const allowedFields = new Set(['title', 'desktop_url', 'mobile_url', 'sort_order', 'is_active']);
+    const allowedFields = new Set(['title', 'desktop_url', 'mobile_url', 'cloudinary_public_id', 'sort_order', 'is_active']);
     const fields: string[] = [];
     const values: any[] = [];
 

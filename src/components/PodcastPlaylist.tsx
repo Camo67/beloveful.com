@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
+import { CmsImage } from '@/components/CmsImage';
 
 export type Episode = {
   title: string;
@@ -73,7 +74,7 @@ export default function PodcastPlaylist() {
         <div className="rounded-lg border border-gray-200 dark:border-gray-700 p-4 bg-white dark:bg-gray-900">
           <div className="flex items-start gap-4">
             {current.image ? (
-              <CloudImage 
+              <CmsImage 
                 url={current.image} 
                 alt="Episode" 
                 className="w-24 h-24 object-cover rounded-md" 

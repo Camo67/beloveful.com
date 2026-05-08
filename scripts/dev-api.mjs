@@ -23,6 +23,7 @@ const child = spawn(
   {
     stdio: "inherit",
     env: process.env,
+    shell: true,
   },
 );
 

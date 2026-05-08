@@ -6,7 +6,7 @@ import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useWorkshopImages } from "@/hooks/use-workshop-images";
 import { CORE_WORKSHOP_TOPICS } from "@/lib/workshop-content";
-import { CloudImage } from "@/components/CloudImage";
+import { CmsImage } from "@/components/CmsImage";
 import WorkshopPageCta from "@/components/WorkshopPageCta";
 
 export default function WorkshopChicagoPrivate() {
@@ -32,7 +32,7 @@ export default function WorkshopChicagoPrivate() {
 
       {/* Hero Section */}
       <section className="relative h-96 md:h-[500px] overflow-hidden">
-        <CloudImage
+        <CmsImage
           url={heroImage.src}
           alt={heroImage.alt}
           className="w-full h-full object-cover"
@@ -91,7 +91,7 @@ export default function WorkshopChicagoPrivate() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {data.chicagoPrivate.slice(0, 4).map((image, index) => (
                     <div key={index} className="rounded-lg overflow-hidden shadow-lg">
-                      <CloudImage
+                      <CmsImage
                         url={image.src}
                         alt={image.alt}
                         className="w-full h-64 object-cover"

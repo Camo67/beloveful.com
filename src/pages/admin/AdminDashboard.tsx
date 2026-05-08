@@ -9,6 +9,8 @@ import {
   FileText, 
   Palette, 
   TrendingUp,
+  Activity,
+  Plus
 } from 'lucide-react';
 
 interface DashboardStats {

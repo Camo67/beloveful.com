@@ -5,7 +5,7 @@ import FooterStrip from "@/components/FooterStrip";
 import PageContainer from "@/components/PageContainer";
 import { REGIONS, type Region, type SlideshowImage } from "@/lib/data";
 import { useAlbums } from "@/hooks/use-albums";
-import { CloudImage } from "@/components/CloudImage";
+import { CmsImage } from "@/components/CmsImage";
 import LeafletWorldMap from "@/components/LeafletWorldMap";
 import { generateMapMarkers } from "@/lib/map-markers";
 import { finalizeTravelPortfolioImages } from "@/lib/album-image-utils";
@@ -58,7 +58,7 @@ function TravelPortfolioPreviewImage({
   const currentImage = images[candidateIndex];
 
   return (
-    <CloudImage
+    <CmsImage
       url={currentImage?.desktop ?? ""}
       fallbackSrc={TRAVEL_PORTFOLIO_PREVIEW_PLACEHOLDER}
       alt={alt}

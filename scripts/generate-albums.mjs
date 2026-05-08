@@ -78,11 +78,21 @@ async function main() {
   const baseFsDir = path.join(PUBLIC_DIR, websiteFolder);
   const baseUrl = `/${encodeURIComponent(websiteFolder)}`;
 
+  // Load public-html-assets index as fallback
+  const fallbackIndexPath = path.join(ROOT, 'src', 'lib', 'public-html-assets', 'index.json');
+  let fallbackIndex = null;
+  if (await exists(fallbackIndexPath)) {
+    fallbackIndex = JSON.parse(await fs.readFile(fallbackIndexPath, 'utf8'));
+  }
+
   const top = await listDir(baseFsDir);
 
   const albums = [];
   let slideshowDesktop = [];
   let slideshowMobile = [];
+
+  // Group by region to handle merge
+  const albumsBySlug = new Map();
 
   for (const entry of top) {
     if (!entry.isDir) continue;
@@ -97,15 +107,11 @@ async function main() {
     }
 
     const region = REGION_MAP.get(entry.name);
-    if (!region) {
-      // Unknown top-level folder; skip
-      continue;
-    }
+    if (!region) continue;
 
     const regionDir = path.join(baseFsDir, entry.name);
     const regionChildren = await listDir(regionDir);
 
-    // Country subfolders
     for (const child of regionChildren) {
       if (!child.isDir) continue;
       const countryDir = path.join(regionDir, child.name);
@@ -114,17 +120,15 @@ async function main() {
 
       const countryLabel = child.name;
       const slug = toSlug(countryLabel);
-
       const images = files.map(f => {
         const url = `${baseUrl}/${encodeSegments(entry.name, child.name, f)}`;
         return { desktop: url, mobile: url };
       });
 
-      albums.push({ region, country: countryLabel, slug, images });
+      albumsBySlug.set(slug, { region, country: countryLabel, slug, images });
     }
 
-    // If region folder itself contains images (no country subfolders)
-    const filesAtRegion = (await collectImages(regionDir));
+    const filesAtRegion = await collectImages(regionDir);
     if (filesAtRegion.length > 0) {
       const countryLabel = entry.name;
       const slug = toSlug(countryLabel);
@@ -132,11 +136,43 @@ async function main() {
         const url = `${baseUrl}/${encodeSegments(entry.name, f)}`;
         return { desktop: url, mobile: url };
       });
-      albums.push({ region, country: countryLabel, slug, images });
+      albumsBySlug.set(slug, { region, country: countryLabel, slug, images });
     }
   }
 
-  // Pair slideshow desktop/mobile by index, fallback to same if one side missing
+  // Merge from fallbackIndex for missing countries (like California)
+  if (fallbackIndex && fallbackIndex.folders) {
+    for (const f of fallbackIndex.folders) {
+      if (f.type !== 'country') continue;
+      const slug = toSlug(f.country);
+      if (!albumsBySlug.has(slug)) {
+        console.log(`ℹ️ Adding missing country from fallback: ${f.country} (${f.region})`);
+        const urlsPath = path.join(ROOT, 'src', 'lib', f.assetsPath);
+        if (await exists(urlsPath)) {
+          const remoteUrls = JSON.parse(await fs.readFile(urlsPath, 'utf8'));
+          const images = remoteUrls.map(u => {
+            // Convert remote URL or use local convention if we want to try serving it locally
+            // Given the user wants Bluehost/cPanel, we can use the local convention /Website beloveful.com/...
+            // because image-utils.ts will handle the mapping if we set up CDN mapping, 
+            // OR we can just use the provided URL.
+            // Using the local convention is safer for the app's internal logic.
+            const url = `/${encodeURIComponent(websiteFolder)}/${encodeSegments(f.region, f.country, u.filename)}`;
+            return { desktop: url, mobile: url };
+          });
+          albumsBySlug.set(slug, { 
+            region: REGION_MAP.get(f.region) || f.region, 
+            country: f.country, 
+            slug, 
+            images 
+          });
+        }
+      }
+    }
+  }
+
+  const finalAlbums = Array.from(albumsBySlug.values()).sort((a, b) => a.country.localeCompare(b.country));
+
+  // Pair slideshow desktop/mobile
   const slideshow = [];
   const n = Math.max(slideshowDesktop.length, slideshowMobile.length);
   for (let i = 0; i < n; i++) {
@@ -148,13 +184,12 @@ async function main() {
     slideshow.push({ desktop: desktopUrl, mobile: mobileUrl });
   }
 
-  // Collect clients & partners logos if present
+  // Collect clients & partners logos
   const clientsDir = path.join(baseFsDir, 'Clients & Partners');
   let clientLogos = [];
   if (await exists(clientsDir)) {
     const clientFiles = await collectImages(clientsDir);
     clientLogos = clientFiles.map(f => `${baseUrl}/${encodeSegments('Clients & Partners', f)}`);
-    // Also look one level deep for organization-specific folders
     const clientChildren = await listDir(clientsDir);
     for (const c of clientChildren) {
       if (!c.isDir) continue;
@@ -168,14 +203,14 @@ async function main() {
 
   const outPath = path.join(ROOT, 'src', 'lib', 'generatedAlbums.ts');
   const header = `// AUTO-GENERATED FILE. Do not edit by hand.\n` +
-`// Generated from public/${websiteFolder}/Website beloveful.com\n`;
+`// Generated from public/${websiteFolder} and fallback metadata\n`;
   const body = `import type { CountryAlbum, SlideshowImage } from './data';\n\n` +
-`export const GENERATED_ALBUMS: CountryAlbum[] = ${JSON.stringify(albums, null, 2)} as any;\n\n` +
+`export const GENERATED_ALBUMS: CountryAlbum[] = ${JSON.stringify(finalAlbums, null, 2)} as any;\n\n` +
 `export const GENERATED_HOME_SLIDESHOW: SlideshowImage[] = ${JSON.stringify(slideshow, null, 2)} as any;\n\n` +
 `export const GENERATED_CLIENT_LOGOS: string[] = ${JSON.stringify(clientLogos, null, 2)} as any;\n`;
 
   await fs.writeFile(outPath, header + body, 'utf8');
-  console.log(`Wrote ${outPath} with ${albums.length} albums, ${slideshow.length} slideshow images, and ${clientLogos.length} client logos.`);
+  console.log(`Wrote ${outPath} with ${finalAlbums.length} albums, ${slideshow.length} slideshow images, and ${clientLogos.length} client logos.`);
 }
 
 main().catch(err => {

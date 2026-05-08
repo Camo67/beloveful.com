@@ -7,7 +7,7 @@ import { config as loadEnv } from "dotenv";
 loadLocalEnvFiles();
 
 const isWin = process.platform === "win32";
-const npmCmd = isWin ? "npm.cmd" : "npm";
+const npmCmd = isWin ? "pnpm.cmd" : "pnpm";
 const defaultApiPort = parsePort(process.env.DEV_API_PORT, 8787);
 const apiPort = await resolveApiPort(defaultApiPort);
 
@@ -23,6 +23,7 @@ function spawnNpm(scriptName) {
   return spawn(npmCmd, ["run", scriptName], {
     stdio: "inherit",
     env: process.env,
+    shell: true,
   });
 }
 

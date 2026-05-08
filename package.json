@@ -51,7 +51,8 @@
     "travel:audit": "node scripts/audit-travel-portfolio.mjs",
     "images:serve": "node server/images.cjs",
     "workshop:generate": "node scripts/generate-workshop-images-json.js",
-    "events:auto-add": "node scripts/auto-add-events.mjs"
+    "events:auto-add": "node scripts/auto-add-events.mjs",
+    "sync": "node scripts/download-library.mjs"
   },
   "dependencies": {
     "@cloudflare/kv-asset-handler": "^0.4.0",

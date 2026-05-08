@@ -2,6 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import { ALBUMS, type CountryAlbum, type Region } from '@/lib/data'; // Data from prefix-mapped.json
 import { normalizeAlbumSlug, sameAlbumSlug } from '@/lib/album-slugs';
 import { dedupeAlbumImages, type AlbumImageCandidate } from '@/lib/album-image-utils';
+import { mapToCdnUrl } from '@/lib/image-utils';
 
 type ApiAlbumSummary = {
   id: number;
@@ -19,12 +20,16 @@ type AlbumCandidate = Omit<CountryAlbum, 'images' | 'region'> & {
   images: AlbumImageCandidate[];
 };
 
-async function fetchDbAlbumSummaries(): Promise<ApiAlbumSummary[]> {
-  const response = await fetch('/api/albums', { method: 'GET' });
-  if (!response.ok) return [];
+async function fetchDbAlbumSummaries(): Promise<{ albums: ApiAlbumSummary[]; slideshow?: any[]; logos?: string[] }> {
+  const response = await fetch('/api/public/albums', { method: 'GET' });
+  if (!response.ok) return { albums: [] };
   const data = await response.json();
-  if (!data?.success || !Array.isArray(data.albums)) return [];
-  return data.albums as ApiAlbumSummary[];
+  if (!data?.success) return { albums: [] };
+  return {
+    albums: (data.albums || []) as ApiAlbumSummary[],
+    slideshow: data.slideshow,
+    logos: data.logos
+  };
 }
 
 function normalizeAlbumRecord(album: AlbumCandidate | CountryAlbum): CountryAlbum {
@@ -45,22 +50,29 @@ export const useAlbums = () => {
         // Pull DB-provided albums that have images (for new uploads / dynamic additions).
         let dbAlbums: AlbumCandidate[] = [];
         try {
-          const summaries = await fetchDbAlbumSummaries();
+          const { albums: summaries } = await fetchDbAlbumSummaries();
           dbAlbums = summaries
-            .filter((a) => a && a.slug && a.image_count > 0)
-            .map((a) => ({
-              region: a.region as Region,
-              country: a.country,
-              slug: normalizeAlbumSlug(a.slug || a.country),
-              title: a.country,
-              description: a.description || undefined,
-              images: [
+            .filter((a) => a && (a.slug || a.country) && (a.image_count > 0 || (a as any).images?.length > 0))
+            .map((a: any) => {
+              const rawImages = a.images || [
                 {
                   desktop: a.cover_desktop_url || a.cover_mobile_url || '',
                   mobile: a.cover_mobile_url || a.cover_desktop_url || '',
                 },
-              ].filter((img) => !!img.desktop || !!img.mobile),
-            }))
+              ].filter((img: any) => !!img.desktop || !!img.mobile);
+
+              return {
+                region: a.region as Region,
+                country: a.country,
+                slug: normalizeAlbumSlug(a.slug || a.country),
+                title: a.country,
+                description: a.description || undefined,
+                images: rawImages.map((img: any) => ({
+                  desktop: mapToCdnUrl(img.desktop) || img.desktop,
+                  mobile: mapToCdnUrl(img.mobile) || img.mobile,
+                })),
+              };
+            })
             .filter((a) => a.images.length > 0);
         } catch {
           // ignore DB failures and fall back to static only
@@ -101,7 +113,7 @@ export const useAlbums = () => {
         return ALBUMS.map(normalizeAlbumRecord);
       }
     },
-    staleTime: 1000 * 60 * 60, // 1 hour
+    staleTime: 1000 * 60 * 60 * 24, // 24 hours
     retry: 1,
   });
 };
@@ -123,7 +135,7 @@ export const useAlbum = (region: string, country: string) => {
       // Try DB album (may include new uploads).
       let dbAlbum: any | null = null;
       try {
-        const response = await fetch(`/api/albums/${encodeURIComponent(requestedSlug)}`, { method: 'GET' });
+        const response = await fetch(`/api/public/albums/${encodeURIComponent(requestedSlug)}`, { method: 'GET' });
         if (response.ok) {
           const data = await response.json();
           if (data?.success && data?.album) {
@@ -156,7 +168,7 @@ export const useAlbum = (region: string, country: string) => {
         ]),
       };
     },
-    staleTime: 1000 * 60 * 5, // Refetch periodically so backend image-path fixes propagate
+    staleTime: 1000 * 60 * 60 * 24, // 24 hours
     retry: 1,
   });
 };

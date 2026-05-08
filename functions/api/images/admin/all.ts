@@ -104,13 +104,13 @@ export async function onRequestPost(context: any): Promise<Response> {
       )
       VALUES (?, ?, ?, ?, ?, ?, ?, ?)
     `).bind(
-      album_id || null, 
+      album_id || 0, // Ensure we have a valid integer for NOT NULL constraint if possible, but 0 might not be a valid album.
       title || null, 
       description || null, 
       desktop_url, 
       mobile_url, 
       cloudinary_public_id || null, 
-      is_published, 
+      is_published ? 1 : 0, 
       sort_order
     ).run();
     

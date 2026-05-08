@@ -5,7 +5,7 @@ import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { workshopImages } from "@/lib/workshop-data";
-import { CloudImage } from "@/components/CloudImage";
+import { CmsImage } from "@/components/CmsImage";
 
 export default function Workshops() {
   const workshopData = [
@@ -72,7 +72,7 @@ export default function Workshops() {
                 <Card key={workshop.id} className="overflow-hidden">
                   <div className="relative h-64">
                     {workshop.image && (
-                      <CloudImage
+                      <CmsImage
                         url={workshop.image.src}
                         alt={workshop.image.alt || workshop.title}
                         className="w-full h-full object-cover"

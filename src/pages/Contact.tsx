@@ -4,7 +4,7 @@ import FooterStrip from "@/components/FooterStrip";
 import PageContainer from "@/components/PageContainer";
 import { useSearchParams } from "react-router-dom";
 import { SocialIcons } from "@/components/SocialIcons";
-import { CloudImage } from "@/components/CloudImage";
+import { CmsImage } from "@/components/CmsImage";
 import {
   CONTACT_EMAIL,
   CONTACT_EMAIL_HREF,
@@ -78,7 +78,7 @@ export default function Contact() {
     setSubmitState(null);
 
     try {
-      const response = await fetch("/api/contact", {
+      const response = await fetch("/api/public/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -157,7 +157,7 @@ export default function Contact() {
               onContextMenu={(e) => e.preventDefault()}
               draggable={false}
             >
-              <CloudImage
+              <CmsImage
                 url={decodeURIComponent(image)}
                 alt="Requested print preview"
                 className="absolute inset-0 object-cover w-full h-full"

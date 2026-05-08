@@ -97,13 +97,17 @@ export function fixImageUrl(url: string): string {
     const decodedUrl = decodeURIComponent(fixedUrl);
     
     // Then parse it as a URL to normalize it
-    const urlObj = new URL(decodedUrl);
+    // Then parse it as a URL to normalize it, using a placeholder for relative paths
+    const urlObj = new URL(decodedUrl, 'https://placeholder.local');
     
     // Re-encode only the necessary parts (path, query parameters)
     // This avoids over-encoding while ensuring proper formatting
-    const properlyEncodedUrl = urlObj.href;
+    // If it was relative, return it without the placeholder host
+    if (decodedUrl.startsWith('/') || !/^https?:\/\//i.test(decodedUrl)) {
+      return urlObj.pathname + urlObj.search + urlObj.hash;
+    }
     
-    return properlyEncodedUrl;
+    return urlObj.href;
   } catch (error) {
     console.warn('Failed to parse/fix URL, returning as-is:', url, error);
     return url; // Return original if we can't fix it
@@ -404,7 +408,10 @@ export function mapToCdnUrl(originalUrl?: string | null): string | null {
       relativePath.startsWith(LOCAL_LIBRARY_PREFIX.replace(/^\/+/, '')) ||
       relativePath.startsWith('images/')
     ) {
-      return encodeSpaces(relativePath.startsWith('/') ? relativePath : `/${relativePath}`);
+      const isDev = runtimeEnv.VITE_DEV_MODE === 'true' || runtimeEnv.DEV;
+      const base = isDev ? '' : (runtimeEnv.VITE_CPANEL_IMAGES_BASE_URL || '');
+      const path = relativePath.startsWith('/') ? relativePath : `/${relativePath}`;
+      return encodeSpaces(`${base}${path}`);
     }
     const mapped = lookupCdnUrl(relativePath);
     if (mapped) return mapped;

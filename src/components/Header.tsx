@@ -114,10 +114,8 @@ export function Header({ variant, fullWidth = false, navStyle = "standard" }: He
         {/* Mobile Home Header */}
         <header className="md:hidden fixed z-50 bg-transparent inset-x-0 top-0">
           <div className="flex items-center justify-between h-16 px-4">
-            <div className="flex items-center">
-              <Link to="/" className="text-white">
-                <Logo variant="white" />
-              </Link>
+            <div className="flex items-center text-white">
+              <Logo variant="white" />
             </div>
             
             <button
@@ -231,10 +229,8 @@ export function Header({ variant, fullWidth = false, navStyle = "standard" }: He
         <div className="px-4 md:hidden bg-transparent">
           {/* Mobile header with menu button and logo */}
           <div className="flex items-center justify-between h-16">
-            <div className="flex items-center">
-              <Link to="/" className="text-black dark:text-white">
-                <Logo variant="auto" />
-              </Link>
+            <div className="flex items-center text-black dark:text-white">
+              <Logo variant="auto" />
             </div>
             
             <button

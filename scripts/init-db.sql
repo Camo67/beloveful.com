@@ -19,6 +19,8 @@ CREATE TABLE IF NOT EXISTS albums (
   country TEXT NOT NULL,
   slug TEXT UNIQUE NOT NULL,
   description TEXT,
+  cover_desktop_url TEXT,
+  cover_mobile_url TEXT,
   is_published BOOLEAN DEFAULT 1,
   sort_order INTEGER DEFAULT 0,
   created_at DATETIME DEFAULT CURRENT_TIMESTAMP,

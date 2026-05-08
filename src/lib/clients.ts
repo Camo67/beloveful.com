@@ -1,22 +1,22 @@
 import { createProxiedImageUrl } from "./images";
 
 const RAW_CLIENT_LOGOS = [
-  "/images/clients/Crowneplaza4.png",
-  "/images/clients/Flickr_logo.png",
-  "/images/clients/Hard_Rock_Hotel.svg",
-  "/images/clients/Netflix_Logo_RGB.png",
-  "/images/clients/TED.jpg",
-  "/images/clients/Time_Magazine_logo.svg.png",
-  "/images/clients/benq.png",
-  "/images/clients/breaks-chicago.jpg",
-  "/images/clients/egypt.png",
-  "/images/clients/kissclipart-navy-pier-logo-clipart-chicago-shakespeare-theater-e550ac399dac0a24.jpg",
-  "/images/clients/logo.png",
-  "/images/clients/mediakit_branding_1.jpg",
-  "/images/clients/national-geographic-logo-vector-768x768.png",
-  "/images/clients/pngegg.png",
-  "/images/clients/pngegg (1).png",
-  "/images/clients/pngegg (2).png",
+  "/Website beloveful.com/clients/Crowneplaza4.png",
+  "/Website beloveful.com/clients/Flickr_logo.png",
+  "/Website beloveful.com/clients/Hard_Rock_Hotel.svg",
+  "/Website beloveful.com/clients/Netflix_Logo_RGB.png",
+  "/Website beloveful.com/clients/TED.jpg",
+  "/Website beloveful.com/clients/Time_Magazine_logo.svg.png",
+  "/Website beloveful.com/clients/benq.png",
+  "/Website beloveful.com/clients/breaks-chicago.jpg",
+  "/Website beloveful.com/clients/egypt.png",
+  "/Website beloveful.com/clients/kissclipart-navy-pier-logo-clipart-chicago-shakespeare-theater-e550ac399dac0a24.jpg",
+  "/Website beloveful.com/clients/logo.png",
+  "/Website beloveful.com/clients/mediakit_branding_1.jpg",
+  "/Website beloveful.com/clients/national-geographic-logo-vector-768x768.png",
+  "/Website beloveful.com/clients/pngegg.png",
+  "/Website beloveful.com/clients/pngegg (1).png",
+  "/Website beloveful.com/clients/pngegg (2).png",
 ] as const;
 
 const CURATED_CLIENT_LOGOS = RAW_CLIENT_LOGOS.map((url) => createProxiedImageUrl(url));

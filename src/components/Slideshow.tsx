@@ -160,6 +160,13 @@ export function Slideshow(): JSX.Element | null {
                   setFirstImageLoaded(true);
                 }
               }}
+              onError={(e) => {
+                const img = e.currentTarget;
+                if (img.src.includes('placeholder')) return; // Avoid infinite loops
+                console.warn(`Slideshow image failed to load: ${slide.desktop}`);
+                // Try to use a very reliable fallback if possible, or just hide the broken slide
+                img.style.display = 'none';
+              }}
             />
           </picture>
         </div>

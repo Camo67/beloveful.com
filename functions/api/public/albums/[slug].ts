@@ -11,31 +11,30 @@ export async function onRequestGet(context: any): Promise<Response> {
   const slug = normalizeAlbumSlug(params.slug);
   
   try {
-    // Get album and its images
-    let album = await db.prepare(`
-      SELECT a.*, COUNT(i.id) as image_count
-      FROM albums a
-      LEFT JOIN images i ON a.id = i.album_id AND i.is_published = 1
-      WHERE a.slug = ? AND a.is_published = 1
-      GROUP BY a.id
-    `).bind(slug).first();
-
-    if (!album) {
-      const fallbackAlbums = await db.prepare(`
-        SELECT a.*, COUNT(i.id) as image_count
-        FROM albums a
-        LEFT JOIN images i ON a.id = i.album_id AND i.is_published = 1
-        WHERE a.is_published = 1
-        GROUP BY a.id
-      `).all();
-
-      album =
-        (fallbackAlbums.results || []).find((candidate: any) =>
-          normalizeAlbumSlug(candidate?.slug || candidate?.country) === slug,
-        ) || null;
+    // 1. Fetch dynamic filesystem data from Bluehost
+    let dynamicData: any = { albums: [] };
+    try {
+      const bhResponse = await fetch('https://beloveful.com/api/public/sync', {
+        headers: { 'Accept': 'application/json' }
+      });
+      if (bhResponse.ok) {
+        dynamicData = await bhResponse.json();
+      }
+    } catch (e) {
+      console.error('Failed to fetch from Bluehost sync:', e);
     }
-    
-    if (!album) {
+
+    // 2. Find the album in dynamic data
+    const bhAlbum = (dynamicData.albums || []).find((a: any) => 
+      normalizeAlbumSlug(a.slug || a.country) === slug
+    );
+
+    // 3. Get metadata from D1
+    let dbAlbum = await db.prepare(`
+      SELECT * FROM albums WHERE slug = ? OR country = ?
+    `).bind(slug, slug).first();
+
+    if (!bhAlbum && !dbAlbum) {
       return new Response(JSON.stringify({
         success: false,
         error: 'Album not found'
@@ -44,27 +43,34 @@ export async function onRequestGet(context: any): Promise<Response> {
         headers: { 'Content-Type': 'application/json' }
       });
     }
-    
-    // Get images for this album
-    const images = await db.prepare(`
-      SELECT id, title, description, desktop_url, mobile_url, sort_order
-      FROM images 
-      WHERE album_id = ? AND is_published = 1
-      ORDER BY sort_order, created_at
-    `).bind(album.id).all();
+
+    // 4. Merge
+    const album = {
+      ...(bhAlbum || {}),
+      ...(dbAlbum || {}),
+      slug,
+      images: bhAlbum?.images || []
+    };
+
+    // If D1 has images and Bluehost doesn't (or we want to fallback), check D1 images
+    if (album.images.length === 0 && dbAlbum) {
+      const dbImages = await db.prepare(`
+        SELECT id, title, description, desktop_url, mobile_url, sort_order
+        FROM images 
+        WHERE album_id = ? AND is_published = 1
+        ORDER BY sort_order, created_at
+      `).bind(dbAlbum.id).all();
+      album.images = dbImages.results || [];
+    }
     
     return new Response(JSON.stringify({
       success: true,
-      album: {
-        ...album,
-        slug: normalizeAlbumSlug(album.slug || album.country),
-        images: images.results || []
-      }
+      album
     }), {
       status: 200,
       headers: { 
         'Content-Type': 'application/json',
-        'Cache-Control': 'public, max-age=300' // Cache for 5 minutes
+        'Cache-Control': 'public, max-age=3600'
       }
     });
     

@@ -1,6 +1,6 @@
 import React from "react";
 import { useImages } from "@/hooks/useImages";
-import { CloudImage } from "@/components/CloudImage";
+import { CmsImage } from "@/components/CmsImage";
 
 // Define interface for images
 interface ImageItem {
@@ -19,7 +19,7 @@ export const TravelPortfolio: React.FC = () => {
   return (
     <div className="travel-gallery">
       {travel.map((url: string, idx: number) => (
-        <CloudImage
+        <CmsImage
           key={url + idx}
           url={url}
           alt={`travel-${idx}`}
@@ -39,7 +39,7 @@ export const ProjectsSection: React.FC = () => {
     <div className="project-gallery">
       {projects.map((url: string, idx: number) => (
         <div key={url + idx} className="project-card">
-          <CloudImage url={url} alt={`project-${idx}`} loading="lazy" />
+          <CmsImage url={url} alt={`project-${idx}`} loading="lazy" />
           <p>{`Project ${idx + 1}`}</p>
         </div>
       ))}
@@ -54,7 +54,7 @@ export const LogosSection: React.FC = () => {
   return (
     <div className="logo-grid">
       {logos.map((url: string, idx: number) => (
-        <CloudImage key={url + idx} url={url} alt={`logo-${idx}`} loading="lazy" className="logo-image" />
+        <CmsImage key={url + idx} url={url} alt={`logo-${idx}`} loading="lazy" className="logo-image" />
       ))}
     </div>
   );
