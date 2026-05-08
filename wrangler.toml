@@ -17,12 +17,6 @@ zone_name = "beloveful.com"
 directory = "dist"
 binding = "ASSETS"
 
-# Database configuration
-[[d1_databases]]
-binding = "DB"
-database_name = "beloveful-cms"
-database_id = "5974f712-89ce-491f-baf7-37b7dcfa91cb"
-
 # Environment variables (set via wrangler secret put)
 # Required secrets:
 # - CLOUDINARY_CLOUD_NAME
