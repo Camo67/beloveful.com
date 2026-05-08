@@ -127,6 +127,106 @@ function createFunctionContext(request, env, params = {}) {
   return { request, env, params };
 }
 
+function normalizePrintInnovationProduct(product) {
+  const variants = Array.isArray(product.variants)
+    ? product.variants
+        .filter((variant) => variant && variant.available !== false)
+        .map((variant) => ({
+          id: variant.id,
+          title: variant.title || variant.option1 || 'Print',
+          price: Number.parseFloat(variant.price || '0'),
+          available: variant.available !== false,
+          checkoutUrl: `https://www.printinnovationlab.com/cart/${variant.id}:1?checkout`,
+        }))
+    : [];
+  const images = Array.isArray(product.images)
+    ? product.images.map((image) => image?.src).filter(Boolean)
+    : [];
+  const minPrice = variants.length
+    ? Math.min(...variants.map((variant) => variant.price).filter(Number.isFinite))
+    : 0;
+
+  return {
+    id: product.id,
+    title: product.title,
+    handle: product.handle,
+    description: product.body_html || '',
+    vendor: product.vendor || '',
+    tags: product.tags || [],
+    image: images[0] || '',
+    images,
+    minPrice,
+    variants,
+    productUrl: `https://www.printinnovationlab.com/products/${product.handle}`,
+    buyUrl: variants[0]?.checkoutUrl || `https://www.printinnovationlab.com/products/${product.handle}`,
+    updatedAt: product.updated_at || null,
+  };
+}
+
+async function handlePrintInnovationProducts() {
+  const sourceUrl = 'https://www.printinnovationlab.com/collections/beloveful/products.json?limit=250';
+
+  try {
+    const upstream = await fetch(sourceUrl, {
+      headers: {
+        Accept: 'application/json',
+        'User-Agent': 'Beloveful.com catalogue sync',
+      },
+      cf: {
+        cacheTtl: 900,
+        cacheEverything: true,
+      },
+    });
+
+    if (!upstream.ok) {
+      return new Response(
+        JSON.stringify({ error: 'Print Innovations catalogue unavailable' }),
+        {
+          status: 502,
+          headers: {
+            'Content-Type': 'application/json',
+            'Cache-Control': 'no-store',
+          },
+        }
+      );
+    }
+
+    const data = await upstream.json();
+    const products = Array.isArray(data.products)
+      ? data.products.map(normalizePrintInnovationProduct)
+      : [];
+
+    return new Response(
+      JSON.stringify({
+        source: 'printinnovationlab',
+        collection: 'beloveful',
+        count: products.length,
+        syncedAt: new Date().toISOString(),
+        products,
+      }),
+      {
+        headers: {
+          'Content-Type': 'application/json',
+          'Cache-Control': 'public, max-age=900, s-maxage=900',
+          'Access-Control-Allow-Origin': '*',
+        },
+      }
+    );
+  } catch (error) {
+    console.error('Print Innovations catalogue fetch failed', error);
+    return new Response(
+      JSON.stringify({ error: 'Print Innovations catalogue request failed' }),
+      {
+        status: 502,
+        headers: {
+          'Content-Type': 'application/json',
+          'Cache-Control': 'no-store',
+        },
+      }
+    );
+  }
+}
+
 async function dispatchFunctionRoute(request, env) {
   const url = new URL(request.url);
   const { pathname } = url;
@@ -255,6 +355,11 @@ async function dispatchFunctionRoute(request, env) {
 
   if (pathname === '/api/public/workshops') {
     if (method === 'GET') return publicWorkshopsGet(createFunctionContext(request, env));
+    return methodNotAllowed(['GET']);
+  }
+
+  if (pathname === '/api/print-innovation/products') {
+    if (method === 'GET') return handlePrintInnovationProducts();
     return methodNotAllowed(['GET']);
   }
 
