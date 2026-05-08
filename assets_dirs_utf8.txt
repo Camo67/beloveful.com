@@ -1,0 +1,48 @@
+﻿Z:\Camo\agent kyra\30_Projects\beloveful.com\beloveful-fix\src\lib\public-html-assets\Africa
+Z:\Camo\agent kyra\30_Projects\beloveful.com\beloveful-fix\src\lib\public-html-assets\Asia
+Z:\Camo\agent kyra\30_Projects\beloveful.com\beloveful-fix\src\lib\public-html-assets\Central America & Caribbean
+Z:\Camo\agent kyra\30_Projects\beloveful.com\beloveful-fix\src\lib\public-html-assets\clients
+Z:\Camo\agent kyra\30_Projects\beloveful.com\beloveful-fix\src\lib\public-html-assets\Clients & Partners
+Z:\Camo\agent kyra\30_Projects\beloveful.com\beloveful-fix\src\lib\public-html-assets\Erasing Borders
+Z:\Camo\agent kyra\30_Projects\beloveful.com\beloveful-fix\src\lib\public-html-assets\Europe & Scandinavia
+Z:\Camo\agent kyra\30_Projects\beloveful.com\beloveful-fix\src\lib\public-html-assets\Homepage
+Z:\Camo\agent kyra\30_Projects\beloveful.com\beloveful-fix\src\lib\public-html-assets\Logo
+Z:\Camo\agent kyra\30_Projects\beloveful.com\beloveful-fix\src\lib\public-html-assets\Middle East
+Z:\Camo\agent kyra\30_Projects\beloveful.com\beloveful-fix\src\lib\public-html-assets\North America
+Z:\Camo\agent kyra\30_Projects\beloveful.com\beloveful-fix\src\lib\public-html-assets\Oceania
+Z:\Camo\agent kyra\30_Projects\beloveful.com\beloveful-fix\src\lib\public-html-assets\Open Edition size 5x7
+Z:\Camo\agent kyra\30_Projects\beloveful.com\beloveful-fix\src\lib\public-html-assets\South America
+Z:\Camo\agent kyra\30_Projects\beloveful.com\beloveful-fix\src\lib\public-html-assets\Workshop Photos
+Z:\Camo\agent kyra\30_Projects\beloveful.com\beloveful-fix\src\lib\public-html-assets\Africa\Egypt
+Z:\Camo\agent kyra\30_Projects\beloveful.com\beloveful-fix\src\lib\public-html-assets\Africa\Ethiopia
+Z:\Camo\agent kyra\30_Projects\beloveful.com\beloveful-fix\src\lib\public-html-assets\Africa\Morocco
+Z:\Camo\agent kyra\30_Projects\beloveful.com\beloveful-fix\src\lib\public-html-assets\Africa\Namibia
+Z:\Camo\agent kyra\30_Projects\beloveful.com\beloveful-fix\src\lib\public-html-assets\Africa\South Africa
+Z:\Camo\agent kyra\30_Projects\beloveful.com\beloveful-fix\src\lib\public-html-assets\Asia\Hong Kong
+Z:\Camo\agent kyra\30_Projects\beloveful.com\beloveful-fix\src\lib\public-html-assets\Asia\India
+Z:\Camo\agent kyra\30_Projects\beloveful.com\beloveful-fix\src\lib\public-html-assets\Asia\Japan
+Z:\Camo\agent kyra\30_Projects\beloveful.com\beloveful-fix\src\lib\public-html-assets\Asia\Myanmar
+Z:\Camo\agent kyra\30_Projects\beloveful.com\beloveful-fix\src\lib\public-html-assets\Asia\Nepal
+Z:\Camo\agent kyra\30_Projects\beloveful.com\beloveful-fix\src\lib\public-html-assets\Asia\Phillippines
+Z:\Camo\agent kyra\30_Projects\beloveful.com\beloveful-fix\src\lib\public-html-assets\Asia\Thailand
+Z:\Camo\agent kyra\30_Projects\beloveful.com\beloveful-fix\src\lib\public-html-assets\Asia\Vietnam
+Z:\Camo\agent kyra\30_Projects\beloveful.com\beloveful-fix\src\lib\public-html-assets\Central America & Caribbean\Caribbean
+Z:\Camo\agent kyra\30_Projects\beloveful.com\beloveful-fix\src\lib\public-html-assets\Central America & Caribbean\Cuba
+Z:\Camo\agent kyra\30_Projects\beloveful.com\beloveful-fix\src\lib\public-html-assets\Central America & Caribbean\Mexico
+Z:\Camo\agent kyra\30_Projects\beloveful.com\beloveful-fix\src\lib\public-html-assets\Central America & Caribbean\Puerto Rico
+Z:\Camo\agent kyra\30_Projects\beloveful.com\beloveful-fix\src\lib\public-html-assets\Europe & Scandinavia\France
+Z:\Camo\agent kyra\30_Projects\beloveful.com\beloveful-fix\src\lib\public-html-assets\Europe & Scandinavia\Greece
+Z:\Camo\agent kyra\30_Projects\beloveful.com\beloveful-fix\src\lib\public-html-assets\Europe & Scandinavia\Italy
+Z:\Camo\agent kyra\30_Projects\beloveful.com\beloveful-fix\src\lib\public-html-assets\Europe & Scandinavia\Portugal
+Z:\Camo\agent kyra\30_Projects\beloveful.com\beloveful-fix\src\lib\public-html-assets\Europe & Scandinavia\Spain
+Z:\Camo\agent kyra\30_Projects\beloveful.com\beloveful-fix\src\lib\public-html-assets\Europe & Scandinavia\UK & Ireland
+Z:\Camo\agent kyra\30_Projects\beloveful.com\beloveful-fix\src\lib\public-html-assets\Homepage\Desktop Landscape
+Z:\Camo\agent kyra\30_Projects\beloveful.com\beloveful-fix\src\lib\public-html-assets\Homepage\Mobile Portrait
+Z:\Camo\agent kyra\30_Projects\beloveful.com\beloveful-fix\src\lib\public-html-assets\Logo\White
+Z:\Camo\agent kyra\30_Projects\beloveful.com\beloveful-fix\src\lib\public-html-assets\Middle East\Jordan
+Z:\Camo\agent kyra\30_Projects\beloveful.com\beloveful-fix\src\lib\public-html-assets\North America\California
+Z:\Camo\agent kyra\30_Projects\beloveful.com\beloveful-fix\src\lib\public-html-assets\North America\Chicago
+Z:\Camo\agent kyra\30_Projects\beloveful.com\beloveful-fix\src\lib\public-html-assets\North America\New York
+Z:\Camo\agent kyra\30_Projects\beloveful.com\beloveful-fix\src\lib\public-html-assets\Oceania\Australia
+Z:\Camo\agent kyra\30_Projects\beloveful.com\beloveful-fix\src\lib\public-html-assets\Open Edition size 5x7\Open Edition 5x7
+Z:\Camo\agent kyra\30_Projects\beloveful.com\beloveful-fix\src\lib\public-html-assets\South America\Argentina

@@ -28,9 +28,7 @@ const Admin = lazy(() => import("./pages/Admin").then(module => ({ default: modu
 const Debug = lazy(() => import("./pages/Debug"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const FAQ = lazy(() => import("./pages/FAQ"));
-const TestData = lazy(() => import("./pages/TestData"));
 const TestSimpleImages = lazy(() => import("./pages/TestSimpleImages"));
-const SimpleCloudinaryDemo = lazy(() => import("./pages/SimpleCloudinaryDemo"));
 const ComprehensiveImageDemo = lazy(() => import("./pages/ComprehensiveImageDemo"));
 const ImageGallery = lazy(() => import("./pages/ImageGallery"));
 const RegionPage = lazy(() => import("./pages/RegionPage"));
@@ -61,9 +59,7 @@ const App = () => (
           <Suspense fallback={<LoadingSpinner />}>
             <Routes>
               <Route path="/" element={<Index />} />
-              <Route path="/test-data" element={<TestData />} />
               <Route path="/test-simple-images" element={<TestSimpleImages />} />
-              <Route path="/simple-cloudinary-demo" element={<SimpleCloudinaryDemo />} />
               <Route path="/comprehensive-image-demo" element={<ComprehensiveImageDemo />} />
               <Route path="/gallery" element={<GalleryPage />} />
               <Route path="/gallery/:region" element={<RegionPage />} />
