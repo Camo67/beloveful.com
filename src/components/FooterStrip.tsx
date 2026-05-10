@@ -66,6 +66,13 @@ export default function FooterStrip() {
           >
             Privacy
           </Link>
+          <span className="text-xs text-neutral-400">â€¢</span>
+          <Link
+            to="/admin"
+            className="text-xs text-neutral-500 dark:text-neutral-400 hover:text-neutral-700 dark:hover:text-neutral-200 transition-colors underline-offset-2 hover:underline"
+          >
+            Admin
+          </Link>
         </div>
 
         <div className="flex items-center gap-3">

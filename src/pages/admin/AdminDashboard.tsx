@@ -10,7 +10,10 @@ import {
   Palette, 
   TrendingUp,
   Activity,
-  Plus
+  Plus,
+  Server,
+  AlertTriangle,
+  CheckCircle2
 } from 'lucide-react';
 
 interface DashboardStats {
@@ -20,6 +23,12 @@ interface DashboardStats {
   contentBlocks: number;
   publishedAlbums: number;
   publishedImages: number;
+}
+
+interface BackendStatus {
+  label: string;
+  ok: boolean;
+  detail: string;
 }
 
 export const AdminDashboard = () => {
@@ -33,10 +42,76 @@ export const AdminDashboard = () => {
   });
   const [loading, setLoading] = useState(true);
   const [isSeeding, setIsSeeding] = useState(false);
+  const [backendStatuses, setBackendStatuses] = useState<BackendStatus[]>([]);
+  const [statusLoading, setStatusLoading] = useState(true);
 
   useEffect(() => {
     fetchDashboardData();
+    fetchBackendStatus();
   }, []);
+
+  const readJson = async (response: Response) => {
+    const contentType = response.headers.get('Content-Type') || '';
+    if (!contentType.includes('application/json')) {
+      throw new Error(`Expected JSON, got ${contentType || 'unknown content type'}`);
+    }
+    return response.json();
+  };
+
+  const fetchBackendStatus = async () => {
+    const token = localStorage.getItem('admin_token');
+    const checks: BackendStatus[] = [];
+
+    const runCheck = async (
+      label: string,
+      request: RequestInfo | URL,
+      init?: RequestInit,
+      validate?: (data: any, response: Response) => string,
+    ) => {
+      try {
+        const response = await fetch(request, init);
+        const data = await readJson(response);
+        if (!response.ok) {
+          throw new Error(data?.error || `HTTP ${response.status}`);
+        }
+        checks.push({
+          label,
+          ok: true,
+          detail: validate ? validate(data, response) : 'Online',
+        });
+      } catch (error: any) {
+        checks.push({
+          label,
+          ok: false,
+          detail: error?.message || 'Unavailable',
+        });
+      }
+    };
+
+    try {
+      setStatusLoading(true);
+      await Promise.all([
+        runCheck('Worker health', '/api/health'),
+        runCheck('Admin setup', '/api/auth/setup', undefined, (data) =>
+          data?.needsSetup ? 'Setup required' : 'Admin account exists',
+        ),
+        runCheck('Print shop API', '/api/print-innovation/products', undefined, (data) =>
+          `${data?.count ?? 0} products synced`,
+        ),
+        token
+          ? runCheck(
+              'Admin database',
+              '/api/albums/admin/all',
+              { headers: { Authorization: `Bearer ${token}` } },
+              (data) => `${data?.albums?.length ?? 0} albums available`,
+            )
+          : Promise.resolve(),
+      ]);
+      setBackendStatuses(checks);
+    } finally {
+      setStatusLoading(false);
+    }
+  };
 
   const fetchDashboardData = async () => {
     try {
@@ -240,6 +315,52 @@ export const AdminDashboard = () => {
 
       {/* Quick Actions */}
       <div className="grid gap-6 md:grid-cols-2">
+        <Card>
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <Server className="h-5 w-5" />
+              Backend Status
+            </CardTitle>
+            <CardDescription>
+              Live checks for the APIs that power the admin console and shop
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-3">
+            {statusLoading ? (
+              <div className="space-y-3">
+                {[1, 2, 3].map((item) => (
+                  <div key={item} className="h-12 animate-pulse rounded-lg bg-gray-100" />
+                ))}
+              </div>
+            ) : (
+              backendStatuses.map((status) => {
+                const Icon = status.ok ? CheckCircle2 : AlertTriangle;
+                return (
+                  <div
+                    key={status.label}
+                    className="flex items-center justify-between gap-4 rounded-lg border p-3"
+                  >
+                    <div className="flex items-center gap-3">
+                      <Icon
+                        className={`h-5 w-5 ${
+                          status.ok ? 'text-green-600' : 'text-amber-600'
+                        }`}
+                      />
+                      <div>
+                        <p className="font-medium">{status.label}</p>
+                        <p className="text-sm text-muted-foreground">{status.detail}</p>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })
+            )}
+            <Button variant="outline" size="sm" onClick={fetchBackendStatus}>
+              Refresh Status
+            </Button>
+          </CardContent>
+        </Card>
+
         <Card>
           <CardHeader>
             <CardTitle>Quick Actions</CardTitle>
