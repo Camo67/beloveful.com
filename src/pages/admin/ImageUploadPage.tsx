@@ -88,7 +88,7 @@ export const ImageUploadPage = () => {
     <div className="space-y-6">
       {/* Header */}
       <div className="flex items-center gap-4">
-        <Link to="/admin/images">
+        <Link to="/adminlogin/images">
           <Button variant="outline" size="sm">
             <ArrowLeft className="mr-2 h-4 w-4" />
             Back to Images
@@ -127,7 +127,7 @@ export const ImageUploadPage = () => {
           </TabsList>
 
           <TabsContent value="local-upload">
-            <ImageUpload albums={albums} onUploadComplete={() => navigate('/admin/images')} />
+            <ImageUpload albums={albums} onUploadComplete={() => navigate('/adminlogin/images')} />
           </TabsContent>
 
           <TabsContent value="cpanel-paths">

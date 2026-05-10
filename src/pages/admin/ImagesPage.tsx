@@ -108,7 +108,7 @@ export const ImagesPage = () => {
             Manage your photography images and metadata
           </p>
         </div>
-        <Link to="/admin/images/upload">
+        <Link to="/adminlogin/images/upload">
           <Button>
             <ImageIcon className="mr-2 h-4 w-4" />
             Upload Images
@@ -216,7 +216,7 @@ export const ImagesPage = () => {
               <p className="text-muted-foreground mb-4">
                 Upload your first images to get started.
               </p>
-              <Link to="/admin/images/upload">
+              <Link to="/adminlogin/images/upload">
                 <Button>
                   <ImageIcon className="mr-2 h-4 w-4" />
                   Upload Images

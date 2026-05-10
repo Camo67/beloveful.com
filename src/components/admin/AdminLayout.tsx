@@ -28,32 +28,32 @@ export const AdminLayout = ({ children, user, onLogout }: AdminLayoutProps) => {
   const navigationItems = [
     {
       name: 'Dashboard',
-      href: '/admin',
+      href: '/adminlogin',
       icon: LayoutDashboard,
     },
     {
       name: 'Albums',
-      href: '/admin/albums',
+      href: '/adminlogin/albums',
       icon: Camera,
     },
     {
       name: 'Images',
-      href: '/admin/images',
+      href: '/adminlogin/images',
       icon: Image,
     },
     {
       name: 'Slideshow',
-      href: '/admin/slideshow',
+      href: '/adminlogin/slideshow',
       icon: Palette,
     },
     {
       name: 'Content',
-      href: '/admin/content',
+      href: '/adminlogin/content',
       icon: FileText,
     },
     {
       name: 'Settings',
-      href: '/admin/settings',
+      href: '/adminlogin/settings',
       icon: Settings,
     },
   ];
@@ -62,12 +62,12 @@ export const AdminLayout = ({ children, user, onLogout }: AdminLayoutProps) => {
     localStorage.removeItem('admin_token');
     localStorage.removeItem('admin_user');
     onLogout();
-    navigate('/admin');
+    navigate('/adminlogin');
   };
 
   const isActiveRoute = (href: string) => {
-    if (href === '/admin') {
-      return location.pathname === '/admin';
+    if (href === '/adminlogin') {
+      return location.pathname === '/adminlogin';
     }
     return location.pathname.startsWith(href);
   };

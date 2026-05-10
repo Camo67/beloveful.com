@@ -194,7 +194,7 @@ export const AdminDashboard = () => {
       icon: Camera,
       color: 'text-blue-600',
       bgColor: 'bg-blue-100',
-      href: '/admin/albums'
+      href: '/adminlogin/albums'
     },
     {
       title: 'Images',
@@ -203,7 +203,7 @@ export const AdminDashboard = () => {
       icon: Image,
       color: 'text-green-600',
       bgColor: 'bg-green-100',
-      href: '/admin/images'
+      href: '/adminlogin/images'
     },
     {
       title: 'Slideshow',
@@ -212,7 +212,7 @@ export const AdminDashboard = () => {
       icon: Palette,
       color: 'text-purple-600',
       bgColor: 'bg-purple-100',
-      href: '/admin/slideshow'
+      href: '/adminlogin/slideshow'
     },
     {
       title: 'Content Blocks',
@@ -221,7 +221,7 @@ export const AdminDashboard = () => {
       icon: FileText,
       color: 'text-orange-600',
       bgColor: 'bg-orange-100',
-      href: '/admin/content'
+      href: '/adminlogin/content'
     }
   ];
 
@@ -230,25 +230,25 @@ export const AdminDashboard = () => {
       title: 'Add New Album',
       description: 'Create a new photo album',
       icon: Camera,
-      href: '/admin/albums/new'
+      href: '/adminlogin/albums/new'
     },
     {
       title: 'Upload Images',
       description: 'Add images to existing albums',
       icon: Image,
-      href: '/admin/images/upload'
+      href: '/adminlogin/images/upload'
     },
     {
       title: 'Manage Slideshow',
       description: 'Update homepage slideshow',
       icon: Palette,
-      href: '/admin/slideshow'
+      href: '/adminlogin/slideshow'
     },
     {
       title: 'Edit Content',
       description: 'Update page content blocks',
       icon: FileText,
-      href: '/admin/content'
+      href: '/adminlogin/content'
     }
   ];
 

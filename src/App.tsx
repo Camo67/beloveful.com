@@ -84,7 +84,7 @@ const App = () => (
               <Route path="/print-shop" element={<PrintShop />} />
               <Route path="/open-edition" element={<OpenEdition />} />
               <Route path="/contact" element={<Contact />} />
-              <Route path="/adminlogin" element={<Admin />} />
+              <Route path="/adminlogin/*" element={<Admin />} />
               <Route path="/admin/*" element={<Admin />} />
               <Route path="/debug" element={<Debug />} />
 

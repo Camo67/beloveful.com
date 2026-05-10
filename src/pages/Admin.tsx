@@ -101,20 +101,20 @@ export const Admin = () => {
   return (
     <AdminLayout user={user} onLogout={handleLogout}>
       <Routes>
-        <Route path="/" element={<AdminDashboard />} />
-        <Route path="/dashboard" element={<Navigate to="/admin" replace />} />
+        <Route index element={<AdminDashboard />} />
+        <Route path="dashboard" element={<Navigate to="/adminlogin" replace />} />
         
         {/* Album and Image Management Routes */}
-        <Route path="/albums" element={<AlbumsPage />} />
-        <Route path="/albums/new" element={<AlbumsPage />} />
-        <Route path="/images" element={<ImagesPage />} />
-        <Route path="/images/upload" element={<ImageUploadPage />} />
-        <Route path="/slideshow" element={<SlideshowPage />} />
-        <Route path="/content" element={<ContentPage />} />
-        <Route path="/settings" element={<SettingsPage />} />
+        <Route path="albums" element={<AlbumsPage />} />
+        <Route path="albums/new" element={<AlbumsPage />} />
+        <Route path="images" element={<ImagesPage />} />
+        <Route path="images/upload" element={<ImageUploadPage />} />
+        <Route path="slideshow" element={<SlideshowPage />} />
+        <Route path="content" element={<ContentPage />} />
+        <Route path="settings" element={<SettingsPage />} />
         
         {/* Catch-all redirect to dashboard */}
-        <Route path="*" element={<Navigate to="/admin" replace />} />
+        <Route path="*" element={<Navigate to="/adminlogin" replace />} />
       </Routes>
     </AdminLayout>
   );
