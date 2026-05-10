@@ -114,6 +114,25 @@ function renderMissingFrontendHint() {
   });
 }
 
+async function serveSpaShell(request, env, origin) {
+  const indexRequest = new Request(`${origin}/`, request);
+  const indexResponse = await env.ASSETS.fetch(indexRequest);
+
+  if (indexResponse.status === 404) {
+    return null;
+  }
+
+  const headers = new Headers(indexResponse.headers);
+  headers.delete('Location');
+  headers.set('Content-Type', 'text/html; charset=utf-8');
+
+  return new Response(indexResponse.body, {
+    status: 200,
+    statusText: 'OK',
+    headers,
+  });
+}
+
 function methodNotAllowed(allowedMethods) {
   return new Response('Method Not Allowed', {
     status: 405,
@@ -547,6 +566,13 @@ export default {
       });
     }
 
+    // Cloudflare Assets can redirect unknown extensionless paths back to "/".
+    // Serve the React admin shell directly so /adminlogin opens the panel.
+    if (pathname === '/adminlogin' || pathname.startsWith('/adminlogin/')) {
+      const shellResponse = await serveSpaShell(request, env, url.origin);
+      if (shellResponse) return shellResponse;
+    }
+
     // Static asset handling via Wrangler [assets] binding
     const assetResponse = await env.ASSETS.fetch(request);
     if (assetResponse.status !== 404) {
@@ -555,9 +581,8 @@ export default {
 
     // SPA fallback: serve index.html when path has no extension
     if (!pathname.includes('.') || pathname.endsWith('/')) {
-      const indexRequest = new Request(`${url.origin}/index.html`, request);
-      const indexResponse = await env.ASSETS.fetch(indexRequest);
-      if (indexResponse.status !== 404) return indexResponse;
+      const shellResponse = await serveSpaShell(request, env, url.origin);
+      if (shellResponse) return shellResponse;
     }
 
     if (
