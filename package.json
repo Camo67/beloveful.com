@@ -52,7 +52,9 @@
     "images:serve": "node server/images.cjs",
     "workshop:generate": "node scripts/generate-workshop-images-json.js",
     "events:auto-add": "node scripts/auto-add-events.mjs",
-    "sync": "node scripts/download-library.mjs"
+    "sync": "node scripts/download-library.mjs",
+    "ftp:setup": "node scripts/setup-ftp.js",
+    "ftp:test": "node test-ftp-connection.js"
   },
   "dependencies": {
     "@cloudflare/kv-asset-handler": "^0.4.0",

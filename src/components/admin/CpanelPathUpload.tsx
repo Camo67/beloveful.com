@@ -53,6 +53,7 @@ export const CpanelPathUpload = ({ albums }: CpanelPathUploadProps) => {
   const [createMissingAlbums, setCreateMissingAlbums] = useState(true);
   const [setPinThumbnail, setSetPinThumbnail] = useState(true);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isScanning, setIsScanning] = useState(false);
   const [report, setReport] = useState<CpanelImportResponse | null>(null);
 
   const parsedPaths = useMemo(
@@ -116,6 +117,34 @@ export const CpanelPathUpload = ({ albums }: CpanelPathUploadProps) => {
       toast.error(error?.message || 'Failed to import cPanel paths');
     } finally {
       setIsSubmitting(false);
+    }
+  };
+
+  const scanFtp = async () => {
+    setIsScanning(true);
+    const loadingToast = toast.loading('Scanning Bluehost FTP for image paths...');
+    
+    try {
+      const response = await fetch('/dev-api/ftp-sync', {
+        method: 'POST',
+      });
+      
+      const data = await response.json();
+      
+      if (!response.ok || !data.success) {
+        throw new Error(data.error || 'Failed to scan FTP');
+      }
+      
+      if (data.paths && data.paths.length > 0) {
+        setPathsText(data.paths.join('\n'));
+        toast.success(`Found ${data.paths.length} image paths on Bluehost`, { id: loadingToast });
+      } else {
+        toast.info('No images found on Bluehost FTP', { id: loadingToast });
+      }
+    } catch (error: any) {
+      toast.error(error?.message || 'Failed to scan Bluehost FTP', { id: loadingToast });
+    } finally {
+      setIsScanning(false);
     }
   };
 
@@ -204,9 +233,14 @@ export const CpanelPathUpload = ({ albums }: CpanelPathUploadProps) => {
               {' '}
               <strong>{albums.length}</strong>
             </p>
-            <Button onClick={importPaths} disabled={isSubmitting || parsedPaths.length === 0}>
-              {isSubmitting ? 'Importing...' : 'Import Paths'}
-            </Button>
+            <div className="flex gap-2">
+              <Button onClick={scanFtp} disabled={isScanning || isSubmitting} variant="outline">
+                {isScanning ? 'Scanning...' : 'Scan Bluehost FTP'}
+              </Button>
+              <Button onClick={importPaths} disabled={isSubmitting || parsedPaths.length === 0}>
+                {isSubmitting ? 'Importing...' : 'Import Paths'}
+              </Button>
+            </div>
           </div>
         </CardContent>
       </Card>
