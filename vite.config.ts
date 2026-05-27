@@ -1,17 +1,9 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
-import { componentTagger } from "lovable-tagger";
-import { ftpSyncMiddleware } from "./scripts/ftp-middleware";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
-  const parsedApiPort = Number.parseInt(process.env.DEV_API_PORT ?? "8787", 10);
-  const devApiPort =
-    Number.isInteger(parsedApiPort) && parsedApiPort > 0 && parsedApiPort < 65536
-      ? parsedApiPort
-      : 8787;
-
   return {
     server: {
       host: "::",
@@ -51,61 +43,14 @@ export default defineConfig(({ mode }) => {
           "**/*.DS_Store",
           "**/id_rsa*",
           "**/belovefu_*",
-          "**/bluehost-cms/**",
-          "**/cloudinary-*.json",
-          "**/cloudinary-*.csv",
-          "**/cloudinary-*.txt",
-          "**/website-images.json",
-          "**/generated-albums.ts",
-          "**/folder-assignments.json",
-          "**/unique_unassigned_images.json",
-          "**/unassigned_breakdown.json",
-          "**/products.json",
-          "**/r2-url-mapping.json",
-          "**/secure-image-manifest.json",
-          "**/update_stats.json",
-          "**/assignment_summary.json",
-          "**/cloudinary_audit_report.json",
-          "**/cloudinary_country_tags_report.json",
-          "**/cloudinary-resources.json",
-          "**/cloudinary-upload-queue.json",
-          "**/cloudinary-upload-report.json",
-          "**/cloudinary-upload-results.json",
-          "**/complete-upload-report.json",
-          "**/homepage-upload-report.json",
-          "**/homepage-upload-results.json",
-          "**/local-cloudinary-sync-report.json",
-          "**/cloudinary-fetch-report.json",
-          "**/cloudinary-full-data.json",
-          "**/cloudinary-images-updated.json",
-          "**/cloudinary-images.json",
-          "**/cloudinary-import.cjs",
-          "**/cloudinary-postman-collection.json",
-          "**/cloudinary_asset_urls.*",
-          "**/d4d6d91c97f271c8255e0e3c6b690b85",
-          "**/f1939f94-5706-4c9b-8135-c451493f2222",
-          "**/filename.ext",
-          "**/index.html",
-          "**/schema.json",
-          "**/vercel.json",
-          "**/wrangler.toml",
         ],
-      },
-      proxy: {
-        "/api": {
-          // Proxy API requests to local Cloudflare Pages Functions during development
-          // (started via `npm run dev:api`)
-          target: `http://localhost:${devApiPort}`,
-          changeOrigin: true,
-          secure: false,
-        },
       },
     },
     define: {
       __APP_ENV__:
         mode === "production" ? JSON.stringify("prod") : JSON.stringify("dev"),
     },
-    plugins: [react(), componentTagger(), ftpSyncMiddleware()],
+    plugins: [react()],
     resolve: {
       alias: {
         "@": path.resolve(__dirname, "./src"),

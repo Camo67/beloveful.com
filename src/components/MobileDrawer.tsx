@@ -4,6 +4,8 @@ import { useState } from "react";
 import { SocialIcons } from "./SocialIcons";
 import { useTheme } from "next-themes";
 
+const OPEN_EDITION_SHOP_URL = "https://belovefulshop.square.site/";
+
 interface MobileDrawerProps {
   isOpen: boolean;
   onClose: () => void;
@@ -105,17 +107,17 @@ export function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
                 {shopOpen && (
                   <ul className="mt-3 ml-4 space-y-3">
                     <li>
-                    <Link
-                      to="/open-edition"
+                    <a
+                      href={OPEN_EDITION_SHOP_URL}
                       className="text-lg text-gray-600 dark:text-gray-400 hover:underline hover:underline-offset-4 hover:decoration-white transition-opacity"
                       onClick={onClose}
                     >
                       Open Edition
-                    </Link>
+                    </a>
                   </li>
                   <li>
                     <Link
-                      to="/limited-edition"
+                      to="/print-shop#limited"
                       className="text-lg text-gray-600 dark:text-gray-400 hover:underline hover:underline-offset-4 hover:decoration-white transition-opacity"
                       onClick={onClose}
                     >

@@ -22,7 +22,6 @@ const WorkshopChicagoGroup = lazy(() => import("./pages/WorkshopChicagoGroup"));
 const WorkshopOnline = lazy(() => import("./pages/WorkshopOnline"));
 const Mentorship = lazy(() => import("./pages/Mentorship"));
 const PrintShop = lazy(() => import("./pages/PrintShop"));
-const OpenEdition = lazy(() => import("./pages/OpenEdition"));
 const Contact = lazy(() => import("./pages/Contact"));
 const Admin = lazy(() => import("./pages/Admin").then(module => ({ default: module.Admin })));
 const Debug = lazy(() => import("./pages/Debug"));
@@ -33,8 +32,16 @@ const ComprehensiveImageDemo = lazy(() => import("./pages/ComprehensiveImageDemo
 const ImageGallery = lazy(() => import("./pages/ImageGallery"));
 const RegionPage = lazy(() => import("./pages/RegionPage"));
 const GalleryPage = lazy(() => import("./pages/GalleryPage"));
+const VoiceDemo = lazy(() => import("./pages/VoiceDemo"));
+const Agent = lazy(() => import("./pages/Agent"));
 
 const queryClient = new QueryClient();
+const OPEN_EDITION_SHOP_URL = "https://belovefulshop.square.site/";
+
+const ExternalRedirect = ({ to }: { to: string }) => {
+  window.location.replace(to);
+  return null;
+};
 
 // Loading component for Suspense fallback
 const LoadingSpinner = () => (
@@ -82,11 +89,14 @@ const App = () => (
               <Route path="/workshop-online" element={<Navigate to="/workshops/online-group" replace />} />
               <Route path="/faq" element={<FAQ />} />
               <Route path="/print-shop" element={<PrintShop />} />
-              <Route path="/open-edition" element={<OpenEdition />} />
+              <Route path="/open-edition" element={<ExternalRedirect to={OPEN_EDITION_SHOP_URL} />} />
+              <Route path="/limited-edition" element={<Navigate to="/print-shop#limited" replace />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/adminlogin/*" element={<Admin />} />
               <Route path="/admin/*" element={<Admin />} />
               <Route path="/debug" element={<Debug />} />
+              <Route path="/voice" element={<VoiceDemo />} />
+              <Route path="/agent" element={<Agent />} />
 
               {/* Pretty region and country URLs */}
               <Route path=":region" element={<RegionLanding />} />

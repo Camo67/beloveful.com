@@ -7,6 +7,7 @@ import { MobileDrawer } from "./MobileDrawer";
 import MobileMap from "./MobileMap";
 import ShopDropdown from "./ShopDropdown";
 import { PortfolioDropdown } from "./PortfolioDropdown";
+import ThemeToggle from "./ThemeToggle";
 
 interface HeaderProps {
   variant: "home" | "default";
@@ -224,6 +225,10 @@ export function Header({ variant, fullWidth = false, navStyle = "standard" }: He
               </li>
             </ul>
           </nav>
+
+          <div className="absolute right-6 top-4">
+            <ThemeToggle />
+          </div>
         </div>
         
         <div className="px-4 md:hidden bg-transparent">

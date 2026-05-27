@@ -1,57 +1,3 @@
-import { onRequestPost as authLoginPost } from '../functions/api/auth/login.ts';
-import {
-  onRequestGet as authSetupGet,
-  onRequestPost as authSetupPost,
-} from '../functions/api/auth/setup.ts';
-import { onRequestPost as authVerifyPost } from '../functions/api/auth/verify.ts';
-import { onRequestPost as authChangePasswordPost } from '../functions/api/auth/change-password.ts';
-import { onRequestPost as contactPost } from '../functions/api/contact.ts';
-import { onRequestGet as albumsGet } from '../functions/api/albums/index.ts';
-import { onRequestGet as albumBySlugGet } from '../functions/api/albums/[slug].ts';
-import {
-  onRequestGet as albumsAdminAllGet,
-  onRequestPost as albumsAdminAllPost,
-} from '../functions/api/albums/admin/all.ts';
-import { onRequestPost as albumsAdminSeedPost } from '../functions/api/albums/admin/seed.ts';
-import {
-  onRequestPut as albumsAdminIdPut,
-  onRequestDelete as albumsAdminIdDelete,
-} from '../functions/api/albums/admin/[id].ts';
-import {
-  onRequestGet as imagesAdminAllGet,
-  onRequestPost as imagesAdminAllPost,
-} from '../functions/api/images/admin/all.ts';
-import {
-  onRequestPut as imagesAdminIdPut,
-  onRequestDelete as imagesAdminIdDelete,
-} from '../functions/api/images/admin/[id].ts';
-import {
-  onRequestGet as slideshowAdminAllGet,
-  onRequestPost as slideshowAdminAllPost,
-} from '../functions/api/images/admin/slideshow/all.ts';
-import {
-  onRequestPut as slideshowAdminIdPut,
-  onRequestDelete as slideshowAdminIdDelete,
-} from '../functions/api/images/admin/slideshow/[id].ts';
-import {
-  onRequestGet as contentAdminAllGet,
-  onRequestPost as contentAdminAllPost,
-} from '../functions/api/content/admin/all.ts';
-import {
-  onRequestPut as contentAdminIdPut,
-  onRequestDelete as contentAdminIdDelete,
-} from '../functions/api/content/admin/[id].ts';
-import { onRequestPost as imagesUploadPost } from '../functions/api/images/upload.ts';
-import { onRequestPost as imagesUploadCpanelPost } from '../functions/api/images/upload-cpanel.ts';
-import { onRequestGet as publicAlbumsGet } from '../functions/api/public/albums.ts';
-import { onRequestGet as publicAlbumBySlugGet } from '../functions/api/public/albums/[slug].ts';
-import { onRequestGet as publicSlideshowGet } from '../functions/api/public/slideshow.ts';
-import { onRequestGet as publicWorkshopsGet } from '../functions/api/public/workshops.ts';
-import { onRequestGet as upcomingEventsGet } from '../functions/api/events/upcoming.ts';
-import { onRequestGet as travelImagesGet } from '../functions/api/travel-images.ts';
-import { onRequestGet as projectImagesGet } from '../functions/api/project-images.ts';
-import { onRequestGet as logosGet } from '../functions/api/logos.ts';
-
 // Continent & Country mapping remains in Bluehost CMS if needed,
 // but not required in the edge worker anymore.
 
@@ -140,10 +86,6 @@ function methodNotAllowed(allowedMethods) {
       Allow: allowedMethods.join(', '),
     },
   });
-}
-
-function createFunctionContext(request, env, params = {}) {
-  return { request, env, params };
 }
 
 function normalizePrintInnovationProduct(product) {
@@ -246,167 +188,192 @@ async function handlePrintInnovationProducts() {
   }
 }
 
-async function dispatchFunctionRoute(request, env) {
+function jsonResponse(data, init = {}) {
+  return new Response(JSON.stringify(data), {
+    ...init,
+    headers: {
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*',
+      ...(init.headers || {}),
+    },
+  });
+}
+
+function getAiModels() {
+  return [
+    { name: 'qwen-turbo', description: 'Fast Qwen model for everyday agent chat' },
+    { name: 'qwen-plus', description: 'Higher quality Qwen model for writing and planning' },
+    { name: 'qwen-max', description: 'Advanced Qwen model for deeper reasoning' },
+  ];
+}
+
+async function callDashScope(env, messages, model = 'qwen-turbo', options = {}) {
+  if (!env.DASHSCOPE_API_KEY || env.DASHSCOPE_API_KEY.includes('your_')) {
+    return {
+      offline: true,
+      output: {
+        choices: [
+          {
+            message: {
+              role: 'assistant',
+              content:
+                'The Beloveful agent is wired up, but DASHSCOPE_API_KEY is not configured yet. Add the key to .dev.vars locally and set it as a Cloudflare secret for production.',
+            },
+          },
+        ],
+        finish_reason: 'missing_api_key',
+      },
+      usage: { prompt_tokens: 0, completion_tokens: 0, total_tokens: 0 },
+      request_id: `local-${Date.now()}`,
+    };
+  }
+
+  const response = await fetch(
+    'https://dashscope.aliyuncs.com/api/v1/services/aigc/text-generation/generation',
+    {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${env.DASHSCOPE_API_KEY}`,
+        'Content-Type': 'application/json',
+        'X-DashScope-SSE': 'disable',
+      },
+      body: JSON.stringify({
+        model,
+        input: {
+          messages,
+        },
+        parameters: {
+          temperature: options.temperature ?? 0.7,
+          max_tokens: options.maxTokens ?? 2000,
+          top_p: options.topP ?? 1,
+        },
+      }),
+    }
+  );
+
+  const data = await response.json();
+  if (!response.ok) {
+    throw new Error(data?.message || `DashScope request failed with ${response.status}`);
+  }
+
+  return data;
+}
+
+function extractAiText(data) {
+  return data?.output?.choices?.[0]?.message?.content || data?.output?.text || '';
+}
+
+async function handleAiRoute(request, env) {
   const url = new URL(request.url);
   const { pathname } = url;
   const method = request.method.toUpperCase();
 
-  console.log(`[worker] Dispatching: ${method} ${pathname}`);
-
-  if (pathname === '/api/auth/login') {
-    if (method === 'POST') return authLoginPost(createFunctionContext(request, env));
-    return methodNotAllowed(['POST']);
+  if (!pathname.startsWith('/api/ai/')) {
+    return null;
   }
 
-  if (pathname === '/api/auth/setup') {
-    if (method === 'GET') return authSetupGet(createFunctionContext(request, env));
-    if (method === 'POST') return authSetupPost(createFunctionContext(request, env));
-    return methodNotAllowed(['GET', 'POST']);
-  }
+  try {
+    if (method === 'OPTIONS') {
+      return new Response(null, {
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+          'Access-Control-Allow-Headers': 'Content-Type',
+        },
+      });
+    }
 
-  if (pathname === '/api/auth/verify') {
-    if (method === 'POST') return authVerifyPost(createFunctionContext(request, env));
-    return methodNotAllowed(['POST']);
-  }
+    if (pathname === '/api/ai/test') {
+      if (method !== 'GET') return methodNotAllowed(['GET']);
+      const data = await callDashScope(env, [{ role: 'user', content: 'Reply with: AI active' }]);
+      return jsonResponse({
+        status: data.offline ? 'needs_key' : 'ok',
+        message: extractAiText(data) || 'AI endpoint active',
+        request_id: data.request_id,
+      });
+    }
 
-  if (pathname === '/api/auth/change-password') {
-    if (method === 'POST') return authChangePasswordPost(createFunctionContext(request, env));
-    return methodNotAllowed(['POST']);
-  }
+    if (pathname === '/api/ai/models') {
+      if (method !== 'GET') return methodNotAllowed(['GET']);
+      return jsonResponse({ models: getAiModels() });
+    }
 
-  if (pathname === '/api/contact' || pathname === '/api/public/contact') {
-    if (method === 'POST') return contactPost(createFunctionContext(request, env));
-    return methodNotAllowed(['POST']);
-  }
+    if (pathname === '/api/ai/chat') {
+      if (method !== 'POST') return methodNotAllowed(['POST']);
+      const body = await request.json();
+      const messages = Array.isArray(body.messages) ? body.messages : [];
+      if (!messages.length) {
+        return jsonResponse({ error: 'messages is required' }, { status: 400 });
+      }
+      const data = await callDashScope(env, messages, body.model, body.options);
+      return jsonResponse(data);
+    }
 
-  if (pathname === '/api/albums') {
-    if (method === 'GET') return albumsGet(createFunctionContext(request, env));
-    return methodNotAllowed(['GET']);
-  }
+    if (pathname === '/api/ai/generate') {
+      if (method !== 'POST') return methodNotAllowed(['POST']);
+      const body = await request.json();
+      const prompt = typeof body.prompt === 'string' ? body.prompt.trim() : '';
+      if (!prompt) {
+        return jsonResponse({ error: 'prompt is required' }, { status: 400 });
+      }
+      const data = await callDashScope(
+        env,
+        [
+          {
+            role: 'system',
+            content:
+              'You are Beloveful Studio Agent, a concise assistant for a travel photography website.',
+          },
+          { role: 'user', content: prompt },
+        ],
+        body.model,
+        body.options
+      );
+      return jsonResponse({
+        text: extractAiText(data),
+        usage: data.usage || { prompt_tokens: 0, completion_tokens: 0, total_tokens: 0 },
+        request_id: data.request_id,
+      });
+    }
 
-  if (pathname === '/api/albums/admin/all') {
-    if (method === 'GET') return albumsAdminAllGet(createFunctionContext(request, env));
-    if (method === 'POST') return albumsAdminAllPost(createFunctionContext(request, env));
-    return methodNotAllowed(['GET', 'POST']);
-  }
+    if (pathname === '/api/ai/photo-caption') {
+      if (method !== 'POST') return methodNotAllowed(['POST']);
+      const body = await request.json();
+      const photoDescription = String(body.photoDescription || '').trim();
+      const data = await callDashScope(env, [
+        {
+          role: 'system',
+          content: 'Write elegant, accessible captions for travel photography.',
+        },
+        {
+          role: 'user',
+          content: `Create one concise caption for this photograph: ${photoDescription}`,
+        },
+      ]);
+      return jsonResponse({ caption: extractAiText(data), request_id: data.request_id });
+    }
 
-  if (pathname === '/api/albums/admin/seed') {
-    if (method === 'POST') return albumsAdminSeedPost(createFunctionContext(request, env));
-    return methodNotAllowed(['POST']);
-  }
-
-  const albumAdminIdMatch = pathname.match(/^\/api\/albums\/admin\/([^/]+)$/);
-  if (albumAdminIdMatch) {
-    const params = { id: decodeURIComponent(albumAdminIdMatch[1]) };
-    if (method === 'PUT') return albumsAdminIdPut(createFunctionContext(request, env, params));
-    if (method === 'DELETE') return albumsAdminIdDelete(createFunctionContext(request, env, params));
-    return methodNotAllowed(['PUT', 'DELETE']);
-  }
-
-  if (pathname === '/api/images/admin/all') {
-    if (method === 'GET') return imagesAdminAllGet(createFunctionContext(request, env));
-    if (method === 'POST') return imagesAdminAllPost(createFunctionContext(request, env));
-    return methodNotAllowed(['GET', 'POST']);
-  }
-
-  if (pathname === '/api/images/admin/slideshow/all') {
-    if (method === 'GET') return slideshowAdminAllGet(createFunctionContext(request, env));
-    if (method === 'POST') return slideshowAdminAllPost(createFunctionContext(request, env));
-    return methodNotAllowed(['GET', 'POST']);
-  }
-
-  const slideshowAdminIdMatch = pathname.match(/^\/api\/images\/admin\/slideshow\/([^/]+)$/);
-  if (slideshowAdminIdMatch) {
-    const params = { id: decodeURIComponent(slideshowAdminIdMatch[1]) };
-    if (method === 'PUT') return slideshowAdminIdPut(createFunctionContext(request, env, params));
-    if (method === 'DELETE') return slideshowAdminIdDelete(createFunctionContext(request, env, params));
-    return methodNotAllowed(['PUT', 'DELETE']);
-  }
-
-  if (pathname === '/api/content/admin/all') {
-    if (method === 'GET') return contentAdminAllGet(createFunctionContext(request, env));
-    if (method === 'POST') return contentAdminAllPost(createFunctionContext(request, env));
-    return methodNotAllowed(['GET', 'POST']);
-  }
-
-  const imageAdminIdMatch = pathname.match(/^\/api\/images\/admin\/([^/]+)$/);
-  if (imageAdminIdMatch) {
-    const params = { id: decodeURIComponent(imageAdminIdMatch[1]) };
-    if (method === 'PUT') return imagesAdminIdPut(createFunctionContext(request, env, params));
-    if (method === 'DELETE') return imagesAdminIdDelete(createFunctionContext(request, env, params));
-    return methodNotAllowed(['PUT', 'DELETE']);
-  }
-
-  const contentAdminIdMatch = pathname.match(/^\/api\/content\/admin\/([^/]+)$/);
-  if (contentAdminIdMatch) {
-    const params = { id: decodeURIComponent(contentAdminIdMatch[1]) };
-    if (method === 'PUT') return contentAdminIdPut(createFunctionContext(request, env, params));
-    if (method === 'DELETE') return contentAdminIdDelete(createFunctionContext(request, env, params));
-    return methodNotAllowed(['PUT', 'DELETE']);
-  }
-
-  if (pathname === '/api/images/upload') {
-    if (method === 'POST') return imagesUploadPost(createFunctionContext(request, env));
-    return methodNotAllowed(['POST']);
-  }
-
-  if (pathname === '/api/images/upload-cpanel') {
-    if (method === 'POST') return imagesUploadCpanelPost(createFunctionContext(request, env));
-    return methodNotAllowed(['POST']);
-  }
-
-  if (pathname === '/api/public/albums') {
-    if (method === 'GET') return publicAlbumsGet(createFunctionContext(request, env));
-    return methodNotAllowed(['GET']);
-  }
-
-  const publicAlbumBySlugMatch = pathname.match(/^\/api\/public\/albums\/([^/]+)$/);
-  if (publicAlbumBySlugMatch) {
-    const params = { slug: decodeURIComponent(publicAlbumBySlugMatch[1]) };
-    if (method === 'GET') return publicAlbumBySlugGet(createFunctionContext(request, env, params));
-    return methodNotAllowed(['GET']);
-  }
-
-  if (pathname === '/api/public/slideshow') {
-    if (method === 'GET') return publicSlideshowGet(createFunctionContext(request, env));
-    return methodNotAllowed(['GET']);
-  }
-
-  if (pathname === '/api/public/workshops') {
-    if (method === 'GET') return publicWorkshopsGet(createFunctionContext(request, env));
-    return methodNotAllowed(['GET']);
-  }
-
-  if (pathname === '/api/print-innovation/products') {
-    if (method === 'GET') return handlePrintInnovationProducts();
-    return methodNotAllowed(['GET']);
-  }
-
-  if (pathname === '/api/events/upcoming') {
-    if (method === 'GET') return upcomingEventsGet(createFunctionContext(request, env));
-    return methodNotAllowed(['GET']);
-  }
-
-  if (pathname === '/api/travel-images') {
-    if (method === 'GET') return travelImagesGet(createFunctionContext(request, env));
-    return methodNotAllowed(['GET']);
-  }
-
-  if (pathname === '/api/project-images') {
-    if (method === 'GET') return projectImagesGet(createFunctionContext(request, env));
-    return methodNotAllowed(['GET']);
-  }
-
-  if (pathname === '/api/logos') {
-    if (method === 'GET') return logosGet(createFunctionContext(request, env));
-    return methodNotAllowed(['GET']);
-  }
-
-  const albumBySlugMatch = pathname.match(/^\/api\/albums\/([^/]+)$/);
-  if (albumBySlugMatch) {
-    const params = { slug: decodeURIComponent(albumBySlugMatch[1]) };
-    if (method === 'GET') return albumBySlugGet(createFunctionContext(request, env, params));
-    return methodNotAllowed(['GET']);
+    if (pathname === '/api/ai/travel-description') {
+      if (method !== 'POST') return methodNotAllowed(['POST']);
+      const body = await request.json();
+      const location = String(body.location || '').trim();
+      const data = await callDashScope(env, [
+        {
+          role: 'system',
+          content: 'Write warm, visually grounded travel photography copy.',
+        },
+        {
+          role: 'user',
+          content: `Write a short travel photography description for ${location}.`,
+        },
+      ]);
+      return jsonResponse({ description: extractAiText(data), request_id: data.request_id });
+    }
+  } catch (error) {
+    return jsonResponse(
+      { error: error instanceof Error ? error.message : 'AI request failed' },
+      { status: 502 }
+    );
   }
 
   return null;
@@ -522,9 +489,9 @@ export default {
       return new Response('Method Not Allowed', { status: 405 });
     }
 
-    const functionRouteResponse = await dispatchFunctionRoute(request, env);
-    if (functionRouteResponse) {
-      return functionRouteResponse;
+    const aiRouteResponse = await handleAiRoute(request, env);
+    if (aiRouteResponse) {
+      return aiRouteResponse;
     }
 
     // Serve images from R2

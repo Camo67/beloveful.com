@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo, useRef } from 'react';
 import { GoogleVoiceService } from '@/lib/google-voice-service';
 
 interface VoiceReaderProps {
@@ -11,6 +11,7 @@ interface VoiceOption {
   name: string;
   languageCodes: string[];
   ssmlGender: string;
+  browserVoice?: SpeechSynthesisVoice;
 }
 
 const VoiceReader: React.FC<VoiceReaderProps> = ({ text, title = "Listen to this article", className = "" }) => {
@@ -21,17 +22,39 @@ const VoiceReader: React.FC<VoiceReaderProps> = ({ text, title = "Listen to this
   const [speed, setSpeed] = useState<number>(1.0);
   const [pitch, setPitch] = useState<number>(0.0);
   const [error, setError] = useState<string | null>(null);
+  const utteranceRef = useRef<SpeechSynthesisUtterance | null>(null);
+  const googleApiKey = import.meta.env.VITE_GOOGLE_TTS_API_KEY || '';
+  const hasGoogleTts = Boolean(googleApiKey);
 
   // Initialize the voice service
-  const voiceService = new GoogleVoiceService({
-    apiKey: import.meta.env.VITE_GOOGLE_TTS_API_KEY || ''
-  });
+  const voiceService = useMemo(() => new GoogleVoiceService({ apiKey: googleApiKey }), [googleApiKey]);
 
   // Load available voices on component mount
   useEffect(() => {
     const loadVoices = async () => {
-      if (!import.meta.env.VITE_GOOGLE_TTS_API_KEY) {
-        setError('Google TTS API key not configured');
+      if (!hasGoogleTts) {
+        if (!('speechSynthesis' in window)) {
+          setError('Voice playback is not supported in this browser');
+          return;
+        }
+
+        const loadBrowserVoices = () => {
+          const browserVoices = window.speechSynthesis
+            .getVoices()
+            .filter((voice) => voice.lang.toLowerCase().startsWith('en'))
+            .map((voice) => ({
+              name: voice.name,
+              languageCodes: [voice.lang],
+              ssmlGender: 'NEUTRAL',
+              browserVoice: voice,
+            }));
+
+          setVoices(browserVoices);
+          if (browserVoices.length > 0) setSelectedVoice(browserVoices[0].name);
+        };
+
+        loadBrowserVoices();
+        window.speechSynthesis.onvoiceschanged = loadBrowserVoices;
         return;
       }
 
@@ -56,11 +79,11 @@ const VoiceReader: React.FC<VoiceReaderProps> = ({ text, title = "Listen to this
     };
 
     loadVoices();
-  }, []);
+  }, [hasGoogleTts, voiceService]);
 
   const handlePlay = async () => {
-    if (!import.meta.env.VITE_GOOGLE_TTS_API_KEY) {
-      setError('Google TTS API key not configured');
+    if (!hasGoogleTts && !('speechSynthesis' in window)) {
+      setError('Voice playback is not supported in this browser');
       return;
     }
 
@@ -69,16 +92,29 @@ const VoiceReader: React.FC<VoiceReaderProps> = ({ text, title = "Listen to this
 
     try {
       setIsPlaying(true);
-      
-      // Find the selected voice details
       const voiceDetails = voices.find(v => v.name === selectedVoice);
-      
-      await voiceService.speakText(text, {
-        name: selectedVoice,
-        ssmlGender: voiceDetails?.ssmlGender as 'MALE' | 'FEMALE' | 'NEUTRAL' || 'NEUTRAL',
-        speakingRate: speed,
-        pitch: pitch
-      });
+
+      if (hasGoogleTts) {
+        await voiceService.speakText(text, {
+          name: selectedVoice,
+          ssmlGender: voiceDetails?.ssmlGender as 'MALE' | 'FEMALE' | 'NEUTRAL' || 'NEUTRAL',
+          speakingRate: speed,
+          pitch: pitch
+        });
+      } else {
+        window.speechSynthesis.cancel();
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.voice = voiceDetails?.browserVoice || null;
+        utterance.rate = speed;
+        utterance.pitch = Math.max(0, Math.min(2, 1 + pitch / 20));
+        utteranceRef.current = utterance;
+
+        await new Promise<void>((resolve, reject) => {
+          utterance.onend = () => resolve();
+          utterance.onerror = () => reject(new Error('Browser speech failed'));
+          window.speechSynthesis.speak(utterance);
+        });
+      }
       
       setIsPlaying(false);
     } catch (err) {
@@ -91,20 +127,10 @@ const VoiceReader: React.FC<VoiceReaderProps> = ({ text, title = "Listen to this
   };
 
   const handleStop = () => {
-    // In a real implementation, we would stop the audio
-    // For now, just reset the state
+    window.speechSynthesis?.cancel();
+    utteranceRef.current = null;
     setIsPlaying(false);
   };
-
-  if (!import.meta.env.VITE_GOOGLE_TTS_API_KEY) {
-    return (
-      <div className={`bg-yellow-50 border border-yellow-200 rounded-lg p-4 ${className}`}>
-        <p className="text-yellow-700">
-          Text-to-speech is not configured. Please set the VITE_GOOGLE_TTS_API_KEY environment variable.
-        </p>
-      </div>
-    );
-  }
 
   return (
     <div className={`border rounded-lg p-4 bg-white dark:bg-gray-800 ${className}`}>
@@ -175,7 +201,7 @@ const VoiceReader: React.FC<VoiceReaderProps> = ({ text, title = "Listen to this
           >
             {voices.map((voice, index) => (
               <option key={`${voice.name}-${index}`} value={voice.name}>
-                {voice.name} ({voice.ssmlGender})
+                {voice.name} ({voice.languageCodes[0]})
               </option>
             ))}
           </select>

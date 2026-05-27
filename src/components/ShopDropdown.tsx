@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 
+const OPEN_EDITION_SHOP_URL = "https://belovefulshop.square.site/";
+
 interface ShopDropdownProps {
   variant?: "auto" | "white";
 }
@@ -38,14 +40,14 @@ export default function ShopDropdown({ variant = "auto" }: ShopDropdownProps) {
           role="menu"
           className="absolute left-0 z-50 mt-2 min-w-56 rounded-lg border border-gray-200 dark:border-neutral-700 bg-white dark:bg-neutral-900 shadow-lg"
         >
-          <Link
+          <a
             role="menuitem"
-            to="/print-shop#open"
+            href={OPEN_EDITION_SHOP_URL}
             className="block px-4 py-3 text-black dark:text-white hover:bg-gray-100 dark:hover:bg-neutral-800 transition-colors"
             onClick={() => setOpen(false)}
           >
             Open Edition
-          </Link>
+          </a>
           <Link
             role="menuitem"
             to="/print-shop#limited"

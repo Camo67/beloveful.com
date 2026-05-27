@@ -6,10 +6,14 @@ import { useEffect, useRef } from "react";
 const Index = () => {
   const { theme, setTheme } = useTheme();
   const previousTheme = useRef<string | undefined>();
+  const capturedTheme = useRef(false);
 
   useEffect(() => {
     // Store the current theme and force dark mode for homepage
-    previousTheme.current = theme;
+    if (!capturedTheme.current) {
+      previousTheme.current = theme;
+      capturedTheme.current = true;
+    }
     setTheme('dark');
 
     // Restore previous theme when leaving homepage
@@ -18,7 +22,7 @@ const Index = () => {
         setTheme(previousTheme.current);
       }
     };
-  }, [theme, setTheme]);
+  }, [setTheme]);
 
   return (
     <div className="relative min-h-screen" style={{ backgroundColor: 'transparent' }}>

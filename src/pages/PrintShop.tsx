@@ -39,6 +39,7 @@ type PrintCatalogueResponse = {
 };
 
 const fallbackLimitedProducts = (printlabData.products || []) as PrintProduct[];
+const OPEN_EDITION_SHOP_URL = "https://belovefulshop.square.site/";
 
 function money(value?: number) {
   if (!Number.isFinite(value)) return "$0";
@@ -63,7 +64,7 @@ export default function PrintShop() {
     if (location.hash === "#limited") {
       setActiveTab("limited");
     } else if (location.hash === "#open" || location.hash === "#open-edition") {
-      setActiveTab("open");
+      window.location.replace(OPEN_EDITION_SHOP_URL);
     }
   }, [location.hash]);
 
@@ -165,31 +166,49 @@ export default function PrintShop() {
     ? extractProductDetails(selectedProduct.description)
     : null;
   const selectedCheckoutUrl = selectedVariant?.checkoutUrl || selectedProduct?.buyUrl || "#";
+  const isLimitedView = activeTab === "limited";
 
   return (
-    <div className="min-h-screen bg-[#0d0f0a] text-white selection:bg-[#7ec832] selection:text-black">
+    <div
+      className={`min-h-screen text-white ${
+        isLimitedView
+          ? "bg-black selection:bg-white selection:text-black"
+          : "bg-[#0d0f0a] selection:bg-[#7ec832] selection:text-black"
+      }`}
+    >
       <Header variant="default" />
 
       <PageContainer className="space-y-16">
         <div className="text-center space-y-4">
-          <p className="text-[10px] uppercase tracking-[0.5em] text-[#7ec832] font-mono">Mission // Prints</p>
-          <h1 className="text-5xl md:text-7xl font-bold uppercase tracking-tighter text-white" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>
-            Print <span className="text-[#7ec832]">Shop</span>
-          </h1>
-          <p className="text-neutral-400 max-w-2xl mx-auto font-['Barlow_Condensed'] text-lg">
-            Tactical precision in every frame. Choose between museum-quality limited editions
-            or high-fidelity open edition prints.
+          <p
+            className={`text-sm uppercase tracking-[0.35em] ${
+              isLimitedView ? "text-neutral-500" : "text-[#7ec832]"
+            }`}
+          >
+            {isLimitedView ? "Gallery // Limited Editions" : "Mission // Prints"}
           </p>
-          <div className="flex items-center justify-center gap-4 text-[10px] font-mono text-neutral-500 uppercase tracking-widest">
+          <h1 className="text-4xl md:text-6xl font-semibold tracking-tight text-white">
+            {isLimitedView ? (
+              <>Limited <span className="text-white">Edition</span></>
+            ) : (
+              <>Print <span className="text-[#7ec832]">Shop</span></>
+            )}
+          </h1>
+          <p className="text-neutral-400 max-w-2xl mx-auto text-lg leading-relaxed">
+            {isLimitedView
+              ? "Museum-quality fine art prints, editioned and fulfilled through Print Innovation Lab."
+              : "Tactical precision in every frame. Choose between museum-quality limited editions or high-fidelity open edition prints."}
+          </p>
+          <div className="flex items-center justify-center gap-4 text-xs text-neutral-500 uppercase tracking-[0.2em]">
             <span>Synced: {activeTab === "limited" ? limitedSyncedLabel : new Date().toLocaleDateString()}</span>
-            <span className="w-1 h-1 bg-[#7ec832] rounded-full"></span>
+            <span className={`w-1 h-1 rounded-full ${isLimitedView ? "bg-neutral-500" : "bg-[#7ec832]"}`}></span>
             <span>Inventory: {activeTab === "limited" ? limitedProducts.length : openProducts.length} active</span>
           </div>
         </div>
 
-        <div className="flex border-b border-white/5 font-mono">
+        <div className="flex border-b border-white/5">
           <button
-            className={`py-4 px-8 text-xs uppercase tracking-[0.3em] transition-all duration-300 relative ${activeTab === "open"
+            className={`py-4 px-8 text-sm uppercase tracking-[0.18em] transition-all duration-300 relative ${activeTab === "open"
               ? "text-[#7ec832] border-b-2 border-[#7ec832]"
               : "text-neutral-500 hover:text-neutral-300"
               }`}
@@ -198,8 +217,8 @@ export default function PrintShop() {
             01 // Open Edition
           </button>
           <button
-            className={`py-4 px-8 text-xs uppercase tracking-[0.3em] transition-all duration-300 relative ${activeTab === "limited"
-              ? "text-[#7ec832] border-b-2 border-[#7ec832]"
+            className={`py-4 px-8 text-sm uppercase tracking-[0.18em] transition-all duration-300 relative ${activeTab === "limited"
+              ? "text-white border-b-2 border-white"
               : "text-neutral-500 hover:text-neutral-300"
               }`}
             onClick={() => setActiveTab("limited")}
@@ -209,7 +228,8 @@ export default function PrintShop() {
         </div>
 
         {activeTab === "open" && (
-          <section id="open-edition" className="space-y-6">
+          <section id="open" className="space-y-6">
+            <span id="open-edition" className="sr-only" aria-hidden="true" />
             <div className="space-y-1 text-center">
               <h2 className="text-2xl font-light text-white">Open Edition - 5 x 7</h2>
               <p className="text-sm text-neutral-400">
@@ -232,14 +252,14 @@ export default function PrintShop() {
                             debugImageProcessing(product.image, "PrintShop");
                           }}
                         />
-                        <div className="absolute top-3 left-3 bg-black/80 backdrop-blur-sm text-[#7ec832] px-2 py-1 text-[10px] font-mono uppercase tracking-widest border border-[#7ec832]/20">
+                        <div className="absolute top-3 left-3 bg-black/80 backdrop-blur-sm text-[#7ec832] px-2 py-1 text-xs uppercase tracking-[0.18em] border border-[#7ec832]/20">
                           Unit // {product.handle.slice(0, 4)}
                         </div>
                       </div>
                       <div className="p-6 space-y-4">
                         <div>
-                          <h3 className="font-bold text-xl uppercase tracking-tight text-white mb-1" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>{product.title}</h3>
-                          <div className="text-neutral-500 text-[10px] font-mono uppercase tracking-wider flex flex-col gap-1">
+                          <h3 className="font-semibold text-xl tracking-tight text-white mb-1">{product.title}</h3>
+                          <div className="text-neutral-500 text-xs uppercase tracking-[0.12em] flex flex-col gap-1">
                             {details.imageSize && (
                               <span className="flex items-center gap-2">
                                 <span className="w-1 h-1 bg-white/20"></span>
@@ -255,13 +275,13 @@ export default function PrintShop() {
                           </div>
                         </div>
                         <div className="flex justify-between items-center pt-2 border-t border-white/5">
-                          <span className="font-mono text-[#7ec832] text-lg font-bold">{money(product.minPrice || 10)}</span>
+                          <span className="text-[#7ec832] text-lg font-semibold">{money(product.minPrice || 10)}</span>
                           <a
                             href={createMailtoHref({
                               subject: `Open Edition Request: ${product.title}`,
                               body: `I would like to request an open edition 5x7 print of ${product.title}.`,
                             })}
-                            className="text-[10px] font-mono uppercase tracking-[0.2em] px-5 py-2.5 bg-[#7ec832] text-black font-bold hover:bg-white transition-colors duration-300"
+                            className="text-xs uppercase tracking-[0.16em] px-5 py-2.5 bg-[#7ec832] text-black font-semibold hover:bg-white transition-colors duration-300"
                           >
                             Execute // Acquisition
                           </a>
@@ -314,10 +334,10 @@ export default function PrintShop() {
                 Browse the live Print Innovations catalogue here on Beloveful. Checkout opens only after a print is selected.
               </p>
               {limitedStatus === "loading" && (
-                <p className="text-xs font-mono uppercase tracking-[0.2em] text-[#7ec832]">Syncing live catalogue...</p>
+                <p className="text-xs uppercase tracking-[0.18em] text-neutral-500">Syncing live catalogue...</p>
               )}
               {limitedStatus === "error" && (
-                <p className="text-xs font-mono uppercase tracking-[0.2em] text-amber-300">
+                <p className="text-xs uppercase tracking-[0.18em] text-neutral-500">
                   Live sync unavailable; showing the last bundled catalogue.
                 </p>
               )}
@@ -327,7 +347,7 @@ export default function PrintShop() {
               {limitedProducts.map((product) => {
                 const details = extractProductDetails(product.description);
                 return (
-                  <article key={product.handle} className="group overflow-hidden border border-white/10 bg-white/[0.03] hover:border-[#7ec832]/40 transition-all duration-500">
+                  <article key={product.handle} className="group overflow-hidden border border-white/10 bg-[#111] hover:border-white/35 transition-all duration-500">
                     <button
                       type="button"
                       className="block w-full text-left"
@@ -344,7 +364,7 @@ export default function PrintShop() {
                           }}
                         />
                         <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-4">
-                          <span className="text-[10px] font-mono uppercase tracking-[0.25em] text-[#7ec832]">
+                          <span className="text-xs uppercase tracking-[0.16em] text-white/80">
                             View details
                           </span>
                         </div>
@@ -352,7 +372,7 @@ export default function PrintShop() {
                     </button>
                     <div className="p-5 space-y-4">
                       <button type="button" className="text-left" onClick={() => setSelectedProduct(product)}>
-                        <h3 className="font-bold text-xl uppercase tracking-tight text-white mb-1" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>
+                        <h3 className="font-semibold text-xl tracking-tight text-white mb-1">
                           {product.title}
                         </h3>
                       </button>
@@ -362,11 +382,11 @@ export default function PrintShop() {
                         {details.paperType && <span className="block">{details.paperType}</span>}
                       </div>
                       <div className="flex justify-between items-center pt-2 border-t border-white/10">
-                        <span className="font-mono text-[#7ec832] text-lg font-bold">From {money(product.minPrice)}</span>
+                        <span className="text-white text-lg font-medium">From {money(product.minPrice)}</span>
                         <button
                           type="button"
                           onClick={() => setSelectedProduct(product)}
-                          className="text-[10px] font-mono uppercase tracking-[0.2em] px-4 py-2 bg-white text-black font-bold hover:bg-[#7ec832] transition-colors duration-300"
+                          className="text-xs uppercase tracking-[0.16em] px-4 py-2 border border-white/20 text-white hover:bg-white hover:text-black transition-colors duration-300"
                         >
                           Select Print
                         </button>
@@ -394,8 +414,8 @@ export default function PrintShop() {
               <div className="p-6 md:p-8 space-y-6">
                 <div className="flex items-start justify-between gap-4">
                   <div>
-                    <p className="text-[10px] font-mono uppercase tracking-[0.35em] text-[#7ec832]">Limited Edition</p>
-                    <h2 className="mt-2 text-4xl font-bold uppercase tracking-tight text-white" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>
+                    <p className="text-xs uppercase tracking-[0.25em] text-neutral-500">Limited Edition</p>
+                    <h2 className="mt-2 text-3xl md:text-4xl font-semibold tracking-tight text-white">
                       {selectedProduct.title}
                     </h2>
                   </div>
@@ -412,25 +432,25 @@ export default function PrintShop() {
                 <div className="grid grid-cols-2 gap-3 text-sm text-neutral-300">
                   {selectedDetails.paperSize && (
                     <div className="border border-white/10 p-3">
-                      <div className="text-[10px] font-mono uppercase tracking-widest text-neutral-500">Paper</div>
+                      <div className="text-xs uppercase tracking-[0.16em] text-neutral-500">Paper</div>
                       {selectedDetails.paperSize}
                     </div>
                   )}
                   {selectedDetails.imageSize && (
                     <div className="border border-white/10 p-3">
-                      <div className="text-[10px] font-mono uppercase tracking-widest text-neutral-500">Image</div>
+                      <div className="text-xs uppercase tracking-[0.16em] text-neutral-500">Image</div>
                       {selectedDetails.imageSize}
                     </div>
                   )}
                   {selectedDetails.editionCopies && (
                     <div className="border border-white/10 p-3">
-                      <div className="text-[10px] font-mono uppercase tracking-widest text-neutral-500">Edition</div>
+                      <div className="text-xs uppercase tracking-[0.16em] text-neutral-500">Edition</div>
                       {selectedDetails.editionCopies}
                     </div>
                   )}
                   {selectedDetails.printing && (
                     <div className="border border-white/10 p-3">
-                      <div className="text-[10px] font-mono uppercase tracking-widest text-neutral-500">Printing</div>
+                      <div className="text-xs uppercase tracking-[0.16em] text-neutral-500">Printing</div>
                       {selectedDetails.printing}
                     </div>
                   )}
@@ -442,14 +462,14 @@ export default function PrintShop() {
 
                 {selectedProduct.variants?.length ? (
                   <div className="space-y-3">
-                    <label htmlFor="limited-print-size" className="text-[10px] font-mono uppercase tracking-[0.25em] text-neutral-500">
+                    <label htmlFor="limited-print-size" className="text-xs uppercase tracking-[0.16em] text-neutral-500">
                       Print Size
                     </label>
                     <select
                       id="limited-print-size"
                       value={selectedVariantId}
                       onChange={(event) => setSelectedVariantId(event.target.value)}
-                      className="w-full bg-black border border-white/15 px-4 py-3 text-white focus:border-[#7ec832] outline-none"
+                      className="w-full bg-black border border-white/15 px-4 py-3 text-white focus:border-white/60 outline-none"
                     >
                       {selectedProduct.variants.map((variant) => (
                         <option key={variant.id} value={variant.id}>
@@ -464,7 +484,7 @@ export default function PrintShop() {
                   href={selectedCheckoutUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block w-full text-center bg-[#7ec832] px-6 py-4 text-sm font-mono font-bold uppercase tracking-[0.25em] text-black hover:bg-white transition"
+                  className="block w-full text-center bg-white px-6 py-4 text-sm font-semibold uppercase tracking-[0.16em] text-black hover:bg-neutral-300 transition"
                 >
                   Buy / Order Print
                 </a>

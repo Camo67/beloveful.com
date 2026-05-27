@@ -29,10 +29,8 @@ database_name = "beloveful-cms"
 database_id = "5974f712-89ce-491f-baf7-37b7dcfa91cb"
 
 # Environment variables (set via wrangler secret put)
-# Required secrets:
-# - CLOUDINARY_CLOUD_NAME
-# - CLOUDINARY_API_KEY
-# - CLOUDINARY_API_SECRET
+# Required AI secret:
+# - DASHSCOPE_API_KEY
 #
 # Optional contact form vars:
 # - CONTACT_FORM_TO_EMAIL
@@ -45,6 +43,4 @@ database_id = "5974f712-89ce-491f-baf7-37b7dcfa91cb"
 # - RESEND_API_URL
 #
 # To set secrets, run:
-# wrangler secret put CLOUDINARY_CLOUD_NAME
-# wrangler secret put CLOUDINARY_API_KEY
-# wrangler secret put CLOUDINARY_API_SECRET
+# wrangler secret put DASHSCOPE_API_KEY
