@@ -3,8 +3,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import { SocialIcons } from "./SocialIcons";
 import { useTheme } from "next-themes";
-
-const OPEN_EDITION_SHOP_URL = "https://belovefulshop.square.site/";
+import { OPEN_EDITION_SHOP_URL } from "@/lib/constants";
 
 interface MobileDrawerProps {
   isOpen: boolean;

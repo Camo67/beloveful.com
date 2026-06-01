@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-
-const OPEN_EDITION_SHOP_URL = "https://belovefulshop.square.site/";
+import { OPEN_EDITION_SHOP_URL } from "@/lib/constants";
 
 interface ShopDropdownProps {
   variant?: "auto" | "white";

@@ -7,6 +7,7 @@ import { ThemeProvider } from "next-themes";
 import { Suspense, lazy } from "react";
 import CookieBanner from "./components/CookieBanner";
 import RegionLanding from "./pages/RegionLanding";
+import { OPEN_EDITION_SHOP_URL } from "@/lib/constants";
 
 // Lazy load all page components
 const Index = lazy(() => import("./pages/Index"));
@@ -36,7 +37,6 @@ const VoiceDemo = lazy(() => import("./pages/VoiceDemo"));
 const Agent = lazy(() => import("./pages/Agent"));
 
 const queryClient = new QueryClient();
-const OPEN_EDITION_SHOP_URL = "https://belovefulshop.square.site/";
 
 const ExternalRedirect = ({ to }: { to: string }) => {
   window.location.replace(to);
