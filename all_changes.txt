@@ -1,3 +1,381 @@
+export const OPEN_EDITION_SHOP_URL = "https://belovefulshop.square.site/";
+import { Toaster } from "@/components/ui/toaster";
+import { Toaster as Sonner } from "@/components/ui/sonner";
+import { TooltipProvider } from "@/components/ui/tooltip";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { ThemeProvider } from "next-themes";
+import { Suspense, lazy } from "react";
+import CookieBanner from "./components/CookieBanner";
+import RegionLanding from "./pages/RegionLanding";
+import { OPEN_EDITION_SHOP_URL } from "@/lib/constants";
+
+// Lazy load all page components
+const Index = lazy(() => import("./pages/Index"));
+const Projects = lazy(() => import("./pages/Projects"));
+const Portfolio = lazy(() => import("./pages/Portfolio"));
+const CountryGallery = lazy(() => import("./pages/CountryGallery"));
+const ProjectGallery = lazy(() => import("./pages/ProjectGallery"));
+const About = lazy(() => import("./pages/About"));
+const Events = lazy(() => import("./pages/Events"));
+const Workshops = lazy(() => import("./pages/Workshops"));
+const WorkshopChicagoPrivate = lazy(() => import("./pages/WorkshopChicagoPrivate"));
+const WorkshopChicagoGroup = lazy(() => import("./pages/WorkshopChicagoGroup"));
+const WorkshopOnline = lazy(() => import("./pages/WorkshopOnline"));
+const Mentorship = lazy(() => import("./pages/Mentorship"));
+const PrintShop = lazy(() => import("./pages/PrintShop"));
+const Contact = lazy(() => import("./pages/Contact"));
+const Admin = lazy(() => import("./pages/Admin").then(module => ({ default: module.Admin })));
+const Debug = lazy(() => import("./pages/Debug"));
+const NotFound = lazy(() => import("./pages/NotFound"));
+const FAQ = lazy(() => import("./pages/FAQ"));
+const TestSimpleImages = lazy(() => import("./pages/TestSimpleImages"));
+const ComprehensiveImageDemo = lazy(() => import("./pages/ComprehensiveImageDemo"));
+const ImageGallery = lazy(() => import("./pages/ImageGallery"));
+const RegionPage = lazy(() => import("./pages/RegionPage"));
+const GalleryPage = lazy(() => import("./pages/GalleryPage"));
+const VoiceDemo = lazy(() => import("./pages/VoiceDemo"));
+const Agent = lazy(() => import("./pages/Agent"));
+
+const queryClient = new QueryClient();
+
+const ExternalRedirect = ({ to }: { to: string }) => {
+  window.location.replace(to);
+  return null;
+};
+
+// Loading component for Suspense fallback
+const LoadingSpinner = () => (
+  <div className="flex min-h-screen items-center justify-center">
+    <div className="h-8 w-8 animate-spin rounded-full border-4 border-gray-300 border-t-gray-900"></div>
+  </div>
+);
+
+const App = () => (
+  <QueryClientProvider client={queryClient}>
+    <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <CookieBanner />
+        <BrowserRouter
+          future={{
+            v7_relativeSplatPath: true,
+            v7_startTransition: true
+          }}
+        >
+          <Suspense fallback={<LoadingSpinner />}>
+            <Routes>
+              <Route path="/" element={<Index />} />
+              <Route path="/test-simple-images" element={<TestSimpleImages />} />
+              <Route path="/comprehensive-image-demo" element={<ComprehensiveImageDemo />} />
+              <Route path="/gallery" element={<GalleryPage />} />
+              <Route path="/gallery/:region" element={<RegionPage />} />
+              <Route path="/gallery/:region/:country" element={<ImageGallery />} />
+              <Route path="/projects" element={<Projects />} />
+              <Route path="/projects/:project" element={<ProjectGallery />} />
+              <Route path="/portfolio" element={<Portfolio />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/events" element={<Events />} />
+              <Route path="/workshops" element={<Workshops />} />
+              <Route path="/workshops/private-chicago" element={<WorkshopChicagoPrivate />} />
+              <Route path="/workshops/group-chicago" element={<WorkshopChicagoGroup />} />
+              <Route path="/workshops/online-group" element={<WorkshopOnline />} />
+              <Route path="/workshops/mentorship" element={<Mentorship />} />
+
+              {/* Legacy routes */}
+              <Route path="/mentorship" element={<Navigate to="/workshops/mentorship" replace />} />
+              <Route path="/workshop-chicago-private" element={<Navigate to="/workshops/private-chicago" replace />} />
+              <Route path="/workshop-chicago-group" element={<Navigate to="/workshops/group-chicago" replace />} />
+              <Route path="/workshop-online" element={<Navigate to="/workshops/online-group" replace />} />
+              <Route path="/faq" element={<FAQ />} />
+              <Route path="/print-shop" element={<PrintShop />} />
+              <Route path="/open-edition" element={<ExternalRedirect to={OPEN_EDITION_SHOP_URL} />} />
+              <Route path="/limited-edition" element={<Navigate to="/print-shop#limited" replace />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/adminlogin/*" element={<Admin />} />
+              <Route path="/admin/*" element={<Admin />} />
+              <Route path="/debug" element={<Debug />} />
+              <Route path="/voice" element={<VoiceDemo />} />
+              <Route path="/agent" element={<Agent />} />
+
+              {/* Pretty region and country URLs */}
+              <Route path=":region" element={<RegionLanding />} />
+              <Route path=":region/:country" element={<CountryGallery />} />
+
+              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </Suspense>
+        </BrowserRouter>
+      </TooltipProvider>
+    </ThemeProvider>
+  </QueryClientProvider>
+);
+
+export default App;
+import { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
+import { OPEN_EDITION_SHOP_URL } from "@/lib/constants";
+
+interface ShopDropdownProps {
+  variant?: "auto" | "white";
+}
+
+export default function ShopDropdown({ variant = "auto" }: ShopDropdownProps) {
+  const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const onClick = (e: MouseEvent) => {
+      if (!ref.current?.contains(e.target as Node)) setOpen(false);
+    };
+    window.addEventListener("click", onClick);
+    return () => window.removeEventListener("click", onClick);
+  }, []);
+
+  return (
+    <div className="relative" ref={ref}>
+      <button
+        onClick={() => setOpen((v) => !v)}
+        className={`nav-link transition-opacity text-lg ${
+          variant === "white"
+            ? "text-white font-bold hover:text-gray-200"
+            : "font-medium text-black dark:text-white hover:opacity-70"
+        }`}
+        style={variant === "white" ? { textShadow: '1px 1px 0 black' } : undefined}
+        aria-haspopup="menu"
+        aria-expanded={open}
+      >
+        Shop ▾
+      </button>
+
+      {open && (
+        <div
+          role="menu"
+          className="absolute left-0 z-50 mt-2 min-w-56 rounded-lg border border-gray-200 dark:border-neutral-700 bg-white dark:bg-neutral-900 shadow-lg"
+        >
+          <a
+            role="menuitem"
+            href={OPEN_EDITION_SHOP_URL}
+            className="block px-4 py-3 text-black dark:text-white hover:bg-gray-100 dark:hover:bg-neutral-800 transition-colors"
+            onClick={() => setOpen(false)}
+          >
+            Open Edition
+          </a>
+          <Link
+            role="menuitem"
+            to="/print-shop#limited"
+            className="block px-4 py-3 text-black dark:text-white hover:bg-gray-100 dark:hover:bg-neutral-800 transition-colors"
+            onClick={() => setOpen(false)}
+          >
+            Limited Edition
+          </Link>
+        </div>
+      )}
+    </div>
+  );
+}
+import { X, ChevronDown } from "lucide-react";
+import { Link } from "react-router-dom";
+import { useState } from "react";
+import { SocialIcons } from "./SocialIcons";
+import { useTheme } from "next-themes";
+import { OPEN_EDITION_SHOP_URL } from "@/lib/constants";
+
+interface MobileDrawerProps {
+  isOpen: boolean;
+  onClose: () => void;
+}
+
+export function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
+  const [shopOpen, setShopOpen] = useState(false);
+  const [portfolioOpen, setPortfolioOpen] = useState(false);
+  const { resolvedTheme, setTheme } = useTheme();
+  const isDark = resolvedTheme === "dark";
+
+  // Navigation order matching desktop: Home, Portfolio, Shop, Workshops, Events, About, Contact
+  const navigationLinks = [
+    { name: "Home", path: "/" },
+    { name: "Portfolio", path: "/portfolio" },
+    { name: "Shop", path: "/shop" },
+    { name: "Workshops", path: "/workshops" },
+    { name: "Events", path: "/events" },
+    { name: "About", path: "/about" },
+    { name: "Contact", path: "/contact" },
+  ];
+
+  if (!isOpen) return null;
+
+  return (
+    <div className="fixed inset-0 z-[1050] md:hidden">
+      {/* Backdrop */}
+      <div
+        className="fixed inset-0 bg-black/70 backdrop-blur-sm z-[1000]"
+        onClick={onClose}
+        aria-hidden="true"
+      />
+
+      {/* Drawer */}
+      <div className="fixed inset-y-0 right-0 w-4/5 max-w-sm bg-white dark:bg-black border-l border-gray-200 dark:border-gray-800 z-[1050] overflow-y-auto">
+        <div className="flex flex-col h-full">
+          {/* Navigation Links */}
+          <nav className="flex-1 p-4 pt-8">
+            <ul className="space-y-6">
+              {/* Home */}
+              <li>
+                <Link
+                  to="/"
+                  className="text-xl text-black dark:text-white hover:underline hover:underline-offset-4 hover:decoration-white transition-opacity duration-300"
+                  onClick={onClose}
+                >
+                  Home
+                </Link>
+              </li>
+
+              {/* Portfolio */}
+              <li>
+                <button
+                  onClick={() => setPortfolioOpen(!portfolioOpen)}
+                  className="flex items-center gap-2 text-xl text-black dark:text-white hover:underline hover:underline-offset-4 hover:decoration-white transition-opacity duration-300"
+                >
+                  Portfolio
+                  <ChevronDown
+                    size={20}
+                    className={`transition-transform ${portfolioOpen ? "rotate-180" : ""}`}
+                  />
+                </button>
+                {portfolioOpen && (
+                  <ul className="mt-3 ml-4 space-y-3" role="listbox" aria-label="Portfolio options">
+                    <li>
+                      <Link
+                        to="/portfolio"
+                        className="text-lg text-gray-600 dark:text-gray-400 hover:underline hover:underline-offset-4 hover:decoration-white transition-opacity font-medium"
+                        onClick={onClose}
+                      >
+                        Travel
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        to="/projects"
+                        className="text-lg text-gray-600 dark:text-gray-400 hover:underline hover:underline-offset-4 hover:decoration-white transition-opacity font-medium"
+                        onClick={onClose}
+                      >
+                        Projects
+                      </Link>
+                    </li>
+                  </ul>
+                )}
+              </li>
+
+              {/* Shop */}
+              <li>
+                <button
+                  onClick={() => setShopOpen(!shopOpen)}
+                  className="flex items-center gap-2 text-xl text-black dark:text-white hover:underline hover:underline-offset-4 hover:decoration-white transition-opacity duration-300"
+                >
+                  Shop
+                  <ChevronDown
+                    size={20}
+                    className={`transition-transform ${shopOpen ? "rotate-180" : ""}`}
+                  />
+                </button>
+                {shopOpen && (
+                  <ul className="mt-3 ml-4 space-y-3">
+                    <li>
+                    <a
+                      href={OPEN_EDITION_SHOP_URL}
+                      className="text-lg text-gray-600 dark:text-gray-400 hover:underline hover:underline-offset-4 hover:decoration-white transition-opacity"
+                      onClick={onClose}
+                    >
+                      Open Edition
+                    </a>
+                  </li>
+                  <li>
+                    <Link
+                      to="/print-shop#limited"
+                      className="text-lg text-gray-600 dark:text-gray-400 hover:underline hover:underline-offset-4 hover:decoration-white transition-opacity"
+                      onClick={onClose}
+                    >
+                      Limited Edition
+                    </Link>
+                  </li>
+                </ul>
+              )}
+            </li>
+
+              {/* Workshops */}
+              <li>
+                <Link
+                  to="/workshops"
+                  className="text-xl text-black dark:text-white hover:underline hover:underline-offset-4 hover:decoration-white transition-opacity duration-300"
+                  onClick={onClose}
+                >
+                  Workshops
+                </Link>
+              </li>
+
+              {/* Events */}
+              <li>
+                <Link
+                  to="/events"
+                  className="text-xl text-black dark:text-white hover:underline hover:underline-offset-4 hover:decoration-white transition-opacity duration-300"
+                  onClick={onClose}
+                >
+                  Events
+                </Link>
+              </li>
+
+              {/* About */}
+              <li>
+                <Link
+                  to="/about"
+                  className="text-xl text-black dark:text-white hover:underline hover:underline-offset-4 hover:decoration-white transition-opacity duration-300"
+                  onClick={onClose}
+                >
+                  About
+                </Link>
+              </li>
+
+              {/* Contact */}
+              <li>
+                <Link
+                  to="/contact"
+                  className="text-xl text-black dark:text-white hover:underline hover:underline-offset-4 hover:decoration-white transition-opacity duration-300"
+                  onClick={onClose}
+                >
+                  Contact
+                </Link>
+              </li>
+
+            </ul>
+          </nav>
+
+          {/* Footer */}
+          <div className="p-4 border-t border-gray-200 dark:border-gray-800 space-y-3">
+            <div className="flex items-center justify-between">
+              <p className="text-sm text-gray-500 dark:text-gray-400">
+                © {new Date().getFullYear()} Beloveful
+              </p>
+              <SocialIcons className="gap-3" iconSize={18} />
+            </div>
+            <button
+              type="button"
+              onClick={() => setTheme(isDark ? "light" : "dark")}
+              className="w-full rounded-md border border-gray-200 dark:border-gray-700 px-3 py-2 text-sm font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+            >
+              {isDark ? "Switch to light mode" : "Switch to dark mode"}
+            </button>
+            <p className="text-xs text-gray-400 dark:text-gray-500">
+              Follow along for the latest drops and stories.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
 import { Header } from "@/components/Header";
 import FooterStrip from "@/components/FooterStrip";
 import PageContainer from "@/components/PageContainer";
