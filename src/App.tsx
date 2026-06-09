@@ -5,7 +5,6 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { ThemeProvider } from "next-themes";
 import { Suspense, lazy } from "react";
-import CookieBanner from "./components/CookieBanner";
 import RegionLanding from "./pages/RegionLanding";
 import { OPEN_EDITION_SHOP_URL } from "@/lib/constants";
 
@@ -56,7 +55,6 @@ const App = () => (
       <TooltipProvider>
         <Toaster />
         <Sonner />
-        <CookieBanner />
         <BrowserRouter
           future={{
             v7_relativeSplatPath: true,

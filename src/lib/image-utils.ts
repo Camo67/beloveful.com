@@ -313,11 +313,16 @@ function lookupCdnUrl(relative: string): string | undefined {
 
 function normalizeCountrySpelling(path: string): string {
   let normalized = path;
-  const lower = normalized.toLowerCase();
-  if (lower.includes('asia/philippines/')) {
-    // Fix the common misspelling in the filesystem: Philippines -> Phillippines
-    // Use a regex that handles both leading slash and no leading slash
-    normalized = normalized.replace(/(^|\/)asia\/philippines\//i, '$1Asia/Phillippines/');
+  // Handle both standard spelling and various case/prefix variations
+  if (normalized.toLowerCase().includes('asia/philippines/')) {
+    // Regex explanation:
+    // (.*?): Capture anything before (like 'images/' or '/')
+    // asia/philippines/: Match the target part (case-insensitive)
+    // (.*): Capture anything after
+    const match = normalized.match(/^(.*?)asia\/philippines\/(.*)$/i);
+    if (match) {
+      normalized = match[1] + 'Asia/Phillippines/' + match[2];
+    }
   }
   return normalized;
 }
@@ -325,7 +330,7 @@ function normalizeCountrySpelling(path: string): string {
 function normalizeIndiaNggidPath(relative: string): string {
   const normalized = normalizeRelativePath(relative);
   const lower = normalized.toLowerCase();
-  if (!lower.includes('/asia/india/') || !normalized.includes('-nggid')) {
+  if (!lower.includes('/asia/india/')) {
     return normalized;
   }
 
@@ -339,9 +344,11 @@ function normalizeIndiaNggidPath(relative: string): string {
 
   // Strip the nggid suffix and duplicate markers, and avoid double extensions
   base = base.replace(/-nggid.*$/i, '').replace(/\s*\(1\)\s*$/i, '');
+  base = base.replace(/indiaImages\//i, '');
   base = base.replace(/\.(jpe?g|png|webp|gif)$/i, '');
 
-  return [...segments, `${base}${ext}`].join('/');
+  const filteredSegments = segments.filter(s => s.toLowerCase() !== 'indiaimages');
+  return [...filteredSegments, `${base}${ext}`].join('/');
 }
 
 function deriveRelativeFromUrl(url: string): string | null {
@@ -388,7 +395,7 @@ export function mapToCdnUrl(originalUrl?: string | null): string | null {
       // ignore
     }
     const lower = decoded.toLowerCase();
-    if (!lower.includes('/asia/india/') || !lower.includes('-nggid')) return null;
+    if (!lower.includes('/asia/india/')) return null;
 
     const withoutQuery = decoded.split(/[?#]/)[0];
     const parts = withoutQuery.split('/');
@@ -398,6 +405,7 @@ export function mapToCdnUrl(originalUrl?: string | null): string | null {
     let base = match[1];
     const ext = match[2];
     base = base.replace(/-nggid.*$/i, '').replace(/\s*\(1\)\s*$/i, '');
+  base = base.replace(/indiaImages\//i, '');
     base = base.replace(/\.(jpe?g|png|webp|gif)$/i, '');
     const cleanedPath = `/Website beloveful.com/Asia/india/${base}${ext}`;
     return encodeSpaces(cleanedPath);

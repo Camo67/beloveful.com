@@ -412,7 +412,7 @@ export default function Events() {
 
   const currentMonthEvents = (upcomingEventsQuery.data?.events || [])
     .map(applyUpcomingEventOverrides)
-    .filter((event) => getEventYearMonth(event.start) === currentMonthKey && !isEventPast(event))
+    .filter((event) => !isEventPast(event))
     .sort((left, right) => getEventSortMs(left) - getEventSortMs(right));
   const sourceConfigured = upcomingEventsQuery.data?.sourceConfigured ?? false;
   const liveFeedError = upcomingEventsQuery.isError
@@ -432,20 +432,20 @@ export default function Events() {
             Events & Exhibitions
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Live cards from the public calendar for {currentMonthLabel}, automatically refreshed as calendar events and the month change.
+            Live cards from the public calendar, automatically refreshed as new calendar events are published.
           </p>
         </div>
 
         <section className="space-y-6">
           <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
             <div className="space-y-1">
-              <h2 className="text-2xl font-light text-black dark:text-white">{currentMonthLabel}</h2>
+              <h2 className="text-2xl font-light text-black dark:text-white">Upcoming Events</h2>
               <p className="text-sm text-muted-foreground">
-                Current-month events from the Beloveful calendar, with event details and public event images when available.
+                Active events from the Beloveful calendar, with event details and public event images when available.
               </p>
             </div>
             <span className="text-sm text-muted-foreground">
-              {currentMonthEvents.length} {currentMonthEvents.length === 1 ? "event" : "events"} this month
+              {currentMonthEvents.length} upcoming {currentMonthEvents.length === 1 ? "event" : "events"}
             </span>
           </div>
 
@@ -453,7 +453,7 @@ export default function Events() {
             <div className="rounded-2xl border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900 p-8 text-center text-muted-foreground">
               <div className="inline-flex items-center gap-3">
                 <Loader2 className="h-4 w-4 animate-spin" />
-                Loading this month’s calendar events...
+                Loading upcoming calendar events...
               </div>
             </div>
           ) : liveFeedError && currentMonthEvents.length === 0 ? (
@@ -463,7 +463,7 @@ export default function Events() {
             </div>
           ) : currentMonthEvents.length === 0 ? (
             <div className="rounded-2xl border border-dashed border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 p-8 text-center space-y-2">
-              <p className="text-lg text-black dark:text-white">No events are published for {currentMonthLabel}.</p>
+              <p className="text-lg text-black dark:text-white">No upcoming events are currently published.</p>
               <p className="text-sm text-muted-foreground">
                 {sourceConfigured
                   ? "The list refreshes automatically. Check the embedded calendar below for the live month view while new event cards are published."

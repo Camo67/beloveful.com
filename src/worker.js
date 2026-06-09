@@ -263,6 +263,25 @@ function extractAiText(data) {
   return data?.output?.choices?.[0]?.message?.content || data?.output?.text || '';
 }
 
+
+
+async function handleUpcomingEvents(request, env) {
+  const url = new URL(request.url);
+  const month = url.searchParams.get('month') || '';
+
+  // This endpoint returns upcoming events.
+  // Integration with Zoho or another calendar provider would go here.
+
+  return jsonResponse({
+    success: true,
+    sourceConfigured: false,
+    events: [],
+    requestedMonth: month,
+    refreshedAt: new Date().toISOString()
+  });
+}
+
+
 async function handleAiRoute(request, env) {
   const url = new URL(request.url);
   const { pathname } = url;
@@ -480,6 +499,10 @@ export default {
         { headers: { 'Content-Type': 'application/json' } }
       );
     }
+    if (pathname === '/api/events/upcoming') {
+      return handleUpcomingEvents(request, env);
+    }
+
 
 
     if (pathname === '/api/create-checkout-session') {
