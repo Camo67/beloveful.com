@@ -222,6 +222,24 @@ function getEventYearMonth(value: string): string {
   return getYearMonthInTimeZone(parsed, CHICAGO_TIME_ZONE);
 }
 
+function isEventPast(event: UpcomingEvent): boolean {
+  const referenceStr = event.end || event.start;
+  if (!referenceStr) return false;
+
+  const referenceDate = parseEventDate(referenceStr);
+  if (!referenceDate) return false;
+
+  const now = new Date();
+
+  if (isDateOnly(referenceStr)) {
+    const endOfDay = new Date(referenceDate);
+    endOfDay.setUTCDate(endOfDay.getUTCDate() + 1);
+    return now.getTime() >= endOfDay.getTime();
+  }
+
+  return now.getTime() > referenceDate.getTime();
+}
+
 function formatMonthLabel(monthKey: string): string {
   const [year, month] = monthKey.split("-").map(Number);
   if (!year || !month) {
@@ -394,7 +412,7 @@ export default function Events() {
 
   const currentMonthEvents = (upcomingEventsQuery.data?.events || [])
     .map(applyUpcomingEventOverrides)
-    .filter((event) => getEventYearMonth(event.start) === currentMonthKey)
+    .filter((event) => getEventYearMonth(event.start) === currentMonthKey && !isEventPast(event))
     .sort((left, right) => getEventSortMs(left) - getEventSortMs(right));
   const sourceConfigured = upcomingEventsQuery.data?.sourceConfigured ?? false;
   const liveFeedError = upcomingEventsQuery.isError

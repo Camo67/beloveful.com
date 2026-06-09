@@ -351,7 +351,7 @@ export default function PrintShop() {
                     <button
                       type="button"
                       className="block w-full text-left"
-                      onClick={() => setSelectedProduct(product)}
+                      onClick={() => window.open(product.buyUrl || product.url || 'https://www.printinnovationlab.com/collections/beloveful', '_blank')}
                     >
                       <div className="aspect-[4/3] relative overflow-hidden">
                         <CmsImage
@@ -371,7 +371,7 @@ export default function PrintShop() {
                       </div>
                     </button>
                     <div className="p-5 space-y-4">
-                      <button type="button" className="text-left" onClick={() => setSelectedProduct(product)}>
+                      <button type="button" className="text-left" onClick={() => window.open(product.buyUrl || product.url || 'https://www.printinnovationlab.com/collections/beloveful', '_blank')}>
                         <h3 className="font-semibold text-xl tracking-tight text-white mb-1">
                           {product.title}
                         </h3>
@@ -385,7 +385,7 @@ export default function PrintShop() {
                         <span className="text-white text-lg font-medium">From {money(product.minPrice)}</span>
                         <button
                           type="button"
-                          onClick={() => setSelectedProduct(product)}
+                          onClick={() => window.open(product.buyUrl || product.url || 'https://www.printinnovationlab.com/collections/beloveful', '_blank')}
                           className="text-xs uppercase tracking-[0.16em] px-4 py-2 border border-white/20 text-white hover:bg-white hover:text-black transition-colors duration-300"
                         >
                           Select Print

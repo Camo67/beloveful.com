@@ -310,6 +310,18 @@ function lookupCdnUrl(relative: string): string | undefined {
 }
 
 // Normalize legacy India filenames with "-nggid..." suffixes to point at the real indiaImages assets
+
+function normalizeCountrySpelling(path: string): string {
+  let normalized = path;
+  const lower = normalized.toLowerCase();
+  if (lower.includes('asia/philippines/')) {
+    // Fix the common misspelling in the filesystem: Philippines -> Phillippines
+    // Use a regex that handles both leading slash and no leading slash
+    normalized = normalized.replace(/(^|\/)asia\/philippines\//i, '$1Asia/Phillippines/');
+  }
+  return normalized;
+}
+
 function normalizeIndiaNggidPath(relative: string): string {
   const normalized = normalizeRelativePath(relative);
   const lower = normalized.toLowerCase();
@@ -329,7 +341,7 @@ function normalizeIndiaNggidPath(relative: string): string {
   base = base.replace(/-nggid.*$/i, '').replace(/\s*\(1\)\s*$/i, '');
   base = base.replace(/\.(jpe?g|png|webp|gif)$/i, '');
 
-  return [...segments, 'indiaImages', `${base}${ext}`].join('/');
+  return [...segments, `${base}${ext}`].join('/');
 }
 
 function deriveRelativeFromUrl(url: string): string | null {
@@ -387,7 +399,7 @@ export function mapToCdnUrl(originalUrl?: string | null): string | null {
     const ext = match[2];
     base = base.replace(/-nggid.*$/i, '').replace(/\s*\(1\)\s*$/i, '');
     base = base.replace(/\.(jpe?g|png|webp|gif)$/i, '');
-    const cleanedPath = `/Website beloveful.com/Asia/india/indiaImages/${base}${ext}`;
+    const cleanedPath = `/Website beloveful.com/Asia/india/${base}${ext}`;
     return encodeSpaces(cleanedPath);
   };
 
@@ -402,7 +414,7 @@ export function mapToCdnUrl(originalUrl?: string | null): string | null {
 
   const trimmed = originalUrl.trim();
   if (RELATIVE_URL_REGEX.test(trimmed)) {
-    const relativePath = normalizeIndiaNggidPath(trimmed.replace(/^\/+/, ''));
+    const relativePath = normalizeCountrySpelling(normalizeIndiaNggidPath(trimmed.replace(/^\/+/, '')));
     // Always prefer bundled assets for library + /images paths (avoid CDN)
     if (
       relativePath.startsWith(LOCAL_LIBRARY_PREFIX.replace(/^\/+/, '')) ||
