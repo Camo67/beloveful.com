@@ -124,9 +124,8 @@ export const PUBLISHED_EVENTS: PublishedEvent[] = [
     location: "1141 Central Ave, Wilmette, IL 60091",
     url: "https://amdurproductions.com/wilmette-art-fair/",
     isAllDay: true,
-    imageUrl:
-      "/Website%20beloveful.com/North%20America/Chicago/CHI-12-17-DSCF0612.jpg",
-    imageAlt: "Chicago street photograph by Tony Menias, exhibiting at the Wilmette Art Fair",
+    imageUrl: "/events/wilmette-art-fair.png",
+    imageAlt: "Wilmette Art Fair — official festival logo",
   },
   {
     id: "burr-ridge-art-fair-2026",
@@ -136,8 +135,8 @@ export const PUBLISHED_EVENTS: PublishedEvent[] = [
     location: "701 Village Center Dr, Burr Ridge, IL 60527",
     url: "https://amdurproductions.com/burr-ridge-art-fair/",
     isAllDay: true,
-    imageUrl: "/Website%20beloveful.com/North%20America/Chicago/CHI-20.jpg",
-    imageAlt: "Chicago street photograph by Tony Menias, exhibiting at the Burr Ridge Art Fair",
+    imageUrl: "/events/burr-ridge-art-fair.png",
+    imageAlt: "Burr Ridge Art Fair — official festival logo",
   },
   {
     id: "printers-row-art-fest-2026",
@@ -147,8 +146,8 @@ export const PUBLISHED_EVENTS: PublishedEvent[] = [
     location: "728 S Dearborn St, Chicago, IL 60605",
     url: "https://amdurproductions.com/printers-row-art-fest-new/",
     isAllDay: true,
-    imageUrl: "/Website%20beloveful.com/North%20America/Chicago/CHI-9867.jpg",
-    imageAlt: "Chicago street photograph by Tony Menias, exhibiting at the Printer's Row Art Fest",
+    imageUrl: "/events/printers-row-art-fest.png",
+    imageAlt: "Printer's Row Art Fest — official festival logo",
   },
   {
     id: "evanston-art-big-fork-festival-2026",
@@ -158,8 +157,8 @@ export const PUBLISHED_EVENTS: PublishedEvent[] = [
     location: "800 Chicago St, Evanston, IL 60201",
     url: "https://amdurproductions.com/evanston-art-and-big-fork-festival/",
     isAllDay: true,
-    imageUrl: "/Website%20beloveful.com/North%20America/Chicago/CHI-9371.jpg",
-    imageAlt: "Chicago street photograph by Tony Menias, exhibiting at the Evanston Art & Big Fork Festival",
+    imageUrl: "/events/evanston-art-big-fork-festival.png",
+    imageAlt: "Evanston Art & Big Fork Festival — official festival logo",
   },
   {
     id: "magnificent-mile-art-festival-2026",
@@ -169,8 +168,8 @@ export const PUBLISHED_EVENTS: PublishedEvent[] = [
     location: "875 N Michigan Avenue, Chicago, IL 60611",
     url: "https://amdurproductions.com/the-fall-magnificent-mile-art-festival/",
     isAllDay: true,
-    imageUrl: "/Website%20beloveful.com/North%20America/Chicago/CHI-489.jpg",
-    imageAlt: "Chicago street photograph by Tony Menias, exhibiting at The Magnificent Mile Art Festival",
+    imageUrl: "/events/magnificent-mile-art-festival.png",
+    imageAlt: "The Magnificent Mile Art Festival — official festival logo",
   },
 ];
 
