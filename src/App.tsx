@@ -7,7 +7,7 @@ import { ThemeProvider } from "next-themes";
 import { Suspense, lazy } from "react";
 import CookieBanner from "./components/CookieBanner";
 import RegionLanding from "./pages/RegionLanding";
-import { OPEN_EDITION_SHOP_URL } from "@/lib/constants";
+import { LIMITED_EDITION_SHOP_URL, OPEN_EDITION_SHOP_URL } from "@/lib/constants";
 
 // Lazy load all page components
 const Index = lazy(() => import("./pages/Index"));
@@ -22,7 +22,6 @@ const WorkshopChicagoPrivate = lazy(() => import("./pages/WorkshopChicagoPrivate
 const WorkshopChicagoGroup = lazy(() => import("./pages/WorkshopChicagoGroup"));
 const WorkshopOnline = lazy(() => import("./pages/WorkshopOnline"));
 const Mentorship = lazy(() => import("./pages/Mentorship"));
-const PrintShop = lazy(() => import("./pages/PrintShop"));
 const Contact = lazy(() => import("./pages/Contact"));
 const Admin = lazy(() => import("./pages/Admin").then(module => ({ default: module.Admin })));
 const Debug = lazy(() => import("./pages/Debug"));
@@ -40,6 +39,17 @@ const queryClient = new QueryClient();
 
 const ExternalRedirect = ({ to }: { to: string }) => {
   window.location.replace(to);
+  return null;
+};
+
+// The old in-site print shop has been retired. Send shoppers straight to the
+// external storefronts. "/print-shop#limited" links keep working by routing the
+// limited-edition hash to Print Innovation Lab.
+const PrintShopRedirect = () => {
+  const target = window.location.hash.toLowerCase().includes("limited")
+    ? LIMITED_EDITION_SHOP_URL
+    : OPEN_EDITION_SHOP_URL;
+  window.location.replace(target);
   return null;
 };
 
@@ -88,9 +98,9 @@ const App = () => (
               <Route path="/workshop-chicago-group" element={<Navigate to="/workshops/group-chicago" replace />} />
               <Route path="/workshop-online" element={<Navigate to="/workshops/online-group" replace />} />
               <Route path="/faq" element={<FAQ />} />
-              <Route path="/print-shop" element={<PrintShop />} />
+              <Route path="/print-shop" element={<PrintShopRedirect />} />
               <Route path="/open-edition" element={<ExternalRedirect to={OPEN_EDITION_SHOP_URL} />} />
-              <Route path="/limited-edition" element={<Navigate to="/print-shop#limited" replace />} />
+              <Route path="/limited-edition" element={<ExternalRedirect to={LIMITED_EDITION_SHOP_URL} />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/adminlogin/*" element={<Admin />} />
               <Route path="/admin/*" element={<Admin />} />

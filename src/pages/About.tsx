@@ -35,7 +35,7 @@ export default function About() {
   }, []);
 
   const spotifyEmbedUrl =
-    "https://open.spotify.com/embed/playlist/6Gy5nsKnrYir1tOx9pBuxW?utm_source=generator&theme=0";
+    "https://open.spotify.com/embed/playlist/7pkDV5vCWUxYvWaA0TL0LT?utm_source=generator&theme=0";
 
   return (
     <div className="min-h-screen">
@@ -90,7 +90,7 @@ export default function About() {
         <section className="max-w-5xl mx-auto space-y-6">
           <div className="text-center space-y-2">
             <p className="text-sm uppercase tracking-[0.35em] text-muted-foreground">Interviews</p>
-            <h2 className="text-3xl font-light text-black dark:text-white">Listen & Learn</h2>
+            <h2 className="text-3xl font-light text-black dark:text-white">Headline Interviews</h2>
             <p className="text-base text-muted-foreground max-w-3xl mx-auto">
               A curated playlist of conversations about process, purpose, and street photography.
             </p>

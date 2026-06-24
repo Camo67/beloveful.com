@@ -3,9 +3,7 @@ import { useState } from "react";
 import { useLocation, Link } from "react-router-dom";
 import { Instagram, Facebook, ExternalLink } from "lucide-react";
 import ThemeToggle from "./ThemeToggle";
-
-const NEWSLETTER_URL =
-  "https://www.beloveful.com/sign-up/";
+import { NEWSLETTER_SIGNUP_URL } from "@/lib/constants";
 
 export default function FooterStrip() {
   const [email, setEmail] = useState("");
@@ -18,10 +16,11 @@ export default function FooterStrip() {
     <footer className="w-full border-t border-neutral-200 dark:border-neutral-800 bg-white/70 dark:bg-neutral-950/70 backdrop-blur supports-[backdrop-filter]:backdrop-blur">
       <div className="mx-auto flex flex-wrap items-center gap-3 px-3 py-3 md:px-6">
         {/* newsletter */}
-        <form 
-          action={NEWSLETTER_URL} 
-          method="GET" 
-          target="_blank"
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            window.open(NEWSLETTER_SIGNUP_URL, "_blank", "noopener,noreferrer");
+          }}
           className="flex items-center gap-2"
         >
           <input
@@ -60,18 +59,11 @@ export default function FooterStrip() {
             FAQ
           </Link>
           <span className="text-xs text-neutral-400">•</span>
-          <Link 
-            to={{ pathname: "/faq", hash: "#privacy" }} 
+          <Link
+            to={{ pathname: "/faq", hash: "#privacy" }}
             className="text-xs text-neutral-500 dark:text-neutral-400 hover:text-neutral-700 dark:hover:text-neutral-200 transition-colors underline-offset-2 hover:underline"
           >
             Privacy
-          </Link>
-          <span className="text-xs text-neutral-400">â€¢</span>
-          <Link
-            to="/admin"
-            className="text-xs text-neutral-500 dark:text-neutral-400 hover:text-neutral-700 dark:hover:text-neutral-200 transition-colors underline-offset-2 hover:underline"
-          >
-            Admin
           </Link>
         </div>
 

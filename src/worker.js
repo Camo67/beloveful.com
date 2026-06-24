@@ -464,6 +464,330 @@ async function handleCheckoutSession(request, env, origin) {
 
 // handleMetadataSync was here
 
+// ---------------------------------------------------------------------------
+// Public contact form delivery.
+// Restored from the former functions/api/contact.ts handler that was removed
+// during the "Clean site tooling" cleanup, which left /api/public/contact with
+// no backend (so the contact form failed for every visitor). Sends submissions
+// via Resend or MailChannels and returns JSON the Contact page understands
+// ({ success: true } on delivery, a 5xx error otherwise so the page can offer
+// the mailto fallback).
+// ---------------------------------------------------------------------------
+
+const CONTACT_EMAIL = 'tony@beloveful.com';
+const CONTACT_DEFAULT_FROM_EMAIL = 'website@beloveful.com';
+const CONTACT_DEFAULT_FROM_NAME = 'Beloveful Contact Form';
+const CONTACT_DEFAULT_MAILCHANNELS_URL = 'https://api.mailchannels.net/tx/v1/send';
+const CONTACT_DEFAULT_RESEND_URL = 'https://api.resend.com/emails';
+const CONTACT_DEFAULT_REQUEST_TIMEOUT_MS = 10000;
+
+function contactJsonResponse(payload, init = {}) {
+  return new Response(JSON.stringify(payload), {
+    ...init,
+    headers: {
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*',
+      ...(init.headers || {}),
+    },
+  });
+}
+
+function sanitizeValue(value, maxLength = 1200) {
+  return String(value ?? '').trim().slice(0, maxLength);
+}
+
+function escapeHtml(value) {
+  return value
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
+function isValidEmail(value) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+}
+
+function parseTimeoutMs(value) {
+  const parsed = Number.parseInt(String(value ?? '').trim(), 10);
+  if (!Number.isFinite(parsed)) {
+    return CONTACT_DEFAULT_REQUEST_TIMEOUT_MS;
+  }
+  return Math.min(Math.max(parsed, 1000), 30000);
+}
+
+function formatMailboxAddress(email, name) {
+  const safeEmail = sanitizeValue(email, 160);
+  const safeName = sanitizeValue(name, 160).replace(/["<>]/g, '');
+  return safeName ? `${safeName} <${safeEmail}>` : safeEmail;
+}
+
+async function fetchWithTimeout(input, init, timeoutMs) {
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), timeoutMs);
+  try {
+    return await fetch(input, { ...init, signal: controller.signal });
+  } finally {
+    clearTimeout(timeoutId);
+  }
+}
+
+function isAbortError(error) {
+  return error instanceof Error && error.name === 'AbortError';
+}
+
+function buildContactSubject(payload, name) {
+  const provided = sanitizeValue(payload.subject, 160);
+  if (provided) return provided;
+  if (sanitizeValue(payload.image, 400)) return 'Print Inquiry';
+  if (sanitizeValue(payload.workshop, 160)) {
+    return `Workshop Inquiry: ${sanitizeValue(payload.workshop, 160)}`;
+  }
+  return `Website Inquiry from ${name || 'Visitor'}`;
+}
+
+function buildContactTextBody(payload, request, name, email, message) {
+  const submittedAt = new Date().toISOString();
+  const url = new URL(request.url);
+  return [
+    `Name: ${name}`,
+    `Email: ${email}`,
+    payload.source ? `Source: ${sanitizeValue(payload.source, 120)}` : '',
+    payload.workshop ? `Workshop: ${sanitizeValue(payload.workshop, 160)}` : '',
+    payload.region ? `Region: ${sanitizeValue(payload.region, 120)}` : '',
+    payload.country ? `Country: ${sanitizeValue(payload.country, 120)}` : '',
+    payload.variant ? `Variant: ${sanitizeValue(payload.variant, 160)}` : '',
+    payload.image ? `Image: ${sanitizeValue(payload.image, 600)}` : '',
+    `Submitted: ${submittedAt}`,
+    `Origin: ${url.origin}`,
+    '',
+    'Message:',
+    message || '(No message provided)',
+  ]
+    .filter(Boolean)
+    .join('\n');
+}
+
+function buildContactHtmlBody(payload, request, name, email, message) {
+  const submittedAt = new Date().toISOString();
+  const url = new URL(request.url);
+  const rows = [
+    ['Name', name],
+    ['Email', email],
+    ['Source', sanitizeValue(payload.source, 120)],
+    ['Workshop', sanitizeValue(payload.workshop, 160)],
+    ['Region', sanitizeValue(payload.region, 120)],
+    ['Country', sanitizeValue(payload.country, 120)],
+    ['Variant', sanitizeValue(payload.variant, 160)],
+    ['Image', sanitizeValue(payload.image, 600)],
+    ['Submitted', submittedAt],
+    ['Origin', url.origin],
+  ].filter(([, value]) => value);
+
+  const tableRows = rows
+    .map(
+      ([label, value]) =>
+        `<tr><td style="padding:6px 12px 6px 0;font-weight:600;vertical-align:top;">${escapeHtml(label)}</td><td style="padding:6px 0;">${escapeHtml(value)}</td></tr>`,
+    )
+    .join('');
+
+  return `<!doctype html>
+<html lang="en">
+  <body style="font-family:Arial,sans-serif;color:#111827;line-height:1.6;">
+    <h1 style="font-size:20px;margin-bottom:16px;">New Beloveful contact form submission</h1>
+    <table style="border-collapse:collapse;margin-bottom:24px;">${tableRows}</table>
+    <h2 style="font-size:16px;margin-bottom:8px;">Message</h2>
+    <div style="white-space:pre-wrap;border:1px solid #e5e7eb;border-radius:12px;padding:16px;">${escapeHtml(
+      message || '(No message provided)',
+    )}</div>
+  </body>
+</html>`;
+}
+
+async function sendContactViaMailchannels(apiUrl, fromEmail, fromName, toEmail, replyToName, replyToEmail, subject, textBody, htmlBody, timeoutMs) {
+  return fetchWithTimeout(
+    apiUrl,
+    {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        personalizations: [{ to: [{ email: toEmail }] }],
+        from: { email: fromEmail, name: fromName },
+        reply_to: { email: replyToEmail, name: replyToName || replyToEmail },
+        subject,
+        content: [
+          { type: 'text/plain', value: textBody },
+          { type: 'text/html', value: htmlBody },
+        ],
+      }),
+    },
+    timeoutMs,
+  );
+}
+
+async function sendContactViaResend(apiUrl, apiKey, fromEmail, fromName, toEmail, replyToName, replyToEmail, subject, textBody, htmlBody, timeoutMs) {
+  return fetchWithTimeout(
+    apiUrl,
+    {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${apiKey}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        from: formatMailboxAddress(fromEmail, fromName),
+        to: [toEmail],
+        subject,
+        text: textBody,
+        html: htmlBody,
+        reply_to: formatMailboxAddress(replyToEmail, replyToName || replyToEmail),
+      }),
+    },
+    timeoutMs,
+  );
+}
+
+function describeEndpoint(apiUrl) {
+  try {
+    const url = new URL(apiUrl);
+    return `${url.origin}${url.pathname}`;
+  } catch {
+    return apiUrl;
+  }
+}
+
+function getMailchannelsEndpoints(env) {
+  const customUrl = sanitizeValue(env.MAILCHANNELS_API_URL, 400);
+  if (!customUrl || customUrl === CONTACT_DEFAULT_MAILCHANNELS_URL) {
+    return [CONTACT_DEFAULT_MAILCHANNELS_URL];
+  }
+  return [customUrl, CONTACT_DEFAULT_MAILCHANNELS_URL];
+}
+
+function getResendEndpoint(env) {
+  return sanitizeValue(env.RESEND_API_URL, 400) || CONTACT_DEFAULT_RESEND_URL;
+}
+
+function resolveContactDeliveryMode(env) {
+  const configuredMode = sanitizeValue(env.CONTACT_FORM_DELIVERY_MODE, 40).toLowerCase();
+  if (configuredMode === 'log' || configuredMode === 'mailchannels' || configuredMode === 'resend') {
+    return configuredMode;
+  }
+  if (sanitizeValue(env.RESEND_API_KEY, 400)) {
+    return 'resend';
+  }
+  return 'mailchannels';
+}
+
+async function handleContactForm(request, env) {
+  let payload;
+  try {
+    payload = await request.json();
+  } catch {
+    return contactJsonResponse({ success: false, error: 'Invalid request body' }, { status: 400 });
+  }
+
+  // Honeypot: silently accept obvious bots without delivering anything.
+  if (sanitizeValue(payload.website, 200)) {
+    return contactJsonResponse({ success: true });
+  }
+
+  const name = sanitizeValue(payload.name, 120);
+  const email = sanitizeValue(payload.email, 160).toLowerCase();
+  const message = sanitizeValue(payload.message, 5000);
+
+  if (!name || !email) {
+    return contactJsonResponse({ success: false, error: 'Name and email are required' }, { status: 400 });
+  }
+  if (!isValidEmail(email)) {
+    return contactJsonResponse({ success: false, error: 'Please enter a valid email address' }, { status: 400 });
+  }
+
+  const toEmail = sanitizeValue(env.CONTACT_FORM_TO_EMAIL, 160) || CONTACT_EMAIL;
+  const fromEmail = sanitizeValue(env.CONTACT_FORM_FROM_EMAIL, 160) || CONTACT_DEFAULT_FROM_EMAIL;
+  const fromName = sanitizeValue(env.CONTACT_FORM_FROM_NAME, 160) || CONTACT_DEFAULT_FROM_NAME;
+  const subject = buildContactSubject(payload, name);
+  const textBody = buildContactTextBody(payload, request, name, email, message);
+  const htmlBody = buildContactHtmlBody(payload, request, name, email, message);
+  const deliveryMode = resolveContactDeliveryMode(env);
+  const requestTimeoutMs = parseTimeoutMs(env.CONTACT_FORM_REQUEST_TIMEOUT_MS);
+
+  if (deliveryMode === 'log') {
+    console.log('Contact form submission', { toEmail, subject, textBody });
+    return contactJsonResponse({ success: true, mode: 'log' });
+  }
+
+  if (deliveryMode === 'resend' && !sanitizeValue(env.RESEND_API_KEY, 400)) {
+    console.error('Contact form delivery misconfigured: RESEND_API_KEY is missing');
+    return contactJsonResponse(
+      { success: false, error: 'We could not send your message right now. Please try again shortly.' },
+      { status: 500, headers: { 'X-Contact-Delivery-Failed': 'resend-misconfigured' } },
+    );
+  }
+
+  try {
+    if (deliveryMode === 'resend') {
+      const apiUrl = getResendEndpoint(env);
+      const response = await sendContactViaResend(
+        apiUrl,
+        sanitizeValue(env.RESEND_API_KEY, 400),
+        fromEmail,
+        fromName,
+        toEmail,
+        name,
+        email,
+        subject,
+        textBody,
+        htmlBody,
+        requestTimeoutMs,
+      );
+      if (response.ok) {
+        return contactJsonResponse({ success: true });
+      }
+      const errorText = await response.text();
+      console.error('Contact form delivery failed', 'resend', describeEndpoint(apiUrl), response.status, errorText);
+      return contactJsonResponse(
+        { success: false, error: 'We could not send your message right now. Please try again shortly.' },
+        { status: 502, headers: { 'X-Contact-Delivery-Failed': 'resend' } },
+      );
+    }
+
+    // Default: MailChannels (with an optional custom endpoint tried first).
+    const endpoints = getMailchannelsEndpoints(env);
+    let lastErrorText = '';
+    for (const apiUrl of endpoints) {
+      const response = await sendContactViaMailchannels(
+        apiUrl,
+        fromEmail,
+        fromName,
+        toEmail,
+        name,
+        email,
+        subject,
+        textBody,
+        htmlBody,
+        requestTimeoutMs,
+      );
+      if (response.ok) {
+        return contactJsonResponse({ success: true });
+      }
+      lastErrorText = await response.text();
+      console.error('Contact form delivery failed', 'mailchannels', describeEndpoint(apiUrl), response.status, lastErrorText);
+    }
+    return contactJsonResponse(
+      { success: false, error: 'We could not send your message right now. Please try again shortly.' },
+      { status: 502, headers: { 'X-Contact-Delivery-Failed': 'mailchannels' } },
+    );
+  } catch (error) {
+    console.error('Contact form request failed', deliveryMode, isAbortError(error) ? `timeout after ${requestTimeoutMs}ms` : error);
+    return contactJsonResponse(
+      { success: false, error: 'We could not send your message right now. Please try again shortly.' },
+      { status: 500, headers: { 'X-Contact-Delivery-Failed': isAbortError(error) ? `${deliveryMode}-timeout` : deliveryMode } },
+    );
+  }
+}
+
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
@@ -479,6 +803,23 @@ export default {
         JSON.stringify({ status: 'ok', timestamp: new Date().toISOString() }),
         { headers: { 'Content-Type': 'application/json' } }
       );
+    }
+
+    // Public contact form (used by the Contact page and print/workshop inquiries).
+    if (pathname === '/api/contact' || pathname === '/api/public/contact') {
+      if (request.method === 'OPTIONS') {
+        return new Response(null, {
+          headers: {
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Methods': 'POST, OPTIONS',
+            'Access-Control-Allow-Headers': 'Content-Type',
+          },
+        });
+      }
+      if (request.method !== 'POST') {
+        return methodNotAllowed(['POST', 'OPTIONS']);
+      }
+      return handleContactForm(request, env);
     }
 
 

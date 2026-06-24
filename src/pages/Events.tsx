@@ -7,6 +7,7 @@ import PageContainer from "@/components/PageContainer";
 import { Button } from "@/components/ui/button";
 import { GENERATED_EXHIBITIONS } from "@/lib/generatedExhibitions";
 import { applyUpcomingEventOverrides } from "@/lib/upcomingEventOverrides";
+import { getUpcomingPublishedEvents } from "@/lib/publishedEvents";
 
 interface UpcomingEvent {
   id: string;
@@ -18,6 +19,8 @@ interface UpcomingEvent {
   url: string;
   isAllDay: boolean;
   imageUrl?: string;
+  imageAlt?: string;
+  imageFit?: "cover" | "contain";
   badgeLabel?: string;
   scheduleLabel?: string;
 }
@@ -271,8 +274,12 @@ function renderEventGrid(events: UpcomingEvent[]) {
               <div className="overflow-hidden rounded-2xl border border-gray-200 dark:border-gray-800 bg-gray-100 dark:bg-gray-900">
                 <img
                   src={event.imageUrl}
-                  alt={event.title}
-                  className="h-56 w-full object-cover"
+                  alt={event.imageAlt || event.title}
+                  className={`h-56 w-full ${
+                    event.imageFit === "contain"
+                      ? "bg-white object-contain p-6"
+                      : "object-cover"
+                  }`}
                   loading="lazy"
                 />
               </div>
@@ -397,11 +404,17 @@ export default function Events() {
     .filter((event) => getEventYearMonth(event.start) === currentMonthKey)
     .sort((left, right) => getEventSortMs(left) - getEventSortMs(right));
   const sourceConfigured = upcomingEventsQuery.data?.sourceConfigured ?? false;
-  const liveFeedError = upcomingEventsQuery.isError
-    ? (upcomingEventsQuery.error as Error)?.message || "Live events are temporarily unavailable."
-    : !upcomingEventsQuery.data?.success && sourceConfigured
-      ? upcomingEventsQuery.data?.error || "Live events are temporarily unavailable."
-      : "";
+  const hasLiveEvents = currentMonthEvents.length > 0;
+  // When the live calendar feed is unavailable, fall back to the confirmed
+  // published schedule so visitors still see real, event-specific cards (each
+  // with its own details and link) instead of an error state or a single shared
+  // placeholder image repeated across every event.
+  const fallbackEvents: UpcomingEvent[] = hasLiveEvents
+    ? []
+    : getUpcomingPublishedEvents().map((event) => ({
+        ...event,
+        description: event.description ?? "",
+      }));
 
   return (
     <div className="min-h-screen">
@@ -427,37 +440,41 @@ export default function Events() {
               </p>
             </div>
             <span className="text-sm text-muted-foreground">
-              {currentMonthEvents.length} {currentMonthEvents.length === 1 ? "event" : "events"} this month
+              {hasLiveEvents
+                ? `${currentMonthEvents.length} ${currentMonthEvents.length === 1 ? "event" : "events"} this month`
+                : `${fallbackEvents.length} upcoming ${fallbackEvents.length === 1 ? "event" : "events"}`}
             </span>
           </div>
 
-          {upcomingEventsQuery.isLoading && currentMonthEvents.length === 0 ? (
+          {hasLiveEvents ? (
+            <div className="space-y-3">
+              <p className="text-sm text-muted-foreground">
+                This view checks for new calendar events every minute and rolls forward automatically when the month changes.
+              </p>
+              {renderEventGrid(currentMonthEvents)}
+            </div>
+          ) : fallbackEvents.length > 0 ? (
+            <div className="space-y-3">
+              <p className="text-sm text-muted-foreground">
+                Showing the published 2026 schedule while the live calendar feed refreshes. Each card links to the host’s official event page for tickets and details.
+              </p>
+              {renderEventGrid(fallbackEvents)}
+            </div>
+          ) : upcomingEventsQuery.isLoading ? (
             <div className="rounded-2xl border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900 p-8 text-center text-muted-foreground">
               <div className="inline-flex items-center gap-3">
                 <Loader2 className="h-4 w-4 animate-spin" />
                 Loading this month’s calendar events...
               </div>
             </div>
-          ) : liveFeedError && currentMonthEvents.length === 0 ? (
+          ) : (
             <div className="rounded-2xl border border-dashed border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 p-8 text-center space-y-2">
-              <p className="text-lg text-black dark:text-white">Live events are temporarily unavailable.</p>
-              <p className="text-sm text-muted-foreground">{liveFeedError}</p>
-            </div>
-          ) : currentMonthEvents.length === 0 ? (
-            <div className="rounded-2xl border border-dashed border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 p-8 text-center space-y-2">
-              <p className="text-lg text-black dark:text-white">No events are published for {currentMonthLabel}.</p>
+              <p className="text-lg text-black dark:text-white">No upcoming events are published right now.</p>
               <p className="text-sm text-muted-foreground">
                 {sourceConfigured
                   ? "The list refreshes automatically. Check the embedded calendar below for the live month view while new event cards are published."
                   : "The embedded calendar below stays available for current scheduling details."}
               </p>
-            </div>
-          ) : (
-            <div className="space-y-3">
-              <p className="text-sm text-muted-foreground">
-                This view checks for new calendar events every minute and rolls forward automatically when the month changes.
-              </p>
-              {renderEventGrid(currentMonthEvents)}
             </div>
           )}
         </section>
