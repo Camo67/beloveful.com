@@ -16,6 +16,10 @@ export interface PublishedEvent {
   url: string;
   isAllDay: boolean;
   imageUrl?: string;
+  imageAlt?: string;
+  // How the image should fit the card thumbnail. Wordmark/logo art looks best
+  // with "contain" (shown in full on a clean background); photos use "cover".
+  imageFit?: "cover" | "contain";
   badgeLabel?: string;
   scheduleLabel?: string;
 }
@@ -67,6 +71,9 @@ export const PUBLISHED_EVENTS: PublishedEvent[] = [
     location: "180 N Stetson Ave, Chicago, Illinois 60601",
     url: "https://amdurproductions.com/millennium-art-festival/",
     isAllDay: true,
+    imageUrl: "https://amdurproductions.com/wp-content/uploads/2025/04/1-8.png",
+    imageAlt: "Millennium Art Festival logo — Tony Menias exhibiting in Chicago",
+    imageFit: "contain",
   },
   {
     id: "southport-art-fest-2026",

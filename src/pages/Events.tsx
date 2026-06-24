@@ -19,6 +19,8 @@ interface UpcomingEvent {
   url: string;
   isAllDay: boolean;
   imageUrl?: string;
+  imageAlt?: string;
+  imageFit?: "cover" | "contain";
   badgeLabel?: string;
   scheduleLabel?: string;
 }
@@ -272,8 +274,12 @@ function renderEventGrid(events: UpcomingEvent[]) {
               <div className="overflow-hidden rounded-2xl border border-gray-200 dark:border-gray-800 bg-gray-100 dark:bg-gray-900">
                 <img
                   src={event.imageUrl}
-                  alt={event.title}
-                  className="h-56 w-full object-cover"
+                  alt={event.imageAlt || event.title}
+                  className={`h-56 w-full ${
+                    event.imageFit === "contain"
+                      ? "bg-white object-contain p-6"
+                      : "object-cover"
+                  }`}
                   loading="lazy"
                 />
               </div>
