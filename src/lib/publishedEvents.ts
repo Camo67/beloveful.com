@@ -1,10 +1,11 @@
 // Published event schedule used as a fallback for the Events page when the live
 // calendar feed (/api/events/upcoming) is unavailable.
 //
-// Each entry is a real, confirmed 2026 appearance. Images are only attached when
-// a genuinely event-specific photo is available — we deliberately do NOT reuse a
-// single shared promoter logo across every card (that shared-image behavior was
-// the problem reported on the Events page).
+// Each entry is a real, confirmed 2026 appearance. Images are event-specific:
+// where the host supplies official artwork (e.g. Millennium's festival logo) we
+// use it; otherwise each card features a distinct photograph from Tony's own
+// gallery (his Chicago street work for the Chicago-area fairs), so no two cards
+// share an image and every card showcases his photography.
 
 export interface PublishedEvent {
   id: string;
@@ -37,6 +38,7 @@ export const PUBLISHED_EVENTS: PublishedEvent[] = [
     scheduleLabel: "Thursday, April 9 2026 - Sunday, April 12 2026",
     imageUrl:
       "https://www.theotherartfair.com/chicago/wp-content/uploads/sites/6/2025/12/TOAFChicagoFall2025DayThree_85-4000x2667.jpeg",
+    imageAlt: "The Other Art Fair Chicago — gallery floor",
     description:
       "OPENING NIGHT Thursday, April 9: 6 – 10pm. GENERAL ENTRY Friday, April 10: 5 – 10pm, Saturday, April 11: 11am – 7pm, Sunday, April 12: 11am – 6pm. Affordable and original artworks from 115 independent artists with immersive installations, performances, DJs, and a fully stocked bar.",
   },
@@ -51,6 +53,7 @@ export const PUBLISHED_EVENTS: PublishedEvent[] = [
     scheduleLabel: "Friday, April 24 2026, 10:00 am - Sunday, April 26 2026, 07:00 pm",
     imageUrl:
       "https://oneof-akind.transforms.svdcdn.com/production/general/OOAK-Winter-2017_207.jpg?w=1200&h=630&q=82&auto=format&fit=crop&dm=1762186817&s=e7eda776f486547960d3548c6b1def1c",
+    imageAlt: "One of a Kind Art Show at The Mart, Chicago",
     description:
       "Chicago's favorite spring art event returns to the 7th Floor of The Mart, featuring original work from more than 350 artists, designers, and makers. Find Beloveful at booth 5029.",
   },
@@ -62,6 +65,9 @@ export const PUBLISHED_EVENTS: PublishedEvent[] = [
     location: "1763 N. North Park Avenue, Chicago, IL 60614",
     url: "https://www.oldtownartfair.org/",
     isAllDay: true,
+    imageUrl:
+      "/Website%20beloveful.com/North%20America/Chicago/CHI-09-19-DSCF1288.jpg",
+    imageAlt: "Chicago street photograph by Tony Menias, exhibiting at the Old Town Art Fair",
   },
   {
     id: "millennium-art-festival-2026",
@@ -83,6 +89,8 @@ export const PUBLISHED_EVENTS: PublishedEvent[] = [
     location: "3733 N Southport Ave, Chicago, IL 60613",
     url: "https://amdurproductions.com/southport-art-fest/",
     isAllDay: true,
+    imageUrl: "/Website%20beloveful.com/North%20America/Chicago/CHI-8849.jpg",
+    imageAlt: "Chicago street photograph by Tony Menias, exhibiting at the Southport Art Fest",
   },
   {
     id: "glencoe-festival-of-art-2026",
@@ -92,6 +100,9 @@ export const PUBLISHED_EVENTS: PublishedEvent[] = [
     location: "700 Vernon Ave, Glencoe, IL 60022",
     url: "https://amdurproductions.com/glencoe-festival-of-art/",
     isAllDay: true,
+    imageUrl:
+      "/Website%20beloveful.com/North%20America/Chicago/CHI-DSCF9471_mrvrxd.jpg",
+    imageAlt: "Chicago street photograph by Tony Menias, exhibiting at the Glencoe Festival of Art",
   },
   {
     id: "art-at-the-glen-2026",
@@ -101,6 +112,9 @@ export const PUBLISHED_EVENTS: PublishedEvent[] = [
     location: "2030 Tower Dr, Glenview, IL 60026",
     url: "https://amdurproductions.com/event/2022-art-at-the-glen/",
     isAllDay: true,
+    imageUrl:
+      "/Website%20beloveful.com/North%20America/Chicago/CHI-06-18-DSCF1870-Edit-2.jpg",
+    imageAlt: "Chicago street photograph by Tony Menias, exhibiting at Art at the Glen",
   },
   {
     id: "wilmette-art-fair-2026",
@@ -110,6 +124,9 @@ export const PUBLISHED_EVENTS: PublishedEvent[] = [
     location: "1141 Central Ave, Wilmette, IL 60091",
     url: "https://amdurproductions.com/wilmette-art-fair/",
     isAllDay: true,
+    imageUrl:
+      "/Website%20beloveful.com/North%20America/Chicago/CHI-12-17-DSCF0612.jpg",
+    imageAlt: "Chicago street photograph by Tony Menias, exhibiting at the Wilmette Art Fair",
   },
   {
     id: "burr-ridge-art-fair-2026",
@@ -119,6 +136,8 @@ export const PUBLISHED_EVENTS: PublishedEvent[] = [
     location: "701 Village Center Dr, Burr Ridge, IL 60527",
     url: "https://amdurproductions.com/burr-ridge-art-fair/",
     isAllDay: true,
+    imageUrl: "/Website%20beloveful.com/North%20America/Chicago/CHI-20.jpg",
+    imageAlt: "Chicago street photograph by Tony Menias, exhibiting at the Burr Ridge Art Fair",
   },
   {
     id: "printers-row-art-fest-2026",
@@ -128,6 +147,8 @@ export const PUBLISHED_EVENTS: PublishedEvent[] = [
     location: "728 S Dearborn St, Chicago, IL 60605",
     url: "https://amdurproductions.com/printers-row-art-fest-new/",
     isAllDay: true,
+    imageUrl: "/Website%20beloveful.com/North%20America/Chicago/CHI-9867.jpg",
+    imageAlt: "Chicago street photograph by Tony Menias, exhibiting at the Printer's Row Art Fest",
   },
   {
     id: "evanston-art-big-fork-festival-2026",
@@ -137,6 +158,8 @@ export const PUBLISHED_EVENTS: PublishedEvent[] = [
     location: "800 Chicago St, Evanston, IL 60201",
     url: "https://amdurproductions.com/evanston-art-and-big-fork-festival/",
     isAllDay: true,
+    imageUrl: "/Website%20beloveful.com/North%20America/Chicago/CHI-9371.jpg",
+    imageAlt: "Chicago street photograph by Tony Menias, exhibiting at the Evanston Art & Big Fork Festival",
   },
   {
     id: "magnificent-mile-art-festival-2026",
@@ -146,6 +169,8 @@ export const PUBLISHED_EVENTS: PublishedEvent[] = [
     location: "875 N Michigan Avenue, Chicago, IL 60611",
     url: "https://amdurproductions.com/the-fall-magnificent-mile-art-festival/",
     isAllDay: true,
+    imageUrl: "/Website%20beloveful.com/North%20America/Chicago/CHI-489.jpg",
+    imageAlt: "Chicago street photograph by Tony Menias, exhibiting at The Magnificent Mile Art Festival",
   },
 ];
 
