@@ -89,8 +89,8 @@ export const PUBLISHED_EVENTS: PublishedEvent[] = [
     location: "3733 N Southport Ave, Chicago, IL 60613",
     url: "https://amdurproductions.com/southport-art-fest/",
     isAllDay: true,
-    imageUrl: "/Website%20beloveful.com/North%20America/Chicago/CHI-8849.jpg",
-    imageAlt: "Chicago street photograph by Tony Menias, exhibiting at the Southport Art Fest",
+    imageUrl: "/events/southport-art-fest.png",
+    imageAlt: "Southport Art Fest — official festival logo",
   },
   {
     id: "glencoe-festival-of-art-2026",
