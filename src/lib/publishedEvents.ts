@@ -100,9 +100,8 @@ export const PUBLISHED_EVENTS: PublishedEvent[] = [
     location: "700 Vernon Ave, Glencoe, IL 60022",
     url: "https://amdurproductions.com/glencoe-festival-of-art/",
     isAllDay: true,
-    imageUrl:
-      "/Website%20beloveful.com/North%20America/Chicago/CHI-DSCF9471_mrvrxd.jpg",
-    imageAlt: "Chicago street photograph by Tony Menias, exhibiting at the Glencoe Festival of Art",
+    imageUrl: "/events/glencoe-festival-of-art.png",
+    imageAlt: "Glencoe Festival of Art — official festival logo",
   },
   {
     id: "art-at-the-glen-2026",
@@ -112,9 +111,8 @@ export const PUBLISHED_EVENTS: PublishedEvent[] = [
     location: "2030 Tower Dr, Glenview, IL 60026",
     url: "https://amdurproductions.com/event/2022-art-at-the-glen/",
     isAllDay: true,
-    imageUrl:
-      "/Website%20beloveful.com/North%20America/Chicago/CHI-06-18-DSCF1870-Edit-2.jpg",
-    imageAlt: "Chicago street photograph by Tony Menias, exhibiting at Art at the Glen",
+    imageUrl: "/events/art-at-the-glen.png",
+    imageAlt: "Art at the Glen — official festival logo",
   },
   {
     id: "wilmette-art-fair-2026",
