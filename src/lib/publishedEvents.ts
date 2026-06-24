@@ -77,9 +77,8 @@ export const PUBLISHED_EVENTS: PublishedEvent[] = [
     location: "180 N Stetson Ave, Chicago, Illinois 60601",
     url: "https://amdurproductions.com/millennium-art-festival/",
     isAllDay: true,
-    imageUrl: "https://amdurproductions.com/wp-content/uploads/2025/04/1-8.png",
-    imageAlt: "Millennium Art Festival logo — Tony Menias exhibiting in Chicago",
-    imageFit: "contain",
+    imageUrl: "/events/millennium-art-festival.png",
+    imageAlt: "Millennium Art Festival — official festival logo",
   },
   {
     id: "southport-art-fest-2026",
