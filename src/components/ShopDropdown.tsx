@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
-import { OPEN_EDITION_SHOP_URL } from "@/lib/constants";
+import { LIMITED_EDITION_SHOP_URL, OPEN_EDITION_SHOP_URL } from "@/lib/constants";
 
 interface ShopDropdownProps {
   variant?: "auto" | "white";
@@ -47,14 +46,14 @@ export default function ShopDropdown({ variant = "auto" }: ShopDropdownProps) {
           >
             Open Edition
           </a>
-          <Link
+          <a
             role="menuitem"
-            to="/print-shop#limited"
+            href={LIMITED_EDITION_SHOP_URL}
             className="block px-4 py-3 text-black dark:text-white hover:bg-gray-100 dark:hover:bg-neutral-800 transition-colors"
             onClick={() => setOpen(false)}
           >
             Limited Edition
-          </Link>
+          </a>
         </div>
       )}
     </div>

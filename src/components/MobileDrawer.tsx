@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import { SocialIcons } from "./SocialIcons";
 import { useTheme } from "next-themes";
-import { OPEN_EDITION_SHOP_URL } from "@/lib/constants";
+import { LIMITED_EDITION_SHOP_URL, OPEN_EDITION_SHOP_URL } from "@/lib/constants";
 
 interface MobileDrawerProps {
   isOpen: boolean;
@@ -115,13 +115,13 @@ export function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
                     </a>
                   </li>
                   <li>
-                    <Link
-                      to="/print-shop#limited"
+                    <a
+                      href={LIMITED_EDITION_SHOP_URL}
                       className="text-lg text-gray-600 dark:text-gray-400 hover:underline hover:underline-offset-4 hover:decoration-white transition-opacity"
                       onClick={onClose}
                     >
                       Limited Edition
-                    </Link>
+                    </a>
                   </li>
                 </ul>
               )}
