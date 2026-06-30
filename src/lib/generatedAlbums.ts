@@ -1111,328 +1111,328 @@ export const GENERATED_ALBUMS: CountryAlbum[] = [
     "slug": "india",
     "images": [
       {
-        "desktop": "/Website beloveful.com/Asia/India/DSCF0126.jpg",
-        "mobile": "/Website beloveful.com/Asia/India/DSCF0126.jpg"
+        "desktop": "/Website beloveful.com/Asia/india/DSCF0126.jpg",
+        "mobile": "/Website beloveful.com/Asia/india/DSCF0126.jpg"
       },
       {
-        "desktop": "/Website beloveful.com/Asia/India/DSCF0136.jpg",
-        "mobile": "/Website beloveful.com/Asia/India/DSCF0136.jpg"
+        "desktop": "/Website beloveful.com/Asia/india/DSCF0136.jpg",
+        "mobile": "/Website beloveful.com/Asia/india/DSCF0136.jpg"
       },
       {
-        "desktop": "/Website beloveful.com/Asia/India/DSCF3256-2.jpg",
-        "mobile": "/Website beloveful.com/Asia/India/DSCF3256-2.jpg"
+        "desktop": "/Website beloveful.com/Asia/india/DSCF3256-2.jpg",
+        "mobile": "/Website beloveful.com/Asia/india/DSCF3256-2.jpg"
       },
       {
-        "desktop": "/Website beloveful.com/Asia/India/DSCF4140.jpg",
-        "mobile": "/Website beloveful.com/Asia/India/DSCF4140.jpg"
+        "desktop": "/Website beloveful.com/Asia/india/DSCF4140.jpg",
+        "mobile": "/Website beloveful.com/Asia/india/DSCF4140.jpg"
       },
       {
-        "desktop": "/Website beloveful.com/Asia/India/DSCF4455.jpg",
-        "mobile": "/Website beloveful.com/Asia/India/DSCF4455.jpg"
+        "desktop": "/Website beloveful.com/Asia/india/DSCF4455.jpg",
+        "mobile": "/Website beloveful.com/Asia/india/DSCF4455.jpg"
       },
       {
-        "desktop": "/Website beloveful.com/Asia/India/DSCF4813-Website-2.jpg",
-        "mobile": "/Website beloveful.com/Asia/India/DSCF4813-Website-2.jpg"
+        "desktop": "/Website beloveful.com/Asia/india/DSCF4813-Website-2.jpg",
+        "mobile": "/Website beloveful.com/Asia/india/DSCF4813-Website-2.jpg"
       },
       {
-        "desktop": "/Website beloveful.com/Asia/India/DSCF5162-2.jpg",
-        "mobile": "/Website beloveful.com/Asia/India/DSCF5162-2.jpg"
+        "desktop": "/Website beloveful.com/Asia/india/DSCF5162-2.jpg",
+        "mobile": "/Website beloveful.com/Asia/india/DSCF5162-2.jpg"
       },
       {
-        "desktop": "/Website beloveful.com/Asia/India/DSCF5471.jpg",
-        "mobile": "/Website beloveful.com/Asia/India/DSCF5471.jpg"
+        "desktop": "/Website beloveful.com/Asia/india/DSCF5471.jpg",
+        "mobile": "/Website beloveful.com/Asia/india/DSCF5471.jpg"
       },
       {
-        "desktop": "/Website beloveful.com/Asia/India/DSCF5839 copy.jpg",
-        "mobile": "/Website beloveful.com/Asia/India/DSCF5839 copy.jpg"
+        "desktop": "/Website beloveful.com/Asia/india/DSCF5839 copy.jpg",
+        "mobile": "/Website beloveful.com/Asia/india/DSCF5839 copy.jpg"
       },
       {
-        "desktop": "/Website beloveful.com/Asia/India/DSCF6075.jpg",
-        "mobile": "/Website beloveful.com/Asia/India/DSCF6075.jpg"
+        "desktop": "/Website beloveful.com/Asia/india/DSCF6075.jpg",
+        "mobile": "/Website beloveful.com/Asia/india/DSCF6075.jpg"
       },
       {
-        "desktop": "/Website beloveful.com/Asia/India/DSCF6505-Insta-2.jpg",
-        "mobile": "/Website beloveful.com/Asia/India/DSCF6505-Insta-2.jpg"
+        "desktop": "/Website beloveful.com/Asia/india/DSCF6505-Insta-2.jpg",
+        "mobile": "/Website beloveful.com/Asia/india/DSCF6505-Insta-2.jpg"
       },
       {
-        "desktop": "/Website beloveful.com/Asia/India/DSCF6631.jpg",
-        "mobile": "/Website beloveful.com/Asia/India/DSCF6631.jpg"
+        "desktop": "/Website beloveful.com/Asia/india/DSCF6631.jpg",
+        "mobile": "/Website beloveful.com/Asia/india/DSCF6631.jpg"
       },
       {
-        "desktop": "/Website beloveful.com/Asia/India/DSCF7149-2.jpg",
-        "mobile": "/Website beloveful.com/Asia/India/DSCF7149-2.jpg"
+        "desktop": "/Website beloveful.com/Asia/india/DSCF7149-2.jpg",
+        "mobile": "/Website beloveful.com/Asia/india/DSCF7149-2.jpg"
       },
       {
-        "desktop": "/Website beloveful.com/Asia/India/DSCF7376.jpg",
-        "mobile": "/Website beloveful.com/Asia/India/DSCF7376.jpg"
+        "desktop": "/Website beloveful.com/Asia/india/DSCF7376.jpg",
+        "mobile": "/Website beloveful.com/Asia/india/DSCF7376.jpg"
       },
       {
-        "desktop": "/Website beloveful.com/Asia/India/DSCF7521.jpg",
-        "mobile": "/Website beloveful.com/Asia/India/DSCF7521.jpg"
+        "desktop": "/Website beloveful.com/Asia/india/DSCF7521.jpg",
+        "mobile": "/Website beloveful.com/Asia/india/DSCF7521.jpg"
       },
       {
-        "desktop": "/Website beloveful.com/Asia/India/DSCF7529.jpg",
-        "mobile": "/Website beloveful.com/Asia/India/DSCF7529.jpg"
+        "desktop": "/Website beloveful.com/Asia/india/DSCF7529.jpg",
+        "mobile": "/Website beloveful.com/Asia/india/DSCF7529.jpg"
       },
       {
-        "desktop": "/Website beloveful.com/Asia/India/DSCF8021-Website-2.jpg",
-        "mobile": "/Website beloveful.com/Asia/India/DSCF8021-Website-2.jpg"
+        "desktop": "/Website beloveful.com/Asia/india/DSCF8021-Website-2.jpg",
+        "mobile": "/Website beloveful.com/Asia/india/DSCF8021-Website-2.jpg"
       },
       {
-        "desktop": "/Website beloveful.com/Asia/India/DSCF8106.jpg",
-        "mobile": "/Website beloveful.com/Asia/India/DSCF8106.jpg"
+        "desktop": "/Website beloveful.com/Asia/india/DSCF8106.jpg",
+        "mobile": "/Website beloveful.com/Asia/india/DSCF8106.jpg"
       },
       {
-        "desktop": "/Website beloveful.com/Asia/India/DSCF8897.jpg",
-        "mobile": "/Website beloveful.com/Asia/India/DSCF8897.jpg"
+        "desktop": "/Website beloveful.com/Asia/india/DSCF8897.jpg",
+        "mobile": "/Website beloveful.com/Asia/india/DSCF8897.jpg"
       },
       {
-        "desktop": "/Website beloveful.com/Asia/India/DSCF9026.jpg",
-        "mobile": "/Website beloveful.com/Asia/India/DSCF9026.jpg"
+        "desktop": "/Website beloveful.com/Asia/india/DSCF9026.jpg",
+        "mobile": "/Website beloveful.com/Asia/india/DSCF9026.jpg"
       },
       {
-        "desktop": "/Website beloveful.com/Asia/India/DSCF9341.jpg",
-        "mobile": "/Website beloveful.com/Asia/India/DSCF9341.jpg"
+        "desktop": "/Website beloveful.com/Asia/india/DSCF9341.jpg",
+        "mobile": "/Website beloveful.com/Asia/india/DSCF9341.jpg"
       },
       {
-        "desktop": "/Website beloveful.com/Asia/India/DSCF9362.jpg",
-        "mobile": "/Website beloveful.com/Asia/India/DSCF9362.jpg"
+        "desktop": "/Website beloveful.com/Asia/india/DSCF9362.jpg",
+        "mobile": "/Website beloveful.com/Asia/india/DSCF9362.jpg"
       },
       {
-        "desktop": "/Website beloveful.com/Asia/India/DSCF9461.jpg",
-        "mobile": "/Website beloveful.com/Asia/India/DSCF9461.jpg"
+        "desktop": "/Website beloveful.com/Asia/india/DSCF9461.jpg",
+        "mobile": "/Website beloveful.com/Asia/india/DSCF9461.jpg"
       },
       {
-        "desktop": "/Website beloveful.com/Asia/India/DSCF9656.jpg",
-        "mobile": "/Website beloveful.com/Asia/India/DSCF9656.jpg"
+        "desktop": "/Website beloveful.com/Asia/india/DSCF9656.jpg",
+        "mobile": "/Website beloveful.com/Asia/india/DSCF9656.jpg"
       },
       {
-        "desktop": "/Website beloveful.com/Asia/India/DSCF9689-Website-2.jpg",
-        "mobile": "/Website beloveful.com/Asia/India/DSCF9689-Website-2.jpg"
+        "desktop": "/Website beloveful.com/Asia/india/DSCF9689-Website-2.jpg",
+        "mobile": "/Website beloveful.com/Asia/india/DSCF9689-Website-2.jpg"
       },
       {
-        "desktop": "/Website beloveful.com/Asia/India/DSCF9891 copy.jpg",
-        "mobile": "/Website beloveful.com/Asia/India/DSCF9891 copy.jpg"
+        "desktop": "/Website beloveful.com/Asia/india/DSCF9891 copy.jpg",
+        "mobile": "/Website beloveful.com/Asia/india/DSCF9891 copy.jpg"
       },
       {
-        "desktop": "/Website beloveful.com/Asia/India/DSCF9989.jpg",
-        "mobile": "/Website beloveful.com/Asia/India/DSCF9989.jpg"
+        "desktop": "/Website beloveful.com/Asia/india/DSCF9989.jpg",
+        "mobile": "/Website beloveful.com/Asia/india/DSCF9989.jpg"
       },
       {
-        "desktop": "/Website beloveful.com/Asia/India/Holi Air.jpg",
-        "mobile": "/Website beloveful.com/Asia/India/Holi Air.jpg"
+        "desktop": "/Website beloveful.com/Asia/india/Holi Air.jpg",
+        "mobile": "/Website beloveful.com/Asia/india/Holi Air.jpg"
       },
       {
-        "desktop": "/Website beloveful.com/Asia/India/IND-0027.jpg",
-        "mobile": "/Website beloveful.com/Asia/India/IND-0027.jpg"
+        "desktop": "/Website beloveful.com/Asia/india/IND-0027.jpg",
+        "mobile": "/Website beloveful.com/Asia/india/IND-0027.jpg"
       },
       {
-        "desktop": "/Website beloveful.com/Asia/India/IND-01-25-DSCF1635.jpg",
-        "mobile": "/Website beloveful.com/Asia/India/IND-01-25-DSCF1635.jpg"
+        "desktop": "/Website beloveful.com/Asia/india/IND-01-25-DSCF1635.jpg",
+        "mobile": "/Website beloveful.com/Asia/india/IND-01-25-DSCF1635.jpg"
       },
       {
-        "desktop": "/Website beloveful.com/Asia/India/IND-01-25-DSCF1738-2.jpg",
-        "mobile": "/Website beloveful.com/Asia/India/IND-01-25-DSCF1738-2.jpg"
+        "desktop": "/Website beloveful.com/Asia/india/IND-01-25-DSCF1738-2.jpg",
+        "mobile": "/Website beloveful.com/Asia/india/IND-01-25-DSCF1738-2.jpg"
       },
       {
-        "desktop": "/Website beloveful.com/Asia/India/IND-01-25-DSCF2063.jpg",
-        "mobile": "/Website beloveful.com/Asia/India/IND-01-25-DSCF2063.jpg"
+        "desktop": "/Website beloveful.com/Asia/india/IND-01-25-DSCF2063.jpg",
+        "mobile": "/Website beloveful.com/Asia/india/IND-01-25-DSCF2063.jpg"
       },
       {
-        "desktop": "/Website beloveful.com/Asia/India/IND-01-25-DSCF2090.jpg",
-        "mobile": "/Website beloveful.com/Asia/India/IND-01-25-DSCF2090.jpg"
+        "desktop": "/Website beloveful.com/Asia/india/IND-01-25-DSCF2090.jpg",
+        "mobile": "/Website beloveful.com/Asia/india/IND-01-25-DSCF2090.jpg"
       },
       {
-        "desktop": "/Website beloveful.com/Asia/India/IND-01-25-DSCF2650.jpg",
-        "mobile": "/Website beloveful.com/Asia/India/IND-01-25-DSCF2650.jpg"
+        "desktop": "/Website beloveful.com/Asia/india/IND-01-25-DSCF2650.jpg",
+        "mobile": "/Website beloveful.com/Asia/india/IND-01-25-DSCF2650.jpg"
       },
       {
-        "desktop": "/Website beloveful.com/Asia/India/IND-01-25-DSCF2816.jpg",
-        "mobile": "/Website beloveful.com/Asia/India/IND-01-25-DSCF2816.jpg"
+        "desktop": "/Website beloveful.com/Asia/india/IND-01-25-DSCF2816.jpg",
+        "mobile": "/Website beloveful.com/Asia/india/IND-01-25-DSCF2816.jpg"
       },
       {
-        "desktop": "/Website beloveful.com/Asia/India/IND-01-25-DSCF2840.jpg",
-        "mobile": "/Website beloveful.com/Asia/India/IND-01-25-DSCF2840.jpg"
+        "desktop": "/Website beloveful.com/Asia/india/IND-01-25-DSCF2840.jpg",
+        "mobile": "/Website beloveful.com/Asia/india/IND-01-25-DSCF2840.jpg"
       },
       {
-        "desktop": "/Website beloveful.com/Asia/India/IND-01-25-DSCF2947.jpg",
-        "mobile": "/Website beloveful.com/Asia/India/IND-01-25-DSCF2947.jpg"
+        "desktop": "/Website beloveful.com/Asia/india/IND-01-25-DSCF2947.jpg",
+        "mobile": "/Website beloveful.com/Asia/india/IND-01-25-DSCF2947.jpg"
       },
       {
-        "desktop": "/Website beloveful.com/Asia/India/IND-01-25-DSCF2999.jpg",
-        "mobile": "/Website beloveful.com/Asia/India/IND-01-25-DSCF2999.jpg"
+        "desktop": "/Website beloveful.com/Asia/india/IND-01-25-DSCF2999.jpg",
+        "mobile": "/Website beloveful.com/Asia/india/IND-01-25-DSCF2999.jpg"
       },
       {
-        "desktop": "/Website beloveful.com/Asia/India/IND-01-25-DSCF3130.jpg",
-        "mobile": "/Website beloveful.com/Asia/India/IND-01-25-DSCF3130.jpg"
+        "desktop": "/Website beloveful.com/Asia/india/IND-01-25-DSCF3130.jpg",
+        "mobile": "/Website beloveful.com/Asia/india/IND-01-25-DSCF3130.jpg"
       },
       {
-        "desktop": "/Website beloveful.com/Asia/India/IND-01-25-DSCF3494.jpg",
-        "mobile": "/Website beloveful.com/Asia/India/IND-01-25-DSCF3494.jpg"
+        "desktop": "/Website beloveful.com/Asia/india/IND-01-25-DSCF3494.jpg",
+        "mobile": "/Website beloveful.com/Asia/india/IND-01-25-DSCF3494.jpg"
       },
       {
-        "desktop": "/Website beloveful.com/Asia/India/IND-01-25-DSCF3600.jpg",
-        "mobile": "/Website beloveful.com/Asia/India/IND-01-25-DSCF3600.jpg"
+        "desktop": "/Website beloveful.com/Asia/india/IND-01-25-DSCF3600.jpg",
+        "mobile": "/Website beloveful.com/Asia/india/IND-01-25-DSCF3600.jpg"
       },
       {
-        "desktop": "/Website beloveful.com/Asia/India/IND-01-25-DSCF3641.jpg",
-        "mobile": "/Website beloveful.com/Asia/India/IND-01-25-DSCF3641.jpg"
+        "desktop": "/Website beloveful.com/Asia/india/IND-01-25-DSCF3641.jpg",
+        "mobile": "/Website beloveful.com/Asia/india/IND-01-25-DSCF3641.jpg"
       },
       {
-        "desktop": "/Website beloveful.com/Asia/India/IND-01-25-DSCF3698.jpg",
-        "mobile": "/Website beloveful.com/Asia/India/IND-01-25-DSCF3698.jpg"
+        "desktop": "/Website beloveful.com/Asia/india/IND-01-25-DSCF3698.jpg",
+        "mobile": "/Website beloveful.com/Asia/india/IND-01-25-DSCF3698.jpg"
       },
       {
-        "desktop": "/Website beloveful.com/Asia/India/IND-01-25-DSCF3747.jpg",
-        "mobile": "/Website beloveful.com/Asia/India/IND-01-25-DSCF3747.jpg"
+        "desktop": "/Website beloveful.com/Asia/india/IND-01-25-DSCF3747.jpg",
+        "mobile": "/Website beloveful.com/Asia/india/IND-01-25-DSCF3747.jpg"
       },
       {
-        "desktop": "/Website beloveful.com/Asia/India/IND-01-25-DSCF3927.jpg",
-        "mobile": "/Website beloveful.com/Asia/India/IND-01-25-DSCF3927.jpg"
+        "desktop": "/Website beloveful.com/Asia/india/IND-01-25-DSCF3927.jpg",
+        "mobile": "/Website beloveful.com/Asia/india/IND-01-25-DSCF3927.jpg"
       },
       {
-        "desktop": "/Website beloveful.com/Asia/India/IND-01-25-DSCF3975.jpg",
-        "mobile": "/Website beloveful.com/Asia/India/IND-01-25-DSCF3975.jpg"
+        "desktop": "/Website beloveful.com/Asia/india/IND-01-25-DSCF3975.jpg",
+        "mobile": "/Website beloveful.com/Asia/india/IND-01-25-DSCF3975.jpg"
       },
       {
-        "desktop": "/Website beloveful.com/Asia/India/IND-01-25-DSCF4028.jpg",
-        "mobile": "/Website beloveful.com/Asia/India/IND-01-25-DSCF4028.jpg"
+        "desktop": "/Website beloveful.com/Asia/india/IND-01-25-DSCF4028.jpg",
+        "mobile": "/Website beloveful.com/Asia/india/IND-01-25-DSCF4028.jpg"
       },
       {
-        "desktop": "/Website beloveful.com/Asia/India/IND-01-25-DSCF4234.jpg",
-        "mobile": "/Website beloveful.com/Asia/India/IND-01-25-DSCF4234.jpg"
+        "desktop": "/Website beloveful.com/Asia/india/IND-01-25-DSCF4234.jpg",
+        "mobile": "/Website beloveful.com/Asia/india/IND-01-25-DSCF4234.jpg"
       },
       {
-        "desktop": "/Website beloveful.com/Asia/India/IND-01-25-DSCF4496.jpg",
-        "mobile": "/Website beloveful.com/Asia/India/IND-01-25-DSCF4496.jpg"
+        "desktop": "/Website beloveful.com/Asia/india/IND-01-25-DSCF4496.jpg",
+        "mobile": "/Website beloveful.com/Asia/india/IND-01-25-DSCF4496.jpg"
       },
       {
-        "desktop": "/Website beloveful.com/Asia/India/IND-01-25-DSCF7051-4.jpg",
-        "mobile": "/Website beloveful.com/Asia/India/IND-01-25-DSCF7051-4.jpg"
+        "desktop": "/Website beloveful.com/Asia/india/IND-01-25-DSCF7051-4.jpg",
+        "mobile": "/Website beloveful.com/Asia/india/IND-01-25-DSCF7051-4.jpg"
       },
       {
-        "desktop": "/Website beloveful.com/Asia/India/IND-01-25-DSCF7057-7.jpg",
-        "mobile": "/Website beloveful.com/Asia/India/IND-01-25-DSCF7057-7.jpg"
+        "desktop": "/Website beloveful.com/Asia/india/IND-01-25-DSCF7057-7.jpg",
+        "mobile": "/Website beloveful.com/Asia/india/IND-01-25-DSCF7057-7.jpg"
       },
       {
-        "desktop": "/Website beloveful.com/Asia/India/IND-01-25-DSCF8012.jpg",
-        "mobile": "/Website beloveful.com/Asia/India/IND-01-25-DSCF8012.jpg"
+        "desktop": "/Website beloveful.com/Asia/india/IND-01-25-DSCF8012.jpg",
+        "mobile": "/Website beloveful.com/Asia/india/IND-01-25-DSCF8012.jpg"
       },
       {
-        "desktop": "/Website beloveful.com/Asia/India/IND-01-25-DSCF8119.jpg",
-        "mobile": "/Website beloveful.com/Asia/India/IND-01-25-DSCF8119.jpg"
+        "desktop": "/Website beloveful.com/Asia/india/IND-01-25-DSCF8119.jpg",
+        "mobile": "/Website beloveful.com/Asia/india/IND-01-25-DSCF8119.jpg"
       },
       {
-        "desktop": "/Website beloveful.com/Asia/India/IND-01-25-DSCF8152.jpg",
-        "mobile": "/Website beloveful.com/Asia/India/IND-01-25-DSCF8152.jpg"
+        "desktop": "/Website beloveful.com/Asia/india/IND-01-25-DSCF8152.jpg",
+        "mobile": "/Website beloveful.com/Asia/india/IND-01-25-DSCF8152.jpg"
       },
       {
-        "desktop": "/Website beloveful.com/Asia/India/IND-01-25-DSCF8165.jpg",
-        "mobile": "/Website beloveful.com/Asia/India/IND-01-25-DSCF8165.jpg"
+        "desktop": "/Website beloveful.com/Asia/india/IND-01-25-DSCF8165.jpg",
+        "mobile": "/Website beloveful.com/Asia/india/IND-01-25-DSCF8165.jpg"
       },
       {
-        "desktop": "/Website beloveful.com/Asia/India/IND-01-25-DSCF8167.jpg",
-        "mobile": "/Website beloveful.com/Asia/India/IND-01-25-DSCF8167.jpg"
+        "desktop": "/Website beloveful.com/Asia/india/IND-01-25-DSCF8167.jpg",
+        "mobile": "/Website beloveful.com/Asia/india/IND-01-25-DSCF8167.jpg"
       },
       {
-        "desktop": "/Website beloveful.com/Asia/India/IND-01-25-DSCF8175.jpg",
-        "mobile": "/Website beloveful.com/Asia/India/IND-01-25-DSCF8175.jpg"
+        "desktop": "/Website beloveful.com/Asia/india/IND-01-25-DSCF8175.jpg",
+        "mobile": "/Website beloveful.com/Asia/india/IND-01-25-DSCF8175.jpg"
       },
       {
-        "desktop": "/Website beloveful.com/Asia/India/IND-01-25-DSCF8235.jpg",
-        "mobile": "/Website beloveful.com/Asia/India/IND-01-25-DSCF8235.jpg"
+        "desktop": "/Website beloveful.com/Asia/india/IND-01-25-DSCF8235.jpg",
+        "mobile": "/Website beloveful.com/Asia/india/IND-01-25-DSCF8235.jpg"
       },
       {
-        "desktop": "/Website beloveful.com/Asia/India/IND-011925-1967.jpg",
-        "mobile": "/Website beloveful.com/Asia/India/IND-011925-1967.jpg"
+        "desktop": "/Website beloveful.com/Asia/india/IND-011925-1967.jpg",
+        "mobile": "/Website beloveful.com/Asia/india/IND-011925-1967.jpg"
       },
       {
-        "desktop": "/Website beloveful.com/Asia/India/IND-011925-454.jpg",
-        "mobile": "/Website beloveful.com/Asia/India/IND-011925-454.jpg"
+        "desktop": "/Website beloveful.com/Asia/india/IND-011925-454.jpg",
+        "mobile": "/Website beloveful.com/Asia/india/IND-011925-454.jpg"
       },
       {
-        "desktop": "/Website beloveful.com/Asia/India/IND-012025-589.jpg",
-        "mobile": "/Website beloveful.com/Asia/India/IND-012025-589.jpg"
+        "desktop": "/Website beloveful.com/Asia/india/IND-012025-589.jpg",
+        "mobile": "/Website beloveful.com/Asia/india/IND-012025-589.jpg"
       },
       {
-        "desktop": "/Website beloveful.com/Asia/India/IND-013025-100.jpg",
-        "mobile": "/Website beloveful.com/Asia/India/IND-013025-100.jpg"
+        "desktop": "/Website beloveful.com/Asia/india/IND-013025-100.jpg",
+        "mobile": "/Website beloveful.com/Asia/india/IND-013025-100.jpg"
       },
       {
-        "desktop": "/Website beloveful.com/Asia/India/IND-0195.jpg",
-        "mobile": "/Website beloveful.com/Asia/India/IND-0195.jpg"
+        "desktop": "/Website beloveful.com/Asia/india/IND-0195.jpg",
+        "mobile": "/Website beloveful.com/Asia/india/IND-0195.jpg"
       },
       {
-        "desktop": "/Website beloveful.com/Asia/India/IND-020125-31.jpg",
-        "mobile": "/Website beloveful.com/Asia/India/IND-020125-31.jpg"
+        "desktop": "/Website beloveful.com/Asia/india/IND-020125-31.jpg",
+        "mobile": "/Website beloveful.com/Asia/india/IND-020125-31.jpg"
       },
       {
-        "desktop": "/Website beloveful.com/Asia/India/IND-020425-341.jpg",
-        "mobile": "/Website beloveful.com/Asia/India/IND-020425-341.jpg"
+        "desktop": "/Website beloveful.com/Asia/india/IND-020425-341.jpg",
+        "mobile": "/Website beloveful.com/Asia/india/IND-020425-341.jpg"
       },
       {
-        "desktop": "/Website beloveful.com/Asia/India/IND-020425-644.jpg",
-        "mobile": "/Website beloveful.com/Asia/India/IND-020425-644.jpg"
+        "desktop": "/Website beloveful.com/Asia/india/IND-020425-644.jpg",
+        "mobile": "/Website beloveful.com/Asia/india/IND-020425-644.jpg"
       },
       {
-        "desktop": "/Website beloveful.com/Asia/India/IND-03-19-DSCF3103.jpg",
-        "mobile": "/Website beloveful.com/Asia/India/IND-03-19-DSCF3103.jpg"
+        "desktop": "/Website beloveful.com/Asia/india/IND-03-19-DSCF3103.jpg",
+        "mobile": "/Website beloveful.com/Asia/india/IND-03-19-DSCF3103.jpg"
       },
       {
-        "desktop": "/Website beloveful.com/Asia/India/IND-03-19-DSCF4213.jpg",
-        "mobile": "/Website beloveful.com/Asia/India/IND-03-19-DSCF4213.jpg"
+        "desktop": "/Website beloveful.com/Asia/india/IND-03-19-DSCF4213.jpg",
+        "mobile": "/Website beloveful.com/Asia/india/IND-03-19-DSCF4213.jpg"
       },
       {
-        "desktop": "/Website beloveful.com/Asia/India/IND-03-19-DSCF5596.jpg",
-        "mobile": "/Website beloveful.com/Asia/India/IND-03-19-DSCF5596.jpg"
+        "desktop": "/Website beloveful.com/Asia/india/IND-03-19-DSCF5596.jpg",
+        "mobile": "/Website beloveful.com/Asia/india/IND-03-19-DSCF5596.jpg"
       },
       {
-        "desktop": "/Website beloveful.com/Asia/India/IND-03-19-DSCF7230.jpg",
-        "mobile": "/Website beloveful.com/Asia/India/IND-03-19-DSCF7230.jpg"
+        "desktop": "/Website beloveful.com/Asia/india/IND-03-19-DSCF7230.jpg",
+        "mobile": "/Website beloveful.com/Asia/india/IND-03-19-DSCF7230.jpg"
       },
       {
-        "desktop": "/Website beloveful.com/Asia/India/IND-03-19-DSCF7351.jpg",
-        "mobile": "/Website beloveful.com/Asia/India/IND-03-19-DSCF7351.jpg"
+        "desktop": "/Website beloveful.com/Asia/india/IND-03-19-DSCF7351.jpg",
+        "mobile": "/Website beloveful.com/Asia/india/IND-03-19-DSCF7351.jpg"
       },
       {
-        "desktop": "/Website beloveful.com/Asia/India/IND-04-10-19-2.jpg",
-        "mobile": "/Website beloveful.com/Asia/India/IND-04-10-19-2.jpg"
+        "desktop": "/Website beloveful.com/Asia/india/IND-04-10-19-2.jpg",
+        "mobile": "/Website beloveful.com/Asia/india/IND-04-10-19-2.jpg"
       },
       {
-        "desktop": "/Website beloveful.com/Asia/India/IND-04-13-19.jpg",
-        "mobile": "/Website beloveful.com/Asia/India/IND-04-13-19.jpg"
+        "desktop": "/Website beloveful.com/Asia/india/IND-04-13-19.jpg",
+        "mobile": "/Website beloveful.com/Asia/india/IND-04-13-19.jpg"
       },
       {
-        "desktop": "/Website beloveful.com/Asia/India/IND-04-19-DSCF0111.jpg",
-        "mobile": "/Website beloveful.com/Asia/India/IND-04-19-DSCF0111.jpg"
+        "desktop": "/Website beloveful.com/Asia/india/IND-04-19-DSCF0111.jpg",
+        "mobile": "/Website beloveful.com/Asia/india/IND-04-19-DSCF0111.jpg"
       },
       {
-        "desktop": "/Website beloveful.com/Asia/India/IND-04-19-DSCF0126.jpg",
-        "mobile": "/Website beloveful.com/Asia/India/IND-04-19-DSCF0126.jpg"
+        "desktop": "/Website beloveful.com/Asia/india/IND-04-19-DSCF0126.jpg",
+        "mobile": "/Website beloveful.com/Asia/india/IND-04-19-DSCF0126.jpg"
       },
       {
-        "desktop": "/Website beloveful.com/Asia/India/IND-04-19-DSCF0135.jpg",
-        "mobile": "/Website beloveful.com/Asia/India/IND-04-19-DSCF0135.jpg"
+        "desktop": "/Website beloveful.com/Asia/india/IND-04-19-DSCF0135.jpg",
+        "mobile": "/Website beloveful.com/Asia/india/IND-04-19-DSCF0135.jpg"
       },
       {
-        "desktop": "/Website beloveful.com/Asia/India/IND-04-19-DSCF0288.jpg",
-        "mobile": "/Website beloveful.com/Asia/India/IND-04-19-DSCF0288.jpg"
+        "desktop": "/Website beloveful.com/Asia/india/IND-04-19-DSCF0288.jpg",
+        "mobile": "/Website beloveful.com/Asia/india/IND-04-19-DSCF0288.jpg"
       },
       {
-        "desktop": "/Website beloveful.com/Asia/India/IND-04-19-DSCF9005.jpg",
-        "mobile": "/Website beloveful.com/Asia/India/IND-04-19-DSCF9005.jpg"
+        "desktop": "/Website beloveful.com/Asia/india/IND-04-19-DSCF9005.jpg",
+        "mobile": "/Website beloveful.com/Asia/india/IND-04-19-DSCF9005.jpg"
       },
       {
-        "desktop": "/Website beloveful.com/Asia/India/IND-2918.jpg",
-        "mobile": "/Website beloveful.com/Asia/India/IND-2918.jpg"
+        "desktop": "/Website beloveful.com/Asia/india/IND-2918.jpg",
+        "mobile": "/Website beloveful.com/Asia/india/IND-2918.jpg"
       },
       {
-        "desktop": "/Website beloveful.com/Asia/India/IND-3017.jpg",
-        "mobile": "/Website beloveful.com/Asia/India/IND-3017.jpg"
+        "desktop": "/Website beloveful.com/Asia/india/IND-3017.jpg",
+        "mobile": "/Website beloveful.com/Asia/india/IND-3017.jpg"
       },
       {
-        "desktop": "/Website beloveful.com/Asia/India/IND-3116.jpg",
-        "mobile": "/Website beloveful.com/Asia/India/IND-3116.jpg"
+        "desktop": "/Website beloveful.com/Asia/india/IND-3116.jpg",
+        "mobile": "/Website beloveful.com/Asia/india/IND-3116.jpg"
       }
     ]
   },

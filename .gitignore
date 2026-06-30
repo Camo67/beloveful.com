@@ -51,3 +51,4 @@ upload_log_*.txt
 # Ignore podcast media in public
 /public/*.mp3
 /public/**/*.mp3
+.dev.vars

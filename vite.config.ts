@@ -8,6 +8,21 @@ export default defineConfig(({ mode }) => {
     server: {
       host: "::",
       port: 8080,
+      proxy: {
+        // Proxy image requests to Bluehost in dev mode
+        "/Website beloveful.com": {
+          target: "https://beloveful.com",
+          changeOrigin: true,
+          secure: true,
+        },
+        // Rewrite /images/* to /Website beloveful.com/* on Bluehost
+        "/images": {
+          target: "https://beloveful.com",
+          changeOrigin: true,
+          secure: true,
+          rewrite: (path) => `/Website beloveful.com${decodeURIComponent(path).replace(/^\/images/, '')}`,
+        },
+      },
       watch: {
         // Exclude large directories from being watched to avoid file watcher limit issues
         ignored: [
