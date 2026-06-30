@@ -120,7 +120,7 @@ export default function CountryGallery() {
       <PageContainer>
         {/* Persistent Region Tabs - minimalist flat design */}
         <div
-          className={`sticky top-[48px] md:top-[52px] z-30 -mx-4 px-4 md:mx-0 md:px-0 bg-white/95 dark:bg-neutral-950/95 backdrop-blur-md border-b border-border shadow-sm overflow-hidden transition-[max-height,opacity,transform,margin] duration-300 ease-in-out ${
+          className={`sticky top-[48px] md:top-[52px] z-30 -mx-4 px-4 md:mx-0 md:px-0 bg-white/95 dark:bg-neutral-950/95 backdrop-blur-md border-b border-border shadow-sm overflow-y-hidden transition-[max-height,opacity,transform,margin] duration-300 ease-in-out ${
             hideTopFolderNav
               ? "max-h-0 opacity-0 -translate-y-2 pointer-events-none mb-0 border-transparent shadow-none"
               : "max-h-[320px] opacity-100 translate-y-0 mb-6"

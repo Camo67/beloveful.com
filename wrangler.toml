@@ -2,25 +2,22 @@ name = "beloveful-visions"
 main = "src/worker.js"
 compatibility_date = "2025-09-01"
 workers_dev = false
+account_id = "9c3559687f59c2388e55b978463fd5ef"
 
-# Cloudflare's route matcher is more reliable with explicit host routes.
-# Use separate entries for the apex and www hostnames.
-[[routes]]
-pattern = "beloveful.com/*"
-zone_name = "beloveful.com"
+# Routes managed via Cloudflare dashboard
+# [[routes]]
+# pattern = "beloveful.com/*"
+# zone_name = "beloveful.com"
 
-[[routes]]
-pattern = "www.beloveful.com/*"
-zone_name = "beloveful.com"
+# [[routes]]
+# pattern = "www.beloveful.com/*"
+# zone_name = "beloveful.com"
 
 [assets]
 directory = "dist"
 binding = "ASSETS"
 
-# R2 bucket configuration
-[[r2_buckets]]
-binding = "R2_BUCKET"
-bucket_name = "beloveful"
+# R2 bucket removed - images served from Bluehost
 
 # Database configuration
 [[d1_databases]]
