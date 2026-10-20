@@ -59,18 +59,12 @@ const TileLayerWithFade: React.FC<{ themeMode: 'light' | 'dark'; }> = ({ themeMo
     };
   }, [map]);
 
-  const { url, attribution } =
-    themeMode === 'dark'
-      ? {
-          url: 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',
-          attribution:
-            '&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
-        }
-      : {
-          url: 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',
-          attribution:
-            '&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
-        };
+  // OpenStreetMap tiles are free and need no API key (CARTO started requiring
+  // one). In dark mode we invert the tiles with a CSS filter to keep the dark
+  // look without a second (keyed) tile provider.
+  const url = 'https://tile.openstreetmap.org/{z}/{x}/{y}.png';
+  const attribution =
+    '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
 
   return (
     <TileLayer
@@ -80,6 +74,7 @@ const TileLayerWithFade: React.FC<{ themeMode: 'light' | 'dark'; }> = ({ themeMo
       updateWhenZooming
       updateInterval={50}
       keepBuffer={4}
+      className={themeMode === 'dark' ? 'osm-dark-tiles' : undefined}
     />
   );
 };

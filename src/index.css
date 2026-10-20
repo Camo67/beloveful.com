@@ -728,3 +728,7 @@
 .marker-numbered:hover {
   background: #f0f0f0;
 }
+/* Dark-mode look for keyless OSM tiles (used by LeafletWorldMap) */
+.osm-dark-tiles {
+  filter: invert(1) hue-rotate(190deg) brightness(0.85) contrast(0.9) saturate(0.6);
+}
